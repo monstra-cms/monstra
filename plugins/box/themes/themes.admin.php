@@ -18,12 +18,11 @@
             // Init vsrs
             $themes_site   = Themes::getSiteThemes();
             $themes_admin  = Themes::getAdminThemes();
-            $templates = Themes::getTemplates();
-            $chunks    = Themes::getChunks();
-            $styles    = Themes::getStyles();
-            $scripts    = Themes::getScripts();
-            $errors    = array();
-
+            $templates     = Themes::getTemplates();
+            $chunks        = Themes::getChunks();
+            $styles        = Themes::getStyles();
+            $scripts       = Themes::getScripts();
+            $errors        = array();
             $chunk_path     = THEMES_SITE . DS . $current_site_theme . DS;
             $template_path  = THEMES_SITE . DS . $current_site_theme . DS;
             $style_path     = THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS;
@@ -477,7 +476,7 @@
                     // Delete script
                     // -------------------------------------  
                     case "delete_script":
-                        File::delete($style_path.Request::get('filename').'.js');
+                        File::delete($script_path.Request::get('filename').'.js');
                         Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=themes');
                     break;

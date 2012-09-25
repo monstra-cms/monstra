@@ -74,7 +74,7 @@
          * Get Templates
          *
          * @param string $theme Theme name
-         * @return array
+         * @return mixed
          */
         public static function getTemplates($theme = null) {
 
@@ -87,7 +87,7 @@
             // Get all templates in current theme folder
             $templates = File::scan(THEMES_SITE . DS . $theme, '.template.php');
 
-            return $templates;
+            return ($templates) ? $templates : array();
         }
 
 
@@ -95,7 +95,7 @@
          * Get Chunks
          *
          * @param string $theme Theme name
-         * @return array
+         * @return mixed
          */
         public static function getChunks($theme = null) {
 
@@ -108,14 +108,14 @@
             // Get all templates in current theme folder
             $chunks = File::scan(THEMES_SITE . DS . $theme, '.chunk.php');
 
-            return $chunks;
+            return ($chunks) ? $chunks : array();
         }
 
         /**
          * Get Styles
          *
          * @param string $theme Theme name
-         * @return array
+         * @return mixed
          */
         public static function getStyles($theme = null) {
 
@@ -128,7 +128,7 @@
             // Get all templates in current theme folder
             $styles = File::scan(THEMES_SITE . DS . $theme . DS . 'css', '.css');
 
-            return $styles;
+            return ($styles) ? $styles : array();
         }
         
         
@@ -136,7 +136,7 @@
          * Get Scripts
          *
          * @param string $theme Theme name
-         * @return array
+         * @return mixed
          */
         public static function getScripts($theme = null) {
 
@@ -147,9 +147,9 @@
             $scripts = array();
 
             // Get all templates in current theme folder
-            $scripts = File::scan(THEMES_SITE . DS . $theme . DS . 'js', '.js');
+            $scripts = File::scan(THEMES_SITE . DS . $theme . DS . 'js' . DS , '.js');
 
-            return $scripts;
+            return ($scripts) ? $scripts : array();
         }
 
     }
