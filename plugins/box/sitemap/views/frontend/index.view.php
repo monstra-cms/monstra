@@ -1,5 +1,5 @@
 <h3><?php echo __('Sitemap', 'sitemap'); ?></h3>
-<br />
+<hr>
 <ul>
 <?php 
 

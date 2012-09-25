@@ -53,15 +53,16 @@
         * Get sitemap content
         */
        public static function content() {
+
+            // Init vars
+            $pages_array = array();
+            $count = 0;
             
             // Get pages table
             $pages = new Table('pages');
 
+            // Get Pages List
             $pages_list = $pages->select('[slug!="error404" and status="published"]');
-            
-            $pages_array = array();
-
-            $count = 0;
             
             foreach ($pages_list as $page) {
 
@@ -116,7 +117,7 @@
             $pages_list = $pages->select('[slug!="error404" and status="published"]');
             
             // Create sitemap content    
-            $map = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
+            $map  = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
             $map .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
             foreach ($pages_list as $page) {
                 if ($page['parent'] != '') { $parent = $page['parent'].'/'; } else { $parent = ''; }
