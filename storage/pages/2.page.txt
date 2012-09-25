@@ -1,0 +1,6 @@
+&lt;h2&gt;Thank you for using Monstra :)&lt;/h2&gt;
+&lt;br /&gt;
+&lt;h3&gt;Demo content&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed quis est vitae ipsum mattis vulputate. Nam consectetuer. Aenean sit amet massa. In cursus risus. Pellentesque sed est. Vestibulum convallis porta tellus. Sed ante libero, ornare id, pellentesque ac, tincidunt egestas, purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam tellus pede, mollis eu, tincidunt sit amet, eleifend et, ligula. Mauris sapien sem, convallis non, commodo quis, vehicula vel, dui. Sed fringilla, dolor in gravida nonummy, tortor nisi auctor nibh, nec sodales sapien felis non risus. Donec odio metus, tincidunt nec, gravida sit amet, pretium eu, lacus. Etiam venenatis. Morbi ultrices, risus aliquet viverra mattis, ipsum nibh vehicula ligula, sit amet dignissim eros purus ac risus. Nunc faucibus magna id ante. In sodales tincidunt nibh. Proin porttitor est. In ultrices vulputate metus.&lt;/p&gt;
+
+{block get=&quot;test&quot;}

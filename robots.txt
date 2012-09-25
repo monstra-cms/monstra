@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /monstra/
+Disallow: /plugins/
