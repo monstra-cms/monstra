@@ -27,43 +27,6 @@
 
     class SystemAdmin extends Backend {
         
-
-        /**
-         * Locales array
-         *
-         * @var array
-         */
-        public static $locales = array(
-            'ar' => 'العربية',
-            'bg' => 'Български',
-            'ca' => 'Català',
-            'cs' => 'Česky',
-            'da' => 'Dansk',
-            'de' => 'Deutsch',
-            'el' => 'Ελληνικά',
-            'en' => 'English',
-            'es' => 'Español',
-            'fi' => 'Suomi',
-            'fr' => 'Français',
-            'gl' => 'Galego',
-            'hu' => 'Magyar',
-            'it' => 'Italiano',
-            'ja' => '日本語',
-            'lt' => 'Lietuvių',
-            'nl' => 'Nederlands',
-            'no' => 'Norsk',
-            'pl' => 'Polski',
-            'pt' => 'Português',
-            'pt-br' => 'Português do Brasil',
-            'ru' => 'Русский',
-            'sk' => 'Slovenčina',
-            'sl' => 'Slovenščina',
-            'sv' => 'Svenska',
-            'tr' => 'Türkçe',
-            'uk' => 'Українська',
-            'zh' => '中文',
-        );
-
         
         /**
          * System plugin admin     
@@ -90,7 +53,7 @@
                 $language_files = File::scan(PLUGINS_BOX . DS . 'system' . DS . 'languages' . DS, '.lang.php');
                 foreach ($language_files as $language) {
                     $parts = explode('.', $language); 
-                    $languages_array[$parts[0]] = SystemAdmin::$locales[$parts[0]];
+                    $languages_array[$parts[0]] = I18n::$locales[$parts[0]];
                 }
 
                 // Get all pages

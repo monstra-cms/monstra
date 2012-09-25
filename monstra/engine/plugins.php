@@ -464,6 +464,43 @@
 
 
         /**
+         * Locales array
+         *
+         * @var array
+         */
+        public static $locales = array(
+            'ar' => 'العربية',
+            'bg' => 'Български',
+            'ca' => 'Català',
+            'cs' => 'Česky',
+            'da' => 'Dansk',
+            'de' => 'Deutsch',
+            'el' => 'Ελληνικά',
+            'en' => 'English',
+            'es' => 'Español',
+            'fi' => 'Suomi',
+            'fr' => 'Français',
+            'gl' => 'Galego',
+            'hu' => 'Magyar',
+            'it' => 'Italiano',
+            'ja' => '日本語',
+            'lt' => 'Lietuvių',
+            'nl' => 'Nederlands',
+            'no' => 'Norsk',
+            'pl' => 'Polski',
+            'pt' => 'Português',
+            'pt-br' => 'Português do Brasil',
+            'ru' => 'Русский',
+            'sk' => 'Slovenčina',
+            'sl' => 'Slovenščina',
+            'sv' => 'Svenska',
+            'tr' => 'Türkçe',
+            'uk' => 'Українська',
+            'zh' => '中文',
+        );
+
+
+        /**
          * Dictionary
          *
          * @var array
