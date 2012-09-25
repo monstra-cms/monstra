@@ -4,6 +4,7 @@
 <div class="tabbable">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#system" data-toggle="tab"><?php echo __('System', 'information'); ?></a></li>
+        <li><a href="#server" data-toggle="tab"><?php echo __('Server', 'information'); ?></a></li>                
         <li><a href="#security" data-toggle="tab"><?php echo __('Security', 'information'); ?></a></li>        
     </ul>
 
@@ -35,6 +36,46 @@
                         <td><?php echo __('Debuging', 'information'); ?></td>
                         <td><?php if (Core::$environment == Core::DEVELOPMENT) { echo __('on', 'information'); } else { echo __('off', 'information'); } ?></td>
                     </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="tab-pane" id="server">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td><?php echo __('Name', 'information'); ?></td>
+                        <td><?php echo __('Value', 'information'); ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>        
+                        <td><?php echo __('PHP version', 'information'); ?></td>
+                        <td><?php echo PHP_VERSION; ?></td>
+                    </tr>
+                    <tr>        
+                        <td><?php echo __('SimpleXML module', 'information'); ?></td>
+                        <td><?php if (in_array('SimpleXML', $php_modules)) { echo __('Installed', 'information'); } else { echo __('Not Installed', 'information'); } ?></td>
+                    </tr>
+                    <tr>        
+                        <td><?php echo __('DOM module', 'information'); ?></td>
+                        <td><?php if (in_array('dom', $php_modules)) { echo __('Installed', 'information'); } else { echo __('Not Installed', 'information'); } ?></td>
+                    </tr>
+                    <?php
+
+                        if (function_exists('apache_get_modules')) {
+                            if ( ! in_array('mod_rewrite',apache_get_modules())) {
+                                echo '<tr><td>'.__('Apache Mod Rewrite', 'information').'</td><td>'.__('Not Installed', 'information').'</td></tr>';
+                            } else {
+                                echo '<tr><td>'.__('Apache Mod Rewrite', 'information').'</td><td>'.__('Installed', 'information').'</td></tr>';
+                            }
+                        } else {
+                            echo '<tr><td>'.__('Apache Mod Rewrite', 'information').'</td><td>'.__('Installed', 'information').'</td></tr>';
+                        }
+
+                    ?>
                 </tbody>
             </table>
 
