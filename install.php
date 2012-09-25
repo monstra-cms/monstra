@@ -13,8 +13,8 @@
     // Set default timezone
     $system_timezone = 'Kwajalein';
     
-    // Include engine core
-    include 'monstra/bootstrap.php';
+    // Load bootstrap file
+    require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
     
     // Setting error display depending on debug mode or not
     // Get php version id
@@ -38,9 +38,9 @@
     $dir_array = array('public', 'storage', 'backups', 'tmp');
     
     // Select Monstra language
-    if (isset($_GET['language'])) {
-        if (in_array($_GET['language'], array('en', 'ru'))) {           
-            if (Option::update('language', $_GET['language'])) {
+    if (Request::get('language')) {
+        if (in_array(Request::get('language'), array('en', 'ru'))) {           
+            if (Option::update('language', Request::get('language'))) {
                 Request::redirect($site_url);   
             }
         } else {
@@ -49,23 +49,24 @@
     }
 
     // If pressed <Install> button then try to install
-    if (isset($_POST['install_submit'])) {
-        if (empty($_POST['sitename']))          $errors['sitename'] = __('Field "Site name" is empty', 'system');
-        if (empty($_POST['siteurl']))           $errors['siteurl'] = __('Field "Site url" is empty', 'system');
-        if (empty($_POST['login']))             $errors['login'] = __('Field "Username" is empty', 'system');
-        if (empty($_POST['password']))          $errors['password'] = __('Field "Password" is empty', 'system');
-        if (empty($_POST['email']))             $errors['email'] = __('Field "Email" is empty', 'system');
-        if ( ! Valid::email($_POST['email']))   $errors['email_valid'] = __('Email not valid', 'system');
-        if (trim($_POST['php']) !== '')         $errors['php'] = true;
-        if (trim($_POST['simplexml']) !== '')   $errors['simplexml'] = true;
-        if (trim($_POST['mod_rewrite']) !== '') $errors['mod_rewrite'] = true;
-        if (trim($_POST['htaccess']) !== '')    $errors['htaccess'] = true;
-        if (trim($_POST['sitemap']) !== '')     $errors['sitemap'] = true;
-        if (trim($_POST['install']) !== '')     $errors['install'] = true;
-        if (trim($_POST['public']) !== '')      $errors['public'] = true;
-        if (trim($_POST['storage']) !== '')     $errors['storage'] = true;
-        if (trim($_POST['backups']) !== '')     $errors['backups'] = true;
-        if (trim($_POST['tmp']) !== '')         $errors['tmp'] = true;
+    if (Request::post('install_submit')) {
+
+        if (Request::post('sitename') == '')           $errors['sitename'] = __('Field "Site name" is empty', 'system');
+        if (Request::post('siteurl') == '')            $errors['siteurl'] = __('Field "Site url" is empty', 'system');
+        if (Request::post('login') == '')              $errors['login'] = __('Field "Username" is empty', 'system');
+        if (Request::post('password') == '')           $errors['password'] = __('Field "Password" is empty', 'system');
+        if (Request::post('email') == '')              $errors['email'] = __('Field "Email" is empty', 'system');
+        if ( ! Valid::email(Request::post('email')))   $errors['email_valid'] = __('Email not valid', 'system');
+        if (trim(Request::post('php') !== ''))         $errors['php'] = true;
+        if (trim(Request::post('simplexml') !== ''))   $errors['simplexml'] = true;
+        if (trim(Request::post('mod_rewrite') !== '')) $errors['mod_rewrite'] = true;
+        if (trim(Request::post('htaccess') !== ''))    $errors['htaccess'] = true;
+        if (trim(Request::post('sitemap') !== ''))     $errors['sitemap'] = true;
+        if (trim(Request::post('install') !== ''))     $errors['install'] = true;
+        if (trim(Request::post('public') !== ''))      $errors['public'] = true;
+        if (trim(Request::post('storage') !== ''))     $errors['storage'] = true;
+        if (trim(Request::post('backups') !== ''))     $errors['backups'] = true;
+        if (trim(Request::post('tmp') !== ''))         $errors['tmp'] = true;
 
 
         
@@ -250,13 +251,13 @@
                         <input type="hidden" name="tmp" value="<?php echo $errors['tmp']; ?>" />
                         
                         <label><?php echo __('Site name', 'system'); ?></label>
-                        <input class="span4" name="sitename" type="text" value="<?php if(isset($_POST['sitename'])) echo Html::toText($_POST['sitename']); ?>" />
+                        <input class="span4" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
                         <br />
                         <label><?php echo __('Site url', 'system'); ?></label>
                         <input class="span4" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
                         <br />
                         <label><?php echo __('Username', 'users'); ?></label>
-                        <input class="span4" class="login" name="login" value="<?php if(isset($_POST['login'])) echo Html::toText($_POST['login']); ?>" type="text" />
+                        <input class="span4" class="login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
                         <br /> 
                         <label><?php echo __('Password', 'users'); ?></label>
                         <input class="span4" name="password" type="password" />
@@ -352,7 +353,7 @@
                         </select>
 
                         <label><?php echo __('Email', 'users'); ?></label>
-                        <input name="email" class="span4" value="<?php if(isset($_POST['email'])) echo Html::toText($_POST['email']); ?>" type="text" />
+                        <input name="email" class="span4" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
                         <br /><br />
                         <input type="submit" class="btn" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
                     </form>
