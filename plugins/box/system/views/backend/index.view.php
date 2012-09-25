@@ -43,7 +43,7 @@
         Form::label('system_timezone', __('Time zone', 'system')).
         Form::select('system_timezone', Date::timezones(), Option::get('timezone'), array('class' => 'span7')). Html::br().
         Form::label('system_language', __('Language', 'system')).
-        Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'span2')). Html::br().         
+        Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'span3')). Html::br().         
         Form::label('site_maintenance_message', __('Maintenance Mode', 'system')).
         Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('style' => 'width:640px;height:160px;')). Html::br(2)   
     );  
