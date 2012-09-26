@@ -21,12 +21,11 @@ if ($_GET[$_GET['sn']] == "") { unset ($_GET['sn']); }
 session_start();
 
 
-// N'accepte que les fichiers de config du meme r?pertoire
+// Takes only the configuration files in the same directory
 if (is_file($_GET['cfg']) and dirname($_GET['cfg']) == '.' ) { $_SESSION['configfile']=$_GET['cfg']; } else {  $_SESSION['configfile'] = "cryptographp.cfg.php"; }
 
 include($_SESSION['configfile']);  
 
-// V?rifie si l'utilisateur a le droit de (re)g?n?rer un cryptogramme
 if ($_SESSION['cryptcptuse'] >= $cryptusemax) {
     header("Content-type: image/png");
     readfile('images/erreur1.png'); 
@@ -46,7 +45,7 @@ if ($delai < $cryptusetimer) {
     }
 }
 
-// Cr?ation du cryptogramme temporaire
+// Create temporary cryptogram
 $imgtmp = imagecreatetruecolor($cryptwidth,$cryptheight);
 $blank  = imagecolorallocate($imgtmp,255,255,255);
 $black   = imagecolorallocate($imgtmp,0,0,0);
@@ -75,7 +74,7 @@ for ($i=1;$i<= $charnb;$i++) {
     $x +=$charspace;
 } 
 
-// Calcul du racadrage horizontal du cryptogramme temporaire
+// Calculation of horizontal framing cryptograms temporary
 $xbegin=0;
 $x=0;
 while (($x<$cryptwidth)and(!$xbegin)) {
@@ -102,8 +101,7 @@ $xvariation = round(($cryptwidth/2)-(($xend-$xbegin)/2));
 imagedestroy ($imgtmp);
 
 
-// Cr?ation du cryptogramme d?finitif
-// Cr?ation du fond
+// Creating the final cryptogram
 $img = imagecreatetruecolor($cryptwidth, $cryptheight); 
 
 if ($bgimg and is_dir($bgimg)) {
@@ -131,8 +129,7 @@ if ($bgimg) {
 
 
 function ecriture() {
-        
-    // Cr?ation de l'?criture
+    
     global  $img, $ink, $charR, $charG, $charB, $charclear, $xvariation, $charnb, $charcolorrnd, $charcolorrndlevel, $tword, $charspace;
     if (function_exists ('imagecolorallocatealpha')) $ink = imagecolorallocatealpha($img,$charR,$charG,$charB,$charclear);
        else $ink = imagecolorallocate ($img,$charR,$charG,$charB);
@@ -140,7 +137,7 @@ function ecriture() {
     $x = $xvariation;
     for ($i = 1; $i <= $charnb; $i++) {       
        
-    if ($charcolorrnd) {   // Choisit des couleurs au hasard
+    if ($charcolorrnd) { 
        $ok = false;
        do {
           $rndR = rand(0,255); $rndG = rand(0,255); $rndB = rand(0,255);
@@ -204,28 +201,25 @@ if ($noiseup) {
 }
 
 
-// Cr?ation du cadre
+// Creating frame
 if ($bgframe) {
     $framecol = imagecolorallocate($img,($bgR*3+$charR)/4,($bgG*3+$charG)/4,($bgB*3+$charB)/4);
     imagerectangle($img, 0, 0, $cryptwidth-1, $cryptheight-1, $framecol);
 }
  
             
-// Transformations suppl?mentaires: Grayscale et Brouillage
-// V?rifie si la fonction existe dans la version PHP install?e
+// Additional changes: grayscale and gaussian blur
 if (function_exists('imagefilter')) {
     if ($cryptgrayscal) imagefilter ( $img, IMG_FILTER_GRAYSCALE);
     if ($cryptgaussianblur) imagefilter ( $img, IMG_FILTER_GAUSSIAN_BLUR);
 }
 
 
-// Conversion du cryptogramme en Majuscule si insensibilit? ? la casse
+// Shift conversion cryptograms
 $word = ($difuplow?$word:strtoupper($word));
 
 
-// Retourne 2 informations dans la session: 
-// - Le code du cryptogramme (crypt? ou pas)
-// - La Date/Heure de la cr?ation du cryptogramme au format integer "TimeStamp" 
+// Write cryptcode to the Session
 switch (strtoupper($cryptsecure)) {    
     case "MD5"  : $_SESSION['cryptcode'] = md5($word); break;
     case "SHA1" : $_SESSION['cryptcode'] = sha1($word); break;
@@ -236,7 +230,7 @@ $_SESSION['crypttime'] = time();
 $_SESSION['cryptcptuse']++;       
   
 
-// Envoi de l'image finale au navigateur 
+// Render image 
 switch (strtoupper($cryptformat)) {  
        case "JPG"  :
 	     case "JPEG" : if (imagetypes() & IMG_JPG)  {
