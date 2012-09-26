@@ -21,7 +21,7 @@ function dsp_crypt($cfg = 0, $reload = 1) {
 function chk_crypt($code) {
     include ($_SESSION['configfile']);
     $code = addslashes ($code);
-    $code = str_replace(' ', '', $code);  // supprime les espaces saisis par erreur.
+    $code = str_replace(' ', '', $code);
     $code = ($difuplow ? $code : strtoupper($code));
     switch (strtoupper($cryptsecure)) {  
         case "MD5"  : $code = md5($code); break;
