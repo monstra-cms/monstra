@@ -12,71 +12,45 @@ $bgG  = 255;         // Background color RGB: Green (0->255)
 $bgB  = 255;         // Background color RGB: Blue (0->255)
 
 $bgclear = true;     // Background transparent (true/false)
-                     // Uniquement valable pour le format PNG
-
-$bgimg = '';                 // Le fond du cryptogramme peut-?tre une image  
-                             // PNG, GIF ou JPG. Indiquer le fichier image
-                             // Exemple: $fondimage = 'photo.gif';
-				                     // L'image sera redimensionn?e si n?cessaire
-                             // pour tenir dans le cryptogramme.
-                             // Si vous indiquez un r?pertoire plut?t qu'un 
-                             // fichier l'image sera prise au hasard parmi 
-                             // celles disponibles dans le r?pertoire
-
-$bgframe = true;    // Ajoute un cadre de l'image (true/false)
+$bgimg   = '';       // Background image  
+$bgframe = true;     // Image frame/border
 
 // ----------------------------
-// Symbols config
+// Characters config
 // ----------------------------
 
-$charR = 0;     // Symbols color RGB: Red (0->255)
-$charG = 0;     // Symbols color RGB: Green (0->255)
-$charB = 0;     // Symbols color RGB: Blue (0->255)
+$charR = 0;     // Characters color RGB: Red (0->255)
+$charG = 0;     // Characters color RGB: Green (0->255)
+$charB = 0;     // Characters color RGB: Blue (0->255)
 
-$charcolorrnd = false;      // Choix al?atoire de la couleur.
-$charcolorrndlevel = 2;    // Niveau de clart? des caract?res si choix al?atoire (0->4)
-                           // 0: Aucune s?lection
-                           // 1: Couleurs tr?s sombres (surtout pour les fonds clairs)
-                           // 2: Couleurs sombres
-                           // 3: Couleurs claires
-                           // 4: Couleurs tr?s claires (surtout pour fonds sombres)
-
-$charclear = 10;   // Intensit? de la transparence des caract?res (0->127)
-                  // 0=opaques; 127=invisibles
-	                // interessant si vous utilisez une image $bgimg
-	                // Uniquement si PHP >=3.2.1
+$charcolorrnd = false;     // Random colors
+$charcolorrndlevel = 2;    // Brightness level (0 - 4)
+$charclear = 10;           // Intensity of characters transparency (0 - 127)
 
 // Fonts
 $tfont[] = 'luggerbu.ttf';
 //$tfont[] = 'other ttf fonts';
 
+$charel = 'ABCDEFGHKLMNPRTWXYZ234569'; // Characters to use
 
-// Caracteres autoris?s
-// Attention, certaines polices ne distinguent pas (ou difficilement) les majuscules 
-// et les minuscules. Certains caract?res sont faciles ? confondre, il est donc
-// conseill? de bien choisir les caract?res utilis?s.
+$crypteasy = true;       // Crypt image easy to read (true) or not (false)                         
 
-$charel = 'ABCDEFGHKLMNPRTWXYZ234569';       // Caract?res autoris?s
+$charelc = 'BCDFGHKLMNPRTVWXZ';   //  $crypteasy = true
+$charelv = 'AEIOUY';              //  $crypteasy = true
 
-$crypteasy = true;       // Cr?ation de cryptogrammes "faciles ? lire" (true/false)
-                         // compos?s alternativement de consonnes et de voyelles.
+$difuplow = false;      
 
-$charelc = 'BCDFGHKLMNPRTVWXZ';   // Consonnes utilis?es si $crypteasy = true
-$charelv = 'AEIOUY';              // Voyelles utilis?es si $crypteasy = true
+$charnbmin = 4;         // Minimum characters in the ciphertext
+$charnbmax = 4;         // Maximum characters in the ciphertext
 
-$difuplow = false;          // Diff?rencie les Maj/Min lors de la saisie du code (true, false)
+$charspace = 20;        // Character spacing (in pixels)
+$charsizemin = 14;      // The minimum size of the characters
+$charsizemax = 16;      // The maximum size of the characters
 
-$charnbmin = 4;         // Nb minimum de caracteres dans le cryptogramme
-$charnbmax = 4;         // Nb maximum de caracteres dans le cryptogramme
+$charanglemax  = 25;     // The maximum steering angle of characters (0-360)
+$charup   = true;        // Vertical movement of random characters (yes / no)
 
-$charspace = 20;        // Espace entre les caracteres (en pixels)
-$charsizemin = 14;      // Taille minimum des caract?res
-$charsizemax = 16;      // Taille maximum des caract?res
-
-$charanglemax  = 25;     // Angle maximum de rotation des caracteres (0-360)
-$charup   = true;        // D?placement vertical al?atoire des caract?res (true/false)
-
-// Effets suppl?mentaires
+// Additional effects
 
 $cryptgaussianblur = false; // Transforme l'image finale en brouillant: m?thode Gauss (true/false)
                             // uniquement si PHP >= 5.0.0
