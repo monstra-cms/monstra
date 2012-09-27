@@ -194,5 +194,4 @@
 			$_SESSION[(string) $key] = $value;
 		}
 
-
 	}
