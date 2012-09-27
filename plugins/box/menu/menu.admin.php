@@ -168,7 +168,7 @@
                 
                 // Display view
                 View::factory('box/menu/views/backend/index')
-                        ->assign('items', $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC');)
+                        ->assign('items', $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC'))
                         ->display();
 
             }
