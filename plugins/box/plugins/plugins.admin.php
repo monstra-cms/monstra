@@ -1,4 +1,4 @@
-<?php  if ( ! defined('MONSTRA_ACCESS')) exit('No direct script access allowed');
+<?php
 
     // Add plugin navigation link
     Navigation::add(__('Plugins', 'plugins'), 'extends', 'plugins', 1);
@@ -44,6 +44,7 @@
                     // Delete plugin form plugins table                
                     $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
                    
+                    // Redirect
                     Request::redirect('index.php?id=plugins');                               
                 } 
             }
@@ -67,7 +68,7 @@
           
                 // Run plugin installer file
                 $plugin_name = str_replace(array("Plugin", ".manifest.xml"), "", Request::get('install'));
-                if (File::exists(PLUGINS . DS .basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS .$plugin_name . '.install.php')) {
+                if (File::exists(PLUGINS . DS .basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php')) {
                     include PLUGINS . DS . basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php';
                 }
     
