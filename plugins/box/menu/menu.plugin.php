@@ -38,12 +38,9 @@
             // Get menu table
             $menu = new Table('menu');
 
-            // Select all items
-            $items = $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC');
-
             // Display view
             View::factory('box/menu/views/frontend/index')
-                    ->assign('items', $items)
+                    ->assign('items', $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC'))
                     ->assign('uri', Uri::segments())
                     ->assign('defpage', Option::get('defaultpage'))                    
                     ->display();
