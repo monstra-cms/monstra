@@ -267,10 +267,11 @@
          *      echo Page::date();
          *  </code>
          *
+         * @param  string $format Date format
          * @return string
          */
-        public static function date() {                
-            return Date::format(Pages::$page['date'], 'Y-m-d');
+        public static function date($format = 'Y-m-d') {                
+            return Date::format(Pages::$page['date'], $format);
         }
 
 
