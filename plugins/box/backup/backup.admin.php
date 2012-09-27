@@ -46,7 +46,7 @@
             // Download backup
             // -------------------------------------    
             if (Request::get('download')) {                                
-                File::download('../backups/'.Request::get('download'));                
+                File::download($backups_path . DS . Request::get('download'));                
             }
 
             // Get backup list
