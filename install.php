@@ -1,9 +1,9 @@
 <?php
 
-	/**
-	 * Monstra :: Installator	
-	 */
-	 
+    /**
+     * Monstra :: Installator	
+     */
+     
 	// Main engine defines    
     if ( ! defined('DS')) define('DS', DIRECTORY_SEPARATOR);
     if ( ! defined('ROOT')) define('ROOT', rtrim(dirname(__FILE__), '\\/'));
@@ -29,6 +29,7 @@
     // Get site URL
     $site_url = 'http://'.$_SERVER["SERVER_NAME"].str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
+    // Rewrite base
     $rewrite_base = str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
     // Errors array
@@ -83,7 +84,8 @@
                                  'slogan'             => __('Site slogan', 'system'),
                                  'defaultpage'        => 'home',
                                  'timezone'           => Request::post('timezone'),
-                                 'theme_name'         => 'default'));
+                                 'theme_site_name'    => 'default',
+                                 'theme_admin_name'   => 'default'));
 
 
             // Get users table
@@ -183,6 +185,7 @@
         } else {
             $errors['php'] = '';
         }
+        
         if (in_array('SimpleXML', $php_modules)) {
              $errors['simplexml'] = '';
         } else {
