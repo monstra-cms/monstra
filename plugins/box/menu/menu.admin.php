@@ -76,10 +76,10 @@
 
                                 // Update menu item    
                                 if (count($errors) == 0) {
-                                    $menu->update(Request::get('item_id'), array('name' => Request::post('menu_item_name'),
-                                                                                 'link' => Request::post('menu_item_link'),
+                                    $menu->update(Request::get('item_id'), array('name'   => Request::post('menu_item_name'),
+                                                                                 'link'   => Request::post('menu_item_link'),
                                                                                  'target' => Request::post('menu_item_target'),
-                                                                                 'order' => Request::post('menu_item_order')));
+                                                                                 'order'  => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -131,10 +131,10 @@
 
                                 // Insert new menu item
                                 if (count($errors) == 0) {
-                                    $menu->insert(array('name' => Request::post('menu_item_name'),
-                                                        'link' => Request::post('menu_item_link'),
+                                    $menu->insert(array('name'   => Request::post('menu_item_name'),
+                                                        'link'   => Request::post('menu_item_link'),
                                                         'target' => Request::post('menu_item_target'),
-                                                        'order' => Request::post('menu_item_order')));
+                                                        'order'  => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -166,12 +166,9 @@
                     $menu->delete((int)Request::get('delete_item'));
                 }
                 
-                // Select all items
-                $items = $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC');
-
                 // Display view
                 View::factory('box/menu/views/backend/index')
-                        ->assign('items', $items)
+                        ->assign('items', $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC');)
                         ->display();
 
             }
