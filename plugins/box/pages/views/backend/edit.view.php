@@ -29,6 +29,7 @@
                         Form::label('page_title', __('Title', 'pages')).
                         Form::input('page_title', $title_to_edit, array('class' => (isset($errors['pages_empty_title'])) ? 'span6 error-field' : 'span6'))
                     );
+                    if (isset($errors['pages_empty_title'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_empty_title'].'</span>';
 
                     if (Request::get('name') !== 'error404') {
                         echo (
@@ -41,7 +42,7 @@
                         echo Form::hidden('page_name', $slug_to_edit);
                     } else {
                         echo (
-                            Form::input('page_name', $slug_to_edit, array('class' => (isset($errors['pages_empty_title'])) ? 'span6 error-field' : 'span6'))
+                            Form::input('page_name', $slug_to_edit, array('class' => (isset($errors['pages_empty_name'])) ? 'span6 error-field' : 'span6'))
                         );
                     }
 
