@@ -131,7 +131,7 @@ h6 {
 
 .monstra-header-inner, .topbar .fill {
   background-color: #ccc;
-  background: url('@theme_admin_url/img/header.png');
+  background: url('@theme_admin_url/img/noisy_grid_dark.png');
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -158,13 +158,14 @@ h6 {
 }
 
 .monstra-menu-sidebar {
-  background: url('@theme_admin_url/img/sidebar_bg.png');
+  background: url('@theme_admin_url/img/noisy_grid.png');
   background-color:#ccc;
   max-width:192px!important;
   min-width:136px!important;
   margin-bottom: 20px;
   padding: 19px;
   border-bottom:2px solid #ccc;
+  border-right:2px solid #ccc;
 }
 
 .monstra-menu-sidebar ul {
@@ -219,6 +220,7 @@ h6 {
     -ms-transition: 0.1s linear all;
     -o-transition: 0.1s linear all;
     transition: 0.1s linear all;
+    margin-left: 1px;
 }
 
 .monstra-menu-sidebar li a:hover {
@@ -443,3 +445,10 @@ td, th {
 .container-fluid {padding-left:0px;}
 img {max-width:none;}
 
+.tab-page {
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    margin-top: -20px;
+    padding: 20px 10px 10px;
+}
