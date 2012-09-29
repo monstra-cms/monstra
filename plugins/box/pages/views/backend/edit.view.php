@@ -41,7 +41,7 @@
                         echo Form::hidden('page_name', $slug_to_edit);
                     } else {
                         echo (
-                            Form::input('page_name', $slug_to_edit, array('class' => 'span6'))
+                            Form::input('page_name', $slug_to_edit, array('class' => (isset($errors['pages_empty_title'])) ? 'span6 error-field' : 'span6'))
                         );
                     }
 
