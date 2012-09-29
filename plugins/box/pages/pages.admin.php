@@ -24,7 +24,7 @@
                 $user = $users->select('[id='.Session::get('user_id').']', null);
 
                 $user['firstname'] = Html::toText($user['firstname']);
-                $user['lastname'] = Html::toText($user['lastname']);
+                $user['lastname']  = Html::toText($user['lastname']);
 
                 // Page author
                 if (isset($user['firstname']) && trim($user['firstname']) !== '') {
@@ -98,7 +98,7 @@
 
                                 if (Security::check(Request::post('csrf'))) {
                                         
-                                    // Get pages parent
+                                    // Get parent page
                                     if (Request::post('pages') == '0') {
                                         $parent_page = '';
                                     } else {
@@ -106,15 +106,12 @@
                                     }
 
 
-
                                     // Validate
                                     //--------------
-                                    if (trim(Request::post('page_name')) == '') $errors['pages_empty_name'] = __('This field should not be empty', 'pages');
-                                    
-                                    $page = $pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'"]');
+                                    if (trim(Request::post('page_name')) == '') $errors['pages_empty_name'] = __('Required field', 'pages');                                                 
+                                    if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('Required field', 'pages');
+                                    if (count($pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'"]')) != 0) $errors['pages_exists'] = __('This page already exists', 'pages');
 
-                                    if (count($page) != 0) $errors['pages_exists'] = __('This page already exists', 'pages');
-                                    if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('This field should not be empty', 'pages');
 
                                     // Prepare date
                                     if (Valid::date(Request::post('page_date'))) {
@@ -181,27 +178,21 @@
                             }                                            
 
                             // Save fields
-                            if (Request::post('pages'))            $parent_page      = Request::post('pages'); else $parent_page = '';
                             if (Request::post('page_name'))        $post_name        = Request::post('page_name'); else $post_name = '';
                             if (Request::post('page_title'))       $post_title       = Request::post('page_title'); else $post_title = '';
                             if (Request::post('page_keywords'))    $post_keywords    = Request::post('page_keywords'); else $post_keywords = '';
                             if (Request::post('page_description')) $post_description = Request::post('page_description'); else $post_description = '';
                             if (Request::post('editor'))           $post_content     = Request::post('editor'); else $post_content = '';
                             if (Request::post('templates'))        $post_template    = Request::post('templates'); else $post_template = 'index';
+                            if (Request::post('pages'))            $parent_page      = Request::post('pages'); else $parent_page = '';
                             if (Request::post('robots_index'))     $post_robots_index = true; else $post_robots_index = false;
                             if (Request::post('robots_follow'))    $post_robots_follow = true; else $post_robots_follow = false;
-                            if (Request::post('parent_page')) {
-                                $post_template = Request::post('pages');
-                            } else {
-                                if(Request::get('parent_page')) {
-                                    $parent_page = trim(Request::get('parent_page'));
-                                }
-                            }
                             //--------------
 
                             // Generate date
                             $date = Date::format(time(), 'Y-m-d H:i:s');
 
+                            // Set Tabs State - page
                             Notification::setNow('page', 'page');
 
                             // Display view
