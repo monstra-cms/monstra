@@ -371,7 +371,7 @@
 
                             if (Request::post('pages')) {
                                 // Get pages parent
-                                if (post('pages') == '-none-') {
+                                if (Request::post('pages') == '-none-') {
                                     $parent_page = '';
                                 } else {
                                     $parent_page = Request::post('pages');
