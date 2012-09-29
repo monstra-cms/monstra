@@ -116,13 +116,12 @@
                                     if (count($page) != 0) $errors['pages_exists'] = __('This page already exists', 'pages');
                                     if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('This field should not be empty', 'pages');
 
-                                    // Generate date
-                                    $date = mktime(Request::post('hour'), 
-                                                   Request::post('minute'), 
-                                                   Request::post('second'),
-                                                   Request::post('month'), 
-                                                   Request::post('day'), 
-                                                   Request::post('year'));
+                                    // Prepare date
+                                    if (Valid::date(Request::post('page_date'))) {
+                                        $date = strtotime(Request::post('page_date'));
+                                    } else {
+                                        $date = time();
+                                    }        
 
                                     if (Request::post('robots_index'))  $robots_index = 'noindex';   else $robots_index = 'index';
                                     if (Request::post('robots_follow')) $robots_follow = 'nofollow'; else $robots_follow = 'follow';
@@ -201,7 +200,9 @@
                             //--------------
 
                             // Generate date
-                            $date = explode('-', Date::format(time(), 'Y-m-d-H-i-s'));
+                            $date = Date::format(time(), 'Y-m-d H:i:s');
+
+                            Notification::setNow('page', 'page');
 
                             // Display view
                             View::factory('box/pages/views/backend/add')
@@ -392,7 +393,10 @@
                                 if (Request::post('templates')) $template = Request::post('templates'); else $template = $page['template']; 
                                 if (Request::post('status'))    $status   = Request::post('status');    else $status   = $page['status']; 
 
-                                $date = explode('-', Date::format($page['date'],'Y-m-d-H-i-s'));
+                                // Generate date
+                                $date = Date::format(time(), 'Y-m-d H:i:s');
+
+                                Notification::setNow('page', 'page');                            
                             
                                 // Display view
                                 View::factory('box/pages/views/backend/edit')    
