@@ -98,7 +98,7 @@
                     ?>
                     </div>
                     <?php 
-                        if(Request::get('name') == 'error404') {
+                        if (Request::get('name') == 'error404') {
                             echo Form::hidden('status', $status);
                         } else {
                     ?>
@@ -132,7 +132,7 @@
                 ?>
             </div>
             <div class="span6">
-                <div class="pull-right">Published on: <input class="input-large" type="text" name="page_date" value="<?php echo $date; ?>"></div>
+                <div class="pull-right"><?php echo __('Published on', 'pages'); ?>: <?php echo Form::input('page_date', $date, array('class' => 'input-large')); ?></div>
                 <?php echo Form::close(); ?>
             </div>
         </div>

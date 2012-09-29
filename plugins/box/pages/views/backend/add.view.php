@@ -31,7 +31,7 @@
                     echo (  
                         Html::br(2).
                         Form::label('page_name', __('Name (slug)', 'pages')).    
-                        Form::input('page_name', $post_name, array('class' => (isset($errors['pages_exists'])) ? 'span6 error-field' : 'span6'))
+                        Form::input('page_name', $post_name, array('class' => (isset($errors['pages_empty_name'])) ? 'span6 error-field' : 'span6'))
                     );
 
                     if (isset($errors['pages_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_exists'].'</span>';
@@ -105,7 +105,7 @@
                 ?>
             </div>
             <div class="span6">
-                <div class="pull-right">Published on: <input class="input-large" type="text" name="page_date" value="<?php echo $date; ?>"></div>
+                <div class="pull-right"><div><?php echo __('Published on', 'pages'); ?>: <?php echo Form::input('page_date', $date, array('class' => 'input-large')); ?></div>
                 <?php echo Form::close(); ?>
             </div>
         </div>
