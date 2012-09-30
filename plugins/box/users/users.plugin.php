@@ -345,8 +345,8 @@
                 }
 
                 View::factory('box/users/views/frontend/password_reset')
-                    ->assign('errors', $errors) 
-                    ->assign('user_login', $user_login) 
+                    ->assign('errors', $errors)
+                    ->assign('user_login', trim(Request::post('login'))) 
                     ->display();
 
             }
