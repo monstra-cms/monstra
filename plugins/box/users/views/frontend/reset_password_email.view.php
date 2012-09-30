@@ -13,5 +13,5 @@ Your username is: <?php echo $user_login; ?>
 To edit your profile, go to this page:
 <?php echo $site_url ?>users/<?php echo $user_id; ?>
 <br><br>
-All the best,
+All the best,<br>
 <?php echo $site_name; ?>

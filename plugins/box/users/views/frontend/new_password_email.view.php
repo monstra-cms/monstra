@@ -7,5 +7,5 @@ Password: <?php echo $new_password; ?>
 <br><br>
 To change your password, please visit this page: <?php echo $site_url; ?>users/<?php echo $user_id; ?>
 <br><br>
-All the best,
+All the best,<br>
 <?php echo $site_name; ?>
