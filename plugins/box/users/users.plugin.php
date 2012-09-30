@@ -140,6 +140,17 @@
                                 Session::set('user_id', (int)$user['id']);
                                 Session::set('user_login', (string)$user['login']);
                                 Session::set('user_role', (string)$user['role']);
+
+                                // Message
+                                $message = View::factory('box/users/views/frontend/registration_email')
+                                    ->assign('site_name', Option::get('sitename'))
+                                    ->assign('user_login', $user['login'])                            
+                                    ->render();
+
+
+                                // Send
+                                @mail($user['email'], Option::get('sitename'), $message);
+
                                         
                                 // Redirect to user profile
                                 Request::redirect(Option::get('siteurl').'users/'.Users::$users->lastId());
