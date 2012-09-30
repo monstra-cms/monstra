@@ -29,14 +29,15 @@
     // Errors var when users login failed
     $login_error = '';
 
+    // Get users Table
+    $users = new Table('users');
+
     // Admin login
     if (Request::post('login_submit')) {        
        
         // Sleep MONSTRA_LOGIN_SLEEP seconds for blocking Brute Force Attacks
         sleep(MONSTRA_LOGIN_SLEEP);  
        
-        // Get users Table
-        $users = new Table('users');
         $user  = $users->select("[login='" . trim(Request::post('login')) . "']", null);
         if (count($user) !== 0) {
             if ($user['login'] == Request::post('login')) {
@@ -61,37 +62,52 @@
     // Errors
     $errors = array();
 
-    // Reset password
+    $site_url  = Option::get('siteurl');
+    $site_name = Option::get('sitename');
+
+    $user_login = trim(Request::post('login'));
+
+    // Reset Password Form Submit
     if (Request::post('reset_password_submit')) {
-
-        // Get users Table
-        $users = new Table('users');
-
-        // Get user
-        $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
-
-        // Check
-        if (count($user) == 0) $errors['users_doesnt_exist'] = __('This user does not exist', 'users');
-        if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'captcha');        
-
-        // If Errors Count is 0
-        if (count($errors) == 0) {
             
-            // Generate new password
-            $new_password = Text::random('alnum', 6);
+        if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'users');
+        if ($user_login == '') $errors['users_empty_field'] = __('Required field', 'users');
+        if ($user_login != '' && ! $users->select("[login='".$user_login."']")) $errors['users_user_doesnt_exists'] = __('This user doesnt exist', 'users');
 
-            // Update user profile
-            $users->updateWhere("[login='" . trim(Request::post('login')) . "']", array('password' => Security::encryptPassword($new_password)));
+        if (count($errors) == 0) {
+
+            // Get user
+            $user = $users->select("[login='" . $user_login . "']", null);
+
+            // Generate new hash
+            $new_hash = Text::random('alnum', 12);
+
+            // Update user hash
+            $users->updateWhere("[login='" . $user_login . "']", array('hash' => $new_hash));
 
             // Message
-            $message = "Login: {$user['login']}\nNew Password: {$new_password}";
+            $message = View::factory('box/users/views/frontend/reset_password_email')
+                ->assign('site_url', $site_url)
+                ->assign('site_name', $site_name)
+                ->assign('user_id', $user['id'])
+                ->assign('user_login', $user['login'])
+                ->assign('new_hash', $new_hash)                                
+                ->render();
+
 
             // Send
-            @mail($user['email'], 'MonstraPasswordReset', $message);
+            @mail($user['email'], "Your login details for {$site_name}", $message);
+
+            // Set notification
+            Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
+            Notification::set('reset_password', 'reset_password');
+
+            // Redirect to password-reset page
+            Request::redirect(Site::url().'admin');
 
         }
 
-        Notification::setNow('reset_password_error', 'reset_password_error');   
+        Notification::setNow('reset_password', 'reset_password');
     }
 
     // If admin user is login = true then set is_admin = true

@@ -20,7 +20,7 @@
         <?php Javascript::load(); ?>
         <script type="text/javascript">
             $().ready(function () {
-                <?php if (Notification::get('reset_password_error') == 'reset_password_error') { ?>
+                <?php if (Notification::get('reset_password') == 'reset_password') { ?>
                     $('.reset-password-area, .administration-btn').show();   
                     $('.administration-area, .reset-password-btn').hide();              
                 <?php } else { ?>
@@ -75,9 +75,10 @@
                     <hr>
                     <div>
                         <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br />
+                        <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
                         <form method="post">
                             <label><?php echo __('Username', 'users'); ?></label>
-                            <input name="login" class="span3" type="text" />
+                            <input name="login" class="span3" type="text" value="<?php echo $user_login; ?>" />
 
                             <?php if (Option::get('captcha_installed') == 'true') { ?>
                             <label><?php echo __('Captcha'); ?><label>

@@ -307,7 +307,7 @@
                             
                         if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'users');
                         if ($user_login == '') $errors['users_empty_field'] = __('Required field', 'users');
-                        if ($user_login != '' && ! Users::$users->select("[login='".$user_login."']")) $errors['users_user_doesnt_exists'] = __('This user doesnt alredy exist', 'users');
+                        if ($user_login != '' && ! Users::$users->select("[login='".$user_login."']")) $errors['users_user_doesnt_exists'] = __('This user doesnt exist', 'users');
 
                         if (count($errors) == 0) {
 
