@@ -288,7 +288,12 @@
         public function __construct($view, array $variables = array()) {
 
             // Set view file
-            $this->view_file = PLUGINS . DS . $view . '.view.php';
+            // From current theme folder or from plugin folder
+            if (File::exists($theme_view_file = THEMES_SITE . DS . Site::theme() . DS . $view . '.view.php') && BACKEND == false) {
+                $this->view_file = $theme_view_file;
+            } else {
+                $this->view_file = PLUGINS . DS . $view . '.view.php';
+            }            
 
             // Is view file exists ?
             if (file_exists($this->view_file) === false) {
