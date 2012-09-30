@@ -419,9 +419,10 @@
                         // Error 404 page can not be removed                                               
                         if (Request::get('name') !== 'error404') {
                                
-                            // Get page title, delete page and update <parent> fields                
+                            // Get page
                             $page = $pages->select('[slug="'.Request::get('name').'"]', null);
                             
+                            //  Delete page and update <parent> fields
                             if ($pages->deleteWhere('[slug="'.Request::get('name').'" ]')) {
                                 $pages->updateWhere('[parent="'.Request::get('name').'"]', array('parent' => ''));
                                 File::delete(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt');
