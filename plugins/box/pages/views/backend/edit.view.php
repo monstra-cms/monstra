@@ -55,11 +55,11 @@
 
                 <?php
                     echo (
-                        Form::label('page_description', __('Description', 'pages')).
-                        Form::input('page_description', $description_to_edit, array('class' => 'span8')).
-                        Html::br(2).
                         Form::label('page_keywords', __('Keywords', 'pages')).
-                        Form::input('page_keywords', $keywords_to_edit, array('class' => 'span8'))
+                        Form::input('page_keywords', $keywords_to_edit, array('class' => 'span8')).
+                        Html::br(2).
+                        Form::label('page_description', __('Description', 'pages')).
+                        Form::textarea('page_description', $description_to_edit, array('class' => 'span8'))                        
                     );
 
                     echo (  

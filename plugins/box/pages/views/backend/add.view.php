@@ -42,11 +42,11 @@
             <div class="tab-pane <?php if (Notification::get('seo')) { ?>active<?php } ?>" id="seo">
                 <?php
                     echo (
-                        Form::label('page_description', __('Description', 'pages')).
-                        Form::input('page_description', $post_description, array('class' => 'span8')).
-                        Html::br(2).
                         Form::label('page_keywords', __('Keywords', 'pages')).
-                        Form::input('page_keywords', $post_keywords, array('class' => 'span8'))
+                        Form::input('page_keywords', $post_keywords, array('class' => 'span8')).
+                        Html::br(2).
+                        Form::label('page_description', __('Description', 'pages')).
+                        Form::textarea('page_description', $post_description, array('class' => 'span8'))                        
                     );
                 ?>
 
