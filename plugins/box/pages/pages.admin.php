@@ -229,19 +229,16 @@
                                 } else {
                                     $parent_page = Request::post('pages');
                                 }
+
                                 // Save field
                                 $post_parent = Request::post('pages');
                                 
 
                                 // Validate
                                 //--------------
-                                if (trim(Request::post('page_name')) == '') $errors['pages_empty_name'] = __('This field should not be empty', 'pages');
-                                
-                                $_page = $pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'"]');
-
-                                if ((count($_page) != 0) and (Security::safeName(Request::post('page_old_name'), '-', true) !== Security::safeName(Request::post('page_name'), '-', true))) $errors['pages_exists'] = __('This page already exists', 'pages');
-
-                                if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('This field should not be empty', 'pages');
+                                if (trim(Request::post('page_name')) == '') $errors['pages_empty_name'] = __('Required field', 'pages');
+                                if ((count($pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'"]')) != 0) and (Security::safeName(Request::post('page_old_name'), '-', true) !== Security::safeName(Request::post('page_name'), '-', true))) $errors['pages_exists'] = __('This page already exists', 'pages');
+                                if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('Required field', 'pages');
 
                                 // Save fields
                                 if (Request::post('page_name'))        $post_name        = Request::post('page_name'); else $post_name = '';
@@ -254,13 +251,12 @@
                                 if (Request::post('robots_follow'))    $post_robots_follow = true; else $post_robots_follow = false;
                                 //--------------
 
-                                // Generate date
-                                $date = mktime(Request::post('hour'),
-                                               Request::post('minute'),
-                                               Request::post('second'),
-                                               Request::post('month'),
-                                               Request::post('day'),
-                                               Request::post('year'));
+                                // Prepare date
+                                if (Valid::date(Request::post('page_date'))) {
+                                    $date = strtotime(Request::post('page_date'));
+                                } else {
+                                    $date = time();
+                                }
 
                                 if (Request::post('robots_index'))  $robots_index = 'noindex';   else $robots_index = 'index';
                                 if (Request::post('robots_follow')) $robots_follow = 'nofollow'; else $robots_follow = 'follow';
