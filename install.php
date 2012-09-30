@@ -419,7 +419,7 @@
                         if (is_writable('.htaccess')){
                             echo '<span class="ok"><li>'.__('Main .htaccess file writable', 'system').'</li></span>';
                         } else {
-                            echo '<span class="error"><li>'.__('Main .htaccess not writable').'</li></span>';
+                            echo '<span class="error"><li>'.__('Main .htaccess file not writable', 'system').'</li></span>';
                         }
                                     
                         if (isset($errors['sitename']))    echo '<span class="error"><li>'.$errors['sitename'].'</li></span>';
