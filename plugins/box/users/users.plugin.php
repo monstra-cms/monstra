@@ -297,7 +297,7 @@
 
 
                         // Send
-                        @mail($user['email'], __('Your new password for :site_name', 'users', array('site_name' => $site_name)), $message);
+                        @mail($user['email'], __('Your new password for :site_name', 'users', array(':site_name' => $site_name)), $message);
 
                         // Set notification
                         Notification::set('success', __('New password has been sent', 'users'));
