@@ -286,7 +286,7 @@
 
 
                         // Send
-                        @mail($user['email'], "Your new password for {$site_name}", $message);
+                        @mail($user['email'], __('Your new password for :site_name', 'users', array('site_name' => $site_name)), $message);
 
                         // Set notification
                         Notification::set('success', __('New password has been sent', 'users'));
@@ -331,7 +331,7 @@
 
 
                             // Send
-                            @mail($user['email'], "Your login details for {$site_name}", $message);
+                            @mail($user['email'], __('Your login details for :site_name', 'users', array('site_name' => $site_name)), $message);
 
                             // Set notification
                             Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));

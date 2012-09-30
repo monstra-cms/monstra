@@ -43,5 +43,9 @@
             'Edit 404 page' => 'Edit 404 page',
             'Page <i>:page</i> deleted' => 'Page <i>:page</i> deleted',
             'Search Engines Robots' => 'Search Engines Robots',
+            'Page' => 'Page',
+            'SEO' => 'SEO',
+            'Settings' => 'Settings',
+            'Required field' => 'Required field',
         )
     );

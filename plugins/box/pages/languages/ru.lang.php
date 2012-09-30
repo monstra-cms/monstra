@@ -43,5 +43,9 @@
             'Edit 404 page' => 'Редактировать страницу 404',
             'Page <i>:page</i> deleted' => 'Страница <i>:page</i> удалена',
             'Search Engines Robots' => 'Поисковые роботы',
+            'Page' => 'Страница',
+            'SEO' => 'SEO',
+            'Settings' => 'Настройки',
+            'Required field' => 'Обязательное поле',
         ),
     );
