@@ -417,6 +417,13 @@ td, th {
   overflow: visible;
 }
 
+.tab-page {
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    margin-top: -20px;
+    padding: 20px 10px 10px;
+}
 
 /*************************************
     9. MISC
@@ -441,14 +448,6 @@ td, th {
 }
 
 .error-none {display:none;}
-.error {color:red;}
+.error-field {border:1px solid red!important;}
 .container-fluid {padding-left:0px;}
 img {max-width:none;}
-
-.tab-page {
-    border-bottom: 1px solid #DDDDDD;
-    border-left: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    margin-top: -20px;
-    padding: 20px 10px 10px;
-}
