@@ -24,7 +24,8 @@ Monstra 2.0.0, xxxx-xx-xx
 - Themes Plugin: Added ability to create/edit/clone JavaScripts. Added ability to change admin theme in one click.
 - Apply filter 'content' to Blocks. 
 - Array Helper: get() method improved. New methods keyExists() isAssoc() set() delete() random() added.
-- Plugins API: Fixed Javascript and Stylesheet class. 
+- Plugin API: Fixed Javascript and Stylesheet class. 
+- Plugin API: Added ability to set view file from current theme folder
 - New options theme_admin_name, theme_site_name, users_frontend_registration added.
 - Install Script Improvments.
 - Monstra Localization Improvments. Added locales array to I18N class.
