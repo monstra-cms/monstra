@@ -83,7 +83,7 @@
                                         $users->insert(array('login'           => Security::safeName($user_login),
                                                              'password'        => Security::encryptPassword(Request::post('password')),
                                                              'email'           => Request::post('email'),
-                                                             'hash'            => Text::random('alnum', 12)
+                                                             'hash'            => Text::random('alnum', 12),
                                                              'date_registered' => time(),
                                                              'role'            => Request::post('role')));
 
