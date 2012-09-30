@@ -255,12 +255,51 @@
 
                 $errors = array();
 
-                $user_login = Request::post('login');
+                $site_url  = Option::get('siteurl');
+                $site_name = Option::get('sitename');
+
+                // Reset Password from hash
+                if (Request::get('hash')) {
+                    
+                    // Get user with specific hash
+                    $user = Users::$users->select("[hash='" . Request::get('hash') . "']", null);
+
+                    // If user exists
+                    if ((count($user) > 0) && ($user['hash'] == Request::get('hash'))) {
+
+                        // Generate new password
+                        $new_password = Text::random('alnum', 6);
+
+                        // Update user profile
+                        // Set new hash and new password
+                        Users::$users->updateWhere("[login='" . $user['login'] . "']", array('hash' => Text::random('alnum', 12), 'password' => Security::encryptPassword($new_password)));
+
+                        // Message
+                        $message = View::factory('box/users/views/frontend/new_password_email')
+                            ->assign('site_url', $site_url)
+                            ->assign('site_name', $site_name)
+                            ->assign('user_id', $user['id'])
+                            ->assign('user_login', $user['login'])
+                            ->assign('new_password', $new_password)                                
+                            ->render();
+
+
+                        // Send
+                        @mail($user['email'], "Your new password for {$site_name}", $message);
+
+                        // Set notification
+                        Notification::set('success', __('New password has been sent', 'users'));
+
+                        // Redirect to password-reset page
+                        Request::redirect(Site::url().'users/password-reset');
+
+                    }
+                }
 
                 // Reset Password Form Submit
                 if (Request::post('reset_password_submit')) {
 
-                    $user_login = trim($user_login);
+                    $user_login = trim(Request::post('login'));
 
                     // Check csrf
                     if (Security::check(Request::post('csrf'))) {
@@ -271,28 +310,35 @@
 
                         if (count($errors) == 0) {
 
+                            // Get user
                             $user = Users::$users->select("[login='" . $user_login . "']", null);
 
-                            // Generate new password
-                            $new_password = Text::random('alnum', 6);
+                            // Generate new hash
+                            $new_hash = Text::random('alnum', 12);
 
-                            // Update user profile
-                            Users::$users->updateWhere("[login='" . $user_login . "']", array('password' => Security::encryptPassword($new_password)));
+                            // Update user hash
+                            Users::$users->updateWhere("[login='" . $user_login . "']", array('hash' => $new_hash));
 
                             // Message
-                            $message = "Login: {$user['login']}\nNew Password: {$new_password}";
+                            $message = View::factory('box/users/views/frontend/reset_password_email')
+                                ->assign('site_url', $site_url)
+                                ->assign('site_name', $site_name)
+                                ->assign('user_id', $user['id'])
+                                ->assign('user_login', $user['login'])
+                                ->assign('new_hash', $new_hash)                                
+                                ->render();
+
 
                             // Send
-                            @mail($user['email'], 'MonstraPasswordReset', $message);
+                            @mail($user['email'], "Your login details for {$site_name}", $message);
 
                             // Set notification
-                            Notification::set('success', __('New password has been sent', 'users'));
+                            Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
 
                             // Redirect to password-reset page
                             Request::redirect(Site::url().'users/password-reset');
 
                         }
-
                     
                     } else { die('csrf detected!'); }
 
