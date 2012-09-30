@@ -95,6 +95,7 @@
             $users->insert(array('login'           => Security::safeName(Request::post('login')),
                                  'password'        => Security::encryptPassword(Request::post('password')),
                                  'email'           => Request::post('email'),
+                                 'hash'            => Text::random('alnum', 12),
                                  'date_registered' => time(),
                                  'role'            => 'admin'));
 
