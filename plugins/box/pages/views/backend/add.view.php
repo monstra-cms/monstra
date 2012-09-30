@@ -105,7 +105,7 @@
                 ?>
             </div>
             <div class="span6">
-                <div class="pull-right"><div><?php echo __('Published on', 'pages'); ?>: <?php echo Form::input('page_date', $date, array('class' => 'input-large')); ?></div>
+                <div class="pull-right"><?php echo __('Published on', 'pages'); ?>: <?php echo Form::input('page_date', $date, array('class' => 'input-large')); ?></div>
                 <?php echo Form::close(); ?>
             </div>
         </div>
