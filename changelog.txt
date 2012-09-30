@@ -1,21 +1,34 @@
 Monstra 2.0.0, xxxx-xx-xx
 ------------------------
 - Idiorm Added! Idiorm - a lightweight nearly-zero-configuration object-relational mapper and fluent query builder for PHP5.
-- Add new Crypt Capthca Plugin 
-- Users Plugin: add ability to close users frontend registration. Updated frontend and backend templates. Using Capthca Plugin instead of Captca Helper for more secure.
+- Added Crypt Capthca Plugin
+- Users Plugin: Added ability to close users frontend registration. Updated frontend and backend templates. Using Capthca Plugin instead of Captca Helper for more secure.
 - Admin Password Reset Page: Capthca Plugin added.
 - Backup Plugin: Loading state button added. Shows "Creating..." while site backups create.
+- Pages Plugin: Added new actions: admin_pages_action_add, admin_pages_action_edit, admin_pages_action_clone, admin_pages_action_delete
+- Pages Plugin: Updated date() method - added ability to set date format.
+- Pages Plugin: UI and Logic updates.
+- Users Plugin: Email templates added.
+- Users Table: Added new field - hash
+- Improved Password Reset Logic.
+- Information Plugin: Added new tab "Server" with common server information. 
+- Sitemap Plugin: Basic search engine optimization.
 - Improved Admin Theme - built with best frontend optimization practice. Updated architecture and User Interface. Admin theme more responsive now!
 - Added Twitter Bootstrap 2.1.1.
+- Added Twitter Bootstrap icons.
+- Dir Helper: Fixed size() method.
 - New Default Theme: built with best frontend optimization practice.
-- Options API: update get() method. Return empty string if option value doesnt exists.
-- CSS variables: Added - @theme_site_url @theme_admin_url Deleted - @theme_url
-- Themes Plugin: add ability to create/edit/clone JavaScripts. Add ability to change admin theme in one click.
-- Apply filter 'content' to Blocks 
+- Options API: Updated get() method. Return empty string if option value doesnt exists.
+- CSS variables: Added - @theme_site_url @theme_admin_url 
+- CSS variables: Deleted - @theme_url
+- Themes Plugin: Added ability to create/edit/clone JavaScripts. Added ability to change admin theme in one click.
+- Apply filter 'content' to Blocks. 
 - Array Helper: get() method improved. New methods keyExists() isAssoc() set() delete() random() added.
-- Plugins API: Fix Javascript and Stylesheet class. 
-- New options theme_admin_name theme_site_name users_frontend_registration added.
-- Update translates.
+- Plugins API: Fixed Javascript and Stylesheet class. 
+- New options theme_admin_name, theme_site_name, users_frontend_registration added.
+- Install Script Improvments.
+- Monstra Localization Improvments. Added locales array to I18N class.
+- Translates updates.
 - Path updates.
 - And a lot of general engine improvements.
 
