@@ -3,12 +3,12 @@
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
-<?php echo Html::anchor(__('Register new user', 'users'), 'index.php?id=users&action=add', array('title' => __('Create new page', 'users'), 'class' => 'btn default btn-small')); ?>
+<?php echo Html::anchor(__('Register new user', 'users'), 'index.php?id=users&action=add', array('title' => __('Register new user', 'users'), 'class' => 'btn default btn-small')); ?>
 
 <div class="pull-right">
 <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
 <?php echo Form::hidden('csrf', Security::token()); ?>
-<?php echo Form::checkbox('users_frontend_registration', null, $users_frontend_registration); ?> <?php echo __('Allow user registration') ?>
+<?php echo Form::checkbox('users_frontend_registration', null, $users_frontend_registration); ?> <?php echo __('Allow user registration', 'users') ?>
 <?php echo Form::input('users_frontend_submit', 'users_frontend_submit', array('style' => 'display:none;')); ?>
 <?php echo Form::close();?>
 </div>
