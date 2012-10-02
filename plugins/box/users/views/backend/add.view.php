@@ -10,7 +10,7 @@
         Form::input('login', null, array('class' => (isset($errors['users_this_user_alredy_exists']) || isset($errors['users_empty_login'])) ? 'span3 error-field' : 'span3'))
     );
 
-    if (isset($errors['users_this_user_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_user_alredy_exists'].'</span>';
+    if (isset($errors['users_this_user_alredy_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_this_user_alredy_exists'].'</span>';
     if (isset($errors['users_empty_login'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_login'].'</span>';
 
     echo (
@@ -22,7 +22,13 @@
 
     echo (
         Form::label('email', __('Email', 'users')).
-        Form::input('email', null, array('class' => 'span3')). Html::br().
+        Form::input('email', null, array('class' => (isset($errors['users_this_email_alredy_exists']) || isset($errors['users_empty_email'])) ? 'span3 error-field' : 'span3'))
+    );
+
+    if (isset($errors['users_this_email_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_alredy_exists'].'</span>';
+    if (isset($errors['users_empty_email'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_email'].'</span>';
+
+    echo(
         Form::label('role', __('Role', 'users')).
         Form::select('role', array('admin' => __('Admin', 'users'), 'editor' => __('Editor', 'users'), 'user' => __('User', 'users')), null, array('class' => 'span3')). Html::br(2).
         Form::submit('register', __('Register', 'users'), array('class' => 'btn default')).

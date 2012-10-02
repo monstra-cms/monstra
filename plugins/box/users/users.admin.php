@@ -67,17 +67,22 @@
 
                         if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
 
+                            // Errors
                             $errors = array();
+
                             if (Request::post('register')) {
 
                                 if (Security::check(Request::post('csrf'))) {
 
-                                    $user_login = trim(Request::post('login'));
+                                    $user_login    = trim(Request::post('login'));
                                     $user_password = trim(Request::post('password'));
+                                    $user_email    = trim(Request::post('email'));
+
                                     if ($user_login == '')    $errors['users_empty_login']    = __('Required field', 'users');
                                     if ($user_password == '') $errors['users_empty_password'] = __('Required field', 'users');
-                                    $user = $users->select("[login='".$user_login."']");
-                                    if ($user != null) $errors['users_this_user_alredy_exists'] = __('This user alredy exist', 'users');
+                                    if ($user_email == '')    $errors['users_empty_email']    = __('Required field', 'users');
+                                    if ($users->select("[login='".$user_login."']")) $errors['users_this_user_alredy_exists']  = __('This user alredy exist', 'users');
+                                    if ($users->select("[email='".$user_email."']")) $errors['users_this_email_alredy_exists'] = __('This email alredy exist', 'users');
                                     
                                     if (count($errors) == 0) {
                                         $users->insert(array('login'           => Security::safeName($user_login),
