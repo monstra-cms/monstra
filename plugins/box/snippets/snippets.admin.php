@@ -30,7 +30,7 @@
 
                             if (Security::check(Request::post('csrf'))) {
                               
-                                if (trim(Request::post('name')) == '') $errors['snippets_empty_name'] = __('This field should not be empty', 'snippets');
+                                if (trim(Request::post('name')) == '') $errors['snippets_empty_name'] = __('Required field', 'snippets');
                                 if (file_exists($snippets_path.Security::safeName(Request::post('name')).'.snippet.php')) $errors['snippets_exists'] = __('This snippet already exists', 'snippets');
 
                                 if (count($errors) == 0) {
@@ -69,7 +69,7 @@
 
                             if (Security::check(Request::post('csrf'))) {
 
-                                if (trim(Request::post('name')) == '') $errors['snippets_empty_name'] = __('This field should not be empty', 'snippets');
+                                if (trim(Request::post('name')) == '') $errors['snippets_empty_name'] = __('Required field', 'snippets');
                                 if ((file_exists($snippets_path.Security::safeName(Request::post('name')).'.snippet.php')) and (Security::safeName(Request::post('snippets_old_name')) !== Security::safeName(Request::post('name')))) $errors['snippets_exists'] = __('This snippet already exists', 'snippets');
 
                                 // Save fields

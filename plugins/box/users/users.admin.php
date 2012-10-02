@@ -74,8 +74,8 @@
 
                                     $user_login = trim(Request::post('login'));
                                     $user_password = trim(Request::post('password'));
-                                    if ($user_login == '')    $errors['users_empty_login']    = __('This field should not be empty', 'users');
-                                    if ($user_password == '') $errors['users_empty_password'] = __('This field should not be empty', 'users');
+                                    if ($user_login == '')    $errors['users_empty_login']    = __('Required field', 'users');
+                                    if ($user_password == '') $errors['users_empty_password'] = __('Required field', 'users');
                                     $user = $users->select("[login='".$user_login."']");
                                     if ($user != null) $errors['users_this_user_alredy_exists'] = __('This user alredy exist', 'users');
                                     

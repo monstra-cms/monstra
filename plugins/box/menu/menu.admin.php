@@ -92,7 +92,7 @@
                                     if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = $item['target'];
                                     if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = $item['order'];
 
-                                    $errors['menu_item_name_empty'] = __('This field should not be empty', 'menu');
+                                    $errors['menu_item_name_empty'] = __('Required field', 'menu');
                                 }
 
                                 // Update menu item    
@@ -152,7 +152,7 @@
                                     if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = '';
                                     if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = '';
 
-                                    $errors['menu_item_name_empty'] = __('This field should not be empty', 'menu');
+                                    $errors['menu_item_name_empty'] = __('Required field', 'menu');
                                 }
 
                                 // Insert new menu item

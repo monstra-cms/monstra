@@ -21,5 +21,6 @@
             'Snippet <i>:name</i> deleted' => 'Сниппет <i>:name</i> удален',
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Ваши изменения к сниппету <i>:name</i> были сохранены.',
             'Delete snippet: :snippet' => 'Удалить сниппет: :snippet',
+            'Required field' => 'Обязательное поле',
         )
     ); 

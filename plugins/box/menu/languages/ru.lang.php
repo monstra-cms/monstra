@@ -22,5 +22,6 @@
             'Select page' => 'Выбрать страницу',
             'Category' => 'Категория',
             'Select category' => 'Выбрать категорию',
+            'Required field' => 'Обязательное поле',
         )
     );

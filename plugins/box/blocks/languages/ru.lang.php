@@ -13,7 +13,7 @@
             'Save' => 'Сохранить',    
             'Actions' => 'Действия',
             'Save and exit' => 'Сохранить и выйти',        
-            'This field should not be empty' => 'Это поле не должно быть пустым',
+            'Required field' => 'Обязательное поле',
             'This block already exists' => 'Такой блок уже существует',
             'This block does not exist' => 'Такого блока не существует',
             'Delete block: :block' => 'Удалить блок: :block',

@@ -21,5 +21,6 @@
             'Snippet <i>:name</i> deleted' => 'Snippet <i>:name</i> deleted',
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Your changes to the snippet <i>:name</i> have been saved.',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',
+            'Required field' => 'Required field',
         )
     );

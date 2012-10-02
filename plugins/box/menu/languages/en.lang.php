@@ -22,5 +22,6 @@
             'Select page' => 'Select page',
             'Category' => 'Category',
             'Select category' => 'Select category',
+            'Required field' => 'Required field',
         )
     );
