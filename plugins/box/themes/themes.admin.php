@@ -15,7 +15,7 @@
             $current_site_theme = Option::get('theme_site_name');
             $current_admin_theme = Option::get('theme_admin_name');
 
-            // Init vsrs
+            // Init vars
             $themes_site   = Themes::getSiteThemes();
             $themes_admin  = Themes::getAdminThemes();
             $templates     = Themes::getTemplates();
