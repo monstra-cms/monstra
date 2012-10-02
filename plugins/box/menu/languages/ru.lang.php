@@ -15,10 +15,12 @@
             'Item order' => 'Порядок',        
             'Item target' => 'Цель',
             'Item link' => 'Ссылка',
+            'Item category' => 'Категория',
             'Save' => 'Сохранить',
             'Edit item' => 'Редактирование пункта меню',
-            'Delete item :name' => 'Удалить пункт меню :name',        
-            'Add page' => 'Добавить страницу',
+            'Delete item :name' => 'Удалить пункт меню :name',
             'Select page' => 'Выбрать страницу',
+            'Category' => 'Категория',
+            'Select category' => 'Выбрать категорию',
         )
     );

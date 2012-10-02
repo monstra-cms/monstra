@@ -3,26 +3,45 @@
     // Add plugin navigation link
     Navigation::add(__('Menu', 'menu'), 'content', 'menu', 3);
 
-    Action::add('admin_header', 'menuAdminHeaders');
+    Action::add('admin_header', 'MenuAdmin::headers');
 
-    function menuAdminHeaders() {
-        echo ("
-            <script> 
-                function addMenuPage(slug, title) {
-                    $('input[name=menu_item_link]').val(slug);
-                    $('input[name=menu_item_name]').val(title);
-                    $('#addMenuPageModal').modal('hide');
-                }
-            </script>
-        ");
-    }
 
     class MenuAdmin extends Backend {
+
+
+        /**
+         * Menu table
+         *
+         * @var object
+         */
+        public static $menu = null;
+
+
+        /**
+         * Headers
+         */
+        public static function headers() {
+            echo ("
+                <script> 
+                    function selectPage(slug, title) {
+                        $('input[name=menu_item_link]').val(slug);
+                        $('input[name=menu_item_name]').val(title);
+                        $('#selectPageModal').modal('hide');
+                    }
+
+                    function selectCategory(name) {
+                        $('input[name=menu_item_category]').val(name);
+                        $('#selectCategoryModal').modal('hide');
+                    }
+                </script>
+            ");
+        }
         
+
         public static function main() {
 
             // Get menu table
-            $menu = new Table('menu');
+            MenuAdmin::$menu = new Table('menu');
 
             // Get pages table
             $pages = new Table('pages');
@@ -50,12 +69,13 @@
                     case "edit":
 
                         // Select item
-                        $item = $menu->select('[id="'.Request::get('item_id').'"]', null);
+                        $item = MenuAdmin::$menu->select('[id="'.Request::get('item_id').'"]', null);
                         
-                        $menu_item_name = $item['name'];
-                        $menu_item_link = $item['link'];
-                        $menu_item_target = $item['target'];
-                        $menu_item_order = $item['order'];
+                        $menu_item_name       = $item['name'];
+                        $menu_item_link       = $item['link'];
+                        $menu_item_category   = $item['category'];
+                        $menu_item_target     = $item['target'];
+                        $menu_item_order      = $item['order'];
 
                         $errors = array();
 
@@ -68,6 +88,7 @@
 
                                     if (Request::post('menu_item_name')) $menu_item_name = Request::post('menu_item_name'); else $menu_item_name = $item['name'];
                                     if (Request::post('menu_item_link')) $menu_item_link = Request::post('menu_item_link'); else $menu_item_link = $item['link'];
+                                    if (Request::post('menu_item_category')) $menu_item_category = Request::post('menu_item_category'); else $menu_item_category = $item['category'];
                                     if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = $item['target'];
                                     if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = $item['order'];
 
@@ -76,10 +97,11 @@
 
                                 // Update menu item    
                                 if (count($errors) == 0) {
-                                    $menu->update(Request::get('item_id'), array('name'   => Request::post('menu_item_name'),
-                                                                                 'link'   => Request::post('menu_item_link'),
-                                                                                 'target' => Request::post('menu_item_target'),
-                                                                                 'order'  => Request::post('menu_item_order')));
+                                    MenuAdmin::$menu->update(Request::get('item_id'), array('name'       => Request::post('menu_item_name'),
+                                                                                 'link'       => Request::post('menu_item_link'),
+                                                                                 'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                                                 'target'     => Request::post('menu_item_target'),
+                                                                                 'order'      => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -92,11 +114,13 @@
                         View::factory('box/menu/views/backend/edit')
                                 ->assign('menu_item_name', $menu_item_name)
                                 ->assign('menu_item_link', $menu_item_link)
+                                ->assign('menu_item_category', $menu_item_category)
                                 ->assign('menu_item_target', $menu_item_target)
                                 ->assign('menu_item_order', $menu_item_order)
                                 ->assign('menu_item_target_array', $menu_item_target_array)
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
+                                ->assign('categories', MenuAdmin::getCategories())
                                 ->assign('pages_list', $pages->select('[slug!="error404" and parent=""]'))
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
@@ -110,6 +134,7 @@
 
                         $menu_item_name = '';
                         $menu_item_link = '';
+                        $menu_item_category = '';
                         $menu_item_target = '';
                         $menu_item_order = '';
                         $errors = array();                 
@@ -123,6 +148,7 @@
 
                                     if (Request::post('menu_item_name')) $menu_item_name = Request::post('menu_item_name'); else $menu_item_name = '';
                                     if (Request::post('menu_item_link')) $menu_item_link = Request::post('menu_item_link'); else $menu_item_link = '';
+                                    if (Request::post('menu_item_category')) $menu_item_category = Request::post('menu_item_category'); else $menu_item_category = '';
                                     if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = '';
                                     if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = '';
 
@@ -131,10 +157,11 @@
 
                                 // Insert new menu item
                                 if (count($errors) == 0) {
-                                    $menu->insert(array('name'   => Request::post('menu_item_name'),
-                                                        'link'   => Request::post('menu_item_link'),
-                                                        'target' => Request::post('menu_item_target'),
-                                                        'order'  => Request::post('menu_item_order')));
+                                    MenuAdmin::$menu->insert(array('name'       => Request::post('menu_item_name'),
+                                                        'link'       => Request::post('menu_item_link'),
+                                                        'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                        'target'     => Request::post('menu_item_target'),
+                                                        'order'      => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -142,16 +169,18 @@
                             } else { die('csrf detected!'); }
                         }
 
-                        
+                       
                         // Display view
                         View::factory('box/menu/views/backend/add')
                                 ->assign('menu_item_name', $menu_item_name)
                                 ->assign('menu_item_link', $menu_item_link)
+                                ->assign('menu_item_category', $menu_item_category)
                                 ->assign('menu_item_target', $menu_item_target)
                                 ->assign('menu_item_order', $menu_item_order)
                                 ->assign('menu_item_target_array', $menu_item_target_array)
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
+                                ->assign('categories', MenuAdmin::getCategories())
                                 ->assign('pages_list', $pages->select('[slug!="error404" and parent=""]'))
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
@@ -163,18 +192,36 @@
 
                 // Delete menu item
                 if (Request::get('delete_item')) {
-                    $menu->delete((int)Request::get('delete_item'));
+                    MenuAdmin::$menu->delete((int)Request::get('delete_item'));
                 }
                 
                 // Display view
                 View::factory('box/menu/views/backend/index')
-                        ->assign('items', $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC'))
+                        ->assign('categories', MenuAdmin::getCategories())
+                        ->assign('menu', MenuAdmin::$menu)
                         ->display();
 
             }
 
         }
         
+        
+        /**
+         * Get categories
+         */
+        public static function getCategories() {
+
+            $categories = array();
+
+            $_categories = MenuAdmin::$menu->select(null, 'all', null, array('category'));
+            
+            foreach($_categories as $category) {
+                $categories[] = $category['category'];
+            } 
+
+            return array_unique($categories);
+        }
+
 
         /**
          * Get components

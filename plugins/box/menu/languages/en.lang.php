@@ -15,10 +15,12 @@
             'Item order' => 'Item order',
             'Item target' => 'Item target',
             'Item link' => 'Item link',
+            'Item category' => 'Item category',
             'Save' => 'Save',
             'Edit item' => 'Edit item',
             'Delete item :name' => 'Delete item :name',
-            'Add page' => 'Add page',
             'Select page' => 'Select page',
+            'Category' => 'Category',
+            'Select category' => 'Select category',
         )
     );

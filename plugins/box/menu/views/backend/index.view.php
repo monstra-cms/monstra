@@ -1,13 +1,36 @@
 <h2><?php echo __('Menu', 'menu'); ?></h2>
 <br />
 
+<?php if ($menu->count() == 0) { ?>
+<h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3> 
+<br />
 <?php
     echo (
             Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
         ); 
 ?>
-
 <br /><br />
+<?php } ?>
+
+
+
+<?php
+
+    foreach ($categories as $category) {
+
+        $items = $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'order', 'category'), 'order', 'ASC');
+
+?>
+
+<h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
+<br />   
+<?php
+    echo (
+            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
+        ); 
+?>
+<br /><br />
+
 
 <table class="table table-bordered">
     <thead>
@@ -49,3 +72,5 @@
         <?php } ?>
     </tbody>
 </table> 
+<br />
+<?php } ?>

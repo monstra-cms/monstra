@@ -33,14 +33,20 @@
 
     class Menu {
         
-        public static function get() {
+
+        /**
+         * Get menu
+         *
+         * @param string $category Category name
+         */
+        public static function get($category = '') {
             
             // Get menu table
             $menu = new Table('menu');
 
             // Display view
             View::factory('box/menu/views/frontend/index')
-                    ->assign('items', $menu->select(null, 'all', null, array('id', 'name', 'link', 'target', 'order'), 'order', 'ASC'))
+                    ->assign('items', $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'order', 'category'), 'order', 'ASC'))
                     ->assign('uri', Uri::segments())
                     ->assign('defpage', Option::get('defaultpage'))                    
                     ->display();
