@@ -19,7 +19,7 @@
     /**
      * Set Monstra version
      */
-    define('MONSTRA_VERSION', '1.3.1');
+    define('MONSTRA_VERSION', '2.0.0 beta');
     
     /**
      * Set Monstra version id 
