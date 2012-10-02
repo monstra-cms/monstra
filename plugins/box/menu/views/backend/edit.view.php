@@ -14,9 +14,9 @@
 <?php 
 
     echo Form::label('menu_item_name', __('Item name', 'menu'));
-    echo Form::input('menu_item_name', $menu_item_name, array('class' => 'span3'.$error_class));
+    echo Form::input('menu_item_name', $menu_item_name, array('class' => (isset($errors['menu_item_name_empty']) || isset($errors['menu_item_name_empty'])) ? 'span3 error-field' : 'span3'));
 
-    if (isset($errors['menu_item_name_empty'])) echo Html::nbsp(4).'<span class="error">'.$errors['menu_item_name_empty'].'</span>';
+    if (isset($errors['menu_item_name_empty'])) echo Html::nbsp(4).'<span style="color:red;">'.$errors['menu_item_name_empty'].'</span>';
 
     echo (
         Form::label('menu_item_link', __('Item link', 'menu')).

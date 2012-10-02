@@ -13,7 +13,7 @@
             'Save' => 'Save',        
             'Save and exit' => 'Save and exit',       
             'Actions' => 'Actions', 
-            'This field should not be empty' => 'This field should not be empty',
+            'Required field' => 'Required field',
             'This block already exists' => 'This block already exists',
             'This block does not exist' => 'This block does not exist',
             'Delete block: :block' => 'Delete block: :block',

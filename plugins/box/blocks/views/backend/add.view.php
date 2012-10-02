@@ -13,12 +13,12 @@
 
     <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
 
-        <?php echo (Form::input('name', $name, array('class' => 'span5'))); ?>    
+    <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'span5 error-field' : 'span5'))); ?>
 
-        <?php
-            if (isset($errors['blocks_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_empty_name'].'</span>';
-            if (isset($errors['blocks_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_exists'].'</span>';
-        ?>
+    <?php
+        if (isset($errors['blocks_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_empty_name'].'</span>';
+        if (isset($errors['blocks_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_exists'].'</span>';
+    ?>
 
 <br /><br />
 <?php

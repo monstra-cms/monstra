@@ -14,7 +14,7 @@
     <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
 
         <div class="input-append">
-            <?php echo (Form::input('name', $name, array('class' => 'input-xlarge'))); ?><span class="add-on">.snippet.php</span>
+            <?php echo (Form::input('name', $name, array('class' => (isset($errors['snippets_empty_name']) || isset($errors['snippets_exists'])) ? 'input-xlarge error-field' : 'input-xlarge'))); ?><span class="add-on">.snippet.php</span>
         </div>
 
         <?php

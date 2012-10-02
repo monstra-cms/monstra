@@ -31,7 +31,7 @@
 
                             if (Security::check(Request::post('csrf'))) {
                           
-                                if (trim(Request::post('name')) == '') $errors['blocks_empty_name'] = __('This field should not be empty', 'blocks');
+                                if (trim(Request::post('name')) == '') $errors['blocks_empty_name'] = __('Required field', 'blocks');
                                 if (file_exists($blocks_path.Security::safeName(Request::post('name')).'.block.html')) $errors['blocks_exists'] = __('This block already exists', 'blocks');
 
                                 if (count($errors) == 0) {
@@ -71,7 +71,7 @@
 
                             if (Security::check(Request::post('csrf'))) {
 
-                                if (trim(Request::post('name')) == '') $errors['blocks_empty_name'] = __('This field should not be empty', 'blocks');
+                                if (trim(Request::post('name')) == '') $errors['blocks_empty_name'] = __('Required field', 'blocks');
                                 if ((file_exists($blocks_path.Security::safeName(Request::post('name')).'.block.html')) and (Security::safeName(Request::post('blocks_old_name')) !== Security::safeName(Request::post('name')))) $errors['blocks_exists'] = __('This block already exists', 'blocks');
 
                                 // Save fields
