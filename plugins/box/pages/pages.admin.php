@@ -190,7 +190,7 @@
                         if (Request::post('page_description')) $post_description = Request::post('page_description'); else $post_description = '';
                         if (Request::post('editor'))           $post_content     = Request::post('editor'); else $post_content = '';
                         if (Request::post('templates'))        $post_template    = Request::post('templates'); else $post_template = 'index';
-                        if (Request::post('pages'))            $parent_page      = Request::post('pages'); else $parent_page = '';
+                        if (Request::post('pages'))            $parent_page      = Request::post('pages'); else if(Request::get('parent_page')) $parent_page = Request::get('parent_page'); else $parent_page = '';
                         if (Request::post('robots_index'))     $post_robots_index = true; else $post_robots_index = false;
                         if (Request::post('robots_follow'))    $post_robots_follow = true; else $post_robots_follow = false;
                         //--------------
