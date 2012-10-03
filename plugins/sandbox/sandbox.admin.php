@@ -62,8 +62,10 @@
          */
         public static function formComponentSave() {
             if (Request::post('sandbox_component_save')) {
-                Option::update('sandbox_template', Request::post('sandbox_form_template'));
-                Request::redirect('index.php?id=themes');
+                if (Security::check(Request::post('csrf'))) {
+                    Option::update('sandbox_template', Request::post('sandbox_form_template'));
+                    Request::redirect('index.php?id=themes');
+                }
             }
         }
 
@@ -72,12 +74,15 @@
          * Form Component
          */
         public static function formComponent() {
-            
-            $_templates = Themes::getTemplates();
-            foreach($_templates as $template) $templates[basename($template, '.template.php')] = basename($template, '.template.php');
 
+            $_templates = Themes::getTemplates();
+            foreach($_templates as $template) {
+                $templates[] = basename($template, '.template.php');
+            }
+           
             echo (
                 Form::open().
+                Form::hidden('csrf', Security::token()).
                 Form::label('sandbox_form_template', __('Sandbox template')).
                 Form::select('sandbox_form_template', $templates, Option::get('sandbox_template')).
                 Html::br().
