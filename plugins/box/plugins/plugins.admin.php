@@ -28,59 +28,73 @@
             // Delete plugin
             // -------------------------------------   
             if (Request::get('delete_plugin')) {  
+
+                if (Security::check(Request::get('token'))) {
                       
-                // Nobody cant remove box plugins
-                if ($installed_plugins[Text::lowercase(str_replace("Plugin", "", Request::get('delete_plugin')))]['privilege'] !== 'box') {
-                    
-                    // Run plugin uninstaller file
-                    $plugin_name = Request::get('delete_plugin');
-                    if (File::exists(PLUGINS . DS . $plugin_name . DS .'install' . DS . $plugin_name . '.uninstall.php')) {
-                        include PLUGINS . DS . $plugin_name . DS . 'install' . DS . $plugin_name . '.uninstall.php';
-                    }
-                    
-                    // Clean i18n cache
-                    Cache::clean('i18n');
-                    
-                    // Delete plugin form plugins table                
-                    $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
-                   
-                    // Redirect
-                    Request::redirect('index.php?id=plugins');                               
-                } 
+                    // Nobody cant remove box plugins
+                    if ($installed_plugins[Text::lowercase(str_replace("Plugin", "", Request::get('delete_plugin')))]['privilege'] !== 'box') {
+                        
+                        // Run plugin uninstaller file
+                        $plugin_name = Request::get('delete_plugin');
+                        if (File::exists(PLUGINS . DS . $plugin_name . DS .'install' . DS . $plugin_name . '.uninstall.php')) {
+                            include PLUGINS . DS . $plugin_name . DS . 'install' . DS . $plugin_name . '.uninstall.php';
+                        }
+                        
+                        // Clean i18n cache
+                        Cache::clean('i18n');
+                        
+                        // Delete plugin form plugins table                
+                        $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
+                       
+                        // Redirect
+                        Request::redirect('index.php?id=plugins');                               
+                    } 
+
+                } else { die('csrf detected!'); }
             }
 
 
             // Install new plugin
             // -------------------------------------   
-            if (Request::get('install')) {                          
+            if (Request::get('install')) {     
 
-                // Load plugin install xml file
-                $plugin_xml = XML::loadFile(PLUGINS . DS . basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . Request::get('install'));           
+                if (Security::check(Request::get('token'))) {                     
 
-                // Add plugin to plugins table
-                $plugins->insert(array('name'     => basename(Request::get('install'), '.manifest.xml'),                                       
-                                       'location' => (string)$plugin_xml->plugin_location,
-                                       'status'   => (string)$plugin_xml->plugin_status,
-                                       'priority' => (int)$plugin_xml->plugin_priority));
-          
-                // Clean i18n cache
-                Cache::clean('i18n');                
-          
-                // Run plugin installer file
-                $plugin_name = str_replace(array("Plugin", ".manifest.xml"), "", Request::get('install'));
-                if (File::exists(PLUGINS . DS .basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php')) {
-                    include PLUGINS . DS . basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php';
-                }
-    
-                Request::redirect('index.php?id=plugins');                                  
+                    // Load plugin install xml file
+                    $plugin_xml = XML::loadFile(PLUGINS . DS . basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . Request::get('install'));           
+
+                    // Add plugin to plugins table
+                    $plugins->insert(array('name'     => basename(Request::get('install'), '.manifest.xml'),                                       
+                                           'location' => (string)$plugin_xml->plugin_location,
+                                           'status'   => (string)$plugin_xml->plugin_status,
+                                           'priority' => (int)$plugin_xml->plugin_priority));
+              
+                    // Clean i18n cache
+                    Cache::clean('i18n');                
+              
+                    // Run plugin installer file
+                    $plugin_name = str_replace(array("Plugin", ".manifest.xml"), "", Request::get('install'));
+                    if (File::exists(PLUGINS . DS .basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php')) {
+                        include PLUGINS . DS . basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php';
+                    }
+        
+                    Request::redirect('index.php?id=plugins');     
+
+                } else { die('csrf detected!'); }                             
             }
 
 
             // Delete plugin from server
             // -------------------------------------
             if (Request::get('delete_plugin_from_server')) {
-                Dir::delete(PLUGINS . DS . basename(Request::get('delete_plugin_from_server'), '.manifest.xml'));
-                Request::redirect('index.php?id=plugins');
+
+                if (Security::check(Request::get('token'))) {  
+
+                    Dir::delete(PLUGINS . DS . basename(Request::get('delete_plugin_from_server'), '.manifest.xml'));
+                    Request::redirect('index.php?id=plugins');
+
+                } else { die('csrf detected!'); } 
+                
             }
             
 
