@@ -16,6 +16,9 @@
     class UsersAdmin extends Backend {
 
 
+        /**
+         * Headers
+         */
         public static function headers() {
             echo ('
                 <script>
@@ -27,6 +30,7 @@
                 </script>           
             ');
         }
+
 
         /**
          * Users admin
@@ -217,13 +221,10 @@
 
                 if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
                     
-                    // Get all records from users table
-                    $users_list = $users->select();
-                    
                     // Dislay view
                     View::factory('box/users/views/backend/index')
                             ->assign('roles', $roles)
-                            ->assign('users_list', $users_list)
+                            ->assign('users_list', $users->select())
                             ->assign('users_frontend_registration', $users_frontend_registration)
                             ->display();
 
