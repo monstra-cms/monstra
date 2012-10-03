@@ -23,7 +23,7 @@
         <td>            
             <?php echo Html::anchor(__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.basename($snippet, '.snippet.php'), array('class' => 'btn btn-actions')); ?>
             <?php echo Html::anchor(__('Delete', 'snippets'),
-                      'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php'),
+                      'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php').'&token='.Security::token(),
                        array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
             ?>
         </td>

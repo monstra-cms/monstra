@@ -114,9 +114,15 @@
                                 ->display();
                     break;
                     case "delete_snippet":
-                        File::delete($snippets_path.Request::get('filename').'.snippet.php');
-                        Notification::set('success', __('Snippet <i>:name</i> deleted', 'snippets', array(':name' => File::name(Request::get('filename')))));
-                        Request::redirect('index.php?id=snippets');
+
+                        if (Security::check(Request::get('token'))) {
+
+                            File::delete($snippets_path.Request::get('filename').'.snippet.php');
+                            Notification::set('success', __('Snippet <i>:name</i> deleted', 'snippets', array(':name' => File::name(Request::get('filename')))));
+                            Request::redirect('index.php?id=snippets');
+
+                        } else { die('csrf detected!'); }
+
                     break;
                 }
             } else {
