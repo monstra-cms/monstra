@@ -66,20 +66,27 @@
 
                 // Create Sitemap
                 // -------------------------------------  
-                if (Request::get('sitemap')) {
-                    if ('create' == Request::get('sitemap')) {
+                if (Request::get('sitemap') == 'create') {
+
+                    if (Security::check(Request::get('token'))) {
+
                         Notification::set('success', __('Sitemap created', 'system'));
+                        
                         Sitemap::create();
-                        Request::redirect('index.php?id=system');
-                    }            
+
+                        Request::redirect('index.php?id=system');                    
+
+                    } else { die('csrf detected!'); }
+
                 }
 
 
                 // Delete temporary files
                 // -------------------------------------  
-                if (Request::get('temporary_files')) {
-                    if ('delete' == Request::get('temporary_files')) {
+                if (Request::get('temporary_files') == 'delete') {
 
+                    if (Security::check(Request::get('token'))) {
+                    
                         $namespaces = Dir::scan(CACHE);
                         if (count($namespaces) > 0) {
                             foreach ($namespaces as $namespace) {
@@ -104,13 +111,19 @@
                 // Set maintenance state on or off
                 // -------------------------------------  
                 if (Request::get('maintenance')) {
-                    if ('on' == Request::get('maintenance')) {                            
-                        Option::update('maintenance_status', 'on');
-                        Request::redirect('index.php?id=system');
-                    }
-                    if ('off' == Request::get('maintenance')) {                                
-                        Option::update('maintenance_status', 'off');
-                        Request::redirect('index.php?id=system');
+
+                    if (Security::check(Request::get('token'))) {
+
+                        if ('on' == Request::get('maintenance')) {                            
+                            Option::update('maintenance_status', 'on');
+                            Request::redirect('index.php?id=system');
+                        }
+                        
+                        if ('off' == Request::get('maintenance')) {                                
+                            Option::update('maintenance_status', 'off');
+                            Request::redirect('index.php?id=system');
+                        }
+
                     }
                 }
 

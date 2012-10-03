@@ -4,12 +4,12 @@
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
-<?php echo Html::anchor(__('Create sitemap', 'system'), 'index.php?id=system&sitemap=create', array('class' => 'btn')).Html::nbsp(2); ?>
-<?php echo Html::anchor(__('Delete temporary files', 'system'), 'index.php?id=system&temporary_files=delete', array('class' => 'btn')).Html::nbsp(2); ?>
+<?php echo Html::anchor(__('Create sitemap', 'system'), 'index.php?id=system&sitemap=create&token='.Security::token(), array('class' => 'btn')).Html::nbsp(2); ?>
+<?php echo Html::anchor(__('Delete temporary files', 'system'), 'index.php?id=system&temporary_files=delete&token='.Security::token(), array('class' => 'btn')).Html::nbsp(2); ?>
 <?php if ('off' == Option::get('maintenance_status', 'system')) { ?>
-<?php echo Html::anchor(__('Maintenance Mode On', 'system'), 'index.php?id=system&maintenance=on', array('class' => 'btn')); ?>
+<?php echo Html::anchor(__('Maintenance Mode On', 'system'), 'index.php?id=system&maintenance=on&token='.Security::token(), array('class' => 'btn')); ?>
 <?php } else { ?>
-<?php echo Html::anchor(__('Maintenance Mode Off', 'system'), 'index.php?id=system&maintenance=off', array('class' => 'btn btn-danger')); ?>
+<?php echo Html::anchor(__('Maintenance Mode Off', 'system'), 'index.php?id=system&maintenance=off&token='.Security::token(), array('class' => 'btn btn-danger')); ?>
 <?php } ?>
 <?php Action::run('admin_system_extra_buttons'); ?>
 
