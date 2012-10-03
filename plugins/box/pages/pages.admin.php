@@ -414,23 +414,27 @@
                                    
                         // Error 404 page can not be removed                                               
                         if (Request::get('name') !== 'error404') {
+
+                            if (Security::check(Request::get('token'))) {
                                
-                            // Get page
-                            $page = $pages->select('[slug="'.Request::get('name').'"]', null);
-                            
-                            //  Delete page and update <parent> fields
-                            if ($pages->deleteWhere('[slug="'.Request::get('name').'" ]')) {
-                                $pages->updateWhere('[parent="'.Request::get('name').'"]', array('parent' => ''));
-                                File::delete(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt');
-                                Notification::set('success', __('Page <i>:page</i> deleted', 'pages', array(':page' => Html::toText($page['title']))));
-                            }
+                                // Get specific page
+                                $page = $pages->select('[slug="'.Request::get('name').'"]', null);
+                                
+                                //  Delete page and update <parent> fields
+                                if ($pages->deleteWhere('[slug="'.$page['slug'].'" ]')) {
+                                    $pages->updateWhere('[parent="'.$page['slug'].'"]', array('parent' => ''));
+                                    File::delete(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt');
+                                    Notification::set('success', __('Page <i>:page</i> deleted', 'pages', array(':page' => Html::toText($page['title']))));
+                                }
 
-                            // Run delete extra actions
-                            Action::run('admin_pages_action_delete');
+                                // Run delete extra actions
+                                Action::run('admin_pages_action_delete');
 
-                            // Redirect
-                            Request::redirect('index.php?id=pages');
-                        }
+                                // Redirect
+                                Request::redirect('index.php?id=pages');
+
+                            } else { die('csrf detected!'); }
+                        } 
 
                     break;
                 }
@@ -448,11 +452,12 @@
                 $count = 0;
                 
                 // Get pages
-                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'parent'));
+                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'parent', 'uid'));
 
                 // Loop
                 foreach ($pages_list as $page) {
 
+                    $pages_array[$count]['uid']     = $page['uid'];
                     $pages_array[$count]['title']   = $page['title'];
                     $pages_array[$count]['parent']  = $page['parent'];
                     $pages_array[$count]['status']  = $status_array[$page['status']];

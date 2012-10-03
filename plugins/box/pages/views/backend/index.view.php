@@ -72,7 +72,7 @@
                                 <li><?php echo Html::anchor(__('Clone', 'pages'), 'index.php?id=pages&action=clone_page&name='.$page['slug'], array('title' => __('Clone', 'pages'))); ?></li>
                             </ul>    
                             <?php echo Html::anchor(__('Delete', 'pages'),
-                                       'index.php?id=pages&action=delete_page&name='.$page['slug'],
+                                       'index.php?id=pages&action=delete_page&name='.$page['slug'].'&token='.Security::token(),
                                        array('class' => 'btn btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__("Delete page: :page", 'pages', array(':page' => Html::toText($page['title'])))."')"));
                             ?>
                         </div>
