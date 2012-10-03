@@ -5,6 +5,7 @@
     <?php
         echo (
             Form::open(null, array('enctype' => 'multipart/form-data')).
+            Form::hidden('csrf', Security::token()).
             Form::input('file', null, array('type' => 'file', 'size' => '25')).Html::br().
             Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn default btn-small')).
             Form::close()
@@ -50,7 +51,7 @@
             </td>
             <td>
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
-                       'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path,
+                       'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path.'&token='.Security::token(),
                        array('class' => 'btn', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
             ?>
             </td>
@@ -70,7 +71,7 @@
             </td>
             <td>
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
-                       'index.php?id=filesmanager&delete_file='.$file.'&path='.$path,
+                       'index.php?id=filesmanager&delete_file='.$file.'&path='.$path.'&token='.Security::token(),
                        array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
             ?>                      
             </td>

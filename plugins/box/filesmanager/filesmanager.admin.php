@@ -75,31 +75,42 @@
             
             // Delete file
             // -------------------------------------    
-            if (Request::get('id') == 'filesmanager') {
-                if (Request::get('delete_file')) {                                            
+            if (Request::get('id') == 'filesmanager' && Request::get('delete_file')) {
+
+                if (Security::check(Request::get('token'))) {                                      
+
                     File::delete($files_path.Request::get('delete_file'));
                     Request::redirect($site_url.'admin/index.php?id=filesmanager&path='.$path);
-                }
+
+                } else { die('csrf detected!'); }
             }
 
             // Delete dir
             // -------------------------------------    
-            if (Request::get('id') == 'filesmanager') {
-                if (Request::get('delete_dir')) {
+            if (Request::get('id') == 'filesmanager' && Request::get('delete_dir')) {
+
+                if (Security::check(Request::get('token'))) {      
+
                     Dir::delete($files_path.Request::get('delete_dir'));                
                     Request::redirect($site_url.'admin/index.php?id=filesmanager&path='.$path);
-                }
+
+                } else { die('csrf detected!'); }
             }
 
             // Upload file
             // -------------------------------------    
             if (Request::post('upload_file')) {
-                if ($_FILES['file']) {
-                    if ( ! in_array(File::ext($_FILES['file']['name']), $forbidden_types)) {        
-                        move_uploaded_file($_FILES['file']['tmp_name'], $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), '-', true).'.'.File::ext($_FILES['file']['name']));
-                        Request::redirect($site_url.'admin/index.php?id=filesmanager&path='.$path);                    
+
+                if (Security::check(Request::post('csrf'))) {      
+
+                    if ($_FILES['file']) {
+                        if ( ! in_array(File::ext($_FILES['file']['name']), $forbidden_types)) {        
+                            move_uploaded_file($_FILES['file']['tmp_name'], $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), '-', true).'.'.File::ext($_FILES['file']['name']));
+                            Request::redirect($site_url.'admin/index.php?id=filesmanager&path='.$path);                    
+                        }
                     }
-                }
+                    
+                } else { die('csrf detected!'); }
             }
 
             // Display view
