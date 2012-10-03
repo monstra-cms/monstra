@@ -44,7 +44,7 @@
         <td>
             <?php echo Html::anchor(__('Edit', 'users'), 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-actions')); ?>
             <?php echo Html::anchor(__('Delete', 'users'),
-                       'index.php?id=users&action=delete&user_id='.$user['id'],
+                       'index.php?id=users&action=delete&user_id='.$user['id'].'&token='.Security::token(),
                        array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete user: :user', 'users', array(':user' => Html::toText($user['login'])))."')"));
              ?>
         </td>
