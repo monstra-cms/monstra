@@ -459,70 +459,113 @@
                     // Delete chunk
                     // -------------------------------------  
                     case "delete_chunk":
-                        File::delete($chunk_path.Request::get('filename').'.chunk.php');
-                        Notification::set('success', __('Chunk <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
-                        Request::redirect('index.php?id=themes');
+
+                        if (Security::check(Request::get('token'))) {
+
+                            File::delete($chunk_path.Request::get('filename').'.chunk.php');
+                            Notification::set('success', __('Chunk <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
+                            Request::redirect('index.php?id=themes');
+
+                        } else { die('csrf detected!'); }                      
+
                     break;
 
 
                     // Delete styles
                     // -------------------------------------  
                     case "delete_styles":
-                        File::delete($style_path.Request::get('filename').'.css');
-                        Notification::set('success', __('Styles <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
-                        Request::redirect('index.php?id=themes');
+
+                        if (Security::check(Request::get('token'))) {
+
+                            File::delete($style_path.Request::get('filename').'.css');
+                            Notification::set('success', __('Styles <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
+                            Request::redirect('index.php?id=themes');
+
+                        } else { die('csrf detected!'); }                      
+
                     break;
                     
                     // Delete script
                     // -------------------------------------  
                     case "delete_script":
-                        File::delete($script_path.Request::get('filename').'.js');
-                        Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
-                        Request::redirect('index.php?id=themes');
+                        
+                        if (Security::check(Request::get('token'))) {
+
+                            File::delete($script_path.Request::get('filename').'.js');
+                            Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
+                            Request::redirect('index.php?id=themes');
+
+                        } else { die('csrf detected!'); }                      
+
                     break;
 
                     // Delete template
                     // -------------------------------------  
                     case "delete_template":
-                        File::delete($template_path.Request::get('filename').'.template.php');
-                        Notification::set('success', __('Template <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
-                        Request::redirect('index.php?id=themes');
+                        
+                        if (Security::check(Request::get('token'))) {
+
+                            File::delete($template_path.Request::get('filename').'.template.php');
+                            Notification::set('success', __('Template <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
+                            Request::redirect('index.php?id=themes');
+                        }
+
                     break;
 
                     // Clone styles
                     // ------------------------------------- 
                     case "clone_styles":
-                        File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.css',
-                                         File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') . '.css'));
-                                         
-                        Request::redirect('index.php?id=themes');
+
+                        if (Security::check(Request::get('token'))) {
+
+                            File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.css',
+                                             File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') . '.css'));
+                                             
+                            Request::redirect('index.php?id=themes');
+                        }
+
                     break;
 
                     // Clone script
                     // ------------------------------------- 
                     case "clone_script":
-                        File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.js',
-                                         File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') . '.js'));
-                                         
-                        Request::redirect('index.php?id=themes');
+                        
+                        if (Security::check(Request::get('token'))) {
+
+                            File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.js',
+                                             File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') . '.js'));
+                                             
+                            Request::redirect('index.php?id=themes');
+                        }
+
                     break;
 
                     // Clone template
                     // ------------------------------------- 
                     case "clone_template":
-                        File::setContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.template.php',
-                                         File::getContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') . '.template.php'));
-                                         
-                        Request::redirect('index.php?id=themes');
+
+                        if (Security::check(Request::get('token'))) {
+
+                            File::setContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.template.php',
+                                             File::getContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') . '.template.php'));
+                                             
+                            Request::redirect('index.php?id=themes');
+
+                        }
+
                     break;
 
                     // Clone chunk
                     // ------------------------------------- 
                     case "clone_chunk":
-                        File::setContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.chunk.php',
-                                         File::getContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') . '.chunk.php'));
-                                         
-                        Request::redirect('index.php?id=themes');
+
+                        if (Security::check(Request::get('token'))) {
+                            File::setContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.chunk.php',
+                                             File::getContent(THEMES_SITE . DS . $current_site_theme . DS . Request::get('filename') . '.chunk.php'));
+                                             
+                            Request::redirect('index.php?id=themes');
+                        }
+                        
                     break;
                     
                 }

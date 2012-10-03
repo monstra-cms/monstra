@@ -73,10 +73,10 @@
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_template&filename='.basename($template, '.template.php'), array('class' => 'btn btn-actions')); ?>
                     <a class="btn dropdown-toggle btn-actions" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php'), array('title' => __('Clone'))); ?></li>
+                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php').'&token='.Security::token(), array('title' => __('Clone'))); ?></li>
                     </ul>            
                     <?php echo Html::anchor(__('Delete', 'themes'),
-                               'index.php?id=themes&action=delete_template&filename='.basename($template, '.template.php'),
+                               'index.php?id=themes&action=delete_template&filename='.basename($template, '.template.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete template: :name', 'themes', array(':name' => basename($template, '.template.php')))."')"));
                     ?>
                 </div>
@@ -105,10 +105,10 @@
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_chunk&filename='.basename($chunk, '.chunk.php'), array('class' => 'btn btn-actions')); ?>
                     <a class="btn dropdown-toggle btn-actions" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_chunk&filename='.basename($chunk, '.chunk.php'), array('title' => __('Clone', 'themes'))); ?></li>
+                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>            
                     <?php echo Html::anchor(__('Delete', 'themes'),
-                               'index.php?id=themes&action=delete_chunk&filename='.basename($chunk, '.chunk.php'),
+                               'index.php?id=themes&action=delete_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete chunk: :name', 'themes', array(':name' => basename($chunk, '.chunk.php')))."')"));
                     ?>
                 </div>
@@ -137,10 +137,10 @@
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_styles&filename='.basename($style, '.css'), array('class' => 'btn btn-actions')); ?>
                     <a class="btn dropdown-toggle btn-actions" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_styles&filename='.basename($style, '.css'), array('title' => __('Clone', 'themes'))); ?></li>
+                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_styles&filename='.basename($style, '.css').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>            
                     <?php echo Html::anchor(__('Delete', 'themes'),
-                               'index.php?id=themes&action=delete_styles&filename='.basename($style, '.css'),
+                               'index.php?id=themes&action=delete_styles&filename='.basename($style, '.css').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete styles: :name', 'themes', array(':name' => basename($style, '.css')))."')"));
                     ?>
                 </div>
@@ -169,10 +169,10 @@
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_script&filename='.basename($script, '.js'), array('class' => 'btn btn-actions')); ?>
                     <a class="btn dropdown-toggle btn-actions" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_script&filename='.basename($script, '.js'), array('title' => __('Clone', 'themes'))); ?></li>
+                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_script&filename='.basename($script, '.js').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>            
                     <?php echo Html::anchor(__('Delete', 'themes'),
-                               'index.php?id=themes&action=delete_script&filename='.basename($script, '.js'),
+                               'index.php?id=themes&action=delete_script&filename='.basename($script, '.js').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete script: :name', 'themes', array(':name' => basename($script, '.js')))."')"));
                     ?>
                 </div>
