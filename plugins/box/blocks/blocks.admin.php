@@ -117,9 +117,15 @@
                                 ->display();
                     break;
                     case "delete_block":
-                        File::delete($blocks_path.Request::get('filename').'.block.html');
-                        Notification::set('success', __('Block <i>:name</i> deleted', 'blocks', array(':name' => File::name(Request::get('filename')))));
-                        Request::redirect('index.php?id=blocks');
+
+                        if (Security::check(Request::get('token'))) { 
+
+                            File::delete($blocks_path.Request::get('filename').'.block.html');
+                            Notification::set('success', __('Block <i>:name</i> deleted', 'blocks', array(':name' => File::name(Request::get('filename')))));
+                            Request::redirect('index.php?id=blocks');
+
+                        } else { die('csrf detected!'); }                        
+                        
                     break;
                 }
             } else {

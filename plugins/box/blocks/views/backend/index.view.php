@@ -23,7 +23,7 @@
         <td>            
             <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-actions')); ?>
             <?php echo Html::anchor(__('Delete', 'blocks'),
-                      'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html'),
+                      'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
                        array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
             ?>
         </td>
