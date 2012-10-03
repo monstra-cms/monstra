@@ -69,7 +69,7 @@
                                 <?php if ($page['parent'] == '') { ?>
                                     <li><a href="index.php?id=pages&action=add_page&parent_page=<?php echo $page['slug']; ?>" title="<?php echo __('Create new page', 'pages'); ?>"><?php echo __('Add', 'pages'); ?></a></li>
                                 <?php } ?>
-                                <li><?php echo Html::anchor(__('Clone', 'pages'), 'index.php?id=pages&action=clone_page&name='.$page['slug'], array('title' => __('Clone', 'pages'))); ?></li>
+                                <li><?php echo Html::anchor(__('Clone', 'pages'), 'index.php?id=pages&action=clone_page&name='.$page['slug'].'&token='.Security::token(), array('title' => __('Clone', 'pages'))); ?></li>
                             </ul>    
                             <?php echo Html::anchor(__('Delete', 'pages'),
                                        'index.php?id=pages&action=delete_page&name='.$page['slug'].'&token='.Security::token(),

@@ -51,42 +51,48 @@
                     // Clone page
                     // -------------------------------------    
                     case "clone_page":
+
+
+                        if (Security::check(Request::get('token'))) {
                         
-                        // Generate rand page name
-                        $rand_page_name = Request::get('name').'_clone_'.date("Ymd_His");
+                            // Generate rand page name
+                            $rand_page_name = Request::get('name').'_clone_'.date("Ymd_His");
 
-                        // Get original page
-                        $orig_page = $pages->select('[slug="'.Request::get('name').'"]', null); 
+                            // Get original page
+                            $orig_page = $pages->select('[slug="'.Request::get('name').'"]', null); 
 
-                        // Clone page
-                        if($pages->insert(array('slug'         => $rand_page_name,
-                                                'template'     => $orig_page['template'],
-                                                'parent'       => $orig_page['parent'],
-                                                'robots_index' => $orig_page['robots_index'],
-                                                'robots_follow'=> $orig_page['robots_follow'],
-                                                'status'       => $orig_page['status'],
-                                                'title'        => $rand_page_name,
-                                                'description'  => $orig_page['description'],
-                                                'keywords'     => $orig_page['keywords'],
-                                                'date'         => $orig_page['date'],
-                                                'author'       => $orig_page['author']))) {
-                        
-                            // Get cloned page ID
-                            $last_id = $pages->lastId();
+                            // Clone page
+                            if ($pages->insert(array('slug'         => $rand_page_name,
+                                                     'template'     => $orig_page['template'],
+                                                     'parent'       => $orig_page['parent'],
+                                                     'robots_index' => $orig_page['robots_index'],
+                                                     'robots_follow'=> $orig_page['robots_follow'],
+                                                     'status'       => $orig_page['status'],
+                                                     'title'        => $rand_page_name,
+                                                     'description'  => $orig_page['description'],
+                                                     'keywords'     => $orig_page['keywords'],
+                                                     'date'         => $orig_page['date'],
+                                                     'author'       => $orig_page['author']))) {
+                            
+                                // Get cloned page ID
+                                $last_id = $pages->lastId();
 
-                            // Save cloned page content
-                            File::setContent(STORAGE . DS . 'pages' . DS . $last_id . '.page.txt',
-                                             File::getContent(STORAGE . DS . 'pages' . DS . $orig_page['id'] . '.page.txt'));
+                                // Save cloned page content
+                                File::setContent(STORAGE . DS . 'pages' . DS . $last_id . '.page.txt',
+                                                 File::getContent(STORAGE . DS . 'pages' . DS . $orig_page['id'] . '.page.txt'));
 
-                            // Send notification
-                            Notification::set('success', __('The page <i>:page</i> cloned.', 'pages', array(':page' => Security::safeName(Request::get('name'), '-', true))));                                                                                                                   
-                        }
+                                // Send notification
+                                Notification::set('success', __('The page <i>:page</i> cloned.', 'pages', array(':page' => Security::safeName(Request::get('name'), '-', true))));                                                                                                                   
+                            }
 
-                        // Run add extra actions
-                        Action::run('admin_pages_action_clone'); 
+                            // Run add extra actions
+                            Action::run('admin_pages_action_clone'); 
 
-                        // Redirect
-                        Request::redirect('index.php?id=pages');
+                            // Redirect
+                            Request::redirect('index.php?id=pages');
+
+                        } else { die('csrf detected!'); }
+
                     break;
 
                     // Add page
@@ -452,12 +458,11 @@
                 $count = 0;
                 
                 // Get pages
-                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'parent', 'uid'));
+                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'parent'));
 
                 // Loop
                 foreach ($pages_list as $page) {
 
-                    $pages_array[$count]['uid']     = $page['uid'];
                     $pages_array[$count]['title']   = $page['title'];
                     $pages_array[$count]['parent']  = $page['parent'];
                     $pages_array[$count]['status']  = $status_array[$page['status']];
