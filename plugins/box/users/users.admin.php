@@ -48,9 +48,14 @@
             }
 
             if (Request::post('users_frontend_submit')) {
-                if (Request::post('users_frontend_registration')) $users_frontend_registration = 'true'; else $users_frontend_registration = 'false';
-                Option::update('users_frontend_registration', $users_frontend_registration);
-                Request::redirect('index.php?id=users');
+
+                if (Security::check(Request::post('csrf'))) {
+
+                    if (Request::post('users_frontend_registration')) $users_frontend_registration = 'true'; else $users_frontend_registration = 'false';
+                    Option::update('users_frontend_registration', $users_frontend_registration);                    
+                    Request::redirect('index.php?id=users');
+
+                } else { die('csrf detected!'); }
             }
 
             // Check for get actions
@@ -189,11 +194,19 @@
                     case "delete":
 
                         if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
-                            $user = $users->select('[id="'.Request::get('user_id').'"]', null);
-                            $users->delete(Request::get('user_id'));
-                            Notification::set('success', __('User <i>:user</i> have been deleted.', 'users', array(':user' => $user['login']))); 
-                            Request::redirect('index.php?id=users');
+
+                            if (Security::check(Request::get('token'))) {
+
+                                $user = $users->select('[id="'.Request::get('user_id').'"]', null);
+                                $users->delete(Request::get('user_id'));
+                                Notification::set('success', __('User <i>:user</i> have been deleted.', 'users', array(':user' => $user['login']))); 
+                                Request::redirect('index.php?id=users');
+
+                            } else { die('csrf detected!'); }
+
                         }
+
+                        
 
                     break;
                 }
