@@ -20,6 +20,14 @@
 
 
     class Form {
+
+
+        /**
+         * The registered custom macros.
+         *
+         * @var array
+         */
+        public static $macros = array();
         
 
         /** 
@@ -29,6 +37,38 @@
          */  
         protected function __construct() {
             // Nothing here
+        }
+
+
+        /**
+         * Registers a custom macro.
+         *
+         *  <code> 
+         * 
+         *      // Registering a Form macro
+         *      Form::macro('my_field', function() {
+         *          return '<input type="text" name="my_field">';
+         *      });
+         * 
+         *      // Calling a custom Form macro
+         *      echo Form::my_field();
+         *
+         *
+         *      // Registering a Form macro with parameters
+         *      Form::macro('my_field', function($value = '') {
+         *          return '<input type="text" name="my_field" value="'.$value.'">';
+         *      });
+         * 
+         *      // Calling a custom Form macro with parameters
+         *      echo Form::my_field('Monstra');
+         *   
+         *  </code>
+         *
+         * @param  string   $name  Name
+         * @param  Closure  $macro Macro
+         */
+        public static function macro($name, $macro) {
+            Form::$macros[$name] = $macro;
         }
         
 
@@ -358,6 +398,23 @@
          */
         public static function close() {
             return '</form>';
+        }
+
+
+        /**
+         * Dynamically handle calls to custom macros.
+         *
+         * @param  string  $method
+         * @param  array   $parameters
+         * @return mixed
+         */
+        public static function __callStatic($method, $parameters) {
+
+            if (isset(Form::$macros[$method])) {
+                return call_user_func_array(Form::$macros[$method], $parameters);
+            }
+
+            throw new RuntimeException("Method [$method] does not exist.");
         }
 
     }
