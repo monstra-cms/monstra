@@ -2,13 +2,14 @@
 <hr>
 <?php if ($user) { ?>
 <table>
-<tr><td><?php echo __('Username', 'users'); ?></td><td><?php echo $user['login']; ?></td></tr>
-<tr><td><?php echo __('Firstname', 'users'); ?></td><td><?php echo Html::toText($user['firstname']); ?></td></tr>
-<tr><td><?php echo __('Lastname', 'users'); ?></td><td><?php echo Html::toText($user['lastname']); ?></td></tr>
-<tr><td><?php echo __('Email', 'users'); ?></td><td><?php echo Html::toText($user['email']); ?></td></tr>
-<tr><td><?php echo __('Registered', 'users'); ?></td><td><?php echo Date::format($user['date_registered']); ?></td></tr>
-<tr><td><?php echo __('Skype', 'users'); ?></td><td><?php echo Html::toText($user['skype']); ?></td></tr>
-<tr><td><?php echo __('Twitter', 'users'); ?></td><td><?php echo Html::toText($user['twitter']); ?></td></tr>
+<tr><td><b><?php echo __('Username', 'users'); ?></b>:</td><td><?php echo $user['login']; ?></td></tr>
+<?php if($user['firstname'] !== '') { ?><tr><td><b><?php echo __('Firstname', 'users'); ?></b>:</td><td><?php echo Html::toText($user['firstname']); ?></td></tr><?php } ?>
+<?php if($user['lastname'] !== '') { ?><tr><td><b><?php echo __('Lastname', 'users'); ?></b>:</td><td><?php echo Html::toText($user['lastname']); ?></td></tr><?php } ?>
+<?php if($user['email'] !== '') { ?><tr><td><b><?php echo __('Email', 'users'); ?></b>:</td><td><?php echo Html::toText($user['email']); ?></td></tr><?php } ?>
+<?php if($user['date_registered'] !== '') { ?><tr><td><b><?php echo __('Registered', 'users'); ?></b>:</td><td><?php echo Date::format($user['date_registered']); ?></td></tr><?php } ?>
+<?php if($user['skype'] !== '') { ?><tr><td><b><?php echo __('Skype', 'users'); ?></b>:</td><td><?php echo Html::toText($user['skype']); ?></td></tr><?php } ?>
+<?php if($user['twitter'] !== '') { ?><tr><td><b><?php echo __('Twitter', 'users'); ?></b>:</td><td><?php echo Html::toText($user['twitter']); ?></td></tr><?php } ?>
+<?php if($user['about_me'] !== '') { ?><tr><td><b><?php echo __('About Me', 'users'); ?></b>:</td><td><?php echo Html::toText($user['about_me']); ?></td></tr><?php } ?>
 </table>
 <br />
 <?php if (Users::isLoged()) { ?>

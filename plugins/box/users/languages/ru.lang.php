@@ -60,5 +60,6 @@
             'Your login details for :site_name has been sent' => 'Ваши данные для доступа к :site_name были отправлены',
             'Your new password for :site_name' => 'Ваш новый пароль для :site_name',
             'Your login details for :site_name' => 'Ваши данные для доступа к :site_name',
+            'About Me' => 'Обо мне',
         )
     );

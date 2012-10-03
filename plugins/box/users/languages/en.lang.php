@@ -61,5 +61,6 @@
             'Your login details for :site_name has been sent' => 'Your login details for :site_name has been sent',
             'Your new password for :site_name' => 'Your new password for :site_name',
             'Your login details for :site_name' => 'Your login details for :site_name',
+            'About Me' => 'About Me',
         )
     );

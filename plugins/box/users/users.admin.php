@@ -128,6 +128,7 @@
                         if (isset($user['email']))     $user_email = $user['email']; else $user_email = '';
                         if (isset($user['twitter']))   $user_twitter = $user['twitter']; else $user_twitter = '';
                         if (isset($user['skype']))     $user_skype = $user['skype']; else $user_skype = '';
+                        if (isset($user['about_me']))  $user_about_me = $user['about_me']; else $user_about_me = '';
 
                         if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor'))) {
 
@@ -144,6 +145,7 @@
                                                                                           'email'     => Request::post('email'),
                                                                                           'skype'     => Request::post('skype'),
                                                                                           'twitter'   => Request::post('twitter'),
+                                                                                          'about_me'  => Request::post('about_me'),
                                                                                           'role'      => Request::post('role')))) { 
                                                 
                                                 Notification::set('success', __('Your changes have been saved.', 'users'));                                            
@@ -178,6 +180,7 @@
                                         ->assign('user_email', $user_email)
                                         ->assign('user_twitter', $user_twitter)
                                         ->assign('user_skype', $user_skype)
+                                        ->assign('user_about_me', $user_about_me)
                                         ->assign('roles', $roles)
                                         ->display();
 

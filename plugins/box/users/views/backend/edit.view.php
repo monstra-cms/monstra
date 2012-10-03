@@ -42,7 +42,9 @@
             Form::label('twitter', __('Twitter', 'users')).
             Form::input('twitter', $user_twitter, array('class' => 'span6')).Html::br().
             Form::label('skype', __('Skype', 'users')).
-            Form::input('skype', $user_skype, array('class' => 'span6')).Html::br()
+            Form::input('skype', $user_skype, array('class' => 'span6')).Html::br().
+            Form::label('about_me', __('About Me', 'users')).
+            Form::textarea('about_me', $user_about_me, array('class' => 'span6')).Html::br()
         );
 
         if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {        
