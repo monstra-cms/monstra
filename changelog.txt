@@ -9,8 +9,9 @@ Monstra 2.0.0, xxxx-xx-xx
 - Pages Plugin: Updated date() method - added ability to set date format.
 - Pages Plugin: UI and Logic updates.
 - Users Plugin: Email templates added.
-- Users Table: Added new field - hash
+- Users Table: Added new fields: hash, about_me
 - Users Plugin: Admin - New User Registration Validation - Fixed
+- Users Plugin: Added ability to set "about me" information.
 - Improved Password Reset Logic.
 - Information Plugin: Added new tab "Server" with common server information. 
 - Box Plugins: CSRF vulnerability resolved.
@@ -30,6 +31,7 @@ Monstra 2.0.0, xxxx-xx-xx
 - Plugin API: Fixed Javascript and Stylesheet class. 
 - Plugin API: Added ability to set view file from current theme folder.
 - New options theme_admin_name, theme_site_name, users_frontend_registration added.
+- Form Helper: Custom Macros - added
 - Install Script Improvments.
 - Monstra Localization Improvments. Added locales array to I18N class.
 - Translates updates.
