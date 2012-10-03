@@ -13,6 +13,7 @@ Monstra 2.0.0, xxxx-xx-xx
 - Users Plugin: Admin - New User Registration Validation - Fixed
 - Improved Password Reset Logic.
 - Information Plugin: Added new tab "Server" with common server information. 
+- Box Plugins: CSRF vulnerability resolved.
 - Sitemap Plugin: Basic search engine optimization.
 - Improved Menu Plugin. Added ability to manage items categories.
 - Improved Admin Theme - built with best frontend optimization practice. Updated architecture and User Interface. Admin theme more responsive now!
