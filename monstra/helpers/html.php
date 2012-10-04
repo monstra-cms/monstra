@@ -45,6 +45,38 @@
             // Nothing here
         }
 
+
+        /**
+         * Registers a custom macro.
+         *
+         *  <code> 
+         * 
+         *      // Registering a Htmlk macro
+         *      Html::macro('my_element', function() {
+         *          return '<element id="monstra">';
+         *      });
+         * 
+         *      // Calling a custom Html macro
+         *      echo Html::my_element();
+         *
+         *
+         *      // Registering a Html macro with parameters
+         *      Html::macro('my_element', function(id = '') {
+         *      	return '<element id="'.$id.'">';
+         *      });
+         * 
+         *      // Calling a custom Html macro with parameters
+         *      echo Html::my_element('monstra');
+         *   
+         *  </code>
+         *
+         * @param  string   $name  Name
+         * @param  Closure  $macro Macro
+         */
+        public static function macro($name, $macro) {
+            Html::$macros[$name] = $macro;
+        }
+        
         
 		/**
 		 * Convert special characters to HTML entities. All untrusted content
@@ -274,5 +306,22 @@
 	    public static function toText($str) {
 	        return htmlspecialchars($str, ENT_QUOTES, 'utf-8');        
 	    }
+	    
+	    
+        /**
+         * Dynamically handle calls to custom macros.
+         *
+         * @param  string  $method
+         * @param  array   $parameters
+         * @return mixed
+         */
+        public static function __callStatic($method, $parameters) {
+
+            if (isset(Html::$macros[$method])) {
+                return call_user_func_array(Html::$macros[$method], $parameters);
+            }
+
+            throw new RuntimeException("Method [$method] does not exist.");
+        }
 
 	}
