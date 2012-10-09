@@ -1,4 +1,4 @@
-Monstra 2.0.0, xxxx-xx-xx
+Monstra 2.0.0, 2012-10-09
 ------------------------
 - Idiorm Added! Idiorm - a lightweight nearly-zero-configuration object-relational mapper and fluent query builder for PHP5.
 - Added Crypt Capthca Plugin
