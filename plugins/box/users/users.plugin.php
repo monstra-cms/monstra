@@ -232,6 +232,7 @@
                                                                           'lastname'  => Request::post('lastname'),
                                                                           'email'     => Request::post('email'),
                                                                           'skype'     => Request::post('skype'),
+                                                                          'about_me'  => Request::post('about_me'),
                                                                           'twitter'   => Request::post('twitter')))) { 
 
                                 // Change password
