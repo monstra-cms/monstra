@@ -136,6 +136,9 @@
             
             // Set the input name
             $attributes['name'] = $name;
+            
+            // Set the input id
+            $attributes['id'] = (isset($attributes['id']))?$attributes['id']:$name;
 
             // Set the input value
             $attributes['value'] = $value;
@@ -286,6 +289,9 @@
             
             // Set the input name
             $attributes['name'] = $name;
+            
+            // Set the input id
+            $attributes['id'] = (isset($attributes['id']))?$attributes['id']:$name;
 
             return '<textarea'.Html::attributes($attributes).'>'.$body.'</textarea>';
         }
@@ -309,6 +315,9 @@
             
             // Set the input name
             $attributes['name'] = $name;
+            
+            // Set the input id
+            $attributes['id'] = (isset($attributes['id']))?$attributes['id']:$name;
             
             $options_output = '';
 
