@@ -204,7 +204,8 @@
          * Logout
          */
         public static function logout() {
-            Session::destroy(); Request::redirect(Site::url().'users/login');
+            Session::destroy();
+            Request::redirect($_SERVER["HTTP_REFERER"]);
         }
 
 
