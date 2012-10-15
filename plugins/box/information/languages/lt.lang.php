@@ -3,7 +3,7 @@
     return array(
         'information' => array(
             'Information' => 'Informacija',
-            'Debuging' => 'Derinimas',
+            'Debugging' => 'Derinimas',
             'Name' => 'Pavadinimas',
             'Value' => 'Reikšmė',
             'Security' => 'Saugumas',
