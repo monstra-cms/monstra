@@ -18,7 +18,7 @@
         <?php Javascript::add('public/assets/js/bootstrap.js', 'backend', 2); ?>
         <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 3); ?>
         <?php Javascript::load(); ?>
-        <script type="text/javascript">
+        <script type="application/javascript">
             $().ready(function () {
                 <?php if (Notification::get('reset_password') == 'reset_password') { ?>
                     $('.reset-password-area, .administration-btn').show();   
@@ -45,7 +45,7 @@
 
         <!--[if lt IE 9]>
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script type="application/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         
     </head>

@@ -49,7 +49,7 @@
             $time    = (int)    $time;
              
             echo '<div class="alert alert-info">'.$message.'</div>
-                  <script type="text/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';    
+                  <script type="application/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';    
         }
 
 
@@ -70,7 +70,7 @@
             $time    = (int)    $time;
             
             echo '<div class="alert alert-warning">'.$message.'</div>
-                  <script type="text/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';      
+                  <script type="application/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';      
         }
 
 
@@ -91,7 +91,7 @@
             $time    = (int)    $time;
             
             echo '<div class="alert alert-error">'.$message.'</div>
-                  <script type="text/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';
+                  <script type="application/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';
         }        
 
     }

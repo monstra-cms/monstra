@@ -11,8 +11,8 @@
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="<?php echo Option::get('siteurl'); ?>public/assets/js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo Option::get('siteurl'); ?>public/assets/js/bootstrap.js"></script>
+    <script type="text/application" src="<?php echo Option::get('siteurl'); ?>public/assets/js/jquery.js"></script>
+    <script type="text/application" src="<?php echo Option::get('siteurl'); ?>public/assets/js/bootstrap.js"></script>
     <?php Javascript::load(); ?>
 
   </body>

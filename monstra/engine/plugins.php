@@ -1134,9 +1134,9 @@
 
                 // Render 
                 if (BACKEND) {
-                    echo '<script type="text/javascript" src="'.Option::get('siteurl').'tmp/minify/backend_site.minify.js"></script>';                    
+                    echo '<script type="application/javascript" src="'.Option::get('siteurl').'tmp/minify/backend_site.minify.js"></script>';                    
                 } else {
-                    echo '<script type="text/javascript" src="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.js"></script>';
+                    echo '<script type="application/javascript" src="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.js"></script>';
                 } 
             }        
         }

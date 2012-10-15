@@ -53,7 +53,7 @@
             'java'       => 'text/x-java',
             'jpeg'       => 'image/jpeg',
             'jpg'        => 'image/jpeg',
-            'js'         => 'text/javascript',
+            'js'         => 'application/javascript',
             'json'       => 'application/json',
             'mid'        => 'audio/midi',
             'midi'       => 'audio/midi',
