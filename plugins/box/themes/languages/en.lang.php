@@ -39,7 +39,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Your changes to the chunk <i>:name</i> have been saved.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Your changes to the styles <i>:name</i> have been saved.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Your changes to the template <i>:name</i> have been saved.',
-            'This field should not be empty' => 'This field should not be empty',
+            'Required field' => 'Required field',
             'Scripts' => 'Scripts',
             'Create new script' => 'Create new script',
             'Script content' => 'Script content',
