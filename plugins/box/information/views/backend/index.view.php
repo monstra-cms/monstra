@@ -33,7 +33,7 @@
                         <td><?php if (MONSTRA_GZIP) { echo __('on', 'information'); } else { echo __('off', 'information'); } ?></td>
                     </tr>
                     <tr>        
-                        <td><?php echo __('Debuging', 'information'); ?></td>
+                        <td><?php echo __('Debugging', 'information'); ?></td>
                         <td><?php if (Core::$environment == Core::DEVELOPMENT) { echo __('on', 'information'); } else { echo __('off', 'information'); } ?></td>
                     </tr>
                 </tbody>

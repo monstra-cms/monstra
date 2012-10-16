@@ -3,7 +3,7 @@
     return array(
         'information' => array(
             'Information' => 'Информация',
-            'Debuging' => 'Дебагинг',
+            'Debugging' => 'Дебагинг',
             'Name' => 'Название',
             'Value' => 'Значение',
             'Security' => 'Безопасность',
