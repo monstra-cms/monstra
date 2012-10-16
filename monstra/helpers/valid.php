@@ -45,7 +45,7 @@
 		 * @return  boolean
 		 */
 		public static function email($email) {
-			return (bool) preg_match('/^[-_a-z0-9\'+*$^&%=~!?{}]++(?:\.[-_a-z0-9\'+*$^&%=~!?{}]+)*+@(?:(?![-.])[-a-z0-9.]+(?<![-.])\.[a-z]{2,6}|\d{1,3}(?:\.\d{1,3}){3})(?::\d++)?$/iD', (string)$email);
+			return (bool) filter_var((string)$email, FILTER_VALIDATE_EMAIL);
 		}
 		
 
@@ -53,7 +53,7 @@
 		 * Check an ip address for correct format.
 		 *
 		 *	<code>
-		 *		if (Valid::ip('127.0.0.1')) {
+		 *		if (Valid::ip('127.0.0.1') || Valid::ip('0:0:0:0:0:0:7f00:1')) {
 		 *			// Do something...
 		 *  	}
 		 *	</code>
@@ -62,7 +62,7 @@
 		 * @return  boolean
 		 */
 		public static function ip($ip) {
-			return (bool) preg_match("^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}^", (string)$ip);
+			return (bool) filter_var((string)$ip, FILTER_VALIDATE_IP);
 		}
 
 
@@ -130,7 +130,7 @@
 		 * @return  boolean
 		 */
 		public static function url($url) {
-			return (bool) preg_match("|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i", (string)$url);	
+			return (bool) filter_var((string)$url, FILTER_VALIDATE_URL);
 		}
 
 
