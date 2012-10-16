@@ -19,7 +19,7 @@
             'Delete user: :user' => 'Удалить пользователя: :user',
             'User <i>:user</i> have been deleted.' => 'Пользователь <i>:user</i> удален.',
             'This field should not be empty' => 'Обязательное поле',
-            'This user alredy exist' => 'Такой пользователь уже существует',
+            'This user already exist' => 'Такой пользователь уже существует',
             'Changes saved' => 'Изменения сохранены',
             'Wrong old password' => 'Неправильный старый пароль',
             'Admin' => 'Администратор',
