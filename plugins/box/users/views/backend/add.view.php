@@ -7,10 +7,10 @@
         Form::open().
         Form::hidden('csrf', Security::token()).
         Form::label('login', __('Username', 'users')).
-        Form::input('login', null, array('class' => (isset($errors['users_this_user_alredy_exists']) || isset($errors['users_empty_login'])) ? 'span3 error-field' : 'span3'))
+        Form::input('login', null, array('class' => (isset($errors['users_this_user_already_exists']) || isset($errors['users_empty_login'])) ? 'span3 error-field' : 'span3'))
     );
 
-    if (isset($errors['users_this_user_alredy_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_this_user_alredy_exists'].'</span>';
+    if (isset($errors['users_this_user_already_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_this_user_already_exists'].'</span>';
     if (isset($errors['users_empty_login'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_login'].'</span>';
 
     echo (
@@ -22,10 +22,10 @@
 
     echo (
         Form::label('email', __('Email', 'users')).
-        Form::input('email', null, array('class' => (isset($errors['users_this_email_alredy_exists']) || isset($errors['users_empty_email'])) ? 'span3 error-field' : 'span3'))
+        Form::input('email', null, array('class' => (isset($errors['users_this_email_already_exists']) || isset($errors['users_empty_email'])) ? 'span3 error-field' : 'span3'))
     );
 
-    if (isset($errors['users_this_email_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_alredy_exists'].'</span>';
+    if (isset($errors['users_this_email_already_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_already_exists'].'</span>';
     if (isset($errors['users_empty_email'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_email'].'</span>';
 
     echo(

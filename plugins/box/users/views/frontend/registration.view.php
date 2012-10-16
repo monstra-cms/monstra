@@ -7,7 +7,7 @@
 
 <label><?php echo __('Username', 'users'); ?></label><input type="text" value="<?php echo $user_login; ?>" name="login">
 <?php   
-    if (isset($errors['users_this_user_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_user_alredy_exists'].'</span>';
+    if (isset($errors['users_this_user_already_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_user_already_exists'].'</span>';
     if (isset($errors['users_empty_login'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_empty_login'].'</span>';
 ?>
 <label><?php echo __('Password', 'users'); ?></label><input type="password" value="<?php echo $user_password; ?>" name="password">
@@ -16,7 +16,7 @@
 ?>
 <label><?php echo __('Email', 'users'); ?></label><input type="text" value="<?php echo $user_email; ?>" name="email">
 <?php   
-    if (isset($errors['users_this_email_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_alredy_exists'].'</span>';
+    if (isset($errors['users_this_email_already_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_already_exists'].'</span>';
     if (isset($errors['users_empty_email'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_empty_email'].'</span>';
     if (isset($errors['users_invalid_email'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_invalid_email'].'</span>';    
 ?>

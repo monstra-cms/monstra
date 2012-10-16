@@ -123,8 +123,8 @@
                             if ($user_password == '') $errors['users_empty_password'] = __('Required field', 'users');
                             if ($user_email == '')    $errors['users_empty_email']    = __('Required field', 'users');
                             if ($user_email != '' && ! Valid::email($user_email)) $errors['users_invalid_email'] = __('User email is invalid', 'users');
-                            if (Users::$users->select("[login='".$user_login."']")) $errors['users_this_user_alredy_exists'] = __('This user alredy exist', 'users');
-                            if (Users::$users->select("[email='".$user_email."']")) $errors['users_this_email_alredy_exists'] = __('This email alredy exist', 'users');
+                            if (Users::$users->select("[login='".$user_login."']")) $errors['users_this_user_already_exists'] = __('This user already exist', 'users');
+                            if (Users::$users->select("[email='".$user_email."']")) $errors['users_this_email_already_exists'] = __('This email already exist', 'users');
                                               
                             if (count($errors) == 0) {
 
