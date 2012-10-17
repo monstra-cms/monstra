@@ -27,7 +27,6 @@
             'Hour' => 'Stunde',
             'Minute' => 'Minute',
             'Second' => 'Sekunde',
-            'This field should not be empty' => 'Dieses Feld darf nicht leer sein',
             'This page already exists' => 'Diese Seite existiert bereits',
             'Extra' => 'Extra',
             'Save' => 'Speichern',
