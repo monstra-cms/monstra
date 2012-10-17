@@ -27,7 +27,6 @@
             'Hours' => 'Час',
             'Minute' => 'Минута',
             'Second' => 'Секунда',
-            'This field should not be empty' => 'Это поле не должно быть пустым',
             'This page already exists' => 'Такая страница уже существует',
             'Extra' => 'Дополнительно',
             'Save' => 'Сохранить',
