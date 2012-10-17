@@ -27,7 +27,6 @@
             'Hours' => 'Ora',
             'Minute' => 'Minuto',
             'Second' => 'Secondo',
-            'This field should not be empty' => 'Campo obbligatorio',
             'This page already exists' => 'Tale pagina già esistente',
             'Extra' => 'Extra',
             'Save' => 'Salva',
