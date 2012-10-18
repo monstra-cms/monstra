@@ -19,12 +19,12 @@
     /**
      * Set Monstra version
      */
-    define('MONSTRA_VERSION', '2.0.0');
+    define('MONSTRA_VERSION', '2.0.1');
     
     /**
      * Set Monstra version id 
      */
-    define('MONSTRA_VERSION_ID', 20000);
+    define('MONSTRA_VERSION_ID', 20001);
 
     /**
      * Set Monstra site url

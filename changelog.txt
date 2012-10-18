@@ -1,3 +1,10 @@
+Monstra 2.0.1, 2012-10-18
+------------------------
+- Localization: DE, LT, IT translations added
+- Validation Helper: Updated email, ip and url methods with filter_var instead preg_match function.
+- Localization: EN, RU translations fixed
+- Users Plugin: field "about_me" fixed
+
 Monstra 2.0.0, 2012-10-09
 ------------------------
 - Idiorm Added! Idiorm - a lightweight nearly-zero-configuration object-relational mapper and fluent query builder for PHP5.
