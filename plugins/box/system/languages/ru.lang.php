@@ -64,7 +64,7 @@
             'PHP 5.2 or greater is required' => 'PHP 5.2 или высше',
             'Apache Mod Rewrite is required' => 'Требуется Apache Mod Rewrite',
             'SimpleXML module is required' => 'Требуется SimpleXML модуль',
-            'Field "Site name" is empty' => 'Поле "Название сайта" пустое',
+            'Field "Site name" is empty' => 'Поле "Название сайта" не заполнено',
             'Field "Email" is empty' => 'Поле "Эл. почта" не заполнено',
             'Field "Username" is empty' => 'Поле "Имя пользователя" не заполнено',
             'Field "Password" is empty' => 'Поле "Пароль" не заполнено',
