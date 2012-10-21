@@ -19,7 +19,7 @@
             'Delete user: :user' => 'Elimina utente: :user',
             'User <i>:user</i> have been deleted.' => 'Utente <i>:user</i> è stato eliminato.',
             'This user already exist' => 'Questo utente è già esistente',
-            'This email already exits' => 'Questa email è già esistente',
+            'This email already exists' => 'Questa email è già esistente',
             'Changes saved' => 'Le modifiche sono state salvate',
             'Wrong old password' => 'Vecchia password errata',
             'Admin' => 'Amministratore',
