@@ -41,7 +41,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Le modifiche al chunk <i>:name</i> sono state salvate',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Le modifiche ai stili <i>:name</i> sono state salvate',
             'Your changes to the template <i>:name</i> have been saved.' => 'Le modifiche al modello <i>:name</i> sono state salvate',
-            'This field should not be empty' => 'Campo obbligatorio',
+            'Required field' => 'Campo obbligatorio',
             'Scripts' => 'Script',
             'Create new script' => 'Crea nuovo script',
             'Script content' => 'Contenuto dello script',
