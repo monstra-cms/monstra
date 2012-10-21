@@ -41,7 +41,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Ваши изменения к чанку <i>:name</i> были сохранены',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Ваши изменения к стилям <i>:name</i> были сохранены',
             'Your changes to the template <i>:name</i> have been saved.' => 'Ваши изменения к шаблону <i>:name</i> были сохранены',
-            'This field should not be empty' => 'Это поле не должно быть пустым',
+            'Required field' => 'Обязательное поле',
             'Scripts' => 'Скрипты',
             'Create new script' => 'Создать новый скрипт',
             'Script content' => 'Содержимое скрипта',
