@@ -19,6 +19,7 @@
             'Delete user: :user' => 'Удалить пользователя: :user',
             'User <i>:user</i> have been deleted.' => 'Пользователь <i>:user</i> удален.',
             'This user already exists' => 'Такой пользователь уже существует',
+            'This email already exists' => 'Такая эл. почта уже существует',
             'Changes saved' => 'Изменения сохранены',
             'Wrong old password' => 'Неправильный старый пароль',
             'Admin' => 'Администратор',
