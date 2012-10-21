@@ -20,7 +20,7 @@
             'Delete user: :user' => 'Delete user: :user',
             'User <i>:user</i> have been deleted.' => 'User <i>:user</i> have been deleted.',
             'This user already exists' => 'This user already exists',
-            'This email already exits' => 'This email already exits',
+            'This email already exists' => 'This email already exists',
             'Changes saved' => 'Changes saved',
             'Wrong old password' => 'Wrong old password',
             'Admin' => 'Admin',
