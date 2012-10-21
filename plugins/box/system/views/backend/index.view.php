@@ -56,3 +56,8 @@
     );
 ?>
 <!-- /System -->
+
+<?php
+    // Custom code for this plugin 
+    Action::run('admin_system_extra_index_template_actions');
+?>
