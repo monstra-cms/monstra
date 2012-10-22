@@ -10,7 +10,7 @@
             'Description' => 'Descrizione',
             'Delete' => 'Elimina',
             'Delete plugin :plugin' => 'Elimina plugin :plugin',
-            'This plugins does not exist' => 'Tale plugin non esiste',
+            'This plugin does not exist' => 'Tale plugin non esiste',
             'Version' => 'Versione',
             'Author' => 'Autore',
             'Get More Plugins' => 'Scarica altri plugin',

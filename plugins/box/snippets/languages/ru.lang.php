@@ -13,7 +13,6 @@
             'Edit snippet' => 'Редактирование сниппета',
             'Save' => 'Сохранить',        
             'Save and exit' => 'Сохранить и выйти',        
-            'This field should not be empty' => 'Это поле не должно быть пустым',
             'This snippet already exists' => 'Такой сниппет уже существует',
             'This snippet does not exist' => 'Такого сниппета не существует',
             'Delete snippet: :block' => 'Удалить сниппет: :snippet',
