@@ -77,7 +77,7 @@
 
             $_templates = Themes::getTemplates();
             foreach($_templates as $template) {
-                $templates[] = basename($template, '.template.php');
+                $templates[basename($template, '.template.php')] = basename($template, '.template.php');
             }
            
             echo (
