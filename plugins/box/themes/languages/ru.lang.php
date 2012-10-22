@@ -36,7 +36,7 @@
             'Current admin theme' => 'Текущая тема админки',
             'This template already exists' => 'Этот шаблон уже существует',
             'This chunk already exists' => 'Этот чанк уже существует',
-            'This styles already exists' => 'Эти стили уже существуют',
+            'This styles already exist' => 'Эти стили уже существуют',
             'Components templates' => 'Шаблоны компонентов',
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Ваши изменения к чанку <i>:name</i> были сохранены',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Ваши изменения к стилям <i>:name</i> были сохранены',
