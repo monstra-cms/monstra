@@ -34,7 +34,7 @@
             'Current admin theme' => 'Current admin theme',
             'This template already exists' => 'This template already exists',
             'This chunk already exists' => 'This chunk already exists',
-            'This styles already exists' => 'This styles already exists',
+            'This styles already exist' => 'This styles already exists',
             'Components templates' => 'Components templates',
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Your changes to the chunk <i>:name</i> have been saved.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Your changes to the styles <i>:name</i> have been saved.',
