@@ -83,10 +83,10 @@
             echo (
                 Form::open().
                 Form::hidden('csrf', Security::token()).
-                Form::label('sandbox_form_template', __('Sandbox template')).
+                Form::label('sandbox_form_template', __('Sandbox template', 'sandbox')).
                 Form::select('sandbox_form_template', $templates, Option::get('sandbox_template')).
                 Html::br().
-                Form::submit('sandbox_component_save', __('Save'), array('class' => 'btn')).        
+                Form::submit('sandbox_component_save', __('Save', 'sandbox'), array('class' => 'btn')).        
                 Form::close()
             );
         }
