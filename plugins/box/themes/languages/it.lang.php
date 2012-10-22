@@ -36,7 +36,7 @@
             'Current admin theme' => 'Tema corrente del backend',
             'This template already exists' => 'Questo modello già esistente',
             'This chunk already exists' => 'Questo chunk già esistente',
-            'This styles already exists' => 'Questi stili già esistenti',
+            'This styles already exist' => 'Questi stili già esistenti',
             'Components templates' => 'Modello dei componenti',
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Le modifiche al chunk <i>:name</i> sono state salvate',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Le modifiche ai stili <i>:name</i> sono state salvate',
