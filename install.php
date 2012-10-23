@@ -243,7 +243,7 @@
         </div>
         <div class="row">
             <div class="well span4 install-block">
-                <div style="text-align:center;"><a class="brand" href="#"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png"></a></div>
+                <div style="text-align:center;"><a class="brand" href="#"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
                 <hr>
                 <div>
                     <form action="install.php" method="post">
