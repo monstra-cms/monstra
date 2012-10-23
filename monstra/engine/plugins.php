@@ -951,50 +951,56 @@
                 // Sort stylesheets by priority
                 $stylesheets = Arr::subvalSort(Stylesheet::$stylesheets, 'priority');
 
-                // Build backend site stylesheets
-                foreach ($stylesheets as $stylesheet) {
-                    if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both')) ) {
-                        if ( ! file_exists($backend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($backend_site_css_path)) {
-                            $backend_regenerate = true;
-                            break;
-                        }
-                    } 
-                }
+                if (BACKEND) {
 
-                // Regenerate site stylesheet
-                if ($backend_regenerate) {
-                    foreach ($stylesheets as $stylesheet) {                        
+                    // Build backend site stylesheets
+                    foreach ($stylesheets as $stylesheet) {
                         if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both')) ) {
-                            $backend_buffer .= file_get_contents(ROOT . DS . $stylesheet['file']);                            
-                        }
+                            if ( ! file_exists($backend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($backend_site_css_path)) {
+                                $backend_regenerate = true;
+                                break;
+                            }
+                        } 
                     }
-                    $backend_buffer = Stylesheet::parseVariables($backend_buffer);
-                    file_put_contents($backend_site_css_path, Minify::css($backend_buffer));
-                    $backend_regenerate = false;
-                }
 
-
-                // Build frontend site stylesheets
-                foreach ($stylesheets as $stylesheet) {                    
-                    if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both')) ) {
-                        if ( ! file_exists($frontend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($frontend_site_css_path)) {
-                            $frontend_regenerate = true;
-                            break;
+                    // Regenerate site stylesheet
+                    if ($backend_regenerate) {
+                        foreach ($stylesheets as $stylesheet) {                        
+                            if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both')) ) {
+                                $backend_buffer .= file_get_contents(ROOT . DS . $stylesheet['file']);                            
+                            }
                         }
-                    } 
-                }
+                        $backend_buffer = Stylesheet::parseVariables($backend_buffer);
+                        file_put_contents($backend_site_css_path, Minify::css($backend_buffer));
+                        $backend_regenerate = false;
+                    }
 
-                // Regenerate site stylesheet
-                if ($frontend_regenerate) {
-                    foreach ($stylesheets as $stylesheet) {                        
+
+                } else {
+
+                    // Build frontend site stylesheets
+                    foreach ($stylesheets as $stylesheet) {                    
                         if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both')) ) {
-                            $frontend_buffer .= file_get_contents(ROOT . DS . $stylesheet['file']);
-                        }
+                            if ( ! file_exists($frontend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($frontend_site_css_path)) {
+                                $frontend_regenerate = true;
+                                break;
+                            }
+                        } 
                     }
-                    $frontend_buffer = Stylesheet::parseVariables($frontend_buffer);
-                    file_put_contents($frontend_site_css_path, Minify::css($frontend_buffer));
-                    $frontend_regenerate = false;
-                }               
+
+                    // Regenerate site stylesheet
+                    if ($frontend_regenerate) {
+                        foreach ($stylesheets as $stylesheet) {                        
+                            if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both')) ) {
+                                $frontend_buffer .= file_get_contents(ROOT . DS . $stylesheet['file']);
+                            }
+                        }
+                        $frontend_buffer = Stylesheet::parseVariables($frontend_buffer);
+                        file_put_contents($frontend_site_css_path, Minify::css($frontend_buffer));
+                        $frontend_regenerate = false;
+                    }               
+
+                }
 
                 // Render 
                 if (BACKEND) {
@@ -1089,47 +1095,53 @@
                 // Sort javascripts by priority
                 $javascripts = Arr::subvalSort(Javascript::$javascripts, 'priority');
 
-                // Build backend site javascript
-                foreach ($javascripts as $javascript) {
-                    if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
-                        if ( ! file_exists($backend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($backend_site_js_path)) {
-                            $backend_regenerate = true;
-                            break;
-                        }
-                    } 
-                }
 
-                // Regenerate site javascript
-                if ($backend_regenerate) {
-                    foreach ($javascripts as $javascript) {                        
+                if (BACKEND) {
+
+                    // Build backend site javascript
+                    foreach ($javascripts as $javascript) {
                         if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
-                            $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
-                        }
+                            if ( ! file_exists($backend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($backend_site_js_path)) {
+                                $backend_regenerate = true;
+                                break;
+                            }
+                        } 
                     }
-                    file_put_contents($backend_site_js_path, $backend_buffer);
-                    $backend_regenerate = false;
-                }
 
-
-                // Build frontend site javascript
-                foreach ($javascripts as $javascript) {                    
-                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
-                        if ( ! file_exists($frontend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($frontend_site_js_path)) {
-                            $frontend_regenerate = true;
-                            break;
+                    // Regenerate site javascript
+                    if ($backend_regenerate) {
+                        foreach ($javascripts as $javascript) {                        
+                            if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
+                                $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
+                            }
                         }
-                    } 
-                }
-
-                // Regenerate site javascript
-                if ($frontend_regenerate) {
-                    foreach ($javascripts as $javascript) {                        
-                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
-                            $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
-                        }
+                        file_put_contents($backend_site_js_path, $backend_buffer);
+                        $backend_regenerate = false;
                     }
-                    file_put_contents($frontend_site_js_path, $frontend_buffer);
-                    $frontend_regenerate = false;
+
+                } else {
+
+                    // Build frontend site javascript
+                    foreach ($javascripts as $javascript) {                    
+                            if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
+                            if ( ! file_exists($frontend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($frontend_site_js_path)) {
+                                $frontend_regenerate = true;
+                                break;
+                            }
+                        } 
+                    }
+
+                    // Regenerate site javascript
+                    if ($frontend_regenerate) {
+                        foreach ($javascripts as $javascript) {                        
+                            if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
+                                $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
+                            }
+                        }
+                        file_put_contents($frontend_site_js_path, $frontend_buffer);
+                        $frontend_regenerate = false;
+                    }
+
                 }
 
                 // Render 
