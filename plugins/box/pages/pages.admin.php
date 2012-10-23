@@ -387,7 +387,7 @@
                             if (Request::post('status'))    $status   = Request::post('status');    else $status   = $page['status']; 
 
                             // Generate date
-                            $date = Date::format(time(), 'Y-m-d H:i:s');
+                            $date = Request::post('date') ? Request::post('date') : Date::format($page['date'], 'Y-m-d H:i:s');
 
                             Notification::setNow('page', 'page');                            
                         
