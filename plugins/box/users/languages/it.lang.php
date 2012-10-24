@@ -60,5 +60,6 @@
             'Your new password for :site_name' => 'La tua nuova password per :site_name',
             'Your login details for :site_name' => 'I tuoi dati di accesso per :site_name',
             'About Me' => 'Su di me',
+            'Profile' => 'Profilo',
         )
     );
