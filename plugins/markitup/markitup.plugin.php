@@ -35,9 +35,9 @@
         public static function headers() {
             echo ('
                 <!-- markItUp! -->
-                <script type="text/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/jquery.markitup.js"></script>
+                <script type="application/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/jquery.markitup.js"></script>
                 <!-- markItUp! toolbar settings -->
-                <script type="text/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/sets/html/set.js"></script>
+                <script type="application/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/sets/html/set.js"></script>
                 <!-- markItUp! skin -->
                 <link rel="stylesheet" type="text/css" href="'.Option::get('siteurl').'plugins/markitup/markitup/skins/simple/style.css" />
                 <!--  markItUp! toolbar skin -->
@@ -45,7 +45,7 @@
             ');
 
             echo ('
-                <script type="text/javascript">
+                <script type="application/javascript">
                     <!--
                     $(document).ready(function()    {
                         $("#editor_area").markItUp(mySettings);                    

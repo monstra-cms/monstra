@@ -23,7 +23,7 @@
 
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="application/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
 </head>

@@ -11,7 +11,7 @@
      */
     function checkMonstraVersion() { 
         echo ('
-                <script type="text/javascript">
+                <script type="application/javascript">
                     $.getJSON("http://monstra.org/api/basic.php?jsoncallback=?",
                         function(data){
                             var current_monstra_version_id = '.MONSTRA_VERSION_ID.';
