@@ -8,7 +8,7 @@
             'Create sitemap' => 'Crea sitemap',
             'on' => 'on',
             'off'=> 'off',    
-            'Site url' => 'URL',
+            'Site url' => 'URL del sito',
             'Maintenance Mode' => 'Modalità manutenzione',
             'Maintenance Mode On' => 'Abilita modalità manutenzione',
             'Maintenance Mode Off' => 'Disabilita modalità manutenzione',
