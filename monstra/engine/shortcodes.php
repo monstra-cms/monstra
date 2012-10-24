@@ -56,7 +56,7 @@
 
         
         /**
-         * Add shortcode
+         * Add new shortcode
          *
          *  <code> 
          *      function returnSiteUrl() {
@@ -77,6 +77,59 @@
             
             // Add new shortcode                      
             if (is_callable($callback_function)) Shortcode::$shortcode_tags[$shortcode] = $callback_function;        
+        }
+
+        
+        /**
+         * Remove a specific registered shortcode.
+         *
+         *  <code> 
+         *      Shortcode::delete('shortcode_name');
+         *  </code>
+         *
+         * @param string $shortcode Shortcode tag.
+         */
+        pubic static function delete($shortcode) {
+
+            // Redefine vars
+            $shortcode = (string) $shortcode;
+
+            // Delete shortcode
+    	    if (Shortcode::exist($shortcode)) unset(Shortcode::$shortcode_tags[$shortcode]);
+        }
+
+        
+        /**
+         * Remove all registered shortcodes.
+         *
+         *  <code> 
+         *      Shortcode::clear();
+         *  </code>
+         *
+         */
+        public static function clear() {
+            Shortcode::$shortcode_tags = array();
+        }
+
+
+        /**
+         * Check if a shortcode has been registered.
+         *
+         *  <code> 
+         *      if (Shortcode::exist('shortcode_name')) {
+         *          // do something...
+         *      }
+         *  </code>
+         *
+         * @param string $shortcode Shortcode tag.
+         */
+        pulbic static function exist($shortcode) {
+
+            // Redefine vars
+            $shortcode = (string) $shortcode;
+
+            // Check shortcode
+    	    return array_key_exists($shortcode, Shortcode::$shortcode_tags);
         }
 
 
