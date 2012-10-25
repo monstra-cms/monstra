@@ -89,7 +89,7 @@
          *
          * @param string $shortcode Shortcode tag.
          */
-        pubic static function delete($shortcode) {
+        public static function delete($shortcode) {
 
             // Redefine vars
             $shortcode = (string) $shortcode;
@@ -123,7 +123,7 @@
          *
          * @param string $shortcode Shortcode tag.
          */
-        pulbic static function exists($shortcode) {
+        public static function exists($shortcode) {
 
             // Redefine vars
             $shortcode = (string) $shortcode;
