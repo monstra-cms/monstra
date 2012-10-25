@@ -24,7 +24,7 @@
         Form::label('site_name', __('Site name', 'system')).
         Form::input('site_name', Option::get('sitename'), array('class' => 'span7')). Html::br().        
         Form::label('site_description', __('Site description', 'system')).
-        Form::textarea('site_description', Option::get('description', array('class' => 'span7')). Html::br().
+        Form::textarea('site_description', Option::get('description'), array('class' => 'span7')). Html::br().
         Form::label('site_keywords', __('Site keywords', 'system')).
         Form::input('site_keywords', Option::get('keywords'), array('class' => 'span7')). Html::br().
         Form::label('site_slogan', __('Site slogan', 'system')).
