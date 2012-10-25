@@ -148,7 +148,7 @@
             require_once(ENGINE . DS . 'site.php');
 
             // Init site module
-            Site::init();
+            if( ! BACKEND) Site::init();
 
         }
 
