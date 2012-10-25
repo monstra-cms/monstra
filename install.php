@@ -33,7 +33,7 @@
     
     // Select Monstra language
     if (Request::get('language')) {
-        if (in_array(Request::get('language'), array('en', 'ru', 'lt', 'it', 'de'))) {           
+        if (in_array(Request::get('language'), array('en', 'ru', 'lt', 'it', 'de', 'pt-br'))) {           
             if (Option::update('language', Request::get('language'))) {
                 Request::redirect($site_url);   
             }
@@ -232,6 +232,7 @@
                 <a class="language-link<?php if (Option::get('language') == 'it') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=it'; ?>">it</a> <span class="sep">|</span>
                 <a class="language-link<?php if (Option::get('language') == 'lt') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=lt'; ?>">lt</a> <span class="sep">|</span>
                 <a class="language-link<?php if (Option::get('language') == 'de') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=de'; ?>">de</a> <span class="sep">|</span>
+                <a class="language-link<?php if (Option::get('language') == 'pt-br') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=pt-br'; ?>">pt</a> <span class="sep">|</span>
                 <a class="language-link<?php if (Option::get('language') == 'ru') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=ru'; ?>">ru</a>
             </div>
         </div>
