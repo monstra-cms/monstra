@@ -242,7 +242,7 @@
                                 }
                                 
                                 Notification::set('success', __('Your changes have been saved.', 'users'));                                            
-                                Request::redirect(Site::url().'users/'.$user['id'].'/edit');
+                                Request::redirect(Site::url().'users/'.$user['id']);
                             }
                         } else { }  
 
