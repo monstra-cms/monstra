@@ -85,9 +85,11 @@
             Session::start();
 
             // Init ORM
-            ORM::configure(MONSTRA_DB_DSN);
-            ORM::configure('username', MONSTRA_DB_USER);
-            ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            if (defined('MONSTRA_DB_DSN')) {
+                ORM::configure(MONSTRA_DB_DSN);
+                ORM::configure('username', MONSTRA_DB_USER);
+                ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            }
 
             // Auto cleanup if MONSTRA_DEBUG is true
             if (Core::$environment == Core::DEVELOPMENT) {
