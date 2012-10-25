@@ -95,7 +95,7 @@
             $shortcode = (string) $shortcode;
 
             // Delete shortcode
-    	    if (Shortcode::exist($shortcode)) unset(Shortcode::$shortcode_tags[$shortcode]);
+    	    if (Shortcode::exists($shortcode)) unset(Shortcode::$shortcode_tags[$shortcode]);
         }
 
         
@@ -116,14 +116,14 @@
          * Check if a shortcode has been registered.
          *
          *  <code> 
-         *      if (Shortcode::exist('shortcode_name')) {
+         *      if (Shortcode::exists('shortcode_name')) {
          *          // do something...
          *      }
          *  </code>
          *
          * @param string $shortcode Shortcode tag.
          */
-        pulbic static function exist($shortcode) {
+        pulbic static function exists($shortcode) {
 
             // Redefine vars
             $shortcode = (string) $shortcode;
