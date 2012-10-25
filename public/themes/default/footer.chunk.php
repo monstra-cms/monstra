@@ -1,4 +1,3 @@
-
         <footer>
             <p>            
                 <div style="float:left;"><?php echo Chunk::get('footer-links'); ?></div>
@@ -11,8 +10,8 @@
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="<?php echo Option::get('siteurl'); ?>public/assets/js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo Option::get('siteurl'); ?>public/assets/js/bootstrap.js"></script>
+    <?php Javascript::add('public/assets/js/jquery.js', 'frontend', 1); ?> 
+    <?php Javascript::add('public/assets/js/bootstrap.js', 'frontend', 2); ?> 
     <?php Javascript::load(); ?>
 
   </body>
