@@ -43,6 +43,12 @@
 
 
         /**
+    	 * The version of Monstra
+    	 */
+    	const VERSION = '1.2.1';
+
+
+        /**
          * Monstra environment
          * 
          * @var string  
