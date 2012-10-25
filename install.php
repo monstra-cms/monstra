@@ -15,14 +15,7 @@
     
     // Load bootstrap file
     require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
-    
-    // Setting error display depending on debug mode or not
-    // Get php version id
-    if ( ! defined('PHP_VERSION_ID')){
-        $version = PHP_VERSION;
-        define('PHP_VERSION_ID', ($version{0} * 10000 + $version{2} * 100 + $version{4}));
-    }
-
+   
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
 
@@ -182,7 +175,8 @@
     <body class="install-body">
         <!-- Block_wrapper -->
 <?php
-        if (PHP_VERSION_ID < 50200) {
+
+        if (version_compare(PHP_VERSION, "5.2.0", "<")) {
             $errors['php'] = 'error';
         } else {
             $errors['php'] = '';
@@ -372,7 +366,7 @@
                     <ul>
                     <?php
 
-                        if (PHP_VERSION_ID < 50200) {
+                        if (version_compare(PHP_VERSION, "5.2.0", "<")) {
                             echo '<span class="error"><li>'.__('PHP 5.2 or greater is required', 'system').'</li></span>';
                         } else {                        
                             echo '<span class="ok"><li>'.__('PHP Version', 'system').' '.PHP_VERSION.'</li></span>';
