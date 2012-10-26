@@ -62,14 +62,9 @@
         /**
          *  Main function
          */        
-        public static function main() {
-            if (BACKEND == false) {
-                $pages = new Table('pages');            
-                Pages::$pages = $pages;
-
-                $page = Pages::pageLoader(); 
-                Pages::$page = $page;
-            }
+        public static function main() {          
+            Pages::$pages = new Table('pages');
+            Pages::$page  = Pages::pageLoader();
         }
 
         
