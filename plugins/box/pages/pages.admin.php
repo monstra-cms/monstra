@@ -274,48 +274,27 @@
 
                                         $pages->updateWhere('[parent="'.Request::get('name').'"]', array('parent' => Text::translitIt(trim(Request::post('page_name')))));
 
-                                        if ($pages->updateWhere('[slug="'.Request::get('name').'"]', 
-                                                            array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
-                                                                  'template'    => Request::post('templates'),
-                                                                  'parent'      => $parent_page,
-                                                                  'title'       => Request::post('page_title'),
-                                                                  'description' => Request::post('page_description'),
-                                                                  'keywords'    => Request::post('page_keywords'),
-                                                                  'robots_index' => $robots_index,
-                                                                  'robots_follow'=> $robots_follow,
-                                                                  'status'      => Request::post('status'),
-                                                                  'date'        => $date,
-                                                                  'author'      => $author))) {
-
-                                            File::setContent(STORAGE . DS . 'pages' . DS . Request::post('page_id') . '.page.txt', XML::safe(Request::post('editor')));
-                                            Notification::set('success', __('Your changes to the page <i>:page</i> have been saved.', 'pages', array(':page' => Security::safeName(Request::post('page_title'), '-', true))));
-                                        }
-                                                 
-                                        // Run edit extra actions
-                                        Action::run('admin_pages_action_edit');
-
-                                    } else {
-
-                                        if ($pages->updateWhere('[slug="'.Request::get('name').'"]',
-                                                            array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
-                                                                  'template'    => Request::post('templates'),
-                                                                  'parent'      => $parent_page,
-                                                                  'title'       => Request::post('page_title'),
-                                                                  'description' => Request::post('page_description'),
-                                                                  'keywords'    => Request::post('page_keywords'),
-                                                                  'robots_index' => $robots_index,
-                                                                  'robots_follow'=> $robots_follow,
-                                                                  'status'      => Request::post('status'),
-                                                                  'date'        => $date,
-                                                                  'author'      => $author))) {
-
-                                            File::setContent(STORAGE . DS . 'pages' . DS . Request::post('page_id') . '.page.txt', XML::safe(Request::post('editor')));
-                                            Notification::set('success', __('Your changes to the page <i>:page</i> have been saved.', 'pages', array(':page' => Security::safeName(Request::post('page_title'), '-', true))));                                                                  
-                                        }                                                                                             
-
-                                        // Run edit extra actions
-                                        Action::run('admin_pages_action_edit');
                                     }
+
+                                    if ($pages->updateWhere('[slug="'.Request::get('name').'"]',
+                                        array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
+                                              'template'    => Request::post('templates'),
+                                              'parent'      => $parent_page,
+                                              'title'       => Request::post('page_title'),
+                                              'description' => Request::post('page_description'),
+                                              'keywords'    => Request::post('page_keywords'),
+                                              'robots_index' => $robots_index,
+                                              'robots_follow'=> $robots_follow,
+                                              'status'      => Request::post('status'),
+                                              'date'        => $date,
+                                              'author'      => $author))) {
+
+                                        File::setContent(STORAGE . DS . 'pages' . DS . Request::post('page_id') . '.page.txt', XML::safe(Request::post('editor')));
+                                        Notification::set('success', __('Your changes to the page <i>:page</i> have been saved.', 'pages', array(':page' => Security::safeName(Request::post('page_title'), '-', true))));                                                                  
+                                    }                                                                                             
+
+                                        // Run edit extra actions
+                                        Action::run('admin_pages_action_edit');
 
                                     // Redirect
                                     if (Request::post('edit_page_and_exit')) {
