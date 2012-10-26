@@ -13,7 +13,6 @@
             'Edit snippet' => 'Edit snippet',        
             'Save' => 'Save',        
             'Save and exit' => 'Save and exit',        
-            'This field should not be empty' => 'This field should not be empty',
             'This snippet already exists' => 'This snippet already exists',
             'This snippet does not exist' => 'This snippet does not exist',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',

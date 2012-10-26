@@ -22,7 +22,7 @@
                 <tbody>
                     <tr>        
                         <td><?php echo __('System version', 'information'); ?></td>
-                        <td><?php echo MONSTRA_VERSION; ?></td>
+                        <td><?php echo Core::VERSION; ?></td>
                     </tr>
                     <tr>        
                         <td><?php echo __('System version ID', 'information'); ?></td>

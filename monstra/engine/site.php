@@ -96,12 +96,8 @@
          *
          * @return string
          */
-        public static function title() {        
-        
-            // Get title
-            $title = call_user_func(ucfirst(Uri::command()).'::title');    
-
-            return $title;
+        public static function title() {
+            return call_user_func(ucfirst(Uri::command()).'::title');
         }
 
 
@@ -114,16 +110,8 @@
          *
          * @return string
          */
-        public static function description() {            
-           
-            // Get description   
-            $description = call_user_func(ucfirst(Uri::command()).'::description');
-                                    
-            if (trim($description) !== '') {
-                return Html::toText($description);
-            } else {
-                return Html::toText(Option::get('description'));
-            }
+        public static function description() {
+            return (trim(call_user_func(ucfirst(Uri::command()).'::description')) == '') ? Html::toText(Option::get('description')) : Html::toText($description);
         }
 
 
@@ -137,16 +125,7 @@
          * @return string
          */
         public static function keywords() {
-                
-            // Get keywords                
-            $keywords = call_user_func(ucfirst(Uri::command()).'::keywords');
-                                    
-            if (trim($keywords) !== '') {
-                return Html::toText($keywords);
-            } else {
-                return Html::toText(Option::get('keywords'));
-            }
-
+            return (trim(call_user_func(ucfirst(Uri::command()).'::keywords')) == '') ? Html::toText(Option::get('keywords')) : Html::toText($description);
         }
 
 
@@ -173,12 +152,8 @@
          *
          * @return string
          */
-        public static function content() {            
-            
-            // Get content            
-            $content = call_user_func(ucfirst(Uri::command()).'::content');
-            
-            return Filter::apply('content', $content);
+        public static function content() {
+            return Filter::apply('content', call_user_func(ucfirst(Uri::command()).'::content'));
         }
 
 

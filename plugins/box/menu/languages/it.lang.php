@@ -13,7 +13,7 @@
             'New item' => 'Nuova voce',
             'Item name' => 'Nome',
             'Item order' => 'Ordine',        
-            'Item target' => 'Scopo',
+            'Item target' => 'Target',
             'Item link' => 'Collegamento',
             'Item category' => 'Categoria',
             'Save' => 'Salva',

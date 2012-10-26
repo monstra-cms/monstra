@@ -15,14 +15,7 @@
     
     // Load bootstrap file
     require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
-    
-    // Setting error display depending on debug mode or not
-    // Get php version id
-    if ( ! defined('PHP_VERSION_ID')){
-        $version = PHP_VERSION;
-        define('PHP_VERSION_ID', ($version{0} * 10000 + $version{2} * 100 + $version{4}));
-    }
-
+   
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
 
@@ -40,7 +33,7 @@
     
     // Select Monstra language
     if (Request::get('language')) {
-        if (in_array(Request::get('language'), array('en', 'ru', 'lt', 'it', 'de'))) {           
+        if (in_array(Request::get('language'), array('en', 'ru', 'lt', 'it', 'de', 'pt-br'))) {           
             if (Option::update('language', Request::get('language'))) {
                 Request::redirect($site_url);   
             }
@@ -182,7 +175,8 @@
     <body class="install-body">
         <!-- Block_wrapper -->
 <?php
-        if (PHP_VERSION_ID < 50200) {
+
+        if (version_compare(PHP_VERSION, "5.2.0", "<")) {
             $errors['php'] = 'error';
         } else {
             $errors['php'] = '';
@@ -238,12 +232,13 @@
                 <a class="language-link<?php if (Option::get('language') == 'it') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=it'; ?>">it</a> <span class="sep">|</span>
                 <a class="language-link<?php if (Option::get('language') == 'lt') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=lt'; ?>">lt</a> <span class="sep">|</span>
                 <a class="language-link<?php if (Option::get('language') == 'de') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=de'; ?>">de</a> <span class="sep">|</span>
+                <a class="language-link<?php if (Option::get('language') == 'pt-br') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=pt-br'; ?>">pt</a> <span class="sep">|</span>
                 <a class="language-link<?php if (Option::get('language') == 'ru') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=ru'; ?>">ru</a>
             </div>
         </div>
         <div class="row">
             <div class="well span4 install-block">
-                <div style="text-align:center;"><a class="brand" href="#"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo-black.png"></a></div>
+                <div style="text-align:center;"><a class="brand" href="#"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
                 <hr>
                 <div>
                     <form action="install.php" method="post">
@@ -372,7 +367,7 @@
                     <ul>
                     <?php
 
-                        if (PHP_VERSION_ID < 50200) {
+                        if (version_compare(PHP_VERSION, "5.2.0", "<")) {
                             echo '<span class="error"><li>'.__('PHP 5.2 or greater is required', 'system').'</li></span>';
                         } else {                        
                             echo '<span class="ok"><li>'.__('PHP Version', 'system').' '.PHP_VERSION.'</li></span>';

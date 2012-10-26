@@ -33,7 +33,7 @@
     <div class="monstra-header">
         <div class="monstra-header-inner">
             <div class="container-fluid">               
-                <a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo-black.png" height="44" width="191"></a>            
+                <a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171"></a>            
                 <p class="pull-right">
                     <?php Navigation::draw('top', Navigation::TOP); ?>
                 </p>

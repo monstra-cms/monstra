@@ -18,8 +18,8 @@
             'Register new user' => 'Регистрация нового пользователя',
             'Delete user: :user' => 'Удалить пользователя: :user',
             'User <i>:user</i> have been deleted.' => 'Пользователь <i>:user</i> удален.',
-            'This field should not be empty' => 'Это поле не должно быть пустым',
-            'This user alredy exist' => 'Такой пользователь уже существует',
+            'This user already exists' => 'Такой пользователь уже существует',
+            'This email already exists' => 'Такая эл. почта уже существует',
             'Changes saved' => 'Изменения сохранены',
             'Wrong old password' => 'Неправильный старый пароль',
             'Admin' => 'Администратор',
@@ -42,7 +42,6 @@
             'User email is invalid' => 'Эл. почта является недействительной',
             'Reset Password' => 'Сбросить пароль',
             'Send New Password' => 'Отправить пароль',
-            'This user doesnt alredy exist' => 'Такого пользователя не существует',
             'Users - Profile' => 'Пользователи - Профиль',
             'Users - Edit Profile' => 'Пользователи - Редактирование профиля',
             'Users - Login' => 'Пользователи - Вход',
@@ -61,5 +60,6 @@
             'Your new password for :site_name' => 'Ваш новый пароль для :site_name',
             'Your login details for :site_name' => 'Ваши данные для доступа к :site_name',
             'About Me' => 'Обо мне',
+            'Profile' => 'Профиль',
         )
     );

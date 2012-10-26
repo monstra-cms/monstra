@@ -43,6 +43,12 @@
 
 
         /**
+    	 * The version of Monstra
+    	 */
+    	const VERSION = '2.0.1';
+
+
+        /**
          * Monstra environment
          * 
          * @var string  
@@ -85,9 +91,11 @@
             Session::start();
 
             // Init ORM
-            ORM::configure(MONSTRA_DB_DSN);
-            ORM::configure('username', MONSTRA_DB_USER);
-            ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            if (defined('MONSTRA_DB_DSN')) {
+                ORM::configure(MONSTRA_DB_DSN);
+                ORM::configure('username', MONSTRA_DB_USER);
+                ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            }
 
             // Auto cleanup if MONSTRA_DEBUG is true
             if (Core::$environment == Core::DEVELOPMENT) {
@@ -140,7 +148,7 @@
             require_once(ENGINE . DS . 'site.php');
 
             // Init site module
-            Site::init();
+            if( ! BACKEND) Site::init();
 
         }
 

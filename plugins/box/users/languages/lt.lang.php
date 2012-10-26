@@ -61,5 +61,6 @@
             'Your new password for :site_name' => 'Naujas :site_name slaptažodis',
             'Your login details for :site_name' => 'Prisijungimo prie :site_name detalės',
             'About Me' => 'Apie mane',
+            'Profile' => 'Profilis',
         )
     );

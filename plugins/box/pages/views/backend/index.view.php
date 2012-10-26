@@ -1,13 +1,10 @@
 <div class="row-fluid">
-
     <div class="span12">
 
         <h2><?php echo __('Pages', 'pages'); ?></h2>
         <br />
 
-
         <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 
         <?php
             echo ( 
@@ -15,7 +12,6 @@
                     Html::anchor(__('Edit 404 page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create new page', 'pages'), 'class' => 'btn default btn-small')) 
                 ); 
         ?>
-
 
         <br /><br />
 
@@ -35,21 +31,14 @@
                         foreach ($pages as $page) {
                             if ($page['parent'] != '') { $dash = Html::arrow('right').'&nbsp;&nbsp;'; } else { $dash = ""; }
              ?>
-             <?php if ($page['parent'] == '') $parent_style=''; else $parent_style = ''; ?>
              <?php if ($page['slug'] != 'error404') { ?>
              <tr>        
                 <td>
                     <?php
-                        if ($page['parent'] != '') {
-                            $parent = $page['parent'].'/';
-                        } else {
-                            $parent = '';
-                        }
+                        $parent = (trim($page['parent']) == '') ? '' : $page['parent'].'/';
+                        echo (trim($page['parent']) == '') ? '' : '&nbsp;';
+                        echo $dash.Html::anchor(Html::toText($page['title']), $site_url.$parent.$page['slug'], array('target' => '_blank')); 
                     ?>
-                    <?php
-                        if ($page['parent'] != '') echo '&nbsp;';
-                    ?>         
-                    <?php echo $dash.Html::anchor(Html::toText($page['title']), $site_url.$parent.$page['slug'], array('target' => '_blank')); ?>
                 </td>
                 <td>
                     <?php echo $page['author']; ?>

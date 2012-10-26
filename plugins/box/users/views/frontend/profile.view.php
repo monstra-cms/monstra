@@ -9,7 +9,7 @@
 <?php if($user['date_registered'] !== '') { ?><tr><td><b><?php echo __('Registered', 'users'); ?></b>:</td><td><?php echo Date::format($user['date_registered']); ?></td></tr><?php } ?>
 <?php if($user['skype'] !== '') { ?><tr><td><b><?php echo __('Skype', 'users'); ?></b>:</td><td><?php echo Html::toText($user['skype']); ?></td></tr><?php } ?>
 <?php if($user['twitter'] !== '') { ?><tr><td><b><?php echo __('Twitter', 'users'); ?></b>:</td><td><?php echo Html::toText($user['twitter']); ?></td></tr><?php } ?>
-<?php if($user['about_me'] !== '') { ?><tr><td><b><?php echo __('About Me', 'users'); ?></b>:</td><td><?php echo Html::toText($user['about_me']); ?></td></tr><?php } ?>
+<?php if($user['about_me'] !== '') { ?><tr><td><b><?php echo __('About Me', 'users'); ?></b>:</td><td><?php echo Filter::apply('content', Html::toText($user['about_me'])); ?></td></tr><?php } ?>
 </table>
 <br />
 <?php if (Users::isLoged()) { ?>
