@@ -293,8 +293,8 @@
                                         Notification::set('success', __('Your changes to the page <i>:page</i> have been saved.', 'pages', array(':page' => Security::safeName(Request::post('page_title'), '-', true))));                                                                  
                                     }                                                                                             
 
-                                        // Run edit extra actions
-                                        Action::run('admin_pages_action_edit');
+                                   // Run edit extra actions
+                                   Action::run('admin_pages_action_edit');
 
                                     // Redirect
                                     if (Request::post('edit_page_and_exit')) {
