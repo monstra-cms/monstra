@@ -2,12 +2,12 @@
 
     return array(
         'information' => array(
-            'Information' => 'Informação',
-            'Debugging' => 'Debugando',
+            'Information' => 'Informações',
+            'Debugging' => 'Debug',
             'Name' => 'Nome',
             'Value' => 'Valor',
             'Security' => 'Segurança',
-            'System' => 'System',
+            'System' => 'Sistema',
             'on' => 'on',
             'off'=> 'off',
             'Server' => 'Servidor',
