@@ -1,10 +1,10 @@
 <?php
 
     /**
-     * Monstra :: Installator	
+     * Monstra :: Installator   
      */
      
-	// Main engine defines    
+    // Main engine defines    
     if ( ! defined('DS')) define('DS', DIRECTORY_SEPARATOR);
     if ( ! defined('ROOT')) define('ROOT', rtrim(dirname(__FILE__), '\\/'));
     if ( ! defined('BACKEND')) define('BACKEND', false);
@@ -161,12 +161,13 @@
             }
             
             .language-link+.language-link:before {
-            	color: #ccc;
-            	content: ' | ';
+                color: #ccc;
+                content: ' | ';
             }
 
             .language-link:hover {
                 color:#000;
+                text-decoration: none;
             }
 
             .language-link-current {
@@ -232,9 +233,9 @@
         <!-- Block_wrapper -->
         <div class="row">
             <div class="span4 install-languages">
-            	<?php foreach($languages_array as $lang_code){?>
-                <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=<?php echo $lang_code?>'; ?>"><?php echo $lang_code?></a>
-            	<?php } ?>
+                <?php foreach($languages_array as $lang_code){?>
+                <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><?php echo $lang_code?></a>
+                <?php } ?>
             </div>
         </div>
         <div class="row">
@@ -405,9 +406,9 @@
                         }
                         
                         if (is_writable(__FILE__)){
-                        	echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
+                            echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
                         } else {
-                        	echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
+                            echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
                         }
 
                         if (is_writable('sitemap.xml')){
