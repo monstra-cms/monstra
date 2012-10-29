@@ -11,7 +11,7 @@
     if ( ! defined('MONSTRA_ACCESS')) define('MONSTRA_ACCESS', true);
 
     // Set default timezone
-    $system_timezone = 'Kwajalein';
+    $system_timezone = date_default_timezone_get();
     
     // Load bootstrap file
     require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
