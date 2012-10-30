@@ -2,7 +2,7 @@
 
     return array(
         'information' => array(
-            'Information' => 'Informazione',
+            'Information' => 'Informazioni',
             'Debugging' => 'Debugging',
             'Name' => 'Nome',
             'Value' => 'Valore',
@@ -17,7 +17,7 @@
             'Installed' => 'Installato',
             'Not Installed' => 'Non installato',
             'System version' => 'Versione del sistema',
-            'System version ID' => 'Versione del sistema ID',
+            'System version ID' => 'ID del sistema',
             'Security check results' => 'Risultato del controllo di sicurezza',
             'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
             'Il file di configurazione è scrivibile. Si consiglia di rimuovere le autorizzazioni di scrittura per defines.php file sul sito funzionante.',
