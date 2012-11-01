@@ -1,10 +1,63 @@
 <?php
-          
 
     Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
-
+    
+    Action::add('admin_header', 'PagesAdmin::_themeHeaders');
+    Action::add('admin_pre_render','PagesAdmin::_pageExpandAjax');
 
     class PagesAdmin extends Backend {
+
+
+        /**
+         * Pages tables
+         *
+         * @var object
+         */
+        public static $pages = null;
+
+
+        /**
+         * _pageExpandAjax
+         */
+        public static function _pageExpandAjax() {
+            if (Request::post('slug')) {
+                $pages = new Table('pages');
+                $pages->updateWhere('[slug="'.Request::post('slug').'"]', array('expand' => Request::post('expand')));
+                Request::shutdown();
+            }
+        }
+
+
+        /**
+         * _themeHeaders
+         */
+        public static function _themeHeaders() {
+            echo ('<script>
+                    function pageExpand(slug, expand) {
+                        $.ajax({
+                            type:"post",
+                            data:"slug="+slug+"&expand="+expand,
+                            url: "'.Option::get('siteurl').'admin/index.php?id=pages"
+                        }); 
+                    }
+
+                    $(document).ready(function() {
+                        $(".parent").click(function() {
+                            if ($(this).html() == "-") {
+                                $(\'[rel="children_\' + $(this).attr(\'rel\')+\'"]\').hide();                                
+                                $(this).html("+");
+                                pageExpand($(this).attr("rel"), "1");
+                            } else {
+                                $(\'[rel="children_\' + $(this).attr(\'rel\')+\'"]\').show();
+                                $(this).html("-");
+                                pageExpand($(this).attr("rel"), "0");
+                            }
+                        });
+
+                    });
+                </script>');  
+        }
+        
             
         /**
          * Pages admin function
@@ -19,6 +72,8 @@
             $errors = array();     
 
             $pages = new Table('pages');
+            PagesAdmin::$pages = $pages;
+
             $users = new Table('users');
 
             $user = $users->select('[id='.Session::get('user_id').']', null);
@@ -428,7 +483,12 @@
                                 
                                 //  Delete page and update <parent> fields
                                 if ($pages->deleteWhere('[slug="'.$page['slug'].'" ]')) {
-                                    $pages->updateWhere('[parent="'.$page['slug'].'"]', array('parent' => ''));
+                                    
+                                    $_pages = $pages->select('[parent="'.$page['slug'].'"]', 'all');
+                                    foreach($_pages as $_page) {
+                                        $pages->updateWhere('[slug="'.$_page['slug'].'"]', array('parent' => ''));
+                                    }
+
                                     File::delete(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt');
                                     Notification::set('success', __('Page <i>:page</i> deleted', 'pages', array(':page' => Html::toText($page['title']))));
                                 }
@@ -458,7 +518,7 @@
                 $count = 0;
                 
                 // Get pages
-                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'parent'));
+                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'expand', 'parent'));
 
                 // Loop
                 foreach ($pages_list as $page) {
@@ -468,6 +528,7 @@
                     $pages_array[$count]['status']  = $status_array[$page['status']];
                     $pages_array[$count]['date']    = $page['date'];
                     $pages_array[$count]['author']  = $page['author'];
+                    $pages_array[$count]['expand']  = $page['expand'];
                     $pages_array[$count]['slug']    = $page['slug'];
 
                     if (isset($page['parent'])) {
