@@ -451,3 +451,10 @@ td, th {
 .error-field {border:1px solid red!important;}
 .container-fluid {padding-left:0px;}
 img {max-width:none;}
+
+a.btn-expand{
+  color: #333;
+  text-decoration: none;
+  padding-left:4px;
+  padding-right:4px;
+}
