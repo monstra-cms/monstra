@@ -14,7 +14,7 @@
 <!-- Snippets_list -->
 <table class="table table-bordered">
     <thead>
-        <tr><td><?php echo __('Snippets', 'snippets'); ?></td><td width="30%"><?php echo __('Actions', 'snippets'); ?></td></tr>
+        <tr><td><?php echo __('Snippets', 'snippets'); ?></td><td width="40%"><?php echo __('Actions', 'snippets'); ?></td></tr>
     </thead>
     <tbody>
     <?php if (count($snippets_list) != 0) foreach ($snippets_list as $snippet) { ?>

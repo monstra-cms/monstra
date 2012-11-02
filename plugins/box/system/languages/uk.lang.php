@@ -76,5 +76,7 @@
             'Sitemap file not writable' => 'Карта сайту не доступна для запису',
             'Main .htaccess file writable' => 'Головний .htaccess файл - доступний для запису',
             'Main .htaccess file not writable' => 'Головний .htaccess файл - не доступний для запису',
+            'Official Support Forum' => 'Official Support Forum',
+            'Documentation' => 'Documentation',
         )
     );
