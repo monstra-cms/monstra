@@ -44,7 +44,7 @@
             'Page <i>:page</i> deleted' => 'Сторінка <i>:page</i> видалена',
             'Search Engines Robots' => 'Пошукові роботи',
             'Page' => 'Сторінка',
-            'SEO' => 'SEO',
+            'Metadata' => 'Метадані',
             'Settings' => 'Налаштування',
             'Required field' => 'Обов’язкове поле',
             'Access' => 'Доступ',

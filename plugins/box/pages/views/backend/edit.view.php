@@ -18,7 +18,7 @@
 
         <ul class="nav nav-tabs">
             <li <?php if (Notification::get('page')) { ?>class="active"<?php } ?>><a href="#page" data-toggle="tab"><?php echo __('Page', 'pages'); ?></a></li>
-            <li <?php if (Notification::get('seo')) { ?>class="active"<?php } ?>><a href="#seo" data-toggle="tab"><?php echo __('SEO', 'pages'); ?></a></li>
+            <li <?php if (Notification::get('metadata')) { ?>class="active"<?php } ?>><a href="#metadata" data-toggle="tab"><?php echo __('Metadata', 'pages'); ?></a></li>
             <li <?php if (Notification::get('settings')) { ?>class="active"<?php } ?>><a href="#settings" data-toggle="tab"><?php echo __('Settings', 'pages'); ?></a></li>
         </ul>
          
@@ -50,7 +50,7 @@
                     if (isset($errors['pages_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_exists'].'</span>';
                 ?>
             </div>
-            <div class="tab-pane <?php if (Notification::get('seo')) { ?>active<?php } ?>" id="seo">
+            <div class="tab-pane <?php if (Notification::get('metadata')) { ?>active<?php } ?>" id="metadata">
 
 
                 <?php
@@ -77,7 +77,7 @@
                             echo Form::hidden('pages', $parent_page);
                         } else {
                     ?>
-                    <div class="span4">
+                    <div class="span3">
                     <?php 
                         echo (
                             Form::label('pages', __('Parent', 'pages')).
@@ -87,7 +87,7 @@
                     </div>
                     <?php } ?>
                     <?php if (Request::get('name') != 'error404') { ?>
-                        <div class="span4">
+                        <div class="span3">
                     <?php } else { ?>
                     <div>
                     <?php } ?>
@@ -103,11 +103,25 @@
                             echo Form::hidden('status', $status);
                         } else {
                     ?>
-                    <div class="span4">
+                    <div class="span3">
                     <?php 
                         echo (
                             Form::label('status', __('Status', 'pages')).
                             Form::select('status', $status_array, $status)
+                        );
+                    ?>
+                    </div>
+                    <?php } ?>
+                    <?php 
+                        if (Request::get('name') == 'error404') {
+                            echo Form::hidden('access', $access);
+                        } else {
+                    ?>
+                    <div class="span3">
+                    <?php 
+                        echo (
+                            Form::label('access', __('Access', 'pages')).
+                            Form::select('access', $access_array, $access)
                         );
                     ?>
                     </div>
