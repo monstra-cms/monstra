@@ -151,7 +151,7 @@
             
             if (count(Plugin::$components) > 0)  {
                 foreach (Plugin::$components as $component) {
-                    if ($component !== 'pages' && $component !== 'sitemap') $components[] = ucfirst($component);
+                    if ($component !== 'pages' && $component !== 'sitemap') $components[] = __(ucfirst($component), $component);
                 }
             }
 
