@@ -95,7 +95,13 @@
 
         <!-- Block_footer -->
         <footer>
-            <p align="right"><span class="badge"><span class="small-white-text">© 2012 <a href="http://monstra.org" class="small-white-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo MONSTRA_VERSION; ?></span></span></p>
+            <p align="right">
+                <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
+                <a href="http://forum.monstra.org/"><?php echo __('Official Support Forum', 'system'); ?></a> /
+                <a href="http://monstra.org/documentation"><?php echo __('Documentation', 'system'); ?></a> /
+                © 2012 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Core::VERSION; ?>
+                </span>
+            </p>
         </footer>
         <!-- /Block_footer -->
 

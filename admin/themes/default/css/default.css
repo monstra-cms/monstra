@@ -240,21 +240,30 @@ h6 {
 /*************************************
     5. AUTHORIZATION
 *************************************/
-
-.authorization-block {
-    margin: 0 auto;
-    float: none!important;       
-}
-
-.authorization-block-footer {
-    margin: 0 auto;
-    float: none!important;      
-    margin-top:10px;
-    margin-bottom:10px;
-}
-
 .login-body {
     background:#F2F2F2;
+}
+
+.form-signin {
+  max-width: 290px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
 }
 
 /*************************************
@@ -457,4 +466,9 @@ a.btn-expand{
   text-decoration: none;
   padding-left:4px;
   padding-right:4px;
+}
+
+footer a , footer{
+  color:#333;
+  font-size:10px;
 }
