@@ -1,3 +1,37 @@
+Monstra 2.1.0, xxxx-xx-xx
+------------------------
+- Localization: PT-BR, UK translations added
+- Default theme: hook "theme_header" added.
+- System Plugin: new action "admin_system_extra_index_template_actions" added.
+- Shortcodes API: delete() clear() exists() methods added.
+- Options API: exists() method added.
+- Core: new constant VERSION - added.
+- Box Plugins: used Core::VERSION to compare Monstra CMS version.
+- Installer: use version_compare() function to compare php versions.
+- Admin Default Theme: general improvments.
+- UsersPlugin: profile editing fixed.
+- Shortcodes API: bug with similar shortcode names fixed.
+- Pages Plugin: pages expand/collapse feature added.
+- Pages Plugin: pages "access" feature added.
+- Pages Table: "expand, "access" fields added.
+- Pages Plugin: changed tab "seo" to "metadata"
+- Information Plugin: add "Directory Permissions" tab.
+- Twitter Bootstrap updated to Version 2.2.1
+- MarkitUp! updated to Version 1.1.13
+- Sitemap Plugin: links title issue fixed.
+- Core: Init Site module on frontend only.
+- Core: IDIORM optimization.
+- Site Class: code optimization.
+- Pages Plugin: code optimizations.
+- Sitemap Plugin: priority bug fixed.
+- Installer: Get system timezone with date_default_timezone_get() function.
+- File .gitignore added.
+- Monstra logo updated.
+- Users Plugin: apply "content" filter for "about_me" field.
+- Plugin API: Stylesheet and Javascript load() methods - fixed.
+- Pages Plugin: Page editing date issue - fixed.
+- Localization: EN, RU, IT, LT, DE translations fixed.
+
 Monstra 2.0.1, 2012-10-18
 ------------------------
 - Localization: DE, LT, IT translations added
