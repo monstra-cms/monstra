@@ -47,5 +47,8 @@
             'SEO' => 'SEO',
             'Settings' => 'Nustatymai',
             'Required field' => 'Privalomas laukas',
+            'Access' => 'Pieeja',
+            'Public' => 'Valsts',
+            'Registered' => 'Reģistrēta',
         )
     );

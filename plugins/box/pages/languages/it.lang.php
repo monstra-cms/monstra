@@ -47,5 +47,8 @@
             'SEO' => 'SEO',
             'Settings' => 'Impostazioni',
             'Required field' => 'Campo obbligatorio',
+            'Access' => 'Accesso',
+            'Public' => 'Pubblico',
+            'Registered' => 'Registrato',
         ),
     );

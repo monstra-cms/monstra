@@ -22,6 +22,7 @@
                     <td><?php echo __('Name', 'pages'); ?></td>
                     <td><?php echo __('Author', 'pages'); ?></td>
                     <td><?php echo __('Status', 'pages'); ?></td>
+                    <td><?php echo __('Access', 'pages'); ?></td>
                     <td><?php echo __('Date', 'pages'); ?></td>
                     <td width="40%"><?php echo __('Actions', 'pages'); ?></td>
                 </tr>
@@ -42,9 +43,9 @@
                 <?php                    
                     if (count(PagesAdmin::$pages->select('[parent="'.(string)$page['slug'].'"]', 'all')) > 0) {
                         if (isset($page['expand']) && $page['expand'] == '1') {
-                            echo '<a href="javascript:;" class="btn-expand parent" rel="'.$page['slug'].'">+</a>';
+                            echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">+</a>';
                         } else {
-                            echo '<a href="javascript:;" class="btn-expand parent" rel="'.$page['slug'].'">-</a>';
+                            echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">-</a>';
                         }
                     }
                 ?>    
@@ -62,6 +63,9 @@
                 </td>
                 <td>
                     <?php echo $page['status']; ?>
+                </td>
+                <td>
+                    <?php echo $page['access']; ?>
                 </td>
                 <td>
                     <?php echo Date::format($page['date'], "j.n.Y"); ?>
