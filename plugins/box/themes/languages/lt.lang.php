@@ -43,7 +43,7 @@
             'Scripts' => 'Skriptai',
             'Create new script' => 'Sukurti naują skriptą',
             'Script content' => 'Skripto turinys',
-            'New script' => 'Naujas scriptas',
+            'New script' => 'Naujas skriptas',
             'Edit script' => 'Redaguoti skriptą',
         )
     );

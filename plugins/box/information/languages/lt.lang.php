@@ -28,10 +28,10 @@
             'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
             'Dėl įsilaužimų grėsmės atvaiduojant klaidų pranešimus Core::$environment = Core::DEVELOPMENT veiksenoje, rekomenduojame naudoti Core::PRODUCTION nustatymą nuolatinėje tinklapio veiksenoje.',
             'Monstra version' => 'Monstra versija',
-            'Directory Permissions' => 'Katalogs Atļaujas',
-            'Directory' => 'Katalogs',
-            'Writable' => 'Rakstāms',
-            'Unwritable' => 'Unwritable',
-            'Status' => 'Status',
+            'Directory Permissions' => 'Katalogo teisės',
+            'Directory' => 'Katalogas',
+            'Writable' => 'Rašomas',
+            'Unwritable' => 'Nerašomas',
+            'Status' => 'Būsena',
         )
     );
