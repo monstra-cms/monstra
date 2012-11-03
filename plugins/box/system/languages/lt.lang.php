@@ -75,7 +75,7 @@
             'Sitemap file not writable' => 'Negalima rašyti į sitemap bylą',
             'Main .htaccess file writable' => 'Galima rašyti į pagrindinę .htaccess bylą',
             'Main .htaccess file not writable' => 'Negalima rašyti į pagrindinę .htaccess bylą',
-            'Official Support Forum' => 'Official Support Forum',
-            'Documentation' => 'Documentation',
+            'Official Support Forum' => 'Pagalbos forumas',
+            'Documentation' => 'Dokumentacija',
         )
     );
