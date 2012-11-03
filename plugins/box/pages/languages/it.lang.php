@@ -44,8 +44,11 @@
             'Page <i>:page</i> deleted' => 'Pagina <i>:page</i> è stata cancellata',
             'Search Engines Robots' => 'Robot dei motori di ricerca',
             'Page' => 'Pagina',
-            'SEO' => 'SEO',
+            'Metadata' => 'Metadata',
             'Settings' => 'Impostazioni',
             'Required field' => 'Campo obbligatorio',
+            'Access' => 'Accesso',
+            'Public' => 'Pubblico',
+            'Registered' => 'Registrato',
         ),
     );

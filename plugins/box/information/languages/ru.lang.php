@@ -16,8 +16,6 @@
             'DOM module' => 'DOM модуль',
             'Installed' => 'Установлен',
             'Not Installed' => 'Не установлен',
-            'System version' => 'Версия системы',
-            'System version ID' => 'Версия системы ID',
             'Security check results' => 'Результаты проверки безопасности',
             'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
             'Конфигурационный файл доступен для записи. Мы рекомендуем вам удалить права записи на файл defines.php на живом сайте.',
@@ -29,5 +27,11 @@
             'Главный index.php файл доступен для записи. Мы рекомендуем вам удалить права записи на главный index.php файл. <br/> Вы можете сделать это на UNIX системах так: <code>chmod -R a-w :path</code>',
             'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
             'Система работает в режиме Core::DEVELOPMENT Мы рекомендуем вам установить режим Core::PRODUCTION на живом сайте.',
+            'Monstra version' => 'Monstra Версия',
+            'Directory Permissions' => 'Права доступа',
+            'Directory' => 'Каталог',
+            'Writable' => 'Доступна для записи',
+            'Unwritable' => 'Недоступна для записи',
+            'Status' => 'Статус',
         )
     );

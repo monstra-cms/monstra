@@ -1,10 +1,65 @@
 <?php
-          
 
     Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
-
+    
+    Action::add('admin_header', 'PagesAdmin::_themeHeaders');
+    Action::add('admin_pre_render','PagesAdmin::_pageExpandAjax');
 
     class PagesAdmin extends Backend {
+
+
+        /**
+         * Pages tables
+         *
+         * @var object
+         */
+        public static $pages = null;
+
+
+        /**
+         * _pageExpandAjax
+         */
+        public static function _pageExpandAjax() {
+            if (Request::post('slug')) {
+                if (Security::check(Request::post('token'))) {
+                    $pages = new Table('pages');
+                    $pages->updateWhere('[slug="'.Request::post('slug').'"]', array('expand' => Request::post('expand')));
+                    Request::shutdown();
+                } else { die('csrf detected!'); }
+            }
+        }
+
+
+        /**
+         * _themeHeaders
+         */
+        public static function _themeHeaders() {
+            echo ('<script>
+                    function pageExpand(slug, expand, token) {
+                        $.ajax({
+                            type:"post",
+                            data:"slug="+slug+"&expand="+expand+"&token="+token,
+                            url: "'.Option::get('siteurl').'admin/index.php?id=pages"
+                        });
+                    }
+
+                    $(document).ready(function() {
+                        $(".parent").click(function() {
+                            if ($(this).html() == "-") {
+                                $(\'[rel="children_\' + $(this).attr(\'rel\')+\'"]\').hide();                                
+                                $(this).html("+");
+                                pageExpand($(this).attr("rel"), "1", $(this).attr("token"));
+                            } else {
+                                $(\'[rel="children_\' + $(this).attr(\'rel\')+\'"]\').show();
+                                $(this).html("-");
+                                pageExpand($(this).attr("rel"), "0", $(this).attr("token"));
+                            }
+                        });
+
+                    });
+                </script>');  
+        }
+        
             
         /**
          * Pages admin function
@@ -19,6 +74,8 @@
             $errors = array();     
 
             $pages = new Table('pages');
+            PagesAdmin::$pages = $pages;
+
             $users = new Table('users');
 
             $user = $users->select('[id='.Session::get('user_id').']', null);
@@ -38,6 +95,11 @@
             // Status array
             $status_array = array('published' => __('Published', 'pages'),
                                   'draft'     => __('Draft', 'pages'));
+
+
+            // Access array
+            $access_array = array('public'      => __('Public', 'pages'),
+                                  'registered'  => __('Registered', 'pages'));
 
         
             // Check for get actions
@@ -68,6 +130,7 @@
                                                      'robots_index' => $orig_page['robots_index'],
                                                      'robots_follow'=> $orig_page['robots_follow'],
                                                      'status'       => $orig_page['status'],
+                                                     'access'       => $orig_page['access'],
                                                      'title'        => $rand_page_name,
                                                      'description'  => $orig_page['description'],
                                                      'keywords'     => $orig_page['keywords'],
@@ -137,6 +200,7 @@
                                                             'template'     => Request::post('templates'),
                                                             'parent'       => $parent_page,
                                                             'status'       => Request::post('status'),
+                                                            'access'       => Request::post('access'),
                                                             'robots_index' => $robots_index,
                                                             'robots_follow'=> $robots_follow,
                                                             'title'        => Request::post('page_title'),
@@ -190,6 +254,8 @@
                         if (Request::post('page_description')) $post_description = Request::post('page_description'); else $post_description = '';
                         if (Request::post('editor'))           $post_content     = Request::post('editor'); else $post_content = '';
                         if (Request::post('templates'))        $post_template    = Request::post('templates'); else $post_template = 'index';
+                        if (Request::post('status'))           $post_status      = Request::post('status'); else $post_status = 'published';
+                        if (Request::post('access'))           $post_access      = Request::post('access'); else $post_access = 'public';
                         if (Request::post('pages'))            $parent_page      = Request::post('pages'); else if(Request::get('parent_page')) $parent_page = Request::get('parent_page'); else $parent_page = '';
                         if (Request::post('robots_index'))     $post_robots_index = true; else $post_robots_index = false;
                         if (Request::post('robots_follow'))    $post_robots_follow = true; else $post_robots_follow = false;
@@ -212,7 +278,10 @@
                                 ->assign('parent_page', $parent_page)
                                 ->assign('templates_array', $templates_array)
                                 ->assign('post_template', $post_template)
+                                ->assign('post_status', $post_status)
+                                ->assign('post_access', $post_access)
                                 ->assign('status_array', $status_array)
+                                ->assign('access_array', $access_array)
                                 ->assign('date', $date)
                                 ->assign('post_robots_index', $post_robots_index)
                                 ->assign('post_robots_follow', $post_robots_follow)
@@ -253,6 +322,8 @@
                                 if (Request::post('page_description')) $post_description = Request::post('page_description'); else $post_description = '';
                                 if (Request::post('editor'))           $post_content     = Request::post('editor'); else $post_content = '';
                                 if (Request::post('templates'))        $post_template    = Request::post('templates'); else $post_template = 'index';
+                                if (Request::post('status'))           $post_status      = Request::post('status'); else $post_status = 'published';
+                                if (Request::post('access'))           $post_access      = Request::post('access'); else $post_access = 'public';
                                 if (Request::post('robots_index'))     $post_robots_index = true; else $post_robots_index = false;
                                 if (Request::post('robots_follow'))    $post_robots_follow = true; else $post_robots_follow = false;
                                 //--------------
@@ -284,6 +355,7 @@
                                                                   'robots_index' => $robots_index,
                                                                   'robots_follow'=> $robots_follow,
                                                                   'status'      => Request::post('status'),
+                                                                  'access'      => Request::post('ascess'),
                                                                   'date'        => $date,
                                                                   'author'      => $author))) {
 
@@ -306,6 +378,7 @@
                                                                   'robots_index' => $robots_index,
                                                                   'robots_follow'=> $robots_follow,
                                                                   'status'      => Request::post('status'),
+                                                                  'access'      => Request::post('access'),
                                                                   'date'        => $date,
                                                                   'author'      => $author))) {
 
@@ -385,6 +458,7 @@
                             }
                             if (Request::post('templates')) $template = Request::post('templates'); else $template = $page['template']; 
                             if (Request::post('status'))    $status   = Request::post('status');    else $status   = $page['status']; 
+                            if (Request::post('access'))    $access   = Request::post('access');    else $access   = $page['access']; 
 
                             // Generate date
                             $date = Request::post('date') ? Request::post('date') : Date::format($page['date'], 'Y-m-d H:i:s');
@@ -404,7 +478,9 @@
                                     ->assign('templates_array', $templates_array)
                                     ->assign('template', $template)
                                     ->assign('status_array', $status_array)
+                                    ->assign('access_array', $access_array)
                                     ->assign('status', $status)
+                                    ->assign('access', $access)
                                     ->assign('date', $date)        
                                     ->assign('post_robots_index', $post_robots_index)
                                     ->assign('post_robots_follow', $post_robots_follow)                            
@@ -428,7 +504,12 @@
                                 
                                 //  Delete page and update <parent> fields
                                 if ($pages->deleteWhere('[slug="'.$page['slug'].'" ]')) {
-                                    $pages->updateWhere('[parent="'.$page['slug'].'"]', array('parent' => ''));
+                                    
+                                    $_pages = $pages->select('[parent="'.$page['slug'].'"]', 'all');
+                                    foreach($_pages as $_page) {
+                                        $pages->updateWhere('[slug="'.$_page['slug'].'"]', array('parent' => ''));
+                                    }
+
                                     File::delete(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt');
                                     Notification::set('success', __('Page <i>:page</i> deleted', 'pages', array(':page' => Html::toText($page['title']))));
                                 }
@@ -458,7 +539,7 @@
                 $count = 0;
                 
                 // Get pages
-                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'parent'));
+                $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'expand', 'access', 'parent'));
 
                 // Loop
                 foreach ($pages_list as $page) {
@@ -466,8 +547,10 @@
                     $pages_array[$count]['title']   = $page['title'];
                     $pages_array[$count]['parent']  = $page['parent'];
                     $pages_array[$count]['status']  = $status_array[$page['status']];
+                    $pages_array[$count]['access']  = isset($access_array[$page['access']]) ? $access_array[$page['access']] : $access_array['public']; // hack for old Monstra Versions
                     $pages_array[$count]['date']    = $page['date'];
                     $pages_array[$count]['author']  = $page['author'];
+                    $pages_array[$count]['expand']  = $page['expand'];
                     $pages_array[$count]['slug']    = $page['slug'];
 
                     if (isset($page['parent'])) {

@@ -16,8 +16,6 @@
             'DOM module' => 'DOM modulis',
             'Installed' => 'Įdiegta',
             'Not Installed' => 'Neįdiegta',
-            'System version' => 'Systemos versija',
-            'System version ID' => 'Systemos versijos ID',
             'Security check results' => 'Saugumo patikrinimo rezultatai',
             'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
             'Leidžiama perrašyti nustatymų bylą. Siūlome pašalinti visus rašymo leidimus sistemos bylai defines.php.',
@@ -29,5 +27,11 @@
             'Monstra index.php bylą galima perrašyti. Siūlome pašalinti visus rašymo leidimus. <br/>Tai galite padaryti Unix sistemoje su: <code>chmod a-w :path</code>',
             'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
             'Dėl įsilaužimų grėsmės atvaiduojant klaidų pranešimus Core::$environment = Core::DEVELOPMENT veiksenoje, rekomenduojame naudoti Core::PRODUCTION nustatymą nuolatinėje tinklapio veiksenoje.',
+            'Monstra version' => 'Monstra versija',
+            'Directory Permissions' => 'Katalogs Atļaujas',
+            'Directory' => 'Katalogs',
+            'Writable' => 'Rakstāms',
+            'Unwritable' => 'Unwritable',
+            'Status' => 'Status',
         )
     );

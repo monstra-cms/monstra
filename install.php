@@ -1,17 +1,17 @@
 <?php
 
     /**
-     * Monstra :: Installator	
+     * Monstra :: Installator   
      */
      
-	// Main engine defines    
+    // Main engine defines    
     if ( ! defined('DS')) define('DS', DIRECTORY_SEPARATOR);
     if ( ! defined('ROOT')) define('ROOT', rtrim(dirname(__FILE__), '\\/'));
     if ( ! defined('BACKEND')) define('BACKEND', false);
     if ( ! defined('MONSTRA_ACCESS')) define('MONSTRA_ACCESS', true);
 
     // Set default timezone
-    $system_timezone = 'Kwajalein';
+    $system_timezone = date_default_timezone_get();
     
     // Load bootstrap file
     require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
@@ -31,9 +31,12 @@
     // Directories to check
     $dir_array = array('public', 'storage', 'backups', 'tmp');
     
+    // Languages array
+    $languages_array = array('en', 'ru', 'lt', 'it', 'de', 'pt-br', 'uk');
+    
     // Select Monstra language
     if (Request::get('language')) {
-        if (in_array(Request::get('language'), array('en', 'ru', 'lt', 'it', 'de', 'pt-br'))) {           
+        if (in_array(Request::get('language'), $languages_array)) {           
             if (Option::update('language', Request::get('language'))) {
                 Request::redirect($site_url);   
             }
@@ -153,16 +156,18 @@
                 color: #F74C18;
             }
 
-            .sep {
-                color:#ccc;
-            }
-
             .language-link {
                 color:#7A7A7C;
+            }
+            
+            .language-link+.language-link:before {
+                color: #ccc;
+                content: ' | ';
             }
 
             .language-link:hover {
                 color:#000;
+                text-decoration: none;
             }
 
             .language-link-current {
@@ -228,12 +233,9 @@
         <!-- Block_wrapper -->
         <div class="row">
             <div class="span4 install-languages">
-                <a class="language-link<?php if (Option::get('language') == 'en') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=en'; ?>">en</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'it') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=it'; ?>">it</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'lt') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=lt'; ?>">lt</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'de') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=de'; ?>">de</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'pt-br') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=pt-br'; ?>">pt</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'ru') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=ru'; ?>">ru</a>
+                <?php foreach($languages_array as $lang_code){?>
+                <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><?php echo $lang_code?></a>
+                <?php } ?>
             </div>
         </div>
         <div class="row">
@@ -404,9 +406,9 @@
                         }
                         
                         if (is_writable(__FILE__)){
-                        	echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
+                            echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
                         } else {
-                        	echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
+                            echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
                         }
 
                         if (is_writable('sitemap.xml')){

@@ -74,5 +74,7 @@
             'Sitemap file not writable' => 'O arquivo \'sitemap.xml\' não tem permissões de escrita',
             'Main .htaccess file writable' => 'O arquivo .htaccess principal tem permissões de escrita',
             'Main .htaccess file not writable' => 'O arquivo .htacces principal não tem permissões de escrita',
+            'Official Support Forum' => 'Official Support Forum',
+            'Documentation' => 'Documentation',
         )
     );

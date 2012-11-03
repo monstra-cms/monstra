@@ -5,6 +5,7 @@
     <ul class="nav nav-tabs">
         <li class="active"><a href="#system" data-toggle="tab"><?php echo __('System', 'information'); ?></a></li>
         <li><a href="#server" data-toggle="tab"><?php echo __('Server', 'information'); ?></a></li>                
+        <li><a href="#directory-permissions" data-toggle="tab"><?php echo __('Directory Permissions', 'information'); ?></a></li>
         <li><a href="#security" data-toggle="tab"><?php echo __('Security', 'information'); ?></a></li>        
     </ul>
 
@@ -20,13 +21,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>        
-                        <td><?php echo __('System version', 'information'); ?></td>
+                    <tr>
+                        <td><?php echo __('Monstra version', 'information'); ?></td>
                         <td><?php echo Core::VERSION; ?></td>
-                    </tr>
-                    <tr>        
-                        <td><?php echo __('System version ID', 'information'); ?></td>
-                        <td><?php echo MONSTRA_VERSION_ID; ?></td>
                     </tr>
                     <tr>        
                         <td><?php echo __('GZIP', 'information'); ?></td>
@@ -76,6 +73,49 @@
                         }
 
                     ?>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="tab-pane" id="directory-permissions">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td><?php echo __('Directory', 'information'); ?></td>
+                        <td><?php echo __('Status', 'information'); ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo STORAGE ?></td>
+                        <td><?php if (Dir::writable(STORAGE)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'tmp'; ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'tmp')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'backups' ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'backups')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'public' ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'public')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo MONSTRA ?></td>
+                        <td><?php if (Dir::writable(MONSTRA)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo PLUGINS ?></td>
+                        <td><?php if (Dir::writable(PLUGINS)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'admin' ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'admin')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
                 </tbody>
             </table>
 

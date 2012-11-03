@@ -14,7 +14,7 @@
 <!-- Blocks_list -->
 <table class="table table-bordered">
     <thead>
-        <tr><td><?php echo __('Blocks', 'blocks'); ?></td><td width="30%"><?php echo __('Actions', 'blocks'); ?></td></tr>
+        <tr><td><?php echo __('Blocks', 'blocks'); ?></td><td width="40%"><?php echo __('Actions', 'blocks'); ?></td></tr>
     </thead>
     <tbody>
     <?php if (count($blocks_list) != 0) foreach ($blocks_list as $block) { ?>

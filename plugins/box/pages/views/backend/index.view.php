@@ -18,9 +18,11 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <td width="3%"></td>
                     <td><?php echo __('Name', 'pages'); ?></td>
                     <td><?php echo __('Author', 'pages'); ?></td>
                     <td><?php echo __('Status', 'pages'); ?></td>
+                    <td><?php echo __('Access', 'pages'); ?></td>
                     <td><?php echo __('Date', 'pages'); ?></td>
                     <td width="40%"><?php echo __('Actions', 'pages'); ?></td>
                 </tr>
@@ -32,12 +34,28 @@
                             if ($page['parent'] != '') { $dash = Html::arrow('right').'&nbsp;&nbsp;'; } else { $dash = ""; }
              ?>
              <?php if ($page['slug'] != 'error404') { ?>
-             <tr>        
+             <?php
+                $expand = PagesAdmin::$pages->select('[slug="'.(string)$page['parent'].'"]', null);
+                if ($page['parent'] !== '' && isset($expand['expand']) && $expand['expand'] == '1') { $visibility = 'style="display:none;"'; } else { $visibility = ''; }
+             ?>
+             <tr <?php echo $visibility; ?> <?php if(trim($page['parent']) !== '') {?> rel="children_<?php echo $page['parent']; ?>" <?php } ?>>  
+                <td> 
+                <?php                    
+                    if (count(PagesAdmin::$pages->select('[parent="'.(string)$page['slug'].'"]', 'all')) > 0) {
+                        if (isset($page['expand']) && $page['expand'] == '1') {
+                            echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">+</a>';
+                        } else {
+                            echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">-</a>';
+                        }
+                    }
+                ?>    
+                </td> 
                 <td>
                     <?php
-                        $parent = (trim($page['parent']) == '') ? '' : $page['parent'].'/';
+                        $_parent = (trim($page['parent']) == '') ? '' : $page['parent'];
+                        $parent  = (trim($page['parent']) == '') ? '' : $page['parent'].'/';
                         echo (trim($page['parent']) == '') ? '' : '&nbsp;';
-                        echo $dash.Html::anchor(Html::toText($page['title']), $site_url.$parent.$page['slug'], array('target' => '_blank')); 
+                        echo $dash.Html::anchor(Html::toText($page['title']), $site_url.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent)); 
                     ?>
                 </td>
                 <td>
@@ -45,6 +63,9 @@
                 </td>
                 <td>
                     <?php echo $page['status']; ?>
+                </td>
+                <td>
+                    <?php echo $page['access']; ?>
                 </td>
                 <td>
                     <?php echo Date::format($page['date'], "j.n.Y"); ?>
@@ -68,6 +89,7 @@
                     </div>  
                 </td>
              </tr> 
+   
              <?php } ?>
             <?php
                     } 

@@ -114,13 +114,30 @@
                   
                     // Check is child_parent -> request parent
                     if ($c_p == $data[0]) {                    
-                        // Checking only for the parent and one child, the remaining issue 404
-                        if (count($data) < 3) {
-                            $id = $data[1]; // Get real request page
+                        
+                        if (count($data) < 3) { // Checking only for the parent and one child, the remaining issue 404
+                            
+                            if ((($child_page['status'] == 'published') or 
+                                (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
+                                ($child_page['access'] == 'public')) {
+
+                                $id = $data[1];       
+
+                            } elseif (($child_page['access'] == 'registered') and
+                                     (Session::exists('user_id')) and
+                                     ($child_page['status'] == 'published')) {
+                                
+                                $id = $data[1];                                
+
+                            } else {
+                                $id = 'error404';
+                                Response::status(404);      
+                            }
                         } else {
                             $id = 'error404';                            
                             Response::status(404);
                         }
+
                     } else {
                         $id = 'error404';
                         Response::status(404);
@@ -129,6 +146,7 @@
                     $id = 'error404';
                     Response::status(404);
                 }
+
             } else { // Only parent page come
                 if(empty($data[0])) {        
                     
@@ -151,14 +169,26 @@
 
                     // Check if this page has parent
                     if ($c_p !== '') {
+
                         if ($c_p == $data[0]) {
-                            if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {                            
-                                if (($current_page['status'] == 'published') or (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) {
+                            if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {                               
+
+                                if ((($current_page['status'] == 'published') or 
+                                    (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
+                                    ($current_page['access'] == 'public')) {
+
                                     $id = $data[0];       
+
+                                } elseif (($current_page['access'] == 'registered') and
+                                         (Session::exists('user_id')) and
+                                         ($current_page['status'] == 'published')) {
+                                    
+                                    $id = $data[0];                                
+
                                 } else {
                                     $id = 'error404';
                                     Response::status(404);      
-                                }                         
+                                }
                             } else {
                                 $id = 'error404';
                                 Response::status(404);
@@ -168,9 +198,20 @@
                             Response::status(404);
                         }
                     } else {
+
                         if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {
-                            if (($current_page['status'] == 'published') or (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) {
+                            if ((($current_page['status'] == 'published') or 
+                                (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
+                                ($current_page['access'] == 'public')) {
+
                                 $id = $data[0];       
+
+                            } elseif (($current_page['access'] == 'registered') and
+                                     (Session::exists('user_id')) and
+                                     ($current_page['status'] == 'published')) {
+
+                                $id = $data[0];                                
+
                             } else {
                                 $id = 'error404';
                                 Response::status(404);      

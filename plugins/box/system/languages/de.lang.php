@@ -75,5 +75,7 @@
             'Sitemap file not writable' => 'Sitemap-Datei ist nicht beschreibbar',
             'Main .htaccess file writable' => 'Haupt .htaccess-Datei ist beschreibbar',
             'Main .htaccess file not writable' => 'Haupt .htaccess-Datei ist nicht beschreibbar',
+            'Official Support Forum' => 'Official Support Forum',
+            'Documentation' => 'Documentation',
         )
     );

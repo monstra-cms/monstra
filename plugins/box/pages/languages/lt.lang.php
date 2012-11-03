@@ -44,8 +44,11 @@
             'Page <i>:page</i> deleted' => 'Puslapis <i>:page</i> ištrintas',
             'Search Engines Robots' => 'Paieškos variklių robotai',
             'Page' => 'Puslapis',
-            'SEO' => 'SEO',
+            'Metadata' => 'Metadata',
             'Settings' => 'Nustatymai',
             'Required field' => 'Privalomas laukas',
+            'Access' => 'Pieeja',
+            'Public' => 'Valsts',
+            'Registered' => 'Reģistrēta',
         )
     );

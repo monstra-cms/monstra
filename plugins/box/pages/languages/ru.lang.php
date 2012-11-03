@@ -44,8 +44,11 @@
             'Page <i>:page</i> deleted' => 'Страница <i>:page</i> удалена',
             'Search Engines Robots' => 'Поисковые роботы',
             'Page' => 'Страница',
-            'SEO' => 'SEO',
+            'Metadata' => 'Метаданные',
             'Settings' => 'Настройки',
             'Required field' => 'Обязательное поле',
+            'Access' => 'Доступ',
+            'Public' => 'Публичный',
+            'Registered' => 'Зарегистрированным',
         ),
     );
