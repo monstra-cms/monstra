@@ -59,11 +59,16 @@
             $snippet_path = STORAGE . DS . 'snippets' . DS . $name . '.snippet.php';
 
             if (File::exists($snippet_path)) {
+
+                // Turn on output buffering
                 ob_start();        
+
+                // Include view file     
                 include $snippet_path;
-                $snippet_contents = ob_get_contents();
-                ob_end_clean();
-                return $snippet_contents;
+
+                // Output...
+                return ob_get_clean();
+                
             } else {
                 if (Session::exists('admin') && Session::get('admin') == true) {
                     return __('<b>Snippet <u>:name</u> is not found!</b>', 'snippets', array(':name' => $name));
