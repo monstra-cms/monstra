@@ -458,7 +458,7 @@
                             }
                             if (Request::post('templates')) $template = Request::post('templates'); else $template = $page['template']; 
                             if (Request::post('status'))    $status   = Request::post('status');    else $status   = $page['status']; 
-                            if (Request::post('access'))    $access   = Request::post('access');    else $access   = $page['access']; 
+                            if (Request::post('access'))    $access   = Request::post('access');    else $access   = (isset($page['access'])) ? $page['access'] : 'public';
 
                             // Generate date
                             $date = Request::post('date') ? Request::post('date') : Date::format($page['date'], 'Y-m-d H:i:s');
