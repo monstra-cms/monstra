@@ -122,7 +122,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404"'))
+                                ->assign('pages_list', $pages->select('[slug!="error404"]'))
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
