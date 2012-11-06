@@ -164,12 +164,13 @@
          *      echo Site::template();
          *  </code>
          *
+         * @param  string $theme Theme name
          * @return mixed
          */
-        public static function template() {
+        public static function template($theme = null) {
 
-            // Get current theme
-            $current_theme = Option::get('theme_site_name');           
+            // Get specific theme or current theme
+            $current_theme = ($theme == null) ? Option::get('theme_site_name') : $theme ;          
 
             // Get template
             $template = call_user_func(ucfirst(Uri::command()).'::template');
