@@ -221,12 +221,7 @@
          * @return string
          */
         public static function powered() {
-            return __('Powered by', 'system').' <a href="' . MONSTRA_SITEURL . '" target="_blank">Monstra</a> ' . MONSTRA_VERSION;        
+            return __('Powered by', 'system').' <a href="http://monstra.org" target="_blank">Monstra</a> ' . Core::VERSION;        
         }
 
     }
-
-
-    // Add new shortcode {siteurl}
-    Shortcode::add('siteurl', 'returnSiteUrl');
-    function returnSiteUrl() { return Option::get('siteurl'); }

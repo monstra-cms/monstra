@@ -35,9 +35,6 @@
     // Admin login
     if (Request::post('login_submit')) {        
        
-        // Sleep MONSTRA_LOGIN_SLEEP seconds for blocking Brute Force Attacks
-        sleep(MONSTRA_LOGIN_SLEEP);  
-       
         $user  = $users->select("[login='" . trim(Request::post('login')) . "']", null);
         if (count($user) !== 0) {
             if ($user['login'] == Request::post('login')) {
