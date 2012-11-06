@@ -157,6 +157,9 @@
                     // Get current page
                     $current_page = Pages::$pages->select('[slug="'.$data[0].'"]', null);
                    
+                    // For old Monstra
+                    $current_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
+
                     if (count($current_page) != 0) {
                         if ($current_page['parent'] != '') {
                             $c_p = $current_page['parent'];
