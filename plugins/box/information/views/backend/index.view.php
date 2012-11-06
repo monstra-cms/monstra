@@ -131,12 +131,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (File::writable(BOOT . DS . 'defines.php')) { ?>
-                        <tr> 
-                            <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>         
-                            <td><?php echo __('The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.', 'information'); ?></td>
-                        </tr>
-                    <?php } ?>
                     <?php if (File::writable(MONSTRA . DS)) { ?>
                         <tr>       
                             <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>            
