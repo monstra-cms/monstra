@@ -97,11 +97,12 @@
 
                                 // Update menu item    
                                 if (count($errors) == 0) {
-                                    MenuAdmin::$menu->update(Request::get('item_id'), array('name'       => Request::post('menu_item_name'),
-                                                                                 'link'       => Request::post('menu_item_link'),
-                                                                                 'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
-                                                                                 'target'     => Request::post('menu_item_target'),
-                                                                                 'order'      => Request::post('menu_item_order')));
+                                    MenuAdmin::$menu->update(Request::get('item_id'),
+                                                             array('name' => Request::post('menu_item_name'),
+                                                                  'link'       => Request::post('menu_item_link'),
+                                                                  'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                                  'target'     => Request::post('menu_item_target'),
+                                                                  'order'      => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -121,7 +122,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404" and parent=""]'))
+                                ->assign('pages_list', $pages->select('[slug!="error404"'))
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
@@ -157,11 +158,11 @@
 
                                 // Insert new menu item
                                 if (count($errors) == 0) {
-                                    MenuAdmin::$menu->insert(array('name'       => Request::post('menu_item_name'),
-                                                        'link'       => Request::post('menu_item_link'),
-                                                        'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
-                                                        'target'     => Request::post('menu_item_target'),
-                                                        'order'      => Request::post('menu_item_order')));
+                                    MenuAdmin::$menu->insert(array('name' => Request::post('menu_item_name'),
+                                                                   'link'       => Request::post('menu_item_link'),
+                                                                   'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                                   'target'     => Request::post('menu_item_target'),
+                                                                   'order'      => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -181,7 +182,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404" and parent=""]'))
+                                ->assign('pages_list', $pages->select('[slug!="error404"]'))
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
