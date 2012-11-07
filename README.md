@@ -1,6 +1,6 @@
 # Monstra CMS
 
-Monstra - Fast and small content management system written in PHP!
+Fast and small content management system written in PHP!
 
 
 ## System Requirements
