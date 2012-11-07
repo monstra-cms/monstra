@@ -30,10 +30,10 @@ Monstra - Fast and small content management system written in PHP!
 
 
 ## Links
-[Site](http://punbb.informer.com/wiki/)
-[Forum](http://forum.monstra.org)
-[Documentation](http://monstra.org/documentation)
-[Github Repository](https://github.com/Awilum/monstra-cms)
+- [Site](http://punbb.informer.com/wiki/)
+- [Forum](http://forum.monstra.org)
+- [Documentation](http://monstra.org/documentation)
+- [Github Repository](https://github.com/Awilum/monstra-cms)
 
 
 Copyright (C) 2012 Romanenko Sergey / Awilum [awilum@msn.com]
