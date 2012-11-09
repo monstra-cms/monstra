@@ -505,9 +505,12 @@
                                 //  Delete page and update <parent> fields
                                 if ($pages->deleteWhere('[slug="'.$page['slug'].'" ]')) {
                                     
-                                    $_pages = $pages->select('[parent="'.$page['slug'].'"]', 'all');
-                                    foreach($_pages as $_page) {
-                                        $pages->updateWhere('[slug="'.$_page['slug'].'"]', array('parent' => ''));
+                                    $_pages = $pages->select('[parent="'.$page['slug'].'"]');
+
+                                    if(!empty($_pages)) {
+                                        foreach($_pages as $_page) {
+                                            $pages->updateWhere('[slug="'.$_page['slug'].'"]', array('parent' => ''));
+                                        }
                                     }
 
                                     File::delete(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt');
