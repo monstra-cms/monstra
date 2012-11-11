@@ -198,11 +198,12 @@
                                 if (count($errors) == 0) {
                                
                                     // Insert new page
-                                    if($pages->insert(array('slug'         => Security::safeName(Request::post('page_name'), '-', true),
+                                    if ($pages->insert(array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
                                                             'template'     => Request::post('templates'),
                                                             'parent'       => $parent_page,
                                                             'status'       => Request::post('status'),
                                                             'access'       => Request::post('access'),
+                                                            'expand'       => '0',
                                                             'robots_index' => $robots_index,
                                                             'robots_follow'=> $robots_follow,
                                                             'title'        => Request::post('page_title'),
