@@ -227,6 +227,22 @@
                 break;
             }
         }
+        
+
+        /**
+         * Add's _1 to a string or increment the ending number to allow _2, _3, etc
+         *
+         * @param   string   $str       String to increment
+         * @param   integer  $first     Start with
+         * @param   string   $separator Separator
+         * @return  string
+         */
+        public static function increment($str, $first = 1, $separator = '_') {
+
+            preg_match('/(.+)'.$separator.'([0-9]+)$/', $str, $match);
+
+            return isset($match[2]) ? $match[1].$separator.($match[2] + 1) : $str.$separator.$first;
+        }
 
 
 	    /**
