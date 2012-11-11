@@ -77,20 +77,18 @@
             PagesAdmin::$pages = $pages;
 
             $users = new Table('users');
-
             $user = $users->select('[id='.Session::get('user_id').']', null);
 
             $user['firstname'] = Html::toText($user['firstname']);
             $user['lastname']  = Html::toText($user['lastname']);
 
             // Page author
-            if (isset($user['firstname']) && trim($user['firstname']) !== '') {
-                if (trim($user['lastname']) !== '') $lastname = ' '.$user['lastname']; else $lastname = '';
-                $author = $user['firstname'] . $lastname;
+            if ( ! empty($user['firstname'])) {
+                $author = (empty($user['lastname'])) ? $user['firstname'] : $user['firstname'].' '.$user['lastname'];
             } else {
                 $author = Session::get('user_login');
             }
-          
+
 
             // Status array
             $status_array = array('published' => __('Published', 'pages'),
