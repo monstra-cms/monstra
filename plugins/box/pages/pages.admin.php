@@ -123,6 +123,9 @@
                             // Get original page
                             $orig_page = $pages->select('[slug="'.Request::get('name').'"]', null); 
 
+                            // Generate rand page title
+                            $rand_page_title = $orig_page['title'].' [copy]';
+
                             // Clone page
                             if ($pages->insert(array('slug'         => $rand_page_name,
                                                      'template'     => $orig_page['template'],
@@ -130,8 +133,9 @@
                                                      'robots_index' => $orig_page['robots_index'],
                                                      'robots_follow'=> $orig_page['robots_follow'],
                                                      'status'       => $orig_page['status'],
-                                                     'access'       => $orig_page['access'],
-                                                     'title'        => $rand_page_name,
+                                                     'access'       => (isset($orig_page['access'])) ? $orig_page['access'] : 'public',
+                                                     'expand'       => (isset($orig_page['expand'])) ? $orig_page['expand'] : '0',
+                                                     'title'        => $rand_page_title,
                                                      'description'  => $orig_page['description'],
                                                      'keywords'     => $orig_page['keywords'],
                                                      'date'         => $orig_page['date'],
