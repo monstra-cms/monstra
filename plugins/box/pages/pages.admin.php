@@ -444,7 +444,7 @@
                             if (Request::post('page_keywords'))     $keywords_to_edit    = Request::post('page_keywords'); else $keywords_to_edit = $page['keywords'];
                             if (Request::post('editor'))            $to_edit             = Request::post('editor'); else $to_edit = Text::toHtml($page_content);
                             
-                            if (Request::post('robots_index'))      $post_robots_index = true; else if ($page['robots_index'] == 'noindex') $post_robots_index = true; else  $post_robots_index = false;
+                            if (Request::post('robots_index'))      $post_robots_index  = true; else if ($page['robots_index'] == 'noindex') $post_robots_index = true; else  $post_robots_index = false;
                             if (Request::post('robots_follow'))     $post_robots_follow = true; else if ($page['robots_follow'] == 'nofollow') $post_robots_follow = true; else  $post_robots_follow = false;
 
                             if (Request::post('pages')) {
@@ -510,7 +510,7 @@
                                     
                                     $_pages = $pages->select('[parent="'.$page['slug'].'"]');
 
-                                    if(!empty($_pages)) {
+                                    if ( ! empty($_pages)) {
                                         foreach($_pages as $_page) {
                                             $pages->updateWhere('[slug="'.$_page['slug'].'"]', array('parent' => ''));
                                         }
