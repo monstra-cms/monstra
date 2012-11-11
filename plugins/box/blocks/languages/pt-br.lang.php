@@ -20,5 +20,10 @@
             'Block content' => 'Conteúdo do bloco',
             'Block <i>:name</i> deleted' => 'Bloco <i>:name</i> deletado',
             'Your changes to the block <i>:name</i> have been saved.' => 'Suas mudanças no bloco <i>:name</i> foram salvas',
+            'Delete block: :block' => 'Delete block: :block',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );

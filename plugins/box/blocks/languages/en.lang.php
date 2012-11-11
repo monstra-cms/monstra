@@ -21,5 +21,9 @@
             'Block <i>:name</i> deleted' => 'Block <i>:name</i> deleted',
             'Your changes to the block <i>:name</i> have been saved.' => 'Your changes to the block <i>:name</i> have been saved.',
             'Delete block: :block' => 'Delete block: :block',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );
