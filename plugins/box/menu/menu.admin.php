@@ -3,7 +3,8 @@
     // Add plugin navigation link
     Navigation::add(__('Menu', 'menu'), 'content', 'menu', 3);
 
-    Action::add('admin_header', 'MenuAdmin::headers');
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/menu/js/menu.js', 'backend');
 
 
     class MenuAdmin extends Backend {
@@ -18,26 +19,8 @@
 
 
         /**
-         * Headers
+         * Main 
          */
-        public static function headers() {
-            echo ("
-                <script> 
-                    function selectPage(slug, title) {
-                        $('input[name=menu_item_link]').val(slug);
-                        $('input[name=menu_item_name]').val(title);
-                        $('#selectPageModal').modal('hide');
-                    }
-
-                    function selectCategory(name) {
-                        $('input[name=menu_item_category]').val(name);
-                        $('#selectCategoryModal').modal('hide');
-                    }
-                </script>
-            ");
-        }
-        
-
         public static function main() {
 
             // Get menu table
