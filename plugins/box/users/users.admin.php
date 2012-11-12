@@ -9,28 +9,14 @@
         $user_login = '';
     }
 
+    // Add plugin navigation link
     Navigation::add(__('Users', 'users'), 'system', 'users', 2);
 
-    Action::add('admin_header', 'UsersAdmin::headers');
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/users/js/users.js', 'backend');
+    
     
     class UsersAdmin extends Backend {
-
-
-        /**
-         * Headers
-         */
-        public static function headers() {
-            echo ('
-                <script>
-                $(document).ready(function(){
-                    $("[name=users_frontend_registration] , [name=users_frontend_authorization]").click(function() {
-                        $("[name=users_frontend]").submit();
-                    });     
-                });
-                </script>           
-            ');
-        }
-
 
         /**
          * Users admin
