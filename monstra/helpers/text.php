@@ -97,22 +97,20 @@
          *      echo Text::strpSlashes('some \ text \ here');
          *  </code>
          *
-	     * @param  string $str String with slashes
-	     * @return string
+	     * @param  mixed $str String or array of strings with slashes 
+	     * @return mixed
 	     */
 	    public static function strpSlashes($str) {
 
-	    	// Redefine vars
-            $str = (string) $str;
-
 	        if (is_array($str)) {
 	            foreach ($str as $key => $val) {
-	                $str[$key] = stripslashes($val);
+	                $result[$key] = stripslashes($val);
 	            }
 	        } else {
-	            $str = stripslashes($str);
+	            $result = stripslashes($str);
 	        }
-	        return $str;
+
+	        return $result;
 	    }
 
 
