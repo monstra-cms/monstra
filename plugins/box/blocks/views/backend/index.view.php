@@ -29,7 +29,7 @@
                     <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-actions')); ?>
                     <a class="btn dropdown-toggle btn-actions" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.monstra.blocks.embedCodes("'.basename($block, '.block.html').'");')); ?></li>
+                        <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.monstra.blocks.showEmbedCodes("'.basename($block, '.block.html').'");')); ?></li>
                     </ul>    
                     <?php echo Html::anchor(__('Delete', 'blocks'),
                               'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),

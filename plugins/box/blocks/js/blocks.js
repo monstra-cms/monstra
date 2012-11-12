@@ -4,7 +4,7 @@ $.monstra.blocks = {
 
     init: function() { },
 
-    embedCodes: function(name) {
+    showEmbedCodes: function(name) {
         $('#shortcode').html('{block get="'+name+'"}');
         $('#phpcode').html('&lt;?php echo Block::get("'+name+'"); ?&gt;');
         $('#embedCodes').modal();
