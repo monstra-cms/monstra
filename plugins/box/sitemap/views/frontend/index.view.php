@@ -18,7 +18,7 @@
     if (count($components) > 0)  {
         if (count($pages_list) == 0) { echo '<ul>'; }
         foreach ($components as $component) {
-            echo '<li><a href="'.Option::get('siteurl').Text::lowercase($component).'" target="_blank">'.__(ucfirst($component), $component).'</a></li>';
+            echo '<li><a href="'.Option::get('siteurl').$component.'" target="_blank">'.__(ucfirst($component), $component).'</a></li>';
         }
         echo '</ul>';
 

@@ -170,7 +170,7 @@
             
             if (count(Plugin::$components) > 0)  {
                 foreach (Plugin::$components as $component) {
-                    if ( ! in_array($component, Sitemap::$forbidden_components)) $components[] = $component;
+                    if ( ! in_array($component, Sitemap::$forbidden_components)) $components[] = Text::lowercase($component);
                 }
             }
 
