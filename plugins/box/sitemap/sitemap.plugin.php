@@ -95,7 +95,7 @@
 
             // Add components to sitemap
             if (count($components) > 0)  {         
-                foreach ($components as $component) {                    
+                foreach ($components as $component) {
                     $map .= "\t".'<url>'."\n\t\t".'<loc>'.Option::get('siteurl').Text::lowercase($component).'</loc>'."\n\t\t".'<lastmod>'.date("Y-m-d", time()).'</lastmod>'."\n\t\t".'<changefreq>weekly</changefreq>'."\n\t\t".'<priority>1.0</priority>'."\n\t".'</url>'."\n";
                 }
             }
@@ -170,7 +170,7 @@
             
             if (count(Plugin::$components) > 0)  {
                 foreach (Plugin::$components as $component) {
-                    if ( ! in_array($component, Sitemap::$forbidden_components)) $components[] = __(ucfirst($component), $component);
+                    if ( ! in_array($component, Sitemap::$forbidden_components)) $components[] = $component;
                 }
             }
 
