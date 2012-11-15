@@ -105,7 +105,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404"]'))
+                                ->assign('pages_list', MenuAdmin::getPages())
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
@@ -165,7 +165,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404"]'))
+                                ->assign('pages_list', MenuAdmin::getPages())
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
@@ -208,6 +208,59 @@
 
 
         /**
+         * Get pages
+         */
+        protected static function getPages() {
+
+            // Init vars
+            $pages_array = array();
+            $count = 0;
+            
+            // Get pages table
+            $pages = new Table('pages');
+
+            // Get Pages List
+            $pages_list = $pages->select('[slug!="error404" and status="published"]');
+            
+            foreach ($pages_list as $page) {
+
+                $pages_array[$count]['title']   = Html::toText($page['title']);
+                $pages_array[$count]['parent']  = $page['parent'];
+                $pages_array[$count]['date']    = $page['date'];
+                $pages_array[$count]['author']  = $page['author'];
+                $pages_array[$count]['slug']    = ($page['slug'] == Option::get('defaultpage')) ? '' : $page['slug'] ;
+
+                if (isset($page['parent'])) {
+                    $c_p = $page['parent'];
+                } else {
+                    $c_p = '';
+                }
+
+                if ($c_p != '') {
+                    $_page = $pages->select('[slug="'.$page['parent'].'"]', null);
+
+                    if (isset($_page['title'])) {
+                        $_title = $_page['title'];
+                    } else {
+                        $_title = '';
+                    }
+                    $pages_array[$count]['sort'] = $_title . ' ' . $page['title'];                
+                } else {
+                    $pages_array[$count]['sort'] = $page['title'];     
+                }
+                $_title = '';                     
+                $count++;                    
+            }
+
+            // Sort pages
+            $_pages_list = Arr::subvalSort($pages_array, 'sort');
+
+            // return
+            return $_pages_list;
+        }
+
+
+        /**
          * Get components
          */
         protected static function getComponents() {
@@ -216,7 +269,7 @@
             
             if (count(Plugin::$components) > 0)  {
                 foreach (Plugin::$components as $component) {
-                    if ($component !== 'pages' && $component !== 'sitemap') $components[] = ucfirst($component);
+                    if ($component !== 'pages' && $component !== 'sitemap') $components[] = Text::lowercase($component);
                 }
             }
 
