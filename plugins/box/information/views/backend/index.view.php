@@ -53,6 +53,18 @@
                         <td><?php echo PHP_VERSION; ?></td>
                     </tr>
                     <tr>        
+                        <td><?php echo __('PHP Built On', 'information'); ?></td>
+                        <td><?php echo php_uname(); ?></td>
+                    </tr>
+                    <tr>        
+                        <td><?php echo __('Web Server', 'information'); ?></td>
+                        <td><?php echo (isset($_SERVER['SERVER_SOFTWARE'])) ? $_SERVER['SERVER_SOFTWARE'] : @getenv('SERVER_SOFTWARE'); ?></td>
+                    </tr>
+                    <tr>        
+                        <td><?php echo __('WebServer to PHP Interface', 'information'); ?></td>
+                        <td><?php echo php_sapi_name(); ?></td>
+                    </tr>
+                    <tr>        
                         <td><?php echo __('SimpleXML module', 'information'); ?></td>
                         <td><?php if (in_array('SimpleXML', $php_modules)) { echo __('Installed', 'information'); } else { echo __('Not Installed', 'information'); } ?></td>
                     </tr>
