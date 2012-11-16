@@ -58,7 +58,7 @@
 
                 // Get all pages
                 $pages_array = array();
-                $pages_list = $pages->select('[slug!="error404" and parent=""]');
+                $pages_list = $pages->select('[slug!="error404" and parent="" and status="published" and access="public"]');
                 foreach ($pages_list as $page) {
                     $pages_array[$page['slug']] = Html::toText($page['title']);
                 }
