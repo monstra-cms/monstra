@@ -2,8 +2,12 @@
 
     Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
     
-    Action::add('admin_header', 'PagesAdmin::_themeHeaders');
+
     Action::add('admin_pre_render','PagesAdmin::_pageExpandAjax');
+
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/pages/js/pages.js', 'backend');
+
 
     class PagesAdmin extends Backend {
 
@@ -29,37 +33,6 @@
             }
         }
 
-
-        /**
-         * _themeHeaders
-         */
-        public static function _themeHeaders() {
-            echo ('<script>
-                    function pageExpand(slug, expand, token) {
-                        $.ajax({
-                            type:"post",
-                            data:"slug="+slug+"&expand="+expand+"&token="+token,
-                            url: "'.Option::get('siteurl').'admin/index.php?id=pages"
-                        });
-                    }
-
-                    $(document).ready(function() {
-                        $(".parent").click(function() {
-                            if ($(this).html() == "-") {
-                                $(\'[rel="children_\' + $(this).attr(\'rel\')+\'"]\').hide();                                
-                                $(this).html("+");
-                                pageExpand($(this).attr("rel"), "1", $(this).attr("token"));
-                            } else {
-                                $(\'[rel="children_\' + $(this).attr(\'rel\')+\'"]\').show();
-                                $(this).html("-");
-                                pageExpand($(this).attr("rel"), "0", $(this).attr("token"));
-                            }
-                        });
-
-                    });
-                </script>');  
-        }
-        
             
         /**
          * Pages admin function

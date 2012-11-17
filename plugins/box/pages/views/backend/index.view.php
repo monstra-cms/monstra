@@ -98,5 +98,9 @@
             </tbody>
         </table>
 
+        <form>
+            <input type="hidden" name="url" value="<?php echo Option::get('siteurl'); ?>admin/index.php?id=pages">
+        </form>
+
     </div>
 </div>
