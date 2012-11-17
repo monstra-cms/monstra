@@ -494,6 +494,34 @@
 
 
         /**
+         * Check if field exist
+         *
+         *  <code> 
+         *      if ($users->existsField('field_name')) {
+         *          // do something...        
+         *      }       
+         *  </code>
+         *
+         * @param  string $name Name of field to check.
+         * @return boolean
+         */      
+        public function existsField($name) {
+
+            // Redefine vars
+            $name = (string) $name;
+            
+            // Get table    
+            $table = $this->table;
+            
+            // Select field 
+            $field = Table::_selectOne($this->table, "fields/{$name}");  
+
+            // Return true or false
+            return ($field == null) ? false : true;
+        }
+
+
+        /**
          * Add new record 
          *
          *  <code> 
