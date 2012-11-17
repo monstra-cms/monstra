@@ -33,5 +33,8 @@
             'Writable' => 'Gravável',
             'Unwritable' => 'Unwritable',
             'Status' => 'Estado',
+            'PHP Built On' => 'PHP Built On',
+            'Web Server' => 'Web Server',
+            'WebServer to PHP Interface' => 'WebServer to PHP Interface',
         )
     );

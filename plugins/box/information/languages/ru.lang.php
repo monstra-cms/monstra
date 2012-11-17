@@ -33,5 +33,8 @@
             'Writable' => 'Доступна для записи',
             'Unwritable' => 'Недоступна для записи',
             'Status' => 'Статус',
+            'PHP Built On' => 'PHP построен на',
+            'Web Server' => 'Веб сервер',
+            'WebServer to PHP Interface' => 'Веб сервер для PHP интерфейса',
         )
     );
