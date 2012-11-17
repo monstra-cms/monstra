@@ -1,6 +1,10 @@
 <?php
 
+    // Add plugin navigation link
     Navigation::add(__('Snippets', 'snippets'), 'extends', 'snippets', 3);
+
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/snippets/js/snippets.js', 'backend');
 
 
     class SnippetsAdmin extends Backend {
