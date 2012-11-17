@@ -1,36 +1,54 @@
 Monstra 2.1.0, xxxx-xx-xx
 ------------------------
-- Localization: PT-BR, UK translations added
+- Localization: PT-BR, UK translations added.
 - Default theme: hook "theme_header" added.
 - System Plugin: new action "admin_system_extra_index_template_actions" added.
-- Shortcodes API: delete() clear() exists() methods added.
-- Options API: exists() method added.
+- Shortcodes API: new delete() clear() exists() methods added.
+- Options API: new exists() method added.
 - Core: new constant VERSION - added.
+- Core: added ability to load: defines, actions, filters, shortcodes for current environment.
+- Defines: deprecated constants: MONSTRA_GZIP_STYLES, MONSTRA_VERSION, MONSTRA_VERSION_ID, MONSTRA_SITEURL, MONSTRA_MOBILE deleted.
 - Box Plugins: used Core::VERSION to compare Monstra CMS version.
 - Installer: use version_compare() function to compare php versions.
-- Admin Default Theme: general improvments.
-- UsersPlugin: profile editing fixed.
+- Installer: Get system timezone with date_default_timezone_get() function.
+- Admin Default Theme: general improvements.
+- Users Plugin: user profile editing fixed.
 - Shortcodes API: bug with similar shortcode names fixed.
+- Site: template() method improvements. Added ability to get template from specific theme.
+- Menu Plugin: added ability to select children pages.
 - Pages Plugin: pages expand/collapse feature added.
 - Pages Plugin: pages "access" feature added.
+- Pages Plugin: tab "seo" changed to "metadata"
 - Pages Table: "expand, "access" fields added.
-- Pages Plugin: changed tab "seo" to "metadata"
-- Information Plugin: add "Directory Permissions" tab.
+- Information Plugin: new "Directory Permissions" tab added.
 - Twitter Bootstrap updated to Version 2.2.1
 - MarkitUp! updated to Version 1.1.13
 - Sitemap Plugin: links title issue fixed.
 - Core: Init Site module on frontend only.
 - Core: IDIORM optimization.
 - Site Class: code optimization.
-- Pages Plugin: code optimizations.
-- Sitemap Plugin: priority bug fixed.
-- Installer: Get system timezone with date_default_timezone_get() function.
+- Sitemap Plugin: bug with priority fixed.
 - File .gitignore added.
 - Monstra logo updated.
+- README: general updates
+- Pages Plugin: "delete" action fixes.
+- Plugins Manager: add ability to Cleanup minify with new plugin installation or plugin uninstallation.
+- MarkitUp Plugin: unnecessary files removed.
+- XMLDB: select() method fixes.
+- Installer: general fixes.
+- Blocks Plugin: view embed codes feature added.
+- Snippets Plugin: view embed codes feature added.
+- Text Helper: method strpSlashes() fixed.
+- Text Helper: new method increment() added.
+- Pages Plugin: improved page author detection.
+- Pages Plugin: add, edit, delete, clone actions improvements.
 - Users Plugin: apply "content" filter for "about_me" field.
 - Plugin API: Stylesheet and Javascript load() methods - fixed.
 - Pages Plugin: Page editing date issue - fixed.
 - Localization: EN, RU, IT, LT, DE translations fixed.
+- Imformation Plugin: config file(defines.php) checking removed.
+- Box Plugins: general code refactoring.
+
 
 Monstra 2.0.1, 2012-10-18
 ------------------------
