@@ -35,6 +35,8 @@ Monstra 2.1.0, xxxx-xx-xx
 - Plugins Manager: add ability to Cleanup minify with new plugin installation or plugin uninstallation.
 - MarkitUp Plugin: unnecessary files removed.
 - XMLDB: select() method fixes.
+- XMLDB: new method existsField() added.
+- Information Plugin: shows "PHP Built On", "Web Server", "WebServer to PHP Interface" information.
 - Installer: general fixes.
 - Blocks Plugin: view embed codes feature added.
 - Snippets Plugin: view embed codes feature added.
