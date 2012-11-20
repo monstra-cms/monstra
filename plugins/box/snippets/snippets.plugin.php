@@ -23,41 +23,64 @@
                     'box');
 
 
-    if(Session::exists('user_role') && in_array(Session::get('user_role'),array('admin'))) {
+    if (Session::exists('user_role') && in_array(Session::get('user_role'),array('admin'))) {
     
     	// Include Admin    
     	Plugin::admin('snippets', 'box');
 
     }
 
-    // Add shortcode {snippet get="snippetname"}
+    // Add shortcode {snippet}
     Shortcode::add('snippet', 'Snippet::_content');      
     
 
+    /**
+     * Snippet class
+     */
     class Snippet {
 
 
         /**
          * Get snippet
          *
-         * @param string $name Snippet file name
+         *  <code> 
+         *      echo Snippet::get('snippetname');
+         *      echo Snippet::get('snippetname', array('message' => 'Hello World'));
+         *  </code>
+         *
+         * @param  string $name Snippet file name
+         * @param  string $vars Vars
+         * @return string
          */
-        public static function get($name) {
-            return Snippet::_content(array('get' => $name));
+        public static function get($name, $vars = array()) {
+            $vars['get'] = $name;
+            return Snippet::_content($vars);
         }
 
 
         /**
          * Returns snippet content for shortcode {snippet get="snippetname"}
          *
-         * @param array $attributes snippet filename
+         *  <code> 
+         *      {snippet get="snippetname"}
+         *      {snippet get="snippetname" message="Hello World"}
+         *  </code>
+         *
+         * @param  array $attributes Array of attributes
+         * @return string
          */
         public static function _content($attributes) {  
-            
-            if (isset($attributes['get'])) $name = (string)$attributes['get']; else $name = '';
-              
+
+            // Extracst attributes
+            extract($attributes);
+
+            // Get snippet name  
+            $name = (isset($get)) ? (string)$get : '';
+                         
+            // Get snippet path                          
             $snippet_path = STORAGE . DS . 'snippets' . DS . $name . '.snippet.php';
 
+            // Get snippet content
             if (File::exists($snippet_path)) {
 
                 // Turn on output buffering
