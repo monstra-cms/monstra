@@ -16,6 +16,8 @@ Monstra 2.1.0, xxxx-xx-xx
 - Shortcodes API: bug with similar shortcode names fixed.
 - Site: template() method improvements. Added ability to get template from specific theme.
 - Menu Plugin: added ability to select children pages.
+- Snippets Plugin: added ability to add parameters for snippets.
+- Themes Plugin: added ability to add parameters for chunks.
 - Pages Plugin: pages expand/collapse feature added.
 - Pages Plugin: pages "access" feature added.
 - Pages Plugin: tab "seo" changed to "metadata"
