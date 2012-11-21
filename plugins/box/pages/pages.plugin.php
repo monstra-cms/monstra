@@ -426,7 +426,16 @@
          *  
          */
         public static function robots() {
-            return (Pages::$page !== null) ? Pages::$page['robots_index'].', '.Pages::$page['robots_follow'] : '';
+
+            if (Pages::$page !== null) {
+                $_index  = (isset(Pages::$page['robots_index'])) ? Pages::$page['robots_index'] : '';
+                $_follow = (isset(Pages::$page['robots_follow'])) ? Pages::$page['robots_follow'] : '';
+                $robots  = ( ! empty($_index) && ! empty($_follow)) ? $_index.', '.$_follow : '';
+            } else {
+                $robots = '';
+            }
+
+            return $robots;
         }
 
     }
