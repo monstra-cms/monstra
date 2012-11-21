@@ -161,7 +161,7 @@
                     $current_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
 
                     if (count($current_page) != 0) {
-                        if ($current_page['parent'] != '') {
+                        if ( ! empty($current_page['parent'])) {
                             $c_p = $current_page['parent'];
                         } else {
                             $c_p = '';
