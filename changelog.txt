@@ -44,6 +44,7 @@ Monstra 2.1.0, xxxx-xx-xx
 - Snippets Plugin: view embed codes feature added.
 - Text Helper: method strpSlashes() fixed.
 - Text Helper: new method increment() added.
+- Pages Plugin: method robots() fixes.
 - Pages Plugin: improved page author detection.
 - Pages Plugin: add, edit, delete, clone actions improvements.
 - Users Plugin: apply "content" filter for "about_me" field.
