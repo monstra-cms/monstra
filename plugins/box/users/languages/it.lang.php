@@ -33,7 +33,7 @@
             'Old password' => 'Vecchia password',
             'New password' => 'Nuova password',
             'Welcome' => 'Benvenuto',
-            'Wrong <b>login</b> or <b>password</b>' => '<b>Login</b> o <b>password</b> errata',
+            'Wrong <b>username</b> or <b>password</b>' => '<b>username</b> o <b>password</b> errata',
             'Your changes have been saved.' => 'Le modifiche sono state salvate.',
             'New user have been registered.' => 'Nuovo utente è stato registrato.',
             'Captcha' => 'Codice captcha',
