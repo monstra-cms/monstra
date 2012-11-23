@@ -55,6 +55,9 @@
                 </ul>
                 <div class="monstra-menu-category-separator"></div>
                 <?php if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) { ?>
+
+                <?php Action::run('admin_sidebar'); ?>
+
                 <h3><?php echo __('Extends', 'system'); ?></h3>
                 <ul>
                    <?php Navigation::draw('extends'); ?>

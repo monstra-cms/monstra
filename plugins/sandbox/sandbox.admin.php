@@ -1,12 +1,9 @@
 <?php 
 
-    // Admin Navigation: add new item
-    Navigation::add(__('Sandbox', 'sandbox'), 'content', 'sandbox', 10);
-    
-
     // Add actions
     Action::add('admin_themes_extra_index_template_actions','SandboxAdmin::formComponent');
     Action::add('admin_themes_extra_actions','SandboxAdmin::formComponentSave');
+    Action::add('admin_sidebar', 'SandboxAdmin::addSidebarGroup');
 
 
     /**
@@ -14,14 +11,29 @@
      */
     class SandboxAdmin extends Backend {
 
-	    /**
-	     * Main Sandbox admin function
-	     */
-	    public static function main() {
+            // Add Sandbox group to admin sidebar
+            public static function addSidebarGroup(){
 
-	    	//
-	    	// Do something here...
-	    	//
+                // Admin Navigation: add new item
+                Navigation::add(__('Sandbox', 'sandbox'), 'sandbox', 'sandbox', 0);
+
+                // Create sidebar section with links
+                echo '<h3>', __('Sandbox', 'sandbox'), '</h3>';
+                echo '<ul>';
+                Navigation::draw('sandbox');
+                echo '</ul>';
+                echo '<div class="monstra-menu-category-separator"></div>';
+
+            }
+
+            /**
+	* Main Sandbox admin function
+	*/
+	public static function main() {
+
+	//
+	// Do something here...
+	//
 
             // Check for get actions
             // -------------------------------------  
