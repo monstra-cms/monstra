@@ -30,7 +30,7 @@ Fast and small content management system written in PHP!
 
 
 ## Links
-- [Site](http://punbb.informer.com/wiki/)
+- [Site](http://monstra.org)
 - [Forum](http://forum.monstra.org)
 - [Documentation](http://monstra.org/documentation)
 - [Github Repository](https://github.com/Awilum/monstra-cms)
