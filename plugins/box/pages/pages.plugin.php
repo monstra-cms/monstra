@@ -113,7 +113,7 @@
                     }
 
                     // Hack For old Monstra
-                    $child_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
+                    $child_page['access'] = (isset($child_page['access'])) ? $child_page['access'] : 'public' ;
                   
                     // Check is child_parent -> request parent
                     if ($c_p == $data[0]) {                    
