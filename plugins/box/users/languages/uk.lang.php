@@ -33,7 +33,7 @@
             'Old password' => 'Старий пароль',
             'New password' => 'Новий пароль',
             'Welcome' => 'Ласкаво просимо',
-            'Wrong <b>login</b> or <b>password</b>' => 'Неправильний <b>логін</b> або <b>пароль</b>',
+            'Wrong <b>username</b> or <b>password</b>' => 'Неправильний <b>логін</b> або <b>пароль</b>',
             'Your changes have been saved.' => 'Ваші зміни були збережені.',
             'New user have been registered.' => 'Новий користувач був зареєстрований.',
             'Captcha' => 'Каптча',

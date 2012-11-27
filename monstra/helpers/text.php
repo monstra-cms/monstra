@@ -230,6 +230,10 @@
         /**
          * Add's _1 to a string or increment the ending number to allow _2, _3, etc
          *
+         *  <code>
+         *      $str = Text::increment($str);
+         *  </code>
+         *
          * @param   string   $str       String to increment
          * @param   integer  $first     Start with
          * @param   string   $separator Separator

@@ -180,7 +180,8 @@
                 }
             }
              
-            return $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix;
+            // Check if this shortcode realy exists then call user function else return empty string
+            return (isset(Shortcode::$shortcode_tags[$shortcode])) ? $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix : '';
         }
 
 }
