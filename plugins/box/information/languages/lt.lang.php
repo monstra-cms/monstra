@@ -33,8 +33,8 @@
             'Writable' => 'Rašomas',
             'Unwritable' => 'Nerašomas',
             'Status' => 'Būsena',
-            'PHP Built On' => 'PHP Built On',
-            'Web Server' => 'Web Server',
-            'WebServer to PHP Interface' => 'WebServer to PHP Interface',
+            'PHP Built On' => 'PHP veikia su',
+            'Web Server' => 'Serverio prog. įranga',
+            'WebServer to PHP Interface' => 'PHP naudoja šį SAPI',
         )
     );
