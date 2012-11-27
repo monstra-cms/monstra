@@ -111,6 +111,9 @@
                             $c_p = '';
                         }
                     }
+
+                    // Hack For old Monstra
+                    $child_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
                   
                     // Check is child_parent -> request parent
                     if ($c_p == $data[0]) {                    
@@ -121,7 +124,7 @@
                                 (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
                                 ($child_page['access'] == 'public')) {
 
-                                $id = $data[1];       
+                                $id = $data[1];
 
                             } elseif (($child_page['access'] == 'registered') and
                                      (Session::exists('user_id')) and
@@ -157,7 +160,7 @@
                     // Get current page
                     $current_page = Pages::$pages->select('[slug="'.$data[0].'"]', null);
                    
-                    // For old Monstra
+                    // Hack For old Monstra
                     $current_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
 
                     if (count($current_page) != 0) {
