@@ -45,7 +45,7 @@
         /**
     	 * The version of Monstra
     	 */
-    	const VERSION = '2.1.0 beta';
+    	const VERSION = '2.1.0';
 
 
         /**
