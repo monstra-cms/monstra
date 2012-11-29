@@ -98,7 +98,7 @@ input[type=phone]:focus,
 input[type=password]:focus,
 select:focus,
 textarea:focus {
-  border-color: #333;
+  border-color: #999;
   box-shadow: none;
 }
 
