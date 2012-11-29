@@ -20,5 +20,9 @@
             'Snippet content' => 'Fragmento turinys',
             'Snippet <i>:name</i> deleted' => 'Fragmentas <i>:name</i> ištrintas',
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Fragmento <i>:name</i> pakeitimai išsaugoti.',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );
