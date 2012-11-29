@@ -24,6 +24,9 @@ Thumbs.db
 # ignore user plugins
 /plugins/*
 !/plugins/box
+!/plugins/captcha
+!/plugins/markitup
+!/plugins/sandbox
 
 # ignore user files and folders
 /backups/*
