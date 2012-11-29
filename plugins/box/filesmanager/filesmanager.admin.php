@@ -1,7 +1,7 @@
 <?php
 
 
-    Navigation::add(__('Files', 'filesmanager'), 'content', 'filesmanager', 2);
+    Navigation::add(__('Files', 'filesmanager'), 'content', 'filesmanager', 3);
 
     
     class FilesmanagerAdmin extends Backend {
