@@ -22,9 +22,9 @@
         Form::open().
         Form::hidden('csrf', Security::token()).
         Form::label('site_name', __('Site name', 'system')).
-        Form::input('site_name', Option::get('sitename'), array('class' => 'span7')). Html::br().
+        Form::input('site_name', Option::get('sitename'), array('class' => 'span7')). Html::br().        
         Form::label('site_description', __('Site description', 'system')).
-        Form::input('site_description', Option::get('description'), array('class' => 'span7')). Html::br().
+        Form::textarea('site_description', Option::get('description'), array('class' => 'span7')). Html::br().
         Form::label('site_keywords', __('Site keywords', 'system')).
         Form::input('site_keywords', Option::get('keywords'), array('class' => 'span7')). Html::br().
         Form::label('site_slogan', __('Site slogan', 'system')).
@@ -45,7 +45,7 @@
         Form::label('system_language', __('Language', 'system')).
         Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'span3')). Html::br().         
         Form::label('site_maintenance_message', __('Maintenance Mode', 'system')).
-        Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('style' => 'width:640px;height:160px;')). Html::br(2)   
+        Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('class' => 'span7', 'style' => 'height:160px;')). Html::br(2)   
     );  
 ?>
 
@@ -56,3 +56,8 @@
     );
 ?>
 <!-- /System -->
+
+<?php
+    // Custom code for this plugin 
+    Action::run('admin_system_extra_index_template_actions');
+?>

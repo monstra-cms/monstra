@@ -43,6 +43,12 @@
 
 
         /**
+    	 * The version of Monstra
+    	 */
+    	const VERSION = '2.1.0';
+
+
+        /**
          * Monstra environment
          * 
          * @var string  
@@ -65,6 +71,38 @@
          */        
         protected function __construct() {
 
+            // Load core defines
+            Core::loadDefines();
+
+            /**
+             * Compress HTML with gzip
+             */
+            if (MONSTRA_GZIP) {
+                if ( ! ob_start("ob_gzhandler")) ob_start();
+            } else {
+                ob_start();
+            }
+
+            /**
+             * Send default header and set internal encoding
+             */
+            header('Content-Type: text/html; charset=UTF-8');
+            function_exists('mb_language') AND mb_language('uni');
+            function_exists('mb_regex_encoding') AND mb_regex_encoding('UTF-8');
+            function_exists('mb_internal_encoding') AND mb_internal_encoding('UTF-8');
+
+            /**
+             * Gets the current configuration setting of magic_quotes_gpc
+             * and kill magic quotes
+             */    
+            if (get_magic_quotes_gpc()) {
+                function stripslashesGPC(&$value) { $value = stripslashes($value); }
+                array_walk_recursive($_GET, 'stripslashesGPC');
+                array_walk_recursive($_POST, 'stripslashesGPC');
+                array_walk_recursive($_COOKIE, 'stripslashesGPC');
+                array_walk_recursive($_REQUEST, 'stripslashesGPC');
+            }         
+
             //  Error handling for Developers only.
             if (Core::$environment != Core::PRODUCTION) {
 
@@ -85,9 +123,11 @@
             Session::start();
 
             // Init ORM
-            ORM::configure(MONSTRA_DB_DSN);
-            ORM::configure('username', MONSTRA_DB_USER);
-            ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            if (defined('MONSTRA_DB_DSN')) {
+                ORM::configure(MONSTRA_DB_DSN);
+                ORM::configure('username', MONSTRA_DB_USER);
+                ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            }
 
             // Auto cleanup if MONSTRA_DEBUG is true
             if (Core::$environment == Core::DEVELOPMENT) {
@@ -121,11 +161,8 @@
             // Load Shortcodes API module
             require_once(ENGINE . DS . 'shortcodes.php');
 
-            // Load default filters
-            require_once(BOOT . DS . 'filters.php');
-
-            // Load default hooks
-            require_once(BOOT . DS . 'hooks.php');
+            // Load default 
+            Core::loadPluggable();
 
             // Init I18n
             I18n::init(Option::get('language'));
@@ -140,7 +177,7 @@
             require_once(ENGINE . DS . 'site.php');
 
             // Init site module
-            Site::init();
+            if( ! BACKEND) Site::init();
 
         }
 
@@ -152,6 +189,81 @@
          */  
         protected static function autoloadHelpers($class_name) {
             if (file_exists($path = HELPERS . DS . strtolower($class_name) . '.php')) include $path; 
+        }
+
+
+        /**
+         * Load Defines
+         */
+        protected static function loadDefines() {
+
+            $environments = array(1 => 'production',
+                                  2 => 'staging', 
+                                  3 => 'testing',
+                                  4 => 'development');
+
+            $root_defines         = ROOT . DS . 'boot' . DS . 'defines.php';
+            $environment_defines  = ROOT . DS . 'boot' . DS . $environments[Core::$environment] . DS . 'defines.php';
+            $monstra_defines      = ROOT . DS . 'monstra' . DS . 'boot' . DS . 'defines.php';
+
+
+            if (file_exists($root_defines)) {
+                include $root_defines;
+            } elseif(file_exists($environment_defines)) {
+                include $environment_defines;
+            } elseif(file_exists($monstra_defines)) {
+                include $monstra_defines;
+            } else {
+                throw new RuntimeException("The defines file does not exist.");
+            }
+        }
+
+
+        /**
+         * Load Pluggable
+         */
+        protected static function loadPluggable() {
+
+            $environments = array(1 => 'production',
+                                  2 => 'staging', 
+                                  3 => 'testing',
+                                  4 => 'development');
+
+            $root_pluggable         = ROOT . DS . 'boot';
+            $environment_pluggable  = ROOT . DS . 'boot' . DS . $environments[Core::$environment];
+            $monstra_pluggable      = ROOT . DS . 'monstra' . DS . 'boot';
+
+
+            if (file_exists($root_pluggable . DS . 'filters.php')) {
+                include $root_pluggable . DS . 'filters.php';
+            } elseif(file_exists($environment_pluggable . DS . 'filters.php')) {
+                include $environment_pluggable . DS . 'filters.php';
+            } elseif(file_exists($monstra_pluggable . DS . 'filters.php')) {
+                include $monstra_pluggable . DS . 'filters.php';
+            } else {
+                throw new RuntimeException("The pluggable file does not exist.");
+            }
+
+            if (file_exists($root_pluggable . DS . 'actions.php')) {
+                include $root_pluggable . DS . 'actions.php';
+            } elseif(file_exists($environment_pluggable . DS . 'actions.php')) {
+                include $environment_pluggable . DS . 'actions.php';
+            } elseif(file_exists($monstra_pluggable . DS . 'actions.php')) {
+                include $monstra_pluggable . DS . 'actions.php';
+            } else {
+                throw new RuntimeException("The pluggable file does not exist.");
+            }
+
+            if (file_exists($root_pluggable . DS . 'shortcodes.php')) {
+                include $root_pluggable . DS . 'shortcodes.php';
+            } elseif(file_exists($environment_pluggable . DS . 'shortcodes.php')) {
+                include $environment_pluggable . DS . 'shortcodes.php';
+            } elseif(file_exists($monstra_pluggable . DS . 'shortcodes.php')) {
+                include $monstra_pluggable . DS . 'shortcodes.php';
+            } else {
+                throw new RuntimeException("The pluggable file does not exist.");
+            }
+
         }
 
 
@@ -359,6 +471,7 @@
                                highlight_string('<?php ' . str_replace('/*', '#$@r4!/*', $string), true));
             
         }
+        
 
         /**
          * Convert errors not caught by the errorHandler to ErrorExceptions.

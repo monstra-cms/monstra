@@ -13,7 +13,6 @@
             'Edit snippet' => 'Редактирование сниппета',
             'Save' => 'Сохранить',        
             'Save and exit' => 'Сохранить и выйти',        
-            'This field should not be empty' => 'Это поле не должно быть пустым',
             'This snippet already exists' => 'Такой сниппет уже существует',
             'This snippet does not exist' => 'Такого сниппета не существует',
             'Delete snippet: :block' => 'Удалить сниппет: :snippet',
@@ -22,5 +21,9 @@
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Ваши изменения к сниппету <i>:name</i> были сохранены.',
             'Delete snippet: :snippet' => 'Удалить сниппет: :snippet',
             'Required field' => 'Обязательное поле',
+            'View Embed Code' => 'Код для вставки',
+            'Embed Code' => 'Код для вставки', 
+            'Shortcode' => 'Шорткод',
+            'PHP Code' => 'PHP код',
         )
     ); 

@@ -13,7 +13,6 @@
             'Edit snippet' => 'Edit snippet',        
             'Save' => 'Save',        
             'Save and exit' => 'Save and exit',        
-            'This field should not be empty' => 'This field should not be empty',
             'This snippet already exists' => 'This snippet already exists',
             'This snippet does not exist' => 'This snippet does not exist',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',
@@ -22,5 +21,9 @@
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Your changes to the snippet <i>:name</i> have been saved.',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',
             'Required field' => 'Required field',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );

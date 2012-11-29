@@ -50,6 +50,7 @@
             'Send New Password' => 'Send New Password',
             'This user does not exist' => 'This user does not exist',
             'Version' => 'Version',
+            'Plugin does not exist' => 'Plugin does not exist',
 
             'Install script writable' => 'Install script writable',
             'Install script not writable' => 'Install script not writable',
@@ -75,5 +76,7 @@
             'Sitemap file not writable' => 'Sitemap file not writable',
             'Main .htaccess file writable' => 'Main .htaccess file writable',
             'Main .htaccess file not writable' => 'Main .htaccess file not writable',
+            'Official Support Forum' => 'Official Support Forum',
+            'Documentation' => 'Documentation',
         )
     );

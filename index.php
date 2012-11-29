@@ -45,7 +45,7 @@
 
             // Set maintenance mode for all except admin and editor
             if ((Session::exists('user_role')) and (Session::get('user_role') == 'admin' or Session::get('user_role') == 'editor')) {
-                // Mosntra show this page :)
+                // Monstra show this page :)
             } else {
                 die (Text::toHtml(Option::get('maintenance_message'))); 
             }
@@ -59,7 +59,7 @@
 
         // Frontend pre render
         Action::run('frontend_post_render');
-        
+
         // Flush (send) the output buffer and turn off output buffering
         ob_end_flush();
         

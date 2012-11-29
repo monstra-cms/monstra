@@ -97,22 +97,20 @@
          *      echo Text::strpSlashes('some \ text \ here');
          *  </code>
          *
-	     * @param  string $str String with slashes
-	     * @return string
+	     * @param  mixed $str String or array of strings with slashes 
+	     * @return mixed
 	     */
 	    public static function strpSlashes($str) {
 
-	    	// Redefine vars
-            $str = (string) $str;
-
 	        if (is_array($str)) {
 	            foreach ($str as $key => $val) {
-	                $str[$key] = stripslashes($val);
+	                $result[$key] = stripslashes($val);
 	            }
 	        } else {
-	            $str = stripslashes($str);
+	            $result = stripslashes($str);
 	        }
-	        return $str;
+
+	        return $result;
 	    }
 
 
@@ -226,6 +224,26 @@
                     return sha1(uniqid(mt_rand(), true));
                 break;
             }
+        }
+        
+
+        /**
+         * Add's _1 to a string or increment the ending number to allow _2, _3, etc
+         *
+         *  <code>
+         *      $str = Text::increment($str);
+         *  </code>
+         *
+         * @param   string   $str       String to increment
+         * @param   integer  $first     Start with
+         * @param   string   $separator Separator
+         * @return  string
+         */
+        public static function increment($str, $first = 1, $separator = '_') {
+
+            preg_match('/(.+)'.$separator.'([0-9]+)$/', $str, $match);
+
+            return isset($match[2]) ? $match[1].$separator.($match[2] + 1) : $str.$separator.$first;
         }
 
 

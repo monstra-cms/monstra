@@ -91,6 +91,18 @@ h6 {
   text-transform: uppercase;
 }
 
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=phone]:focus,
+input[type=password]:focus,
+select:focus,
+textarea:focus {
+  border-color: #999;
+  box-shadow: none;
+}
+
+
 /**************************************
     2. HEADER
 *************************************/
@@ -113,8 +125,8 @@ h6 {
 .monstra-header h3 a, .monstra-header .brand {
   float: left;
   display: block;  
-  padding-top:6px;
-  padding-left:1px;
+  padding-top:15px;
+  padding-left:10px;
   margin-left: 0px;
   color: #fdfdfd;
   font-family: arial;
@@ -240,21 +252,22 @@ h6 {
 /*************************************
     5. AUTHORIZATION
 *************************************/
-
-.authorization-block {
-    margin: 0 auto;
-    float: none!important;       
-}
-
-.authorization-block-footer {
-    margin: 0 auto;
-    float: none!important;      
-    margin-top:10px;
-    margin-bottom:10px;
-}
-
 .login-body {
-    background:#F2F2F2;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+  max-width: 290px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+          box-shadow: 0 1px 5px rgba(0,0,0,.15);
 }
 
 /*************************************
@@ -451,3 +464,15 @@ td, th {
 .error-field {border:1px solid red!important;}
 .container-fluid {padding-left:0px;}
 img {max-width:none;}
+
+a.btn-expand{
+  color: #333;
+  text-decoration: none;
+  padding-left:4px;
+  padding-right:4px;
+}
+
+footer a , footer{
+  color:#333;
+  font-size:10px;
+}

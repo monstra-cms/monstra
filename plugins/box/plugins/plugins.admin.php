@@ -40,6 +40,9 @@
                             include PLUGINS . DS . $plugin_name . DS . 'install' . DS . $plugin_name . '.uninstall.php';
                         }
                         
+                        // Cleanup minify                               
+                        if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
+
                         // Clean i18n cache
                         Cache::clean('i18n');
                         
@@ -69,6 +72,9 @@
                                            'status'   => (string)$plugin_xml->plugin_status,
                                            'priority' => (int)$plugin_xml->plugin_priority));
               
+                    // Cleanup minify                               
+                    if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
+
                     // Clean i18n cache
                     Cache::clean('i18n');                
               

@@ -10,7 +10,7 @@
             'Description' => 'Описание',
             'Delete' => 'Удалить',
             'Delete plugin :plugin' => 'Удалить плагин :plugin',
-            'This plugins does not exist' => 'Такой плагин не существует',
+            'This plugin does not exist' => 'Такого плагина не существует',
             'Version' => 'Версия',
             'Author' => 'Автор',
             'Get More Plugins' => 'Скачать другие плагины',

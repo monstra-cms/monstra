@@ -93,7 +93,8 @@
 	     * @return string
 	     */
 	    public static function find($url) {	        
-	        $pos = strpos($url, 'http://');
+		$https = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://';
+	        $pos = strpos($url, $https);
 	        if ($pos === false) { $url_output = Option::get('siteurl') . $url; } else { $url_output = $url; }
 	        return $url_output;
 	    }
@@ -109,7 +110,7 @@
 	 	 * @return string	
 	     */
 	    public static function base() {
-	    	return 'http://' . rtrim(rtrim($_SERVER['HTTP_HOST'], '\\/') . dirname($_SERVER['PHP_SELF']), '\\/');
+		$https = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://';
+	    	return $https . rtrim(rtrim($_SERVER['HTTP_HOST'], '\\/') . dirname($_SERVER['PHP_SELF']), '\\/');
 	    }
-
 	}

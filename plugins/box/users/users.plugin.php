@@ -242,7 +242,7 @@
                                 }
                                 
                                 Notification::set('success', __('Your changes have been saved.', 'users'));                                            
-                                Request::redirect(Site::url().'users/'.$user['id'].'/edit');
+                                Request::redirect(Site::url().'users/'.$user['id']);
                             }
                         } else { }  
 
@@ -393,11 +393,11 @@
                                     Session::set('user_role', (string)$user['role']);
                                     Request::redirect(Site::url().'users/'.Session::get('user_id'));
                                 } else {
-                                    Notification::setNow('error', __('Wrong <b>login</b> or <b>password</b>', 'users'));  
+                                    Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));  
                                 }
                             } 
                         } else {
-                            Notification::setNow('error', __('Wrong <b>login</b> or <b>password</b>', 'users'));  
+                            Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));  
                         }
 
                     } else { die('csrf detected!'); }              
@@ -416,12 +416,12 @@
          */
         public static function title(){
             switch (Users::route()) {
-                case 'list':   return __('Users'); break;         
-                case 'profile': return __('Users - Profile'); break; 
-                case 'edit': return __('Users - Edit Profile'); break; 
-                case 'login':   return __('Users - Login'); break;
-                case 'registration':   return __('Users - Registration'); break;
-                case 'password-reset': return __('Users - Password Recover'); break;
+                case 'list':   return __('Users', 'users'); break;         
+                case 'profile': return __('Users - Profile', 'users'); break; 
+                case 'edit': return __('Users - Edit Profile', 'users'); break; 
+                case 'login':   return __('Users - Login', 'users'); break;
+                case 'registration':   return __('Users - Registration', 'users'); break;
+                case 'password-reset': return __('Users - Password Recover', 'users'); break;
             }
         }
 

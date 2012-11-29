@@ -56,7 +56,7 @@
 
         
         /**
-         * Add shortcode
+         * Add new shortcode
          *
          *  <code> 
          *      function returnSiteUrl() {
@@ -79,6 +79,59 @@
             if (is_callable($callback_function)) Shortcode::$shortcode_tags[$shortcode] = $callback_function;        
         }
 
+        
+        /**
+         * Remove a specific registered shortcode.
+         *
+         *  <code> 
+         *      Shortcode::delete('shortcode_name');
+         *  </code>
+         *
+         * @param string $shortcode Shortcode tag.
+         */
+        public static function delete($shortcode) {
+
+            // Redefine vars
+            $shortcode = (string) $shortcode;
+
+            // Delete shortcode
+    	    if (Shortcode::exists($shortcode)) unset(Shortcode::$shortcode_tags[$shortcode]);
+        }
+
+        
+        /**
+         * Remove all registered shortcodes.
+         *
+         *  <code> 
+         *      Shortcode::clear();
+         *  </code>
+         *
+         */
+        public static function clear() {
+            Shortcode::$shortcode_tags = array();
+        }
+
+
+        /**
+         * Check if a shortcode has been registered.
+         *
+         *  <code> 
+         *      if (Shortcode::exists('shortcode_name')) {
+         *          // do something...
+         *      }
+         *  </code>
+         *
+         * @param string $shortcode Shortcode tag.
+         */
+        public static function exists($shortcode) {
+
+            // Redefine vars
+            $shortcode = (string) $shortcode;
+
+            // Check shortcode
+    	    return array_key_exists($shortcode, Shortcode::$shortcode_tags);
+        }
+
 
         /**
          * Parse a string, and replace any registered shortcodes within it with the result of the mapped callback.
@@ -95,8 +148,8 @@
             if ( ! Shortcode::$shortcode_tags) return $content;
                  
             $shortcodes = implode('|', array_map('preg_quote', array_keys(Shortcode::$shortcode_tags)));
-            $pattern    = "/(.?)\{($shortcodes)(.*?)(\/)?\}(?(4)|(?:(.+?)\{\/\s*\\2\s*\}))?(.?)/s";
-                 
+            $pattern    = "/(.?)\{([$shortcodes]+)(.*?)(\/)?\}(?(4)|(?:(.+?)\{\/\s*\\2\s*\}))?(.?)/s";
+            
             return preg_replace_callback($pattern, 'Shortcode::_handle', $content);
         }
              
@@ -127,7 +180,8 @@
                 }
             }
              
-            return $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix;
+            // Check if this shortcode realy exists then call user function else return empty string
+            return (isset(Shortcode::$shortcode_tags[$shortcode])) ? $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix : '';
         }
 
 }

@@ -164,4 +164,26 @@
             return Option::$options->deleteWhere('[name="'.$option.'"]');    
         }
 
+
+        /**
+         * Check if option exist
+         *
+         *  <code> 
+         *      if (Option::exists('pages_limit')) {
+         *          // do something...        
+         *      }       
+         *  </code>
+         *
+         * @param  string $option Name of option to check.
+         * @return boolean
+         */      
+        public static function exists($option) {
+
+            // Redefine vars
+            $option = (string) $option;
+
+            // Check if option exists
+            return (count(Option::$options->select('[name="'.$option.'"]', null)) > 0) ? true : false;
+        }
+
     } 

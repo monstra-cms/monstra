@@ -14,6 +14,8 @@
     <?php Stylesheet::add('public/assets/css/bootstrap-responsive.css', 'frontend', 3); ?>
     <?php Stylesheet::load(); ?>
 
+    <?php Action::run('theme_header'); ?>
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

@@ -494,6 +494,34 @@
 
 
         /**
+         * Check if field exist
+         *
+         *  <code> 
+         *      if ($users->existsField('field_name')) {
+         *          // do something...        
+         *      }       
+         *  </code>
+         *
+         * @param  string $name Name of field to check.
+         * @return boolean
+         */      
+        public function existsField($name) {
+
+            // Redefine vars
+            $name = (string) $name;
+            
+            // Get table    
+            $table = $this->table;
+            
+            // Select field 
+            $field = Table::_selectOne($this->table, "fields/{$name}");  
+
+            // Return true or false
+            return ($field == null) ? false : true;
+        }
+
+
+        /**
          * Add new record 
          *
          *  <code> 
@@ -626,31 +654,11 @@
                 //     $users->select('[status="active"]', 'all'); 
                 // or
                 //     $users->select('[status="active"]'); 
-                if ($row_count == 'all') {
-                    
-                    foreach ($tmp as $record) {                        
-                        $data[] = $record;
-                    } 
+                foreach ($tmp as $record) {                        
+                    $data[] = $record;
+                } 
                       
-                    $_records = $data;    
-                
-                } else {
-
-                    // Else select records like
-                    // eg: $users->select(null, 2, 1);
-
-                    foreach($tmp as $record) {
-                        $data[] = $record;
-                    }
-
-                    // If offset is null slice array from end else from begin
-                    if ($offset === null) {
-                        $_records = array_slice($data, -$row_count, $row_count);
-                    } else {
-                        $_records = array_slice($data, $offset, $row_count);
-                    }
-                 
-                }
+                $_records = $data; 
             }
 
             // If array of fields is exits then get records with this fields only
@@ -665,7 +673,6 @@
                             $record_array[$count][$field] = (string)$record->$field;
                         }
                     
-                        //$record_array[$count]['id'] = (int)$record['id'];
                         $record_array[$count]['id'] = (int)$record->id;
 
                         if ($order_by == 'id') {                                                            
@@ -677,7 +684,17 @@
                         $count++;
 
                     }
-                    $records = Table::subvalSort($record_array, 'sort', $order);                    
+
+                    // Sort records
+                    $records = Table::subvalSort($record_array, 'sort', $order);     
+
+                    // Slice records array
+                    if ($offset === null && is_int($row_count)) {
+                        $records = array_slice($records, -$row_count, $row_count);
+                    } elseif($offset !== null && is_int($row_count)) {
+                        $records = array_slice($records, $offset, $row_count);
+                    }
+
                 }
 
             } else {                 
@@ -687,19 +704,41 @@
                 if ( ! $one_record) {
                     $count = 0;  
                     foreach ($_records as $xml_objects) {
+                        
                         $vars = get_object_vars($xml_objects);                                                                            
+                        
                         foreach ($vars as $key => $value) {                                                                                                           
-                            $records[$count][$key] = (string)$value;                                                                                                                 
+                            $records[$count][$key] = (string)$value;   
+
+                            if ($order_by == 'id') {                                                            
+                                $records[$count]['sort'] = (int)$vars['id'];
+                            } else {                            
+                                $records[$count]['sort'] = (string)$value;
+                            }                                                                                                              
                         }
+
+
                         $count++;                            
                     }
+
+                    // Sort records
+                    $records = Table::subvalSort($records, 'sort', $order); 
+
+                    // Slice records array
+                    if ($offset === null && is_int($row_count)) {
+                        $records = array_slice($records, -$row_count, $row_count);
+                    } elseif($offset !== null && is_int($row_count)) {
+                        $records = array_slice($records, $offset, $row_count);
+                    }
+
                 } else {
+
+                    // Single record
                     $vars = get_object_vars($_records[0]);                                      
                     foreach ($vars as $key => $value) {   
                         $records[$key] = (string)$value;              
                     }
-                }                            
-                
+                }                      
             }
             
             // Return records

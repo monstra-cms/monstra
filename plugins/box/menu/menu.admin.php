@@ -1,9 +1,10 @@
 <?php
 
     // Add plugin navigation link
-    Navigation::add(__('Menu', 'menu'), 'content', 'menu', 3);
+    Navigation::add(__('Menu', 'menu'), 'content', 'menu', 4);
 
-    Action::add('admin_header', 'MenuAdmin::headers');
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/menu/js/menu.js', 'backend');
 
 
     class MenuAdmin extends Backend {
@@ -18,26 +19,8 @@
 
 
         /**
-         * Headers
+         * Main 
          */
-        public static function headers() {
-            echo ("
-                <script> 
-                    function selectPage(slug, title) {
-                        $('input[name=menu_item_link]').val(slug);
-                        $('input[name=menu_item_name]').val(title);
-                        $('#selectPageModal').modal('hide');
-                    }
-
-                    function selectCategory(name) {
-                        $('input[name=menu_item_category]').val(name);
-                        $('#selectCategoryModal').modal('hide');
-                    }
-                </script>
-            ");
-        }
-        
-
         public static function main() {
 
             // Get menu table
@@ -97,11 +80,12 @@
 
                                 // Update menu item    
                                 if (count($errors) == 0) {
-                                    MenuAdmin::$menu->update(Request::get('item_id'), array('name'       => Request::post('menu_item_name'),
-                                                                                 'link'       => Request::post('menu_item_link'),
-                                                                                 'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
-                                                                                 'target'     => Request::post('menu_item_target'),
-                                                                                 'order'      => Request::post('menu_item_order')));
+                                    MenuAdmin::$menu->update(Request::get('item_id'),
+                                                             array('name' => Request::post('menu_item_name'),
+                                                                  'link'       => Request::post('menu_item_link'),
+                                                                  'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                                  'target'     => Request::post('menu_item_target'),
+                                                                  'order'      => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -121,7 +105,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404" and parent=""]'))
+                                ->assign('pages_list', MenuAdmin::getPages())
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
@@ -157,11 +141,11 @@
 
                                 // Insert new menu item
                                 if (count($errors) == 0) {
-                                    MenuAdmin::$menu->insert(array('name'       => Request::post('menu_item_name'),
-                                                        'link'       => Request::post('menu_item_link'),
-                                                        'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
-                                                        'target'     => Request::post('menu_item_target'),
-                                                        'order'      => Request::post('menu_item_order')));
+                                    MenuAdmin::$menu->insert(array('name' => Request::post('menu_item_name'),
+                                                                   'link'       => Request::post('menu_item_link'),
+                                                                   'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                                   'target'     => Request::post('menu_item_target'),
+                                                                   'order'      => Request::post('menu_item_order')));
 
                                     Request::redirect('index.php?id=menu');
                                 }
@@ -181,7 +165,7 @@
                                 ->assign('menu_item_order_array', $menu_item_order_array)
                                 ->assign('errors', $errors)
                                 ->assign('categories', MenuAdmin::getCategories())
-                                ->assign('pages_list', $pages->select('[slug!="error404" and parent=""]'))
+                                ->assign('pages_list', MenuAdmin::getPages())
                                 ->assign('components_list', MenuAdmin::getComponents())
                                 ->display();
 
@@ -224,6 +208,59 @@
 
 
         /**
+         * Get pages
+         */
+        protected static function getPages() {
+
+            // Init vars
+            $pages_array = array();
+            $count = 0;
+            
+            // Get pages table
+            $pages = new Table('pages');
+
+            // Get Pages List
+            $pages_list = $pages->select('[slug!="error404" and status="published"]');
+            
+            foreach ($pages_list as $page) {
+
+                $pages_array[$count]['title']   = Html::toText($page['title']);
+                $pages_array[$count]['parent']  = $page['parent'];
+                $pages_array[$count]['date']    = $page['date'];
+                $pages_array[$count]['author']  = $page['author'];
+                $pages_array[$count]['slug']    = ($page['slug'] == Option::get('defaultpage')) ? '' : $page['slug'] ;
+
+                if (isset($page['parent'])) {
+                    $c_p = $page['parent'];
+                } else {
+                    $c_p = '';
+                }
+
+                if ($c_p != '') {
+                    $_page = $pages->select('[slug="'.$page['parent'].'"]', null);
+
+                    if (isset($_page['title'])) {
+                        $_title = $_page['title'];
+                    } else {
+                        $_title = '';
+                    }
+                    $pages_array[$count]['sort'] = $_title . ' ' . $page['title'];                
+                } else {
+                    $pages_array[$count]['sort'] = $page['title'];     
+                }
+                $_title = '';                     
+                $count++;                    
+            }
+
+            // Sort pages
+            $_pages_list = Arr::subvalSort($pages_array, 'sort');
+
+            // return
+            return $_pages_list;
+        }
+
+
+        /**
          * Get components
          */
         protected static function getComponents() {
@@ -232,7 +269,7 @@
             
             if (count(Plugin::$components) > 0)  {
                 foreach (Plugin::$components as $component) {
-                    if ($component !== 'pages' && $component !== 'sitemap') $components[] = ucfirst($component);
+                    if ($component !== 'pages' && $component !== 'sitemap') $components[] = Text::lowercase($component);
                 }
             }
 

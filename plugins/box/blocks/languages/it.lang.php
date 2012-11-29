@@ -21,5 +21,9 @@
             'Block <i>:name</i> deleted' => 'Snippet <i>:name</i> è stato eliminato',
             'Your changes to the block <i>:name</i> have been saved.' => 'Le modifiche al blocco: <i>nome</ i> sono state salvate.',
             'Delete block: :block' => 'Elimina blocco: :block',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     ); 

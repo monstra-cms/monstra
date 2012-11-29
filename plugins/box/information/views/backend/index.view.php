@@ -5,6 +5,7 @@
     <ul class="nav nav-tabs">
         <li class="active"><a href="#system" data-toggle="tab"><?php echo __('System', 'information'); ?></a></li>
         <li><a href="#server" data-toggle="tab"><?php echo __('Server', 'information'); ?></a></li>                
+        <li><a href="#directory-permissions" data-toggle="tab"><?php echo __('Directory Permissions', 'information'); ?></a></li>
         <li><a href="#security" data-toggle="tab"><?php echo __('Security', 'information'); ?></a></li>        
     </ul>
 
@@ -20,13 +21,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>        
-                        <td><?php echo __('System version', 'information'); ?></td>
-                        <td><?php echo MONSTRA_VERSION; ?></td>
-                    </tr>
-                    <tr>        
-                        <td><?php echo __('System version ID', 'information'); ?></td>
-                        <td><?php echo MONSTRA_VERSION_ID; ?></td>
+                    <tr>
+                        <td><?php echo __('Monstra version', 'information'); ?></td>
+                        <td><?php echo Core::VERSION; ?></td>
                     </tr>
                     <tr>        
                         <td><?php echo __('GZIP', 'information'); ?></td>
@@ -56,6 +53,18 @@
                         <td><?php echo PHP_VERSION; ?></td>
                     </tr>
                     <tr>        
+                        <td><?php echo __('PHP Built On', 'information'); ?></td>
+                        <td><?php echo php_uname(); ?></td>
+                    </tr>
+                    <tr>        
+                        <td><?php echo __('Web Server', 'information'); ?></td>
+                        <td><?php echo (isset($_SERVER['SERVER_SOFTWARE'])) ? $_SERVER['SERVER_SOFTWARE'] : @getenv('SERVER_SOFTWARE'); ?></td>
+                    </tr>
+                    <tr>        
+                        <td><?php echo __('WebServer to PHP Interface', 'information'); ?></td>
+                        <td><?php echo php_sapi_name(); ?></td>
+                    </tr>
+                    <tr>        
                         <td><?php echo __('SimpleXML module', 'information'); ?></td>
                         <td><?php if (in_array('SimpleXML', $php_modules)) { echo __('Installed', 'information'); } else { echo __('Not Installed', 'information'); } ?></td>
                     </tr>
@@ -80,6 +89,49 @@
             </table>
 
         </div>
+
+        <div class="tab-pane" id="directory-permissions">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td><?php echo __('Directory', 'information'); ?></td>
+                        <td><?php echo __('Status', 'information'); ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo STORAGE ?></td>
+                        <td><?php if (Dir::writable(STORAGE)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'tmp'; ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'tmp')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'backups' ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'backups')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'public' ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'public')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo MONSTRA ?></td>
+                        <td><?php if (Dir::writable(MONSTRA)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo PLUGINS ?></td>
+                        <td><?php if (Dir::writable(PLUGINS)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo ROOT . DS . 'admin' ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . 'admin')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
         
         <div class="tab-pane" id="security">
 
@@ -91,12 +143,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (File::writable(BOOT . DS . 'defines.php')) { ?>
-                        <tr> 
-                            <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>         
-                            <td><?php echo __('The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.', 'information'); ?></td>
-                        </tr>
-                    <?php } ?>
                     <?php if (File::writable(MONSTRA . DS)) { ?>
                         <tr>       
                             <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>            
