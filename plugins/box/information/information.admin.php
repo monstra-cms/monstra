@@ -1,9 +1,11 @@
 <?php
 
-
+    // Add plugin navigation link
     Navigation::add(__('Information', 'information'), 'system', 'information', 5);
 
-    
+    /**
+     * Information Admin Class
+     */
     class InformationAdmin extends Backend {
 
 

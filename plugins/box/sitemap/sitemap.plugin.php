@@ -30,7 +30,7 @@
 
 
     /**
-     * Sitemap 
+     * Sitemap class
      */
     class Sitemap extends Frontend {
 

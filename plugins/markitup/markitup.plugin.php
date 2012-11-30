@@ -24,7 +24,9 @@
     // Add hooks  
     Action::add('admin_header', 'MarkItUp::headers');
 
-
+    /**
+     * MarkItUp Class
+     */
     class MarkItUp {
                 
 

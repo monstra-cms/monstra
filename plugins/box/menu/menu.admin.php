@@ -3,10 +3,9 @@
     // Add plugin navigation link
     Navigation::add(__('Menu', 'menu'), 'content', 'menu', 4);
 
-    // Add Plugin Javascript
-    Javascript::add('plugins/box/menu/js/menu.js', 'backend');
-
-
+    /**
+     * Menu Admin Class
+     */
     class MenuAdmin extends Backend {
 
 

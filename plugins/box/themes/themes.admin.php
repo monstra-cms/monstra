@@ -1,8 +1,11 @@
 <?php
 
+    // Add plugin navigation link
     Navigation::add(__('Themes', 'themes'), 'extends', 'themes', 2);
 
-
+    /**
+     * Themes Admin Class
+     */
     class ThemesAdmin extends Backend {
 
 

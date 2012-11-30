@@ -25,6 +25,8 @@
     // Include Users Admin
     Plugin::Admin('users', 'box');
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/users/js/users.js', 'backend');
 
     /**
      * Users class

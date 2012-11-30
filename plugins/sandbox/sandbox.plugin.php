@@ -31,7 +31,7 @@
 
 
     /**
-     * Sandbox simple class
+     * Sandbox class
      */
     class Sandbox extends Frontend {
         

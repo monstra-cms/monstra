@@ -3,9 +3,9 @@
     // Add plugin navigation link
     Navigation::add(__('Blocks', 'blocks'), 'content', 'blocks', 2);
 
-    // Add Plugin Javascript
-    Javascript::add('plugins/box/blocks/js/blocks.js', 'backend');
-
+    /**
+     * Blocks Admin Class
+     */
     class BlocksAdmin extends Backend {
 
 

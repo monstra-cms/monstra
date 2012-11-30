@@ -1,9 +1,11 @@
 <?php
 
-
+    // Add plugin navigation link
     Navigation::add(__('Files', 'filesmanager'), 'content', 'filesmanager', 3);
 
-    
+    /**
+     * Filesmanager Admin Class
+     */
     class FilesmanagerAdmin extends Backend {
         
         /**

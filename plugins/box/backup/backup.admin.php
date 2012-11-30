@@ -1,6 +1,11 @@
 <?php
 
+    // Add plugin navigation link
+    Navigation::add(__('Backups', 'backup'), 'system', 'backup', 3);
 
+    /**
+     * Backup Admin Class
+     */
     class BackupAdmin extends Backend {
 
 

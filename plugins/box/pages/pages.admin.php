@@ -1,14 +1,14 @@
 <?php
 
+    // Add plugin navigation link
     Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
     
-
+    // Add action on admin_pre_render hook
     Action::add('admin_pre_render','PagesAdmin::_pageExpandAjax');
 
-    // Add Plugin Javascript
-    Javascript::add('plugins/box/pages/js/pages.js', 'backend');
-
-
+    /**
+     * Pages Admin Class
+     */
     class PagesAdmin extends Backend {
 
 
