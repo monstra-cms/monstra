@@ -2,14 +2,14 @@
 
     return array(
         'information' => array(
-            'Information' => 'Informazione',
+            'Information' => 'Informazioni',
             'Debugging' => 'Debugging',
             'Name' => 'Nome',
             'Value' => 'Valore',
             'Security' => 'Sicurezza',
             'System' => 'Sistema',
             'on' => 'on',
-            'off'=> 'off', 
+            'off'=> 'off',
             'Server' => 'Server',
             'PHP version' => 'Versione PHP',
             'SimpleXML module' => 'Modulo SimpleXML',
