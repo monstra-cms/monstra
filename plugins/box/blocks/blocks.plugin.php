@@ -30,10 +30,15 @@
 
     }
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/blocks/js/blocks.js', 'backend');
+
     // Add shortcode {block get="blockname"}
     Shortcode::add('block', 'Block::_content');      
     
-
+    /**
+     * Block Class
+     */
     class Block {
 
 

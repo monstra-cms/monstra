@@ -26,8 +26,6 @@
 
     if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
 
-        Navigation::add(__('Backups', 'backup'), 'system', 'backup', 3);
-
         // Include Backup Admin
         Plugin::admin('backup', 'box');
       

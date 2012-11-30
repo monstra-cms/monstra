@@ -3,6 +3,9 @@
     // Add plugin navigation link
     Navigation::add(__('Plugins', 'plugins'), 'extends', 'plugins', 1);
 
+    /**
+     * Plugins Admin
+     */
     class PluginsAdmin extends Backend {
 
         /**

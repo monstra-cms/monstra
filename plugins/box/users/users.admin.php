@@ -12,10 +12,9 @@
     // Add plugin navigation link
     Navigation::add(__('Users', 'users'), 'system', 'users', 2);
 
-    // Add Plugin Javascript
-    Javascript::add('plugins/box/users/js/users.js', 'backend');
-    
-    
+    /**
+     * Users Admin Class
+     */    
     class UsersAdmin extends Backend {
 
         /**

@@ -30,6 +30,9 @@
 
     }
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/snippets/js/snippets.js', 'backend');
+
     // Add shortcode {snippet}
     Shortcode::add('snippet', 'Snippet::_content');      
     

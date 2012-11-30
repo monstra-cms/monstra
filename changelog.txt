@@ -1,4 +1,10 @@
-Monstra 2.1.0, xxxx-xx-xx
+Monstra 2.1.1, 2012-11-30
+------------------------
+- Plugins: Minify bug #71 - fixed.
+- Menu Plugin: bug with categories #70 - fixed.
+- Localization: IT translations - fixed.
+
+Monstra 2.1.0, 2012-11-29
 ------------------------
 - Localization: PT-BR, UK translations added.
 - Default theme: hook "theme_header" added.
@@ -54,7 +60,6 @@ Monstra 2.1.0, xxxx-xx-xx
 - Imformation Plugin: config file(defines.php) checking removed.
 - Box Plugins: general code refactoring.
 
-
 Monstra 2.0.1, 2012-10-18
 ------------------------
 - Localization: DE, LT, IT translations added
@@ -101,7 +106,6 @@ Monstra 2.0.0, 2012-10-09
 - Translates updates.
 - Path updates.
 - And a lot of general engine improvements.
-
 
 Monstra 1.3.1, 2012-09-02
 ------------------------

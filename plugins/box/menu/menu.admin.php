@@ -3,10 +3,9 @@
     // Add plugin navigation link
     Navigation::add(__('Menu', 'menu'), 'content', 'menu', 4);
 
-    // Add Plugin Javascript
-    Javascript::add('plugins/box/menu/js/menu.js', 'backend');
-
-
+    /**
+     * Menu Admin Class
+     */
     class MenuAdmin extends Backend {
 
 
@@ -121,8 +120,11 @@
                         $menu_item_category = '';
                         $menu_item_target = '';
                         $menu_item_order = '';
-                        $errors = array();                 
+                        $errors = array();     
 
+                        // Get current category
+                        $menu_item_category = $current_category = (Request::get('category')) ? Request::get('category') : '' ;
+                        
                         // Add new menu item
                         if (Request::post('menu_add_item')) {
 
@@ -132,7 +134,7 @@
 
                                     if (Request::post('menu_item_name')) $menu_item_name = Request::post('menu_item_name'); else $menu_item_name = '';
                                     if (Request::post('menu_item_link')) $menu_item_link = Request::post('menu_item_link'); else $menu_item_link = '';
-                                    if (Request::post('menu_item_category')) $menu_item_category = Request::post('menu_item_category'); else $menu_item_category = '';
+                                    if (Request::post('menu_item_category')) $menu_item_category = Request::post('menu_item_category'); else $menu_item_category = $current_category;
                                     if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = '';
                                     if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = '';
 

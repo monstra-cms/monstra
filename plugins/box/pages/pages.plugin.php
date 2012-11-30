@@ -32,6 +32,12 @@
     }
 
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/pages/js/pages.js', 'backend');
+
+    /**
+     * Pages Class
+     */
     class Pages extends Frontend { 
 
 

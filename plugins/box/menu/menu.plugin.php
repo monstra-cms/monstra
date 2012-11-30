@@ -31,6 +31,13 @@
     }
 
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/menu/js/menu.js', 'backend');
+
+
+    /**
+     * Menu Class
+     */
     class Menu {
         
 

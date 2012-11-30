@@ -14,7 +14,7 @@
             'Actions' => 'Azioni',
             'Save and exit' => 'Salva ed esci',        
             'Required field' => 'Campo obbligatorio',
-            'This block already exists' => 'Tale blocco è già esistente',
+            'This block already exists' => 'Tale blocco già esistente',
             'This block does not exist' => 'Tale blocco non esiste',
             'Delete block: :block' => 'Elimina blocco: :block',
             'Block content' => 'Contenuto del blocco',
