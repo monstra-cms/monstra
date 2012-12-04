@@ -111,7 +111,7 @@
          * @return string
          */
         public static function description() {
-            return (trim(call_user_func(ucfirst(Uri::command()).'::description')) == '') ? Html::toText(Option::get('description')) : Html::toText($description);
+            return (($description = trim(call_user_func(ucfirst(Uri::command()).'::description'))) == '') ? Html::toText(Option::get('description')) : Html::toText($description);
         }
 
 
@@ -125,7 +125,7 @@
          * @return string
          */
         public static function keywords() {
-            return (trim(call_user_func(ucfirst(Uri::command()).'::keywords')) == '') ? Html::toText(Option::get('keywords')) : Html::toText($description);
+            return (($keywords = trim(call_user_func(ucfirst(Uri::command()).'::keywords'))) == '') ? Html::toText(Option::get('keywords')) : Html::toText($keywords);
         }
 
 
