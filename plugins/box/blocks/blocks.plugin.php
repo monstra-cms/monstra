@@ -35,11 +35,51 @@
 
     // Add shortcode {block get="blockname"}
     Shortcode::add('block', 'Block::_content');      
+
+    // Add shortcode {block_inline name="blockname"}
+    Shortcode::add('block_inline', 'Block::_inlineBlock');     
+
+    // Add shortcode {block_inline_create name="blockname"} Block content here {/block_inline_create}
+    Shortcode::add('block_inline_create', 'Block::_createInlineBlock');
     
+        
     /**
      * Block Class
      */
     class Block {
+
+
+        /**
+         * Inline Blocks
+         *
+         * @var array
+         */
+        public static $inline_blocks = array();
+
+
+        /**
+         * Create Inline Block
+         */
+        public static function _createInlineBlock($attributes, $content) {
+            if (isset($attributes['name'])) {        
+                Block::$inline_blocks[Security::safeName($attributes['name'], '_', true)] = array(     
+                    'content'  => (string)$content,
+                );
+            }
+        }
+
+
+        /**
+         * Draw Inline Block
+         */
+        public static function _inlineBlock($attributes) {
+            if (isset($attributes['name']) && isset(Block::$inline_blocks[$attributes['name']])) {
+                $content = Filter::apply('content', Text::toHtml(Block::$inline_blocks[$attributes['name']]['content']));
+                return $content;
+            } else {
+                return '';
+            }
+        }
 
 
         /**
