@@ -10,7 +10,7 @@ $.monstra.pages = {
         $.ajax({
             type:"post",        
             data:"slug="+slug+"&expand="+expand+"&token="+token,
-            url: $('form input[name="siteurl"]').val()
+            url: $('form input[name="url"]').val()
         });
     },
 

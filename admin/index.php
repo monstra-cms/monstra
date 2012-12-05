@@ -93,7 +93,7 @@
 
 
             // Send
-            @mail($user['email'], __('Your login details for :site_name', 'users', array('site_name' => $site_name)), $message);
+            @mail($user['email'], __('Your login details for :site_name', 'users', array(':site_name' => $site_name)), $message);
 
             // Set notification
             Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
@@ -108,10 +108,8 @@
     }
 
     // If admin user is login = true then set is_admin = true
-    if (Session::exists('admin')) {
-        if (Session::get('admin') == true) {
-            $is_admin = true;
-        }
+    if (Session::exists('admin') && Session::get('admin') == true) {
+        $is_admin = true;
     } else {
         $is_admin = false;
     }
@@ -122,14 +120,11 @@
     }
 
     // If is admin then load admin area
-    if ($is_admin) {        
+    if ($is_admin) {   
+
         // If id is empty then redirect to default plugin PAGES
         if (Request::get('id')) {       
-            if (Request::get('sub_id')) {
-                $area = Request::get('sub_id');
-            } else {
-                $area = Request::get('id');
-            }
+            $area = Request::get('id');
         } else {
             Request::redirect('index.php?id=pages');
         }
