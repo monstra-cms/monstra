@@ -7,7 +7,7 @@
             Form::open(null, array('enctype' => 'multipart/form-data')).
             Form::hidden('csrf', Security::token()).
             Form::input('file', null, array('type' => 'file', 'size' => '25')).Html::br().
-            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn default btn-small')).
+            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn')).
             Form::close()
         )
     ?>
