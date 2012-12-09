@@ -303,16 +303,14 @@
         }
 
     }
-    
+
 
     /**
-     * Add new shortcodes {page_author} {page_slug} {page_url} {page_available} {page_breadcrumbs} {page_date}
+     * Add new shortcodes {page_author} {page_slug} {page_url} {page_date}
      */
     Shortcode::add('page_author', 'Page::author');
     Shortcode::add('page_slug', 'Page::slug');
     Shortcode::add('page_url', 'Page::url');
-    Shortcode::add('page_available', 'Page::available');
-    Shortcode::add('page_breadcrumbs', 'Page::breadcrumbs');
     Shortcode::add('page_date', 'Page::_date');
 
 
@@ -398,6 +396,7 @@
          */
         public static function breadcrumbs() {                        
             $current_page = Pages::$requested_page;
+            $parent_page = '';
             if ($current_page !== 'error404') {  
                 $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
                 if (trim($page['parent']) !== '') {
