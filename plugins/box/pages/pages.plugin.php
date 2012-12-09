@@ -256,8 +256,28 @@
          *
          * @return string
          */
-        public static function content() {
-            return Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . Pages::$page['id'] . '.page.txt'));
+        public static function content($slug = '') {
+
+            if ( ! empty($slug)) {
+
+                $page = Table::factory('pages')->select('[slug="'.$slug.'"]', null);
+
+                if ( ! empty($page)) {
+
+                    $content = Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt'));
+
+                    $content = Filter::apply('content', $content);
+
+                    return $content;
+
+                } else {
+                    return '';
+                }
+
+            } else {
+                return Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . Pages::$page['id'] . '.page.txt'));
+            }
+
         }
         
 
@@ -317,7 +337,7 @@
     /**
      * Page class
      */
-    class Page extends Pages {       
+    class Page extends Pages {   
 
 
         /**
