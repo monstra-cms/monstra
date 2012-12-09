@@ -326,11 +326,12 @@
 
 
     /**
-     * Add new shortcodes {page_author} {page_slug} {page_url} {page_date}
+     * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
      */
     Shortcode::add('page_author', 'Page::author');
     Shortcode::add('page_slug', 'Page::slug');
     Shortcode::add('page_url', 'Page::url');
+    Shortcode::add('page_content', 'Page::_content');
     Shortcode::add('page_date', 'Page::_date');
 
 
@@ -352,10 +353,6 @@
          */
         public static function date($format = 'Y-m-d') {                
             return Date::format(Pages::$page['date'], $format);
-        }
-
-        public static function _date($attributes) {
-            return Page::date((isset($attributes['format'])) ? $attributes['format'] : 'Y-m-d');
         }
 
 
@@ -482,6 +479,15 @@
             }
 
             return $robots;
+        }
+
+
+        public static function _date($attributes) {
+            return Page::date((isset($attributes['format'])) ? $attributes['format'] : 'Y-m-d');
+        }
+
+        public static function _content($attributes) {
+            return Page::content((isset($attributes['name']) ? $attributes['name'] : ''));
         }
 
     }
