@@ -303,9 +303,23 @@
         }
 
     }
+    
+
+    /**
+     * Add new shortcodes {page_author} {page_slug} {page_url} {page_available} {page_breadcrumbs} {page_date}
+     */
+    Shortcode::add('page_author', 'Page::author');
+    Shortcode::add('page_slug', 'Page::slug');
+    Shortcode::add('page_url', 'Page::url');
+    Shortcode::add('page_available', 'Page::available');
+    Shortcode::add('page_breadcrumbs', 'Page::breadcrumbs');
+    Shortcode::add('page_date', 'Page::_date');
 
 
-    class Page extends Pages {        
+    /**
+     * Page class
+     */
+    class Page extends Pages {       
 
 
         /**
@@ -320,6 +334,10 @@
          */
         public static function date($format = 'Y-m-d') {                
             return Date::format(Pages::$page['date'], $format);
+        }
+
+        public static function _date($attributes) {
+            return Page::date((isset($attributes['format'])) ? $attributes['format'] : 'Y-m-d');
         }
 
 
