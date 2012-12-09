@@ -45,7 +45,7 @@
             
             // Delete backup
             // -------------------------------------    
-            if (Request::get('sub_id') == 'backup' && Request::get('delete_file')) {                
+            if (Request::get('id') == 'backup' && Request::get('delete_file')) {                
                 
                 if (Security::check(Request::get('token'))) {
 

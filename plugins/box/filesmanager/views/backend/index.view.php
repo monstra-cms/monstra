@@ -7,7 +7,7 @@
             Form::open(null, array('enctype' => 'multipart/form-data')).
             Form::hidden('csrf', Security::token()).
             Form::input('file', null, array('type' => 'file', 'size' => '25')).Html::br().
-            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn default btn-small')).
+            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-small')).
             Form::close()
         )
     ?>
@@ -18,11 +18,19 @@
 
       <?php
         $path_parts = explode ('/',$path);
+
+        foreach ($path_parts as $key => $value) {
+            if ($path_parts[$key] == '') {
+                unset($path_parts[$key]);
+            }
+        }
+
         $s = '';
+        
         foreach ($path_parts as $p) {
             $s .= $p.'/';
             if($p == $current[count($current)-2]) $active = ' class="active"'; else $active = ''; 
-            echo '<span class="divider">/<span> <li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a></li>';     
+            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a> <span class="divider">/</span></li>';     
         }    
     ?>
 </ul>

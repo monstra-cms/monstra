@@ -256,8 +256,28 @@
          *
          * @return string
          */
-        public static function content() {
-            return Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . Pages::$page['id'] . '.page.txt'));
+        public static function content($slug = '') {
+
+            if ( ! empty($slug)) {
+
+                $page = Table::factory('pages')->select('[slug="'.$slug.'"]', null);
+
+                if ( ! empty($page)) {
+
+                    $content = Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt'));
+
+                    $content = Filter::apply('content', $content);
+
+                    return $content;
+
+                } else {
+                    return '';
+                }
+
+            } else {
+                return Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . Pages::$page['id'] . '.page.txt'));
+            }
+
         }
         
 
@@ -305,7 +325,20 @@
     }
 
 
-    class Page extends Pages {        
+    /**
+     * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
+     */
+    Shortcode::add('page_author', 'Page::author');
+    Shortcode::add('page_slug', 'Page::slug');
+    Shortcode::add('page_url', 'Page::url');
+    Shortcode::add('page_content', 'Page::_content');
+    Shortcode::add('page_date', 'Page::_date');
+
+
+    /**
+     * Page class
+     */
+    class Page extends Pages {   
 
 
         /**
@@ -380,6 +413,7 @@
          */
         public static function breadcrumbs() {                        
             $current_page = Pages::$requested_page;
+            $parent_page = '';
             if ($current_page !== 'error404') {  
                 $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
                 if (trim($page['parent']) !== '') {
@@ -445,6 +479,15 @@
             }
 
             return $robots;
+        }
+
+
+        public static function _date($attributes) {
+            return Page::date((isset($attributes['format'])) ? $attributes['format'] : 'Y-m-d');
+        }
+
+        public static function _content($attributes) {
+            return Page::content((isset($attributes['name']) ? $attributes['name'] : ''));
         }
 
     }
