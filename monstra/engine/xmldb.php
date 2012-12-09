@@ -221,6 +221,21 @@
 
 
         /**
+         * Table factory.
+         *
+         *  <code>
+         *      $users = Table::factory('table_name');
+         *  </code>
+         *
+         * @param string $table_name Table name
+         * @return Table
+         */
+        public static function factory($table_name) {
+            return new Table($table_name);
+        }
+
+
+        /**
          * Table construct
          *
          *  <code> 
