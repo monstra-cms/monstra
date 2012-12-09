@@ -1,3 +1,13 @@
+Monstra 2.1.3, 2012-12-09
+------------------------
+- Pages Plugin: New shortcodes added - page_author, page_slug, page_url page_available, page_breadcrumbs, page_date, page_content.
+- Pages Plugin: add ability to get content for specific page.
+- XMLDB: New method factory() added.
+- Twitter Bootstrap updated to Version 2.2.2
+- Sitemap Plugin: _blank removed.
+- Filesmanager Plugin: fixes.
+- Backup Plugin: fixes.
+
 Monstra 2.1.2, 2012-12-05
 ------------------------
 - Blocks Plugin: added ability create and render inline content blocks with {block_inline} and {block_inline_create}
