@@ -8,7 +8,7 @@
     	foreach ($pages_list as $page) {		
     		if (trim($page['parent']) !== '') $parent = $page['parent'].'/'; else $parent = '';
     		if (trim($page['parent']) !== '') { echo '<ul>'; }
-    		echo '<li><a href="'.Option::get('siteurl').$parent.$page['slug'].'" target="_blank">'.$page['title'].'</a></li>';
+    		echo '<li><a href="'.Option::get('siteurl').$parent.$page['slug'].'">'.$page['title'].'</a></li>';
     		if (trim($page['parent']) !== '') { echo '</ul>'; }
     	}
         if (count($components) == 0) { echo '<ul>'; }
