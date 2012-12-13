@@ -6,7 +6,7 @@
 <br />
 <?php
     echo (
-            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small')) 
         ); 
 ?>
 <br /><br />
@@ -28,7 +28,7 @@
 <br />   
 <?php
     echo (
-            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small')) 
         ); 
 ?>
 <br /><br />
