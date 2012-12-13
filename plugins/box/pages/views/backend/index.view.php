@@ -5,8 +5,8 @@
 
 <?php
     echo ( 
-            Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create new page', 'pages'), 'class' => 'btn btn-small')). Html::nbsp(3).
-            Html::anchor(__('Edit 404 Page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create new page', 'pages'), 'class' => 'btn btn-small')) 
+            Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-small')). Html::nbsp(3).
+            Html::anchor(__('Edit 404 Page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-small')) 
         ); 
 ?>
 
@@ -74,7 +74,7 @@
                 <a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <?php if ($page['parent'] == '') { ?>
-                        <li><a href="index.php?id=pages&action=add_page&parent_page=<?php echo $page['slug']; ?>" title="<?php echo __('Create new page', 'pages'); ?>"><?php echo __('Add', 'pages'); ?></a></li>
+                        <li><a href="index.php?id=pages&action=add_page&parent_page=<?php echo $page['slug']; ?>" title="<?php echo __('Create New Page', 'pages'); ?>"><?php echo __('Add', 'pages'); ?></a></li>
                     <?php } ?>
                     <li><?php echo Html::anchor(__('Clone', 'pages'), 'index.php?id=pages&action=clone_page&name='.$page['slug'].'&token='.Security::token(), array('title' => __('Clone', 'pages'))); ?></li>
                 </ul>    
