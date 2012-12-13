@@ -15,13 +15,13 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <td width="3%"></td>
-            <td><?php echo __('Name', 'pages'); ?></td>
-            <td class="hidden-phone"><?php echo __('Author', 'pages'); ?></td>
-            <td class="hidden-phone"><?php echo __('Status', 'pages'); ?></td>
-            <td class="hidden-phone"><?php echo __('Access', 'pages'); ?></td>
-            <td class="hidden-phone"><?php echo __('Date', 'pages'); ?></td>
-            <td></td>
+            <th width="3%"></th>
+            <th><?php echo __('Name', 'pages'); ?></th>
+            <th class="hidden-phone"><?php echo __('Author', 'pages'); ?></th>
+            <th class="hidden-phone"><?php echo __('Status', 'pages'); ?></th>
+            <th class="hidden-phone"><?php echo __('Access', 'pages'); ?></th>
+            <th class="hidden-phone"><?php echo __('Date', 'pages'); ?></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
