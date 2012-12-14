@@ -1,8 +1,6 @@
 /************************************
   Monstra
-  http://monstra.org
-  styles.css, v1.0.0
-  12 Septemper 2012  
+  styles.css
 *************************************
   CONTENTS
     1.  GENERAL
@@ -10,10 +8,7 @@
     3.  CONTENT
     4.  LEFT MENU
     5.  AUTHORIZATION
-    6.  TABLE
-    7.  BUTTONS
-    8.  TABS
-    9.  MISC
+    6.  MISC
 
 
 *************************************
@@ -91,6 +86,8 @@ h6 {
   text-transform: uppercase;
 }
 
+/* Inputs */
+
 input[type=text]:focus,
 input[type=email]:focus,
 input[type=url]:focus,
@@ -100,6 +97,176 @@ select:focus,
 textarea:focus {
   border-color: #999;
   box-shadow: none;
+}
+
+/* Tables */
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+.table {
+  width: 100%;
+  margin-bottom: 18px;
+}
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  border-top: 1px solid #dddddd;
+}
+.table th {
+  font-weight: bold;
+}
+.table thead th {
+  vertical-align: bottom;
+}
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+.table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+.table-bordered {
+  border: 1px solid #dddddd;
+  border-left: 0;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.table-bordered th:first-child,
+.table-bordered td:first-child {
+  border-left: 1px solid #dddddd;
+}
+
+.table-bordered td:first-child {
+  padding-left:15px;
+}
+
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child {
+  -webkit-border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
+  border-radius: 4px 0 0 0;
+}
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child {
+  -webkit-border-radius: 0 4px 0 0;
+  -moz-border-radius: 0 4px 0 0;
+  border-radius: 0 4px 0 0;
+}
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child {
+  -webkit-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 4px;
+}
+
+.table-bordered thead tr th {
+  font-weight:bold;
+  background-color: #f5f5f5;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#f5f5f5));
+  background-image: -moz-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -ms-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -o-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: linear-gradient(top, #ffffff, #f5f5f5);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
+  border-top: 1px solid #fff;  
+}
+
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child {
+  -webkit-border-radius: 0 0 4px 0;
+  -moz-border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px 0;
+}
+
+.table-bordered thead:first-child tr:first-child > th:first-child, .table-bordered tbody:first-child tr:first-child > td:first-child {
+    border-top-left-radius: 0px;
+}
+
+.table-bordered thead:last-child tr:last-child > th:last-child,
+.table-bordered tbody:last-child tr:last-child > td:last-child {
+    border-top-right-radius: 0px;
+}
+
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: #f5f5f5;
+}
+
+.table-bordered th, .table-bordered td {
+    border-left: none;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit!important;
+}
+
+/* Buttons */
+
+.btn-toolbar {
+  margin:0;
+}
+
+.btn-group .btn {
+  margin-left: 5px;
+}
+
+.btn-actions-default {
+  -webkit-border-top-left-radius: 4px!important;
+  -moz-border-radius-topleft: 4px!important;
+  border-top-left-radius: 4px!important;
+  -webkit-border-bottom-left-radius: 4px!important;
+  -moz-border-radius-bottomleft: 4px!important;
+  border-bottom-left-radius: 4px!important;
+}
+
+/* Tabs */
+
+.tab-pane > table {
+    margin-top:-20px;
+}
+
+.tab-pane > table {
+    border-top:none!important;
+}
+
+.tab-content {
+  overflow: visible;
+}
+
+.tab-page {
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    margin-top: -20px;
+    padding: 20px 10px 10px;
 }
 
 
@@ -270,186 +437,9 @@ textarea:focus {
           box-shadow: 0 1px 5px rgba(0,0,0,.15);
 }
 
-/*************************************
-    6. TABLE
-*************************************/
-
-table {
-  max-width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  background-color: transparent;
-}
-.table {
-  width: 100%;
-  margin-bottom: 18px;
-}
-.table th,
-.table td {
-  padding: 8px;
-  line-height: 18px;
-  text-align: left;
-  border-top: 1px solid #dddddd;
-}
-.table th {
-  font-weight: bold;
-}
-.table thead th {
-  vertical-align: bottom;
-}
-.table colgroup + thead tr:first-child th,
-.table colgroup + thead tr:first-child td,
-.table thead:first-child tr:first-child th,
-.table thead:first-child tr:first-child td {
-  border-top: 0;
-}
-.table tbody + tbody {
-  border-top: 2px solid #dddddd;
-}
-.table-condensed th,
-.table-condensed td {
-  padding: 4px 5px;
-}
-.table-bordered {
-  border: 1px solid #dddddd;
-  border-left: 0;
-  border-collapse: separate;
-  *border-collapse: collapsed;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-.table-bordered th:first-child,
-.table-bordered td:first-child {
-  border-left: 1px solid #dddddd;
-}
-
-.table-bordered td:first-child {
-  padding-left:15px;
-}
-
-.table-bordered thead:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child td {
-  border-top: 0;
-}
-.table-bordered thead:first-child tr:first-child th:first-child,
-.table-bordered tbody:first-child tr:first-child td:first-child {
-  -webkit-border-radius: 4px 0 0 0;
-  -moz-border-radius: 4px 0 0 0;
-  border-radius: 4px 0 0 0;
-}
-.table-bordered thead:first-child tr:first-child th:last-child,
-.table-bordered tbody:first-child tr:first-child td:last-child {
-  -webkit-border-radius: 0 4px 0 0;
-  -moz-border-radius: 0 4px 0 0;
-  border-radius: 0 4px 0 0;
-}
-.table-bordered thead:last-child tr:last-child th:first-child,
-.table-bordered tbody:last-child tr:last-child td:first-child {
-  -webkit-border-radius: 0 0 0 4px;
-  -moz-border-radius: 0 0 0 4px;
-  border-radius: 0 0 0 4px;
-}
-
-.table-bordered thead tr th {
-  font-weight:bold;
-  background-color: #f5f5f5;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#f5f5f5));
-  background-image: -moz-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: -ms-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: -o-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: linear-gradient(top, #ffffff, #f5f5f5);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
-  border-top: 1px solid #fff;  
-}
-
-.table-bordered thead:last-child tr:last-child th:last-child,
-.table-bordered tbody:last-child tr:last-child td:last-child {
-  -webkit-border-radius: 0 0 4px 0;
-  -moz-border-radius: 0 0 4px 0;
-  border-radius: 0 0 4px 0;
-}
-
-.table-bordered thead:first-child tr:first-child > th:first-child, .table-bordered tbody:first-child tr:first-child > td:first-child {
-    border-top-left-radius: 0px;
-}
-
-.table-bordered thead:last-child tr:last-child > th:last-child,
-.table-bordered tbody:last-child tr:last-child > td:last-child {
-    border-top-right-radius: 0px;
-}
-
-.table-striped tbody tr:nth-child(odd) td,
-.table-striped tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
-}
-.table tbody tr:hover td,
-.table tbody tr:hover th {
-  background-color: #f5f5f5;
-}
-
-.table-bordered th, .table-bordered td {
-    border-left: none;
-}
-
-
-td, th {
-    display: table-cell;
-    vertical-align: inherit!important;
-}
 
 /*************************************
-    7. BUTTONS
-*************************************/
-
-.btn-toolbar {
-  margin:0;
-}
-
-.btn-group .btn {
-  margin-left: 5px;
-}
-
-.btn-actions-default {
-  -webkit-border-top-left-radius: 4px!important;
-  -moz-border-radius-topleft: 4px!important;
-  border-top-left-radius: 4px!important;
-  -webkit-border-bottom-left-radius: 4px!important;
-  -moz-border-radius-bottomleft: 4px!important;
-  border-bottom-left-radius: 4px!important;
-}
-
-
-/*************************************
-    8. TABS
-*************************************/
-
-.tab-pane > table {
-    margin-top:-20px;
-}
-
-.tab-pane > table {
-    border-top:none!important;
-}
-
-.tab-content {
-  overflow: visible;
-}
-
-.tab-page {
-    border-bottom: 1px solid #DDDDDD;
-    border-left: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    margin-top: -20px;
-    padding: 20px 10px 10px;
-}
-
-/*************************************
-    9. MISC
+    6. MISC
 *************************************/
 
 .small-grey-text {
