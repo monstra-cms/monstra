@@ -7,7 +7,7 @@
             Form::open(null, array('enctype' => 'multipart/form-data')).
             Form::hidden('csrf', Security::token()).
             Form::input('file', null, array('type' => 'file', 'size' => '25')).Html::br().
-            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-small')).
+            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn')).
             Form::close()
         )
     ?>
@@ -39,10 +39,10 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <td><?php echo __('Name', 'filesmanager'); ?></td>
-            <td><?php echo __('Extension', 'filesmanager'); ?></td>
-            <td><?php echo __('Size', 'filesmanager'); ?></td>
-            <td width="30%"><?php echo __('Actions', 'filesmanager'); ?></td>
+            <th><?php echo __('Name', 'filesmanager'); ?></th>
+            <th><?php echo __('Extension', 'filesmanager'); ?></th>
+            <th><?php echo __('Size', 'filesmanager'); ?></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -58,10 +58,12 @@
                 <?php echo Number::byteFormat(Dir::size(UPLOADS . DS . $dir)); ?>
             </td>
             <td>
+            <div class="pull-right">
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path.'&token='.Security::token(),
-                       array('class' => 'btn', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
+                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
             ?>
+            <div>
             </td>
         </tr>
         <?php } ?>    
@@ -78,10 +80,12 @@
                 <?php echo Number::byteFormat(filesize($files_path. DS .$file)); ?>
             </td>
             <td>
+            <div class="pull-right">
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_file='.$file.'&path='.$path.'&token='.Security::token(),
-                       array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
+                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
             ?>                      
+            </div>
             </td>
         </tr>        
         <?php } } ?> 
