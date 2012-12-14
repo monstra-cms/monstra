@@ -18,7 +18,7 @@
                 <thead>
                     <tr>
                         <th><?php echo __('Name', 'plugins'); ?></th>
-                        <th><?php echo __('Description', 'plugins'); ?></th>
+                        <th class="hidden-phone"><?php echo __('Description', 'plugins'); ?></th>
                         <th><?php echo __('Author', 'plugins'); ?></th>
                         <th><?php echo __('Version', 'plugins'); ?></th>
                         <th></th>
@@ -30,7 +30,7 @@
                         <td>
                             <?php echo $plugin['title']; ?>
                         </td>
-                        <td>
+                        <td class="hidden-phone">
                            <?php echo $plugin['description']; ?>
                         </td>
                         <td>
@@ -59,7 +59,7 @@
                 <thead>
                     <tr>
                         <th><?php echo __('Name', 'plugins'); ?></th>
-                        <th><?php echo __('Description', 'plugins'); ?></th>
+                        <th class="hidden-phone"><?php echo __('Description', 'plugins'); ?></th>
                         <th><?php echo __('Author', 'plugins'); ?></th>
                         <th><?php echo __('Version', 'plugins'); ?></th>
                         <th></th>
@@ -72,7 +72,7 @@
                         <td>
                             <?php echo $plugin_xml->plugin_name; ?>
                         </td>
-                        <td>
+                        <td class="hidden-phone">
                            <?php echo $plugin_xml->plugin_description; ?>
                         </td>
                         <td>
