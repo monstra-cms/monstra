@@ -16,8 +16,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td><?php echo __('Name', 'information'); ?></td>
-                        <td><?php echo __('Value', 'information'); ?></td>
+                        <th><?php echo __('Name', 'information'); ?></th>
+                        <th><?php echo __('Value', 'information'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,8 +43,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td><?php echo __('Name', 'information'); ?></td>
-                        <td><?php echo __('Value', 'information'); ?></td>
+                        <th><?php echo __('Name', 'information'); ?></th>
+                        <th><?php echo __('Value', 'information'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,8 +95,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td><?php echo __('Directory', 'information'); ?></td>
-                        <td><?php echo __('Status', 'information'); ?></td>
+                        <th><?php echo __('Directory', 'information'); ?></th>
+                        <th><?php echo __('Status', 'information'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -139,7 +139,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td colspan="2"><?php echo __('Security check results', 'information'); ?></td>
+                        <th colspan="2"><?php echo __('Security check results', 'information'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
