@@ -121,16 +121,30 @@
         <link rel="stylesheet" href="<?php echo $site_url; ?>admin/themes/default/css/default.css" media="all" type="text/css" />
         <style>
 
+            .input-xlarge {
+                width: 285px;
+            }
+
             .install-languages {
                 margin: 0 auto;
                 float: none!important;
                 margin-bottom:5px;
                 padding-right:20px;
+                max-width: 300px; 
             }
 
             .install-block {
                 margin: 0 auto;
-                float: none!important;              
+                float: none!important;    
+                max-width: 300px; 
+                 padding: 19px 29px 29px;
+                  background: none repeat scroll 0 0 #fcfcfc;
+                  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+                     -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+                          box-shadow: 0 1px 5px rgba(0,0,0,.15);
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;        
             }
 
             .install-block-footer {
@@ -138,10 +152,12 @@
                 float: none!important;
                 margin-top:10px;
                 margin-bottom:10px;
+                max-width: 300px; 
             }
 
             .install-body {
-                background:#F2F2F2;
+                background-color: #f5f5f5;
+                padding-top:40px;
             }
 
             .error {
@@ -232,15 +248,15 @@
 ?>
         <!-- Block_wrapper -->
         <div class="row">
-            <div class="span4 install-languages">
+            <div class="install-languages">
                 <?php foreach($languages_array as $lang_code){?>
                 <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><?php echo $lang_code?></a>
                 <?php } ?>
             </div>
         </div>
         <div class="row">
-            <div class="well span4 install-block">
-                <div style="text-align:center;"><a class="brand" href="#"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
+            <div class="install-block">
+                <div style="text-align:center;"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="Monstra"></a></div>
                 <hr>
                 <div>
                     <form action="install.php" method="post">
@@ -256,19 +272,19 @@
                         <input type="hidden" name="tmp" value="<?php echo $errors['tmp']; ?>" />
                         
                         <label><?php echo __('Site name', 'system'); ?></label>
-                        <input class="span4" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
+                        <input class="input-xlarge" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
                         <br />
                         <label><?php echo __('Site url', 'system'); ?></label>
-                        <input class="span4" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
+                        <input class="input-xlarge" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
                         <br />
                         <label><?php echo __('Username', 'users'); ?></label>
-                        <input class="span4" class="login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
+                        <input class="input-xlarge" class="login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
                         <br /> 
                         <label><?php echo __('Password', 'users'); ?></label>
-                        <input class="span4" name="password" type="password" />
+                        <input class="input-xlarge" name="password" type="password" />
                         <br />
                         <label><?php echo __('Time zone', 'system'); ?></label>
-                        <select class="span4" name="timezone">
+                        <select class="input-xlarge" name="timezone">
                             <option value="Kwajalein">(GMT-12:00) International Date Line West</option>
                             <option value="Pacific/Samoa">(GMT-11:00) Midway Island, Samoa</option>
                             <option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
@@ -358,7 +374,7 @@
                         </select>
 
                         <label><?php echo __('Email', 'users'); ?></label>
-                        <input name="email" class="span4" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
+                        <input name="email" class="input-xlarge" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
                         <br /><br />
                         <input type="submit" class="btn" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
                     </form>
@@ -438,8 +454,8 @@
         </div>
 
         <div class="row">
-            <div class="span4 install-block-footer">
-                <div  style="text-align:center">
+            <div class="install-block-footer">
+                <div style="text-align:center">
                     <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Core::VERSION; ?></span>
                 </div>
             </div>
