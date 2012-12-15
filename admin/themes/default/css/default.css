@@ -427,15 +427,13 @@ td, th {
   max-width: 290px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
+  background: none repeat scroll 0 0 #fcfcfc;
   -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
      -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
           box-shadow: 0 1px 5px rgba(0,0,0,.15);
+    border-radius: 4px 4px 4px 4px;
 }
+
 
 
 /*************************************

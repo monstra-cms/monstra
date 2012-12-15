@@ -82,7 +82,7 @@
 
                         <?php if (Option::get('captcha_installed') == 'true') { ?>
                         <label><?php echo __('Captcha'); ?><label>
-                        <input type="text" name="answer" class="span3">
+                        <input type="text" name="answer" class="input-xlarge">
                         <?php CryptCaptcha::draw(); ?>
                         <?php } ?>
                         <br>
