@@ -138,7 +138,7 @@
                 float: none!important;    
                 max-width: 300px; 
                  padding: 19px 29px 29px;
-                  background: none repeat scroll 0 0 #fcfcfc;
+                  background: none repeat scroll 0 0 #fff;
                   -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
                      -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
                           box-shadow: 0 1px 5px rgba(0,0,0,.15);
@@ -156,7 +156,7 @@
             }
 
             .install-body {
-                background-color: #f5f5f5;
+                background-color: #FBFBFB;
                 padding-top:40px;
             }
 
@@ -194,9 +194,8 @@
 
     </head>
     <body class="install-body">
-        <!-- Block_wrapper -->
-<?php
-
+        
+    <?php
         if (version_compare(PHP_VERSION, "5.2.0", "<")) {
             $errors['php'] = 'error';
         } else {
@@ -245,16 +244,13 @@
                 $errors[$dir] = 'error';
             }
         }
-?>
-        <!-- Block_wrapper -->
-        <div class="row">
+        ?>
+
             <div class="install-languages">
                 <?php foreach($languages_array as $lang_code){?>
                 <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><?php echo $lang_code?></a>
                 <?php } ?>
-            </div>
-        </div>
-        <div class="row">
+            </div>        
             <div class="install-block">
                 <div style="text-align:center;"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="Monstra"></a></div>
                 <hr>
@@ -378,10 +374,10 @@
                         <br /><br />
                         <input type="submit" class="btn" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
                     </form>
-                    </div>
-                    <hr>
-                    <p align="center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
-                    <div>
+                </div>
+                <hr>
+                <p align="center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
+                <div>
                     <ul>
                     <?php
 
@@ -446,21 +442,13 @@
                         if (isset($errors['email']))       echo '<span class="error"><li>'.$errors['email'].'</li></span>';
                         if (isset($errors['email_valid'])) echo '<span class="error"><li>'.$errors['email_valid'].'</li></span>';
                     ?>
-                    </ul>
-                
+                    </ul>                
                 </div>
-                
-            </div>
-        </div>
-
-        <div class="row">
+            </div>    
             <div class="install-block-footer">
                 <div style="text-align:center">
                     <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Core::VERSION; ?></span>
                 </div>
             </div>
-        </div>
-
-        <!-- /Block_wrapper -->
     </body>
 </html>
