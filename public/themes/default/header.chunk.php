@@ -7,6 +7,15 @@
     <meta name="description" content="<?php echo Site::description(); ?>">
     <meta name="keywords" content="<?php echo Site::keywords(); ?>">
     <meta name="robots" content="<?php echo Page::robots(); ?>">
+    
+    <!-- Open Graph Protocol --> 
+    <meta property="og:site_name" content="<?php echo Site::name(); ?>"> 
+    <meta property="og:url" content="<?php echo Page::url(); ?>"> 
+    <meta property="og:title" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>"> 
+ 
+    <!-- Google+ Snippets --> 
+    <meta itemprop="url" content="<?php echo Page::url(); ?>"> 
+    <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>"> 
 
     <!-- Styles -->
     <?php Stylesheet::add('public/assets/css/bootstrap.css', 'frontend', 1); ?>
