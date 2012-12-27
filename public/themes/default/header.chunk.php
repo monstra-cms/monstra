@@ -10,11 +10,11 @@
     
     <!-- Open Graph Protocol --> 
     <meta property="og:site_name" content="<?php echo Site::name(); ?>"> 
-    <meta property="og:url" content="<?php echo Page::url(); ?>"> 
+    <meta property="og:url" content="<?php echo Url::current(); ?>"> 
     <meta property="og:title" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>"> 
  
     <!-- Google+ Snippets --> 
-    <meta itemprop="url" content="<?php echo Page::url(); ?>"> 
+    <meta itemprop="url" content="<?php echo Url::current(); ?>"> 
     <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>"> 
 
     <!-- Styles -->
