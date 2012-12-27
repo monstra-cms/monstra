@@ -8,6 +8,8 @@
     <meta name="keywords" content="<?php echo Site::keywords(); ?>">
     <meta name="robots" content="<?php echo Page::robots(); ?>">
     
+    <?php Action::run('theme_meta'); ?>
+    
     <!-- Open Graph Protocol --> 
     <meta property="og:site_name" content="<?php echo Site::name(); ?>"> 
     <meta property="og:url" content="<?php echo Url::current(); ?>"> 
