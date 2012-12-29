@@ -1,5 +1,3 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
-
 $.monstra.pages = {
 
     init: function() { 
@@ -29,8 +27,3 @@ $.monstra.pages = {
     }
 
 };
-
-
-$(document).ready(function(){
-    $.monstra.pages.init();
-});

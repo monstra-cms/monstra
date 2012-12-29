@@ -1,5 +1,3 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
-
 $.monstra.menu = {
 
     init: function() { },
@@ -16,8 +14,3 @@ $.monstra.menu = {
     }
 
 };
-
-
-$(document).ready(function(){
-    $.monstra.menu.init();
-});

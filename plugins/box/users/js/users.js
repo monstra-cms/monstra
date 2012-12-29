@@ -1,5 +1,3 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
-
 $.monstra.users = {
 
     init: function() {
@@ -13,8 +11,3 @@ $.monstra.users = {
     }
 
 };
-
-
-$(document).ready(function(){
-    $.monstra.users.init();
-});

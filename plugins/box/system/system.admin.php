@@ -9,33 +9,20 @@
     /**
      * Check Monstra version
      */
-    function checkMonstraVersion() {
-
-        if(!Session::exists('stable_monstra_version')){
-
-            preg_match('/"version" : "(.*)"/', CURL::get('http://monstra.org/api/version.php'), $version);
-
-            if(isset($version[1])){
-
-                $stable_version = $version[1];
-                Session::set('stable_monstra_version', $stable_version);
-
-            }
-
-        }else{
-            $stable_version = Session::get('stable_monstra_version');
-        }
-
-        if(Core::VERSION < $stable_version){
-
-            echo ('
+    function checkMonstraVersion() { 
+        echo ('
                 <script type="text/javascript">
-                      $("#update-monstra").addClass("alert").html("'.__("Published a new version of the :monstra", "system", array(":monstra" => "<a target='_blank' href='http://monstra.org/download'>Monstra</a>")).'");
+                    $.getJSON("http://monstra.org/api/version.php?jsoncallback=?",
+                        function(data){
+                            var current_monstra_version = "'.Core::VERSION.'";
+                            var stable_monstra_version = data.version;
+                            if (current_monstra_version < stable_monstra_version) {
+                                $("#update-monstra").addClass("alert").html("'.__("Published a new version of the :monstra", "system", array(":monstra" => "<a target='_blank' href='http://monstra.org/download'>Monstra</a>")).'");
+                            }
+                        }
+                    );
                 </script> 
-            ');
-
-        }
-
+        '); 
     }
 
     /**
