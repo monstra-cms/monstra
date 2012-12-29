@@ -41,7 +41,6 @@
                         </td>
                         <td>
                             <div class="pull-right">
-                                <?php Debug::dump($plugin); ?>
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
                                        array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
