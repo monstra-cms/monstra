@@ -50,71 +50,66 @@
         
     </head>
     <body class="login-body">
-        
-        <div class="row">
-            <div class="well span3 authorization-block">
-                <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
-                <div class="administration-area">
-                    <hr>
-                    <div>
-                        <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br />
-                        <form method="post">
-                            <label><?php echo __('Username', 'users'); ?></label>
-                            <input class="span3" name="login" type="text" />
+       
+        <div class="container form-signin">
 
-                            <label><?php echo __('Password', 'users'); ?></label>
-                            <input class="span3" name="password" type="password" />
-                            <br />
-                            <?php if (isset($login_error) && $login_error !== '') { ?><div class="alert alert-error"><?php echo $login_error; ?></div><?php } ?>
-                            <input type="submit" name="login_submit" class="btn" value="<?php echo __('Enter', 'users'); ?>" />
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="reset-password-area">
-                    <hr>
-                    <div>
-                        <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br />
-                        <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-                        <form method="post">
-                            <label><?php echo __('Username', 'users'); ?></label>
-                            <input name="login" class="span3" type="text" value="<?php echo $user_login; ?>" />
-
-                            <?php if (Option::get('captcha_installed') == 'true') { ?>
-                            <label><?php echo __('Captcha'); ?><label>
-                            <input type="text" name="answer" class="span3">
-                            <?php CryptCaptcha::draw(); ?>
-                            <?php } ?>
-                            <br>
-                            <?php
-                                if (count($errors) > 0) {
-                                    foreach($errors as $error) {
-                                        Alert::error($error);
-                                    }
-                                }
-                            ?>
-                            <input type="submit" name="reset_password_submit" class="btn" value="<?php echo __('Send New Password', 'users')?>" />
-                        </form>
-                    </div> 
-                </div>  
-                
+            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
+            <div class="administration-area">
                 <hr>
                 <div>
-                    <div style="text-align:center;">
-                        <a class="small-grey-text" href="<?php echo Option::get('siteurl'); ?>"><?php echo __('< Back to Website', 'system');?></a> - 
-                        <a class="small-grey-text reset-password-btn" href="javascript:;"><?php echo __('Forgot your password? >', 'system');?></a>
-                        <a class="small-grey-text administration-btn" href="javascript:;"><?php echo __('Administration >', 'system');?></a>
-                    </div>
+                    <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br />
+                    <form method="post">
+                        <label><?php echo __('Username', 'users'); ?></label>
+                        <input class="input-xlarge" name="login" type="text" />
+
+                        <label><?php echo __('Password', 'users'); ?></label>
+                        <input class="input-xlarge" name="password" type="password" />
+                        <br />
+                        <?php if (isset($login_error) && $login_error !== '') { ?><div class="alert alert-error"><?php echo $login_error; ?></div><?php } ?>
+                        <input type="submit" name="login_submit" class="btn" value="<?php echo __('Enter', 'users'); ?>" />
+                    </form>
+                </div>
+            </div>
+            
+            <div class="reset-password-area">
+                <hr>
+                <div>
+                    <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br />
+                    <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
+                    <form method="post">
+                        <label><?php echo __('Username', 'users'); ?></label>
+                        <input name="login" class="input-xlarge" type="text" value="<?php echo $user_login; ?>" />
+
+                        <?php if (Option::get('captcha_installed') == 'true') { ?>
+                        <label><?php echo __('Captcha'); ?><label>
+                        <input type="text" name="answer" class="input-xlarge">
+                        <?php CryptCaptcha::draw(); ?>
+                        <?php } ?>
+                        <br>
+                        <?php
+                            if (count($errors) > 0) {
+                                foreach($errors as $error) {
+                                    Alert::error($error);
+                                }
+                            }
+                        ?>
+                        <input type="submit" name="reset_password_submit" class="btn" value="<?php echo __('Send New Password', 'users')?>" />
+                    </form>
+                </div> 
+            </div>  
+            
+            <hr>
+            <div>
+                <div style="text-align:center;">
+                    <a class="small-grey-text" href="<?php echo Option::get('siteurl'); ?>"><?php echo __('< Back to Website', 'system');?></a> - 
+                    <a class="small-grey-text reset-password-btn" href="javascript:;"><?php echo __('Forgot your password? >', 'system');?></a>
+                    <a class="small-grey-text administration-btn" href="javascript:;"><?php echo __('Administration >', 'system');?></a>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="span4 authorization-block-footer">
-                <div style="text-align:center">
-                    <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo MONSTRA_VERSION; ?></span>            
-                </div>
-            </div>
+        <div style="text-align:center">
+            <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Core::VERSION; ?></span>            
         </div>
 
     </body>

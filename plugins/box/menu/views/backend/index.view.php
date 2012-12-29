@@ -6,7 +6,7 @@
 <br />
 <?php
     echo (
-            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small')) 
         ); 
 ?>
 <br /><br />
@@ -20,13 +20,15 @@
 
         $items = $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'order', 'category'), 'order', 'ASC');
 
+        $category_to_add = ($category == '') ? '' : '&category='.$category;
+
 ?>
 
 <h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
 <br />   
 <?php
     echo (
-            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small')) 
         ); 
 ?>
 <br /><br />

@@ -21,5 +21,9 @@
             'Block <i>:name</i> deleted' => 'Сниппет <i>:name</i> удален',
             'Your changes to the block <i>:name</i> have been saved.' => 'Ваши изменения к блоку <i>:name</i> были сохранены.',
             'Delete block: :block' => 'Удалить блок: :block',
+            'View Embed Code' => 'Код для вставки',
+            'Embed Code' => 'Код для вставки', 
+            'Shortcode' => 'Шорткод',
+            'PHP Code' => 'PHP код',
         )
     ); 

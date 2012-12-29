@@ -25,6 +25,8 @@
     // Include Users Admin
     Plugin::Admin('users', 'box');
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/users/js/users.js', 'backend');
 
     /**
      * Users class
@@ -393,11 +395,11 @@
                                     Session::set('user_role', (string)$user['role']);
                                     Request::redirect(Site::url().'users/'.Session::get('user_id'));
                                 } else {
-                                    Notification::setNow('error', __('Wrong <b>login</b> or <b>password</b>', 'users'));  
+                                    Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));  
                                 }
                             } 
                         } else {
-                            Notification::setNow('error', __('Wrong <b>login</b> or <b>password</b>', 'users'));  
+                            Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));  
                         }
 
                     } else { die('csrf detected!'); }              

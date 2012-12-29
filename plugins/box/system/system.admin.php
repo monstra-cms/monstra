@@ -38,6 +38,9 @@
 
     }
 
+    /**
+     * System Admin
+     */
     class SystemAdmin extends Backend {
         
         
@@ -71,7 +74,7 @@
 
                 // Get all pages
                 $pages_array = array();
-                $pages_list = $pages->select('[slug!="error404" and parent=""]');
+                $pages_list = $pages->select('[slug!="error404" and parent="" and status="published"]');
                 foreach ($pages_list as $page) {
                     $pages_array[$page['slug']] = Html::toText($page['title']);
                 }

@@ -1,6 +1,11 @@
 <?php
 
+    // Add plugin navigation link
+    Navigation::add(__('Backups', 'backup'), 'system', 'backup', 3);
 
+    /**
+     * Backup Admin Class
+     */
     class BackupAdmin extends Backend {
 
 
@@ -40,7 +45,7 @@
             
             // Delete backup
             // -------------------------------------    
-            if (Request::get('sub_id') == 'backup' && Request::get('delete_file')) {                
+            if (Request::get('id') == 'backup' && Request::get('delete_file')) {                
                 
                 if (Security::check(Request::get('token'))) {
 

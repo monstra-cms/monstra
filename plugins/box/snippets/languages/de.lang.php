@@ -22,5 +22,9 @@
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Deine Änerungen für das Snippet <i>:name</i> wurden gespeichert.',
             'Delete snippet: :snippet' => 'Lösche Snippet: :snippet',
             'Required field' => 'Pflichtfeld',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );

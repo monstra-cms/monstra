@@ -32,6 +32,12 @@
     }
 
 
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/pages/js/pages.js', 'backend');
+
+    /**
+     * Pages Class
+     */
     class Pages extends Frontend { 
 
 
@@ -111,16 +117,36 @@
                             $c_p = '';
                         }
                     }
+
+                    // Hack For old Monstra
+                    $child_page['access'] = (isset($child_page['access'])) ? $child_page['access'] : 'public' ;
                   
                     // Check is child_parent -> request parent
                     if ($c_p == $data[0]) {                    
-                        // Checking only for the parent and one child, the remaining issue 404
-                        if (count($data) < 3) {
-                            $id = $data[1]; // Get real request page
+                        
+                        if (count($data) < 3) { // Checking only for the parent and one child, the remaining issue 404
+                            
+                            if ((($child_page['status'] == 'published') or 
+                                (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
+                                ($child_page['access'] == 'public')) {
+
+                                $id = $data[1];
+
+                            } elseif (($child_page['access'] == 'registered') and
+                                     (Session::exists('user_id')) and
+                                     ($child_page['status'] == 'published')) {
+                                
+                                $id = $data[1];                                
+
+                            } else {
+                                $id = 'error404';
+                                Response::status(404);      
+                            }
                         } else {
                             $id = 'error404';                            
                             Response::status(404);
                         }
+
                     } else {
                         $id = 'error404';
                         Response::status(404);
@@ -129,6 +155,7 @@
                     $id = 'error404';
                     Response::status(404);
                 }
+
             } else { // Only parent page come
                 if(empty($data[0])) {        
                     
@@ -139,8 +166,11 @@
                     // Get current page
                     $current_page = Pages::$pages->select('[slug="'.$data[0].'"]', null);
                    
+                    // Hack For old Monstra
+                    $current_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
+
                     if (count($current_page) != 0) {
-                        if ($current_page['parent'] != '') {
+                        if ( ! empty($current_page['parent'])) {
                             $c_p = $current_page['parent'];
                         } else {
                             $c_p = '';
@@ -151,14 +181,26 @@
 
                     // Check if this page has parent
                     if ($c_p !== '') {
+
                         if ($c_p == $data[0]) {
-                            if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {                            
-                                if (($current_page['status'] == 'published') or (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) {
+                            if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {                               
+
+                                if ((($current_page['status'] == 'published') or 
+                                    (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
+                                    ($current_page['access'] == 'public')) {
+
                                     $id = $data[0];       
+
+                                } elseif (($current_page['access'] == 'registered') and
+                                         (Session::exists('user_id')) and
+                                         ($current_page['status'] == 'published')) {
+                                    
+                                    $id = $data[0];                                
+
                                 } else {
                                     $id = 'error404';
                                     Response::status(404);      
-                                }                         
+                                }
                             } else {
                                 $id = 'error404';
                                 Response::status(404);
@@ -168,9 +210,20 @@
                             Response::status(404);
                         }
                     } else {
+
                         if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {
-                            if (($current_page['status'] == 'published') or (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) {
+                            if ((($current_page['status'] == 'published') or 
+                                (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
+                                ($current_page['access'] == 'public')) {
+
                                 $id = $data[0];       
+
+                            } elseif (($current_page['access'] == 'registered') and
+                                     (Session::exists('user_id')) and
+                                     ($current_page['status'] == 'published')) {
+
+                                $id = $data[0];                                
+
                             } else {
                                 $id = 'error404';
                                 Response::status(404);      
@@ -203,8 +256,28 @@
          *
          * @return string
          */
-        public static function content() {
-            return Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . Pages::$page['id'] . '.page.txt'));
+        public static function content($slug = '') {
+
+            if ( ! empty($slug)) {
+
+                $page = Table::factory('pages')->select('[slug="'.$slug.'"]', null);
+
+                if ( ! empty($page)) {
+
+                    $content = Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt'));
+
+                    $content = Filter::apply('content', $content);
+
+                    return $content;
+
+                } else {
+                    return '';
+                }
+
+            } else {
+                return Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . Pages::$page['id'] . '.page.txt'));
+            }
+
         }
         
 
@@ -252,7 +325,20 @@
     }
 
 
-    class Page extends Pages {        
+    /**
+     * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
+     */
+    Shortcode::add('page_author', 'Page::author');
+    Shortcode::add('page_slug', 'Page::slug');
+    Shortcode::add('page_url', 'Page::url');
+    Shortcode::add('page_content', 'Page::_content');
+    Shortcode::add('page_date', 'Page::_date');
+
+
+    /**
+     * Page class
+     */
+    class Page extends Pages {   
 
 
         /**
@@ -327,6 +413,7 @@
          */
         public static function breadcrumbs() {                        
             $current_page = Pages::$requested_page;
+            $parent_page = '';
             if ($current_page !== 'error404') {  
                 $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
                 if (trim($page['parent']) !== '') {
@@ -382,7 +469,25 @@
          *  
          */
         public static function robots() {
-            return (Pages::$page !== null) ? Pages::$page['robots_index'].', '.Pages::$page['robots_follow'] : '';
+
+            if (Pages::$page !== null) {
+                $_index  = (isset(Pages::$page['robots_index'])) ? Pages::$page['robots_index'] : '';
+                $_follow = (isset(Pages::$page['robots_follow'])) ? Pages::$page['robots_follow'] : '';
+                $robots  = ( ! empty($_index) && ! empty($_follow)) ? $_index.', '.$_follow : '';
+            } else {
+                $robots = '';
+            }
+
+            return $robots;
+        }
+
+
+        public static function _date($attributes) {
+            return Page::date((isset($attributes['format'])) ? $attributes['format'] : 'Y-m-d');
+        }
+
+        public static function _content($attributes) {
+            return Page::content((isset($attributes['name']) ? $attributes['name'] : ''));
         }
 
     }

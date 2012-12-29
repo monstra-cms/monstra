@@ -22,5 +22,9 @@
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Suas alterações no código <i>:name</i> foram salvas',
             'Delete snippet: :snippet' => 'Deletar o código: :snippet',
             'Required field' => 'Campo requerido',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );

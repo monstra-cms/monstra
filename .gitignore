@@ -1,0 +1,35 @@
+# ignore os/app generated files
+Thumbs.db
+.DS_Store
+*.esproj
+*.project
+*.sublime-project
+*.sublime-workspace
+
+# ignore user .htaccess
+/.htaccess
+
+# ignore user sitemap
+/sitemap.xml
+
+# ignore user defines
+/monstra/boot/defines.php
+
+# ignore debug and custom themes
+/public/themes/*
+/admin/themes/*
+!/public/themes/default
+!/admin/themes/default
+
+# ignore user plugins
+/plugins/*
+!/plugins/box
+!/plugins/captcha
+!/plugins/markitup
+!/plugins/sandbox
+
+# ignore user files and folders
+/backups/*
+/public/*
+/storage/*
+/tmp/*

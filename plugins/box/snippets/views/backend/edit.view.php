@@ -1,4 +1,4 @@
-<h2><?php echo __('Edit snippet', 'snippets'); ?></h2>
+<h2><?php echo __('Edit Snippet', 'snippets'); ?></h2>
 <br />
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
@@ -20,7 +20,7 @@
     <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
     
         <div class="input-append">
-            <?php echo (Form::input('name', $name, array('class' => (isset($errors['snippets_empty_name']) || isset($errors['snippets_exists'])) ? 'input-xlarge error-field' : 'input-xlarge'))); ?><span class="add-on">.snippet.php</span>
+            <?php echo (Form::input('name', $name, array('class' => (isset($errors['snippets_empty_name']) || isset($errors['snippets_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?><span class="add-on">.snippet.php</span>
         </div>
 
         <?php
@@ -35,7 +35,7 @@
            Form::label('content', __('Snippet content', 'snippets')).
            Form::textarea('content', Html::toText($content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor')).
            Html::br(2).
-           Form::submit('edit_snippets_and_exit', __('Save and exit', 'snippets'), array('class' => 'btn default')).Html::nbsp(2).
+           Form::submit('edit_snippets_and_exit', __('Save and Exit', 'snippets'), array('class' => 'btn default')).Html::nbsp(2).
            Form::submit('edit_snippets', __('Save', 'snippets'), array('class' => 'btn default')). Html::nbsp().
            Form::close()
         );

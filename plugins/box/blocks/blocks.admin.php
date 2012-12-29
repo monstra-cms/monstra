@@ -1,9 +1,13 @@
 <?php
 
+    // Add plugin navigation link
     Navigation::add(__('Blocks', 'blocks'), 'content', 'blocks', 2);
 
-
+    /**
+     * Blocks Admin Class
+     */
     class BlocksAdmin extends Backend {
+
 
         /**
          * Blocks admin function

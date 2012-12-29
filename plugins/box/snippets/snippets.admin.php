@@ -1,8 +1,11 @@
 <?php
 
+    // Add plugin navigation link
     Navigation::add(__('Snippets', 'snippets'), 'extends', 'snippets', 3);
 
-
+    /**
+     * Snippets Admin Class
+     */
     class SnippetsAdmin extends Backend {
 
         /**

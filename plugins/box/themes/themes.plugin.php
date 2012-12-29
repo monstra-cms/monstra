@@ -30,7 +30,9 @@
 
     }
 
-
+    /**
+     * Themes Class
+     */
     class Themes {
         
 
@@ -156,7 +158,7 @@
 
 
     /**
-     * Chunk frontend class
+     * Chunk class
      */
     class Chunk {
 
@@ -166,13 +168,16 @@
          * @param string $name Chunk name
          * @param string $theme Theme name
          */
-        public static function get($name, $theme = null) {
+        public static function get($name, $vars = array(), $theme = null) {
             
+            // Redefine vars
             $name  = (string) $name;
-            $current_theme = ($theme === null) ? null : (string) $theme;
+            $current_theme = ($theme === null) ? Option::get('theme_site_name') : (string) $theme;
 
-            if ($current_theme == null) $current_theme = Option::get('theme_site_name');
+            // Extract vars
+            extract($vars);
 
+            // Chunk path
             $chunk_path  = THEMES_SITE . DS . $current_theme . DS;
 
             // Is chunk exist ? 
@@ -181,10 +186,9 @@
                 // Is chunk minified
                 if ( ! file_exists(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php') or 
                     filemtime(THEMES_SITE . DS . $current_theme . DS . $name .'.chunk.php') > filemtime(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php')) {
-                        $buffer = file_get_contents(THEMES_SITE. DS . $current_theme . DS . $name .'.chunk.php');
-                        $buffer = Minify::html($buffer);
-                        file_put_contents(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php', $buffer);
-                } 
+                        file_put_contents(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php',
+                                          Minify::html(file_get_contents(THEMES_SITE. DS . $current_theme . DS . $name .'.chunk.php')));
+                }
 
                 // Include chunk
                 include MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php';

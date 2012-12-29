@@ -1,3 +1,82 @@
+Monstra 2.1.3, 2012-12-09
+------------------------
+- Pages Plugin: New shortcodes added - page_author, page_slug, page_url page_available, page_breadcrumbs, page_date, page_content.
+- Pages Plugin: add ability to get content for specific page.
+- XMLDB: New method factory() added.
+- Twitter Bootstrap updated to Version 2.2.2
+- Sitemap Plugin: _blank removed.
+- Filesmanager Plugin: fixes.
+- Backup Plugin: fixes.
+
+Monstra 2.1.2, 2012-12-05
+------------------------
+- Blocks Plugin: added ability create and render inline content blocks with {block_inline} and {block_inline_create}
+- Site Module: methods keywords() and description() fixes.
+- Pages Plugin: pages.js fixes.
+- Admin main index.php fixes.
+
+Monstra 2.1.1, 2012-11-30
+------------------------
+- Plugins: Minify bug #71 - fixed.
+- Menu Plugin: bug with categories #70 - fixed.
+- Localization: IT translations - fixed.
+
+Monstra 2.1.0, 2012-11-29
+------------------------
+- Localization: PT-BR, UK translations added.
+- Default theme: hook "theme_header" added.
+- System Plugin: new action "admin_system_extra_index_template_actions" added.
+- Shortcodes API: new delete() clear() exists() methods added.
+- Options API: new exists() method added.
+- Core: new constant VERSION - added.
+- Core: added ability to load: defines, actions, filters, shortcodes for current environment.
+- Defines: deprecated constants: MONSTRA_GZIP_STYLES, MONSTRA_VERSION, MONSTRA_VERSION_ID, MONSTRA_SITEURL, MONSTRA_MOBILE deleted.
+- Box Plugins: used Core::VERSION to compare Monstra CMS version.
+- Installer: use version_compare() function to compare php versions.
+- Installer: Get system timezone with date_default_timezone_get() function.
+- Admin Default Theme: general improvements.
+- Users Plugin: user profile editing fixed.
+- Shortcodes API: bug with similar shortcode names fixed.
+- Site: template() method improvements. Added ability to get template from specific theme.
+- Menu Plugin: added ability to select children pages.
+- Snippets Plugin: added ability to add parameters for snippets.
+- Themes Plugin: added ability to add parameters for chunks.
+- Pages Plugin: pages expand/collapse feature added.
+- Pages Plugin: pages "access" feature added.
+- Pages Plugin: tab "seo" changed to "metadata"
+- Pages Table: "expand, "access" fields added.
+- Information Plugin: new "Directory Permissions" tab added.
+- Twitter Bootstrap updated to Version 2.2.1
+- MarkitUp! updated to Version 1.1.13
+- Sitemap Plugin: links title issue fixed.
+- Core: Init Site module on frontend only.
+- Core: IDIORM optimization.
+- Site Class: code optimization.
+- Sitemap Plugin: bug with priority fixed.
+- File .gitignore added.
+- Monstra logo updated.
+- README: general updates
+- Pages Plugin: "delete" action fixes.
+- Plugins Manager: add ability to Cleanup minify with new plugin installation or plugin uninstallation.
+- MarkitUp Plugin: unnecessary files removed.
+- XMLDB: select() method fixes.
+- XMLDB: new method existsField() added.
+- Information Plugin: shows "PHP Built On", "Web Server", "WebServer to PHP Interface" information.
+- Installer: general fixes.
+- Blocks Plugin: view embed codes feature added.
+- Snippets Plugin: view embed codes feature added.
+- Text Helper: method strpSlashes() fixed.
+- Text Helper: new method increment() added.
+- Pages Plugin: method robots() fixes.
+- Pages Plugin: improved page author detection.
+- Pages Plugin: add, edit, delete, clone actions improvements.
+- Users Plugin: apply "content" filter for "about_me" field.
+- Plugin API: Stylesheet and Javascript load() methods - fixed.
+- Pages Plugin: Page editing date issue - fixed.
+- Localization: EN, RU, IT, LT, DE translations fixed.
+- Imformation Plugin: config file(defines.php) checking removed.
+- Box Plugins: general code refactoring.
+
 Monstra 2.0.1, 2012-10-18
 ------------------------
 - Localization: DE, LT, IT translations added
@@ -44,7 +123,6 @@ Monstra 2.0.0, 2012-10-09
 - Translates updates.
 - Path updates.
 - And a lot of general engine improvements.
-
 
 Monstra 1.3.1, 2012-09-02
 ------------------------

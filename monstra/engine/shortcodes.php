@@ -148,8 +148,8 @@
             if ( ! Shortcode::$shortcode_tags) return $content;
                  
             $shortcodes = implode('|', array_map('preg_quote', array_keys(Shortcode::$shortcode_tags)));
-            $pattern    = "/(.?)\{($shortcodes)(.*?)(\/)?\}(?(4)|(?:(.+?)\{\/\s*\\2\s*\}))?(.?)/s";
-                 
+            $pattern    = "/(.?)\{([$shortcodes]+)(.*?)(\/)?\}(?(4)|(?:(.+?)\{\/\s*\\2\s*\}))?(.?)/s";
+            
             return preg_replace_callback($pattern, 'Shortcode::_handle', $content);
         }
              
@@ -180,7 +180,8 @@
                 }
             }
              
-            return $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix;
+            // Check if this shortcode realy exists then call user function else return empty string
+            return (isset(Shortcode::$shortcode_tags[$shortcode])) ? $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix : '';
         }
 
 }

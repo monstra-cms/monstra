@@ -1,7 +1,6 @@
 <h2><?php echo __('Plugins', 'plugins'); ?></h2>
 <br />
 
-
 <div class="tabbable">
 
     <!-- Plugins_tabs -->
@@ -18,11 +17,11 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td><?php echo __('Name', 'plugins'); ?></td>
-                        <td><?php echo __('Description', 'plugins'); ?></td>
-                        <td><?php echo __('Author', 'plugins'); ?></td>
-                        <td><?php echo __('Version', 'plugins'); ?></td>
-                        <td width="30%"><?php echo __('Actions', 'plugins'); ?></td>
+                        <th><?php echo __('Name', 'plugins'); ?></th>
+                        <th class="hidden-phone"><?php echo __('Description', 'plugins'); ?></th>
+                        <th><?php echo __('Author', 'plugins'); ?></th>
+                        <th><?php echo __('Version', 'plugins'); ?></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +30,7 @@
                         <td>
                             <?php echo $plugin['title']; ?>
                         </td>
-                        <td>
+                        <td class="hidden-phone">
                            <?php echo $plugin['description']; ?>
                         </td>
                         <td>
@@ -41,10 +40,12 @@
                             <?php echo $plugin['version']; ?>
                         </td>
                         <td>
+                            <div class="pull-right">
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
-                                       array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['id']))."')"));
+                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['id']))."')"));
                              ?>
+                            </div>
                         </td>
                     </tr>
                     <?php } } ?>
@@ -57,11 +58,11 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td><?php echo __('Name', 'plugins'); ?></td>
-                        <td><?php echo __('Description', 'plugins'); ?></td>
-                        <td><?php echo __('Author', 'plugins'); ?></td>
-                        <td><?php echo __('Version', 'plugins'); ?></td>
-                        <td width="30%"><?php echo __('Actions', 'plugins'); ?></td>
+                        <th><?php echo __('Name', 'plugins'); ?></th>
+                        <th class="hidden-phone"><?php echo __('Description', 'plugins'); ?></th>
+                        <th><?php echo __('Author', 'plugins'); ?></th>
+                        <th><?php echo __('Version', 'plugins'); ?></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,7 +72,7 @@
                         <td>
                             <?php echo $plugin_xml->plugin_name; ?>
                         </td>
-                        <td>
+                        <td class="hidden-phone">
                            <?php echo $plugin_xml->plugin_description; ?>
                         </td>
                         <td>
@@ -81,11 +82,13 @@
                             <?php echo $plugin_xml->plugin_version; ?>
                         </td>
                         <td>
-                            <?php echo Html::anchor(__('Install', 'plugins'), 'index.php?id=plugins&install='.$plug['plugin'].'&token='.Security::token(), array('class' => 'btn btn-actions')); ?>
+                            <div class="pull-right">
+                            <?php echo Html::anchor(__('Install', 'plugins'), 'index.php?id=plugins&install='.$plug['plugin'].'&token='.Security::token(), array('class' => 'btn btn-small')); ?>
                             <?php echo Html::anchor(__('Delete', 'plugins'),
                                        'index.php?id=plugins&delete_plugin_from_server='.Text::lowercase(basename($plug['path'],'.manifest.xml')).'&token='.Security::token(),
-                                       array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' =>  Text::lowercase(basename($plug['path'],'.manifest.xml'))) )."')"));
+                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' =>  Text::lowercase(basename($plug['path'],'.manifest.xml'))) )."')"));
                              ?>
+                            </div>
                         </td>
                     </tr>
                     <?php } ?>

@@ -18,14 +18,15 @@
                     __('MarkItUp! universal markup jQuery editor', 'markitup'),  
                     '1.0.0',
                     'Awilum',                 
-                    'http://monstra.org/',
-                    null);
+                    'http://monstra.org/');
 
 
     // Add hooks  
     Action::add('admin_header', 'MarkItUp::headers');
 
-
+    /**
+     * MarkItUp Class
+     */
     class MarkItUp {
                 
 
@@ -34,7 +35,7 @@
          */
         public static function headers() {
             echo ('
-                <!-- markItUp! -->
+                <!-- markItUp! 1.1.13 -->
                 <script type="text/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/jquery.markitup.js"></script>
                 <!-- markItUp! toolbar settings -->
                 <script type="text/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/sets/html/set.js"></script>
@@ -44,15 +45,7 @@
                 <link rel="stylesheet" type="text/css" href="'.Option::get('siteurl').'plugins/markitup/markitup/sets/html/style.css" />
             ');
 
-            echo ('
-                <script type="text/javascript">
-                    <!--
-                    $(document).ready(function()    {
-                        $("#editor_area").markItUp(mySettings);                    
-                    });
-                    -->
-                </script>
-            ');
+            echo ('<script>$(document).ready(function(){$("#editor_area").markItUp(mySettings);});</script>');
         }
 
     }

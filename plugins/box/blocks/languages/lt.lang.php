@@ -20,5 +20,10 @@
             'Block content' => 'Bloko turinys',
             'Block <i>:name</i> deleted' => 'Blokas <i>:name</i> ištrintas',
             'Your changes to the block <i>:name</i> have been saved.' => 'Bloko <i>:name</i> pakeitimai išsaugoti.',
+            'Delete block: :block' => 'Delete block: :block',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code', 
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );

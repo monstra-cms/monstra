@@ -1,4 +1,4 @@
-<h2><?php echo __('Edit block', 'blocks'); ?></h2>
+<h2><?php echo __('Edit Block', 'blocks'); ?></h2>
 <br />
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
@@ -19,7 +19,7 @@
 
     <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
 
-        <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'span5 error-field' : 'span5'))); ?>
+        <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?>
 
         <?php
             if (isset($errors['blocks_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_empty_name'].'</span>';
@@ -33,7 +33,7 @@
 
         echo (
            Html::br().
-           Form::submit('edit_blocks_and_exit', __('Save and exit', 'blocks'), array('class' => 'btn default')).Html::nbsp(2).
+           Form::submit('edit_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn default')).Html::nbsp(2).
            Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn default')). Html::nbsp().
            Form::close()
         );

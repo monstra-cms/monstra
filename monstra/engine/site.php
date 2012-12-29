@@ -111,7 +111,7 @@
          * @return string
          */
         public static function description() {
-            return (trim(call_user_func(ucfirst(Uri::command()).'::description')) == '') ? Html::toText(Option::get('description')) : Html::toText($description);
+            return (($description = trim(call_user_func(ucfirst(Uri::command()).'::description'))) == '') ? Html::toText(Option::get('description')) : Html::toText($description);
         }
 
 
@@ -125,7 +125,7 @@
          * @return string
          */
         public static function keywords() {
-            return (trim(call_user_func(ucfirst(Uri::command()).'::keywords')) == '') ? Html::toText(Option::get('keywords')) : Html::toText($description);
+            return (($keywords = trim(call_user_func(ucfirst(Uri::command()).'::keywords'))) == '') ? Html::toText(Option::get('keywords')) : Html::toText($keywords);
         }
 
 
@@ -164,12 +164,13 @@
          *      echo Site::template();
          *  </code>
          *
+         * @param  string $theme Theme name
          * @return mixed
          */
-        public static function template() {
+        public static function template($theme = null) {
 
-            // Get current theme
-            $current_theme = Option::get('theme_site_name');           
+            // Get specific theme or current theme
+            $current_theme = ($theme == null) ? Option::get('theme_site_name') : $theme ;          
 
             // Get template
             $template = call_user_func(ucfirst(Uri::command()).'::template');
@@ -221,12 +222,7 @@
          * @return string
          */
         public static function powered() {
-            return __('Powered by', 'system').' <a href="' . MONSTRA_SITEURL . '" target="_blank">Monstra</a> ' . MONSTRA_VERSION;        
+            return __('Powered by', 'system').' <a href="http://monstra.org" target="_blank">Monstra</a> ' . Core::VERSION;        
         }
 
     }
-
-
-    // Add new shortcode {siteurl}
-    Shortcode::add('siteurl', 'returnSiteUrl');
-    function returnSiteUrl() { return Option::get('siteurl'); }

@@ -58,10 +58,10 @@
         <p>
             <ul class="unstyled">
             <?php if (count($pages_list) > 0) foreach($pages_list as $page) { ?>
-                <li><a href="javascript:;" onclick="selectPage('<?php echo $page['slug']; ?>', '<?php echo $page['title']; ?>');"><?php echo $page['title']; ?></a></li>
+                <li><?php echo (!empty($page['parent'])) ? Html::nbsp().Html::arrow('right').Html::nbsp(2) : '' ; ?><a href="javascript:;" onclick="$.monstra.menu.selectPage('<?php echo (empty($page['parent'])) ? $page['slug'] : $page['parent'].'/'.$page['slug'] ; ?>', '<?php echo $page['title']; ?>');"><?php echo $page['title']; ?></a></li>
             <?php } ?>
             <?php if (count($components_list) > 0) foreach($components_list as $component) { ?>
-                <li><a href="javascript:;" onclick="selectPage('<?php echo Text::lowercase($component); ?>', '<?php echo __($component); ?>');"><?php echo __($component); ?></a></li>
+                <li><a href="javascript:;" onclick="$.monstra.menu.selectPage('<?php echo $component; ?>', '<?php echo __(ucfirst($component), $component); ?>');"><?php echo __(ucfirst($component), $component); ?></a></li>
             <?php } ?>
             </ul>
         </p>
@@ -77,7 +77,7 @@
         <p>
             <ul class="unstyled">
             <?php if (count($categories) > 0) foreach($categories as $category) { ?>
-                <li><a href="javascript:;" onclick="selectCategory('<?php echo $category; ?>');"><?php echo $category; ?></a></li>
+                <li><a href="javascript:;" onclick="$.monstra.menu.selectCategory('<?php echo $category; ?>');"><?php echo $category; ?></a></li>
             <?php } ?>
             </ul>
         </p>
