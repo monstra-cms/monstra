@@ -70,8 +70,8 @@
         <?php if (isset($files_list)) foreach ($files_list as $file) { $ext = File::ext($file); ?>
         <?php if ( ! in_array($ext, $forbidden_types)) { ?>
         <tr>        
-            <td>
-                <?php echo Html::anchor(File::name($file), $site_url.'public' . DS .$path.$file, array('target'=>'_blank'));?>
+            <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
+                <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
             </td>
             <td>
                 <?php echo $ext; ?>
@@ -91,3 +91,29 @@
         <?php } } ?> 
     </tbody>
 </table>
+
+<div class="modal hide" id="showImage">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3><?php echo __('Image:', 'filesmanager')?> <span></span></h3>
+    </div>
+    <div class="modal-body">
+        <p><img src=""/></p>
+    </div>
+</div>
+
+<script>
+$('.image').find('a').on('click', function() {
+    var src = $(this).attr('href');
+    var file = $(src.split('/')).last();
+
+    var image = new Image();
+    image.src = src;
+    $(image).load(function() {
+        $('#showImage').modal('show').css({width: image.width + 32, margin: '0 auto', left: 'auto'})
+        .find('img').attr('src', src);
+        $('#showImage').find('h3 span').text(file[0]);
+    });
+    return false;
+});
+</script>
