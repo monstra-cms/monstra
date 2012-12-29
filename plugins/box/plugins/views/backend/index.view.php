@@ -41,9 +41,10 @@
                         </td>
                         <td>
                             <div class="pull-right">
+                                <?php Debug::dump($plugin); ?>
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
-                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['id']))."')"));
+                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
                              ?>
                             </div>
                         </td>
@@ -86,7 +87,7 @@
                             <?php echo Html::anchor(__('Install', 'plugins'), 'index.php?id=plugins&install='.$plug['plugin'].'&token='.Security::token(), array('class' => 'btn btn-small')); ?>
                             <?php echo Html::anchor(__('Delete', 'plugins'),
                                        'index.php?id=plugins&delete_plugin_from_server='.Text::lowercase(basename($plug['path'],'.manifest.xml')).'&token='.Security::token(),
-                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' =>  Text::lowercase(basename($plug['path'],'.manifest.xml'))) )."')"));
+                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin_xml->plugin_name))."')"));
                              ?>
                             </div>
                         </td>
