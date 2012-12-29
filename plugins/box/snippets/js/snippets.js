@@ -1,5 +1,3 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
-
 $.monstra.snippets = {
 
     init: function() { },
@@ -11,8 +9,3 @@ $.monstra.snippets = {
     }
 
 };
-
-
-$(document).ready(function(){
-    $.monstra.snippets.init();
-});

@@ -1,5 +1,3 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
-
 $.monstra.blocks = {
 
     init: function() { },
@@ -11,8 +9,3 @@ $.monstra.blocks = {
     }
 
 };
-
-
-$(document).ready(function(){
-    $.monstra.blocks.init();
-});

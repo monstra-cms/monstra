@@ -43,7 +43,7 @@
                             <div class="pull-right">
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
-                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['id']))."')"));
+                                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete plugin', 'plugins')." ' + $(this).parent().parent().parent().find('td').eq(0).text().trim())"));
                              ?>
                             </div>
                         </td>

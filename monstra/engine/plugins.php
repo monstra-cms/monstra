@@ -1110,11 +1110,16 @@
 
                     // Regenerate site javascript
                     if ($backend_regenerate) {
+                        $onready = '';
                         foreach ($javascripts as $javascript) {                        
                             if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
                                 $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
+                                if (preg_match('/plugins/', $javascript['file'])) $onready .= '    $.monstra.' . basename($javascript['file'], '.js') . '.init();' . "\n";
                             }
                         }
+
+                        if ($onready) $backend_buffer .= '$(document).ready(function() {' . "\n" . $onready . '});';
+
                         file_put_contents($backend_site_js_path, $backend_buffer);
                         $backend_regenerate = false;
                     }
