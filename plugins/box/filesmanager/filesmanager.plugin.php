@@ -29,3 +29,6 @@
         Plugin::admin('filesmanager', 'box');
 
     }
+
+    // Add Plugin Javascript
+    Javascript::add('plugins/box/filesmanager/js/filesmanager.js', 'backend');

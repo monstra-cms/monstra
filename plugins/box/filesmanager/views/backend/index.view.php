@@ -92,28 +92,12 @@
     </tbody>
 </table>
 
-<div class="modal hide" id="showImage">
+<div id="showImage" class="modal hide fade">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
         <h3><?php echo __('Image:', 'filesmanager')?> <span></span></h3>
     </div>
     <div class="modal-body">
-        <p><img src=""/></p>
+        <p align="center"><img /></p>
     </div>
 </div>
-
-<script>
-$('.image').find('a').on('click', function() {
-    var src = $(this).attr('href');
-    var file = $(src.split('/')).last();
-
-    var image = new Image();
-    image.src = src;
-    $(image).load(function() {
-        $('#showImage').modal('show').css({width: image.width + 32, margin: '0 auto', left: 'auto'})
-        .find('img').attr('src', src);
-        $('#showImage').find('h3 span').text(file[0]);
-    });
-    return false;
-});
-</script>
