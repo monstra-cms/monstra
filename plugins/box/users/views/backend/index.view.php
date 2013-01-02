@@ -19,11 +19,11 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <td><?php echo __('Username', 'users'); ?></td>
-            <td><?php echo __('Email', 'users'); ?></td>
-            <td><?php echo __('Registered', 'users'); ?></td>
-            <td><?php echo __('Role', 'users'); ?></td>
-            <td width="30%"><?php echo __('Actions', 'users'); ?></td>
+            <th><?php echo __('Username', 'users'); ?></th>
+            <th><?php echo __('Email', 'users'); ?></th>
+            <th><?php echo __('Registered', 'users'); ?></th>
+            <th><?php echo __('Role', 'users'); ?></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -42,11 +42,13 @@
             <?php echo $roles["{$user['role']}"]; ?>
         </td>
         <td>
-            <?php echo Html::anchor(__('Edit', 'users'), 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-actions')); ?>
+            <div class="pull-right">
+            <?php echo Html::anchor(__('Edit', 'users'), 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-small')); ?>
             <?php echo Html::anchor(__('Delete', 'users'),
                        'index.php?id=users&action=delete&user_id='.$user['id'].'&token='.Security::token(),
-                       array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete user: :user', 'users', array(':user' => Html::toText($user['login'])))."')"));
+                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete user: :user', 'users', array(':user' => Html::toText($user['login'])))."')"));
              ?>
+             </div>
         </td>
     </tr> 
     <?php } ?>

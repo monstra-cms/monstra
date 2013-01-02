@@ -12,7 +12,6 @@
         if (isset($errors['file_empty_name']) or isset($errors['file_exists'])) $error_class = 'error'; else $error_class = '';
 
         echo (Form::open(null, array('class' => 'form-horizontal')));
-
         echo (Form::hidden('csrf', Security::token()));
 
 ?>
@@ -26,7 +25,7 @@
 <?php echo (Form::label('name', __('Name', 'themes'))); ?>
 
 <div class="input-append">
-    <?php echo (Form::input('name', $name, array('class' => (isset($errors['file_empty_name']) || isset($errors['file_exists'])) ? 'input-xlarge error-field' : 'input-xlarge'))); ?>
+    <?php echo (Form::input('name', $name, array('class' => (isset($errors['file_empty_name']) || isset($errors['file_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?>
     <?php if ($action == 'chunk') { ?><span class="add-on">.chunk.php</span><?php } ?>
     <?php if ($action == 'template') { ?><span class="add-on">.template.php</span><?php } ?>
     <?php if ($action == 'styles') { ?><span class="add-on">.css</span><?php } ?> 
@@ -50,8 +49,8 @@
     echo (
        Form::textarea('content', Html::toText($content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor')).
        Html::br(2).
-       Form::submit('edit_file_and_exit', __('Save and exit', 'themes'), array('class' => 'btn default')).Html::nbsp(2).
-       Form::submit('edit_file', __('Save', 'themes'), array('class' => 'btn default')). Html::nbsp().
+       Form::submit('edit_file_and_exit', __('Save and exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
+       Form::submit('edit_file', __('Save', 'themes'), array('class' => 'btn')). Html::nbsp().
        Form::close()
     );
         

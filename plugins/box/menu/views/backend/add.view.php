@@ -10,22 +10,21 @@
 <a href="javascript:;" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" onclick="$('#selectPageModal').modal('show').width(270);" ><?php echo __('Select page', 'menu'); ?></a> / 
 <a href="javascript:;" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" onclick="$('#selectCategoryModal').modal('show').width(270);" ><?php echo __('Select category', 'menu'); ?></a><br /><br />
 
-
 <?php 
 
     echo Form::label('menu_item_name', __('Item name', 'menu'));
-    echo Form::input('menu_item_name', $menu_item_name, array('class' => (isset($errors['menu_item_name_empty']) || isset($errors['menu_item_name_empty'])) ? 'span3 error-field' : 'span3'));
+    echo Form::input('menu_item_name', $menu_item_name, array('class' => (isset($errors['menu_item_name_empty']) || isset($errors['menu_item_name_empty'])) ? 'input-xlarge error-field' : 'input-xlarge'));
 
     if (isset($errors['menu_item_name_empty'])) echo Html::nbsp(4).'<span style="color:red;">'.$errors['menu_item_name_empty'].'</span>';
 
     echo (
         Form::label('menu_item_link', __('Item link', 'menu')).
-        Form::input('menu_item_link', $menu_item_link, array('class' => 'span3'))
+        Form::input('menu_item_link', $menu_item_link, array('class' => 'input-xlarge'))
     );
 
     echo (
         Form::label('menu_item_category', __('Item category', 'menu')).
-        Form::input('menu_item_category', $menu_item_category, array('class' => 'span3'))
+        Form::input('menu_item_category', $menu_item_category, array('class' => 'input-xlarge'))
     );
 ?>
 
@@ -33,13 +32,13 @@
     echo (
         Html::br().
         Form::label('menu_item_target', __('Item target', 'menu')).
-        Form::select('menu_item_target', $menu_item_target_array, $menu_item_target, array('class' => 'span3'))
+        Form::select('menu_item_target', $menu_item_target_array, $menu_item_target, array('class' => 'input-xlarge'))
     ); 
 
     echo (
         Html::br().
         Form::label('menu_item_order', __('Item order', 'menu')).
-        Form::select('menu_item_order', $menu_item_order_array, $menu_item_order, array('class' => 'span3'))
+        Form::select('menu_item_order', $menu_item_order_array, $menu_item_order, array('class' => 'input-xlarge'))
     ); 
 
     echo (

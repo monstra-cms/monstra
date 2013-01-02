@@ -37,9 +37,9 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <td><?php echo __('Name', 'menu'); ?></td>
-            <td class="span2"><?php echo __('Order', 'menu'); ?></td>
-            <td width="30%"><?php echo __('Actions', 'menu'); ?></td>
+            <th><?php echo __('Name', 'menu'); ?></th>
+            <th class="span2"><?php echo __('Order', 'menu'); ?></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -64,11 +64,13 @@
                 <?php echo $item['order']; ?>
             </td>
             <td>
-                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-actions')); ?>
+                <div class="pull-right">
+                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-small')); ?>
                 <?php echo Html::anchor(__('Delete', 'menu'),
                            'index.php?id=menu&delete_item='.$item['id'],
-                           array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
+                           array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
                  ?>
+             </div>
             </td>
         </tr>
         <?php } ?>
