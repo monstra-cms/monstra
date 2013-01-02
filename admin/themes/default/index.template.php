@@ -48,7 +48,7 @@
         <div class="row-fluid">
 
             <!-- Block_sidebar -->
-            <div class="span2 monstra-menu-sidebar">
+            <div class="span2 monstra-menu-sidebar hidden-phone">
                 <h3><?php echo __('Content', 'pages'); ?></h3>
                 <ul>
                     <?php Navigation::draw('content'); ?>
