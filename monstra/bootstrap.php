@@ -1,43 +1,57 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 
-    /**
-     *  Include engine core
-     */
-    include ROOT . DS . 'monstra' . DS . 'engine' . DS . 'core.php';
+/**
+ *  Include engine core
+ */
+include ROOT . DS . 'monstra' . DS . 'engine' . DS . 'core.php';
 
 
+/**
+ * Set core environment
+ *
+ * Monstra has four predefined environments:
+ *   Core::DEVELOPMENT - The development environment.
+ *   Core::TESTING     - The test environment.
+ *   Core::STAGING     - The staging environment.
+ *   Core::PRODUCTION  - The production environment.
+ */
+Core::$environment = Core::DEVELOPMENT;
+
+
+/**
+ *  Monstra requires PHP 5.2.0 or greater
+ */
+if (version_compare(PHP_VERSION, "5.2.0", "<")) {
+    exit("Monstra requires PHP 5.2.0 or greater.");
+}
+
+
+/**
+ * Report Errors 
+ */
+if (Core::$environment == Core::PRODUCTION) {
+
     /**
-     * Set core environment
+     * Report All Errors
      *
-     * Monstra has four predefined environments:
-     *   Core::DEVELOPMENT - The development environment.
-     *   Core::TESTING     - The test environment.
-     *   Core::STAGING     - The staging environment.
-     *   Core::PRODUCTION  - The production environment.
+     * By setting error reporting to -1, we essentially force PHP to report
+     * every error, and this is guranteed to show every error on future
+     * releases of PHP. This allows everything to be fixed early!
      */
-    Core::$environment = Core::PRODUCTION;
+    error_reporting(0);
 
+} else {
 
     /**
-     *  Monstra requires PHP 5.2.0 or greater
+     * Production environment
      */
-    if (version_compare(PHP_VERSION, "5.2.0", "<")) {
-        exit("Monstra requires PHP 5.2.0 or greater.");
-    }
+    error_reporting(-1);
+
+}
 
 
-    /**
-     * Report Errors 
-     */
-    if (Core::$environment == Core::PRODUCTION) {
-        error_reporting(0);
-    } else {
-        error_reporting(-1);
-    }
-    
-
-    /**
-     * Initialize core
-     */
-    Core::init();      
+/**
+ * Initialize core
+ */
+Core::init();      
