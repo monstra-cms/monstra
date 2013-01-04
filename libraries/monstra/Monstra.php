@@ -45,7 +45,7 @@ class Monstra
      * @var array
      */
     private static $registry = array();
-    
+
     /**
      * Autload
      */
@@ -61,7 +61,7 @@ class Monstra
             $className = substr($className, $lastNsPos + 1);
             $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
         }
-        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php'; 
+        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
         require $path.DIRECTORY_SEPARATOR.$fileName;
     }
@@ -114,5 +114,4 @@ class Monstra
 
         return self::$registry[$name];
     }
-
 }

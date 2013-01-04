@@ -114,6 +114,7 @@ class Core
 
         // Init ORM
         if (defined('MONSTRA_DB_DSN')) {
+            require_once(ROOT . '/libraries/engine/Orm.php');
             Orm::configure(MONSTRA_DB_DSN);
             Orm::configure('username', MONSTRA_DB_USER);
             Orm::configure('password',  MONSTRA_DB_PASSWORD);
@@ -132,7 +133,7 @@ class Core
         // Set cache dir
         Cache::configure('cache_dir', CACHE);
 
-        // Load URI module
+        // Load Securitu module
         require_once(ROOT . '/libraries/engine/Security.php');
 
         // Load URI module
@@ -179,15 +180,6 @@ class Core
         if( ! BACKEND) Site::init();
 
     }
-
-    /**
-     * Autoload helpers
-     *
-     * @param string $class_name Class name
-     */
-    /*protected static function autoloadHelpers($class_name) {
-        if (file_exists($path = HELPERS . DS . strtolower($class_name) . '.php')) include $path;
-    }*/
 
     /**
      * Load Defines

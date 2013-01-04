@@ -19,7 +19,6 @@
 // Main engine defines
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', rtrim(dirname(__FILE__), '\\/'));
-
 define('BACKEND', false);
 define('MONSTRA_ACCESS', true);
 
