@@ -13,9 +13,6 @@
  * @since       1.0.0
  */
 
-/**
- * Dir class
- */
 class Dir
 {
     /**

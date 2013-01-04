@@ -13,12 +13,12 @@
  * @since       1.0.0
  */
 
-/*
+/**
  * Version number for the current version of the Monstra Library.
  */
 define('MONSTRA_LIBRARY_VERSION', '1.0.0');
 
-/*
+/**
  * Should we use the Monstra Autoloader to ensure the dependancies are automatically
  * loaded?
  */
@@ -26,7 +26,9 @@ if ( ! defined('MONSTRA_LIBRARY_AUTOLOADER')) {
     define('MONSTRA_LIBRARY_AUTOLOADER', true);
 }
 
-// Register autoload function
+/**
+ * Register autoload function
+ */
 if (MONSTRA_LIBRARY_AUTOLOADER) {
     spl_autoload_register(array('Monstra', 'autoload'));
 }
@@ -43,7 +45,6 @@ class Monstra
      * @var array
      */
     private static $registry = array();
-
     
     /**
      * Autload

@@ -36,13 +36,13 @@ class Date
      * @param  string  $format Date format
      * @return integer
      */
-    public static function format($date, $format = '')
+    public static function format($date, $format = 'j.n.Y')
     {
         // Redefine vars
         $format = (string) $format;
         $date   = (int) $date;
 
-        if ($format != '') { return date($format, $date); } else { return date(MONSTRA_DATE_FORMAT, $date); }
+        return date($format, $date);
     }
 
     /**

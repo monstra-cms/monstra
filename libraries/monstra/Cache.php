@@ -20,7 +20,7 @@ class Cache
      *
      * @var string
      */
-    public static $cache_dir = CACHE;
+    public static $cache_dir = '';
 
     /**
      * Cache file ext

@@ -114,9 +114,9 @@ class Core
 
         // Init ORM
         if (defined('MONSTRA_DB_DSN')) {
-            ORM::configure(MONSTRA_DB_DSN);
-            ORM::configure('username', MONSTRA_DB_USER);
-            ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            Orm::configure(MONSTRA_DB_DSN);
+            Orm::configure('username', MONSTRA_DB_USER);
+            Orm::configure('password',  MONSTRA_DB_PASSWORD);
         }
 
         // Auto cleanup if MONSTRA_DEBUG is true
@@ -128,6 +128,12 @@ class Core
             // Cleanup cache
             if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);
         }
+
+        // Set cache dir
+        Cache::configure('cache_dir', CACHE);
+
+        // Load URI module
+        require_once(ROOT . '/libraries/engine/Security.php');
 
         // Load URI module
         require_once(ROOT . '/libraries/engine/Uri.php');
