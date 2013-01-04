@@ -38,7 +38,6 @@ if (MONSTRA_LIBRARY_AUTOLOADER) {
  */
 class Monstra
 {
-
     /**
      * Registry of variables
      *
