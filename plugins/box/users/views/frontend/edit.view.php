@@ -6,13 +6,13 @@
 
 <form method="post">
 <?php
-    echo (        
+    echo (
         Form::hidden('csrf', Security::token()).
         Form::hidden('user_id', $user['id'])
     );
 ?>
 
-<?php if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) { ?>    
+<?php if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) { ?>
 <label><?php echo __('Username', 'users'); ?></label><input class="input-xlarge" type="text" value="<?php echo $user['login']; ?>" name="login">
 <?php } else { echo Form::hidden('login', $user['login']); } ?>
 <label><?php echo __('Firstname', 'users'); ?></label><input class="input-xlarge" type="text" value="<?php echo $user['firstname']; ?>" name="firstname">

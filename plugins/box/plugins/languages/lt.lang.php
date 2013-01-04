@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'plugins' => array(
             'Plugins' => 'Papildiniai',

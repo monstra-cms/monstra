@@ -3,16 +3,16 @@
     return array(
         'blocks' => array(
             'Blocks' => 'Блоки',
-            'Blocks manager' => 'Менеджер блоков',  
+            'Blocks manager' => 'Менеджер блоков',
             'Delete' => 'Удалить',
             'Edit' => 'Редактировать',
-            'New block' => 'Новый блок',  
-            'Create new block' => 'Создать новый блок', 
+            'New block' => 'Новый блок',
+            'Create new block' => 'Создать новый блок',
             'Name' => 'Название',
             'Edit block' => 'Редактирование блока',
-            'Save' => 'Сохранить',    
+            'Save' => 'Сохранить',
             'Actions' => 'Действия',
-            'Save and exit' => 'Сохранить и выйти',        
+            'Save and exit' => 'Сохранить и выйти',
             'Required field' => 'Обязательное поле',
             'This block already exists' => 'Такой блок уже существует',
             'This block does not exist' => 'Такого блока не существует',
@@ -22,8 +22,8 @@
             'Your changes to the block <i>:name</i> have been saved.' => 'Ваши изменения к блоку <i>:name</i> были сохранены.',
             'Delete block: :block' => 'Удалить блок: :block',
             'View Embed Code' => 'Код для вставки',
-            'Embed Code' => 'Код для вставки', 
+            'Embed Code' => 'Код для вставки',
             'Shortcode' => 'Шорткод',
             'PHP Code' => 'PHP код',
         )
-    ); 
+    );

@@ -12,7 +12,7 @@
             'Edit block' => 'Redaguoti bloką',
             'Save' => 'Išsaugoti',
             'Save and exit' => 'Išsaugoti ir išeiti',
-            'Actions' => 'Veiksmai', 
+            'Actions' => 'Veiksmai',
             'Required field' => 'Privalomas laukas',
             'This block already exists' => 'Toks blokas jau yra',
             'This block does not exist' => 'Tokio bloko nėra',
@@ -22,7 +22,7 @@
             'Your changes to the block <i>:name</i> have been saved.' => 'Bloko <i>:name</i> pakeitimai išsaugoti.',
             'Delete block: :block' => 'Delete block: :block',
             'View Embed Code' => 'View Embed Code',
-            'Embed Code' => 'Embed Code', 
+            'Embed Code' => 'Embed Code',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
         )

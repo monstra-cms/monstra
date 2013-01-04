@@ -26,12 +26,12 @@
         }
 
         $s = '';
-        
+
         foreach ($path_parts as $p) {
             $s .= $p.'/';
-            if($p == $current[count($current)-2]) $active = ' class="active"'; else $active = ''; 
-            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a> <span class="divider">/</span></li>';     
-        }    
+            if($p == $current[count($current)-2]) $active = ' class="active"'; else $active = '';
+            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a> <span class="divider">/</span></li>';
+        }
     ?>
 </ul>
 <!-- /Filesmanger_path -->
@@ -47,12 +47,12 @@
     </thead>
     <tbody>
         <?php if (isset($dir_list)) foreach ($dir_list as $dir) { ?>
-        <tr>        
+        <tr>
             <td>
                 <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&path='.$path.$dir.'/'); ?></b>
             </td>
             <td>
-               
+
             </td>
             <td>
                 <?php echo Number::byteFormat(Dir::size(UPLOADS . DS . $dir)); ?>
@@ -66,10 +66,10 @@
             <div>
             </td>
         </tr>
-        <?php } ?>    
+        <?php } ?>
         <?php if (isset($files_list)) foreach ($files_list as $file) { $ext = File::ext($file); ?>
         <?php if ( ! in_array($ext, $forbidden_types)) { ?>
-        <tr>        
+        <tr>
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
                 <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
             </td>
@@ -84,11 +84,11 @@
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_file='.$file.'&path='.$path.'&token='.Security::token(),
                        array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
-            ?>                      
+            ?>
             </div>
             </td>
-        </tr>        
-        <?php } } ?> 
+        </tr>
+        <?php } } ?>
     </tbody>
 </table>
 

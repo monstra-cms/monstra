@@ -11,20 +11,18 @@
      *
      */
 
-
     // Register plugin
-    Plugin::register( __FILE__,                    
+    Plugin::register( __FILE__,
                     __('Information', 'information'),
-                    __('Information plugin', 'information'),  
+                    __('Information plugin', 'information'),
                     '1.0.0',
-                    'Awilum',                 
+                    'Awilum',
                     'http://monstra.org/',
                     null,
                     'box');
 
-
     if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
-      
+
         // Include Information Admin
         Plugin::Admin('information', 'box');
 

@@ -20,7 +20,7 @@
         <div class="row">
             <div class="span12">
                 <?php echo Site::content(); ?>
-            </div>    
+            </div>
         </div>
 
         <div class="row">
@@ -30,5 +30,4 @@
         </div>
 
         <hr>
-<?php Chunk::get('footer'); ?>   
-    
+<?php Chunk::get('footer');

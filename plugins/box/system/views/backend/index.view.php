@@ -17,12 +17,12 @@
 
 <h2><?php echo __('Site settings', 'system'); ?></h2>
 <br />
-<?php    
+<?php
     echo (
         Form::open().
         Form::hidden('csrf', Security::token()).
         Form::label('site_name', __('Site name', 'system')).
-        Form::input('site_name', Option::get('sitename'), array('class' => 'input-xxlarge')). Html::br().        
+        Form::input('site_name', Option::get('sitename'), array('class' => 'input-xxlarge')). Html::br().
         Form::label('site_description', __('Site description', 'system')).
         Form::textarea('site_description', Option::get('description'), array('class' => 'input-xxlarge')). Html::br().
         Form::label('site_keywords', __('Site keywords', 'system')).
@@ -43,15 +43,15 @@
         Form::label('system_timezone', __('Time zone', 'system')).
         Form::select('system_timezone', Date::timezones(), Option::get('timezone'), array('class' => 'input-xxlarge')). Html::br().
         Form::label('system_language', __('Language', 'system')).
-        Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'input-xlarge')). Html::br().         
+        Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'input-xlarge')). Html::br().
         Form::label('system_admin_email', __('Email', 'system')).
         Form::input('system_admin_email', Option::get('admin_email'), array('class' => 'input-xlarge')). Html::br().
         Form::label('site_maintenance_message', __('Maintenance Mode', 'system')).
-        Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('class' => 'input-xxlarge', 'style' => 'height:160px;')). Html::br(2)   
-    );  
+        Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('class' => 'input-xxlarge', 'style' => 'height:160px;')). Html::br(2)
+    );
 ?>
 
-<?php 
+<?php
     echo (
         Form::submit('edit_settings', __('Save', 'system'), array('class' => 'btn')).
         Form::close()
@@ -60,6 +60,6 @@
 <!-- /System -->
 
 <?php
-    // Custom code for this plugin 
+    // Custom code for this plugin
     Action::run('admin_system_extra_index_template_actions');
 ?>

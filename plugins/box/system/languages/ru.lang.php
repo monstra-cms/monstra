@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Система',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Карта сайта создана',
             'Create sitemap' => 'Создать карту сайта',
             'on' => 'включен',
-            'off'=> 'выключен',    
+            'off'=> 'выключен',
             'Site url' => 'Адрес сайта',
             'Maintenance Mode' => 'Тех. обслуживание',
             'Maintenance Mode On' => 'Включить тех. обслуживание',
@@ -28,7 +28,7 @@
             'GZIP' => 'Cжатие GZIP',
             'Debugging' => 'Дебаггинг',
             'Plugin API' => 'Plugin API',
-            'Plugins active' => 'Подключенные плагины', 
+            'Plugins active' => 'Подключенные плагины',
             'Actions registered' => 'Зарегистрированные экшны',
             'Filters registered' => 'Зарегистрированные фильтры',
             'logout' => 'выход',

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>  
+    <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Monstra admin area" />
     <link rel="icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
@@ -33,8 +33,8 @@
     <!-- Block_topbar -->
     <div class="monstra-header">
         <div class="monstra-header-inner">
-            <div class="container-fluid">               
-                <a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171"></a>            
+            <div class="container-fluid">
+                <a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171"></a>
                 <p class="pull-right">
                     <?php Navigation::draw('top', Navigation::TOP); ?>
                 </p>
@@ -59,19 +59,19 @@
                 <h3><?php echo __('Extends', 'system'); ?></h3>
                 <ul>
                    <?php Navigation::draw('extends'); ?>
-                </ul>                
+                </ul>
                 <div class="monstra-menu-category-separator"></div>
                 <?php } ?>
                 <h3><?php echo __('System', 'system'); ?></h3>
                 <ul>
                     <?php Navigation::draw('system'); ?>
-                </ul> 
+                </ul>
             </div>
             <!-- /Block_sidebar -->
 
             <!-- Block_content -->
             <div class="span10 monstra-content">
-               
+
                 <div id="update-monstra"></div>
                 <div><?php Action::run('admin_pre_template'); ?></div>
                 <div>
@@ -80,7 +80,7 @@
                             if (is_callable(ucfirst(Plugin::$plugins[$area]['id']).'Admin::main')) {
                                 call_user_func(ucfirst(Plugin::$plugins[$area]['id']).'Admin::main');
                             } else {
-                                echo '<div class="message-error">'.__('Plugin main admin function does not exist', 'system').'</div>';    
+                                echo '<div class="message-error">'.__('Plugin main admin function does not exist', 'system').'</div>';
                             }
                         } else {
                             echo '<div class="message-error">'.__('Plugin does not exist', 'system').'</div>';
@@ -88,8 +88,8 @@
                     ?>
                 </div>
                 <div><?php Action::run('admin_post_template'); ?></div>
-               
-            </div>    
+
+            </div>
             <!-- /Block_content -->
 
         </div>

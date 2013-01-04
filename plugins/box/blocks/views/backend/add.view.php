@@ -5,11 +5,9 @@
 
 <?php if (isset($errors['blocks_empty_name']) or isset($errors['blocks_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 
-
 <?php echo (Form::open()); ?>
 
 <?php echo (Form::hidden('csrf', Security::token())); ?>
-
 
     <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
 
@@ -33,4 +31,3 @@
     );
 
 ?>
-

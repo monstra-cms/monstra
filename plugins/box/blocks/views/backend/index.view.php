@@ -4,9 +4,9 @@
 <?php if(Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
 <?php
-    echo ( 
+    echo (
             Html::anchor(__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create new block', 'blocks'), 'class' => 'btn default btn-small')). Html::nbsp(3)
-        ); 
+        );
 ?>
 
 <br /><br />
@@ -31,7 +31,7 @@
                     <a class="btn dropdown-toggle btn-actions btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.monstra.blocks.showEmbedCodes("'.basename($block, '.block.html').'");')); ?></li>
-                    </ul>    
+                    </ul>
                     <?php echo Html::anchor(__('Delete', 'blocks'),
                               'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));

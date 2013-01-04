@@ -6,7 +6,7 @@
 ?>
 
 <label><?php echo __('Username', 'users'); ?></label><input type="text" value="<?php echo $user_login; ?>" name="login" class="input-large">
-<?php   
+<?php
     if (isset($errors['users_this_user_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_user_alredy_exists'].'</span>';
     if (isset($errors['users_empty_login'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_empty_login'].'</span>';
 ?>
@@ -15,10 +15,10 @@
     if (isset($errors['users_empty_password'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_empty_password'].'</span>';
 ?>
 <label><?php echo __('Email', 'users'); ?></label><input type="text" value="<?php echo $user_email; ?>" name="email" class="input-large">
-<?php   
+<?php
     if (isset($errors['users_this_email_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_alredy_exists'].'</span>';
     if (isset($errors['users_empty_email'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_empty_email'].'</span>';
-    if (isset($errors['users_invalid_email'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_invalid_email'].'</span>';    
+    if (isset($errors['users_invalid_email'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_invalid_email'].'</span>';
 ?>
 <?php if (Option::get('captcha_installed') == 'true') { ?>
 <label><?php echo __('Captcha'); ?><label>

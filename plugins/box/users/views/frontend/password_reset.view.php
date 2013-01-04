@@ -10,7 +10,7 @@
 ?>
 
 <label><?php echo __('Username', 'users'); ?></label><input type="text" value="<?php echo $user_login; ?>" name="login" class="input-large">
-<?php   
+<?php
     if (isset($errors['users_user_doesnt_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_user_doesnt_exists'].'</span>';
     if (isset($errors['users_empty_field'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_empty_field'].'</span>';
 ?>

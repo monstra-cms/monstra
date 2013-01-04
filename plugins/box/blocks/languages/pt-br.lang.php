@@ -9,7 +9,7 @@
             'Name' => 'Nome',
             'Create new block' => 'Criar novo bloco',
             'New block' => 'Novo bloco',
-            'Edit block' => 'Editar bloco',        
+            'Edit block' => 'Editar bloco',
             'Save' => 'Salvar',
             'Save and exit' => 'Salvar e sair',
             'Actions' => 'Ações',
@@ -22,7 +22,7 @@
             'Your changes to the block <i>:name</i> have been saved.' => 'Suas mudanças no bloco <i>:name</i> foram salvas',
             'Delete block: :block' => 'Delete block: :block',
             'View Embed Code' => 'View Embed Code',
-            'Embed Code' => 'Embed Code', 
+            'Embed Code' => 'Embed Code',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
         )

@@ -17,9 +17,9 @@
             'Installed' => 'Instalado',
             'Not Installed' => 'Não instalado',
             'Security check results' => 'Resultados da verificação de segurança',
-            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
+            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' =>
             'O arquivo de configuração está com permissões de escrita. Para melhor segurança, você deve remover as permissões de escrita do arquivo defines.php em sistemas de produções.',
-            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' => 
+            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' =>
             'O diretório núcleo do Monstra (":path") e/ou arquivos dentro do diretório estão com permissões de escrita. Para melhor segurança, você deve remover as permissões de escritas. <br/>Você pode fazer isso em sistemas UNIX com: <code>chmod -R a-w :path</code>',
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'O arquivo .htaccess da pasta de instalação do Monstra está com permissões de escrita. Para sua melhor segurança, você deve remover as permissões de escritas. <br/>Você pode fazer isso em sistemas UNIX com: <code>chmod a-w :path</code>',

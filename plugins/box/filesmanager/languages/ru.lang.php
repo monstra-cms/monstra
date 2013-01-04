@@ -3,7 +3,7 @@
     return array(
         'filesmanager' => array(
             'Files' => 'Файлы',
-            'Files manager' => 'Менеджер файлов',  
+            'Files manager' => 'Менеджер файлов',
             'Name' => 'Название',
             'Actions' => 'Действия',
             'Delete' => 'Удалить',

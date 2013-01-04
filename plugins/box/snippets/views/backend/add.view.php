@@ -5,11 +5,9 @@
 
 <?php if (isset($errors['snippets_empty_name']) or isset($errors['snippets_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 
-
 <?php echo (Form::open(null, array('class' => 'form-horizontal'))); ?>
 
 <?php echo (Form::hidden('csrf', Security::token())); ?>
-
 
     <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
 

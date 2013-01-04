@@ -9,7 +9,7 @@
             'Security' => 'Security',
             'System' => 'System',
             'on' => 'on',
-            'off'=> 'off',   
+            'off'=> 'off',
             'Server' => 'Server',
             'PHP version' => 'PHP version',
             'SimpleXML module' => 'SimpleXML module',
@@ -17,9 +17,9 @@
             'Installed' => 'Installed',
             'Not Installed' => 'Not Installed',
             'Security check results' => 'Security check results',
-            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
+            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' =>
             'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.',
-            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' => 
+            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' =>
             'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>',
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>',

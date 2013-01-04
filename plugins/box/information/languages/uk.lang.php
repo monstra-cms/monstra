@@ -9,7 +9,7 @@
             'Security' => 'Безпека',
             'System' => 'Система',
             'on' => 'включений',
-            'off'=> 'вимкнено', 
+            'off'=> 'вимкнено',
             'Server' => 'Сервер',
             'PHP version' => 'Версія PHP',
             'SimpleXML module' => 'SimpleXML модуль',
@@ -17,9 +17,9 @@
             'Installed' => 'Встановлено',
             'Not Installed' => 'Не встановлено',
             'Security check results' => 'Результати перевірки безпеки',
-            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
+            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' =>
             'Конфігураційний файл доступен для запису. Ми рекомендуємо вам видалити права запису на файл defines.php на живому сайті.',
-            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' => 
+            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' =>
             'Директорія Monstra (":path") доступна для запису. Ми рекомендуємо вам видалити права запису на директорію (":path") на живому сайті. <br/> Ви можете зробити це на UNIX системах так: <code>chmod -R a-w :path</code>',
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'Головный .htaccess доступен для запису. Ми рекомендуємо вам видалити права запису на головний .htaccess файл. <br/>Ви можете зробити це на UNIX системах так: <code>chmod -R a-w :path</code>',

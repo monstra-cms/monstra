@@ -10,10 +10,8 @@ When you visit that page, your password will be reset, and the new password will
 
 Your username is: <?php echo $user_login; ?>
 
-
 To edit your profile, go to this page:
 <?php echo $site_url ?>users/<?php echo $user_id; ?>
-
 
 All the best,
 <?php echo $site_name; ?>

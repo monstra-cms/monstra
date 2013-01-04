@@ -17,7 +17,7 @@
             'Clone' => 'Klonuoti',
             'Edit' => 'Redaguoti',
             'Delete' => 'Ištrinti',
-            'Actions' => 'Veiksmai',        
+            'Actions' => 'Veiksmai',
             'Create new chunk' => 'Sukurti naują šablono dalį',
             'New chunk' => 'Nauja šablono dalis',
             'Chunks' => 'Šablono dalys',

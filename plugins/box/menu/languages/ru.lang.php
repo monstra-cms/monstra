@@ -2,7 +2,7 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Меню',        
+            'Menu' => 'Меню',
             'Menu manager' => 'Менеджер меню',
             'Edit' => 'Редактировать',
             'Name' => 'Название',
@@ -12,7 +12,7 @@
             'Create new item' => 'Создать новый пункт меню',
             'New item' => 'Новый пункт меню',
             'Item name' => 'Название',
-            'Item order' => 'Порядок',        
+            'Item order' => 'Порядок',
             'Item target' => 'Цель',
             'Item link' => 'Ссылка',
             'Item category' => 'Категория',

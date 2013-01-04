@@ -2,15 +2,15 @@
 
     return array(
         'pages' => array(
-            'Pages' => 'Pages',        
-            'Pages manager' => 'Pages manager',        
+            'Pages' => 'Pages',
+            'Pages manager' => 'Pages manager',
             'Content' => 'Content',
             'Create New Page' => 'Create New Page',
             'New Page' => 'New Page',
-            'Edit Page' => 'Edit Page',        
+            'Edit Page' => 'Edit Page',
             'Date' => 'Date',
             'Clone' => 'Clone',
-            'Edit' => 'Edit',        
+            'Edit' => 'Edit',
             'Delete' => 'Delete',
             'Delete page: :page' => 'Delete page: :page',
             'Title' => 'Title',

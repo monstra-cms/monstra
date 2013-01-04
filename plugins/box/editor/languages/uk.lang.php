@@ -3,6 +3,6 @@
     return array(
         'Editor' => array(
             'Editor' => 'Редактор',
-            'Editor plugin' => 'Редактор плагіну',  
+            'Editor plugin' => 'Редактор плагіну',
         )
     );

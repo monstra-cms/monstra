@@ -17,7 +17,7 @@
             'Clone' => 'Clone',
             'Edit' => 'Edit',
             'Delete' => 'Delete',
-            'Actions' => 'Actions',        
+            'Actions' => 'Actions',
             'Create new chunk' => 'Create new chunk',
             'New chunk' => 'New chunk',
             'Chunks' => 'Chunks',
