@@ -1,16 +1,21 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Library
+ *  Monstra Security module
  *
- * This source file is part of the Monstra Library. More information,
- * documentation and tutorials can be found at http://library.monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum
- * @copyright   (c) 2012 - 2013 Romanenko Sergey / Awilum
- * @since       1.0.0
+ *  @package Monstra
+ *  @subpackage Engine
+ *  @author Romanenko Sergey / Awilum
+ *  @copyright 2012 Romanenko Sergey / Awilum
+ *  @version $Id$
+ *  @since 1.0.0
+ *  @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ *  Monstra is free software. This version may have been modified pursuant
+ *  to the GNU General Public License, and as distributed it includes or
+ *  is derivative of works licensed under the GNU General Public License or
+ *  other free or open source software licenses.
+ *  See COPYING.txt for copyright notices and details.
+ *  @filesource
  */
 
 class Security

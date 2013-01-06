@@ -14,6 +14,18 @@
  */
 
 /**
+ * The version of Gelato
+ */
+define('GELATO_VERSION', '1.0.0');
+
+/**
+ * Display Gelato Errors or not ?
+ */
+if ( ! defined('GELATO_DISPLAY_ERRORS')) {
+    define('GELATO_DISPLAY_ERRORS', true);
+}
+
+/**
  * Should we use the Gelato Autoloader to ensure the dependancies are automatically
  * loaded?
  */
@@ -22,7 +34,27 @@ if ( ! defined('GELATO_AUTOLOADER')) {
 }
 
 /**
- * Register autoload function
+ * Load Gelato Error Handler
+ */
+require_once __DIR__ . '/ErrorHandler.php';
+
+/**
+ * Set Error Handler
+ */
+set_error_handler('ErrorHandler::errorHandler');
+
+/**
+ * Set Fatal Error Handler
+ */
+register_shutdown_function('ErrorHandler::fatalErrorHandler');
+
+/**
+ * Set Exception Handler
+ */
+set_exception_handler('ErrorHandler::exception');
+
+/**
+ * Register Gelato Autoloader
  */
 if (GELATO_AUTOLOADER) {
     spl_autoload_register(array('Gelato', 'autoload'));
@@ -33,12 +65,6 @@ if (GELATO_AUTOLOADER) {
  */
 class Gelato
 {
-
-    /**
-     * The version of Gelato
-     */
-    const VERSION = '1.0.0';
-
     /**
      * Registry of variables
      *
