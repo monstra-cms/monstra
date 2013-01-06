@@ -23,7 +23,7 @@ define('BACKEND', true);
 define('MONSTRA_ACCESS', true);
 
 // Load bootstrap file
-require_once(ROOT.'/libraries/engine/_init.php');
+require_once(ROOT.'/engine/_init.php');
 
 // Errors var when users login failed
 $login_error = '';

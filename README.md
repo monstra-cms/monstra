@@ -33,7 +33,7 @@ Fast and small content management system written in PHP!
 - [Site](http://monstra.org)
 - [Forum](http://forum.monstra.org)
 - [Documentation](http://monstra.org/documentation)
-- [Github Repository](https://github.com/Awilum/monstra-cms)
+- [Github Repository](https://github.com/Monstra/monstra-cms)
 
 
-Copyright (C) 2012 Romanenko Sergey / Awilum [awilum@msn.com]
+Copyright (C) 2012-2013 Romanenko Sergey / Awilum [awilum@msn.com]

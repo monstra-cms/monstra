@@ -37,7 +37,7 @@ if (file_exists('install.php')) {
 } else {
 
     // Load bootstrap file
-    require_once(ROOT.'/libraries/engine/_init.php');
+    require_once(ROOT.'/engine/_init.php');
 
     // Check for maintenance mod
     if ('on' == Option::get('maintenance_status')) {
