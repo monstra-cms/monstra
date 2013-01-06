@@ -14,17 +14,17 @@
  */
 
 /**
- * Should we use the Monstra Autoloader to ensure the dependancies are automatically
+ * Should we use the Gelato Autoloader to ensure the dependancies are automatically
  * loaded?
  */
-if ( ! defined('GELATO_LIBRARY_AUTOLOADER')) {
-    define('GELATO_LIBRARY_AUTOLOADER', true);
+if ( ! defined('GELATO_AUTOLOADER')) {
+    define('GELATO_AUTOLOADER', true);
 }
 
 /**
  * Register autoload function
  */
-if (GELATO_LIBRARY_AUTOLOADER) {
+if (GELATO_AUTOLOADER) {
     spl_autoload_register(array('Gelato', 'autoload'));
 }
 
@@ -35,7 +35,7 @@ class Gelato
 {
 
     /**
-     * The version of Monstra
+     * The version of Gelato
      */
     const VERSION = '1.0.0';
 

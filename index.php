@@ -61,5 +61,4 @@ if (file_exists('install.php')) {
 
     // Flush (send) the output buffer and turn off output buffering
     ob_end_flush();
-
 }

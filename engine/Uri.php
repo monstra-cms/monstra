@@ -1,7 +1,7 @@
-<?php
+<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Library
+ * Monstra URI Module
  *
  * This source file is part of the Monstra Library. More information,
  * documentation and tutorials can be found at http://library.monstra.org

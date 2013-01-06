@@ -114,7 +114,7 @@ class Core
 
         // Init ORM
         if (defined('MONSTRA_DB_DSN')) {
-            require_once(ROOT . '/engine/Orm.php');
+            require_once(ROOT . '/libraries/Idiorm/Idiorm.php');
             Orm::configure(MONSTRA_DB_DSN);
             Orm::configure('username', MONSTRA_DB_USER);
             Orm::configure('password',  MONSTRA_DB_PASSWORD);
