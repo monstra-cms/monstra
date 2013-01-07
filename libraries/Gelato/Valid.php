@@ -197,7 +197,7 @@ class Valid
     public static function regexp($regexp)
     {
         // dummy string
-        $dummy = 'Monstra - fast and simple PHP library';
+        $dummy = 'Gelato is a PHP5 library for kickass Web Applications.';
 
         // validate
         return (@preg_match((string) $regexp, $dummy) !== false);

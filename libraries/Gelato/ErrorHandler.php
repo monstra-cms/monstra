@@ -72,11 +72,11 @@ class ErrorHandler
     /**
      * Converts errors to ErrorExceptions.
      *
-     * @param   integer $code     The error code
-     * @param   string  $message  The error message
-     * @param   string  $file     The filename where the error occurred
-     * @param   integer $line     The line number where the error occurred
-     * @return  boolean
+     * @param  integer $code    The error code
+     * @param  string  $message The error message
+     * @param  string  $file    The filename where the error occurred
+     * @param  integer $line    The line number where the error occurred
+     * @return boolean
      */
     public static function errorHandler($code, $message, $file, $line)
     {
@@ -127,7 +127,7 @@ class ErrorHandler
         $trace = array();
 
         foreach ($backtrace as $entry) {
-    
+
             // Function
 
             $function = '';
