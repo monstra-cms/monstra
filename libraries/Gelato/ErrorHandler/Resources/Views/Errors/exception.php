@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
 <style type="text/css">
 * { margin: 0; padding: 0; }
 #gelato-error
@@ -223,3 +228,5 @@ function toggle(id, link)
     return false;
 }
 </script>
+</body>
+</html>

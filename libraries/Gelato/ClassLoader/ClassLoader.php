@@ -90,7 +90,6 @@ class ClassLoader
     public static function directory($path)
     {
         static::$directories[] = rtrim($path, '/');
-        echo rtrim($path, '/');
     }
 
     /**
@@ -160,28 +159,27 @@ class ClassLoader
     public static function load($className)
     {
 
-/*
-        var_dump(static::$classes);
-        die();
-*/
         $className = ltrim($className, '\\');
 
-        // Try to autoload an aliased class
-
+        /**
+         * Try to autoload an aliased class
+         */
         if (isset(static::$aliases[$className])) {
             return class_alias(static::$aliases[$className], $className);
         }
 
-        // Try to load a mapped class
-
+        /**
+         * Try to load a mapped class
+         */
         if (isset(static::$classes[$className]) && file_exists(static::$classes[$className])) {
             include static::$classes[$className];
 
             return true;
         }
 
-        // Try to load class from a registered namespace
-
+        /**
+         * Try to load class from a registered namespace
+         */
         foreach (static::$namespaces as $namespace => $path) {
             if (strpos($className, $namespace) === 0) {
                 if (static::loadPSR0(substr($className, strlen($namespace)), $path)) {
@@ -190,8 +188,10 @@ class ClassLoader
             }
         }
 
-        // Try to load a PSR-0 compatible class
-        // The second call to the loadPSR0 method is used to autoload legacy code
+        /**
+         * Try to load a PSR-0 compatible class
+         * The second call to the loadPSR0 method is used to autoload legacy code
+         */
         if (static::loadPSR0($className) || static::loadPSR0(strtolower($className))) {
             return true;
         }

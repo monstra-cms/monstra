@@ -242,7 +242,7 @@ class ErrorHandler
                 $error['type'] = get_class($exception);
             }
 
-            // Write to error log
+            // @todo Write to error log
 
             /*if () {
                 Write here
@@ -251,7 +251,7 @@ class ErrorHandler
             // Send headers and output
             @header('Content-Type: text/html; charset=UTF-8');
 
-           if (GELATO_DISPLAY_ERRORS) {
+            if (GELATO_DISPLAY_ERRORS) {
                 $error['backtrace'] = $exception->getTrace();
 
                 if ($exception instanceof ErrorException) {

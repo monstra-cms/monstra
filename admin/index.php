@@ -15,7 +15,6 @@
  * file that was distributed with this source code.
  */
 
-
 // Main engine defines
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', rtrim(str_replace(array('admin'), array(''), dirname(__FILE__)), '\\/'));
