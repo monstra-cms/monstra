@@ -38,7 +38,7 @@
  *
  */
 
-class orm
+class ORM
 {
     // ----------------------- //
     // --- CLASS CONSTANTS --- //

@@ -28,7 +28,7 @@
 #gelato-error td {font-size:14px;background:#fff;border-color: #ddd;border-width: 1px 1px 0 0;border-style: solid;margin: 0;padding: 4px;}
 .pull-right {float: right;}
 </style>
-
+<body>
 <div id="gelato-error">
 
 <div class="error">

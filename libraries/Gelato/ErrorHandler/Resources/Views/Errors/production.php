@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <title>Error</title>
 <style type="text/css">
-body
-{
+body {
 height:100%;
 background:#eee;
 padding:0px;
@@ -16,42 +15,29 @@ color:#333;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 line-height: 100%;
 }
-a
-{
+a {
 color:#0088cc;
 text-decoration:none;
 }
-a:hover
-{
+a:hover {
 color:#005580;
 text-decoration:underline;
 }
-h1
-{
+h1 {
 font-size: 4em;
 }
-small
-{
+small {
 font-size: 0.7em;
 color: #999;
 font-weight: normal;
 }
-hr
-{
+hr {
 border:0px;
 border-bottom:1px #ddd solid;
 }
-#message
-{
+#message {
 width: 700px;
 margin: 15% auto;
-}
-#back-home
-{
-bottom:0px;
-right:0px;
-position:absolute;
-padding:10px;
 }
 </style>
 </head>

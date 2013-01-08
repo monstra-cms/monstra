@@ -154,6 +154,9 @@ class Monstra
 
             // Shortcode API
             'Shortcode' => ROOT . DS .'engine'. DS .'Shortcode.php',
+
+            // Idiorm
+            'ORM'       => ROOT . DS .'libraries'. DS . 'Idiorm'. DS .'ORM.php',
         ));
 
         /**
@@ -165,10 +168,9 @@ class Monstra
          * Init Idiorm
          */
         if (defined('MONSTRA_DB_DSN')) {
-            require_once ROOT . DS . 'libraries'. DS .'Idiorm'. DS .'Idiorm.php';
-            Orm::configure(MONSTRA_DB_DSN);
-            Orm::configure('username', MONSTRA_DB_USER);
-            Orm::configure('password',  MONSTRA_DB_PASSWORD);
+            ORM::configure(MONSTRA_DB_DSN);
+            ORM::configure('username', MONSTRA_DB_USER);
+            ORM::configure('password',  MONSTRA_DB_PASSWORD);
         }
 
         /**
@@ -227,7 +229,7 @@ class Monstra
         /**
          * Init site module
          */
-        if( ! BACKEND) Site::init();
+        if ( ! BACKEND) Site::init();
     }
 
     /**
