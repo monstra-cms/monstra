@@ -39,7 +39,7 @@ class ErrorHandler
      */
     protected static function highlightCode($file, $line, $padding = 6)
     {
-        if (!is_readable($file)) {
+        if ( ! is_readable($file)) {
             return false;
         }
 
@@ -47,7 +47,7 @@ class ErrorHandler
         $lines       = array();
         $currentLine = 0;
 
-        while (!feof($handle)) {
+        while ( ! feof($handle)) {
             $currentLine++;
 
             $temp = fgets($handle);
@@ -118,20 +118,23 @@ class ErrorHandler
             return $backtrace;
         }
 
-        // Remove unnecessary info from backtrace
-
+        /**
+         * Remove unnecessary info from backtrace
+         */
         if ($backtrace[0]['function'] == '{closure}') {
             unset($backtrace[0]);
         }
 
-        // Format backtrace
-
+        /**
+         * Format backtrace
+         */
         $trace = array();
 
         foreach ($backtrace as $entry) {
 
-            // Function
-
+            /**
+             * Function
+             */
             $function = '';
 
             if (isset($entry['class'])) {
@@ -140,8 +143,9 @@ class ErrorHandler
 
             $function .= $entry['function'] . '()';
 
-            // Arguments
-
+            /**
+             * Arguments
+             */
             $arguments = array();
 
             if (isset($entry['args']) && count($entry['args']) > 0) {
@@ -158,8 +162,9 @@ class ErrorHandler
                 }
             }
 
-            // Location
-
+            /**
+             * Location
+             */
             $location = array();
 
             if (isset($entry['file'])) {
@@ -168,8 +173,9 @@ class ErrorHandler
                 $location['code'] = static::highlightCode($entry['file'], $entry['line']);
             }
 
-            // Compile into array
-
+            /**
+             * Compile into array
+             */
             $trace[] = array
             (
                 'function'  => $function,
@@ -265,7 +271,7 @@ class ErrorHandler
                 include 'Resources/Views/Errors/exception.php';
             } else {
                 Response::status(500);
-                include 'Resources/Views/Errors/error.php';
+                include 'Resources/Views/Errors/production.php';
             }
         } catch (Exception $e) {
             while(ob_get_level() > 0) ob_end_clean();
