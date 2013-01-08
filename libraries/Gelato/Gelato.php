@@ -73,7 +73,7 @@ class Gelato
     private static $registry = array();
 
     /**
-     * Autload
+     * Gelato Autload
      */
     public static function autoload($className)
     {
@@ -100,7 +100,7 @@ class Gelato
      */
     public static function exists($name)
     {
-        return isset(self::$registry[(string) $name]);
+        return isset(Gelato::$registry[(string) $name]);
     }
 
     /**
@@ -116,11 +116,11 @@ class Gelato
 
         // delete item
         if ($value === null) {
-            unset(self::$registry[$name]);
+            unset(Gelato::$registry[$name]);
         } else {
-            self::$registry[$name] = $value;
+            Gelato::$registry[$name] = $value;
 
-            return self::get($name);
+            return Gelato::get($name);
         }
     }
 
@@ -134,10 +134,10 @@ class Gelato
     {
         $name = (string) $name;
 
-        if (!isset(self::$registry[$name])) {
-            throw new SpoonException('No item "' . $name . '" exists in the registry.');
+        if ( ! isset(Gelato::$registry[$name])) {
+            throw new RuntimeException('No item "' . $name . '" exists in the registry.');
         }
 
-        return self::$registry[$name];
+        return Gelato::$registry[$name];
     }
 }
