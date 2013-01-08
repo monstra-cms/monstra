@@ -1,5 +1,5 @@
 <h2><?php echo __('Information', 'information'); ?></h2>
-<br />
+<br>
 
 <div class="tabbable">
     <ul class="nav nav-tabs">
@@ -117,10 +117,6 @@
                         <td><?php if (Dir::writable(ROOT . DS . 'public')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
                     </tr>
                     <tr>
-                        <td><?php echo MONSTRA ?></td>
-                        <td><?php if (Dir::writable(MONSTRA)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
-                    </tr>
-                    <tr>
                         <td><?php echo PLUGINS ?></td>
                         <td><?php if (Dir::writable(PLUGINS)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
                     </tr>
@@ -143,12 +139,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (File::writable(MONSTRA . DS)) { ?>
-                        <tr>
-                            <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>
-                            <td><?php echo __('The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>', 'information', array(':path' => MONSTRA . DS)); ?></td>
-                        </tr>
-                    <?php } ?>
                     <?php if (File::writable(ROOT . DS . '.htaccess')) { ?>
                         <tr>
                             <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>

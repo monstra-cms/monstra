@@ -50,6 +50,18 @@ class Core
     public static $environment = Core::PRODUCTION;
 
     /**
+     * Monstra environment names
+     *
+     * @var array
+     */
+    public static $environment_names = array(
+        Core::PRODUCTION  => 'production',
+        Core::STAGING     => 'staging',
+        Core::TESTING     => 'testing',
+        Core::DEVELOPMENT => 'development',
+    );
+
+    /**
      * Protected clone method to enforce singleton behavior.
      *
      * @access  protected
@@ -60,11 +72,13 @@ class Core
     }
 
     /**
-     * Construct
+     * Protected Construct
      */
     protected function __construct()
     {
-        // Load core defines
+        /**
+         * Load core defines
+         */
         Core::loadDefines();
 
         /**
@@ -106,20 +120,61 @@ class Core
         /**
          * Include Gelato Library
          */
-        include ROOT . '/libraries/Gelato/Gelato.php';
+        include ROOT . DS . 'libraries'. DS .'Gelato'. DS .'Gelato.php';
 
-        // Start session
+        /**
+         * Map all Monstra Classes
+         */
+        ClassLoader::mapClasses(array(
+            
+            // Site Modules
+            'Security'  => ROOT . DS .'engine'. DS .'Security.php',
+            'Uri'       => ROOT . DS .'engine'. DS .'Uri.php',
+            'Site'      => ROOT . DS .'engine'. DS .'Site.php',
+            'Alert'     => ROOT . DS .'engine'. DS .'Alert.php',
+
+            // XMLDB API
+            'XML'       => ROOT . DS .'engine'. DS .'Xmldb'. DS .'XML.php',
+            'DB'        => ROOT . DS .'engine'. DS .'Xmldb'. DS .'DB.php',
+            'Table'     => ROOT . DS .'engine'. DS .'Xmldb'. DS .'Table.php',
+
+            // Plugin API
+            'Plugin'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Plugin.php',            
+            'Frontend'   => ROOT . DS .'engine'. DS .'Plugin'. DS .'Frontend.php',            
+            'Backend'    => ROOT . DS .'engine'. DS .'Plugin'. DS .'Backend.php',            
+            'Action'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Action.php',            
+            'Filter'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Filter.php',            
+            'View'       => ROOT . DS .'engine'. DS .'Plugin'. DS .'View.php',            
+            'I18n'       => ROOT . DS .'engine'. DS .'Plugin'. DS .'I18n.php',            
+            'Stylesheet' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Stylesheet.php',            
+            'Javascript' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Javascript.php',            
+            'Navigation' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Navigation.php',            
+
+            // Option API
+            'Option'    => ROOT . DS .'engine'. DS .'Option.php',
+
+            // Shortcode API
+            'Shortcode' => ROOT . DS .'engine'. DS .'Shortcode.php',
+        ));
+
+        /**
+         *  Start session
+         */
         Session::start();
 
-        // Init ORM
+        /**
+         * Init Idiorm
+         */
         if (defined('MONSTRA_DB_DSN')) {
-            require_once(ROOT . '/libraries/Idiorm/Idiorm.php');
+            require_once ROOT . DS . 'libraries'. DS .'Idiorm'. DS .'Idiorm.php';
             Orm::configure(MONSTRA_DB_DSN);
             Orm::configure('username', MONSTRA_DB_USER);
             Orm::configure('password',  MONSTRA_DB_PASSWORD);
         }
 
-        // Auto cleanup if MONSTRA_DEBUG is true
+        /**
+         * Auto cleanup if MONSTRA_DEBUG is TRUE
+         */
         if (Core::$environment == Core::DEVELOPMENT) {
 
             // Cleanup minify
@@ -129,55 +184,51 @@ class Core
             if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);
         }
 
-        // Set cache dir
+        /**
+         * Set Cache dir
+         */
         Cache::configure('cache_dir', CACHE);
 
-        // Load Securitu module
-        require_once(ROOT . '/engine/Security.php');
-
-        // Load URI module
-        require_once(ROOT . '/engine/Uri.php');
-
-        // Load XMLDB API module
-        require_once(ROOT . '/engine/Xmldb.php');
-
-        // Load Options API module
-        require_once(ROOT . '/engine/Options.php');
-
-        // Init Options API module
+        /**
+         * Init Options API module
+         */
         Option::init();
 
-        // Set default timezone
+        /**
+         * Set default timezone
+         */
         @ini_set('date.timezone', Option::get('timezone'));
         if (function_exists('date_default_timezone_set')) date_default_timezone_set(Option::get('timezone')); else putenv('TZ='.Option::get('timezone'));
 
-        // Sanitize URL to prevent XSS - Cross-site scripting
+        /**
+         * Sanitize URL to prevent XSS - Cross-site scripting
+         */
         Security::runSanitizeURL();
 
-        // Load Plugins API module
-        require_once(ROOT . '/engine/Plugins.php');
-
-        // Load Shortcodes API module
-        require_once(ROOT . '/engine/Shortcodes.php');
-
-        // Load default
+        /**
+         * Load default
+         */
         Core::loadPluggable();
 
-        // Init I18n
+        /**
+         * Init I18n
+         */
         I18n::init(Option::get('language'));
 
-        // Init Plugins API
+        /**
+         * Init Plugins API
+         */
         Plugin::init();
 
-        // Init Notification service
+        /**
+         * Init Notification service
+         */
         Notification::init();
 
-        // Load Site module
-        require_once(ROOT . '/engine/Site.php');
-
-        // Init site module
+        /**
+         * Init site module
+         */
         if( ! BACKEND) Site::init();
-
     }
 
     /**
@@ -185,13 +236,8 @@ class Core
      */
     protected static function loadDefines()
     {
-        $environments = array(1 => 'production',
-                              2 => 'staging',
-                              3 => 'testing',
-                              4 => 'development');
-
         $root_defines         = ROOT . DS . 'boot' . DS . 'defines.php';
-        $environment_defines  = ROOT . DS . 'boot' . DS . $environments[Core::$environment] . DS . 'defines.php';
+        $environment_defines  = ROOT . DS . 'boot' . DS . Core::$environment_names[Core::$environment] . DS . 'defines.php';
         $monstra_defines      = ROOT . DS . 'engine' . DS . 'boot' . DS . 'defines.php';
 
         if (file_exists($root_defines)) {
@@ -210,13 +256,8 @@ class Core
      */
     protected static function loadPluggable()
     {
-        $environments = array(1 => 'production',
-                              2 => 'staging',
-                              3 => 'testing',
-                              4 => 'development');
-
         $root_pluggable         = ROOT . DS . 'boot';
-        $environment_pluggable  = ROOT . DS . 'boot' . DS . $environments[Core::$environment];
+        $environment_pluggable  = ROOT . DS . 'boot' . DS . Core::$environment_names[Core::$environment];
         $monstra_pluggable      = ROOT . DS . 'engine' . DS . 'boot';
 
         if (file_exists($root_pluggable . DS . 'filters.php')) {
@@ -226,7 +267,7 @@ class Core
         } elseif (file_exists($monstra_pluggable . DS . 'filters.php')) {
             include $monstra_pluggable . DS . 'filters.php';
         } else {
-            throw new RuntimeException("The pluggable file does not exist.");
+            throw new RuntimeException("The pluggable filters.php file does not exist.");
         }
 
         if (file_exists($root_pluggable . DS . 'actions.php')) {
@@ -236,7 +277,7 @@ class Core
         } elseif (file_exists($monstra_pluggable . DS . 'actions.php')) {
             include $monstra_pluggable . DS . 'actions.php';
         } else {
-            throw new RuntimeException("The pluggable file does not exist.");
+            throw new RuntimeException("The pluggable actions.php file does not exist.");
         }
 
         if (file_exists($root_pluggable . DS . 'shortcodes.php')) {
@@ -246,7 +287,7 @@ class Core
         } elseif (file_exists($monstra_pluggable . DS . 'shortcodes.php')) {
             include $monstra_pluggable . DS . 'shortcodes.php';
         } else {
-            throw new RuntimeException("The pluggable file does not exist.");
+            throw new RuntimeException("The pluggable shortcodes.php file does not exist.");
         }
 
     }

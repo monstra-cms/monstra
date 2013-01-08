@@ -13,8 +13,7 @@
  * @since       1.0.0
  */
 
-
-class Registry 
+class Registry
 {
 
     /**
@@ -23,7 +22,6 @@ class Registry
      * @var array
      */
     private static $registry = array();
-
 
     /**
      * Checks if an object with this name is in the registry.

@@ -58,8 +58,8 @@ class ClassLoader
      * Add class to mapping.
      *
      * @access  public
-     * @param   string  $className  Class name
-     * @param   string  $classPath  Full path to class
+     * @param string $className Class name
+     * @param string $classPath Full path to class
      */
     public static function mapClass($className, $classPath)
     {
@@ -70,12 +70,11 @@ class ClassLoader
      * Add multiple classes to mapping.
      *
      * @access  public
-     * @param   array   $classes  Array of classes to map (key = class name and value = class path)
+     * @param array $classes Array of classes to map (key = class name and value = class path)
      */
     public static function mapClasses(array $classes)
     {
-        foreach($classes as $name => $path)
-        {
+        foreach ($classes as $name => $path) {
             static::$classes[$name] = $path;
         }
     }
@@ -84,7 +83,7 @@ class ClassLoader
      * Adds a PSR-0 directory path.
      *
      * @access  public
-     * @param   string  $path  Path to PSR-0 directory
+     * @param string $path Path to PSR-0 directory
      */
     public static function directory($path)
     {
@@ -96,8 +95,8 @@ class ClassLoader
      * Registers a namespace.
      *
      * @access  public
-     * @param   string  $namespace  Namespace
-     * @param   string  $path       Path
+     * @param string $namespace Namespace
+     * @param string $path      Path
      */
     public static function registerNamespace($namespace, $path)
     {
@@ -108,8 +107,8 @@ class ClassLoader
      * Set an alias for a class.
      *
      * @access  public
-     * @param   string  $alias      Class alias
-     * @param   string  $className  Class name
+     * @param string $alias     Class alias
+     * @param string $className Class name
      */
     public static function alias($alias, $className)
     {
@@ -120,16 +119,15 @@ class ClassLoader
      * Try to load a PSR-0 compatible class.
      *
      * @access  protected
-     * @param   string     $className  Class name
-     * @param   string     $directory  (Optional) Overrides the array of PSR-0 paths
-     * @return  boolean
+     * @param  string  $className Class name
+     * @param  string  $directory (Optional) Overrides the array of PSR-0 paths
+     * @return boolean
      */
     protected static function loadPSR0($className, $directory = null)
     {
         $classPath = '';
 
-        if(($pos = strripos($className, '\\')) !== false)
-        {
+        if (($pos = strripos($className, '\\')) !== false) {
             $namespace = substr($className, 0, $pos);
             $className = substr($className, $pos + 1);
             $classPath = str_replace('\\', '/', $namespace) . '/';
@@ -139,42 +137,42 @@ class ClassLoader
 
         $directories = ($directory === null) ? static::$directories : array($directory);
 
-        foreach($directories as $directory)
-        {
-            if(file_exists($directory . '/' . $classPath))
-            {
+        foreach ($directories as $directory) {
+            if (file_exists($directory . '/' . $classPath)) {
                 include($directory . '/' . $classPath);
 
                 return true;
-            }   
+            }
         }
 
         return false;
     }
 
-
     /**
      * Autoloader.
      *
      * @access  public
-     * @param   string   $className  Class name
-     * @return  boolean
+     * @param  string  $className Class name
+     * @return boolean
      */
     public static function load($className)
     {
+
+/*
+        var_dump(static::$classes);
+        die();
+*/
         $className = ltrim($className, '\\');
 
         // Try to autoload an aliased class
 
-        if(isset(static::$aliases[$className]))
-        {
+        if (isset(static::$aliases[$className])) {
             return class_alias(static::$aliases[$className], $className);
         }
 
         // Try to load a mapped class
 
-        if(isset(static::$classes[$className]) && file_exists(static::$classes[$className]))
-        {
+        if (isset(static::$classes[$className]) && file_exists(static::$classes[$className])) {
             include static::$classes[$className];
 
             return true;
@@ -182,12 +180,9 @@ class ClassLoader
 
         // Try to load class from a registered namespace
 
-        foreach(static::$namespaces as $namespace => $path)
-        {
-            if(strpos($className, $namespace) === 0)
-            {
-                if(static::loadPSR0(substr($className, strlen($namespace)), $path))
-                {
+        foreach (static::$namespaces as $namespace => $path) {
+            if (strpos($className, $namespace) === 0) {
+                if (static::loadPSR0(substr($className, strlen($namespace)), $path)) {
                     return true;
                 }
             }
@@ -195,11 +190,10 @@ class ClassLoader
 
         // Try to load a PSR-0 compatible class
         // The second call to the loadPSR0 method is used to autoload legacy code
-        if (static::loadPSR0($className) || static::loadPSR0(strtolower($className)))
-        {
+        if (static::loadPSR0($className) || static::loadPSR0(strtolower($className))) {
             return true;
         }
-        
+
         return false;
     }
 }

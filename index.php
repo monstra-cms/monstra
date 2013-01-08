@@ -16,11 +16,22 @@
  *  See COPYING.txt for copyright notices and details.
  */
 
+
+
 // Main engine defines
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', rtrim(dirname(__FILE__), '\\/'));
 define('BACKEND', false);
 define('MONSTRA_ACCESS', true);
+
+/* TEMP CODE BEGIN */
+function byteFormat($size)
+{
+    $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
+    return @round($size/pow(1024, ($i=floor(log($size, 1024)))), 2).' '.$unit[$i];
+}
+$_start = memory_get_usage();
+/* TEMP CODE END */
 
 // First check for installer then go
 if (file_exists('install.php')) {
@@ -37,7 +48,7 @@ if (file_exists('install.php')) {
 } else {
 
     // Load Engine init file
-    require_once(ROOT. DS . 'engine'. DS . '_init.php');
+    require_once ROOT. DS . 'engine'. DS . '_init.php';
 
     // Check for maintenance mod
     if ('on' == Option::get('maintenance_status')) {
@@ -54,7 +65,7 @@ if (file_exists('install.php')) {
     Action::run('frontend_pre_render');
 
     // Load site template
-    require(MINIFY . DS . 'theme.' . Site::theme() . '.' . Site::template() . '.template.php');
+    require MINIFY . DS . 'theme.' . Site::theme() . '.' . Site::template() . '.template.php';
 
     // Frontend pre render
     Action::run('frontend_post_render');
@@ -62,3 +73,7 @@ if (file_exists('install.php')) {
     // Flush (send) the output buffer and turn off output buffering
     ob_end_flush();
 }
+
+/* TEMP CODE BEGIN */
+echo byteFormat(memory_get_usage() - $_start);
+/* TEMP CODE END */
