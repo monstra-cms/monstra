@@ -25,8 +25,8 @@
             'Головный .htaccess доступен для запису. Ми рекомендуємо вам видалити права запису на головний .htaccess файл. <br/>Ви можете зробити це на UNIX системах так: <code>chmod -R a-w :path</code>',
             'The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'Головный index.php файл доступен для запису. Ми рекомендуємо вам видалити права запису на головний index.php файл. <br/>Ви можете зробити це на UNIX системах так: <code>chmod -R a-w :path</code>',
-            'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
-            'Система працює в режимі Core::DEVELOPMENT Ми рекомендуємо вам встановити режим Core::PRODUCTION на живому сайті.',
+            'Due to the type and amount of information an error might give intruders when Monstra::$environment = Monstra::DEVELOPMENT, we strongly advise setting Monstra::PRODUCTION in production systems.' =>
+            'Система працює в режимі Monstra::DEVELOPMENT Ми рекомендуємо вам встановити режим Monstra::PRODUCTION на живому сайті.',
             'Monstra version' => 'Monstra Версія',
             'Directory Permissions' => 'Права Доступу',
             'Directory' => 'Каталог',

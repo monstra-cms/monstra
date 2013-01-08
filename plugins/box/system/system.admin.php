@@ -14,7 +14,7 @@ function checkMonstraVersion()
             <script type="text/javascript">
                 $.getJSON("http://monstra.org/api/version.php?jsoncallback=?",
                     function(data){
-                        var current_monstra_version = "'.Core::VERSION.'";
+                        var current_monstra_version = "'.Monstra::VERSION.'";
                         var stable_monstra_version = data.version;
                         if (current_monstra_version < stable_monstra_version) {
                             $("#update-monstra").addClass("alert").html("'.__("Published a new version of the :monstra", "system", array(":monstra" => "<a target='_blank' href='http://monstra.org/download'>Monstra</a>")).'");

@@ -1,29 +1,28 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- *  Main Monstra Engine module.
+ * Monstra Engine
  *
- *	Monstra - Content Management System.
- *  Site: mostra.org
- *	Copyright (C) 2012 Romanenko Sergey / Awilum [awilum@msn.com]
+ *  Monstra - Content Management System.
+ *  Site: www.mostra.org
+ *  Copyright (C) 2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
  *
- *	@package Monstra
- *	@author Romanenko Sergey / Awilum
- *	@copyright 2012 Romanenko Sergey / Awilum
- *	@version $Id$
- *	@since 1.0.0
- *  @license http://opensource.org/licenses/gpl-license.php GNU Public License
- *  Monstra is free software. This version may have been modified pursuant
- *  to the GNU General Public License, and as distributed it includes or
- *  is derivative of works licensed under the GNU General Public License or
- *  other free or open source software licenses.
- *  See COPYING.txt for copyright notices and details.
+ * This source file is part of the Monstra Engine. More information,
+ * documentation and tutorials can be found at http://monstra.org
+ *
+ * @package     Monstra
+ *
+ * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-class Core
+class Monstra
 {
     /**
-     * An instance of the Core class
+     * An instance of the Monstra class
      *
      * @var core
      */
@@ -47,7 +46,7 @@ class Core
      *
      * @var string
      */
-    public static $environment = Core::PRODUCTION;
+    public static $environment = Monstra::PRODUCTION;
 
     /**
      * Monstra environment names
@@ -55,10 +54,10 @@ class Core
      * @var array
      */
     public static $environment_names = array(
-        Core::PRODUCTION  => 'production',
-        Core::STAGING     => 'staging',
-        Core::TESTING     => 'testing',
-        Core::DEVELOPMENT => 'development',
+        Monstra::PRODUCTION  => 'production',
+        Monstra::STAGING     => 'staging',
+        Monstra::TESTING     => 'testing',
+        Monstra::DEVELOPMENT => 'development',
     );
 
     /**
@@ -79,7 +78,7 @@ class Core
         /**
          * Load core defines
          */
-        Core::loadDefines();
+        Monstra::loadDefines();
 
         /**
          * Compress HTML with gzip
@@ -113,7 +112,7 @@ class Core
         /**
          * Set Gelato Display Errors to False for Production environment.
          */
-        if (Core::$environment == Core::PRODUCTION) {
+        if (Monstra::$environment == Monstra::PRODUCTION) {
             define('GELATO_DISPLAY_ERRORS', false);
         }
 
@@ -126,7 +125,7 @@ class Core
          * Map all Monstra Classes
          */
         ClassLoader::mapClasses(array(
-            
+
             // Site Modules
             'Security'  => ROOT . DS .'engine'. DS .'Security.php',
             'Uri'       => ROOT . DS .'engine'. DS .'Uri.php',
@@ -139,16 +138,16 @@ class Core
             'Table'     => ROOT . DS .'engine'. DS .'Xmldb'. DS .'Table.php',
 
             // Plugin API
-            'Plugin'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Plugin.php',            
-            'Frontend'   => ROOT . DS .'engine'. DS .'Plugin'. DS .'Frontend.php',            
-            'Backend'    => ROOT . DS .'engine'. DS .'Plugin'. DS .'Backend.php',            
-            'Action'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Action.php',            
-            'Filter'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Filter.php',            
-            'View'       => ROOT . DS .'engine'. DS .'Plugin'. DS .'View.php',            
-            'I18n'       => ROOT . DS .'engine'. DS .'Plugin'. DS .'I18n.php',            
-            'Stylesheet' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Stylesheet.php',            
-            'Javascript' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Javascript.php',            
-            'Navigation' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Navigation.php',            
+            'Plugin'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Plugin.php',
+            'Frontend'   => ROOT . DS .'engine'. DS .'Plugin'. DS .'Frontend.php',
+            'Backend'    => ROOT . DS .'engine'. DS .'Plugin'. DS .'Backend.php',
+            'Action'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Action.php',
+            'Filter'     => ROOT . DS .'engine'. DS .'Plugin'. DS .'Filter.php',
+            'View'       => ROOT . DS .'engine'. DS .'Plugin'. DS .'View.php',
+            'I18n'       => ROOT . DS .'engine'. DS .'Plugin'. DS .'I18n.php',
+            'Stylesheet' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Stylesheet.php',
+            'Javascript' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Javascript.php',
+            'Navigation' => ROOT . DS .'engine'. DS .'Plugin'. DS .'Navigation.php',
 
             // Option API
             'Option'    => ROOT . DS .'engine'. DS .'Option.php',
@@ -175,7 +174,7 @@ class Core
         /**
          * Auto cleanup if MONSTRA_DEBUG is TRUE
          */
-        if (Core::$environment == Core::DEVELOPMENT) {
+        if (Monstra::$environment == Monstra::DEVELOPMENT) {
 
             // Cleanup minify
             if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
@@ -208,7 +207,7 @@ class Core
         /**
          * Load default
          */
-        Core::loadPluggable();
+        Monstra::loadPluggable();
 
         /**
          * Init I18n
@@ -237,7 +236,7 @@ class Core
     protected static function loadDefines()
     {
         $root_defines         = ROOT . DS . 'boot' . DS . 'defines.php';
-        $environment_defines  = ROOT . DS . 'boot' . DS . Core::$environment_names[Core::$environment] . DS . 'defines.php';
+        $environment_defines  = ROOT . DS . 'boot' . DS . Monstra::$environment_names[Monstra::$environment] . DS . 'defines.php';
         $monstra_defines      = ROOT . DS . 'engine' . DS . 'boot' . DS . 'defines.php';
 
         if (file_exists($root_defines)) {
@@ -257,7 +256,7 @@ class Core
     protected static function loadPluggable()
     {
         $root_pluggable         = ROOT . DS . 'boot';
-        $environment_pluggable  = ROOT . DS . 'boot' . DS . Core::$environment_names[Core::$environment];
+        $environment_pluggable  = ROOT . DS . 'boot' . DS . Monstra::$environment_names[Monstra::$environment];
         $monstra_pluggable      = ROOT . DS . 'engine' . DS . 'boot';
 
         if (file_exists($root_pluggable . DS . 'filters.php')) {
@@ -295,11 +294,11 @@ class Core
     /**
      * Initialize Monstra Engine
      *
-     * @return Core
+     * @return Monstra
      */
     public static function init()
     {
-        if ( ! isset(self::$instance)) self::$instance = new Core();
+        if ( ! isset(self::$instance)) self::$instance = new Monstra();
         return self::$instance;
     }
 

@@ -1,36 +1,18 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- *	Monstra Shortcodes API
+ * Monstra Engine
  *
- *  The Shortcode API s a simple regex based parser that allows you to replace simple bbcode-like tags
- *  within a HTMLText or HTMLVarchar field when rendered into a content.
+ * This source file is part of the Monstra Engine. More information,
+ * documentation and tutorials can be found at http://monstra.org
  *
- *  Examples of shortcode tags:
+ * @package     Monstra
  *
- *     {shortcode}
- *     {shortcode parameter="value"}
- *     {shortcode parameter="value"}Enclosed Content{/shortcode}
+ * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
  *
- *
- *  Example of escaping shortcodes:
- *
- *     {{shortcode}}
- *
- *
- *  @package Monstra
- *  @subpackage Engine
- *  @author Romanenko Sergey / Awilum
- *  @copyright 2012 Romanenko Sergey / Awilum
- *  @version $Id$
- *  @since 1.0.0
- *  @license http://opensource.org/licenses/gpl-license.php GNU Public License
- *  Monstra is free software. This version may have been modified pursuant
- *  to the GNU General Public License, and as distributed it includes or
- *  is derivative of works licensed under the GNU General Public License or
- *  other free or open source software licenses.
- *  See COPYING.txt for copyright notices and details.
- *  @filesource
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 class Shortcode

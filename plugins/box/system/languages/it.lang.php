@@ -33,7 +33,6 @@
             'Filters registered' => 'Filtri registrati',
             'logout' => 'esci',
             'site' => 'Sito',
-            'Core' => 'Cuore',
             'Delete temporary files' => 'Cancella i file temporanei',
             'Download the latest version' => 'Scarica l&#8217;ultima versione',
             'Powered by' => 'Powered by',

@@ -1,9 +1,20 @@
-<?php
-
+<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Stylesheet class
+ * Monstra Engine
+ *
+ * This source file is part of the Monstra Engine. More information,
+ * documentation and tutorials can be found at http://monstra.org
+ *
+ * @package     Monstra
+ *
+ * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
 class Stylesheet
 {
     /**
@@ -12,7 +23,6 @@ class Stylesheet
      * @var array
      */
     public static $stylesheets = array();
-
 
     /**
      * Protected constructor since this is a static class.
@@ -23,7 +33,6 @@ class Stylesheet
     {
         // Nothing here
     }
-
 
     /**
      * Add stylesheet
@@ -47,7 +56,6 @@ class Stylesheet
         );
     }
 
-
     /**
      *  Minify, combine and load site stylesheet
      */
@@ -64,7 +72,6 @@ class Stylesheet
 
             $frontend_buffer = '';
             $frontend_regenerate = false;
-
 
             // Sort stylesheets by priority
             $stylesheets = Arr::subvalSort(Stylesheet::$stylesheets, 'priority');
@@ -92,7 +99,6 @@ class Stylesheet
                     file_put_contents($backend_site_css_path, Minify::css($backend_buffer));
                     $backend_regenerate = false;
                 }
-
 
             } else {
 
@@ -129,7 +135,6 @@ class Stylesheet
         }
     }
 
-
     /**
      * CSS Parser
      */
@@ -143,6 +148,5 @@ class Stylesheet
                                  Option::get('siteurl').'admin/themes/'.Option::get('theme_admin_name')),
                            $frontend_buffer);
     }
-
 
 }

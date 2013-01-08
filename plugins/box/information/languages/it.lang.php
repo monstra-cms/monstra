@@ -25,8 +25,8 @@
             'Principale file .htaccess è scrivibile. Si consiglia di rimuovere le autorizzazioni di scrittura per il file principale .htaccess. <br/> È possibile eseguire questa operazione su sistemi UNIX così: <code>chmod -R a-w :path</code>',
             'The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'Principale file index.php è scrivibile. Si consiglia di rimuovere le autorizzazioni di scrittura per il file principale index.php. <br/> È possibile eseguire questa operazione su sistemi UNIX così: <code>chmod -R a-w :path</code>',
-            'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
-            'Il sistema opera con lo stato Core::DEVELOPMENT Si consiglia di impostare lo stato Core::PRODUCTION sul sito funzionante.',
+            'Due to the type and amount of information an error might give intruders when Monstra::$environment = Monstra::DEVELOPMENT, we strongly advise setting Monstra::PRODUCTION in production systems.' =>
+            'Il sistema opera con lo stato Monstra::DEVELOPMENT Si consiglia di impostare lo stato Monstra::PRODUCTION sul sito funzionante.',
             'Monstra version' => 'Monstra versione',
             'Directory Permissions' => 'Directory Autorizzazioni',
             'Directory' => 'Directory',

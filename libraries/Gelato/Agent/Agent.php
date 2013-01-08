@@ -6,11 +6,13 @@
  * This source file is part of the Gelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package		Gelato
+ * @package     Gelato
  *
- * @author		Romanenko Sergey / Awilum
- * @copyright   (c) 2013 Romanenko Sergey / Awilum
- * @since		1.0.0
+ * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 class Agent

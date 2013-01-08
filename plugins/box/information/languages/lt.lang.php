@@ -25,8 +25,8 @@
             'Monstra .htaccess bylą galima perrašyti. Siūlome pašalinti visus rašymo leidimus. <br/>Tai galite padaryti Unix sistemoje su: <code>chmod a-w :path</code>',
             'The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'Monstra index.php bylą galima perrašyti. Siūlome pašalinti visus rašymo leidimus. <br/>Tai galite padaryti Unix sistemoje su: <code>chmod a-w :path</code>',
-            'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
-            'Dėl įsilaužimų grėsmės atvaiduojant klaidų pranešimus Core::$environment = Core::DEVELOPMENT veiksenoje, rekomenduojame naudoti Core::PRODUCTION nustatymą nuolatinėje tinklapio veiksenoje.',
+            'Due to the type and amount of information an error might give intruders when Monstra::$environment = Monstra::DEVELOPMENT, we strongly advise setting Monstra::PRODUCTION in production systems.' =>
+            'Dėl įsilaužimų grėsmės atvaiduojant klaidų pranešimus Monstra::$environment = Monstra::DEVELOPMENT veiksenoje, rekomenduojame naudoti Monstra::PRODUCTION nustatymą nuolatinėje tinklapio veiksenoje.',
             'Monstra version' => 'Monstra versija',
             'Directory Permissions' => 'Katalogo teisės',
             'Directory' => 'Katalogas',

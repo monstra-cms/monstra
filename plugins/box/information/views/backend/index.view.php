@@ -23,7 +23,7 @@
                 <tbody>
                     <tr>
                         <td><?php echo __('Monstra version', 'information'); ?></td>
-                        <td><?php echo Core::VERSION; ?></td>
+                        <td><?php echo Monstra::VERSION; ?></td>
                     </tr>
                     <tr>
                         <td><?php echo __('GZIP', 'information'); ?></td>
@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td><?php echo __('Debugging', 'information'); ?></td>
-                        <td><?php if (Core::$environment == Core::DEVELOPMENT) { echo __('on', 'information'); } else { echo __('off', 'information'); } ?></td>
+                        <td><?php if (Monstra::$environment == Monstra::DEVELOPMENT) { echo __('on', 'information'); } else { echo __('off', 'information'); } ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -151,10 +151,10 @@
                             <td><?php echo __('The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>', 'information', array(':path' => ROOT . DS . 'index.php')); ?></td>
                         </tr>
                     <?php } ?>
-                    <?php if (Core::$environment == Core::DEVELOPMENT) { ?>
+                    <?php if (Monstra::$environment == Monstra::DEVELOPMENT) { ?>
                         <tr>
                             <td><span class="badge badge-warning" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>
-                            <td><?php echo __('Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.', 'information'); ?></td>
+                            <td><?php echo __('Due to the type and amount of information an error might give intruders when Monstra::$environment = Monstra::DEVELOPMENT, we strongly advise setting Monstra::PRODUCTION in production systems.', 'information'); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

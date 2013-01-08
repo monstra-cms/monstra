@@ -33,7 +33,6 @@
             'Filters registered' => 'Зареєстровані фітри',
             'logout' => 'вихід',
             'site' => 'Сайт',
-            'Core' => 'Ядро',
             'Delete temporary files' => 'Видалити тимчасові файли',
             'Download the latest version' => 'Завантажити останню версію',
             'Powered by' => 'Працює на',

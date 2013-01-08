@@ -33,7 +33,6 @@
             'Filters registered' => 'Filtrai užregistruoti',
             'logout' => 'atsijungti',
             'site' => 'tinklapis',
-            'Core' => 'Branduolys',
             'Delete temporary files' => 'Trinti laikinas bylas',
             'Download the latest version' => 'Atsisiųsti naujausią versiją',
             'Powered by' => 'Veikia su',

@@ -33,7 +33,6 @@
             'Filters registered' => 'Зарегистрированные фильтры',
             'logout' => 'выход',
             'site' => 'Сайт',
-            'Core' => 'Ядро',
             'Delete temporary files' => 'Удалить временные файлы',
             'Download the latest version' => 'Скачать последнюю версию',
             'Powered by' => 'Работает на',

@@ -1,16 +1,18 @@
-<?php
+<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Gelato Library
+ * Monstra Engine
  *
- * This source file is part of the Gelato Library. More information,
- * documentation and tutorials can be found at http://gelato.monstra.org
+ * This source file is part of the Monstra Engine. More information,
+ * documentation and tutorials can be found at http://monstra.org
  *
- * @package     Gelato
+ * @package     Monstra
  *
- * @author      Romanenko Sergey / Awilum
- * @copyright   (c) 2013 Romanenko Sergey / Awilum
- * @since       1.0.0
+ * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 class Alert

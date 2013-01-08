@@ -33,7 +33,6 @@
             'Filters registered' => 'Filtros registrados',
             'logout' => 'Sair',
             'site' => 'site',
-            'Core' => 'Núcleo',
             'Delete temporary files' => 'Deletar arquivo temporário',
             'Download the latest version' => 'Baixar a última versão',
             'Powered by' => 'Feito com',
