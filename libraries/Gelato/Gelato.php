@@ -26,17 +26,9 @@ if ( ! defined('GELATO_DISPLAY_ERRORS')) {
 }
 
 /**
- * Should we use the Gelato Autoloader to ensure the dependancies are automatically
- * loaded?
- */
-if ( ! defined('GELATO_AUTOLOADER')) {
-    define('GELATO_AUTOLOADER', true);
-}
-
-/**
  * Load Gelato Error Handler
  */
-require_once __DIR__ . '/ErrorHandler.php';
+require_once __DIR__ . '/ErrorHandler/ErrorHandler.php';
 
 /**
  * Set Error Handler
@@ -54,90 +46,42 @@ register_shutdown_function('ErrorHandler::fatalErrorHandler');
 set_exception_handler('ErrorHandler::exception');
 
 /**
- * Register Gelato Autoloader
- */
-if (GELATO_AUTOLOADER) {
-    spl_autoload_register(array('Gelato', 'autoload'));
-}
+ * Gelato Class Loader
+ */  
+require_once __DIR__ . '/ClassLoader/ClassLoader.php';
 
 /**
- * Gelato
+ * Map all Gelato Classes
  */
-class Gelato
-{
-    /**
-     * Registry of variables
-     *
-     * @var array
-     */
-    private static $registry = array();
+ClassLoader::mapClasses(array(
+    'Agent'     => __DIR__.'/Agent/Agent.php',
+    'Arr'       => __DIR__.'/Arr/Arr.php',
+    'Cache'     => __DIR__.'/Cache/Cache.php',
+    'Cookie'    => __DIR__.'/Cookie/Cookie.php',
+    'Curl'      => __DIR__.'/Curl/Curl.php',
+    'Date'      => __DIR__.'/Date/Date.php',    
+    'Debug'     => __DIR__.'/Debug/Debug.php',    
+    'File'      => __DIR__.'/FileSystem/File.php',
+    'Dir'       => __DIR__.'/FileSystem/Dir.php',
+    'Form'      => __DIR__.'/Form/Form.php',
+    'Html'      => __DIR__.'/Html/Html.php',
+    'Image'     => __DIR__.'/Image/Image.php',
+    'Inflector' => __DIR__.'/Inflector/Inflector.php',    
+    'Minify'    => __DIR__.'/Minify/Minify.php',
+    'Notification' => __DIR__.'/Notification/Notification.php',
+    'Number'    => __DIR__.'/Number/Number.php',    
+    'Registry'  => __DIR__.'/Registry/Registry.php',    
+    'Request'   => __DIR__.'/Http/Request.php',    
+    'Response'  => __DIR__.'/Http/Response.php',  
+    'Token'     => __DIR__.'/Security/Token.php',  
+    'Text'      => __DIR__.'/Text/Text.php',     
+    'Session'   => __DIR__.'/Session/Session.php',
+    'Url'       => __DIR__.'/Url/Url.php',
+    'Valid'     => __DIR__.'/Validation/Valid.php',   
+    'Zip'       => __DIR__.'/Zip/Zip.php',
+));
 
-    /**
-     * Gelato Autload
-     */
-    public static function autoload($className)
-    {
-        $path = dirname(realpath(__FILE__));
-
-        $className = ltrim($className, '\\');
-        $fileName  = '';
-        $namespace = '';
-        if ($lastNsPos = strrpos($className, '\\')) {
-            $namespace = substr($className, 0, $lastNsPos);
-            $className = substr($className, $lastNsPos + 1);
-            $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
-        }
-        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-
-        require $path.DIRECTORY_SEPARATOR.$fileName;
-    }
-
-    /**
-     * Checks if an object with this name is in the registry.
-     *
-     * @return bool
-     * @param  string $name The name of the registry item to check for existence.
-     */
-    public static function exists($name)
-    {
-        return isset(Gelato::$registry[(string) $name]);
-    }
-
-    /**
-     * Registers a given value under a given name.
-     *
-     * @param string          $name  The name of the value to store.
-     * @param mixed[optional] $value The value that needs to be stored.
-     */
-    public static function set($name, $value = null)
-    {
-        // redefine name
-        $name = (string) $name;
-
-        // delete item
-        if ($value === null) {
-            unset(Gelato::$registry[$name]);
-        } else {
-            Gelato::$registry[$name] = $value;
-
-            return Gelato::get($name);
-        }
-    }
-
-    /**
-     * Fetch an item from the registry.
-     *
-     * @return mixed
-     * @param  string $name The name of the item to fetch.
-     */
-    public static function get($name)
-    {
-        $name = (string) $name;
-
-        if ( ! isset(Gelato::$registry[$name])) {
-            throw new RuntimeException('No item "' . $name . '" exists in the registry.');
-        }
-
-        return Gelato::$registry[$name];
-    }
-}
+/**
+ * Register Gelato Autoloader
+ */
+spl_autoload_register('ClassLoader::load');

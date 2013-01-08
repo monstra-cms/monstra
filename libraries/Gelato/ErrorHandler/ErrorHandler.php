@@ -260,10 +260,10 @@ class ErrorHandler
                 $error['highlighted'] = static::highlightCode($error['file'], $error['line']);
 
                 Response::status(500);
-                include 'Resources/Templates/exception.php';
+                include 'Resources/Views/Errors/exception.php';
             } else {
                 Response::status(500);
-                include 'Resources/Templates/error.php';
+                include 'Resources/Views/Errors/error.php';
             }
         } catch (Exception $e) {
             while(ob_get_level() > 0) ob_end_clean();

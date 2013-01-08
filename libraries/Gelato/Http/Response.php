@@ -21,11 +21,9 @@ class Response
      * @var array
      */
     public static $messages = array(
-        // Informational 1xx
         100 => 'Continue',
         101 => 'Switching Protocols',
-
-        // Success 2xx
+        102 => 'Processing',            // RFC2518
         200 => 'OK',
         201 => 'Created',
         202 => 'Accepted',
@@ -33,18 +31,18 @@ class Response
         204 => 'No Content',
         205 => 'Reset Content',
         206 => 'Partial Content',
-
-        // Redirection 3xx
+        207 => 'Multi-Status',          // RFC4918
+        208 => 'Already Reported',      // RFC5842
+        226 => 'IM Used',               // RFC3229
         300 => 'Multiple Choices',
         301 => 'Moved Permanently',
-        302 => 'Found', // 1.1
+        302 => 'Found',
         303 => 'See Other',
         304 => 'Not Modified',
         305 => 'Use Proxy',
-        // 306 is deprecated but reserved
+        306 => 'Reserved',
         307 => 'Temporary Redirect',
-
-        // Client Error 4xx
+        308 => 'Permanent Redirect',    // RFC-reschke-http-status-308-07
         400 => 'Bad Request',
         401 => 'Unauthorized',
         402 => 'Payment Required',
@@ -63,15 +61,26 @@ class Response
         415 => 'Unsupported Media Type',
         416 => 'Requested Range Not Satisfiable',
         417 => 'Expectation Failed',
-
-        // Server Error 5xx
+        418 => 'I\'m a teapot',                                               // RFC2324
+        422 => 'Unprocessable Entity',                                        // RFC4918
+        423 => 'Locked',                                                      // RFC4918
+        424 => 'Failed Dependency',                                           // RFC4918
+        425 => 'Reserved for WebDAV advanced collections expired proposal',   // RFC2817
+        426 => 'Upgrade Required',                                            // RFC2817
+        428 => 'Precondition Required',                                       // RFC6585
+        429 => 'Too Many Requests',                                           // RFC6585
+        431 => 'Request Header Fields Too Large',                             // RFC6585
         500 => 'Internal Server Error',
         501 => 'Not Implemented',
         502 => 'Bad Gateway',
         503 => 'Service Unavailable',
         504 => 'Gateway Timeout',
         505 => 'HTTP Version Not Supported',
-        509 => 'Bandwidth Limit Exceeded'
+        506 => 'Variant Also Negotiates (Experimental)',                      // RFC2295
+        507 => 'Insufficient Storage',                                        // RFC4918
+        508 => 'Loop Detected',                                               // RFC5842
+        510 => 'Not Extended',                                                // RFC2774
+        511 => 'Network Authentication Required',                             // RFC6585
     );
 
     /**
