@@ -18,7 +18,7 @@
             'This block does not exist' => 'Такого блока не существует',
             'Delete block: :block' => 'Удалить блок: :block',
             'Block content' => 'Содержимое блока',
-            'Block <i>:name</i> deleted' => 'Сниппет <i>:name</i> удален',
+            'Block <i>:name</i> deleted' => 'Блок <i>:name</i> удален',
             'Your changes to the block <i>:name</i> have been saved.' => 'Ваши изменения к блоку <i>:name</i> были сохранены.',
             'Delete block: :block' => 'Удалить блок: :block',
             'View Embed Code' => 'Код для вставки',
