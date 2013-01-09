@@ -2,15 +2,15 @@
 
     return array(
         'pages' => array(
-            'Pages' => 'Strane',        
-            'Pages manager' => 'Menadžer strana',        
+            'Pages' => 'Strane',
+            'Pages manager' => 'Menadžer strana',
             'Content' => 'Ssadržaj',
             'Create new page' => 'Kreiraj novu stranu',
             'New page' => 'Nova strana',
-            'Edit page' => 'Izemni stranu',        
+            'Edit page' => 'Izemni stranu',
             'Date' => 'Datum',
             'Clone' => 'Kloniraj',
-            'Edit' => 'Izmeni',        
+            'Edit' => 'Izmeni',
             'Delete' => 'Obriši',
             'Delete page: :page' => 'Obriši stranu: :page',
             'Title' => 'Naslov',

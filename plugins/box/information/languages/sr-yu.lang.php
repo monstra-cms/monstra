@@ -9,7 +9,7 @@
             'Security' => 'Sigurnost',
             'System' => 'Sistem',
             'on' => 'uključeno',
-            'off'=> 'isključeno',   
+            'off'=> 'isključeno',
             'Server' => 'Server',
             'PHP version' => 'PHP Verzija',
             'SimpleXML module' => 'SimpleXML modul',
@@ -17,9 +17,9 @@
             'Installed' => 'Instalirano',
             'Not Installed' => 'Nije instalirano',
             'Security check results' => 'Sigurnosna provera rezultata',
-            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' => 
+            'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' =>
             'Konfiguracioni fajl je nadjen da može biti upisan. Mi vas savetujemo da uklonite dozvole na fajlu defines.php ukoliko vam je svanični sajt.',
-            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' => 
+            'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' =>
             'Monstra direktorijum je (":path") i/ili fajlovi unutar toga su nadjeni da mogu biti zapisani. Mi vas savetujemo da uklonite te dozvole zapisivanja. <br/>Na unix sistemima možete to uraditi sa: <code>chmod -R a-w :path</code>',
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>          'Monstra je .htaccess fajlu našla mogućnost upisivanja. Mi vas savetujemo da promenite te dozvole. <br/>Na unix sistemima možete to uraditi sa: <code>chmod a-w :path</code>',
             'The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>

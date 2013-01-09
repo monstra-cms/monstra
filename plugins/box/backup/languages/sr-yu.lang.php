@@ -2,10 +2,10 @@
 
     return array(
         'backup' => array(
-    		'Backups' => 'Bekapovi',
+            'Backups' => 'Bekapovi',
             'Backup date' => 'Backup datum',
-    		'Create backup' => 'Kreiraj Bekap',
-    		'Delete' => 'Obriši',
+            'Create backup' => 'Kreiraj Bekap',
+            'Delete' => 'Obriši',
             'storage' => 'lokacija arhive',
             'public' => 'Javno',
             'plugins' => 'Dodaci',
@@ -14,4 +14,4 @@
             'Delete backup: :backup' => 'Obriši bekap: :backup',
             'Creating...' => 'Kreiranje...',
         )
-	);
+    );

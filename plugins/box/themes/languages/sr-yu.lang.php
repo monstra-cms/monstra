@@ -17,7 +17,7 @@
             'Clone' => 'Kloniraj',
             'Edit' => 'Izmeni',
             'Delete' => 'Obriši',
-            'Actions' => 'Akcije',        
+            'Actions' => 'Akcije',
             'Create new chunk' => 'Napravi novi parče',
             'New chunk' => 'Novo parče',
             'Chunks' => 'Parčići',
