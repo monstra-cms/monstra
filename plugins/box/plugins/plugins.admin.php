@@ -56,7 +56,7 @@ class PluginsAdmin extends Backend
                     Request::redirect('index.php?id=plugins');
                 }
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Install new plugin
@@ -88,7 +88,7 @@ class PluginsAdmin extends Backend
 
                 Request::redirect('index.php?id=plugins');
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Delete plugin from server
@@ -100,7 +100,7 @@ class PluginsAdmin extends Backend
                 Dir::delete(PLUGINS . DS . basename(Request::get('delete_plugin_from_server'), '.manifest.xml'));
                 Request::redirect('index.php?id=plugins');
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
         }
 

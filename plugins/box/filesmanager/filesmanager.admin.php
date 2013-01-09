@@ -87,7 +87,7 @@ class FilesmanagerAdmin extends Backend
                 File::delete($files_path.Request::get('delete_file'));
                 Request::redirect($site_url.'admin/index.php?id=filesmanager&path='.$path);
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Delete dir
@@ -99,7 +99,7 @@ class FilesmanagerAdmin extends Backend
                 Dir::delete($files_path.Request::get('delete_dir'));
                 Request::redirect($site_url.'admin/index.php?id=filesmanager&path='.$path);
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Upload file
@@ -115,7 +115,7 @@ class FilesmanagerAdmin extends Backend
                     }
                 }
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Display view

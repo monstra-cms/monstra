@@ -44,7 +44,7 @@ class UsersAdmin extends Backend
                 Option::update('users_frontend_registration', $users_frontend_registration);
                 Request::redirect('index.php?id=users');
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Check for get actions
@@ -90,7 +90,7 @@ class UsersAdmin extends Backend
                                     Request::redirect('index.php?id=users');
                                 }
 
-                            } else { die('csrf detected!'); }
+                            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                         }
 
                         // Display view
@@ -142,7 +142,7 @@ class UsersAdmin extends Backend
                                         }
                                     } else { }
 
-                                } else { die('csrf detected!'); }
+                                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
                         }
 
@@ -156,7 +156,7 @@ class UsersAdmin extends Backend
                                     Request::redirect('index.php?id=users&action=edit&user_id='.Request::post('user_id'));
                                 }
 
-                            } else { die('csrf detected!'); }
+                            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                         }
 
                         if ( ((int) Session::get('user_id') == (int) Request::get('user_id')) or (in_array(Session::get('user_role'), array('admin')) && count($user) != 0) ) {
@@ -194,7 +194,7 @@ class UsersAdmin extends Backend
                             Notification::set('success', __('User <i>:user</i> have been deleted.', 'users', array(':user' => $user['login'])));
                             Request::redirect('index.php?id=users');
 
-                        } else { die('csrf detected!'); }
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
                     }
 

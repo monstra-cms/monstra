@@ -153,7 +153,7 @@ class Users extends Frontend
                             Request::redirect(Option::get('siteurl').'users/'.Users::$users->lastId());
                         }
 
-                    } else { die('csrf detected!'); }
+                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                 }
 
                 // Display view
@@ -239,7 +239,7 @@ class Users extends Frontend
                         }
                     } else { }
 
-                } else { die('csrf detected!'); }
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
             }
 
@@ -345,7 +345,7 @@ class Users extends Frontend
 
                     }
 
-                } else { die('csrf detected!'); }
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
             }
 
@@ -391,7 +391,7 @@ class Users extends Frontend
                         Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
                     }
 
-                } else { die('csrf detected!'); }
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
             }
 

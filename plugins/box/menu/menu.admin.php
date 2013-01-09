@@ -86,7 +86,7 @@ class MenuAdmin extends Backend
                                 Request::redirect('index.php?id=menu');
                             }
 
-                        } else { die('csrf detected!'); }
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
                     }
 
@@ -148,7 +148,7 @@ class MenuAdmin extends Backend
                                 Request::redirect('index.php?id=menu');
                             }
 
-                        } else { die('csrf detected!'); }
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
 
                     // Display view

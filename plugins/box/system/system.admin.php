@@ -74,7 +74,7 @@ class SystemAdmin extends Backend
 
                     Request::redirect('index.php?id=system');
 
-                } else { die('csrf detected!'); }
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
             }
 
@@ -149,7 +149,7 @@ class SystemAdmin extends Backend
                     Notification::set('success', __('Your changes have been saved.', 'system'));
                     Request::redirect('index.php?id=system');
 
-                } else { die('csrf detected!'); }
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
             }
 
             // Its mean that you can add your own actions for this plugin

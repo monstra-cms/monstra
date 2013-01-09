@@ -28,7 +28,7 @@ class PagesAdmin extends Backend
                 $pages = new Table('pages');
                 $pages->updateWhere('[slug="'.Request::post('slug').'"]', array('expand' => Request::post('expand')));
                 Request::shutdown();
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
     }
 
@@ -123,7 +123,7 @@ class PagesAdmin extends Backend
                         // Redirect
                         Request::redirect('index.php?id=pages');
 
-                    } else { die('csrf detected!'); }
+                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
                 break;
 
@@ -198,7 +198,7 @@ class PagesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('csrf detected!'); }
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
                     }
 
@@ -365,7 +365,7 @@ class PagesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('csrf detected!'); }
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
 
                     // Get all pages
@@ -487,7 +487,7 @@ class PagesAdmin extends Backend
                             // Redirect
                             Request::redirect('index.php?id=pages');
 
-                        } else { die('csrf detected!'); }
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
 
                 break;
