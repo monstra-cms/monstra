@@ -65,7 +65,7 @@ class ClassLoader
      */
     public static function mapClass($className, $classPath)
     {
-        static::$classes[$className] = $classPath;
+        ClassLoader::$classes[$className] = $classPath;
     }
 
     /**
@@ -77,7 +77,7 @@ class ClassLoader
     public static function mapClasses(array $classes)
     {
         foreach ($classes as $name => $path) {
-            static::$classes[$name] = $path;
+            ClassLoader::$classes[$name] = $path;
         }
     }
 
@@ -89,7 +89,7 @@ class ClassLoader
      */
     public static function directory($path)
     {
-        static::$directories[] = rtrim($path, '/');
+        ClassLoader::$directories[] = rtrim($path, '/');
     }
 
     /**
@@ -101,7 +101,7 @@ class ClassLoader
      */
     public static function registerNamespace($namespace, $path)
     {
-        static::$namespaces[trim($namespace, '\\') . '\\'] = rtrim($path, '/');
+        ClassLoader::$namespaces[trim($namespace, '\\') . '\\'] = rtrim($path, '/');
     }
 
     /**
@@ -113,7 +113,7 @@ class ClassLoader
      */
     public static function alias($alias, $className)
     {
-        static::$aliases[$alias] = $className;
+        ClassLoader::$aliases[$alias] = $className;
     }
 
     /**
@@ -136,7 +136,7 @@ class ClassLoader
 
         $classPath .= str_replace('_', '/', $className) . '.php';
 
-        $directories = ($directory === null) ? static::$directories : array($directory);
+        $directories = ($directory === null) ? ClassLoader::$directories : array($directory);
 
         foreach ($directories as $directory) {
             if (file_exists($directory . '/' . $classPath)) {
@@ -164,15 +164,15 @@ class ClassLoader
         /**
          * Try to autoload an aliased class
          */
-        if (isset(static::$aliases[$className])) {
-            return class_alias(static::$aliases[$className], $className);
+        if (isset(ClassLoader::$aliases[$className])) {
+            return class_alias(ClassLoader::$aliases[$className], $className);
         }
 
         /**
          * Try to load a mapped class
          */
-        if (isset(static::$classes[$className]) && file_exists(static::$classes[$className])) {
-            include static::$classes[$className];
+        if (isset(ClassLoader::$classes[$className]) && file_exists(ClassLoader::$classes[$className])) {
+            include ClassLoader::$classes[$className];
 
             return true;
         }
@@ -180,9 +180,9 @@ class ClassLoader
         /**
          * Try to load class from a registered namespace
          */
-        foreach (static::$namespaces as $namespace => $path) {
+        foreach (ClassLoader::$namespaces as $namespace => $path) {
             if (strpos($className, $namespace) === 0) {
-                if (static::loadPSR0(substr($className, strlen($namespace)), $path)) {
+                if (ClassLoader::loadPSR0(substr($className, strlen($namespace)), $path)) {
                     return true;
                 }
             }
@@ -192,7 +192,7 @@ class ClassLoader
          * Try to load a PSR-0 compatible class
          * The second call to the loadPSR0 method is used to autoload legacy code
          */
-        if (static::loadPSR0($className) || static::loadPSR0(strtolower($className))) {
+        if (ClassLoader::loadPSR0($className) || ClassLoader::loadPSR0(strtolower($className))) {
             return true;
         }
 
