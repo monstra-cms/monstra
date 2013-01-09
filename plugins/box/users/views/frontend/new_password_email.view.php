@@ -6,9 +6,7 @@ Username: <?php echo $user_login; ?>
 
 Password: <?php echo $new_password; ?>
 
-
 To change your password, please visit this page: <?php echo $site_url; ?>users/<?php echo $user_id; ?>
-
 
 All the best,
 <?php echo $site_name; ?>

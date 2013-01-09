@@ -16,7 +16,6 @@
 
 ?>
 
-
     <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
 
         <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?>
@@ -28,7 +27,7 @@
 
 <br /><br />
 <?php
-        
+
         Action::run('admin_editor', array(Html::toText($content)));
 
         echo (
@@ -37,7 +36,7 @@
            Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn default')). Html::nbsp().
            Form::close()
         );
-        
+
     } else {
         echo '<div class="message-error">'.__('This block does not exist', 'blocks').'</div>';
     }

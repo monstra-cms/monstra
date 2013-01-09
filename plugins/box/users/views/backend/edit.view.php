@@ -15,7 +15,7 @@
 
 <div>
 
-    <div class="span7">    
+    <div class="span7">
     <?php
 
         echo (
@@ -24,7 +24,7 @@
             Form::hidden('user_id', Request::get('user_id'))
         );
 
-        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {        
+        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {
             echo Form::label('login', __('Username', 'users'));
             echo Form::input('login', $user['login'], array('class' => 'input-xlarge'));
         } else {
@@ -33,7 +33,7 @@
 
         echo (
             Html::br().
-            Form::label('firstname', __('Firstname', 'users')).    
+            Form::label('firstname', __('Firstname', 'users')).
             Form::input('firstname', $user_firstname, array('class' => 'input-xlarge')).Html::br().
             Form::label('lastname', __('Lastname', 'users')).
             Form::input('lastname', $user_lastname, array('class' => 'input-xlarge')).Html::br().
@@ -47,20 +47,19 @@
             Form::textarea('about_me', $user_about_me, array('class' => 'input-xlarge')).Html::br()
         );
 
-        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {        
+        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {
             echo Form::label('role', __('Role', 'users'));
             echo Form::select('role', array('admin' => __('Admin', 'users'), 'editor' => __('Editor', 'users'), 'user' => __('User', 'users')), $user['role'], array('class' => 'input-xlarge')). Html::br();
-        } else {        
+        } else {
             echo Form::hidden('role', $_SESSION['user_role']);
         }
-
 
         echo (
             Html::br().
             Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn')).
             Form::close()
         );
-      
+
     ?>
     </div>
 
@@ -75,7 +74,7 @@
             Form::password('new_password', null, array('class' => 'input-xlarge')).Html::br().Html::br().
             Form::submit('edit_profile_password', __('Save', 'users'), array('class' => 'btn')).
             Form::close()
-        );    
+        );
     ?>
     </div>
 

@@ -9,7 +9,7 @@
             'Delete' => 'Deletar',
             'Upload' => 'Upload',
             'directory' => 'directory',
-            'Delete directory: :dir' => 'Deletar o diretório: :dir',        
+            'Delete directory: :dir' => 'Deletar o diretório: :dir',
             'Delete file: :file' => 'Deletar o arquivo :file',
             'Extension' => 'Extensão',
             'Size' => 'Tamanho',

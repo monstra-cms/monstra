@@ -6,14 +6,14 @@
     <!-- Plugins_tabs -->
     <ul class="nav nav-tabs">
         <li class="active"><a href="#installed" data-toggle="tab"><?php echo __('Installed', 'plugins'); ?></a></li>
-        <li><a href="#installnew" data-toggle="tab"><?php echo __('Install New', 'plugins'); ?> <?php if(count($plugins_to_intall) > 0) { ?><span class="badge"><?php echo count($plugins_to_intall); ?></span><?php } ?></a></li>
+        <li><a href="#installnew" data-toggle="tab"><?php echo __('Install New', 'plugins'); ?> <?php if (count($plugins_to_intall) > 0) { ?><span class="badge"><?php echo count($plugins_to_intall); ?></span><?php } ?></a></li>
         <li><a href="http://monstra.org" target="_blank"><?php echo __('Get More Plugins', 'plugins'); ?></a></li>
     </ul>
     <!-- /Plugins_tabs -->
 
     <div class="tab-content">
 
-        <div class="tab-pane active" id="installed">           
+        <div class="tab-pane active" id="installed">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <?php foreach ($installed_plugins as $plugin) { if ($plugin['privilege'] !== 'box') { ?>
-                    <tr>        
+                    <tr>
                         <td>
                             <?php echo $plugin['title']; ?>
                         </td>
@@ -35,7 +35,7 @@
                         </td>
                         <td>
                            <a target="_blank" href="<?php echo $plugin['author_uri']; ?>"><?php echo $plugin['author']; ?></a>
-                        </td>                        
+                        </td>
                         <td>
                             <?php echo $plugin['version']; ?>
                         </td>
@@ -50,11 +50,10 @@
                     </tr>
                     <?php } } ?>
                 </tbody>
-            </table>        
+            </table>
         </div>
-        
 
-         <div class="tab-pane" id="installnew">       
+         <div class="tab-pane" id="installnew">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -66,9 +65,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <?php foreach ($plugins_to_intall as $plug) { $plugin_xml = XML::loadFile($plug['path']); ?>
-                    <tr>        
+                    <tr>
                         <td>
                             <?php echo $plugin_xml->plugin_name; ?>
                         </td>
@@ -93,7 +92,7 @@
                     </tr>
                     <?php } ?>
                 </tbody>
-            </table>        
+            </table>
         </div>
         <!-- /Plugins_to_install_list -->
 

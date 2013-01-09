@@ -22,7 +22,7 @@
             'Your changes to the block <i>:name</i> have been saved.' => 'Deine Änderungen für den Block <i>:name</i> wurden übernommen.',
             'Delete block: :block' => 'Lösche Block: :block',
             'View Embed Code' => 'View Embed Code',
-            'Embed Code' => 'Embed Code', 
+            'Embed Code' => 'Embed Code',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
         )

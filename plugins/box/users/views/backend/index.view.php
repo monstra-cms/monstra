@@ -28,7 +28,7 @@
     </thead>
     <tbody>
     <?php foreach ($users_list as $user) { ?>
-    <tr>        
+    <tr>
         <td>
             <?php echo Html::toText($user['login']); ?>
         </td>
@@ -50,7 +50,7 @@
              ?>
              </div>
         </td>
-    </tr> 
+    </tr>
     <?php } ?>
     </tbody>
 </table>

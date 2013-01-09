@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Sistema',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Mapa do site criado',
             'Create sitemap' => 'Criar mapa do site',
             'on' => 'on',
-            'off'=> 'off',    
+            'off'=> 'off',
             'Site url' => 'URL do site',
             'Maintenance Mode' => 'Modo de manutenção',
             'Maintenance Mode On' => 'Modo de manutenção online',
@@ -22,7 +22,7 @@
             'Time zone' => 'Timezone padrão',
             'Language' => 'Linguagem',
             'Save' => 'Salvar',
-            'Site' => 'Site',        
+            'Site' => 'Site',
             'System version' => 'Versão do sistema',
             'System version ID' => 'ID (longo) da versão do sistema',
             'GZIP' => 'GZIP',
@@ -33,7 +33,6 @@
             'Filters registered' => 'Filtros registrados',
             'logout' => 'Sair',
             'site' => 'site',
-            'Core' => 'Núcleo',
             'Delete temporary files' => 'Deletar arquivo temporário',
             'Download the latest version' => 'Baixar a última versão',
             'Powered by' => 'Feito com',

@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Sistema',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Sitemap sukurtas',
             'Create sitemap' => 'Sukurti sitemap',
             'on' => 'įjungti',
-            'off'=> 'išjungti',    
+            'off'=> 'išjungti',
             'Site url' => 'Tinklapio adresas (url)',
             'Maintenance Mode' => 'Remonto režimas',
             'Maintenance Mode On' => 'Įjungti remonto režimą',
@@ -22,18 +22,17 @@
             'Time zone' => 'Laiko zona',
             'Language' => 'Kalba',
             'Save' => 'Išsaugoti',
-            'Site' => 'Tinklapis',        
+            'Site' => 'Tinklapis',
             'System version' => 'Sistemos versija',
             'System version ID' => 'Sistemos versijos ID',
             'GZIP' => 'GZIP',
             'Debugging' => 'Derinimas',
             'Plugin API' => 'Įskiepių API',
-            'Plugins active' => 'Aktyvūs įskiepiai', 
+            'Plugins active' => 'Aktyvūs įskiepiai',
             'Actions registered' => 'Veiksmai užregistruoti',
             'Filters registered' => 'Filtrai užregistruoti',
             'logout' => 'atsijungti',
             'site' => 'tinklapis',
-            'Core' => 'Branduolys',
             'Delete temporary files' => 'Trinti laikinas bylas',
             'Download the latest version' => 'Atsisiųsti naujausią versiją',
             'Powered by' => 'Veikia su',

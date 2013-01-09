@@ -4,7 +4,7 @@
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
 <?php
-    if ($content !== null) { 
+    if ($content !== null) {
 
         if (isset($errors['snippets_empty_name']) or isset($errors['snippets_exists'])) $error_class = 'error'; else $error_class = '';
 
@@ -16,9 +16,8 @@
 
 ?>
 
-
     <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
-    
+
         <div class="input-append">
             <?php echo (Form::input('name', $name, array('class' => (isset($errors['snippets_empty_name']) || isset($errors['snippets_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?><span class="add-on">.snippet.php</span>
         </div>
@@ -39,7 +38,7 @@
            Form::submit('edit_snippets', __('Save', 'snippets'), array('class' => 'btn default')). Html::nbsp().
            Form::close()
         );
-        
+
     } else {
         echo '<div class="message-error">'.__('This snippet does not exist').'</div>';
     }

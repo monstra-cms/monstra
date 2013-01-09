@@ -2,7 +2,7 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Menu',        
+            'Menu' => 'Menu',
             'Menu manager' => 'Gestione menu',
             'Edit' => 'Modifica',
             'Name' => 'Nome',
@@ -12,7 +12,7 @@
             'Create new item' => 'Crea nuova voce',
             'New item' => 'Nuova voce',
             'Item name' => 'Nome',
-            'Item order' => 'Ordine',        
+            'Item order' => 'Ordine',
             'Item target' => 'Target',
             'Item link' => 'Collegamento',
             'Item category' => 'Categoria',

@@ -33,7 +33,6 @@
             'Filters registered' => 'Filter registriert',
             'logout' => 'logout',
             'site' => 'seite',
-            'Core' => 'Core',
             'Delete temporary files' => 'Temporäre Dateien löschen',
             'Download the latest version' => 'Lade die letzte Version herunter',
             'Powered by' => 'Powered by',

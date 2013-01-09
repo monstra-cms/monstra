@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title><?php echo Site::name() . ' - ' . Site::title(); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo Site::description(); ?>">
     <meta name="keywords" content="<?php echo Site::keywords(); ?>">
     <meta name="robots" content="<?php echo Page::robots(); ?>">
-    
+
     <?php Action::run('theme_meta'); ?>
-    
-    <!-- Open Graph Protocol --> 
-    <meta property="og:site_name" content="<?php echo Site::name(); ?>"> 
-    <meta property="og:url" content="<?php echo Url::current(); ?>"> 
-    <meta property="og:title" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>"> 
- 
-    <!-- Google+ Snippets --> 
-    <meta itemprop="url" content="<?php echo Url::current(); ?>"> 
-    <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>"> 
+
+    <!-- Open Graph Protocol -->
+    <meta property="og:site_name" content="<?php echo Site::name(); ?>">
+    <meta property="og:url" content="<?php echo Url::current(); ?>">
+    <meta property="og:title" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>">
+
+    <!-- Google+ Snippets -->
+    <meta itemprop="url" content="<?php echo Url::current(); ?>">
+    <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>">
 
     <!-- Styles -->
     <?php Stylesheet::add('public/assets/css/bootstrap.css', 'frontend', 1); ?>
@@ -59,4 +59,3 @@
         </div>
       </div>
     </div>
-

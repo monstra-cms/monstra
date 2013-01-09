@@ -20,7 +20,6 @@
 
     </div>
 
-
     <div class="span6">
 
         <h2><?php echo __('Admin theme', 'themes'); ?></h2>
@@ -49,12 +48,11 @@
 
     <div class="span12">
 
-<?php    
+<?php
     echo (
         Html::heading(__('Current site theme', 'themes') . ': '. $current_site_theme, 2). Html::br()
     );
 ?>
-
 
 <?php echo (Html::anchor(__('Create new template', 'themes'), 'index.php?id=themes&action=add_template', array('title' => __('Create new template'), 'class' => 'btn btn-small')).Html::br(2)); ?>
 
@@ -69,15 +67,15 @@
     <tbody>
     <?php if (count($templates) != 0) foreach ($templates as $template) { ?>
     <tr>
-        <td><?php echo basename($template, '.template.php'); ?></td>        
-        <td>      
+        <td><?php echo basename($template, '.template.php'); ?></td>
+        <td>
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_template&filename='.basename($template, '.template.php'), array('class' => 'btn btn-small')); ?>
                     <a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php').'&token='.Security::token(), array('title' => __('Clone'))); ?></li>
-                    </ul>            
+                    </ul>
                     <?php echo Html::anchor(__('Delete', 'themes'),
                                'index.php?id=themes&action=delete_template&filename='.basename($template, '.template.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete template: :name', 'themes', array(':name' => basename($template, '.template.php')))."')"));
@@ -104,15 +102,15 @@
     <tbody>
     <?php if (count($chunks) != 0) foreach ($chunks as $chunk) { ?>
     <tr>
-        <td><?php echo basename($chunk, '.chunk.php'); ?></td>        
-        <td>    
+        <td><?php echo basename($chunk, '.chunk.php'); ?></td>
+        <td>
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_chunk&filename='.basename($chunk, '.chunk.php'), array('class' => 'btn btn-small')); ?>
                     <a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
-                    </ul>            
+                    </ul>
                     <?php echo Html::anchor(__('Delete', 'themes'),
                                'index.php?id=themes&action=delete_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete chunk: :name', 'themes', array(':name' => basename($chunk, '.chunk.php')))."')"));
@@ -139,15 +137,15 @@
     <tbody>
     <?php if (count($styles) != 0) foreach ($styles as $style) { ?>
     <tr>
-        <td><?php echo basename($style, '.css'); ?></td>        
-        <td>            
+        <td><?php echo basename($style, '.css'); ?></td>
+        <td>
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_styles&filename='.basename($style, '.css'), array('class' => 'btn btn-small')); ?>
                     <a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_styles&filename='.basename($style, '.css').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
-                    </ul>            
+                    </ul>
                     <?php echo Html::anchor(__('Delete', 'themes'),
                                'index.php?id=themes&action=delete_styles&filename='.basename($style, '.css').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete styles: :name', 'themes', array(':name' => basename($style, '.css')))."')"));
@@ -174,15 +172,15 @@
     <tbody>
     <?php if (count($scripts) != 0) foreach ($scripts as $script) { ?>
     <tr>
-        <td><?php echo basename($script, '.js'); ?></td>        
-        <td>            
+        <td><?php echo basename($script, '.js'); ?></td>
+        <td>
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_script&filename='.basename($script, '.js'), array('class' => 'btn btn-small')); ?>
                     <a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_script&filename='.basename($script, '.js').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
-                    </ul>            
+                    </ul>
                     <?php echo Html::anchor(__('Delete', 'themes'),
                                'index.php?id=themes&action=delete_script&filename='.basename($script, '.js').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete script: :name', 'themes', array(':name' => basename($script, '.js')))."')"));
@@ -196,9 +194,8 @@
 </table>
 <!-- /Scripts_list -->
 
-
-<?php  // All exept Pages, Users and Sitemap plugins  
-if(count(Plugin::$components) > 3) {           
+<?php  // All exept Pages, Users and Sitemap plugins
+if (count(Plugin::$components) > 3) {
 ?>
     <h2><?php echo __('Components templates', 'themes'); ?></h2><br />
 <?php

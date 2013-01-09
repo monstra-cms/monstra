@@ -23,7 +23,7 @@
             'Delete snippet: :snippet' => 'Lösche Snippet: :snippet',
             'Required field' => 'Pflichtfeld',
             'View Embed Code' => 'View Embed Code',
-            'Embed Code' => 'Embed Code', 
+            'Embed Code' => 'Embed Code',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
         )

@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Sistema',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Sitemap è stata creata',
             'Create sitemap' => 'Crea sitemap',
             'on' => 'on',
-            'off'=> 'off',    
+            'off'=> 'off',
             'Site url' => 'URL del sito',
             'Maintenance Mode' => 'Modalità manutenzione',
             'Maintenance Mode On' => 'Abilita modalità manutenzione',
@@ -28,12 +28,11 @@
             'GZIP' => 'Compressione GZIP',
             'Debugging' => 'Debugging',
             'Plugin API' => 'Plugin API',
-            'Plugins active' => 'Plugin attivi', 
+            'Plugins active' => 'Plugin attivi',
             'Actions registered' => 'Azioni registrati',
             'Filters registered' => 'Filtri registrati',
             'logout' => 'esci',
             'site' => 'Sito',
-            'Core' => 'Cuore',
             'Delete temporary files' => 'Cancella i file temporanei',
             'Download the latest version' => 'Scarica l&#8217;ultima versione',
             'Powered by' => 'Powered by',
@@ -50,7 +49,6 @@
             'Send New Password' => 'Invia la nuova password',
             'This user does not exist' => 'Tale utente non esiste',
             'Version' => 'Versione',
-
 
             'Install script writable' => 'Script d&#8217;installazione è scrivibile',
             'Install script not writable' => 'Script d&#8217;installazione non è scrivibile',

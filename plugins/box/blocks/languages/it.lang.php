@@ -3,16 +3,16 @@
     return array(
         'blocks' => array(
             'Blocks' => 'Blocchi',
-            'Blocks manager' => 'Gestione blocchi',  
+            'Blocks manager' => 'Gestione blocchi',
             'Delete' => 'Elimina',
             'Edit' => 'Modifica',
-            'New block' => 'Nuovo blocco',  
-            'Create new block' => 'Crea nuovo blocco', 
+            'New block' => 'Nuovo blocco',
+            'Create new block' => 'Crea nuovo blocco',
             'Name' => 'Nome',
             'Edit block' => 'Modifica blocco',
-            'Save' => 'Salva',    
+            'Save' => 'Salva',
             'Actions' => 'Azioni',
-            'Save and exit' => 'Salva ed esci',        
+            'Save and exit' => 'Salva ed esci',
             'Required field' => 'Campo obbligatorio',
             'This block already exists' => 'Tale blocco già esistente',
             'This block does not exist' => 'Tale blocco non esiste',
@@ -22,8 +22,8 @@
             'Your changes to the block <i>:name</i> have been saved.' => 'Le modifiche al blocco: <i>nome</ i> sono state salvate.',
             'Delete block: :block' => 'Elimina blocco: :block',
             'View Embed Code' => 'View Embed Code',
-            'Embed Code' => 'Embed Code', 
+            'Embed Code' => 'Embed Code',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
         )
-    ); 
+    );

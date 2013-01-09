@@ -4,9 +4,9 @@
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
 <?php
-    echo ( 
+    echo (
             Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-small')). Html::nbsp(3)
-        ); 
+        );
 ?>
 
 <br /><br />
@@ -22,7 +22,7 @@
     <tbody>
     <?php if (count($snippets_list) != 0) foreach ($snippets_list as $snippet) { ?>
     <tr>
-        <td><?php echo basename($snippet, '.snippet.php'); ?></td>        
+        <td><?php echo basename($snippet, '.snippet.php'); ?></td>
         <td>
             <div class="pull-right">
             <div class="btn-toolbar">
@@ -31,7 +31,7 @@
                     <a class="btn dropdown-toggle btn-actions btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><?php echo Html::anchor(__('View Embed Code', 'snippets'), 'javascript:;', array('title' => __('View Embed Code', 'snippets'), 'onclick' => '$.monstra.snippets.showEmbedCodes("'.basename($snippet, '.snippet.php').'");')); ?></li>
-                    </ul> 
+                    </ul>
                     <?php echo Html::anchor(__('Delete', 'snippets'),
                               'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
