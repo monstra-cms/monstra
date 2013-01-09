@@ -39,7 +39,7 @@ class BackupAdmin extends Backend
 
                 $zip->archive($backups_path . DS . Date::format(time(), "Y-m-d-H-i-s").'.zip');
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Delete backup
@@ -51,7 +51,7 @@ class BackupAdmin extends Backend
                 File::delete($backups_path . DS . Request::get('delete_file'));
                 Request::redirect(Option::get('siteurl').'admin/index.php?id=backup');
 
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Download backup
@@ -59,7 +59,7 @@ class BackupAdmin extends Backend
         if (Request::get('download')) {
             if (Security::check(Request::get('token'))) {
                 File::download($backups_path . DS . Request::get('download'));
-            } else { die('csrf detected!'); }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Get backup list
