@@ -48,6 +48,7 @@ class I18n
         'sk' => 'Slovenčina',
         'sl' => 'Slovenščina',
         'sv' => 'Svenska',
+        'sr-yu' => 'Serbian',
         'tr' => 'Türkçe',
         'uk' => 'Українська',
         'zh' => '中文',
