@@ -58,6 +58,10 @@ class ClassLoader
 
     /**
      * Add class to mapping.
+     * 
+     *  <code>
+     *      ClassLoader::mapClass('ClassName', 'path/to/class');
+     *  </code>
      *
      * @access  public
      * @param string $className Class name
@@ -70,6 +74,10 @@ class ClassLoader
 
     /**
      * Add multiple classes to mapping.
+     * 
+     *  <code>
+     *      ClassLoader::mapClasses(array('ClassName' => 'path/to/class','ClassName' => 'path/to/class'));
+     *  </code>
      *
      * @access  public
      * @param array $classes Array of classes to map (key = class name and value = class path)
@@ -83,6 +91,10 @@ class ClassLoader
 
     /**
      * Adds a PSR-0 directory path.
+     * 
+     *  <code>
+     *      ClassLoader::directory('path/to/classes');
+     *  </code>
      *
      * @access  public
      * @param string $path Path to PSR-0 directory
@@ -94,6 +106,10 @@ class ClassLoader
 
     /**
      * Registers a namespace.
+     * 
+     *  <code>
+     *      ClassLoader::registerNamespace('Namespace', '/path/to/namespace/');
+     *  </code>
      *
      * @access  public
      * @param string $namespace Namespace
@@ -106,6 +122,10 @@ class ClassLoader
 
     /**
      * Set an alias for a class.
+     * 
+     *  <code>
+     *      ClassLoader::registerNamespace('ClassNameAlias', 'ClassName');
+     *  </code>
      *
      * @access  public
      * @param string $alias     Class alias
@@ -151,6 +171,10 @@ class ClassLoader
 
     /**
      * Autoloader.
+     * 
+     *  <code>
+     *      ClassLoader::load();
+     *  </code>
      *
      * @access  public
      * @param  string  $className Class name
