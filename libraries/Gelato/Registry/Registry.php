@@ -27,17 +27,27 @@ class Registry
 
     /**
      * Checks if an object with this name is in the registry.
+     * 
+     *  <code>
+     *      if (Registry::exists('var')) {
+     *          // Do something...
+     *      }
+     *  </code>
      *
      * @return bool
      * @param  string $name The name of the registry item to check for existence.
      */
     public static function exists($name)
     {
-        return isset(Gelato::$registry[(string) $name]);
+        return isset(Registry::$registry[(string) $name]);
     }
 
     /**
      * Registers a given value under a given name.
+     * 
+     *  <code>
+     *      Registry::set('var', 'value');
+     *  </code>
      *
      * @param string          $name  The name of the value to store.
      * @param mixed[optional] $value The value that needs to be stored.
@@ -49,16 +59,20 @@ class Registry
 
         // delete item
         if ($value === null) {
-            unset(Gelato::$registry[$name]);
+            unset(Registry::$registry[$name]);
         } else {
-            Gelato::$registry[$name] = $value;
+            Registry::$registry[$name] = $value;
 
-            return Gelato::get($name);
+            return Registry::get($name);
         }
     }
 
     /**
      * Fetch an item from the registry.
+     * 
+     *  <code>
+     *      $var = Registry::get('var', 'value');
+     *  </code>
      *
      * @return mixed
      * @param  string $name The name of the item to fetch.
@@ -67,11 +81,11 @@ class Registry
     {
         $name = (string) $name;
 
-        if ( ! isset(Gelato::$registry[$name])) {
+        if ( ! isset(Registry::$registry[$name])) {
             throw new RuntimeException('No item "' . $name . '" exists in the registry.');
         }
 
-        return Gelato::$registry[$name];
+        return Registry::$registry[$name];
     }
 
 }
