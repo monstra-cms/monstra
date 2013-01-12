@@ -14,7 +14,7 @@
     $system_timezone = date_default_timezone_get();
 
     // Load bootstrap file
-    require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
+    require_once(ROOT . DS . 'engine' . DS . '_init.php');
 
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
@@ -444,7 +444,7 @@
             </div>
             <div class="install-block-footer">
                 <div style="text-align:center">
-                    <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Core::VERSION; ?></span>
+                    <span class="small-grey-text">© 2012 - 2013 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
                 </div>
             </div>
     </body>
