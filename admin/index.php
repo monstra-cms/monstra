@@ -21,7 +21,7 @@ define('ROOT', rtrim(str_replace(array('admin'), array(''), dirname(__FILE__)), 
 define('BACKEND', true);
 define('MONSTRA_ACCESS', true);
 
-// Load bootstrap file
+// Load Monstra engine _init.php file
 require_once ROOT. DS .'engine'. DS .'_init.php';
 
 // Errors var when users login failed
@@ -33,7 +33,7 @@ $users = new Table('users');
 // Admin login
 if (Request::post('login_submit')) {
 
-    $user  = $users->select("[login='" . trim(Request::post('login')) . "']", null);
+    $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
     if (count($user) !== 0) {
         if ($user['login'] == Request::post('login')) {
             if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
