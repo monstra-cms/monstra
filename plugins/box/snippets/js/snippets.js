@@ -1,18 +1,52 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+var Snippents = Snippents || (function($) {
 
-$.monstra.snippets = {
+    var Events  = {}, // Event-based Actions      
+        App     = {}, // Global Logic and Initializer
+        Public  = {}; // Public Functions
 
-    init: function() { },
+    Events = {
+        endpoints: {
+            viewEmbedCode: function(){
+                var name = $(this).attr("data-value");
+                $('#shortcode').html('{snippet get="'+name+'"}');
+                $('#phpcode').html('&lt;?php echo Snippet::get("'+name+'"); ?&gt;');
+                $('#embedCodes').modal();
+            }
+        },
+        bindEvents: function(){            
+            $('[data-event]').each(function(){
+                var $this = $(this),
+                    method = $this.attr('data-method') || 'click',
+                    name = $this.attr('data-event'),
+                    bound = $this.attr('data-bound')=='true';
 
-    showEmbedCodes: function(name) {
-        $('#shortcode').html('{snippet get="'+name+'"}');
-        $('#phpcode').html('&lt;?php echo Snippet::get("'+name+'"); ?&gt;');
-        $('#embedCodes').modal();
-    }
+                if(typeof Events.endpoints[name] != 'undefined'){
+                    if(!bound){
+                        $this.attr('data-bound', 'true');
+                        $this.on(method, Events.endpoints[name]);
+                    }
+                }
+            });            
+        },
+        init: function(){
+            Events.bindEvents();
+        }
+    };
+    
+    App = {
+        logic: {},
+        init: function() {            
+            Utils.settings.init();
+            Events.init();             
+        }
+    };
+    
+    Public = {
+        init: App.init  
+    };
 
-};
+    return Public;
 
+})(window.jQuery);
 
-$(document).ready(function(){
-    $.monstra.snippets.init();
-});
+jQuery(document).ready(Snippents.init);
