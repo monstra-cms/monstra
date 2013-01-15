@@ -177,12 +177,7 @@ class Monstra
          * Auto cleanup if MONSTRA_DEBUG is TRUE
          */
         if (Monstra::$environment == Monstra::DEVELOPMENT) {
-
-            // Cleanup minify
-            if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
-
-            // Cleanup cache
-            if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);
+            Monstra::cleanTmp();
         }
 
         /**
@@ -291,6 +286,18 @@ class Monstra
             throw new RuntimeException("The pluggable shortcodes.php file does not exist.");
         }
 
+    }
+    
+    /**
+     * Clean Monstra TMP folder.
+     */
+    public static function cleanTmp() 
+    {        
+        // Cleanup minify
+        if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
+    
+        // Cleanup cache
+        if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);        
     }
 
     /**
