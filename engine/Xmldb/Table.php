@@ -853,7 +853,7 @@ class Table
      */
     protected static function _save($table)
     {
-        $dom = new DOMDocument('1.0');
+        $dom = new DOMDocument('1.0', 'utf-8');
         $dom->preserveWhiteSpace = false;
 
         // Save new xml data to xml file only if loadXML successful.
