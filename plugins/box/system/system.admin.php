@@ -84,25 +84,14 @@ class SystemAdmin extends Backend
 
                 if (Security::check(Request::get('token'))) {
 
-                    $namespaces = Dir::scan(CACHE);
-                    if (count($namespaces) > 0) {
-                        foreach ($namespaces as $namespace) {
-                            Dir::delete(CACHE . DS . $namespace);
-                        }
-                    }
-
-                    $files = File::scan(MINIFY, array('css','js','php'));
-                    if (count($files) > 0) {
-                        foreach ($files as $file) {
-                            File::delete(MINIFY . DS . $file);
-                        }
-                    }
+                    Monstra::cleanTmp();
 
                     if (count(File::scan(MINIFY, array('css', 'js', 'php'))) == 0 && count(Dir::scan(CACHE)) == 0) {
                         Notification::set('success', __('Temporary files deleted', 'system'));
                         Request::redirect('index.php?id=system');
                     }
-                }
+                    
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
             }
 
             // Set maintenance state on or off
@@ -121,7 +110,7 @@ class SystemAdmin extends Backend
                         Request::redirect('index.php?id=system');
                     }
 
-                }
+                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
             }
 
             // Edit settings
