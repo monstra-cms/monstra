@@ -36,7 +36,6 @@ var Snippents = Snippents || (function($) {
     App = {
         logic: {},
         init: function() {            
-            Utils.settings.init();
             Events.init();             
         }
     };
