@@ -113,7 +113,7 @@ class Monstra
          * Set Gelato Display Errors to False for Production environment.
          */
         if (Monstra::$environment == Monstra::PRODUCTION) {
-            define('GELATO_DISPLAY_ERRORS', false);
+            define('GELATO_DISPLAY_DEVELOPMENT', false);
         }
 
         /**
