@@ -22,14 +22,14 @@ class Cache
      *
      * @var string
      */
-    public static $cache_dir = '';
+    protected static $cache_dir = '';
 
     /**
      * Cache file ext
      *
      * @var string
      */
-    public static $cache_file_ext = 'txt';
+    protected static $cache_file_ext = 'txt';
 
     /**
      * Cache life time (in seconds)
