@@ -90,7 +90,7 @@ class SystemAdmin extends Backend
                         Notification::set('success', __('Temporary files deleted', 'system'));
                         Request::redirect('index.php?id=system');
                     }
-                    
+
                 } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
             }
 

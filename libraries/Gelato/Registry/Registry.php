@@ -27,7 +27,7 @@ class Registry
 
     /**
      * Checks if an object with this name is in the registry.
-     * 
+     *
      *  <code>
      *      if (Registry::exists('var')) {
      *          // Do something...
@@ -44,7 +44,7 @@ class Registry
 
     /**
      * Registers a given value under a given name.
-     * 
+     *
      *  <code>
      *      Registry::set('var', 'value');
      *  </code>
@@ -69,7 +69,7 @@ class Registry
 
     /**
      * Fetch an item from the registry.
-     * 
+     *
      *  <code>
      *      $var = Registry::get('var', 'value');
      *  </code>

@@ -287,17 +287,17 @@ class Monstra
         }
 
     }
-    
+
     /**
      * Clean Monstra TMP folder.
      */
-    public static function cleanTmp() 
-    {        
+    public static function cleanTmp()
+    {
         // Cleanup minify
         if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
-    
+
         // Cleanup cache
-        if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);        
+        if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);
     }
 
     /**
