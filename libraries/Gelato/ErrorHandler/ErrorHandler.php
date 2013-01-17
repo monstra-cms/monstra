@@ -84,7 +84,31 @@ class ErrorHandler
     {
         // If isset error_reporting and $code then throw new error exception
         if ((error_reporting() & $code) !== 0) {
-            throw new ErrorException($message, $code, 0, $file, $line);
+
+            /**
+             * Dont thow NOTICE exception for PRODUCTION Environment. Just write to log.
+             */
+            if (GELATO_DISPLAY_DEVELOPMENT == false && $code == 8) {
+
+                // Get exception info
+                $error['code']    = $code;
+                $error['message'] = $message;
+                $error['file']    = $file;
+                $error['line']    = $line;
+                $error['type']    = 'ErrorException: ';
+
+                $codes = array (
+                    E_USER_NOTICE       => 'Notice',
+                );
+
+                $error['type'] .= in_array($error['code'], array_keys($codes)) ? $codes[$error['code']] : 'Unknown Error';
+
+                // Write to log
+                Log::write("{$error['type']}: {$error['message']} in {$error['file']} at line {$error['line']}");
+
+            } else {
+                throw new ErrorException($message, $code, 0, $file, $line);
+            }
         }
 
         // Don't execute PHP internal error handler
@@ -210,24 +234,21 @@ class ErrorHandler
     public static function exception($exception)
     {
         try {
-            // Empty output buffers
 
+            // Empty output buffers
             while(ob_get_level() > 0) ob_end_clean();
 
             // Get exception info
-
             $error['code']    = $exception->getCode();
             $error['message'] = $exception->getMessage();
             $error['file']    = $exception->getFile();
             $error['line']    = $exception->getLine();
 
             // Determine error type
-
             if ($exception instanceof ErrorException) {
                 $error['type'] = 'ErrorException: ';
 
-                $codes = array
-                (
+                $codes = array (
                     E_ERROR             => 'Fatal Error',
                     E_PARSE             => 'Parse Error',
                     E_COMPILE_ERROR     => 'Compile Error',
@@ -254,7 +275,8 @@ class ErrorHandler
             // Send headers and output
             @header('Content-Type: text/html; charset=UTF-8');
 
-            if (GELATO_DISPLAY_ERRORS) {
+            if (GELATO_DISPLAY_DEVELOPMENT) {
+
                 $error['backtrace'] = $exception->getTrace();
 
                 if ($exception instanceof ErrorException) {
@@ -266,11 +288,17 @@ class ErrorHandler
 
                 Response::status(500);
                 include 'Resources/Views/Errors/exception.php';
+
             } else {
+
                 Response::status(500);
                 include 'Resources/Views/Errors/production.php';
+
             }
+
         } catch (Exception $e) {
+
+            // Empty output buffers
             while(ob_get_level() > 0) ob_end_clean();
 
             echo $e->getMessage() . ' in ' . $e->getFile() . ' (line ' . $e->getLine() . ').';

@@ -23,8 +23,8 @@ define('GELATO_VERSION', '1.0.0');
 /**
  * Display Gelato Errors or not ?
  */
-if ( ! defined('GELATO_DISPLAY_ERRORS')) {
-    define('GELATO_DISPLAY_ERRORS', true);
+if ( ! defined('GELATO_DISPLAY_DEVELOPMENT')) {
+    define('GELATO_DISPLAY_DEVELOPMENT', true);
 }
 
 /**
