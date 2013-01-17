@@ -248,11 +248,8 @@ class ErrorHandler
                 $error['type'] = get_class($exception);
             }
 
-            // @todo Write to error log
-
-            /*if () {
-                Write here
-            }*/
+            // Write to log
+            Log::write("{$error['type']}: {$error['message']} in {$error['file']} at line {$error['line']}");
 
             // Send headers and output
             @header('Content-Type: text/html; charset=UTF-8');

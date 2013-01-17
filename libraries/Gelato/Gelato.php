@@ -28,10 +28,22 @@ if ( ! defined('GELATO_DISPLAY_ERRORS')) {
 }
 
 /**
- * Display Gelato Autoloader or not ?
+ * Use Gelato Autoloader or not ?
  */
 if ( ! defined('GELATO_AUTOLOADER')) {
     define('GELATO_AUTOLOADER', true);
+}
+
+/**
+ * Load Gelato Logger
+ */
+require_once __DIR__ . '/Log/Log.php';
+
+/**
+ * Use Gelato Logger default path or not ?
+ */
+if ( ! defined('GELATO_LOGGER')) {
+    Log::configure('path', __DIR__. '/_logs');
 }
 
 /**
