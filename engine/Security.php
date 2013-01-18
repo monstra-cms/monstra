@@ -22,7 +22,7 @@ class Security
      *
      * @var  string
      */
-    public static $token_name = 'security_token';
+    protected static $token_name = 'security_token';
 
     /**
      * Protected constructor since this is a static class.
