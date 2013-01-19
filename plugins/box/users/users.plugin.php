@@ -140,14 +140,19 @@ class Users extends Frontend
                             Session::set('user_login', (string) $user['login']);
                             Session::set('user_role', (string) $user['role']);
 
-                            // Message
-                            $message = View::factory('box/users/views/frontend/registration_email')
+                            $mail = new PHPMailer();
+                            $mail->CharSet = 'utf-8';
+                            $mail->ContentType = 'text/html';
+                            $mail->SetFrom(Option::get('system_email'));
+                            $mail->AddReplyTo(Option::get('system_email'));
+                            $mail->AddAddress($user['email'], $user['login']);
+                            $mail->Subject = Option::get('sitename');
+                            $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
                                 ->assign('site_name', Option::get('sitename'))
                                 ->assign('user_login', $user['login'])
-                                ->render();
-
-                            // Send
-                            @mail($user['email'], Option::get('sitename'), $message);
+                                ->assign('view', 'new_user_email')
+                                ->render());
+                            $mail->Send();
 
                             // Redirect to user profile
                             Request::redirect(Option::get('siteurl').'users/'.Users::$users->lastId());
@@ -281,17 +286,23 @@ class Users extends Frontend
                     // Set new hash and new password
                     Users::$users->updateWhere("[login='" . $user['login'] . "']", array('hash' => Text::random('alnum', 12), 'password' => Security::encryptPassword($new_password)));
 
-                    // Message
-                    $message = View::factory('box/users/views/frontend/new_password_email')
+                    $mail = new PHPMailer();
+                    $mail->CharSet = 'utf-8';
+                    $mail->ContentType = 'text/html';
+                    $mail->SetFrom(Option::get('system_email'));
+                    $mail->AddReplyTo(Option::get('system_email'));
+                    $mail->AddAddress($user['email'], $user['login']);
+                    $mail->Subject = __('Your new password for :site_name', 'users', array(':site_name' => $site_name));
+                    $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
                         ->assign('site_url', $site_url)
                         ->assign('site_name', $site_name)
                         ->assign('user_id', $user['id'])
                         ->assign('user_login', $user['login'])
                         ->assign('new_password', $new_password)
-                        ->render();
+                        ->assign('view', 'new_password_email')
+                        ->render());
+                    $mail->Send();
 
-                    // Send
-                    @mail($user['email'], __('Your new password for :site_name', 'users', array(':site_name' => $site_name)), $message);
 
                     // Set notification
                     Notification::set('success', __('New password has been sent', 'users'));
@@ -325,17 +336,22 @@ class Users extends Frontend
                         // Update user hash
                         Users::$users->updateWhere("[login='" . $user_login . "']", array('hash' => $new_hash));
 
-                        // Message
-                        $message = View::factory('box/users/views/frontend/reset_password_email')
+                        $mail = new PHPMailer();
+                        $mail->CharSet = 'utf-8';
+                        $mail->ContentType = 'text/html';
+                        $mail->SetFrom(Option::get('system_email'));
+                        $mail->AddReplyTo(Option::get('system_email'));
+                        $mail->AddAddress($user['email'], $user['login']);
+                        $mail->Subject = __('Your login details for :site_name', 'users', array(':site_name' => $site_name));
+                        $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
                             ->assign('site_url', $site_url)
                             ->assign('site_name', $site_name)
                             ->assign('user_id', $user['id'])
                             ->assign('user_login', $user['login'])
                             ->assign('new_hash', $new_hash)
-                            ->render();
-
-                        // Send
-                        @mail($user['email'], __('Your login details for :site_name', 'users', array(':site_name' => $site_name)), $message);
+                            ->assign('view', 'reset_password_email')
+                            ->render());
+                        $mail->Send();
 
                         // Set notification
                         Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
