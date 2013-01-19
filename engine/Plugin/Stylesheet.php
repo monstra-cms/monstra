@@ -96,7 +96,7 @@ class Stylesheet
                         }
                     }
                     $backend_buffer = Stylesheet::parseVariables($backend_buffer);
-                    file_put_contents($backend_site_css_path, Minify::css($backend_buffer));
+                    file_put_contents($backend_site_css_path, MinifyCSS::process($backend_buffer));
                     $backend_regenerate = false;
                 }
 
@@ -120,7 +120,7 @@ class Stylesheet
                         }
                     }
                     $frontend_buffer = Stylesheet::parseVariables($frontend_buffer);
-                    file_put_contents($frontend_site_css_path, Minify::css($frontend_buffer));
+                    file_put_contents($frontend_site_css_path, MinifyCSS::process($frontend_buffer));
                     $frontend_regenerate = false;
                 }
 

@@ -176,7 +176,7 @@ class Site
             if ( ! file_exists(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $template . '.template.php') or
                 filemtime(THEMES_SITE . DS . $current_theme . DS . $template .'.template.php') > filemtime(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $template . '.template.php')) {
                     $buffer = file_get_contents(THEMES_SITE. DS . $current_theme . DS . $template .'.template.php');
-                    $buffer = Minify::html($buffer);
+                    $buffer = MinifyHTML::process($buffer);
                     file_put_contents(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $template . '.template.php', $buffer);
             }
 
@@ -185,7 +185,7 @@ class Site
             if ( ! File::exists(MINIFY . DS . 'theme.' . $current_theme . '.' . 'minify.index.template.php') or
                 filemtime(THEMES_SITE . DS . $current_theme . DS . 'index.template.php') > filemtime(MINIFY . DS . 'theme.' . $current_theme . '.' . 'minify.index.template.php')) {
                     $buffer = file_get_contents(THEMES_SITE . DS . $current_theme . DS . 'index.template.php');
-                    $buffer = Minify::html($buffer);
+                    $buffer = MinifyHTML::process($buffer);
                     file_put_contents(MINIFY . DS . 'theme.' . $current_theme . '.' . 'minify.index.template.php', $buffer);
             }
 
