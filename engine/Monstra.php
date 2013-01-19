@@ -39,7 +39,7 @@ class Monstra
     /**
      * The version of Monstra
      */
-    const VERSION = '2.1.3';
+    const VERSION = '2.2.0 DEV';
 
     /**
      * Monstra environment
@@ -157,6 +157,9 @@ class Monstra
 
             // Idiorm
             'ORM'       => ROOT . DS .'libraries'. DS . 'Idiorm'. DS .'ORM.php',
+
+            // PHPMailer
+            'PHPMailer' => ROOT . DS .'libraries'. DS . 'PHPMailer'. DS .'PHPMailer.php',
         ));
 
         /**
