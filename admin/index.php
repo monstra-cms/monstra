@@ -79,17 +79,22 @@ if (Request::post('reset_password_submit')) {
         // Update user hash
         $users->updateWhere("[login='" . $user_login . "']", array('hash' => $new_hash));
 
-        // Message
-        $message = View::factory('box/users/views/frontend/reset_password_email')
+        $mail = new PHPMailer();
+        $mail->CharSet = 'utf-8';
+        $mail->ContentType = 'text/html';
+        $mail->SetFrom(Option::get('system_email'));
+        $mail->AddReplyTo(Option::get('system_email'));
+        $mail->AddAddress($user['email'], $user['login']);
+        $mail->Subject = __('Your login details for :site_name', 'users', array(':site_name' => $site_name));
+        $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
             ->assign('site_url', $site_url)
             ->assign('site_name', $site_name)
             ->assign('user_id', $user['id'])
             ->assign('user_login', $user['login'])
             ->assign('new_hash', $new_hash)
-            ->render();
-
-        // Send
-        @mail($user['email'], __('Your login details for :site_name', 'users', array(':site_name' => $site_name)), $message);
+            ->assign('view', 'reset_password_email')
+            ->render());
+        $mail->Send();
 
         // Set notification
         Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
