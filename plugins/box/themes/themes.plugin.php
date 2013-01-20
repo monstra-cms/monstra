@@ -179,7 +179,7 @@ class Chunk
             if ( ! file_exists(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php') or
                 filemtime(THEMES_SITE . DS . $current_theme . DS . $name .'.chunk.php') > filemtime(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php')) {
                     file_put_contents(MINIFY . DS . 'theme.' . $current_theme . '.minify.' . $name . '.chunk.php',
-                                      Minify::html(file_get_contents(THEMES_SITE. DS . $current_theme . DS . $name .'.chunk.php')));
+                                      MinifyHTML::process(file_get_contents(THEMES_SITE. DS . $current_theme . DS . $name .'.chunk.php')));
             }
 
             // Include chunk

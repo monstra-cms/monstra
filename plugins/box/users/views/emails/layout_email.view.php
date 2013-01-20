@@ -48,7 +48,7 @@
            Remember: Hotmail does not support "margin" nor the "margin-top" properties.
            Stick to "margin-bottom", "margin-left", "margin-right" in order to control spacing.
            It also wise to set the inline top-margin to "0" for consistancy in Gmail for every inline instance
-           of a paragraph tag. */   
+           of a paragraph tag. */
         p {margin:0; padding:0; margin-bottom:0;}
 
         /* This CSS will overwrite Hotmails default CSS and make your headings appear consistant with Gmail.
@@ -87,10 +87,9 @@
         a[href^="tel"], a[href^="sms"] {text-decoration:none; color:#333333; pointer-events:none; cursor:default;}
         .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {text-decoration:default; color:#6e5c4f !important; pointer-events:auto; cursor:default;}
 
-
         /****** MEDIA QUERIES ********/
-        /* You must use attribute selectors in your media queries to prevent Yahoo from rendering these styles. 
-           We added a yahoo attribute in the body tag to complete this fix. 
+        /* You must use attribute selectors in your media queries to prevent Yahoo from rendering these styles.
+           We added a yahoo attribute in the body tag to complete this fix.
            More info: http://www.emailonacid.com/blog/details/C13/stop_yahoo_mail_from_rendering_your_media_queries */
 
         /* Target mobile devices. */
@@ -123,9 +122,7 @@
 
         }
 
-
         /*** END EDITABLE STYLES ***/
-
 
         /****** TEMPORARY - THESE SHOULD BE MOVED INLINE AT END OF YOUR DEVELOPMENT PROCESS ********/
 
@@ -141,9 +138,7 @@
         /*** END TEMPORARY ***/
     </style>
 
-
 </head>
-
 
 <body style="width:100% !important; color:#333333; background:#FBFBFB; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.4;"
 alink="#9d470a" link="#9d470a" bgcolor="#FBFBFB" text="#333333" yahoo="fix">
@@ -153,15 +148,15 @@ We've included the style attribute for Gmail because it does not support embedde
 a div. Since it gets converted to a div, the other body attributes like bgcolor are ignored.
 
 We included body attributes (alink, link, bgcolor and text) for Lotus Notes 6.5 and 7, as these clients do not offer much
-support for embedded nor inline CSS. 
+support for embedded nor inline CSS.
 
 The "min-height" attribute is set for Gmail and AOL since they will be converting this body tag to a div and we want our
-background color to reach the bottom of the page. 
+background color to reach the bottom of the page.
 
 The yahoo attribute is added if you are using media queries for mobile devices (see media queries above) -->
 
 <!-- PAGE WRAPPER -->
-    
+
     <div id="body_style">
 
         <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->

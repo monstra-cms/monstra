@@ -303,7 +303,6 @@ class Users extends Frontend
                         ->render());
                     $mail->Send();
 
-
                     // Set notification
                     Notification::set('success', __('New password has been sent', 'users'));
 
