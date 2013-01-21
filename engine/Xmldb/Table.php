@@ -546,7 +546,7 @@ class Table
                         if ($order_by == 'id') {
                             $records[$count]['sort'] = (int) $vars['id'];
                         } else {
-                            $records[$count]['sort'] = (string) $value;
+                            $records[$count]['sort'] = (string)$vars[$order_by];
                         }
                     }
 
