@@ -137,14 +137,11 @@ class Uri
         // param1/param2
         if ($uri[0] !== Uri::$default_component) {
             if (isset($uri[1])) {
-                $data[0] = $uri[0];
-                $data[1] = $uri[1];
-                // Some more uri parts :)
-                // site.ru/part1/part2/part3/part4/part5/part6/
-                if (isset($uri[2])) $data[2] = $uri[2];
-                if (isset($uri[3])) $data[3] = $uri[3];
-                if (isset($uri[4])) $data[4] = $uri[4];
-                if (isset($uri[5])) $data[5] = $uri[5];
+
+                foreach ($uri as $part) {
+                    $data[] = $part;
+                }
+
             } else { // default
                 $data[0] = $uri[0];
             }
