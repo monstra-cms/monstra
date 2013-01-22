@@ -244,7 +244,7 @@
         ?>
 
             <div class="install-languages">
-                <?php foreach ($languages_array as $lang_code) {?>
+                <?php foreach ($languages_array as $lang_code) { ?>
                 <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><?php echo $lang_code?></a>
                 <?php } ?>
             </div>
@@ -443,7 +443,7 @@
                 </div>
             </div>
             <div class="install-block-footer">
-                <div style="text-align:center">
+                <div style="text-align:center;">
                     <span class="small-grey-text">© 2012 - 2013 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
                 </div>
             </div>
