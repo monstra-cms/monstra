@@ -1,3 +1,23 @@
+Monstra 2.2.0, xxxx-xx-xx
+------------------------
+- Mobile Ready!
+- New Monstra Library (Gelato)
+- Adopted PSR-0 PSR-1 PSR-2
+- Localization: Serbian(sr-yu), Slovakian(sk) translations added. Thanks to Neri and Mapadesign.
+- Default Theme: Social Meta Tags - added.
+- Default Theme: Hook "theme_meta" - added.
+- Admin Default Theme: Added missing meta tags.
+- PHPMailer added.
+- Intstaller Layout: Added missing meta tags.
+- Filesmanager plugin: added ability to view images.
+- Filesmanager Plugin: forbidden types array - updated.
+- CSRF detection text - updated.
+- Engine Uri: code improvements.
+- XMLDB: Table Class - fixed select method. Thanks to DmitriyMX
+- Bootstrap CSS: Icons url - fixed.
+- Plugins Manager: buttons confirm dialog message - fixed.
+
+
 Monstra 2.1.3, 2012-12-09
 ------------------------
 - Pages Plugin: New shortcodes added - page_author, page_slug, page_url page_available, page_breadcrumbs, page_date, page_content.
