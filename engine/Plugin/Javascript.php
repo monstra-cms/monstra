@@ -95,7 +95,7 @@ class Javascript
                             $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
                         }
                     }
-                    file_put_contents($backend_site_js_path, MinifyJS::process($backend_buffer));
+                    file_put_contents($backend_site_js_path, $backend_buffer);
                     $backend_regenerate = false;
                 }
 
@@ -118,7 +118,7 @@ class Javascript
                             $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
                         }
                     }
-                    file_put_contents($frontend_site_js_path, MinifyJS::process($frontend_buffer));
+                    file_put_contents($frontend_site_js_path, $frontend_buffer);
                     $frontend_regenerate = false;
                 }
 
