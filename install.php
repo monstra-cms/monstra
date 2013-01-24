@@ -123,11 +123,9 @@
             }
 
             .install-languages {
-                margin: 0 auto;
-                float: none!important;
-                margin-bottom:5px;
-                padding-right:20px;
-                max-width: 300px;
+                margin: 0 auto 15px;
+                text-align: center;
+                width: 300px;
             }
 
             .install-block {
@@ -169,26 +167,54 @@
                 color: #F74C18;
             }
 
-            .language-link {
-                color:#7A7A7C;
+            .install-languages a {
+                padding-left: 5px;
+                padding-right: 5px; 
             }
 
-            .language-link+.language-link:before {
-                color: #ccc;
-                content: ' | ';
+            .language-link img {
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                -moz-opacity:0.3;
+                -khtml-opacity: 0.3;
+                opacity: 0.3;
             }
 
-            .language-link:hover {
-                color:#000;
-                text-decoration: none;
+            .language-link-current img{
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                filter: alpha(opacity=100);
+                -moz-opacity:1.0;
+                -khtml-opacity: 1.0;
+                opacity: 1.0;
             }
 
-            .language-link-current {
-                color:#000;
-                font-weight: 700;
+            .install-languages a img:hover {
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                filter: alpha(opacity=100);
+                -moz-opacity:1.0;
+                -khtml-opacity: 1.0;
+                opacity: 1.0;
             }
+
+            @media (max-width: 480px) {
+
+                .input-xlarge {
+                    width: 100%;
+                }
+
+                .install-languages {
+                    text-align: left;
+                }
+
+                .install-languages a {
+                    padding: 0;
+                }
+
+            }
+
        </style>
-
+       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/jquery.js"></script>
+       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/bootstrap.js"></script>
     </head>
     <body class="install-body">
 
@@ -245,7 +271,7 @@
 
             <div class="install-languages">
                 <?php foreach ($languages_array as $lang_code) { ?>
-                <a class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><?php echo $lang_code?></a>
+                <a data-placement="top" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
                 <?php } ?>
             </div>
             <div class="install-block">
@@ -447,5 +473,9 @@
                     <span class="small-grey-text">© 2012 - 2013 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
                 </div>
             </div>
+
+       <script type="text/javascript">
+            $('.language-link').tooltip();
+       </script>
     </body>
 </html>
