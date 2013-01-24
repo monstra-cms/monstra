@@ -68,7 +68,7 @@ class Plugin
         $plugins = new Table('plugins');
 
         // Select all plugins
-        $records = $plugins->select(null, 'all', null, array('location', 'frontend', 'backend', 'status', 'priority'), 'priority', 'ASC');
+        $records = $plugins->select(null, 'all', null, array('location', 'status', 'priority'), 'priority', 'ASC');
 
         // Now include plugins from $records plugins array
         // If plugin is active then load it to the system.
