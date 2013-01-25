@@ -42,7 +42,7 @@ class PluginsAdmin extends Backend
                     if (File::exists(PLUGINS . DS . $plugin_name . DS .'install' . DS . $plugin_name . '.uninstall.php')) {
                         include PLUGINS . DS . $plugin_name . DS . 'install' . DS . $plugin_name . '.uninstall.php';
                     }
-                
+
                     // Clean Monstra TMP folder.
                     Monstra::cleanTmp();
 
