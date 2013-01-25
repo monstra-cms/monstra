@@ -23,8 +23,8 @@ define('GELATO_VERSION', '1.0.0');
 /**
  * Display Gelato Errors or not ?
  */
-if ( ! defined('GELATO_DISPLAY_DEVELOPMENT')) {
-    define('GELATO_DISPLAY_DEVELOPMENT', true);
+if ( ! defined('GELATO_DEVELOPMENT')) {
+    define('GELATO_DEVELOPMENT', true);
 }
 
 /**
@@ -42,9 +42,14 @@ require_once __DIR__ . '/Log/Log.php';
 /**
  * Use Gelato Logger default path or not ?
  */
-if ( ! defined('GELATO_LOGGER')) {
-    Log::configure('path', __DIR__. '/_logs');
+if ( ! defined('GELATO_LOGS_PATH')) {
+    define('GELATO_LOGS_PATH', __DIR__. '/_logs');
 }
+
+/**
+ * Configure Gelato Logger
+ */
+Log::configure('path', GELATO_LOGS_PATH);
 
 /**
  * Load Gelato Error Handler

@@ -88,7 +88,7 @@ class ErrorHandler
             /**
              * Dont thow NOTICE exception for PRODUCTION Environment. Just write to log.
              */
-            if (GELATO_DISPLAY_DEVELOPMENT == false && $code == 8) {
+            if (GELATO_DEVELOPMENT == false && $code == 8) {
 
                 // Get exception info
                 $error['code']    = $code;
@@ -275,7 +275,7 @@ class ErrorHandler
             // Send headers and output
             @header('Content-Type: text/html; charset=UTF-8');
 
-            if (GELATO_DISPLAY_DEVELOPMENT) {
+            if (GELATO_DEVELOPMENT) {
 
                 $error['backtrace'] = $exception->getTrace();
 

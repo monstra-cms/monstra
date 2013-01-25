@@ -81,7 +81,7 @@ class Log
      */
     public static function write($message, $type = Log::ERROR)
     {
-        $file = rtrim(Log::$path, '/') . '/' . Log::$types[$type] . '_' . gmdate('Y_m_d') . '.log';
+        $file = rtrim(Log::$path, '/') . '/' . gmdate('Y_m_d') . '.log';
 
         $message = '[' . gmdate('d-M-Y H:i:s') . '] ' . $message . PHP_EOL;
 

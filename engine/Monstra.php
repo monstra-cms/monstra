@@ -113,8 +113,13 @@ class Monstra
          * Set Gelato Display Errors to False for Production environment.
          */
         if (Monstra::$environment == Monstra::PRODUCTION) {
-            define('GELATO_DISPLAY_DEVELOPMENT', false);
+            define('GELATO_DEVELOPMENT', false);
         }
+
+        /**
+         * Define Monstra Folder for Gelato Logs
+         */
+        define ('GELATO_LOGS_PATH', LOGS);
 
         /**
          * Include Gelato Library
