@@ -13,7 +13,7 @@
             'Edit' => 'Editovať',
             'Actions' => 'Akcie',
             'Delete' => 'Vymazať',
-            'Enter' => 'Vstúpiť',
+            'Log In' => 'Log In',
             'Logout' => 'Odhlásiť',
             'Register new user' => 'Registrácia nového používateľa',
             'New User Registration' => 'Registrácia nového používateľa',

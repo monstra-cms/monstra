@@ -13,7 +13,7 @@
             'Edit' => 'Izmeni',
             'Actions' => 'Akcije',
             'Delete' => 'Obriši',
-            'Enter' => 'Udji',
+            'Log In' => 'Log In',
             'Logout' => 'Izloguj se',
             'Register new user' => 'registruj novog korisnika',
             'New User Registration' => 'registracija novog korisnika',

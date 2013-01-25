@@ -13,7 +13,7 @@
             'Edit' => 'Edit',
             'Actions' => 'Actions',
             'Delete' => 'Delete',
-            'Enter' => 'Enter',
+            'Log In' => 'Log In',
             'Logout' => 'Logout',
             'Register new user' => 'Register new user',
             'New User Registration' => 'New User Registration',

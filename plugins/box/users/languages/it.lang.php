@@ -12,7 +12,7 @@
             'Actions' => 'Azioni',
             'Edit' => 'Modifica',
             'Delete' => 'Cancella',
-            'Enter' => 'Entra',
+            'Log In' => 'Log In',
             'Logout' => 'Esci',
             'New User Registration' => 'Crea un account',
             'Register new user' => 'Crea un account',

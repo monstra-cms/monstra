@@ -13,7 +13,7 @@
             'Edit' => 'Redaguoti',
             'Actions' => 'Veiksmai',
             'Delete' => 'Ištrinti',
-            'Enter' => 'Įeiti',
+            'Log In' => 'Log In',
             'Logout' => 'Atsijungti',
             'Register new user' => 'Užregistruoti naują naudotoją',
             'New User Registration' => 'Naujo naudotojo registracija',
