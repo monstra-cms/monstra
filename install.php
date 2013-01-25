@@ -77,6 +77,7 @@
                                  'slogan'             => __('Site slogan', 'system'),
                                  'defaultpage'        => 'home',
                                  'timezone'           => Request::post('timezone'),
+                                 'system_email'       => Request::post('email'),
                                  'theme_site_name'    => 'default',
                                  'theme_admin_name'   => 'default'));
 
