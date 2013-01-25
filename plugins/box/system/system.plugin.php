@@ -25,7 +25,7 @@ if (Session::exists('user_role') && in_array(Session::get('user_role'), array('a
 
     // Admin top navigation
     Navigation::add(__('Welcome, :username', 'system', array(':username' => Session::get('user_login'))), 'top', 'users&action=edit&user_id='.Session::get('user_id'), 1, Navigation::TOP, false);
-    Navigation::add(__('View site', 'system'), 'top', Option::get('siteurl'), 2, Navigation::TOP, true);
+    Navigation::add(__('View Site', 'system'), 'top', Option::get('siteurl'), 2, Navigation::TOP, true);
     Navigation::add(__('Log Out', 'users'), 'top', '&logout=do', 3, Navigation::TOP, false);
 
     if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {

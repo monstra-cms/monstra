@@ -14,7 +14,7 @@
             'Actions' => 'Akcije',
             'Delete' => 'Obriši',
             'Log In' => 'Log In',
-            'Logout' => 'Izloguj se',
+            'Log Out' => 'Izloguj se',
             'Register New User' => 'Registruj Novog Korisnika',
             'New User Registration' => 'registracija novog korisnika',
             'Delete user: :user' => 'Obriši korisnika: :user',

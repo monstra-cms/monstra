@@ -40,7 +40,7 @@
             'Published' => 'Published',
             'Draft' => 'Draft',
             'Published on' => 'Published on',
-            'Edit 404 Page' => 'Edit 404 page',
+            'Edit 404 Page' => 'Edit 404 Page',
             'Page <i>:page</i> deleted' => 'Page <i>:page</i> deleted',
             'Search Engines Robots' => 'Search Engines Robots',
             'Page' => 'Page',
