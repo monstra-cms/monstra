@@ -15,7 +15,7 @@
             'Delete' => 'Obriši',
             'Log In' => 'Log In',
             'Logout' => 'Izloguj se',
-            'Register new user' => 'registruj novog korisnika',
+            'Register New User' => 'Registruj Novog Korisnika',
             'New User Registration' => 'registracija novog korisnika',
             'Delete user: :user' => 'Obriši korisnika: :user',
             'User <i>:user</i> have been deleted.' => 'Korisnik <i>:user</i> je uklonjen.',

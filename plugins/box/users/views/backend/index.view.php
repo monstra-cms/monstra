@@ -3,7 +3,7 @@
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
-<?php echo Html::anchor(__('Register new user', 'users'), 'index.php?id=users&action=add', array('title' => __('Register new user', 'users'), 'class' => 'btn default btn-small')); ?>
+<?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn default btn-small')); ?>
 
 <div class="pull-right">
 <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
