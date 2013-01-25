@@ -2,7 +2,7 @@
 
     <div class="span6">
 
-        <h2><?php echo __('Site theme', 'themes'); ?></h2>
+        <h2><?php echo __('Site Theme', 'themes'); ?></h2>
         <br />
 
         <!-- Themes_selector -->
@@ -10,7 +10,7 @@
             echo (
                 Form::open().
                 Form::hidden('csrf', Security::token()).
-                Form::label('themes', __('Select theme', 'themes')).
+                Form::label('themes', __('Select Theme', 'themes')).
                 Form::select('themes', $themes_site, $current_site_theme, array('class' => 'input-xlarge')). Html::br().
                 Form::submit('save_site_theme', __('Save', 'themes'), array('class' => 'btn')).
                 Form::close()
@@ -22,7 +22,7 @@
 
     <div class="span6">
 
-        <h2><?php echo __('Admin theme', 'themes'); ?></h2>
+        <h2><?php echo __('Admin Theme', 'themes'); ?></h2>
         <br />
 
         <!-- Themes_selector -->
@@ -30,7 +30,7 @@
             echo (
                 Form::open().
                 Form::hidden('csrf', Security::token()).
-                Form::label('themes', __('Select theme', 'themes')).
+                Form::label('themes', __('Select Theme', 'themes')).
                 Form::select('themes', $themes_admin, $current_admin_theme, array('class' => 'input-xlarge')). Html::br().
                 Form::submit('save_admin_theme', __('Save', 'themes'), array('class' => 'btn')).
                 Form::close()
@@ -50,11 +50,11 @@
 
 <?php
     echo (
-        Html::heading(__('Current site theme', 'themes') . ': '. $current_site_theme, 2). Html::br()
+        Html::heading(__('Current Site Theme', 'themes') . ': '. $current_site_theme, 2). Html::br()
     );
 ?>
 
-<?php echo (Html::anchor(__('Create new template', 'themes'), 'index.php?id=themes&action=add_template', array('title' => __('Create new template'), 'class' => 'btn btn-small')).Html::br(2)); ?>
+<?php echo (Html::anchor(__('Create New Template', 'themes'), 'index.php?id=themes&action=add_template', array('title' => __('Create New Template'), 'class' => 'btn btn-small')).Html::br(2)); ?>
 
 <!-- Templates_list -->
 <table class="table table-bordered">
@@ -89,7 +89,7 @@
 </table>
 <!-- /Templates_list -->
 
-<?php echo (Html::anchor(__('Create new chunk', 'themes'), 'index.php?id=themes&action=add_chunk', array('title' => __('Create new chnuk', 'themes'), 'class' => 'btn btn-small')).Html::br(2)); ?>
+<?php echo (Html::anchor(__('Create New Chunk', 'themes'), 'index.php?id=themes&action=add_chunk', array('title' => __('Create New Chnuk', 'themes'), 'class' => 'btn btn-small')).Html::br(2)); ?>
 
 <!-- Chunks_list -->
 <table class="table table-bordered">
@@ -124,7 +124,7 @@
 </table>
 <!-- /Chunks_list -->
 
-<?php echo (Html::anchor(__('Create new styles', 'themes'), 'index.php?id=themes&action=add_styles', array('title' => __('Create new style', 'themes'), 'class' => 'btn btn-small')).Html::br(2)); ?>
+<?php echo (Html::anchor(__('Create New Styles', 'themes'), 'index.php?id=themes&action=add_styles', array('title' => __('Create New Style', 'themes'), 'class' => 'btn btn-small')).Html::br(2)); ?>
 
 <!-- Styles_list -->
 <table class="table table-bordered">
@@ -159,7 +159,7 @@
 </table>
 <!-- /Styles_list -->
 
-<?php echo (Html::anchor(__('Create new script', 'themes'), 'index.php?id=themes&action=add_script', array('title' => __('Create new script', 'themes'), 'class' => 'btn btn-small')).Html::br(2)); ?>
+<?php echo (Html::anchor(__('Create New Script', 'themes'), 'index.php?id=themes&action=add_script', array('title' => __('Create New Script', 'themes'), 'class' => 'btn btn-small')).Html::br(2)); ?>
 
 <!-- Scripts_list -->
 <table class="table table-bordered">

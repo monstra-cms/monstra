@@ -31,7 +31,7 @@
             'This page already exists' => 'Táto stránka už existuje',
             'Extra' => 'Extra',
             'Save' => 'Uložiť',
-            'Save and exit' => 'Uložiť a ukončiť',
+            'Save and Exit' => 'Uložiť a ukončiť',
             'Your changes to the page <i>:page</i> have been saved.' => 'Vaše zmeny na stránke <i> :page </i> boli uložené.',
             'The page <i>:page</i> cloned.' => 'The page <i>:page</i> cloned.',
             'Status' => 'Status',

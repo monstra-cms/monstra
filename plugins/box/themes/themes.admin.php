@@ -287,7 +287,7 @@ class ThemesAdmin extends Backend
 
                 break;
 
-                // Edit template
+                // Edit Template
                 // -------------------------------------
                 case "edit_template":
 
@@ -343,7 +343,7 @@ class ThemesAdmin extends Backend
 
                 break;
 
-                // Edit styles
+                // Edit Styles
                 // -------------------------------------
                 case "edit_styles":
 
@@ -399,7 +399,7 @@ class ThemesAdmin extends Backend
 
                 break;
 
-                // Edit script
+                // Edit Script
                 // -------------------------------------
                 case "edit_script":
 

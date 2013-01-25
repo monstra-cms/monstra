@@ -1,7 +1,7 @@
-<?php if ($action == 'chunk') { ?><h2><?php echo __('Edit chunk', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'template') { ?><h2><?php echo __('Edit template', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'styles') { ?><h2><?php echo __('Edit styles', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'script') { ?><h2><?php echo __('Edit script', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'chunk') { ?><h2><?php echo __('Edit Chunk', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'template') { ?><h2><?php echo __('Edit Template', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'styles') { ?><h2><?php echo __('Edit Styles', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'script') { ?><h2><?php echo __('Edit Script', 'themes'); ?></h2><?php } ?>
 <br />
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
@@ -48,7 +48,7 @@
     echo (
        Form::textarea('content', Html::toText($content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor')).
        Html::br(2).
-       Form::submit('edit_file_and_exit', __('Save and exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
+       Form::submit('edit_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
        Form::submit('edit_file', __('Save', 'themes'), array('class' => 'btn')). Html::nbsp().
        Form::close()
     );

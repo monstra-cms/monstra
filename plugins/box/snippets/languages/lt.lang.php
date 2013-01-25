@@ -12,7 +12,7 @@
             'New snippet' => 'Naujas fragmentas',
             'Edit snippet' => 'Redaguoti fragmentą',
             'Save' => 'Išsaugoti',
-            'Save and exit' => 'Išsaugoti ir išeiti',
+            'Save and Exit' => 'Išsaugoti ir išeiti',
             'Required field' => 'Privalomas laukas',
             'This snippet already exists' => 'Toks fragmentas jau yra',
             'This snippet does not exist' => 'Tokio fragmento nėra',

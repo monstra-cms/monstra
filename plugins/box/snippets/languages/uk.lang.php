@@ -12,7 +12,7 @@
             'Name' => 'Назва',
             'Edit snippet' => 'Редагування  сніппета',
             'Save' => 'Зберегти',
-            'Save and exit' => 'Зберегти та вийти',
+            'Save and Exit' => 'Зберегти та вийти',
             'This snippet already exists' => 'Такий сніппет вже існує',
             'This snippet does not exist' => 'Такого сніппета не існує',
             'Delete snippet: :block' => 'Видалити сніппет: :snippet',

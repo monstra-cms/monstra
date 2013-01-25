@@ -31,7 +31,7 @@
             'This page already exists' => 'Esta página já existe',
             'Extra' => 'Extra',
             'Save' => 'Salvar',
-            'Save and exit' => 'Salvar e sair',
+            'Save and Exit' => 'Salvar e sair',
             'Your changes to the page <i>:page</i> have been saved.' => 'Suas alterações na página <i>:page</i> foram salvas.',
             'The page <i>:page</i> cloned.' => 'Página <i>:page</i> clonada.',
             'Status' => 'Status',

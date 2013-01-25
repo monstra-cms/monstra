@@ -1,7 +1,7 @@
-<?php if ($action == 'chunk') { ?><h2><?php echo __('New chunk', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'template') { ?><h2><?php echo __('New template', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'styles') { ?><h2><?php echo __('New styles', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'script') { ?><h2><?php echo __('New script', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'chunk') { ?><h2><?php echo __('New Chunk', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'template') { ?><h2><?php echo __('New Template', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'styles') { ?><h2><?php echo __('New Styles', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'script') { ?><h2><?php echo __('New Script', 'themes'); ?></h2><?php } ?>
 <br />
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
@@ -40,7 +40,7 @@
 
     echo (
         Html::br(2).
-        Form::submit('add_file_and_exit', __('Save and exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
+        Form::submit('add_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
         Form::submit('add_file', __('Save', 'themes'), array('class' => 'btn')).
         Form::close()
     );

@@ -12,7 +12,7 @@
             'New snippet' => 'Nový snippet',
             'Edit snippet' => 'Editovať snippet',
             'Save' => 'Uložiť',
-            'Save and exit' => 'Uložiť a ukončiť',
+            'Save and Exit' => 'Uložiť a ukončiť',
             'This snippet already exists' => 'Tento snippet už existuje',
             'This snippet does not exist' => 'Tento snippet neexistuje',
             'Delete snippet: :snippet' => 'Vymazať snippet: :snippet',

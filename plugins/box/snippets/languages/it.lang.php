@@ -12,7 +12,7 @@
             'Name' => 'Nome',
             'Edit snippet' => 'Modifica snippet',
             'Save' => 'Salva',
-            'Save and exit' => 'Salva ed esci',
+            'Save and Exit' => 'Salva ed esci',
             'This snippet already exists' => 'Tale snippet già esistente',
             'This snippet does not exist' => 'Tale snippet non esiste',
             'Delete snippet: :block' => 'Elimina snippet: :snippet',

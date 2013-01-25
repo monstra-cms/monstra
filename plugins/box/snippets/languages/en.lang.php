@@ -12,7 +12,7 @@
             'New snippet' => 'New snippet',
             'Edit snippet' => 'Edit snippet',
             'Save' => 'Save',
-            'Save and exit' => 'Save and exit',
+            'Save and Exit' => 'Save and Exit',
             'This snippet already exists' => 'This snippet already exists',
             'This snippet does not exist' => 'This snippet does not exist',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',

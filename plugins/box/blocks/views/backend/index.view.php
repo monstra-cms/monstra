@@ -5,7 +5,7 @@
 
 <?php
     echo (
-            Html::anchor(__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create new block', 'blocks'), 'class' => 'btn default btn-small')). Html::nbsp(3)
+            Html::anchor(__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create New Block', 'blocks'), 'class' => 'btn default btn-small')). Html::nbsp(3)
         );
 ?>
 

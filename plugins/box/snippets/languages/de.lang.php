@@ -12,7 +12,7 @@
             'New snippet' => 'Neues Snippet',
             'Edit snippet' => 'Bearbeite Snippet',
             'Save' => 'Save',
-            'Save and exit' => 'Speichern und Schließen',
+            'Save and Exit' => 'Speichern und Schließen',
             'This field should not be empty' => 'Dieses Feld darf nicht leer sein',
             'This snippet already exists' => 'Dieses Snippet existiert bereits',
             'This snippet does not exist' => 'Dieses Snippet existiert nicht',

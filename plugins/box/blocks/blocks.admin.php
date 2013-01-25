@@ -66,7 +66,7 @@ class BlocksAdmin extends Backend
                             ->display();
                 break;
 
-                // Edit block
+                // Edit Block
                 // -------------------------------------
                 case "edit_block":
                     // Save current block action

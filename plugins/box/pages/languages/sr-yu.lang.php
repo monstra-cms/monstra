@@ -31,7 +31,7 @@
             'This page already exists' => 'Ova strana već postoji',
             'Extra' => 'Dodatno polje',
             'Save' => 'Sačuvaj',
-            'Save and exit' => 'Sačuvaj i izadji',
+            'Save and Exit' => 'Sačuvaj i izadji',
             'Your changes to the page <i>:page</i> have been saved.' => 'Vaše promene na stranici <i> :page </i> su sačuvane.',
             'The page <i>:page</i> cloned.' => 'Strana <i>:page</i> je klonirana.',
             'Status' => 'Status',
