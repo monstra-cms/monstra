@@ -66,7 +66,7 @@
                         <input class="input-xlarge" name="password" type="password" />
                         <br />
                         <?php if (isset($login_error) && $login_error !== '') { ?><div class="alert alert-error"><?php echo $login_error; ?></div><?php } ?>
-                        <input type="submit" name="login_submit" class="btn" value="<?php echo __('Enter', 'users'); ?>" />
+                        <input type="submit" name="login_submit" class="btn" value="<?php echo __('Log In', 'users'); ?>" />
                     </form>
                 </div>
             </div>
