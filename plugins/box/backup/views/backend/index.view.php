@@ -14,7 +14,7 @@ $().ready(function(){$('[name=create_backup]').click(function(){$(this).button('
         Form::checkbox('add_storage_folder', null, true, array('disabled' => 'disabled')) . ' ' . __('storage', 'backup') . ' ' . Html::nbsp(2) .
         Form::checkbox('add_public_folder') . ' ' . __('public', 'backup') . ' ' . Html::nbsp(2) .
         Form::checkbox('add_plugins_folder') . ' ' . __('plugins', 'backup') . ' ' . Html::nbsp(2) .
-        Form::submit('create_backup', __('Create backup', 'backup'), array('class' => 'btn', 'data-loading-text' => __('Creating...', 'backup'))).
+        Form::submit('create_backup', __('Create Backup', 'backup'), array('class' => 'btn', 'data-loading-text' => __('Creating...', 'backup'))).
         Form::close()
     );
 ?>
@@ -23,7 +23,7 @@ $().ready(function(){$('[name=create_backup]').click(function(){$(this).button('
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th><?php echo __('Backup date', 'backup'); ?></th>
+            <th><?php echo __('Backup', 'backup'); ?></th>
             <th><?php echo __('Size', 'backup'); ?></th>
             <th></th>
         </tr>

@@ -3,8 +3,8 @@
     return array(
         'backup' => array(
             'Backups' => 'Backups',
-            'Backup date' => 'Backup date',
-            'Create backup' => 'Create backup',
+            'Backup' => 'Backup',
+            'Create Backup' => 'Create Backup',
             'Delete' => 'Delete',
             'storage' => 'storage',
             'public' => 'public',

@@ -3,8 +3,8 @@
     return array(
         'backup' => array(
             'Backups' => 'Zálohy',
-            'Backup date' => 'Dátum zálohy',
-            'Create backup' => 'Vytvoriť zálohu',
+            'Backup' => 'Zálohy',
+            'Create Backup' => 'Vytvoriť Zálohu',
             'Delete' => 'Vymazať',
             'storage' => 'Storage/Obsah diskového miesta',
             'public' => 'Verejné',

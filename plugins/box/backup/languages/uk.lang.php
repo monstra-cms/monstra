@@ -3,8 +3,8 @@
     return array(
         'backup' => array(
             'Backups' => 'Бекапи',
-            'Backup date' => 'Бекап',
-            'Create backup' => 'Зробити бекап',
+            'Backup' => 'Бекап',
+            'Create Backup' => 'Зробити бекап',
             'Delete' => 'Видалити',
             'storage' => 'дані',
             'public' => 'публічна',

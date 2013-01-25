@@ -3,8 +3,8 @@
     return array(
         'backup' => array(
             'Backups' => 'Bekapovi',
-            'Backup date' => 'Backup datum',
-            'Create backup' => 'Kreiraj Bekap',
+            'Backup' => 'Backup',
+            'Create Backup' => 'Kreiraj Bekap',
             'Delete' => 'Obriši',
             'storage' => 'lokacija arhive',
             'public' => 'Javno',
