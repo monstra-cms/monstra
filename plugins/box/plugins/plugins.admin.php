@@ -42,12 +42,9 @@ class PluginsAdmin extends Backend
                     if (File::exists(PLUGINS . DS . $plugin_name . DS .'install' . DS . $plugin_name . '.uninstall.php')) {
                         include PLUGINS . DS . $plugin_name . DS . 'install' . DS . $plugin_name . '.uninstall.php';
                     }
-
-                    // Cleanup minify
-                    if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
-
-                    // Clean i18n cache
-                    Cache::clean('i18n');
+                
+                    // Clean Monstra TMP folder.
+                    Monstra::cleanTmp();
 
                     // Delete plugin form plugins table
                     $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
@@ -74,11 +71,8 @@ class PluginsAdmin extends Backend
                                        'status'   => (string) $plugin_xml->plugin_status,
                                        'priority' => (int) $plugin_xml->plugin_priority));
 
-                // Cleanup minify
-                if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
-
-                // Clean i18n cache
-                Cache::clean('i18n');
+                // Clean Monstra TMP folder.
+                Monstra::cleanTmp();
 
                 // Run plugin installer file
                 $plugin_name = str_replace(array("Plugin", ".manifest.xml"), "", Request::get('install'));
