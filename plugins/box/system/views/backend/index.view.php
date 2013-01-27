@@ -45,7 +45,7 @@
         Form::label('system_language', __('Language', 'system')).
         Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'input-xlarge')). Html::br().
         Form::label('system_email', __('Email', 'system')).
-        Form::input('system_email', Option::get('admin_email'), array('class' => 'input-xlarge')). Html::br().
+        Form::input('system_email', Option::get('system_email'), array('class' => 'input-xlarge')). Html::br().
         Form::label('site_maintenance_message', __('Maintenance Mode', 'system')).
         Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('class' => 'input-xxlarge', 'style' => 'height:160px;')). Html::br(2)
     );
