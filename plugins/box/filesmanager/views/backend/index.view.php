@@ -40,8 +40,8 @@
     <thead>
         <tr>
             <th><?php echo __('Name', 'filesmanager'); ?></th>
-            <th><?php echo __('Extension', 'filesmanager'); ?></th>
-            <th><?php echo __('Size', 'filesmanager'); ?></th>
+            <th class="hidden-phone"><?php echo __('Extension', 'filesmanager'); ?></th>
+            <th class="hidden-phone"><?php echo __('Size', 'filesmanager'); ?></th>
             <th></th>
         </tr>
     </thead>
@@ -73,10 +73,10 @@
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
                 <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
             </td>
-            <td>
+            <td class="hidden-phone">
                 <?php echo $ext; ?>
             </td>
-            <td>
+            <td class="hidden-phone">
                 <?php echo Number::byteFormat(filesize($files_path. DS .$file)); ?>
             </td>
             <td>

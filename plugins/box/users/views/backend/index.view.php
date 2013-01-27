@@ -20,9 +20,9 @@
     <thead>
         <tr>
             <th><?php echo __('Username', 'users'); ?></th>
-            <th><?php echo __('Email', 'users'); ?></th>
-            <th><?php echo __('Registered', 'users'); ?></th>
-            <th><?php echo __('Role', 'users'); ?></th>
+            <th class="hidden-phone"><?php echo __('Email', 'users'); ?></th>
+            <th class="hidden-phone"><?php echo __('Registered', 'users'); ?></th>
+            <th class="hidden-phone"><?php echo __('Role', 'users'); ?></th>
             <th></th>
         </tr>
     </thead>
@@ -32,13 +32,13 @@
         <td>
             <?php echo Html::toText($user['login']); ?>
         </td>
-        <td>
+        <td class="hidden-phone">
             <?php echo Html::toText($user['email']); ?>
         </td>
-        <td>
+        <td class="hidden-phone">
             <?php echo Date::format($user['date_registered']); ?>
         </td>
-        <td>
+        <td class="hidden-phone">
             <?php echo $roles["{$user['role']}"]; ?>
         </td>
         <td>
