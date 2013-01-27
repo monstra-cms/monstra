@@ -17,3 +17,9 @@
 
 /* Confirm delete */
 function confirmDelete(msg){var data=confirm(msg+" ?"); return data;}
+
+$(document).ready(function() {
+    $('#sections option').click(function() {
+        window.location = $(this).attr('rel');
+    });
+});

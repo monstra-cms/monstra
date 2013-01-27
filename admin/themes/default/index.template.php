@@ -49,23 +49,40 @@
         <div class="row-fluid">
 
             <!-- Block_sidebar -->
-            <div class="span2 monstra-menu-sidebar hidden-phone">
-                <h3><?php echo __('Content', 'pages'); ?></h3>
-                <ul>
-                    <?php Navigation::draw('content'); ?>
-                </ul>
-                <div class="monstra-menu-category-separator"></div>
-                <?php if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) { ?>
-                <h3><?php echo __('Extends', 'system'); ?></h3>
-                <ul>
-                   <?php Navigation::draw('extends'); ?>
-                </ul>
-                <div class="monstra-menu-category-separator"></div>
-                <?php } ?>
-                <h3><?php echo __('System', 'system'); ?></h3>
-                <ul>
-                    <?php Navigation::draw('system'); ?>
-                </ul>
+
+            <div class="span2 monstra-menu-sidebar">
+
+                <div class="hidden-desktop">
+                    <select class="input-block-level" name="sections" id="sections">
+                        <?php                           
+                            Navigation::getDropdown('content');
+                            Navigation::getDropdown('extends');
+                            Navigation::getDropdown('system');
+                        ?>
+                    </select>
+                </div>
+
+                <div class="hidden-phone hidden-tablet">
+
+                    <h3><?php echo __('Content', 'pages'); ?></h3>
+                    <ul>
+                        <?php Navigation::draw('content'); ?>
+                    </ul>
+                    <div class="monstra-menu-category-separator"></div>
+                    <?php if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) { ?>
+                    <h3><?php echo __('Extends', 'system'); ?></h3>
+                    <ul>
+                       <?php Navigation::draw('extends'); ?>
+                    </ul>
+                    <div class="monstra-menu-category-separator"></div>
+                    <?php } ?>
+                    <h3><?php echo __('System', 'system'); ?></h3>
+                    <ul>
+                        <?php Navigation::draw('system'); ?>
+                    </ul>
+
+                </div>
+
             </div>
             <!-- /Block_sidebar -->
 
@@ -96,10 +113,12 @@
 
         <!-- Block_footer -->
         <footer>
-            <p align="right">
+            <p class="pull-right">
                 <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
+                <span class="hidden-phone">
                 <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
                 <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+                </span>
                 © 2012 - 2013 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
                 </span>
             </p>

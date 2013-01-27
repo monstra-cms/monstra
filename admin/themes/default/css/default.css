@@ -479,3 +479,64 @@ footer a , footer{
   font-size:10px;
 }
 
+/* iPhone 4, iPhone5, Small Tablet, Tablet */
+@media (max-width: 800px) {
+
+    .monstra-header .btn-small {
+        padding: 0px 7px;
+    }
+
+    .monstra-menu-sidebar {
+        background: url('@theme_admin_url/img/noisy_grid.png');
+        background-color:#ccc;
+        max-width: 100%!important;
+        min-width: 100%!important;
+        margin-bottom: 20px;
+        padding: 19px;
+        border:2px solid #ccc;
+    }
+
+    .container-fluid {
+        padding: 0px;
+    }
+
+}
+
+/* Small Tablet(Landscape), Tablet(Portrait) */
+@media (min-width: 768px) and (max-width: 800px) {
+    .row-fluid .span10 {
+        -moz-box-sizing: border-box;
+        display: block;
+        width: 94%;
+    }
+
+    footer a, footer {
+        color: #333333;
+        font-size: 10px;
+        margin-right: 10px;
+    }
+}
+
+/* iPhone 4 */
+@media (max-width: 320px) {
+    .markItUpButton11, 
+    .markItUpButton12, 
+    .markItUpButton13,
+    .markItUpButton14,
+    .markItUpButton15,
+    .markItUpButton16,
+    .markItUpButton17,
+    .markItUpButton18 {
+        display: none;
+    }
+    .markItUpSeparator{
+        display: none;
+    }
+
+    #showImage {
+        min-width: 298px!important;
+    }
+}
+
+
+
