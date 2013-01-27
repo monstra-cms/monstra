@@ -132,6 +132,7 @@ class SystemAdmin extends Backend
                                        'defaultpage'         => Request::post('site_default_page'),
                                        'siteurl'             => $_site_url,
                                        'timezone'            => Request::post('system_timezone'),
+                                       'system_email'        => Request::post('system_email'),
                                        'language'            => Request::post('system_language'),
                                        'maintenance_message' => Request::post('site_maintenance_message')));
 
