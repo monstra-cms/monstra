@@ -322,7 +322,7 @@ class PagesAdmin extends Backend
                                                               'robots_index' => $robots_index,
                                                               'robots_follow'=> $robots_follow,
                                                               'status'      => Request::post('status'),
-                                                              'access'      => Request::post('ascess'),
+                                                              'access'      => Request::post('access'),
                                                               'date'        => $date,
                                                               'author'      => $author))) {
 
