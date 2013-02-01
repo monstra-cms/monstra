@@ -20,6 +20,11 @@
                 <email>awilu@msn.com</email>
                 <url>http://monstra.org</url>
             </maintainer>
+            <maintainer>
+                <name>UserTest</name>
+                <email>usertest@msn.com</email>
+                <url>http://test.monstra.org</url>
+            </maintainer>
         </maintainers>
         <licenses>
             <license>
