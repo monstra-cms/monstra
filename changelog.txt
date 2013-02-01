@@ -1,14 +1,16 @@
 Monstra 2.2.0, xxxx-xx-xx
 ------------------------
-- Mobile Ready!
+- Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
 - Improved Monstra Architecture!
 - New Stand-alone Monstra Library (Gelato) was created! Totally improved old classes and added new classes!
-- Monstra Library with new useful classes - ClassLoader, ErrorHandler, Log, MinifyJS, MinifyCSS, MinifyHTML, Token, Registry.    
+- Monstra Library with new useful classes - ClassLoader, ErrorHandler, Log, MinifyJS, MinifyCSS, MinifyHTML, Token, Registry.
 - Adopted PSR-0 PSR-1 PSR-2
 - Localization: Serbian(sr-yu), Slovakian(sk) translations added. Thanks to Neri and Mapadesign.
 - Default Theme: Social Meta Tags - added.
 - Default Theme: Hook "theme_meta" - added.
 - Admin Default Theme: Added missing meta tags.
+- Improve Installer Usability. Flags Added.
+- Default Site Email added.
 - PHPMailer added.
 - Intstaller Layout: Added missing meta tags.
 - Filesmanager plugin: added ability to view images.
