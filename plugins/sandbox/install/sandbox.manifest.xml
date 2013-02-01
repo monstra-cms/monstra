@@ -14,24 +14,11 @@
             <email>awilu@msn.com</email>
             <url>http://monstra.org</url>
         </author>
-        <maintainers>
-            <maintainer>
-                <name>Awilum</name>
-                <email>awilu@msn.com</email>
-                <url>http://monstra.org</url>
-            </maintainer>
-            <maintainer>
-                <name>UserTest</name>
-                <email>usertest@msn.com</email>
-                <url>http://test.monstra.org</url>
-            </maintainer>
-        </maintainers>
-        <licenses>
-            <license>
-                <type>GPL</type>
-                <url></url>
-            </license>
-        </licenses> 
+        <maintainers></maintainers>
+        <license>
+            <type>GPL</type>
+            <url>http://www.gnu.org/licenses/gpl.html</url>
+        </license> 
         <homepage></homepage>
         <docs></docs>
         <demo></demo>
