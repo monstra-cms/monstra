@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
     <system>
+        <name>sandbox</name>
         <location>plugins/sandbox/sandbox.plugin.php</location>
         <status>active</status>
         <priority>15</priority>        
     </system>
     <info>
-        <name>Sandbox</name>
+        <title>Sandbox</title>
         <description>Sandbox plugin for Monstra</description>
         <version>1.0.0</version>
         <author>
@@ -19,7 +20,7 @@
             <type>GPL</type>
             <url>http://www.gnu.org/licenses/gpl.html</url>
         </license> 
-        <homepage></homepage>
+        <homepage>http://monstra.org</homepage>
         <docs></docs>
         <demo></demo>
         <download></download>        
