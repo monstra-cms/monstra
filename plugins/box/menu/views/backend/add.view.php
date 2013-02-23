@@ -7,8 +7,8 @@
 
 <?php if (isset($errors['menu_item_name_empty'])) $error_class = ' error'; else $error_class = ''; ?>
 
-<a href="javascript:;" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" onclick="$('#selectPageModal').modal('show').width(270);" ><?php echo __('Select page', 'menu'); ?></a> /
-<a href="javascript:;" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" onclick="$('#selectCategoryModal').modal('show').width(270);" ><?php echo __('Select category', 'menu'); ?></a><br /><br />
+<a href="#select-page" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" onclick="$('#selectPageModal').modal('show').width(270);" ><?php echo __('Select page', 'menu'); ?></a> /
+<a href="#select-category" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" onclick="$('#selectCategoryModal').modal('show').width(270);" ><?php echo __('Select category', 'menu'); ?></a><br /><br />
 
 <?php
 
