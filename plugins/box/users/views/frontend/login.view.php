@@ -1,4 +1,4 @@
-<h3><?php echo __('Login', 'users'); ?></h3>
+<h3><?php echo __('Log In', 'users'); ?></h3>
 <hr>
 <?php if (Notification::get('error')) Alert::error(Notification::get('error')); ?>
 <form method="post">
