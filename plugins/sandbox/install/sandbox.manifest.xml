@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin>
-    <system>
-        <name>sandbox</name>
-        <location>plugins/sandbox/sandbox.plugin.php</location>
-        <status>active</status>
-        <priority>15</priority>        
-    </system>
-    <info>
-        <title>Sandbox</title>
-        <description>Sandbox plugin for Monstra</description>
-        <version>1.0.0</version>
-        <author>
-            <name>Awilum</name>
-            <email>awilu@msn.com</email>
-            <url>http://monstra.org</url>
-        </author>
-        <maintainers></maintainers>
-        <license>
-            <type>GPL</type>
-            <url>http://www.gnu.org/licenses/gpl.html</url>
-        </license> 
-        <homepage>http://monstra.org</homepage>
-        <docs></docs>
-        <demo></demo>
-        <download></download>        
-        <tags>sandbox</tags>
-    </info>    
-</plugin>
+<root>
+    <plugin_location>plugins/sandbox/sandbox.plugin.php</plugin_location>
+    <plugin_status>active</plugin_status>
+    <plugin_priority>15</plugin_priority>
+    <plugin_name>Sandbox</plugin_name>
+    <plugin_description>Sandbox plugin for Monstra</plugin_description>
+    <plugin_version>1.0.0</plugin_version>
+    <plugin_author>Awilum</plugin_author>
+    <plugin_author_uri>http://monstra.org/</plugin_author_uri>
+</root>
