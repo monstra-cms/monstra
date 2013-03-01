@@ -43,7 +43,7 @@
             'Send New Password' => 'Invia la password',
             'Users - Profile' => 'Utenti - Profilo',
             'Users - Edit Profile' => 'Utenti - Modifica profilo',
-            'Users - Login' => 'Utenti - Login',
+            'Users - Log In' => 'Utenti - Log In',
             'Users - Registration' => 'Utenti - Registrazione',
             'Users - Password Recover' => 'Utenti - Password Recovery',
             'New Password' => 'Nuova password',

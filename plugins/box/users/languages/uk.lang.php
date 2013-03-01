@@ -44,7 +44,7 @@
             'Send New Password' => 'Відправити пароль',
             'Users - Profile' => 'Користувачі - Профіль',
             'Users - Edit Profile' => 'Користувачі - Редагування профілю',
-            'Users - Login' => 'Користувачі - Вхід',
+            'Users - Log In' => 'Користувачі - Вхід',
             'Users - Registration' => 'Користувачі - Реєстрація',
             'Users - Password Recover' => 'Користувачі - Відновлення пароля',
             'New Password' => 'Новий пароль',

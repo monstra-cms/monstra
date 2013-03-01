@@ -46,7 +46,7 @@
             'This user doesnt alredy exist' => 'Dieser Benutzer ist nocht nicht vorhanden',
             'Users - Profile' => 'Benutzer - Profil',
             'Users - Edit Profile' => 'Benutzer - Profil Bearbeiten',
-            'Users - Login' => 'Benutzer - Login',
+            'Users - Log In' => 'Benutzer - Log In',
             'Users - Registration' => 'Benutzer - Registration',
             'Users - Password Recover' => 'Benutzer - Passwort wiederherstellen',
             'New Password' => 'Neues Passwort',

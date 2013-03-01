@@ -46,7 +46,7 @@
             'This user doesnt alredy exist' => 'Ovaj korisnik još uvek ne postoji',
             'Users - Profile' => 'Korisnici -- profil',
             'Users - Edit Profile' => 'Korisnici - Izmena profila',
-            'Users - Login' => 'Korisnici - Uloguj se.',
+            'Users - Log In' => 'Korisnici - Uloguj se.',
             'Users - Registration' => 'Korisnici - registracija',
             'Users - Password Recover' => 'Korisnici - Potsetnik šifre',
             'New Password' => 'Nova šifra',

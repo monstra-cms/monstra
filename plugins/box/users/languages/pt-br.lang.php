@@ -46,7 +46,7 @@
             'This user doesnt alredy exist' => 'Este usuário não existe ainda',
             'Users - Profile' => 'Usuários - Perfil',
             'Users - Edit Profile' => 'Usuários - Editar Perfil',
-            'Users - Login' => 'Usuários - Login',
+            'Users - Log In' => 'Usuários - Log In',
             'Users - Registration' => 'Usuários - Registração',
             'Users - Password Recover' => 'Usuários - Lembrar Senha',
             'New Password' => 'Nova senha',

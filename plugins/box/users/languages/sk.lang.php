@@ -46,7 +46,7 @@
             'This user doesnt alredy exist' => 'Tento používateľ neexistuje',
             'Users - Profile' => 'Používatelia - Profil',
             'Users - Edit Profile' => 'Používatelia - Editovať Profil',
-            'Users - Login' => 'Používatelia - Prihlásenie',
+            'Users - Log In' => 'Používatelia - Prihlásenie',
             'Users - Registration' => 'Používatelia - Registrácia',
             'Users - Password Recover' => 'Používatelia - Obnova hesla',
             'New Password' => 'Nové heslo',
