@@ -19,7 +19,7 @@ Options -Indexes
 # Setting rewrite rules.
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteBase /projects/monstra-cms/
+	RewriteBase /%siteurlhere%/
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php [QSA,L]
