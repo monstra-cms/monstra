@@ -9,7 +9,7 @@
             'Delete' => 'Vymazať',
             'Order' => 'Poradie',
             'Actions' => 'Akcie',
-            'Create new item' => 'Vytvoriť novú položku',
+            'Create New Item' => 'Vytvoriť novú položku',
             'New item' => 'Nová položka',
             'Item name' => 'Názov položky',
             'Item order' => 'Poradie položky',

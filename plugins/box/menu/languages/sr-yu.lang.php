@@ -9,7 +9,7 @@
             'Delete' => 'Obriši',
             'Order' => 'Poređenje',
             'Actions' => 'Akcije',
-            'Create new item' => 'Kreiraj novu stavku',
+            'Create New Item' => 'Kreiraj novu stavku',
             'New item' => 'Nova stavka',
             'Item name' => 'Ime',
             'Item order' => 'Poredjenje',

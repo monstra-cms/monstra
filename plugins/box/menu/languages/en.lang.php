@@ -9,7 +9,7 @@
             'Delete' => 'Delete',
             'Order' => 'Order',
             'Actions' => 'Actions',
-            'Create new item' => 'Create new item',
+            'Create New Item' => 'Create new item',
             'New item' => 'New item',
             'Item name' => 'Item name',
             'Item order' => 'Item order',

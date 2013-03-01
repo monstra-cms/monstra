@@ -9,7 +9,7 @@
             'Delete' => 'Elimina',
             'Order' => 'Ordine',
             'Actions' => 'Azioni',
-            'Create new item' => 'Crea nuova voce',
+            'Create New Item' => 'Crea nuova voce',
             'New item' => 'Nuova voce',
             'Item name' => 'Nome',
             'Item order' => 'Ordine',
