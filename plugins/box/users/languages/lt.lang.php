@@ -45,7 +45,7 @@
             'This user doesnt alredy exist' => 'Tokio naudoto nebėra',
             'Users - Profile' => 'Naudotojai - Profilis',
             'Users - Edit Profile' => 'Naudotojai - Redaguoti profilį',
-            'Users - Login' => 'Naudotojai - Prisijungti',
+            'Users - Log In' => 'Naudotojai - Prisijungti',
             'Users - Registration' => 'Naudotojai - Registracija',
             'Users - Password Recover' => 'Naudotojai - Slaptažodžio priminimas',
             'New Password' => 'Naujas slaptažodis',
