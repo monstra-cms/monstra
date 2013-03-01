@@ -5,7 +5,7 @@
 &lt;p&gt;This is a default &lt;u&gt;home&lt;/u&gt; page of your website.&lt;br&gt;Here&#039;s a quick description of how to edit this page:
 &lt;ul&gt;
 &lt;li&gt;First make sure you&#039;re &lt;a href=&quot;{siteurl}admin&quot;&gt;logged in.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Go to the &lt;a href=&quot;{siteurl}admin/index.php?id=pages&quot;&gt;Page Manager&lt;/a&gt; and click &quot;Edit&quot; button for this page.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;a href=&quot;{siteurl}admin/index.php?id=pages&quot;&gt;Pages Manager&lt;/a&gt; and click &quot;Edit&quot; button for this page.&lt;/li&gt;
 &lt;li&gt;Make your changes, click &quot;Save&quot; and you&#039;re done!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;
@@ -15,6 +15,6 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://monstra.org&quot;&gt;Official Site&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://forum.monstra.org&quot;&gt;Official Support Forum&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://monstra.org/documentation/installation&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://monstra.org/documentation&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;
