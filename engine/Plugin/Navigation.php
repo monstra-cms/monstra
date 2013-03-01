@@ -121,8 +121,8 @@ class Navigation
      * @param string  $category Category
      * @param integer $type     Type. Default is LEFT
      */
-    public static function get($category, $type = Navigation::LEFT) {
-        
+    public static function get($category, $type = Navigation::LEFT)
+    {
         // Sort items by priority
         $items = Arr::subvalSort(Navigation::$items, 'priority');
 
@@ -168,10 +168,10 @@ class Navigation
      *      Navigation::getDropdown('content');
      *  <code>
      *
-     * @param string  $category Category
+     * @param string $category Category
      */
-    public static function getDropdown($category) {
-
+    public static function getDropdown($category)
+    {
         // Sort items by priority
         $items = Arr::subvalSort(Navigation::$items, 'priority');
 

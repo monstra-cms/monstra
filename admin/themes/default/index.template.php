@@ -55,7 +55,7 @@
 
                 <div class="hidden-desktop">
                     <select class="input-block-level" name="sections" id="sections">
-                        <?php                           
+                        <?php
                             Navigation::getDropdown('content');
                             Navigation::getDropdown('extends');
                             Navigation::getDropdown('system');
