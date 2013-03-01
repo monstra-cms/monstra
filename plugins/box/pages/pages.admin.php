@@ -50,15 +50,14 @@ class PagesAdmin extends Backend
         $users = new Table('users');
         $user = $users->select('[id='.Session::get('user_id').']', null);
 
-        $user['firstname'] = Html::toText($user['firstname']);
-        $user['lastname']  = Html::toText($user['lastname']);
-
         // Page author
         if ( ! empty($user['firstname'])) {
             $author = (empty($user['lastname'])) ? $user['firstname'] : $user['firstname'].' '.$user['lastname'];
         } else {
             $author = Session::get('user_login');
         }
+
+        $author = Html::toText($author);
 
         // Status array
         $status_array = array('published' => __('Published', 'pages'),
