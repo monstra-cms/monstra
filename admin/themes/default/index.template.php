@@ -16,9 +16,8 @@
 
     <!-- JavaScripts -->
     <?php Javascript::add('public/assets/js/jquery.js', 'backend', 1); ?>
-    <?php Javascript::add('public/assets/js/jquery-migrate-1.1.1.js', 'backend', 2); ?>
-    <?php Javascript::add('public/assets/js/bootstrap.js', 'backend', 3); ?>
-    <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 4); ?>
+    <?php Javascript::add('public/assets/js/bootstrap.js', 'backend', 2); ?>
+    <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 3); ?>
     <?php Javascript::load(); ?>
 
     <?php Action::run('admin_header'); ?>
