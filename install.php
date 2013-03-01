@@ -170,7 +170,7 @@
 
             .install-languages a {
                 padding-left: 5px;
-                padding-right: 5px; 
+                padding-right: 5px;
             }
 
             .language-link img {
