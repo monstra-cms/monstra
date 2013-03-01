@@ -55,7 +55,7 @@
 
             </td>
             <td>
-                <?php echo Number::byteFormat(Dir::size(UPLOADS . DS . $dir)); ?>
+                <!-- Dir Size -->
             </td>
             <td>
             <div class="pull-right">
