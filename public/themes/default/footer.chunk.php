@@ -7,7 +7,7 @@
 
     </div> <!-- /container -->
 
-    <?php Snippet::get('google-analytics'); ?>
+    <?php echo Snippet::get('google-analytics'); ?>
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
