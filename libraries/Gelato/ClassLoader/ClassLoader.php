@@ -124,7 +124,7 @@ class ClassLoader
      * Set an alias for a class.
      *
      *  <code>
-     *      ClassLoader::registerNamespace('ClassNameAlias', 'ClassName');
+     *      ClassLoader::alias('ClassNameAlias', 'ClassName');
      *  </code>
      *
      * @access  public
@@ -222,4 +222,15 @@ class ClassLoader
 
         return false;
     }
+
+    /**
+     * Register the Gelato ClassLoader to the SPL autoload stack.
+     *
+     * @return  void
+     */
+    public static function register()
+    {
+        spl_autoload_register('ClassLoader::load', true, true);
+    }
+
 }

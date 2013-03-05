@@ -11,6 +11,16 @@
     font-size:14px;
     font-family:Verdana, Arial, Helvetica, "Nimbus Sans", FreeSans, Malayalam, sans-serif;
     margin:20px auto;
+
+    -webkit-box-shadow: 1px 1px 18px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 1px 18px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 1px 18px rgba(50, 50, 50, 0.75);
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+
 }
 
 #gelato-error pre {
@@ -31,6 +41,13 @@
     font-size:24px;
     font-weight:700;
     padding:10px;
+
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+     border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 #gelato-error .body {

@@ -24,38 +24,7 @@ class Log
      * @var string
      */
     protected static $path = '';
-
-    /**
-     * Log levels.
-     *
-     * @var int
-     */
-    const EMERGENCY = 1;
-    const ALERT = 2;
-    const CRITICAL = 3;
-    const ERROR = 4;
-    const WARNING = 5;
-    const NOTICE = 6;
-    const INFO = 7;
-    const DEBUG = 8;
-
-    /**
-     * Log types.
-     *
-     * @var array
-     */
-    protected static $types = array
-    (
-        Log::EMERGENCY => 'emergency',
-        Log::ALERT     => 'alert',
-        Log::CRITICAL  => 'critical',
-        Log::ERROR     => 'error',
-        Log::WARNING   => 'warning',
-        Log::NOTICE    => 'notice',
-        Log::INFO      => 'info',
-        Log::DEBUG     => 'debug',
-    );
-
+  
     /**
      * Protected constructor since this is a static class.
      *
@@ -66,6 +35,13 @@ class Log
         // Nothing here
     }
 
+    /**
+     * Configure Log
+     *
+     * @access  public
+     * @param  string  $setting The setting
+     * @param  string  $value   The value
+     */
     public static function configure($setting, $value)
     {
         if (property_exists("log", $setting)) Log::$$setting = $value;
@@ -76,15 +52,12 @@ class Log
      *
      * @access  public
      * @param  string  $message The message to write to the log
-     * @param  int     $type    (optional) Message type
      * @return boolean
      */
-    public static function write($message, $type = Log::ERROR)
+    public static function write($message)
     {
-        $file = rtrim(Log::$path, '/') . '/' . gmdate('Y_m_d') . '.log';
-
-        $message = '[' . gmdate('d-M-Y H:i:s') . '] ' . $message . PHP_EOL;
-
-        return (bool) file_put_contents($file, $message, FILE_APPEND);
+        return (bool) file_put_contents(rtrim(Log::$path, '/') . '/' . gmdate('Y_m_d') . '.log',
+                                        '[' . gmdate('d-M-Y H:i:s') . '] ' . $message . PHP_EOL,
+                                        FILE_APPEND);
     }
 }
