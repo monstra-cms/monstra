@@ -15,6 +15,7 @@ Monstra 2.2.0, xxxx-xx-xx
 - Improve Installer Usability. Flags Added.
 - Default Site Email added.
 - PHPMailer added.
+- Pages Manager: added ability to quickly update page status and page access.
 - Intstaller Layout: Added missing meta tags.
 - Filesmanager plugin: added ability to view images.
 - Filesmanager Plugin: forbidden types array - updated.
