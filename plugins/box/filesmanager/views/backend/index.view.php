@@ -71,7 +71,11 @@
         <?php if ( ! in_array($ext, $forbidden_types)) { ?>
         <tr>
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
-                <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
+                <?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) { ?>
+                    <?php echo Html::anchor(File::name($file), '#', array('rel' => $site_url.'public/' . $path.$file));?>
+                <?php } else { ?>
+                    <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
+                <?php } ?>
             </td>
             <td class="hidden-phone">
                 <?php echo $ext; ?>
@@ -92,12 +96,11 @@
     </tbody>
 </table>
 
-<div id="showImage" class="modal hide fade">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
-        <h3><?php echo __('Image:', 'filesmanager')?> <span></span></h3>
+<div id="previewLightbox" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class='lightbox-header'>
+        <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
     </div>
-    <div class="modal-body">
-        <p align="center"><img /></p>
+    <div class='lightbox-content'>
+        <img />
     </div>
 </div>
