@@ -291,10 +291,10 @@
                         <input type="hidden" name="backups" value="<?php echo $errors['backups']; ?>" />
                         <input type="hidden" name="tmp" value="<?php echo $errors['tmp']; ?>" />
 
-                        <label><?php echo __('Site name', 'system'); ?></label>
+                        <label><?php echo __('Site Name', 'system'); ?></label>
                         <input class="input-xlarge" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
                         <br />
-                        <label><?php echo __('Site url', 'system'); ?></label>
+                        <label><?php echo __('Site Url', 'system'); ?></label>
                         <input class="input-xlarge" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
                         <br />
                         <label><?php echo __('Username', 'users'); ?></label>
