@@ -458,7 +458,7 @@ class PagesAdmin extends Backend
                 case "delete_page":
 
                     // Error 404 page can not be removed
-                    if (Request::get('name') !== 'error404') {
+                    if (Request::get('slug') !== 'error404') {
 
                         if (Security::check(Request::get('token'))) {
 
@@ -490,6 +490,54 @@ class PagesAdmin extends Backend
                     }
 
                 break;
+
+                // Update page access
+                // -------------------------------------
+                case "update_access":
+
+                    if (Request::get('slug') !== 'error404') {
+
+                        if (Security::check(Request::get('token'))) {
+
+                            $pages->updateWhere('[slug="'.Request::get('slug').'"]', array('access' => Request::get('access')));
+
+                            // Run delete extra actions
+                            Action::run('admin_pages_action_update_access');
+
+                            // Send notification
+                            Notification::set('success', __('Your changes to the page <i>:page</i> have been saved.', 'pages', array(':page' => Request::get('slug'))));
+
+                            // Redirect
+                            Request::redirect('index.php?id=pages');
+
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    }
+                    
+                break;
+
+                // Update page status
+                // -------------------------------------
+                case "update_status":
+
+                    if (Request::get('name') !== 'error404') {
+
+                        if (Security::check(Request::get('token'))) {
+
+                            $pages->updateWhere('[slug="'.Request::get('slug').'"]', array('status' => Request::get('status')));
+
+                            // Run delete extra actions
+                            Action::run('admin_pages_action_update_status');
+
+                            // Send notification
+                            Notification::set('success', __('Your changes to the page <i>:page</i> have been saved.', 'pages', array(':page' => Request::get('slug'))));
+
+                            // Redirect
+                            Request::redirect('index.php?id=pages');
+                            
+                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    }
+
+                break;
             }
 
             // Its mean that you can add your own actions for this plugin
@@ -512,6 +560,8 @@ class PagesAdmin extends Backend
 
                 $pages_array[$count]['title']   = $page['title'];
                 $pages_array[$count]['parent']  = $page['parent'];
+                $pages_array[$count]['_status'] = $page['status'];
+                $pages_array[$count]['_access'] = $page['access'];
                 $pages_array[$count]['status']  = $status_array[$page['status']];
                 $pages_array[$count]['access']  = isset($access_array[$page['access']]) ? $access_array[$page['access']] : $access_array['public']; // hack for old Monstra Versions
                 $pages_array[$count]['date']    = $page['date'];

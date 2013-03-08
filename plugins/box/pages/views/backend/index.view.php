@@ -77,7 +77,22 @@
                         <li><a href="index.php?id=pages&action=add_page&parent_page=<?php echo $page['slug']; ?>" title="<?php echo __('Create New Page', 'pages'); ?>"><?php echo __('Add', 'pages'); ?></a></li>
                     <?php } ?>
                     <li><?php echo Html::anchor(__('Clone', 'pages'), 'index.php?id=pages&action=clone_page&name='.$page['slug'].'&token='.Security::token(), array('title' => __('Clone', 'pages'))); ?></li>
-                </ul>
+                    <li class="divider"></li>
+                    <li class="dropdown-submenu pull-left">
+                        <a href=""><?php echo __('Status', 'pages'); ?></a>
+                        <ul class="dropdown-menu">
+                           <li><a href="index.php?id=pages&action=update_status&slug=<?php echo $page['slug']; ?>&status=published&token=<?php echo Security::token(); ?>"><?php echo __('Published', 'pages'); ?> <?php if ($page['_status'] == 'published') { ?><i class="icon-ok"></i><?php } ?></a></li>
+                           <li><a href="index.php?id=pages&action=update_status&slug=<?php echo $page['slug']; ?>&status=draft&token=<?php echo Security::token(); ?>"><?php echo __('Draft', 'pages'); ?> <?php if ($page['_status'] == 'draft') { ?><i class="icon-ok"></i><?php } ?></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu pull-left">
+                        <a href=""><?php echo __('Access', 'pages'); ?></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.php?id=pages&action=update_access&slug=<?php echo $page['slug']; ?>&access=public&token=<?php echo Security::token(); ?>"><?php echo __('Public', 'pages'); ?> <?php if ($page['_access'] == 'public') { ?><i class="icon-ok"></i><?php } ?></a></li>
+                            <li><a href="index.php?id=pages&action=update_access&slug=<?php echo $page['slug']; ?>&access=registered&token=<?php echo Security::token(); ?>"><?php echo __('Registered', 'pages'); ?> <?php if ($page['_access'] == 'registered') { ?><i class="icon-ok"></i><?php } ?></a></li>
+                        </ul>
+                    </li>
+                    </ul>
                 <?php echo Html::anchor(__('Delete', 'pages'),
                            'index.php?id=pages&action=delete_page&name='.$page['slug'].'&token='.Security::token(),
                            array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__("Delete page: :page", 'pages', array(':page' => Html::toText($page['title'])))."')"));
