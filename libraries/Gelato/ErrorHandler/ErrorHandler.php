@@ -288,12 +288,12 @@ class ErrorHandler
                 $error['backtrace']   = self::formatBacktrace($error['backtrace']);
                 $error['highlighted'] = self::highlightCode($error['file'], $error['line']);
 
-                Response::status(500);
+                @header('HTTP/1.1 500 Internal Server Error');
                 include 'Resources/Views/Errors/exception.php';
 
             } else {
 
-                Response::status(500);
+                @header('HTTP/1.1 500 Internal Server Error');
                 include 'Resources/Views/Errors/production.php';
 
             }
