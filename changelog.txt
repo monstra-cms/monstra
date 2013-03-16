@@ -5,7 +5,7 @@ Monstra 2.2.0, xxxx-xx-xx
 - New Stand-alone Monstra Library (Gelato) was created! Totally improved old classes and added new classes!
 - Monstra Library with new useful classes - ClassLoader, ErrorHandler, Log, MinifyJS, MinifyCSS, MinifyHTML, Token, Registry.
 - Adopted PSR-0 PSR-1 PSR-2
-- Localization: Spanish(es), Serbian(sr-yu), Slovakian(sk) translations added. Thanks to Neri, Mapadesign and Nakome.
+- Localization: Français(fr), Spanish(es), Serbian(sr-yu), Slovakian(sk) translations added. Thanks to Neri, Mapadesign, Hugomano and Nakome.
 - Idiorm Updated to 1.3.0
 - jQuery Updated to 1.9.1
 - Twitter Bootstrap Updated to 2.3.0
