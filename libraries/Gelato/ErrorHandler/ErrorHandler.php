@@ -99,7 +99,7 @@ class ErrorHandler
      * @param  integer $line    The line number where the error occurred
      * @return boolean
      */
-    public static function errorHandler($code, $message, $file, $line)
+    public static function error($code, $message, $file, $line)
     {
         // If isset error_reporting and $code then throw new error exception
         if ((error_reporting() & $code) !== 0) {
@@ -231,9 +231,9 @@ class ErrorHandler
     }
 
     /**
-     * Convert errors not caught by the errorHandler to ErrorExceptions.
+     * Convert errors not caught by the error handler to ErrorExceptions.
      */
-    public static function fatalErrorHandler()
+    public static function fatal()
     {
         $e = error_get_last();
 
