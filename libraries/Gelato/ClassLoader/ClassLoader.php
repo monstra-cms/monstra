@@ -230,7 +230,7 @@ class ClassLoader
      */
     public static function register()
     {
-        spl_autoload_register('ClassLoader::load', true, true);
+        spl_autoload_register('ClassLoader::load', true);
     }
 
 }
