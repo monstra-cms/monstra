@@ -10,10 +10,10 @@
 error_reporting(-1);
 
 /**
- *  Monstra requires PHP 5.2.0 or greater
+ *  Monstra requires PHP 5.2.3 or greater
  */
-if (version_compare(PHP_VERSION, "5.2.0", "<")) {
-    exit("Monstra requires PHP 5.2.0 or greater.");
+if (version_compare(PHP_VERSION, "5.2.3", "<")) {
+    exit("Monstra requires PHP 5.2.3 or greater.");
 }
 
 /**
