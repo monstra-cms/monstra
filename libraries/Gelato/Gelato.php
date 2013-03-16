@@ -66,12 +66,12 @@ require_once __DIR__ . '/ErrorHandler/ErrorHandler.php';
 /**
  * Set Error Handler
  */
-set_error_handler('ErrorHandler::errorHandler');
+set_error_handler('ErrorHandler::error');
 
 /**
  * Set Fatal Error Handler
  */
-register_shutdown_function('ErrorHandler::fatalErrorHandler');
+register_shutdown_function('ErrorHandler::fatal');
 
 /**
  * Set Exception Handler
