@@ -10,9 +10,6 @@
     if ( ! defined('BACKEND')) define('BACKEND', false);
     if ( ! defined('MONSTRA_ACCESS')) define('MONSTRA_ACCESS', true);
 
-    // Set default timezone
-    $system_timezone = date_default_timezone_get();
-
     // Load bootstrap file
     require_once(ROOT . DS . 'engine' . DS . '_init.php');
 
