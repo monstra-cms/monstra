@@ -33,7 +33,7 @@ class MenuAdmin extends Backend
                                          '_top' => '_top');
 
         // Create order array
-        $menu_item_order_array = range(0, 20);
+        $menu_item_order_array = range(0, 40);
 
         // Check for get actions
         // ---------------------------------------------
