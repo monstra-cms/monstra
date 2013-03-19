@@ -2,17 +2,17 @@
 
     return array(
         'snippets' => array(
-            'Snippets' => 'fragmentos',
+            'Snippets' => 'Snippets',
             'Snippets manager' => 'Snippets administrador',
             'Actions' => 'Acciones',
             'Delete' => 'Borrar',
             'Edit' => 'Editar',
             'Name' => 'Nombre',
-            'Create new snippet' => 'Crear nuevo snippet',
-            'New snippet' => 'Nuevo snippet',
+            'Create New Snippet' => 'Crear nuevo snippet',
+            'New Snippet' => 'Nuevo snippet',
             'Edit snippet' => 'Editar  snippet',
             'Save' => 'Guardar',
-            'Save and exit' => 'Guardar y salir',
+            'Save and Exit' => 'Guardar y salir',
             'This snippet already exists' => 'Este snippet que ya existe',
             'This snippet does not exist' => 'Este snippet no existe',
             'Delete snippet: :snippet' => 'Eliminar snippet: :snippet',

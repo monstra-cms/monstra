@@ -15,7 +15,7 @@
             'Delete' => 'Borrar',
             'Enter' => 'Entrar',
             'Logout' => 'Salir',
-            'Register new user' => 'Registrar nuevo usuario',
+            'Register New User' => 'Registrar nuevo usuario',
             'New User Registration' => 'Registración nuevo usuario',
             'Delete user: :user' => 'Borrar usuario: :user',
             'User <i>:user</i> have been deleted.' => 'Usuario <i>:user</i> ha sido borrado.',

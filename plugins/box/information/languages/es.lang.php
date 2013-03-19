@@ -20,7 +20,7 @@
             'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' =>
             'El archivo de configuración se ha encontrado ser de escritura. Les recomendamos quitar todos los permisos de escritura en defines.php en los sistemas de producción.',
             'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod -R a-w :path</code>' =>
-            'El directorio núcleo Monstra (": path") y / o los archivos por debajo de ella se ha encontrado para tener permisos de escritura. Les recomendamos quitar todos los permisos de escritura. <br/> Usted puede hacer esto en sistemas Unix con: <code> chmod-R aw: path </ code>',
+            'El directorio núcleo Monstra (":path") y / o los archivos por debajo de ella se ha encontrado para tener permisos de escritura. Les recomendamos quitar todos los permisos de escritura. <br/> Usted puede hacer esto en sistemas Unix con: <code> chmod-R aw: path </code>',
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
             'El Monstra. Htaccess se ha encontrado para tener permisos de escritura. Les recomendamos quitar todos los permisos de escritura. <br/> Usted puede hacer esto en sistemas Unix con: <code>chmod a-w :path</code>',
             'The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>' =>

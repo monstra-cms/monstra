@@ -7,7 +7,7 @@
             'Actions' => 'Acciones',
             'Description' => 'Descripción',
             'Installed' => 'Instalado',
-            'Install New' => 'Instalar nuevow',
+            'Install New' => 'Instalar nuevo',
             'Delete' => 'Borrar',
             'Delete plugin :plugin' => 'Eliminar plugin :plugin',
             'This plugin does not exist' => 'Este plugin no existe',
