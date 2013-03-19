@@ -2,14 +2,14 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Menu',
+            'Menu' => 'Menu',        
             'Menu manager' => 'Menu menadžer',
             'Edit' => 'Izmeni',
             'Name' => 'Ime',
             'Delete' => 'Obriši',
             'Order' => 'Poređenje',
             'Actions' => 'Akcije',
-            'Create New Item' => 'Kreiraj novu stavku',
+            'Create new item' => 'Kreiraj novu stavku',
             'New item' => 'Nova stavka',
             'Item name' => 'Ime',
             'Item order' => 'Poredjenje',

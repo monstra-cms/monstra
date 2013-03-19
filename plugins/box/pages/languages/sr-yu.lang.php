@@ -2,15 +2,15 @@
 
     return array(
         'pages' => array(
-            'Pages' => 'Strane',
-            'Pages manager' => 'Menadžer strana',
+            'Pages' => 'Strane',        
+            'Pages manager' => 'Menadžer strana',        
             'Content' => 'Ssadržaj',
             'Create new page' => 'Kreiraj novu stranu',
             'New page' => 'Nova strana',
-            'Edit page' => 'Izemni stranu',
+            'Edit page' => 'Izemni stranu',        
             'Date' => 'Datum',
             'Clone' => 'Kloniraj',
-            'Edit' => 'Izmeni',
+            'Edit' => 'Izmeni',        
             'Delete' => 'Obriši',
             'Delete page: :page' => 'Obriši stranu: :page',
             'Title' => 'Naslov',
@@ -31,7 +31,7 @@
             'This page already exists' => 'Ova strana već postoji',
             'Extra' => 'Dodatno polje',
             'Save' => 'Sačuvaj',
-            'Save and Exit' => 'Sačuvaj i izadji',
+            'Save and exit' => 'Sačuvaj i izadji',
             'Your changes to the page <i>:page</i> have been saved.' => 'Vaše promene na stranici <i> :page </i> su sačuvane.',
             'The page <i>:page</i> cloned.' => 'Strana <i>:page</i> je klonirana.',
             'Status' => 'Status',
