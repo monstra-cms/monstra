@@ -32,6 +32,7 @@ class I18n
         'el' => 'Ελληνικά',
         'en' => 'English',
         'es' => 'Español',
+        'fa' => 'Farsi',
         'fi' => 'Suomi',
         'fr' => 'Français',
         'gl' => 'Galego',
