@@ -2,17 +2,15 @@
 <br />
 
 <?php if ($menu->count() == 0) { ?>
-<h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3> 
+<h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3>
 <br />
 <?php
     echo (
-            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
-        ); 
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small'))
+        );
 ?>
 <br /><br />
 <?php } ?>
-
-
 
 <?php
 
@@ -25,21 +23,20 @@
 ?>
 
 <h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
-<br />   
+<br />
 <?php
     echo (
-            Html::anchor(__('Create new item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create new page', 'menu'), 'class' => 'btn btn-small')) 
-        ); 
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small'))
+        );
 ?>
 <br /><br />
-
 
 <table class="table table-bordered">
     <thead>
         <tr>
-            <td><?php echo __('Name', 'menu'); ?></td>
-            <td class="span2"><?php echo __('Order', 'menu'); ?></td>
-            <td width="30%"><?php echo __('Actions', 'menu'); ?></td>
+            <th><?php echo __('Name', 'menu'); ?></th>
+            <th class="span2"><?php echo __('Order', 'menu'); ?></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -64,15 +61,17 @@
                 <?php echo $item['order']; ?>
             </td>
             <td>
-                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-actions')); ?>
+                <div class="pull-right">
+                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-small')); ?>
                 <?php echo Html::anchor(__('Delete', 'menu'),
                            'index.php?id=menu&delete_item='.$item['id'],
-                           array('class' => 'btn btn-actions', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
+                           array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
                  ?>
+             </div>
             </td>
         </tr>
         <?php } ?>
     </tbody>
-</table> 
+</table>
 <br />
 <?php } ?>

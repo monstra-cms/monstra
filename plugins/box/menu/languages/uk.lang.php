@@ -2,17 +2,17 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Меню',        
+            'Menu' => 'Меню',
             'Menu manager' => 'Менеджер меню',
             'Edit' => 'Редагувати',
             'Name' => 'Назва',
             'Delete' => 'Видалити',
             'Order' => 'Порядок',
             'Actions' => 'Дії',
-            'Create new item' => 'Створити новий пункт меню',
+            'Create New Item' => 'Створити новий пункт меню',
             'New item' => 'Новий пункт меню',
             'Item name' => 'Назва',
-            'Item order' => 'Порядок',        
+            'Item order' => 'Порядок',
             'Item target' => 'Ціль',
             'Item link' => 'Ссылка',
             'Item category' => 'Категорія',

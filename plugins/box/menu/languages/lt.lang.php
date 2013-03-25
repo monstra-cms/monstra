@@ -9,7 +9,7 @@
             'Delete' => 'Trinti',
             'Order' => 'Eiliškumas',
             'Actions' => 'Veiksmai',
-            'Create new item' => 'Sukurti naują nuorodą',
+            'Create New Item' => 'Sukurti naują nuorodą',
             'New item' => 'Nauja nuoroda',
             'Item name' => 'Pavadinimas',
             'Item order' => 'Eiliškumas',

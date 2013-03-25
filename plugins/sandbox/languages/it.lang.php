@@ -7,4 +7,4 @@
             'Sandbox template' => 'Modello Sandbox',
             'Save' => 'Salva',
         )
-    ); 
+    );

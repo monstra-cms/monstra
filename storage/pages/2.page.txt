@@ -1,6 +1,20 @@
-&lt;h2&gt;Thank you for using Monstra :)&lt;/h2&gt;
-&lt;br /&gt;
-&lt;h3&gt;Demo content&lt;/h3&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed quis est vitae ipsum mattis vulputate. Nam consectetuer. Aenean sit amet massa. In cursus risus. Pellentesque sed est. Vestibulum convallis porta tellus. Sed ante libero, ornare id, pellentesque ac, tincidunt egestas, purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam tellus pede, mollis eu, tincidunt sit amet, eleifend et, ligula. Mauris sapien sem, convallis non, commodo quis, vehicula vel, dui. Sed fringilla, dolor in gravida nonummy, tortor nisi auctor nibh, nec sodales sapien felis non risus. Donec odio metus, tincidunt nec, gravida sit amet, pretium eu, lacus. Etiam venenatis. Morbi ultrices, risus aliquet viverra mattis, ipsum nibh vehicula ligula, sit amet dignissim eros purus ac risus. Nunc faucibus magna id ante. In sodales tincidunt nibh. Proin porttitor est. In ultrices vulputate metus.&lt;/p&gt;
-
-{block get=&quot;test&quot;}
+&lt;h2&gt;Welcome!&lt;/h2&gt;
+&lt;p&gt;Welcome to your new Monstra powered website.&lt;br&gt;Monstra is succesfully installed, you can start editing the content and customising your site.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4&gt;Getting Started&lt;/h4&gt;
+&lt;p&gt;This is a default &lt;u&gt;home&lt;/u&gt; page of your website.&lt;br&gt;Here&#039;s a quick description of how to edit this page:
+&lt;ul&gt;
+&lt;li&gt;First make sure you&#039;re &lt;a href=&quot;{siteurl}admin&quot;&gt;logged in.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Go to the &lt;a href=&quot;{siteurl}admin/index.php?id=pages&quot;&gt;Pages Manager&lt;/a&gt; and click &quot;Edit&quot; button for this page.&lt;/li&gt;
+&lt;li&gt;Make your changes, click &quot;Save&quot; and you&#039;re done!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;br&gt;
+&lt;h4&gt;Online Resources&lt;/h4&gt;
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://monstra.org&quot;&gt;Official Site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://forum.monstra.org&quot;&gt;Official Support Forum&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://monstra.org/documentation&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;

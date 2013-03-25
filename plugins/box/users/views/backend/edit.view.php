@@ -15,7 +15,7 @@
 
 <div>
 
-    <div class="span7">    
+    <div class="span7">
     <?php
 
         echo (
@@ -24,43 +24,42 @@
             Form::hidden('user_id', Request::get('user_id'))
         );
 
-        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {        
+        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {
             echo Form::label('login', __('Username', 'users'));
-            echo Form::input('login', $user['login'], array('class' => 'span6'));
+            echo Form::input('login', $user['login'], array('class' => 'input-xlarge'));
         } else {
             echo Form::hidden('login', $user['login']);
         }
 
         echo (
             Html::br().
-            Form::label('firstname', __('Firstname', 'users')).    
-            Form::input('firstname', $user_firstname, array('class' => 'span6')).Html::br().
+            Form::label('firstname', __('Firstname', 'users')).
+            Form::input('firstname', $user_firstname, array('class' => 'input-xlarge')).Html::br().
             Form::label('lastname', __('Lastname', 'users')).
-            Form::input('lastname', $user_lastname, array('class' => 'span6')).Html::br().
+            Form::input('lastname', $user_lastname, array('class' => 'input-xlarge')).Html::br().
             Form::label('email', __('Email', 'users')).
-            Form::input('email', $user_email, array('class' => 'span6')).Html::br().
+            Form::input('email', $user_email, array('class' => 'input-xlarge')).Html::br().
             Form::label('twitter', __('Twitter', 'users')).
-            Form::input('twitter', $user_twitter, array('class' => 'span6')).Html::br().
+            Form::input('twitter', $user_twitter, array('class' => 'input-xlarge')).Html::br().
             Form::label('skype', __('Skype', 'users')).
-            Form::input('skype', $user_skype, array('class' => 'span6')).Html::br().
+            Form::input('skype', $user_skype, array('class' => 'input-xlarge')).Html::br().
             Form::label('about_me', __('About Me', 'users')).
-            Form::textarea('about_me', $user_about_me, array('class' => 'span6')).Html::br()
+            Form::textarea('about_me', $user_about_me, array('class' => 'input-xlarge')).Html::br()
         );
 
-        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {        
+        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {
             echo Form::label('role', __('Role', 'users'));
-            echo Form::select('role', array('admin' => __('Admin', 'users'), 'editor' => __('Editor', 'users'), 'user' => __('User', 'users')), $user['role'], array('class' => 'span3')). Html::br();
-        } else {        
+            echo Form::select('role', array('admin' => __('Admin', 'users'), 'editor' => __('Editor', 'users'), 'user' => __('User', 'users')), $user['role'], array('class' => 'input-xlarge')). Html::br();
+        } else {
             echo Form::hidden('role', $_SESSION['user_role']);
         }
-
 
         echo (
             Html::br().
             Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn')).
             Form::close()
         );
-      
+
     ?>
     </div>
 
@@ -72,10 +71,10 @@
             Form::hidden('csrf', Security::token()).
             Form::hidden('user_id', Request::get('user_id')).
             Form::label('new_password', __('New password', 'users')).
-            Form::password('new_password', null, array('class' => 'span6')).Html::br().Html::br().
+            Form::password('new_password', null, array('class' => 'input-xlarge')).Html::br().Html::br().
             Form::submit('edit_profile_password', __('Save', 'users'), array('class' => 'btn')).
             Form::close()
-        );    
+        );
     ?>
     </div>
 

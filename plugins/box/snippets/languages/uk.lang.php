@@ -3,16 +3,16 @@
     return array(
         'snippets' => array(
             'Snippets' => 'Сніппети',
-            'Snippets manager' => 'Менеджер сніппетів',  
+            'Snippets manager' => 'Менеджер сніппетів',
             'Actions' => 'Дії',
             'Delete' => 'Видалити',
             'Edit' => 'Редагувати',
-            'New snippet' => 'Новий сніппет',  
-            'Create new snippet' => 'Створити новий сніппет', 
+            'New Snippet' => 'Новий сніппет',
+            'Create New Snippet' => 'Створити новий сніппет',
             'Name' => 'Назва',
-            'Edit snippet' => 'Редагування  сніппета',
-            'Save' => 'Зберегти',        
-            'Save and exit' => 'Зберегти та вийти',        
+            'Edit Snippet' => 'Редагування  сніппета',
+            'Save' => 'Зберегти',
+            'Save and Exit' => 'Зберегти та вийти',
             'This snippet already exists' => 'Такий сніппет вже існує',
             'This snippet does not exist' => 'Такого сніппета не існує',
             'Delete snippet: :block' => 'Видалити сніппет: :snippet',
@@ -22,8 +22,8 @@
             'Delete snippet: :snippet' => 'Видалити сніппет: :snippet',
             'Required field' => 'Обов’язкове поле',
             'View Embed Code' => 'Код для вставки',
-            'Embed Code' => 'Код для вставки', 
+            'Embed Code' => 'Код для вставки',
             'Shortcode' => 'Шорткод',
             'PHP Code' => 'PHP код',
         )
-    ); 
+    );
