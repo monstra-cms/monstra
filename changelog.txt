@@ -1,4 +1,4 @@
-Monstra 2.2.0, xxxx-xx-xx
+Monstra 2.2.0, 2013-03-25
 ------------------------
 - Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
 - Improved Monstra Architecture!
