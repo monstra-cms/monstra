@@ -12,7 +12,7 @@
             'New Snippet' => 'کدآماده جدید',
             'Edit Snippet' => 'ویرایش کدآماده',        
             'Save' => 'ذخیره',        
-            'Save and Exit' => 'ذخیره و خروج',        
+            'Save and Exit' => 'ذخیره و خروج', 
             'This snippet already exists' => 'این کدآماده از قبل موجود است',
             'This snippet does not exist' => 'این کدآماده وجود ندارد',
             'Delete snippet: :snippet' => 'حذف کدآماده: :snippet',
