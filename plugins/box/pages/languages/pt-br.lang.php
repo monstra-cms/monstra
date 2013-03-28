@@ -40,7 +40,7 @@
             'Published' => 'Publicado',
             'Draft' => 'Rascunho',
             'Published on' => 'Publicada em',
-            'Edit 404 page' => 'Editar página de erro 404',
+            'Edit 404 Page' => 'Editar página de erro 404',
             'Page <i>:page</i> deleted' => 'Página <i>:page</i> deletada',
             'Search Engines Robots' => 'Crawlers de sistemas de buscas.',
             'Page' => 'Página',

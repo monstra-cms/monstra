@@ -40,7 +40,7 @@
             'Published' => 'Objavljeno',
             'Draft' => 'Nacrt',
             'Published on' => 'Objavljeno od',
-            'Edit 404 page' => 'Izmeni 404 stranu',
+            'Edit 404 Page' => 'Izmeni 404 stranu',
             'Page <i>:page</i> deleted' => 'Strana <i>:page</i> je obrisana',
             'Search Engines Robots' => 'Roboti pretrage',
             'Page' => 'Strana',
