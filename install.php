@@ -1,21 +1,18 @@
 <?php
 
     /**
-     * Monstra :: Installator	
+     * Monstra :: Installator
      */
-     
-	// Main engine defines    
+
+    // Main engine defines
     if ( ! defined('DS')) define('DS', DIRECTORY_SEPARATOR);
     if ( ! defined('ROOT')) define('ROOT', rtrim(dirname(__FILE__), '\\/'));
     if ( ! defined('BACKEND')) define('BACKEND', false);
     if ( ! defined('MONSTRA_ACCESS')) define('MONSTRA_ACCESS', true);
 
-    // Set default timezone
-    $system_timezone = 'Kwajalein';
-    
     // Load bootstrap file
-    require_once(ROOT . DS . 'monstra' . DS . 'bootstrap.php');
-   
+    require_once(ROOT . DS . 'engine' . DS . '_init.php');
+
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
 
@@ -30,16 +27,19 @@
 
     // Directories to check
     $dir_array = array('public', 'storage', 'backups', 'tmp');
-    
+
+    // Languages array
+    $languages_array = array('en', 'fr', 'de', 'it', 'es', 'lt', 'pt-br', 'ru', 'uk', 'hu', 'fa' , 'sk', 'sr-yu');
+
     // Select Monstra language
     if (Request::get('language')) {
-        if (in_array(Request::get('language'), array('en', 'ru', 'lt', 'it', 'de', 'pt-br'))) {           
+        if (in_array(Request::get('language'), $languages_array)) {
             if (Option::update('language', Request::get('language'))) {
-                Request::redirect($site_url);   
+                Request::redirect($site_url);
             }
         } else {
             Request::redirect($site_url);
-        }        
+        }
     }
 
     // If pressed <Install> button then try to install
@@ -62,24 +62,21 @@
         if (trim(Request::post('backups') !== ''))     $errors['backups'] = true;
         if (trim(Request::post('tmp') !== ''))         $errors['tmp'] = true;
 
-
-        
-        
         // If errors is 0 then install cms
         if (count($errors) == 0) {
-            
+
             // Update options
             Option::update(array('maintenance_status' => 'off',
                                  'sitename'           => Request::post('sitename'),
                                  'siteurl'            => Request::post('siteurl'),
                                  'description'        => __('Site description', 'system'),
-                                 'keywords'           => __('Site keywords', 'system'), 
+                                 'keywords'           => __('Site keywords', 'system'),
                                  'slogan'             => __('Site slogan', 'system'),
                                  'defaultpage'        => 'home',
                                  'timezone'           => Request::post('timezone'),
+                                 'system_email'       => Request::post('email'),
                                  'theme_site_name'    => 'default',
                                  'theme_admin_name'   => 'default'));
-
 
             // Get users table
             $users = new Table('users');
@@ -110,6 +107,7 @@
     <head>
         <meta charset="utf-8">
         <title>Monstra :: Install</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Monstra Install Area">
         <link rel="icon" href="<?php echo $site_url; ?>favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo $site_url; ?>favicon.ico" type="image/x-icon" />
@@ -118,16 +116,28 @@
         <link rel="stylesheet" href="<?php echo $site_url; ?>admin/themes/default/css/default.css" media="all" type="text/css" />
         <style>
 
+            .input-xlarge {
+                width: 285px;
+            }
+
             .install-languages {
-                margin: 0 auto;
-                float: none!important;
-                margin-bottom:5px;
-                padding-right:20px;
+                margin: 0 auto 15px;
+                text-align: center;
+                width: 390px;
             }
 
             .install-block {
                 margin: 0 auto;
-                float: none!important;              
+                float: none!important;
+                max-width: 300px;
+                 padding: 19px 29px 29px;
+                  background: none repeat scroll 0 0 #fff;
+                  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+                     -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+                          box-shadow: 0 1px 5px rgba(0,0,0,.15);
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
             }
 
             .install-block-footer {
@@ -135,10 +145,12 @@
                 float: none!important;
                 margin-top:10px;
                 margin-bottom:10px;
+                max-width: 300px;
             }
 
             .install-body {
-                background:#F2F2F2;
+                background-color: #FBFBFB;
+                padding-top:40px;
             }
 
             .error {
@@ -153,35 +165,64 @@
                 color: #F74C18;
             }
 
-            .sep {
-                color:#ccc;
+            .install-languages a {
+                padding-left: 3px;
+                padding-right: 3px;
             }
 
-            .language-link {
-                color:#7A7A7C;
+            .language-link img {
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+                filter: alpha(opacity=30);
+                -moz-opacity:0.3;
+                -khtml-opacity: 0.3;
+                opacity: 0.3;
             }
 
-            .language-link:hover {
-                color:#000;
+            .language-link-current img{
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                filter: alpha(opacity=100);
+                -moz-opacity:1.0;
+                -khtml-opacity: 1.0;
+                opacity: 1.0;
             }
 
-            .language-link-current {
-                color:#000;
-                font-weight: 700;
+            .install-languages a img:hover {
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                filter: alpha(opacity=100);
+                -moz-opacity:1.0;
+                -khtml-opacity: 1.0;
+                opacity: 1.0;
             }
+
+            @media (max-width: 480px) {
+
+                .input-xlarge {
+                    width: 100%;
+                }
+
+                .install-languages {
+                    text-align: left;
+                }
+
+                .install-languages a {
+                    padding: 0;
+                }
+
+            }
+
        </style>
-
+       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/jquery.js"></script>
+       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/bootstrap.js"></script>
     </head>
     <body class="install-body">
-        <!-- Block_wrapper -->
-<?php
 
+    <?php
         if (version_compare(PHP_VERSION, "5.2.0", "<")) {
             $errors['php'] = 'error';
         } else {
             $errors['php'] = '';
         }
-        
+
         if (in_array('SimpleXML', $php_modules)) {
              $errors['simplexml'] = '';
         } else {
@@ -204,13 +245,13 @@
             $errors['install'] = 'error';
         }
 
-        if (is_writable('sitemap.xml')){
+        if (is_writable('sitemap.xml')) {
             $errors['sitemap'] = '';
         } else {
             $errors['sitemap'] = 'error';
         }
 
-        if (is_writable('.htaccess')){
+        if (is_writable('.htaccess')) {
             $errors['htaccess'] = '';
         } else {
             $errors['htaccess'] = 'error';
@@ -224,21 +265,15 @@
                 $errors[$dir] = 'error';
             }
         }
-?>
-        <!-- Block_wrapper -->
-        <div class="row">
-            <div class="span4 install-languages">
-                <a class="language-link<?php if (Option::get('language') == 'en') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=en'; ?>">en</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'it') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=it'; ?>">it</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'lt') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=lt'; ?>">lt</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'de') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=de'; ?>">de</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'pt-br') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=pt-br'; ?>">pt</a> <span class="sep">|</span>
-                <a class="language-link<?php if (Option::get('language') == 'ru') echo ' language-link-current';?>" href="<?php echo $site_url.'?language=ru'; ?>">ru</a>
+        ?>
+
+            <div class="install-languages">
+                <?php foreach ($languages_array as $lang_code) { ?>
+                <a data-placement="top" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
+                <?php } ?>
             </div>
-        </div>
-        <div class="row">
-            <div class="well span4 install-block">
-                <div style="text-align:center;"><a class="brand" href="#"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
+            <div class="install-block">
+                <div style="text-align:center;"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="Monstra"></a></div>
                 <hr>
                 <div>
                     <form action="install.php" method="post">
@@ -252,21 +287,21 @@
                         <input type="hidden" name="storage" value="<?php echo $errors['storage']; ?>" />
                         <input type="hidden" name="backups" value="<?php echo $errors['backups']; ?>" />
                         <input type="hidden" name="tmp" value="<?php echo $errors['tmp']; ?>" />
-                        
-                        <label><?php echo __('Site name', 'system'); ?></label>
-                        <input class="span4" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
+
+                        <label><?php echo __('Site Name', 'system'); ?></label>
+                        <input class="input-xlarge" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
                         <br />
-                        <label><?php echo __('Site url', 'system'); ?></label>
-                        <input class="span4" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
+                        <label><?php echo __('Site Url', 'system'); ?></label>
+                        <input class="input-xlarge" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
                         <br />
                         <label><?php echo __('Username', 'users'); ?></label>
-                        <input class="span4" class="login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
-                        <br /> 
+                        <input class="input-xlarge" class="login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
+                        <br />
                         <label><?php echo __('Password', 'users'); ?></label>
-                        <input class="span4" name="password" type="password" />
+                        <input class="input-xlarge" name="password" type="password" />
                         <br />
                         <label><?php echo __('Time zone', 'system'); ?></label>
-                        <select class="span4" name="timezone">
+                        <select class="input-xlarge" name="timezone">
                             <option value="Kwajalein">(GMT-12:00) International Date Line West</option>
                             <option value="Pacific/Samoa">(GMT-11:00) Midway Island, Samoa</option>
                             <option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
@@ -356,32 +391,32 @@
                         </select>
 
                         <label><?php echo __('Email', 'users'); ?></label>
-                        <input name="email" class="span4" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
+                        <input name="email" class="input-xlarge" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
                         <br /><br />
                         <input type="submit" class="btn" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
                     </form>
-                    </div>
-                    <hr>
-                    <p align="center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
-                    <div>
+                </div>
+                <hr>
+                <p align="center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
+                <div>
                     <ul>
                     <?php
 
                         if (version_compare(PHP_VERSION, "5.2.0", "<")) {
                             echo '<span class="error"><li>'.__('PHP 5.2 or greater is required', 'system').'</li></span>';
-                        } else {                        
+                        } else {
                             echo '<span class="ok"><li>'.__('PHP Version', 'system').' '.PHP_VERSION.'</li></span>';
                         }
 
                         if (in_array('SimpleXML', $php_modules)) {
                             echo '<span class="ok"><li>'.__('Module SimpleXML is installed', 'system').'</li></span>';
-                        } else {                    
+                        } else {
                             echo '<span class="error"><li>'.__('SimpleXML module is required', 'system').'</li></span>';
                         }
 
                         if (in_array('dom', $php_modules)) {
                             echo '<span class="ok"><li>'.__('Module DOM is installed', 'system').'</li></span>';
-                        } else {                    
+                        } else {
                             echo '<span class="error"><li>'.__('Module DOM is required', 'system').'</li></span>';
                         }
 
@@ -394,7 +429,7 @@
                         } else {
                             echo '<span class="ok"><li>'.__('Module Mod Rewrite is installed', 'system').'</li></span>';
                         }
-                        
+
                         foreach ($dir_array as $dir) {
                             if (is_writable($dir.'/')) {
                                 echo '<span class="ok"><li>'.__('Directory: <b> :dir </b> writable', 'system', array(':dir' => $dir)).'</li></span>';
@@ -402,25 +437,25 @@
                                 echo '<span class="error"><li>'.__('Directory: <b> :dir </b> not writable', 'system', array(':dir' => $dir)).'</li></span>';
                             }
                         }
-                        
-                        if (is_writable(__FILE__)){
-                        	echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
+
+                        if (is_writable(__FILE__)) {
+                            echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
                         } else {
-                        	echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
+                            echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
                         }
 
-                        if (is_writable('sitemap.xml')){
+                        if (is_writable('sitemap.xml')) {
                             echo '<span class="ok"><li>'.__('Sitemap file writable', 'system').'</li></span>';
                         } else {
                             echo '<span class="error"><li>'.__('Sitemap file not writable', 'system').'</li></span>';
                         }
 
-                        if (is_writable('.htaccess')){
+                        if (is_writable('.htaccess')) {
                             echo '<span class="ok"><li>'.__('Main .htaccess file writable', 'system').'</li></span>';
                         } else {
                             echo '<span class="error"><li>'.__('Main .htaccess file not writable', 'system').'</li></span>';
                         }
-                                    
+
                         if (isset($errors['sitename']))    echo '<span class="error"><li>'.$errors['sitename'].'</li></span>';
                         if (isset($errors['siteurl']))     echo '<span class="error"><li>'.$errors['siteurl'].'</li></span>';
                         if (isset($errors['login']))       echo '<span class="error"><li>'.$errors['login'].'</li></span>';
@@ -429,20 +464,16 @@
                         if (isset($errors['email_valid'])) echo '<span class="error"><li>'.$errors['email_valid'].'</li></span>';
                     ?>
                     </ul>
-                
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="span4 install-block-footer">
-                <div  style="text-align:center">
-                    <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo MONSTRA_VERSION; ?></span>            
                 </div>
             </div>
-        </div>
+            <div class="install-block-footer">
+                <div style="text-align:center;">
+                    <span class="small-grey-text">© 2012 - 2013 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                </div>
+            </div>
 
-        <!-- /Block_wrapper -->
+       <script type="text/javascript">
+            $('.language-link').tooltip();
+       </script>
     </body>
 </html>

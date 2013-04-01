@@ -2,14 +2,14 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Menu',        
+            'Menu' => 'Menu',
             'Menu manager' => 'Menu manager',
             'Edit' => 'Edit',
             'Name' => 'Name',
             'Delete' => 'Delete',
             'Order' => 'Order',
             'Actions' => 'Actions',
-            'Create new item' => 'Create new item',
+            'Create New Item' => 'Create new item',
             'New item' => 'New item',
             'Item name' => 'Item name',
             'Item order' => 'Item order',

@@ -1,0 +1,11 @@
+Gelato 1.0.1, 2013-03-05
+------------------------
+- New constant GELATO_CLASS_LOADER instead of GELATO_AUTOLOADER
+- ErrorHanler Class Improvements.
+- Log Class Improvements.
+- ClassLoader: new method register() added.
+- Define __DIR__ constant for PHP 5.2.x
+
+Gelato 1.0.0, 2013-02-26
+------------------------
+- Initial release

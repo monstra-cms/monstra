@@ -2,10 +2,10 @@
 
     return array(
         'backup' => array(
-    		'Backups' => 'Backups',
-            'Backup date' => 'Backup Datum',
-    		'Create backup' => 'Erstelle Backup',
-    		'Delete' => 'Löschen',
+            'Backups' => 'Backups',
+            'Backup' => 'Backup',
+            'Create Backup' => 'Erstelle Backup',
+            'Delete' => 'Löschen',
             'storage' => 'Speicher',
             'public' => 'Öffentliche',
             'plugins' => 'Plugins',
@@ -14,4 +14,4 @@
             'Delete backup: :backup' => 'Lösche Backup: :backup',
             'Creating...' => 'Erstellen...',
         )
-	);
+    );

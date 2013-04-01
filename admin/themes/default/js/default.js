@@ -17,3 +17,10 @@
 
 /* Confirm delete */
 function confirmDelete(msg){var data=confirm(msg+" ?"); return data;}
+
+$(document).ready(function() {
+    /* DropDown Menu for Mobile Devices */
+    $("#sections").change(function(){
+       window.location = $('#sections option:selected').attr('rel');
+    });
+});

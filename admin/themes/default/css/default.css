@@ -1,25 +1,19 @@
 /************************************
   Monstra
-  http://monstra.org
-  styles.css, v1.0.0
-  12 Septemper 2012  
+  styles.css
 *************************************
   CONTENTS
-    1.  GENERAL
-    2.  HEADER
-    3.  CONTENT
-    4.  LEFT MENU
-    5.  AUTHORIZATION
-    6.  TABLE
-    7.  BUTTONS
-    8.  TABS
-    9.  MISC
+    1. GENERAL
+    2. HEADER
+    3. CONTENT
+    4. LEFT MENU
+    5. AUTHORIZATION
+    6. MEDIA QUERIES
 
 
 *************************************
     1. GENERAL
 *************************************/
-
 body {
   padding-top: 60px;
   margin: 0;
@@ -91,10 +85,229 @@ h6 {
   text-transform: uppercase;
 }
 
+/* Inputs */
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=phone]:focus,
+input[type=password]:focus,
+select:focus,
+textarea:focus {
+  border-color: #999;
+  box-shadow: none;
+}
+
+/* Tables */
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+.table {
+  width: 100%;
+  margin-bottom: 18px;
+}
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  border-top: 1px solid #dddddd;
+}
+.table th {
+  font-weight: bold;
+}
+.table thead th {
+  vertical-align: bottom;
+}
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+.table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+.table-bordered {
+  border: 1px solid #dddddd;
+  border-left: 0;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.table-bordered th:first-child,
+.table-bordered td:first-child {
+  border-left: 1px solid #dddddd;
+}
+
+.table-bordered td:first-child {
+  padding-left:15px;
+}
+
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child {
+  -webkit-border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
+  border-radius: 4px 0 0 0;
+}
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child {
+  -webkit-border-radius: 0 4px 0 0;
+  -moz-border-radius: 0 4px 0 0;
+  border-radius: 0 4px 0 0;
+}
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child {
+  -webkit-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 4px;
+}
+
+.table-bordered thead tr th {
+  font-weight:bold;
+  background-color: #f5f5f5;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#f5f5f5));
+  background-image: -moz-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -ms-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -o-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: linear-gradient(top, #ffffff, #f5f5f5);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
+  border-top: 1px solid #fff;  
+}
+
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child {
+  -webkit-border-radius: 0 0 4px 0;
+  -moz-border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px 0;
+}
+
+.table-bordered thead:first-child tr:first-child > th:first-child, .table-bordered tbody:first-child tr:first-child > td:first-child {
+    border-top-left-radius: 0px;
+}
+
+.table-bordered thead:last-child tr:last-child > th:last-child,
+.table-bordered tbody:last-child tr:last-child > td:last-child {
+    border-top-right-radius: 0px;
+}
+
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: #f5f5f5;
+}
+
+.table-bordered th, .table-bordered td {
+    border-left: none;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit!important;
+}
+
+/* Buttons */
+
+.btn-toolbar {
+  margin:0;
+}
+
+.btn-group .btn {
+  margin-left: 5px;
+}
+
+.btn-actions-default {
+  -webkit-border-top-left-radius: 4px!important;
+  -moz-border-radius-topleft: 4px!important;
+  border-top-left-radius: 4px!important;
+  -webkit-border-bottom-left-radius: 4px!important;
+  -moz-border-radius-bottomleft: 4px!important;
+  border-bottom-left-radius: 4px!important;
+}
+
+/* Tabs */
+
+.tab-pane > table {
+    margin-top:-20px;
+}
+
+.tab-pane > table {
+    border-top:none!important;
+}
+
+.tab-content {
+  overflow: visible;
+}
+
+.tab-page {
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    margin-top: -20px;
+    padding: 20px 10px 10px;
+}
+
+.small-grey-text {
+    color:#333;
+    font-size: 10px;
+}
+
+.small-grey-text:hover {
+    color:#000;
+}
+
+.small-white-text {
+    color:#fff;
+    font-size: 10px;
+}
+
+.small-white-text:hover {
+    color:#fdfdfd;
+}
+
+.error-none {display:none;}
+.error-field {border:1px solid red!important;}
+.container-fluid {padding-left:0px;}
+img {max-width:none;}
+
+a.btn-expand{
+  color: #333;
+  font-weight:bold; 
+  font-size:14px;  
+  text-decoration: none;
+  padding-left:4px;
+  padding-right:4px;
+}
+
+footer a , footer{
+  color:#333;
+  font-size:10px;
+}
+
 /**************************************
     2. HEADER
 *************************************/
-
 .monstra-header {
   top: 0;
   left: 0;
@@ -140,16 +353,13 @@ h6 {
 /*************************************
     3. CONTENT
 *************************************/
-
 .monstra-content {
   padding-top:20px;
 }
 
-
 /*************************************
     4. LEFT MENU
 *************************************/
-
 .monstra-menu-category-separator {
     border: 0;
     border-bottom: 1px solid #ccc;
@@ -235,219 +445,86 @@ h6 {
   background-color: #0088cc;
 }
 
-
-
 /*************************************
     5. AUTHORIZATION
 *************************************/
-
-.authorization-block {
-    margin: 0 auto;
-    float: none!important;       
-}
-
-.authorization-block-footer {
-    margin: 0 auto;
-    float: none!important;      
-    margin-top:10px;
-    margin-bottom:10px;
-}
-
 .login-body {
-    background:#F2F2F2;
+    background-color: #FBFBFB;
 }
 
-/*************************************
-    6. TABLE
-*************************************/
-
-table {
-  max-width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  background-color: transparent;
-}
-.table {
-  width: 100%;
-  margin-bottom: 18px;
-}
-.table th,
-.table td {
-  padding: 8px;
-  line-height: 18px;
-  text-align: left;
-  border-top: 1px solid #dddddd;
-}
-.table th {
-  font-weight: bold;
-}
-.table thead th {
-  vertical-align: bottom;
-}
-.table colgroup + thead tr:first-child th,
-.table colgroup + thead tr:first-child td,
-.table thead:first-child tr:first-child th,
-.table thead:first-child tr:first-child td {
-  border-top: 0;
-}
-.table tbody + tbody {
-  border-top: 2px solid #dddddd;
-}
-.table-condensed th,
-.table-condensed td {
-  padding: 4px 5px;
-}
-.table-bordered {
-  border: 1px solid #dddddd;
-  border-left: 0;
-  border-collapse: separate;
-  *border-collapse: collapsed;
+.form-signin {
+  max-width: 290px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background: none repeat scroll 0 0 #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
+          box-shadow: 0 1px 5px rgba(0,0,0,.15);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.table-bordered th:first-child,
-.table-bordered td:first-child {
-  border-left: 1px solid #dddddd;
-}
-
-.table-bordered td:first-child {
-  padding-left:15px;
-}
-
-.table-bordered thead:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child td {
-  border-top: 0;
-}
-.table-bordered thead:first-child tr:first-child th:first-child,
-.table-bordered tbody:first-child tr:first-child td:first-child {
-  -webkit-border-radius: 4px 0 0 0;
-  -moz-border-radius: 4px 0 0 0;
-  border-radius: 4px 0 0 0;
-}
-.table-bordered thead:first-child tr:first-child th:last-child,
-.table-bordered tbody:first-child tr:first-child td:last-child {
-  -webkit-border-radius: 0 4px 0 0;
-  -moz-border-radius: 0 4px 0 0;
-  border-radius: 0 4px 0 0;
-}
-.table-bordered thead:last-child tr:last-child th:first-child,
-.table-bordered tbody:last-child tr:last-child td:first-child {
-  -webkit-border-radius: 0 0 0 4px;
-  -moz-border-radius: 0 0 0 4px;
-  border-radius: 0 0 0 4px;
-}
-
-.table-bordered thead tr td {
-  font-weight:bold;
-  background-color: #f5f5f5;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#f5f5f5));
-  background-image: -moz-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: -ms-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
-  background-image: -webkit-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: -o-linear-gradient(top, #ffffff, #f5f5f5);
-  background-image: linear-gradient(top, #ffffff, #f5f5f5);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
-  border-top: 1px solid #fff;  
-}
-
-.table-bordered thead:last-child tr:last-child th:last-child,
-.table-bordered tbody:last-child tr:last-child td:last-child {
-  -webkit-border-radius: 0 0 4px 0;
-  -moz-border-radius: 0 0 4px 0;
-  border-radius: 0 0 4px 0;
-}
-.table-striped tbody tr:nth-child(odd) td,
-.table-striped tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
-}
-.table tbody tr:hover td,
-.table tbody tr:hover th {
-  background-color: #f5f5f5;
-}
-
-.table-bordered th, .table-bordered td {
-    border-left: none;
-}
-
-
-td, th {
-    display: table-cell;
-    vertical-align: inherit!important;
-}
-
-/*************************************
-    7. BUTTONS
-*************************************/
-
-.btn-toolbar {
-  margin:0;
-}
-
-.btn-group .btn {
-  margin-left: 5px;
-}
-
-.btn-actions-default {
-  -webkit-border-top-left-radius: 4px!important;
-  -moz-border-radius-topleft: 4px!important;
-  border-top-left-radius: 4px!important;
-  -webkit-border-bottom-left-radius: 4px!important;
-  -moz-border-radius-bottomleft: 4px!important;
-  border-bottom-left-radius: 4px!important;
-}
 
 
 /*************************************
-    8. TABS
+    6. MEDIA QUERIES
 *************************************/
 
-.tab-pane > table {
-    margin-top:-18px;
+/* iPhone 4, iPhone5, Small Tablet, Tablet */
+@media (max-width: 800px) {
+
+    .monstra-header .btn-small {
+        padding: 0px 7px;
+    }
+
+    .monstra-menu-sidebar {
+        background: url('@theme_admin_url/img/noisy_grid.png');
+        background-color:#ccc;
+        max-width: 100%!important;
+        min-width: 100%!important;
+        margin-bottom: 20px;
+        padding: 19px;
+        border:2px solid #ccc;
+    }
+
+    .container-fluid {
+        padding: 0px;
+    }
+
 }
 
-.tab-pane > table {
-    border-top:none!important;
+/* Small Tablet(Landscape), Tablet(Portrait) */
+@media (min-width: 768px) and (max-width: 800px) {
+    .row-fluid .span10 {
+        -moz-box-sizing: border-box;
+        display: block;
+        width: 94%;
+    }
+
+    footer a, footer {
+        color: #333333;
+        font-size: 10px;
+        margin-right: 10px;
+    }
 }
 
-.tab-content {
-  overflow: visible;
+/* iPhone 4 */
+@media (max-width: 320px) {
+    .markItUpButton11, 
+    .markItUpButton12, 
+    .markItUpButton13,
+    .markItUpButton14,
+    .markItUpButton15,
+    .markItUpButton16,
+    .markItUpButton17,
+    .markItUpButton18 {
+        display: none;
+    }
+    .markItUpSeparator{
+        display: none;
+    }
+
+    #showImage {
+        min-width: 298px!important;
+    }
 }
-
-.tab-page {
-    border-bottom: 1px solid #DDDDDD;
-    border-left: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    margin-top: -20px;
-    padding: 20px 10px 10px;
-}
-
-/*************************************
-    9. MISC
-*************************************/
-
-.small-grey-text {
-    color:#333;
-    font-size: 10px;
-}
-
-.small-grey-text:hover {
-    color:#000;
-}
-
-.small-white-text {
-    color:#fff;
-    font-size: 10px;
-}
-
-.small-white-text:hover {
-    color:#fdfdfd;
-}
-
-.error-none {display:none;}
-.error-field {border:1px solid red!important;}
-.container-fluid {padding-left:0px;}
-img {max-width:none;}

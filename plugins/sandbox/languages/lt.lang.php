@@ -6,5 +6,5 @@
             'Sandbox plugin for Monstra' => 'Sandbox papildinys',
             'Sandbox template' => 'Sandbox šablonas',
             'Save' => 'Išsaugoti',
-        ) 
+        )
     );

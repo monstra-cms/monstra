@@ -3,16 +3,16 @@
     return array(
         'snippets' => array(
             'Snippets' => 'Snippets',
-            'Snippets manager' => 'Snippets manager',  
+            'Snippets manager' => 'Snippets manager',
             'Actions' => 'Actions',
             'Delete' => 'Delete',
             'Edit' => 'Edit',
             'Name' => 'Name',
-            'Create new snippet' => 'Create new snippet',
-            'New snippet' => 'New snippet',
-            'Edit snippet' => 'Edit snippet',        
-            'Save' => 'Save',        
-            'Save and exit' => 'Save and exit',        
+            'Create New Snippet' => 'Create New Snippet',
+            'New Snippet' => 'New Snippet',
+            'Edit Snippet' => 'Edit Snippet',
+            'Save' => 'Save',
+            'Save and Exit' => 'Save and Exit',
             'This snippet already exists' => 'This snippet already exists',
             'This snippet does not exist' => 'This snippet does not exist',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',
@@ -21,5 +21,9 @@
             'Your changes to the snippet <i>:name</i> have been saved.' => 'Your changes to the snippet <i>:name</i> have been saved.',
             'Delete snippet: :snippet' => 'Delete snippet: :snippet',
             'Required field' => 'Required field',
+            'View Embed Code' => 'View Embed Code',
+            'Embed Code' => 'Embed Code',
+            'Shortcode' => 'Shortcode',
+            'PHP Code' => 'PHP Code',
         )
     );

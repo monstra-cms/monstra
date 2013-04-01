@@ -2,14 +2,14 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Menu',        
+            'Menu' => 'Menu',
             'Menu manager' => 'Gerenciador do menu',
             'Edit' => 'Editar',
             'Name' => 'Nome',
             'Delete' => 'Deletar',
             'Order' => 'Ordem',
             'Actions' => 'Ações',
-            'Create new item' => 'Criar novo item',
+            'Create New Item' => 'Criar novo item',
             'New item' => 'Novo item',
             'Item name' => 'Nome do item',
             'Item order' => 'ordem do item',
