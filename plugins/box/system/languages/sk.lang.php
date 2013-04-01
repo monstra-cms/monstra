@@ -21,6 +21,7 @@
             'Default Page' => 'Základná stránka - Default page',
             'Time zone' => 'Časové pásmo',
             'Language' => 'Jazyk',
+            'Email' => 'Email',
             'Save' => 'Uložiť',
             'System version' => 'Verzia systému',
             'System version ID' => 'ID verzie systému',

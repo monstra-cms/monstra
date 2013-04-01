@@ -21,6 +21,7 @@
             'Default Page' => 'Сторінка по умовчанню',
             'Time zone' => 'Тимчасова зона',
             'Language' => 'Мова',
+            'Email' => 'Email',
             'Save' => 'Зберегти',
             'System version' => 'Версія системи',
             'System version ID' => 'Версія системи ID',

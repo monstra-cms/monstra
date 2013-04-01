@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Système',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Plan du site créé',
             'Create sitemap' => 'Créer un plan du site',
             'on' => 'on',
-            'off'=> 'off',    
+            'off'=> 'off',
             'Site url' => 'Url du site',
             'Maintenance Mode' => 'Mode de maintenance',
             'Maintenance Mode On' => 'Mode de maintenance On',
@@ -21,14 +21,15 @@
             'Default page' => 'Page par défaut',
             'Time zone' => 'Fuseau horaire',
             'Language' => 'Langue',
+            'Email' => 'Email',
             'Save' => 'Enregistrer',
-            'Site' => 'Site',        
+            'Site' => 'Site',
             'System version' => 'Version du système',
             'System version ID' => 'ID de la version du système',
             'GZIP' => 'GZIP',
             'Debugging' => 'Débogage',
             'Plugin API' => 'Plugin API',
-            'Plugins active' => 'Plugins actifs', 
+            'Plugins active' => 'Plugins actifs',
             'Actions registered' => 'Actions enregistrées',
             'Filters registered' => 'Filtres enregistrées',
             'logout' => 'déconnexion',

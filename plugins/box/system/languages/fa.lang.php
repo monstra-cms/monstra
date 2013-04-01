@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'سیستم',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'نقشه سایت ایجاد شد',
             'Create Sitemap' => 'ایجاد نقشه سایت',
             'on' => 'روشن',
-            'off'=> 'خاموش',    
+            'off'=> 'خاموش',
             'Site Url' => 'آدرس سایت',
             'Maintenance Mode' => 'حالت تعمیر و نگهداری',
             'Maintenance Mode On' => 'حالت تعمیر و نگهداری روشن',
@@ -21,14 +21,15 @@
             'Default Page' => 'صفحه پیشفرض',
             'Time zone' => 'منطقه زمانی',
             'Language' => 'زبان',
+            'Email' => 'Email',
             'Save' => 'ذخیره',
-            'Site' => 'سایت',        
+            'Site' => 'سایت',
             'System version' => 'نسخه سیستم',
             'System version ID' => 'شناسه نسخه سیستم',
             'GZIP' => 'GZIP',
             'Debugging' => 'اشکال زدائی',
             'Plugin API' => 'API پلاگین',
-            'Plugins active' => 'پلاگینهای فعال', 
+            'Plugins active' => 'پلاگینهای فعال',
             'Actions registered' => 'عملیات ثبت شده',
             'Filters registered' => 'فیلترهای ثبت شده',
             'logout' => 'خروج',

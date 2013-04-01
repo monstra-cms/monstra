@@ -21,6 +21,7 @@
             'Default Page' => 'Página padrão',
             'Time zone' => 'Timezone padrão',
             'Language' => 'Linguagem',
+            'Email' => 'Email',
             'Save' => 'Salvar',
             'System version' => 'Versão do sistema',
             'System version ID' => 'ID (longo) da versão do sistema',

@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Rendszer',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Oldaltérkép elkészült',
             'Create Sitemap' => 'Oldaltérkép készítése',
             'on' => 'be',
-            'off'=> 'ki',    
+            'off'=> 'ki',
             'Site Url' => 'Weboldal címe (url)',
             'Maintenance Mode' => 'Karbantartási mód',
             'Maintenance Mode On' => 'Karbantartási mód Be',
@@ -21,14 +21,15 @@
             'Default Page' => 'Alapértelmezett kezdőoldal',
             'Time zone' => 'Időzóna',
             'Language' => 'Nyelv',
+            'Email' => 'Email',
             'Save' => 'Mentés',
-            'Site' => 'Weboldal',        
+            'Site' => 'Weboldal',
             'System version' => 'Rendszer verzió',
             'System version ID' => 'Rendszer verziószám',
             'GZIP' => 'GZIP',
             'Debugging' => 'Hibakeresés',
             'Plugin API' => 'Plugin API',
-            'Plugins active' => 'A Pluginok aktívak', 
+            'Plugins active' => 'A Pluginok aktívak',
             'Actions registered' => 'Actions registered',
             'Filters registered' => 'Filters registered',
             'logout' => 'Kilépés',
