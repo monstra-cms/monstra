@@ -21,6 +21,7 @@
             'Default Page' => 'Página por defecto',
             'Time zone' => 'Zona horaria',
             'Language' => 'Lenguaje',
+            'Email' => 'Email',
             'Save' => 'Guardar',
             'Site' => 'Web',
             'System Version' => 'Version Web',
