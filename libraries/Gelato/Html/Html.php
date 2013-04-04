@@ -28,6 +28,13 @@ class Html
         'accept', 'tabindex', 'accesskey', 'alt', 'title', 'class',
         'style', 'selected', 'checked', 'readonly', 'disabled',
     );
+	
+	/**
+	 * The registered custom macros.
+	 *
+	 * @var array
+	 */
+	public static $macros = array();
 
     /**
      * Protected constructor since this is a static class.
@@ -279,7 +286,56 @@ class Html
         $attributes['alt'] = (isset($attributes['alt'])) ? $attributes['alt'] : pathinfo($file, PATHINFO_FILENAME);
 
         return '<img'.Html::attributes($attributes).' />';
-    }
+    }    
+    
+	/**
+	 * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
+     *
+     *  <code>
+     *  	echo Html::email('gelato@monstra.org');
+     * 	</code>
+     *
+	 * @param  string  $email
+	 * @return string
+	 */
+	 public static function email($email)
+	 {
+	     return str_replace('@', '&#64;', Html::obfuscate($email));
+	 }
+    
+    /**
+	 * Obfuscate a string to prevent spam-bots from sniffing it.
+	 *
+     * This method obfuscate the value, randomly convert each
+     * letter to its entity or hexadecimal representation, keeping a
+     * bot from sniffing the randomly obfuscated letters.
+     *
+     *  <code>
+     *  	echo Html::obfuscate('gelato@monstra.org');
+     * 	</code>
+     *
+	 * @param  string  $value
+	 * @return string
+	 */
+	public static function obfuscate($value)
+	{
+		$safe = '';
+
+		foreach (str_split($value) as $letter) {
+			switch (rand(1, 3)) {
+				case 1:
+					$safe .= '&#'.ord($letter).';';
+				break;
+				case 2:
+					$safe .= '&#x'.dechex(ord($letter)).';';
+				break;
+				case 3:
+					$safe .= $letter;
+			}
+		}
+
+		return $safe;
+	}
 
     /**
      * Convert html to plain text
