@@ -21,6 +21,7 @@
             'Default Page' => 'Default Page',
             'Time zone' => 'Time zone',
             'Language' => 'Language',
+            'Email' => 'Email',
             'Save' => 'Save',
             'Site' => 'Site',
             'System version' => 'System version',

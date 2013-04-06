@@ -21,6 +21,7 @@
             'Default Page' => 'Pagina Predefinita',
             'Time zone' => 'Fuso orario',
             'Language' => 'Lingua',
+            'Email' => 'Email',
             'Save' => 'Salva',
             'System version' => 'Versione del sistema',
             'System version ID' => 'ID del sistema',
