@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'Sistem',
@@ -7,7 +7,7 @@
             'Sitemap created' => 'Mapa sajta je Kreirana!!!',
             'Create sitemap' => 'Kreiraj Mapu sajta',
             'on' => 'uključeno',
-            'off'=> 'isključeno',    
+            'off'=> 'isključeno',
             'Site url' => 'URL sajta',
             'Maintenance Mode' => 'Mod Održavanja',
             'Maintenance Mode On' => 'Uključi Mod Održavanja',
@@ -21,14 +21,15 @@
             'Default page' => 'Početna stranica',
             'Time zone' => 'Vremenska zona',
             'Language' => 'Jezik',
+            'Email' => 'Email',
             'Save' => 'Sačuvaj',
-            'Site' => 'Sajt',        
+            'Site' => 'Sajt',
             'System version' => 'Sistemska verzija',
             'System version ID' => 'ID sistemske verzije',
             'GZIP' => 'GZIP',
             'Debugging' => 'Odklanjanje grešaka',
             'Plugin API' => 'Dodatak API',
-            'Plugins active' => 'Aktivni Dodaci', 
+            'Plugins active' => 'Aktivni Dodaci',
             'Actions registered' => 'Actions registered',
             'Filters registered' => 'Filters registered',
             'logout' => 'Izloguj se',
