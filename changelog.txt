@@ -1,3 +1,12 @@
+Monstra 2.2.1, 2013-04-06
+------------------------
+- Update Gelato to 1.0.3
+- Error Handler turned off for Production environment
+- Localization: Farsi(fa) translations fixes.
+- Pages Manager: fix translates #107
+- Missing Translation on Login Page - fixed #106
+- Lithuanian flag and other languages fixes. Thanks to mbarzda
+
 Monstra 2.2.0, 2013-03-25
 ------------------------
 - Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
@@ -26,7 +35,6 @@ Monstra 2.2.0, 2013-03-25
 - Plugins Manager: buttons confirm dialog message - fixed.
 - Pages Manager: page cloning problem - fixed.
 - Localizations: translations fixes.
-
 
 Monstra 2.1.3, 2012-12-09
 ------------------------
