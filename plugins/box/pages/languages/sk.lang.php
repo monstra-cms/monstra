@@ -40,7 +40,7 @@
             'Published' => 'Zverejnené',
             'Draft' => 'Rozpísané',
             'Published on' => 'Zverejnené dňa',
-            'Edit 404 page' => 'Editovať stránku 404',
+            'Edit 404 Page' => 'Editovať stránku 404',
             'Page <i>:page</i> deleted' => 'Vymazať stránku: <i>:page</i>',
             'Search Engines Robots' => 'Vyhľadávacie roboty',
             'Page' => 'Stránka',

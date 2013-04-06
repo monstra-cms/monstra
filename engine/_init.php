@@ -1,15 +1,6 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Report All Errors
- *
- * By setting error reporting to -1, we essentially force PHP to report
- * every error, and this is guranteed to show every error on future
- * releases of PHP. This allows everything to be fixed early!
- */
-error_reporting(-1);
-
-/**
  *  Monstra requires PHP 5.2.3 or greater
  */
 if (version_compare(PHP_VERSION, "5.2.3", "<")) {
@@ -31,6 +22,15 @@ include ROOT . DS .'engine'. DS .'Monstra.php';
  *   Monstra::PRODUCTION  - The production environment.
  */
 Monstra::$environment = Monstra::PRODUCTION;
+
+/**
+ * Report Errors
+ */
+if (Monstra::$environment == Monstra::PRODUCTION) {
+    error_reporting(0); 
+} else {
+    error_reporting(-1);
+}
 
 /**
  * Initialize Monstra

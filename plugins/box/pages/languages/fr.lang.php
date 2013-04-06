@@ -40,7 +40,7 @@
             'Published' => 'Publiée',
             'Draft' => 'Brouillon',
             'Published on' => 'Publiée le',
-            'Edit 404 page' => 'Editer la page 404',
+            'Edit 404 Page' => 'Editer la page 404',
             'Page <i>:page</i> deleted' => 'Page <i>:page</i> supprimé',
             'Search Engines Robots' => 'Robots des moteurs de recherche',
             'Page' => 'Page',

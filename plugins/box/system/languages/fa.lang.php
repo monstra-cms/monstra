@@ -1,5 +1,5 @@
 <?php
-    
+
     return array(
         'system' => array(
             'System' => 'سیستم',
@@ -7,7 +7,11 @@
             'Sitemap created' => 'نقشه سایت ایجاد شد',
             'Create Sitemap' => 'ایجاد نقشه سایت',
             'on' => 'روشن',
-            'off'=> 'خاموش',    
+<<<<<<< HEAD
+            'off'=> 'خاموش', 
+=======
+            'off'=> 'خاموش',
+>>>>>>> refs/remotes/origin/master
             'Site Url' => 'آدرس سایت',
             'Maintenance Mode' => 'حالت تعمیر و نگهداری',
             'Maintenance Mode On' => 'حالت تعمیر و نگهداری روشن',
@@ -21,19 +25,21 @@
             'Default Page' => 'صفحه پیشفرض',
             'Time zone' => 'منطقه زمانی',
             'Language' => 'زبان',
+            'Email' => 'Email',
             'Save' => 'ذخیره',
-            'Site' => 'سایت',        
+<<<<<<< HEAD
+            'Site' => 'سایت', 
+=======
+            'Site' => 'سایت',
+>>>>>>> refs/remotes/origin/master
             'System version' => 'نسخه سیستم',
             'System version ID' => 'شناسه نسخه سیستم',
             'GZIP' => 'GZIP',
             'Debugging' => 'اشکال زدائی',
             'Plugin API' => 'API پلاگین',
-            'Plugins active' => 'پلاگینهای فعال', 
+            'Plugins active' => 'پلاگینهای فعال',
             'Actions registered' => 'عملیات ثبت شده',
             'Filters registered' => 'فیلترهای ثبت شده',
-            'logout' => 'خروج',
-            'site' => 'سایت',
-            'Core' => 'هسته',
             'Delete Temporary Files' => 'حذف فایلهای موقت',
             'Download the latest version' => 'دانلود جدیدترین نسخه',
             'Powered by' => 'قدرت گرفته از',
@@ -57,10 +63,10 @@
             'Directory: <b> :dir </b> writable' => 'شاخه: <b> :dir </b> قابل نوشتن میباشد',
             'Directory: <b> :dir </b> not writable' => 'شاخه: <b> :dir </b> غیرقابل نوشتن میباشد',
             'PHP Version' => 'نسخه PHP',
-            'Module DOM is installed' => 'ماژول DOM نصب شده',
+            'Module DOM is installed' => 'ماژول DOM نصب شده است',
             'Module DOM is required' => 'ماژول DOM مورد نیاز است',
-            'Module Mod Rewrite is installed' => 'ماژول Mod Rewrite نصب شده',
-            'Module SimpleXML is installed' => 'ماژول SimpleXML نصب شده',
+            'Module Mod Rewrite is installed' => 'ماژول Mod Rewrite نصب شده است',
+            'Module SimpleXML is installed' => 'ماژول SimpleXML نصب شده است',
             'PHP 5.2 or greater is required' => 'PHP 5.2 یا بالاتر مورد نیاز است',
             'Apache Mod Rewrite is required' => 'Mod Rewrite آپاچی مورد نیاز است',
             'SimpleXML module is required' => 'ماژول SimpleXML مورد نیاز است',
@@ -72,11 +78,11 @@
             'Email not valid' => 'ایمیل معتبر نیست',
             'Install' => 'نصب',
             '...Monstra says...' => '...مونسترا میگوید...',
-            'Sitemap file writable' => 'فایل نقشه سایت قابل نوشتن است',
+            'Sitemap file writable' => 'فایل نقشه سایت قابل نوشتن میباشد',
             'Sitemap file not writable' => 'فایل نقشه سایت غیرقابل نوشتن میباشد',
             'Main .htaccess file writable' => 'فایل اصلی .htaccess قابل نوشتن میباشد',
             'Main .htaccess file not writable' => 'فایل اصلی .htaccess غیرقابل نوشتن میباشد',
-            'Official Support Forum' => 'انجمن رسمی پشتیبانی',
+            'Official Support Forum' => 'انجمن پشتیبانی',
             'Documentation' => 'مستندات',
         )
     );

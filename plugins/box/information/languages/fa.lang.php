@@ -27,7 +27,7 @@
             'فایل index.php  مونسترا قابل نوشتن میباشند .  توصیه میکنیم همه مجوزهای نوشتن را حذف کنید. <br/>در سیستمهای یونیکس میتوانید با دستور : <code>chmod -R a-w :path</code> انجام دهید',
             'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
             'با توجه به نوع و مقدار اطلاعات ممکن است هنگام Core::$environment = Core::DEVELOPMENT خطایی رخ بدهد ، ما شدیداً Core::PRODUCTION  را د رسیستم تولید توصیه میکنیم ',
-            'Monstra version' => 'نسخه Monstra',
+            'Monstra version' => 'نسخه مونسترا',
             'Directory Permissions' => 'مجوزهای شاخه',
             'Directory' => 'شاخه',
             'Writable' => 'قابل نوشتن',

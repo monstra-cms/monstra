@@ -21,6 +21,7 @@
             'Default Page' => 'Standardseite',
             'Time zone' => 'Zeitzone',
             'Language' => 'Sprache',
+            'Email' => 'Email',
             'Save' => 'Speichern',
             'Site' => 'Seite',
             'System version' => 'Systemversion',

@@ -5,7 +5,7 @@
             'Pages' => 'Puslapiai',
             'Pages manager' => 'Puslapių tvarkyklė',
             'Content' => 'Turinys',
-            'Create New page' => 'Sukurti Naują Puslapį',
+            'Create New Page' => 'Sukurti Naują Puslapį',
             'New Page' => 'Naujas Puslapis',
             'Edit Page' => 'Redaguoti Puslapį',
             'Date' => 'Data',

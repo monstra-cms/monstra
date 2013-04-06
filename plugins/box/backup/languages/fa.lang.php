@@ -8,10 +8,10 @@
     		'Delete' => 'حذف',
             'storage' => 'ذخیره سازی',
             'public' => 'عمومی',
-            'plugins' => 'افزونه ها',
+            'plugins' => 'پلاگین',
             'Size' => 'اندازه',
             'Actions' => 'عملیات',
-            'Delete backup: :backup' => 'حذف پشتیبان: نسخه پشتیبان',
-            'Creating...' => 'درحال ایجاد ...',
+            'Delete backup: :backup' => 'حذف نسخه پشتیبان: :backup',
+            'Creating...' => 'ایجاد...',
         )
 	);
