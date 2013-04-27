@@ -127,6 +127,11 @@ class Monstra
         include ROOT . DS . 'libraries'. DS .'Gelato'. DS .'Gelato.php';
 
         /**
+         * Map Monstra Engine Directory
+         */
+        ClassLoader::directory(ROOT . DS . 'engine' . DS);
+
+        /**
          * Map all Monstra Classes
          */
         ClassLoader::mapClasses(array(
