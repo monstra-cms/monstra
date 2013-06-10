@@ -23,4 +23,6 @@ Options -Indexes
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php [QSA,L]
+	# Redirect 301 /home http://yoursite.org/
+	# For delete default /home from url http://yoursite.org/home
 </IfModule>
