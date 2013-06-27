@@ -1,3 +1,9 @@
+Monstra 2.2.2, xxxx-xx-xx
+------------------------
+- Update Twitter Bootstrap to 2.3.2
+- Update PHPMailer to 5.2.6
+- Monstra: Added ability to map Monstra Engine Directory
+
 Monstra 2.2.1, 2013-04-06
 ------------------------
 - Update Gelato to 1.0.3
