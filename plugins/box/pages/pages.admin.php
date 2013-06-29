@@ -23,10 +23,10 @@ class PagesAdmin extends Backend
      */
     public static function _pageExpandAjax()
     {
-        if (Request::post('slug')) {
+        if (Request::post('page_slug')) {
             if (Security::check(Request::post('token'))) {
                 $pages = new Table('pages');
-                $pages->updateWhere('[slug="'.Request::post('slug').'"]', array('expand' => Request::post('expand')));
+                $pages->updateWhere('[slug="'.Request::post('page_slug').'"]', array('expand' => Request::post('page_expand')));
                 Request::shutdown();
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
