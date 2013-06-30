@@ -5,8 +5,16 @@
     <?php
         echo (
             Form::open(null, array('enctype' => 'multipart/form-data')).
-            Form::hidden('csrf', Security::token()).
-            Form::input('file', null, array('type' => 'file', 'size' => '25')).Html::br().
+            Form::hidden('csrf', Security::token())
+        );
+    ?>
+    <div class="fileupload fileupload-new" data-provides="fileupload">
+      <span class="btn btn-small btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" name="file" /></span>
+      <span class="fileupload-preview"></span>
+      <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
+    </div>
+    <?php
+        echo (
             Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn')).
             Form::close()
         )
