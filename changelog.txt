@@ -4,6 +4,11 @@ Monstra 2.2.2, xxxx-xx-xx
 - Update PHPMailer to 5.2.6
 - Monstra: Added ability to map Monstra Engine Directory
 - .htaccess SEO improvements
+- Files Manager: jasny bootstrap-fileupload - added #89 
+- Security: Added limits for login attempts #104
+- Security: Obfuscate users email to prevent spam-bots from sniffing it.
+- Users Plugin: login page fixes
+- Pages Plugin: page expand ajax bug #115 - fixed
 
 Monstra 2.2.1, 2013-04-06
 ------------------------
