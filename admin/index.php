@@ -33,23 +33,53 @@ $users = new Table('users');
 // Admin login
 if (Request::post('login_submit')) {
 
-    $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
-    if (count($user) !== 0) {
-        if ($user['login'] == Request::post('login')) {
-            if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
-                if ($user['role'] == 'admin' || $user['role'] == 'editor') {
-                    Session::set('admin', true);
-                    Session::set('user_id', (int) $user['id']);
-                    Session::set('user_login', (string) $user['login']);
-                    Session::set('user_role', (string) $user['role']);
-                    Request::redirect('index.php');
+    if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
+        
+        $login_error = __('You are banned for 10 minutes. Try again later', 'users');
+    
+    } else {
+
+        $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
+        if (count($user) !== 0) {
+            if ($user['login'] == Request::post('login')) {
+                if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
+                    if ($user['role'] == 'admin' || $user['role'] == 'editor') {
+                        Session::set('admin', true);
+                        Session::set('user_id', (int) $user['id']);
+                        Session::set('user_login', (string) $user['login']);
+                        Session::set('user_role', (string) $user['role']);
+                        Request::redirect('index.php');
+                    }
+                } else {
+                    $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
+
+                    if (Cookie::get('login_attempts')) {
+                        if (Cookie::get('login_attempts') < 5) {
+                            $attempts = Cookie::get('login_attempts') + 1;
+                            Cookie::set('login_attempts', $attempts, 600);
+                        } else {
+                            $login_error = __('You are banned for 10 minutes. Try again later', 'users');
+                        }
+                    } else {
+                        Cookie::set('login_attempts', 1, 600);
+                    }
+
+                }
+            }
+        } else {
+            $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
+
+            if (Cookie::get('login_attempts')) {
+                if (Cookie::get('login_attempts') < 5) {
+                    $attempts = Cookie::get('login_attempts') + 1;
+                    Cookie::set('login_attempts', $attempts, 600);
+                } else {
+                    $login_error = __('You are banned for 10 minutes. Try again later', 'users');
                 }
             } else {
-                $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
+                Cookie::set('login_attempts', 1, 600);
             }
         }
-    } else {
-        $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
     }
 }
 
