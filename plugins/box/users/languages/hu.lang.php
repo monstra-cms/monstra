@@ -63,5 +63,6 @@
             'Your login details for :site_name' => 'Belépési adatok a(z) :site_name weboldalhoz',
             'About Me' => 'Rólam',
             'Profile' => 'Profil',
+            'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
         )
     );

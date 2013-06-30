@@ -63,5 +63,6 @@
             'Your login details for :site_name' => 'Vaši podaci za logovanje na :site_name',
             'About Me' => 'O meni',
             'Profile' => 'Profil',
+            'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
         )
     );

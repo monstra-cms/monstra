@@ -63,5 +63,6 @@
             'Your login details for :site_name' => 'Detalles para entrar en :site_name',
             'About Me' => 'Sobre mi',
             'Profile' => 'Perfil',
+            'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
         )
     );
