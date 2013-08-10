@@ -3,6 +3,7 @@
     $anchor_active = '';
     $li_active = '';
     $target = '';
+    $after_text = '';
 
     if (count($items) > 0) {
         foreach ($items as $item) {
@@ -44,6 +45,10 @@
             }
 
             if($item['class'] !== '') {
+                if(array_key_exists($item['class'], $after_text_array)) {
+                    $after_text = $after_text_array[$item['class']];
+                }
+
                 if($li_active !== '') {
                     $li_active = ' class="active '.$item['class'].'"';
                 } else {
@@ -51,9 +56,10 @@
                 }
             }
 
-            echo '<li'.$li_active.'>'.'<a href="'.$link.'"'.$anchor_active.$target.'>'.$item['name'].'</a>'.'</li>';
+            echo '<li'.$li_active.'>'.'<a href="'.$link.'"'.$anchor_active.$target.'>'.$item['name'].'</a>'.$after_text.'</li>';
             $anchor_active = '';
             $li_active = '';
             $target = '';
+            $after_text = '';
         }
     }
