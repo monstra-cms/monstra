@@ -11,7 +11,7 @@
             $item['link'] = Html::toText($item['link']);
             $item['name'] = Html::toText($item['name']);
 
-            $pos = strpos($item['link'], 'http://');
+            $pos = strpos($item['link'], 'http://') || ($item['link'] !== '' && $item['link']{0} == '#');
             if ($pos === false) {
                 $link = Option::get('siteurl').$item['link'];
             } else {
