@@ -48,10 +48,10 @@ class Menu
 
         // Display view
         View::factory('box/menu/views/frontend/index')
-                ->assign('items', $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'order', 'category'), 'order', 'ASC'))
+                ->assign('items', $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'class', 'order', 'category'), 'order', 'ASC'))
                 ->assign('uri', Uri::segments())
                 ->assign('defpage', Option::get('defaultpage'))
                 ->display();
-
     }
+
 }

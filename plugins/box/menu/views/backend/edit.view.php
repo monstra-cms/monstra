@@ -26,6 +26,10 @@
         Form::label('menu_item_category', __('Item category', 'menu')).
         Form::input('menu_item_category', $menu_item_category, array('class' => 'input-xlarge'))
     );
+    echo (
+        Form::label('menu_item_class', __('CSS class', 'menu')).
+        Form::input('menu_item_class', $menu_item_class, array('class' => 'input-xlarge'))
+    );
 ?>
 
 <?php

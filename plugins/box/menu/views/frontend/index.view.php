@@ -43,8 +43,15 @@
                 $target = ' target="'.$item['target'].'" ';
             }
 
-            echo '<li'.$li_active.'>'.'<a href="'.$link.'"'.$anchor_active.$target.'>'.$item['name'].'</a>'.'</li>';
+            if($item['class'] !== '') {
+                if($li_active !== '') {
+                    $li_active = ' class="active '.$item['class'].'"';
+                } else {
+                    $li_active = ' class="'.$item['class'].'"';
+                }
+            }
 
+            echo '<li'.$li_active.'>'.'<a href="'.$link.'"'.$anchor_active.$target.'>'.$item['name'].'</a>'.'</li>';
             $anchor_active = '';
             $li_active = '';
             $target = '';
