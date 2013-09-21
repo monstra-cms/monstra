@@ -5,13 +5,13 @@
             'Backups' => 'Backups',
             'Backup' => 'Backup',
             'Create Backup' => 'Maak backup',
-            'Delete' => 'Wissen',
-            'storage' => 'opslag',
-            'public' => 'Publiekelijk',
+            'Delete' => 'Verwijderen',
+            'storage' => 'Opslag',
+            'public' => 'Publiek',
             'plugins' => 'Plugins',
             'Size' => 'Grootte',
             'Actions' => 'Acties',
-            'Delete backup: :backup' => 'Wis backup: :backup',
+            'Delete backup: :backup' => 'Verwijder backup: :backup',
             'Creating...' => 'Backup wordt gemaakt...',
         )
     );

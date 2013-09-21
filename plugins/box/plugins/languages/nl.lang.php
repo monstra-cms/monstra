@@ -9,7 +9,7 @@
             'Installed' => 'Geinstalleerd',
             'Install New' => 'Installeer nieuwe plugin',
             'Delete' => 'Verwijderen',
-            'Delete plugin :plugin' => 'Verwijder plugin :plugin',
+            'Delete plugin :plugin' => 'Verwijder plugin: :plugin',
             'This plugins does not exist' => 'Deze plugin bestaat niet',
             'Version' => 'Versie',
             'Author' => 'Auteur',

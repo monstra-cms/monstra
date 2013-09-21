@@ -31,7 +31,7 @@
             'Writable' => 'Schrijfbaar',
             'Unwritable' => 'Niet schrijfbaar',
             'Status' => 'Status',
-            'PHP Built On' => 'Op PHP gebouwd',
+            'PHP Built On' => 'Systeem',
             'Web Server' => 'Web Server',
             'WebServer to PHP Interface' => 'WebServer PHP Interface',
         )

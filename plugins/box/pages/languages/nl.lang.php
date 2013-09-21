@@ -2,10 +2,10 @@
 
     return array(
         'pages' => array(
-            'Pages' => 'Paginas',
+            'Pages' => 'Pagina\'s',
             'Pages manager' => 'Pagina beheer',
             'Content' => 'Inhoud',
-            'Create New Page' => 'Maak nieuwe pagina aan',
+            'Create New Page' => 'Nieuwe pagina',
             'New Page' => 'Nieuwe pagina',
             'Edit Page' => 'Bewerk pagina',
             'Date' => 'Datum',
@@ -31,7 +31,7 @@
             'This page already exists' => 'Deze pagina bestaat al',
             'Extra' => 'Extra',
             'Save' => 'Opslaan',
-            'Save and Exit' => 'Opslaan en terug',
+            'Save and Exit' => 'Opslaan en Terug',
             'Your changes to the page <i>:page</i> have been saved.' => 'De wijzigingen aan <i> :page </i> zijn opgeslagen.',
             'The page <i>:page</i> cloned.' => 'De pagina <i>:page</i> is gekopieerd.',
             'Status' => 'Status',

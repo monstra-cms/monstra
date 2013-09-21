@@ -6,12 +6,12 @@
             'Files manager' => 'Bestandsbeheer',
             'Name' => 'Naam',
             'Actions' => 'Acties',
-            'Delete' => 'Wissen',
+            'Delete' => 'Verwijderen',
             'Upload' => 'Uploaden',
             'directory' => 'Map',
-            'Delete directory: :dir' => 'Wis map: :dir',
-            'Delete file: :file' => 'Wis bestand: file',
-            'Extension' => 'Uitbreiding',
+            'Delete directory: :dir' => 'Verwijder map: :dir',
+            'Delete file: :file' => 'Verwijder bestand: :file',
+            'Extension' => 'Type',
             'Size' => 'Grootte',
         )
     );
