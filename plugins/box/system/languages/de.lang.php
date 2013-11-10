@@ -3,7 +3,7 @@
     return array(
         'system' => array(
             'System' => 'System',
-            'Published a new version of the :monstra' => 'Veröffentlicht eine neue Version von dem :monstra',
+            'Published a new version of the :monstra' => 'Veröffentlicht eine neue Version von :monstra',
             'Sitemap created' => 'Sitemap wurde erstellt',
             'Create Sitemap' => 'Erstelle Sitemap',
             'on' => 'An',
@@ -39,7 +39,7 @@
             'Powered by' => 'Powered by',
             'Administration' => 'Administration',
             'Settings' => 'Einstellungen',
-            'Temporary files deleted' => 'Temporäre Dateien gelöscht',
+            'Temporary files deleted' => 'Temporäre Dateien wurden gelöscht',
             'Extends' => 'Erweitert',
             'View Site' => 'Seite ansehen',
             'Welcome, :username' => 'Willkommen, :username',
@@ -75,7 +75,7 @@
             'Sitemap file not writable' => 'Sitemap-Datei ist nicht beschreibbar',
             'Main .htaccess file writable' => 'Haupt .htaccess-Datei ist beschreibbar',
             'Main .htaccess file not writable' => 'Haupt .htaccess-Datei ist nicht beschreibbar',
-            'Official Support Forum' => 'Official Support Forum',
-            'Documentation' => 'Documentation',
+            'Official Support Forum' => 'Offizielles Support Forum',
+            'Documentation' => 'Dokumentation',
         )
     );
