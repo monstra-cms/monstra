@@ -218,6 +218,8 @@ class Image
 
         // Create a new true color image width new width and height
         $resized = imagecreatetruecolor($new_width, $new_height);
+        $transPng = imagecolorallocatealpha($resized, 0, 0, 0, 127);
+        imagefill($resized, 0, 0, $transPng);
 
         // Copy and resize part of an image with resampling
         imagecopyresampled($resized, $this->image, 0, 0, 0, 0, $new_width, $new_height, $this->width, $this->height);
@@ -227,6 +229,8 @@ class Image
 
         // Create a new true color image width new width and height
         $this->image = imagecreatetruecolor($new_width, $new_height);
+        $transPng = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
+        imagefill($this->image, 0, 0, $transPng);
 
         // Copy and resize part of an image with resampling
         imagecopyresampled($this->image, $resized, 0, 0, 0, 0, $new_width, $new_height, $new_width, $new_height);
@@ -269,6 +273,8 @@ class Image
 
         // Create a new true color image
         $crop = imagecreatetruecolor($width, $height);
+        $transPng = imagecolorallocatealpha($crop, 0, 0, 0, 127);
+        imagefill($crop, 0, 0, $transPng);
 
         // Copy and resize part of an image with resampling
         imagecopyresampled($crop, $this->image, 0, 0, $x, $y, $this->width, $this->height, $this->width, $this->height);
@@ -278,6 +284,8 @@ class Image
 
         // Create a new true color image
         $this->image = imagecreatetruecolor($width, $height);
+        $transPng = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
+        imagefill($this->image, 0, 0, $transPng);
 
         // Copy and resize part of an image with resampling
         imagecopyresampled($this->image, $crop, 0, 0, 0, 0, $width, $height, $width, $height);
