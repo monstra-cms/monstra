@@ -75,5 +75,6 @@
             'Main .htaccess file not writable' => 'Главный .htaccess файл не доступен для записи',
             'Official Support Forum' => 'Официальный Форум Поддержки',
             'Documentation' => 'Документация',
+            'Your changes have been saved.' => 'Ваши изменения сохранены.',
         )
     );
