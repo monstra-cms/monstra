@@ -179,6 +179,7 @@ class Monstra
             ORM::configure(MONSTRA_DB_DSN);
             ORM::configure('username', MONSTRA_DB_USER);
             ORM::configure('password',  MONSTRA_DB_PASSWORD);
+            ORM::configure('driver_options', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
         }
 
         /**
