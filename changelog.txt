@@ -16,6 +16,7 @@ Monstra 2.3.0, xxxx-xx-xx
 - Core: ORM::configure - driver options added
 - Gelato: Image.php fix for PNG files
 - Fix Number.php: Undefined offset
+- XMLDB: error select for empty table fix
 - Update Stylesheet.php - sourcecode misses a linebreak after minified css
 
 Monstra 2.2.1, 2013-04-06
