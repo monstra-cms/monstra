@@ -807,6 +807,7 @@ class Table
 
             return $c;
         }
+        return $a;
     }
 
     /**
