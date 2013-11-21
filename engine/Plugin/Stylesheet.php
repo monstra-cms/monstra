@@ -130,7 +130,7 @@ class Stylesheet
             if (BACKEND) {
                 echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/backend_site.minify.css'.'" type="text/css" />';
             } else {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.css'.'" type="text/css" />';
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.css'.'" type="text/css" />'."\n";
             }
         }
     }
