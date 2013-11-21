@@ -76,5 +76,6 @@
             'Main .htaccess file not writable' => 'Main .htaccess file not writable',
             'Official Support Forum' => 'Official Support Forum',
             'Documentation' => 'Documentation',
+            'Your changes have been saved.' => 'Your changes have been saved.',
         )
     );

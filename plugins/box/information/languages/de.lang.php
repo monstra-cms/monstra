@@ -28,7 +28,7 @@
             'Monstra version' => 'Monstra version',
             'Directory Permissions' => 'Directory Berechtigungen',
             'Directory' => 'Verzeichnis',
-            'Writable' => 'Writable',
+            'Writable' => 'Beschreibbar',
             'Unwritable' => 'Nicht beschreibbar',
             'Status' => 'Status',
             'PHP Built On' => 'PHP Built On',

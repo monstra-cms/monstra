@@ -31,7 +31,7 @@
             'Edit Template' => 'Bearbeite Template',
             'Edit Chunk' => 'Bearbeite Chunk',
             'Edit Styles' => 'Bearbeite Styles',
-            'Current Site Theme' => 'Aktuelle Seiten Template',
+            'Current Site Theme' => 'Aktuelles Seiten Template',
             'Current admin theme' => 'Aktuelles Admin Template',
             'This template already exists' => 'Dieses Template existiert bereits',
             'This chunk already exists' => 'Dieser Chunk exisitert bereits',

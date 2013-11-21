@@ -48,7 +48,7 @@
             'Settings' => 'Einstellungen',
             'Required field' => 'Pflichtfeld',
             'Access' => 'Zugriff',
-            'Public' => 'Öffentlichkeit',
-            'Registered' => 'Eingetragen',
+            'Public' => 'Öffentlich',
+            'Registered' => 'Angemeldet',
         )
     );

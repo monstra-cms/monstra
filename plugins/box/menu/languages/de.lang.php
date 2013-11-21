@@ -9,7 +9,7 @@
             'Delete' => 'Löschen',
             'Order' => 'Reihenfolge',
             'Actions' => 'Aktionen',
-            'Create New Item' => 'Erstellen neuen Eintrag',
+            'Create New Item' => 'Erstelle neuen Eintrag',
             'New item' => 'Neuer Eintrag',
             'Item name' => 'Eintrags Name',
             'Item order' => 'Eintrags Reihenfolge',
