@@ -1,7 +1,7 @@
 Monstra 2.2.2, xxxx-xx-xx
 ------------------------
 - Update Twitter Bootstrap to 2.3.2
-- Update PHPMailer to 5.2.6
+- Update PHPMailer to 5.2.7
 - Monstra: Added ability to map Monstra Engine Directory
 - .htaccess SEO improvements
 - Files Manager: jasny bootstrap-fileupload - added #89 
