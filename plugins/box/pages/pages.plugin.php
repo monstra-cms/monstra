@@ -314,6 +314,59 @@ class Pages extends Frontend
         return Pages::$page['keywords'];
     }
 
+
+    /**
+     * Get pages
+     */
+    public static function getPages()
+    {
+        // Init vars
+        $pages_array = array();
+        $count = 0;
+
+        // Get pages table
+        $pages = new Table('pages');
+
+        // Get Pages List
+        $pages_list = $pages->select('[slug!="error404" and status="published"]');
+
+        foreach ($pages_list as $page) {
+
+            $pages_array[$count]['title']   = Html::toText($page['title']);
+            $pages_array[$count]['parent']  = $page['parent'];
+            $pages_array[$count]['date']    = $page['date'];
+            $pages_array[$count]['author']  = $page['author'];
+            $pages_array[$count]['slug']    = ($page['slug'] == Option::get('defaultpage')) ? '' : $page['slug'] ;
+
+            if (isset($page['parent'])) {
+                $c_p = $page['parent'];
+            } else {
+                $c_p = '';
+            }
+
+            if ($c_p != '') {
+                $_page = $pages->select('[slug="'.$page['parent'].'"]', null);
+
+                if (isset($_page['title'])) {
+                    $_title = $_page['title'];
+                } else {
+                    $_title = '';
+                }
+                $pages_array[$count]['sort'] = $_title . ' ' . $page['title'];
+            } else {
+                $pages_array[$count]['sort'] = $page['title'];
+            }
+            $_title = '';
+            $count++;
+        }
+
+        // Sort pages
+        $_pages_list = Arr::subvalSort($pages_array, 'sort');
+
+        // return
+        return $_pages_list;
+    }
+
 }
 
 /**
