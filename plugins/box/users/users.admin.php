@@ -185,7 +185,7 @@ class UsersAdmin extends Backend
                 // -------------------------------------
                 case "delete":
 
-                    if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
+                    if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin')) && (int)$_SESSION['user_id'] != (int)Request::get('user_id')) {
 
                         if (Security::check(Request::get('token'))) {
 
