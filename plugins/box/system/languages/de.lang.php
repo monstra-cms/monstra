@@ -77,5 +77,6 @@
             'Main .htaccess file not writable' => 'Haupt .htaccess-Datei ist nicht beschreibbar',
             'Official Support Forum' => 'Offizielles Support Forum',
             'Documentation' => 'Dokumentation',
+            'Your changes have been saved.' => 'Änderungen wurden gespeichert.',
         )
     );
