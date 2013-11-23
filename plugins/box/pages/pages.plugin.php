@@ -477,6 +477,24 @@ class Page extends Pages
     }
 
     /**
+     * Get only published children pages for requested page.
+     *
+     *  <code>
+     *      echo Page::published();
+     *  </code>
+     *
+     */
+    public static function published()
+    {
+        $pages = Pages::$pages->select('[parent="'.Pages::$requested_page.'"]', 'all');
+
+        // Display view
+        View::factory('box/pages/views/frontend/published_pages')
+                ->assign('pages', $pages)
+                ->display();
+    }
+
+    /**
      * Get page url
      *
      *  <code>
