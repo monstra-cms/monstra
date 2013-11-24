@@ -18,6 +18,8 @@ Monstra 2.3.0, xxxx-xx-xx
 - Fix Number.php: Undefined offset
 - XMLDB: error select for empty table fix
 - Update Stylesheet.php - sourcecode misses a linebreak after minified css
+- Pages Plugin: General method getPages() created #123
+- Users Plugin - Deleting users - fixed by Oleg Gatseluk #158
 
 Monstra 2.2.1, 2013-04-06
 ------------------------
