@@ -83,7 +83,7 @@
                         <input name="login" class="input-xlarge" type="text" value="<?php echo $user_login; ?>" />
 
                         <?php if (Option::get('captcha_installed') == 'true') { ?>
-                        <label><?php echo __('Captcha'); ?><label>
+                        <label><?php echo __('Captcha', 'users'); ?></label>
                         <input type="text" name="answer" class="input-xlarge">
                         <?php CryptCaptcha::draw(); ?>
                         <?php } ?>
