@@ -173,8 +173,8 @@ class Image
     public function resize($width, $height = null, $aspect_ratio = null)
     {
         // Redefine vars
-        $width  	  = (int) $width;
-        $height 	  = ($height === null) ? null : (int) $height;
+        $width        = (int) $width;
+        $height       = ($height === null) ? null : (int) $height;
         $aspect_ratio = ($aspect_ratio === null) ? null : (int) $aspect_ratio;
         $xpos = $ypos = 0;
 
