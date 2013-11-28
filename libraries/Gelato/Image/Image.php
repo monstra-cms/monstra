@@ -265,8 +265,8 @@ class Image
         // Redefine vars
         $width  = (int) $width;
         $height = (int) $height;
-        $x 	 	= (int) $x;
-        $y 		= (int) $y;
+        $x      = (int) $x;
+        $y      = (int) $y;
 
         // Calculate
         if ($x + $width > $this->width)   $width = $this->width - $x;
