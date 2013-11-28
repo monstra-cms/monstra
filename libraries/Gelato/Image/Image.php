@@ -176,6 +176,7 @@ class Image
         $width  	  = (int) $width;
         $height 	  = ($height === null) ? null : (int) $height;
         $aspect_ratio = ($aspect_ratio === null) ? null : (int) $aspect_ratio;
+        $xpos = $ypos = 0;
 
         // Resizes the image to {$width}% of the original size
         if ($height === null) {
@@ -186,13 +187,18 @@ class Image
         } else {
 
             // Resizes the image to the smalles possible dimension while maintaining aspect ratio
-            if ($aspect_ratio === Image::AUTO) {
+            if ($aspect_ratio === Image::AUTO || $aspect_ratio === null) {
 
                 // Calculate smallest size based on given height and width while maintaining aspect ratio
                 $percentage = min(($width / $this->width), ($height / $this->height));
 
                 $new_width  = round($this->width * $percentage);
                 $new_height = round($this->height * $percentage);
+                
+                if ($aspect_ratio === null) {
+                    $xpos = (int)(($width - $new_width) / 2);
+                    $ypos = (int)(($height - $new_height) / 2);
+                }
 
             // Resizes the image using the width to maintain aspect ratio
             } elseif ($aspect_ratio === Image::WIDTH) {
@@ -216,31 +222,27 @@ class Image
             }
         }
 
-        // Create a new true color image width new width and height
-        $resized = imagecreatetruecolor($new_width, $new_height);
-        $transPng = imagecolorallocatealpha($resized, 0, 0, 0, 127);
-        imagefill($resized, 0, 0, $transPng);
+        $old_image = $this->image;
+        
+        if ($aspect_ratio === null) {
+            $this->image = imagecreatetruecolor($width, $height);
+        } else {
+            $this->image = imagecreatetruecolor($new_width, $new_height);
+        }
+        
+        if ($this->type === IMAGETYPE_PNG) {
+            $bgcolor = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
+        } else {
+            $bgcolor = imagecolorallocate($this->image, 255, 255, 255);
+        }
+        
+        imagefill($this->image, 0, 0, $bgcolor);
 
         // Copy and resize part of an image with resampling
-        imagecopyresampled($resized, $this->image, 0, 0, 0, 0, $new_width, $new_height, $this->width, $this->height);
+        imagecopyresampled($this->image, $old_image, $xpos, $ypos, 0, 0, $new_width, $new_height, $this->width, $this->height);
 
         // Destroy an image
-        imagedestroy($this->image);
-
-        // Create a new true color image width new width and height
-        $this->image = imagecreatetruecolor($new_width, $new_height);
-        $transPng = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
-        imagefill($this->image, 0, 0, $transPng);
-
-        // Copy and resize part of an image with resampling
-        imagecopyresampled($this->image, $resized, 0, 0, 0, 0, $new_width, $new_height, $new_width, $new_height);
-
-        // Destroy an image
-        imagedestroy($resized);
-
-        // Save new width and height
-        $this->width = $new_width;
-        $this->height = $new_height;
+        imagedestroy($old_image);
 
         return $this;
     }
@@ -271,31 +273,19 @@ class Image
         if ($y + $height > $this->height) $height = $this->height - $y;
         if ($width <= 0 || $height <= 0) return false;
 
-        // Create a new true color image
-        $crop = imagecreatetruecolor($width, $height);
-        $transPng = imagecolorallocatealpha($crop, 0, 0, 0, 127);
-        imagefill($crop, 0, 0, $transPng);
-
-        // Copy and resize part of an image with resampling
-        imagecopyresampled($crop, $this->image, 0, 0, $x, $y, $this->width, $this->height, $this->width, $this->height);
-
-        // Destroy an image
-        imagedestroy($this->image);
-
+        $old_image = $this->image;
+        
         // Create a new true color image
         $this->image = imagecreatetruecolor($width, $height);
-        $transPng = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
-        imagefill($this->image, 0, 0, $transPng);
+        
+        $transparent = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
+        imagefill($this->image, 0, 0, $transparent);
 
         // Copy and resize part of an image with resampling
-        imagecopyresampled($this->image, $crop, 0, 0, 0, 0, $width, $height, $width, $height);
+        imagecopyresampled($this->image, $old_image, 0, 0, 0, 0, $width, $height, $width, $height);
 
         // Destroy an image
-        imagedestroy($crop);
-
-        // Save new width and height
-        $this->width  = $width;
-        $this->height = $height;
+        imagedestroy($old_image);
 
         return $this;
     }
