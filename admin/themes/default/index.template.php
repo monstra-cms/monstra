@@ -119,11 +119,11 @@
         <footer>
             <p class="pull-right">
                 <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
-                <span class="hidden-phone">
-                <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-                <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-                </span>
-                © 2012 - 2013 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
+                    <span class="hidden-phone">
+                        <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+                        <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+                    </span>
+                    © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
                 </span>
             </p>
         </footer>
