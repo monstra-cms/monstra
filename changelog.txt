@@ -21,6 +21,7 @@ Monstra 2.3.0, xxxx-xx-xx
 - Pages Plugin: General method getPages() created #123
 - Users Plugin - Deleting users - fixed by Oleg Gatseluk #158
 - Pages Plugin - Improved available() method to show only published pages
+- Monstra Email Templates #164
 
 Monstra 2.2.1, 2013-04-06
 ------------------------
