@@ -5,7 +5,7 @@
  *
  *  Monstra - Content Management System.
  *  Site: www.mostra.org
- *  Copyright (C) 2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ *  Copyright (C) 2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * This source file is part of the Monstra Engine. More information,
  * documentation and tutorials can be found at http://monstra.org
@@ -13,7 +13,7 @@
  * @package     Monstra
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
