@@ -9,7 +9,7 @@
         );
     ?>
     <div class="fileupload fileupload-new" data-provides="fileupload">
-      <span class="btn btn-small btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" name="file" /></span>
+      <span class="btn btn-small btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></span>
       <span class="fileupload-preview"></span>
       <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
     </div>

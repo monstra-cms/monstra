@@ -13,5 +13,7 @@
             'Delete file: :file' => 'Fájl törlése :file',
             'Extension' => 'Bővítmény',
             'Size' => 'Méret',
+            'Select file' => 'Select file',
+            'Change' => 'Change',
         )
     );

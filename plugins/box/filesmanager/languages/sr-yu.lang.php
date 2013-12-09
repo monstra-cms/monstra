@@ -13,5 +13,6 @@
             'Delete file: :file' => 'Obriši fajl :file',
             'Extension' => 'Extenzija',
             'Size' => 'Veličina',
+            'Select file' => 'Select file',
         )
     );

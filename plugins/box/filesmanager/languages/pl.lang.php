@@ -13,5 +13,7 @@
             'Delete file: :file' => 'Czy napewno usunąć plik :file',
             'Extension' => 'Rozszerzenie',
             'Size' => 'Rozmiar',
+            'Select file' => 'Select file',
+            'Change' => 'Change',
         )
     );
