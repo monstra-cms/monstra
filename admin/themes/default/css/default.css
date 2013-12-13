@@ -1,89 +1,106 @@
 /************************************
-  Monstra
-  styles.css
+Monstra
+styles.css
 *************************************
-  CONTENTS
-    1. GENERAL
-    2. HEADER
-    3. CONTENT
-    4. LEFT MENU
-    5. AUTHORIZATION
-    6. MEDIA QUERIES
+CONTENTS
+1. GENERAL
+2. HEADER
+3. CONTENT
+4. LEFT MENU
+5. AUTHORIZATION
+6. MEDIA QUERIES
 
 
 *************************************
-    1. GENERAL
+1. GENERAL
 *************************************/
 body {
-  padding-top: 60px;
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  color: #333333;
-  background-color: #ffffff;
+  background: #FAFAFA;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-family: inherit;
-  font-weight: bold;
-  color: inherit;
-  text-rendering: optimizelegibility;
+
+.navbar-inverse {
+  background: #252525;
 }
-h1 small,
-h2 small,
-h3 small,
-h4 small,
-h5 small,
-h6 small {
-  font-weight: normal;
-  color: #999999;
-}
-h1 {
-  font-size: 30px;
-  line-height: 36px;
-}
-h1 small {
-  font-size: 18px;
-}
-h2 {
+
+.navbar-brand {
   font-size: 24px;
-  line-height: 36px;
 }
-h2 small {
-  font-size: 18px;
+
+h1,h2,h3,h4,h5 {
+  color: #222;
 }
-h3 {
-  line-height: 27px;
-  font-size: 16px;
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit!important;
 }
-h3 small {
-  font-size: 14px;
+
+.navbar-default {
+  border-radius: 0;
 }
-h4,
-h5,
-h6 {
-  line-height: 18px;
+
+.tab-page {
+  background: #fff;
 }
-h4 {
-  font-size: 14px;
-}
-h4 small {
-  font-size: 12px;
-}
-h5 {
-  font-size: 12px;
-}
-h6 {
-  font-size: 11px;
-  color: #999999;
-  text-transform: uppercase;
-}
+
+  /* Tabs */
+
+  .tab-pane > table {
+      margin-top:-20px;
+  }
+
+  .tab-pane > table {
+      border-top:none!important;
+  }
+
+  .tab-content {
+    overflow: visible;
+  }
+
+  .tab-page {
+      border-bottom: 1px solid #DDDDDD;
+      border-left: 1px solid #DDDDDD;
+      border-right: 1px solid #DDDDDD;
+      padding: 20px 10px 10px;
+  }
+
+  .small-grey-text {
+      color:#333;
+      font-size: 10px;
+  }
+
+  .small-grey-text:hover {
+      color:#000;
+  }
+
+  .small-white-text {
+      color:#fff;
+      font-size: 10px;
+  }
+
+  .small-white-text:hover {
+      color:#fdfdfd;
+  }
+
+  .error-none {display:none;}
+  .error-field {border:1px solid red!important;}
+  .container-fluid {padding-left:0px;}
+  img {max-width:none;}
+
+  a.btn-expand{
+    color: #333;
+    font-weight:bold; 
+    font-size:14px;  
+    text-decoration: none;
+    padding-left:4px;
+    padding-right:4px;
+  }
+
+  footer a , footer{
+    color:#333;
+    font-size:10px;
+  }
+
 
 /* Inputs */
 
@@ -116,6 +133,7 @@ table {
   line-height: 18px;
   text-align: left;
   border-top: 1px solid #dddddd;
+   background: #fff;
 }
 .table th {
   font-weight: bold;
@@ -220,6 +238,11 @@ table {
 
 .table-bordered th, .table-bordered td {
     border-left: none;
+    height: 50px;
+}
+
+.table-bordered > thead > tr {
+  height: 45px;
 }
 
 td, th {
@@ -227,285 +250,23 @@ td, th {
     vertical-align: inherit!important;
 }
 
-/* Buttons */
-
-.btn-toolbar {
-  margin:0;
+.table-bordered >thead>tr>th,
+.table-bordered >tbody>tr>th,
+.table-bordered >tfoot>tr>th,
+.table-bordered >thead>tr>td,
+.table-bordered >tbody>tr>td,
+.table-bordered >tfoot>tr>td
+{
+  border: 0; 
+  border-bottom: 1px solid #ccc;
 }
 
-.btn-group .btn {
-  margin-left: 5px;
+.markItUpHeader ul li {
+  padding: 5px; 
 }
 
-.btn-actions-default {
-  -webkit-border-top-left-radius: 4px!important;
-  -moz-border-radius-topleft: 4px!important;
-  border-top-left-radius: 4px!important;
-  -webkit-border-bottom-left-radius: 4px!important;
-  -moz-border-radius-bottomleft: 4px!important;
-  border-bottom-left-radius: 4px!important;
-}
-
-/* Tabs */
-
-.tab-pane > table {
-    margin-top:-20px;
-}
-
-.tab-pane > table {
-    border-top:none!important;
-}
-
-.tab-content {
-  overflow: visible;
-}
-
-.tab-page {
-    border-bottom: 1px solid #DDDDDD;
-    border-left: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    margin-top: -20px;
-    padding: 20px 10px 10px;
-}
-
-.small-grey-text {
-    color:#333;
-    font-size: 10px;
-}
-
-.small-grey-text:hover {
-    color:#000;
-}
-
-.small-white-text {
-    color:#fff;
-    font-size: 10px;
-}
-
-.small-white-text:hover {
-    color:#fdfdfd;
-}
-
-.error-none {display:none;}
-.error-field {border:1px solid red!important;}
-.container-fluid {padding-left:0px;}
-img {max-width:none;}
-
-a.btn-expand{
-  color: #333;
-  font-weight:bold; 
-  font-size:14px;  
-  text-decoration: none;
-  padding-left:4px;
-  padding-right:4px;
-}
-
-footer a , footer{
-  color:#333;
-  font-size:10px;
-}
-
-/**************************************
-    2. HEADER
-*************************************/
-.monstra-header {
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-top:-60px;
-  position: relative;
-  z-index:999;
-}
-.monstra-header h3 a:hover, .monstra-header .brand:hover, .monstra-header ul .active > a {
-  color: #ffffff;
-  text-decoration: none;
-}
-.monstra-header h3 {
-  position: relative;
-}
-.monstra-header h3 a, .monstra-header .brand {
-  float: left;
-  display: block;  
-  padding-top:15px;
-  padding-left:10px;
-  margin-left: 0px;
-  color: #fdfdfd;
-  font-family: arial;
-  font-weight: 600;
-  line-height: 1;
-  font-size: 24px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
-  width:188px;
-}
-.monstra-header p {
-  margin: 0;
-  line-height: 60px;
-}
-
-.monstra-header-inner, .topbar .fill {
-  background-color: #ccc;
-  background: url('@theme_admin_url/img/noisy_grid_dark.png');
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-/*************************************
-    3. CONTENT
-*************************************/
-.monstra-content {
-  padding-top:20px;
-}
-
-/*************************************
-    4. LEFT MENU
-*************************************/
-.monstra-menu-category-separator {
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    margin-top:5px;
-    margin-bottom:8px;
-}
-
-.monstra-menu-sidebar {
-  background: url('@theme_admin_url/img/noisy_grid.png');
-  background-color:#ccc;
-  max-width:192px!important;
-  min-width:136px!important;
-  margin-bottom: 20px;
-  padding: 19px;
-  border-bottom:2px solid #ccc;
-  border-right:2px solid #ccc;
-}
-
-.monstra-menu-sidebar ul {
-    clear: both;
-    margin: 0; 
-    padding: 0;
-    font-family: 'lucida grande','Lucida Sans Unicode', Tahoma, sans-serif;
-}
-
-.monstra-menu-sidebar li {
-    list-style: none;
-    margin: 0 0 0 -22px;
-    padding: 0;   
-}
-
-.monstra-menu-sidebar li a {
-    width:97%;  
-    color: #333;
-    padding-left: 23px;
-    text-decoration: none;
-    display: inline-block;
-    height: 20px;
-    line-height: 20px;
-    text-shadow: 0 1px 0 #fff;
-    margin: 2px 0;    
-}
-
-.monstra-menu-sidebar li a.current {
-    color: #000;
-    padding-top:3px;
-    cursor: pointer;
-    display: inline-block;
-    background-color: #e6e6e6;
-    background-repeat: no-repeat;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
-    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
-    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-    line-height: normal;
-    border: 1px solid #ccc;
-    border-bottom-color: #bbb;
-    border-right:2px solid #ccc;
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    -webkit-transition: 0.1s linear all;
-    -moz-transition: 0.1s linear all;
-    -ms-transition: 0.1s linear all;
-    -o-transition: 0.1s linear all;
-    transition: 0.1s linear all;
-    margin-left: 1px;
-}
-
-.monstra-menu-sidebar li a:hover {
-    color: #000;
-    background:#fff;
-}
-
-.nav-list > .active > a,
-.nav-list > .active > a:hover {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
-}
-
-/*************************************
-    5. AUTHORIZATION
-*************************************/
-.login-body {
-    background-color: #FBFBFB;
-}
-
-.form-signin {
-  max-width: 290px;
-  padding: 19px 29px 29px;
-  margin: 0 auto 20px;
-  background: none repeat scroll 0 0 #fff;
-  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
-     -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
-          box-shadow: 0 1px 5px rgba(0,0,0,.15);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-
-/*************************************
-    6. MEDIA QUERIES
-*************************************/
-
-/* iPhone 4, iPhone5, Small Tablet, Tablet */
-@media (max-width: 800px) {
-
-    .monstra-header .btn-small {
-        padding: 0px 7px;
-    }
-
-    .monstra-menu-sidebar {
-        background: url('@theme_admin_url/img/noisy_grid.png');
-        background-color:#ccc;
-        max-width: 100%!important;
-        min-width: 100%!important;
-        margin-bottom: 20px;
-        padding: 19px;
-        border:2px solid #ccc;
-    }
-
-    .container-fluid {
-        padding: 0px;
-    }
-
-}
-
-/* Small Tablet(Landscape), Tablet(Portrait) */
-@media (min-width: 768px) and (max-width: 800px) {
-    .row-fluid .span10 {
-        -moz-box-sizing: border-box;
-        display: block;
-        width: 94%;
-    }
-
-    footer a, footer {
-        color: #333333;
-        font-size: 10px;
-        margin-right: 10px;
-    }
+.markItUpHeader ul .markItUpSeparator {
+  display: none;
 }
 
 /* iPhone 4 */
@@ -527,4 +288,8 @@ footer a , footer{
     #showImage {
         min-width: 298px!important;
     }
+}
+
+footer {
+  margin-top: 30px;
 }
