@@ -309,7 +309,13 @@ class PagesAdmin extends Backend
                                 // Update parents in all childrens
                                 if ((Security::safeName(Request::post('page_name'), '-', true)) !== (Security::safeName(Request::post('page_old_name'), '-', true)) and (Request::post('old_parent') == '')) {
 
-                                    $pages->updateWhere('[parent="'.Request::get('name').'"]', array('parent' => Text::translitIt(trim(Request::post('page_name')))));
+                                    $_pages = $pages->select('[parent="'.Text::translitIt(trim(Request::post('page_old_name'))).'"]');
+
+                                    if ( ! empty($_pages)) {
+                                        foreach ($_pages as $_page) {                                            
+                                            $pages->updateWhere('[parent="'.$_page['parent'].'"]', array('parent' => Security::safeName(Request::post('page_name'), '-', true)));
+                                        }
+                                    }
 
                                     if ($pages->updateWhere('[slug="'.Request::get('name').'"]',
                                                         array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
