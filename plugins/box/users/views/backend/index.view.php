@@ -3,7 +3,7 @@
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
-<?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn default btn-small')); ?>
+<?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
 
 <div class="pull-right">
 <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
@@ -43,12 +43,12 @@
         </td>
         <td>
             <div class="pull-right">
-            <?php echo Html::anchor(__('Edit', 'users'), 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-small')); ?>
+            <?php echo Html::anchor(__('Edit', 'users'), 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-primary')); ?>
             <?php
                 if ((int)$user['id'] != (int)$_SESSION['user_id']) {
                     echo Html::anchor(__('Delete', 'users'),
                        'index.php?id=users&action=delete&user_id='.$user['id'].'&token='.Security::token(),
-                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete user: :user', 'users', array(':user' => Html::toText($user['login'])))."')"));
+                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete user: :user', 'users', array(':user' => Html::toText($user['login'])))."')"));
                 }
              ?>
              </div>

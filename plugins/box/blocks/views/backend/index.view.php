@@ -1,15 +1,23 @@
-<h2><?php echo __('Blocks', 'blocks'); ?></h2>
-<br />
+<div>
+    <div class="pull-left">
+        <h2><?php echo __('Blocks', 'blocks'); ?></h2>
+    </div>
+    <div class="pull-right">
+        <br>
+        <?php
+            echo (
+                Html::anchor(__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create New Block', 'blocks'), 'class' => 'btn btn-primary')). Html::nbsp(3)
+            );
+        ?>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<br>
 
 <?php if(Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
-<?php
-    echo (
-            Html::anchor(__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create New Block', 'blocks'), 'class' => 'btn default btn-small')). Html::nbsp(3)
-        );
-?>
-
-<br /><br />
+<br>
 
 <!-- Blocks_list -->
 <table class="table table-bordered">
@@ -24,20 +32,21 @@
     <tr>
         <td><?php echo basename($block, '.block.html'); ?></td>
         <td>
-            <div class="pull-right">
-            <div class="btn-toolbar">
+            <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-actions btn-small')); ?>
-                    <a class="btn dropdown-toggle btn-actions btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-primary')); ?>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.monstra.blocks.showEmbedCodes("'.basename($block, '.block.html').'");')); ?></li>
                     </ul>
-                    <?php echo Html::anchor(__('Delete', 'blocks'),
-                              'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
-                               array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
-                    ?>
                 </div>
-            </div>
+                <?php echo Html::anchor(__('Delete', 'blocks'),
+                          'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
+                           array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
+                ?>            
             </div>
         </td>
     </tr>
