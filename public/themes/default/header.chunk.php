@@ -20,9 +20,8 @@
     <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>">
 
     <!-- Styles -->
-    <?php Stylesheet::add('public/assets/css/bootstrap.css', 'frontend', 1); ?>
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap.min.css" type="text/css" />
     <?php Stylesheet::add('public/themes/default/css/default.css', 'frontend', 2); ?>
-    <?php Stylesheet::add('public/assets/css/bootstrap-responsive.css', 'frontend', 3); ?>
     <?php Stylesheet::load(); ?>
 
     <?php Action::run('theme_header'); ?>
