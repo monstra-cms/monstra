@@ -13,8 +13,6 @@
     <div class="clearfix"></div>
 </div>
 
-<br>
-
 <?php if(Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
 <br>

@@ -17,6 +17,7 @@
       if (isset($errors['blocks_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_exists'].'</span>';
   ?>
 </div>
+
 <br>
 
 <?php

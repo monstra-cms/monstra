@@ -1,15 +1,21 @@
-<h2><?php echo __('Snippets', 'snippets'); ?></h2>
-<br />
+<div>
+    <div class="pull-left">
+        <h2><?php echo __('Snippets', 'snippets'); ?></h2>
+    </div>
+    <div class="pull-right">
+        <br>
+        <?php
+            echo (
+                    Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-primary')). Html::nbsp(3)
+                );
+        ?>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<br>
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
-<?php
-    echo (
-            Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-small')). Html::nbsp(3)
-        );
-?>
-
-<br /><br />
 
 <!-- Snippets_list -->
 <table class="table table-bordered">
@@ -24,20 +30,21 @@
     <tr>
         <td><?php echo basename($snippet, '.snippet.php'); ?></td>
         <td>
-            <div class="pull-right">
-            <div class="btn-toolbar">
+            <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.basename($snippet, '.snippet.php'), array('class' => 'btn btn-actions btn-small')); ?>
-                    <a class="btn dropdown-toggle btn-actions btn-small" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <?php echo Html::anchor(__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.basename($snippet, '.snippet.php'), array('class' => 'btn btn-primary')); ?>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li><?php echo Html::anchor(__('View Embed Code', 'snippets'), 'javascript:;', array('title' => __('View Embed Code', 'snippets'), 'onclick' => '$.monstra.snippets.showEmbedCodes("'.basename($snippet, '.snippet.php').'");')); ?></li>
                     </ul>
-                    <?php echo Html::anchor(__('Delete', 'snippets'),
-                              'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php').'&token='.Security::token(),
-                               array('class' => 'btn btn-actions btn-small btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
-                    ?>
-                </div>
-            </div>
+                </div>   
+                <?php echo Html::anchor(__('Delete', 'snippets'),
+                    'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php').'&token='.Security::token(),
+                    array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
+                ?>
             </div>
         </td>
     </tr>
