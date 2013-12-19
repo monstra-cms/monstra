@@ -22,7 +22,6 @@ Monstra 2.3.0, xxxx-xx-xx
 - Localization: Major Fixes
 - Localization: PL added
 - Localization: NL added
-- Localization: DE fixed
 - .htaccess SEO improvements
 
 Monstra 2.2.1, 2013-04-06
