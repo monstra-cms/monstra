@@ -468,7 +468,7 @@
             </div>
             <div class="install-block-footer">
                 <div style="text-align:center;">
-                    <span class="small-grey-text">© 2012 - 2013 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                    <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
                 </div>
             </div>
 
