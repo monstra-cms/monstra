@@ -2,16 +2,13 @@ Monstra 2.3.0, xxxx-xx-xx
 ------------------------
 - Update Twitter Bootstrap to 2.3.2
 - Update PHPMailer to 5.2.7
-- Monstra: Added ability to map Monstra Engine Directory
+- Monstra: Added ability to map Monstra Engine Directory.
 - .htaccess SEO improvements
 - Files Manager: jasny bootstrap-fileupload - added #89 
 - Security: Added limits for login attempts #104
 - Security: Obfuscate users email to prevent spam-bots from sniffing it.
 - Users Plugin: login page fixes
 - Pages Plugin: page expand ajax bug #115 - fixed
-- Localization: PL added
-- Localization: NL added
-- Localization: DE fixed
 - Maintenance Mode Improvements
 - Core: ORM::configure - driver options added
 - Gelato: Image.php fix for PNG files
@@ -19,9 +16,14 @@ Monstra 2.3.0, xxxx-xx-xx
 - XMLDB: error select for empty table fix
 - Update Stylesheet.php - sourcecode misses a linebreak after minified css
 - Pages Plugin: General method getPages() created #123
-- Users Plugin - Deleting users - fixed by Oleg Gatseluk #158
-- Pages Plugin - Improved available() method to show only published pages
+- Users Plugin: Deleting users - fixed by Oleg Gatseluk #158
+- Pages Plugin: Improved available() method to show only published pages
+- Pages Plugin: Bug with pages renaming - fixed
 - Monstra Email Templates #164
+- Localization: Major Fixes
+- Localization: PL added
+- Localization: NL added
+- Localization: DE fixed
 
 Monstra 2.2.1, 2013-04-06
 ------------------------
