@@ -11,15 +11,17 @@
     <!-- Styles -->
     <?php Stylesheet::add('public/assets/css/bootstrap.css', 'backend', 1); ?>
     <?php Stylesheet::add('public/assets/css/bootstrap-lightbox.css', 'backend', 2); ?>
-    <?php Stylesheet::add('public/assets/css/bootstrap-responsive.css', 'backend', 3); ?>
-    <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 4); ?>
+    <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
+    <?php Stylesheet::add('public/assets/css/bootstrap-responsive.css', 'backend', 4); ?>
+    <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
     <?php Stylesheet::load(); ?>
 
     <!-- JavaScripts -->
     <?php Javascript::add('public/assets/js/jquery.js', 'backend', 1); ?>
     <?php Javascript::add('public/assets/js/bootstrap.js', 'backend', 2); ?>
     <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
-    <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 4); ?>
+    <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
+    <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
     <?php Javascript::load(); ?>
 
     <?php Action::run('admin_header'); ?>
@@ -117,11 +119,11 @@
         <footer>
             <p class="pull-right">
                 <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
-                <span class="hidden-phone">
-                <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-                <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-                </span>
-                © 2012 - 2013 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
+                    <span class="hidden-phone">
+                        <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+                        <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+                    </span>
+                    © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
                 </span>
             </p>
         </footer>

@@ -23,10 +23,10 @@ class PagesAdmin extends Backend
      */
     public static function _pageExpandAjax()
     {
-        if (Request::post('slug')) {
+        if (Request::post('page_slug')) {
             if (Security::check(Request::post('token'))) {
                 $pages = new Table('pages');
-                $pages->updateWhere('[slug="'.Request::post('slug').'"]', array('expand' => Request::post('expand')));
+                $pages->updateWhere('[slug="'.Request::post('page_slug').'"]', array('expand' => Request::post('page_expand')));
                 Request::shutdown();
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -309,7 +309,13 @@ class PagesAdmin extends Backend
                                 // Update parents in all childrens
                                 if ((Security::safeName(Request::post('page_name'), '-', true)) !== (Security::safeName(Request::post('page_old_name'), '-', true)) and (Request::post('old_parent') == '')) {
 
-                                    $pages->updateWhere('[parent="'.Request::get('name').'"]', array('parent' => Text::translitIt(trim(Request::post('page_name')))));
+                                    $_pages = $pages->select('[parent="'.Text::translitIt(trim(Request::post('page_old_name'))).'"]');
+
+                                    if ( ! empty($_pages)) {
+                                        foreach ($_pages as $_page) {                                            
+                                            $pages->updateWhere('[parent="'.$_page['parent'].'"]', array('parent' => Security::safeName(Request::post('page_name'), '-', true)));
+                                        }
+                                    }
 
                                     if ($pages->updateWhere('[slug="'.Request::get('name').'"]',
                                                         array('slug'        => Security::safeName(Request::post('page_name'), '-', true),

@@ -13,5 +13,6 @@
             'Delete file: :file' => 'Vymazať súbor :file',
             'Extension' => 'Rozšírenie',
             'Size' => 'Veľkosť',
+            'Select file' => 'Select file',
         )
     );

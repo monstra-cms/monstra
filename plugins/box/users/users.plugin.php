@@ -6,7 +6,7 @@
  *	@package Monstra
  *  @subpackage Plugins
  *	@author Romanenko Sergey / Awilum
- *	@copyright 2012-2013 Romanenko Sergey / Awilum
+ *	@copyright 2012-2014 Romanenko Sergey / Awilum
  *	@version 1.0.0
  *
  */
@@ -383,31 +383,59 @@ class Users extends Frontend
             // Login Form Submit
             if (Request::post('login_submit')) {
 
-                // Check csrf
-                if (Security::check(Request::post('csrf'))) {
+                if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
+                    
+                    Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
 
-                    $user = Users::$users->select("[login='" . trim(Request::post('username')) . "']", null);
+                } else {
 
-                    if (count($user) !== 0) {
-                        if ($user['login'] == Request::post('username')) {
-                            if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
-                                if ($user['role'] == 'admin' || $user['role'] == 'editor') {
-                                    Session::set('admin', true);
+                    // Check csrf
+                    if (Security::check(Request::post('csrf'))) {
+
+                        $user = Users::$users->select("[login='" . trim(Request::post('username')) . "']", null);
+
+                        if (count($user) !== 0) {
+                            if ($user['login'] == Request::post('username')) {
+                                if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
+                                    if ($user['role'] == 'admin' || $user['role'] == 'editor') {
+                                        Session::set('admin', true);
+                                    }
+                                    Session::set('user_id', (int) $user['id']);
+                                    Session::set('user_login', (string) $user['login']);
+                                    Session::set('user_role', (string) $user['role']);
+                                    Request::redirect(Site::url().'users/'.Session::get('user_id'));
+                                } else {
+                                    Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
+
+                                    if (Cookie::get('login_attempts')) {
+                                        if (Cookie::get('login_attempts') < 5) {
+                                            $attempts = Cookie::get('login_attempts') + 1;
+                                            Cookie::set('login_attempts', $attempts , 600);
+                                        } else {
+                                            Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
+                                        }
+                                    } else {
+                                        Cookie::set('login_attempts', 1, 600);
+                                    }
                                 }
-                                Session::set('user_id', (int) $user['id']);
-                                Session::set('user_login', (string) $user['login']);
-                                Session::set('user_role', (string) $user['role']);
-                                Request::redirect(Site::url().'users/'.Session::get('user_id'));
+                            }
+                        } else {
+                            Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
+
+                            if (Cookie::get('login_attempts')) {
+                                if (Cookie::get('login_attempts') < 5) {
+                                    $attempts = Cookie::get('login_attempts') + 1;
+                                    Cookie::set('login_attempts', $attempts , 600);
+                                } else {
+                                    Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
+                                }
                             } else {
-                                Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
+                                Cookie::set('login_attempts', 1, 600);
                             }
                         }
-                    } else {
-                        Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
-                    }
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
-
+                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                }
             }
 
             View::factory('box/users/views/frontend/login')->display();

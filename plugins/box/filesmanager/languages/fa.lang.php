@@ -13,5 +13,7 @@
             'Delete file: :file' => 'حذف فایل :file',
             'Extension' => 'پسوند',
             'Size' => 'اندازه',
+            'Select file' => 'Select file',
+            'Change' => 'Change',
         )
     );

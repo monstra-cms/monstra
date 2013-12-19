@@ -13,5 +13,7 @@
             'Delete file: :file' => 'Удалить файл :file',
             'Extension' => 'Расширение',
             'Size' => 'Размер',
+            'Select file' => 'Выбрать файл',            
+            'Change' => 'Изменить',
         )
     );

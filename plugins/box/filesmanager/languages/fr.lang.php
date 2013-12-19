@@ -13,5 +13,7 @@
             'Delete file: :file' => 'Supprimer le fichier :file',
             'Extension' => 'Extension',
             'Size' => 'Taille',
+            'Select file' => 'Select file',
+            'Change' => 'Change',
         )
     );

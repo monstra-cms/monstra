@@ -13,5 +13,7 @@
             'Delete file: :file' => 'Ištrinti bylą :file',
             'Extension' => 'Plėtinys',
             'Size' => 'Dydis',
+            'Select file' => 'Select file',
+            'Change' => 'Change',
         )
     );

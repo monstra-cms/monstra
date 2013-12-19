@@ -13,5 +13,7 @@
             'Delete file: :file' => 'Verwijder bestand: :file',
             'Extension' => 'Type',
             'Size' => 'Grootte',
+            'Select file' => 'Select file',
+            'Change' => 'Change',
         )
     );

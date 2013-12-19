@@ -13,5 +13,6 @@
             'Delete file: :file' => 'Deletar o arquivo :file',
             'Extension' => 'Extensão',
             'Size' => 'Tamanho',
+            'Select file' => 'Select file',
         )
     );
