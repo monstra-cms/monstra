@@ -63,6 +63,6 @@
             'Your login details for :site_name' => 'Deine Login-Daten für :site_name',
             'About Me' => 'Über Mich',
             'Profile' => 'Profil',
-            'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
+            'You are banned for 10 minutes. Try again later' => 'Du wurdest für 10 Minuten blockiert. Bitte probier es später nochmal',
         )
     );
