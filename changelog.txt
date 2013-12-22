@@ -1,7 +1,6 @@
 Monstra 2.3.0, 2013-12-19
 ------------------------
 - Update Twitter Bootstrap to 2.3.2
-- Update PHPMailer to 5.2.7
 - Security: Added limits for login attempts #104
 - Security: Obfuscate users email to prevent spam-bots from sniffing it.
 - Core: Added ability to map Monstra Engine Directory.
