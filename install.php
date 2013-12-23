@@ -16,8 +16,11 @@
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
 
+    // Get server port    
+    if ($_SERVER["SERVER_PORT"] == "80") $port = ""; else $port = ':'.$_SERVER["SERVER_PORT"];
+    
     // Get site URL
-    $site_url = 'http://'.$_SERVER["SERVER_NAME"].str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
+    $site_url = 'http://'.$_SERVER["SERVER_NAME"].$port.str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
     // Rewrite base
     $rewrite_base = str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
