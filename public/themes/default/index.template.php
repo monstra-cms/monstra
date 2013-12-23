@@ -20,4 +20,4 @@
         </div>
 
         <hr>
-<?php Chunk::get('footer');
+<?php Chunk::get('footer'); ?>
