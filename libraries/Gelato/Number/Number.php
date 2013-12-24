@@ -28,7 +28,7 @@ class Number
     }
 
     /**
-     * Convert bytes in 'kb','mb','gb','tb','pb'
+     * Convert bytes in 'KB','MB','GB','TiB','PiB'
      *
      *  <code>
      *      echo Number::byteFormat(10000);
@@ -42,7 +42,7 @@ class Number
         // Redefine vars
         $size = (int) $size;
 
-        $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
+        $unit = array('B', 'KB', 'MB', 'GB', 'TiB', 'PiB');
 
         return @round($size/pow(1024, ($i=floor(log($size, 1024)))), 2).' '.$unit[($i < 0 ? 0 : $i)];
     }
