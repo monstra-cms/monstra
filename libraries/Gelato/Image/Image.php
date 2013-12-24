@@ -659,4 +659,3 @@ class Image
     }
 
 }
-code
