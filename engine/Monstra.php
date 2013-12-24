@@ -39,7 +39,7 @@ class Monstra
     /**
      * The version of Monstra
      */
-    const VERSION = '2.3.0';
+    const VERSION = '2.3.1';
 
     /**
      * Monstra environment
