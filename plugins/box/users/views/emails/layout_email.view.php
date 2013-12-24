@@ -192,7 +192,9 @@
                         <table width="100%" cellpadding="10" cellspacing="0" border="0">
                             <tr>
                                 <td valign="top" style="font-size:11px; border-top:1px dashed #ccc; text-align:right;">
-                                    <p style="margin-top:0; margin-bottom:0;">© 2012 - 2014 <a href="http://monstra.org" style="color:#333; text-decoration:none;">MONSTRA.ORG</p>
+                                    <p style="margin-top:0; margin-bottom:0;">
+                                        
+                                    </p>
                                 </td>
                             </tr>
                         </table>

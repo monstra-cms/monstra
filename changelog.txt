@@ -1,3 +1,14 @@
+Monstra 2.3.1, 2013-12-25
+------------------------
+- Localization: Major Fixes
+- Gelato: Image.php Major Fixes
+- Sitemap: Errors #175 - fixes
+- New favicon added #182 - by bernte
+- Layouts: General Fixes - by bernte
+- Installer: SERVER_PORT issue - fixed by KANekT
+- Gelato: Number Class - updated bytes format (JEDEC & IEC 60027) by mbarzda
+- Email Layout: footer fixes
+
 Monstra 2.3.0, 2013-12-19
 ------------------------
 - Update Twitter Bootstrap to 2.3.2
