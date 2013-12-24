@@ -1,12 +1,11 @@
 # Monstra CMS
-Fast and small content management system written in PHP!
+Monstra is a modern and lightweight Content Management System.
 
 ## System Requirements
-- UNIX/Linux host
-- PHP 5.2.3 or higher
-- SimpleXML Module
-- Apache Mod Rewrite
-- Multibyte String
+Unix/Linux Operation system
+PHP 5.2.3 or higher
+PHP's SimpleXML module and Multibyte String module
+Apache or Ngnix webserver with Mod Rewrite
 
 ## Steps to Install
 1. [Download the latest version.](http://monstra.org/download)
