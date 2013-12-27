@@ -29,7 +29,7 @@
             'Second' => 'sekunda',
             'This field should not be empty' => 'To pole nie może być puste',
             'This page already exists' => 'Ta strona już istnieje',
-            'Extra' => 'Extra',
+            'Extra' => 'Ekstra',
             'Save' => 'Zapisz',
             'Save and Exit' => 'Zapisz i wyjdź',
             'Your changes to the page <i>:page</i> have been saved.' => 'Twoje zmiany na stronie <i> :page </i> zostały zapisane.',
