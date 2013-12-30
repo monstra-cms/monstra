@@ -8,7 +8,11 @@
 <div class="pull-right">
 <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
 <?php echo Form::hidden('csrf', Security::token()); ?>
+<div class="checkbox">
+<label>
 <?php echo Form::checkbox('users_frontend_registration', null, $users_frontend_registration); ?> <?php echo __('Allow user registration', 'users') ?>
+</label>
+</div>
 <?php echo Form::input('users_frontend_submit', 'users_frontend_submit', array('style' => 'display:none;')); ?>
 <?php echo Form::close();?>
 </div>
