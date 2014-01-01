@@ -57,7 +57,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">MONSTRA</a>
+        <a class="navbar-brand" href="<?php echo Option::get('siteurl'); ?>admin">MONSTRA</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -84,20 +84,18 @@
                 <?php Navigation::draw('system'); ?>                       
             </ul>
           </li>
-        </ul>
+        </ul>        
         <ul class="nav navbar-nav navbar-right">
           <li><a href="<?php echo Site::url(); ?>" target="_blank">View Site</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Awilum <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>              
-              <li><a href="#">Log Out</a></li>              
+              <li><a href="<?php echo Site::url(); ?>admin/index.php?id=users&action=edit&user_id=<?php echo Session::get('user_id'); ?>">Profile</a></li>              
+              <li><a href="<?php echo Site::url(); ?>admin/?logout=do">Log Out</a></li>              
             </ul>
           </li>
-        </ul>
-        
+        </ul>        
       </div>
-
       </div>
     </nav>
 
