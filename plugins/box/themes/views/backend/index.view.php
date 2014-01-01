@@ -3,7 +3,7 @@
     <div class="span6">
 
         <h2><?php echo __('Site Theme', 'themes'); ?></h2>
-        <br />
+        <br>
 
         <!-- Themes_selector -->
         <?php
@@ -23,7 +23,7 @@
     <div class="span6">
 
         <h2><?php echo __('Admin Theme', 'themes'); ?></h2>
-        <br />
+        <br>
 
         <!-- Themes_selector -->
         <?php
@@ -197,7 +197,7 @@
 <?php  // All exept Pages, Users and Sitemap plugins
 if (count(Plugin::$components) > 3) {
 ?>
-    <h2><?php echo __('Components templates', 'themes'); ?></h2><br />
+    <h2><?php echo __('Components templates', 'themes'); ?></h2><br>
 <?php
     // Its mean that you can add your own actions for this plugin
     Action::run('admin_themes_extra_index_template_actions');

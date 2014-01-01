@@ -1,9 +1,9 @@
 <h2><?php echo __('Menu', 'menu'); ?></h2>
-<br />
+<br>
 
 <?php if ($menu->count() == 0) { ?>
 <h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3>
-<br />
+<br>
 <?php
     echo (
             Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
@@ -23,13 +23,13 @@
 ?>
 
 <h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
-<br />
+<br>
 <?php
     echo (
             Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
         );
 ?>
-<br /><br />
+<br><br>
 
 <table class="table table-bordered">
     <thead>
@@ -73,5 +73,5 @@
         <?php } ?>
     </tbody>
 </table>
-<br />
+<br>
 <?php } ?>

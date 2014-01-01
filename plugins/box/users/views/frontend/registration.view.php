@@ -26,5 +26,5 @@
 <?php CryptCaptcha::draw(); ?>
 <?php } ?>
 
-<br /><input type="submit" class="btn" value="<?php echo __('Register', 'users'); ?>" name="register">
+<br><input type="submit" class="btn" value="<?php echo __('Register', 'users'); ?>" name="register">
 </form>

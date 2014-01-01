@@ -1,5 +1,5 @@
 <h2><?php echo __('Users', 'users'); ?></h2>
-<br />
+<br>
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 
@@ -17,7 +17,7 @@
 <?php echo Form::close();?>
 </div>
 
-<br /><br />
+<br><br>
 
 <!-- Users_list -->
 <table class="table table-bordered">

@@ -142,13 +142,13 @@
                     <?php if (File::writable(ROOT . DS . '.htaccess')) { ?>
                         <tr>
                             <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>
-                            <td><?php echo __('The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>', 'information', array(':path' => ROOT . DS . '.htaccess')); ?></td>
+                            <td><?php echo __('The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br>You can do this on unix systems with: <code>chmod a-w :path</code>', 'information', array(':path' => ROOT . DS . '.htaccess')); ?></td>
                         </tr>
                     <?php } ?>
                     <?php if (File::writable(ROOT . DS . 'index.php')) { ?>
                         <tr>
                             <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>
-                            <td><?php echo __('The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br/>You can do this on unix systems with: <code>chmod a-w :path</code>', 'information', array(':path' => ROOT . DS . 'index.php')); ?></td>
+                            <td><?php echo __('The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br>You can do this on unix systems with: <code>chmod a-w :path</code>', 'information', array(':path' => ROOT . DS . 'index.php')); ?></td>
                         </tr>
                     <?php } ?>
                     <?php if (Monstra::$environment == Monstra::DEVELOPMENT) { ?>

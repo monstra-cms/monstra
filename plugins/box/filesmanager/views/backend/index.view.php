@@ -1,5 +1,5 @@
 <h2><?php echo __('Files', 'filesmanager'); ?></h2>
-<br />
+<br>
 
 <!-- Filesmanager_upload_files -->
     <?php

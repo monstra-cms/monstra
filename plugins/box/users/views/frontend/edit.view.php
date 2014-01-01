@@ -22,5 +22,5 @@
 <label><?php echo __('Skype', 'users'); ?></label><input class="input-xlarge" type="text" value="<?php echo $user['skype']; ?>" name="skype">
 <label><?php echo __('About Me', 'users'); ?></label><textarea class="input-xlarge" name="about_me"><?php echo $user['about_me']; ?></textarea>
 <label><?php echo __('New Password', 'users'); ?></label><input class="input-xlarge" type="text" name="new_password">
-<br/><input type="submit" class="btn" value="<?php echo __('Save', 'users'); ?>" name="edit_profile">
+<br><input type="submit" class="btn" value="<?php echo __('Save', 'users'); ?>" name="edit_profile">
 </form>

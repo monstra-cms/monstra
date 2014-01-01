@@ -2,7 +2,7 @@
 <?php if ($action == 'template') { ?><h2><?php echo __('New Template', 'themes'); ?></h2><?php } ?>
 <?php if ($action == 'styles') { ?><h2><?php echo __('New Styles', 'themes'); ?></h2><?php } ?>
 <?php if ($action == 'script') { ?><h2><?php echo __('New Script', 'themes'); ?></h2><?php } ?>
-<br />
+<br>
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 

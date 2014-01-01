@@ -1,5 +1,5 @@
 <h2><?php echo __('New Block', 'blocks'); ?></h2>
-<br />
+<br>
 
 <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
 

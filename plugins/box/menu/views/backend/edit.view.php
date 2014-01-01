@@ -1,5 +1,5 @@
 <h2><?php echo __('Edit item', 'menu'); ?></h2>
-<br />
+<br>
 
 <div class="row">
     <div class="col-md-6">

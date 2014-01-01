@@ -21,5 +21,5 @@
 <?php CryptCaptcha::draw(); ?>
 <?php } ?>
 
-<br /><input type="submit" class="btn" value="<?php echo __('Send New Password', 'users'); ?>" name="reset_password_submit">
+<br><input type="submit" class="btn" value="<?php echo __('Send New Password', 'users'); ?>" name="reset_password_submit">
 </form>

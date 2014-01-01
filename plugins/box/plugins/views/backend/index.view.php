@@ -1,5 +1,5 @@
 <h2><?php echo __('Plugins', 'plugins'); ?></h2>
-<br />
+<br>
 
 <div class="tabbable">
 
