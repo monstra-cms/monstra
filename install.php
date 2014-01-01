@@ -16,8 +16,11 @@
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
 
+    // Get server port    
+    if ($_SERVER["SERVER_PORT"] == "80") $port = ""; else $port = ':'.$_SERVER["SERVER_PORT"];
+    
     // Get site URL
-    $site_url = 'http://'.$_SERVER["SERVER_NAME"].str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
+    $site_url = 'http://'.$_SERVER["SERVER_NAME"].$port.str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
     // Rewrite base
     $rewrite_base = str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
@@ -295,7 +298,7 @@
                         <input class="input-xlarge" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
                         <br />
                         <label><?php echo __('Username', 'users'); ?></label>
-                        <input class="input-xlarge" class="login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
+                        <input class="input-xlarge login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
                         <br />
                         <label><?php echo __('Password', 'users'); ?></label>
                         <input class="input-xlarge" name="password" type="password" />
@@ -397,78 +400,78 @@
                     </form>
                 </div>
                 <hr>
-                <p align="center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
+                <p class="text-center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
                 <div>
                     <ul>
                     <?php
 
                         if (version_compare(PHP_VERSION, "5.2.0", "<")) {
-                            echo '<span class="error"><li>'.__('PHP 5.2 or greater is required', 'system').'</li></span>';
+                            echo '<li class="error">'.__('PHP 5.2 or greater is required', 'system').'</li>';
                         } else {
-                            echo '<span class="ok"><li>'.__('PHP Version', 'system').' '.PHP_VERSION.'</li></span>';
+                            echo '<li class="ok">'.__('PHP Version', 'system').' '.PHP_VERSION.'</li>';
                         }
 
                         if (in_array('SimpleXML', $php_modules)) {
-                            echo '<span class="ok"><li>'.__('Module SimpleXML is installed', 'system').'</li></span>';
+                            echo '<li class="ok">'.__('Module SimpleXML is installed', 'system').'</li>';
                         } else {
-                            echo '<span class="error"><li>'.__('SimpleXML module is required', 'system').'</li></span>';
+                            echo '<li class="error">'.__('SimpleXML module is required', 'system').'</li>';
                         }
 
                         if (in_array('dom', $php_modules)) {
-                            echo '<span class="ok"><li>'.__('Module DOM is installed', 'system').'</li></span>';
+                            echo '<li class="ok">'.__('Module DOM is installed', 'system').'</li>';
                         } else {
-                            echo '<span class="error"><li>'.__('Module DOM is required', 'system').'</li></span>';
+                            echo '<li class="error">'.__('Module DOM is required', 'system').'</li>';
                         }
 
                         if (function_exists('apache_get_modules')) {
                             if ( ! in_array('mod_rewrite',apache_get_modules())) {
-                                echo '<span class="error"><li>'.__('Apache Mod Rewrite is required', 'system').'</li></span>';
+                                echo '<li class="error">'.__('Apache Mod Rewrite is required', 'system').'</li>';
                             } else {
-                                echo '<span class="ok"><li>'.__('Module Mod Rewrite is installed', 'system').'</li></span>';
+                                echo '<li class="ok">'.__('Module Mod Rewrite is installed', 'system').'</li>';
                             }
                         } else {
-                            echo '<span class="ok"><li>'.__('Module Mod Rewrite is installed', 'system').'</li></span>';
+                            echo '<li class="ok">'.__('Module Mod Rewrite is installed', 'system').'</li>';
                         }
 
                         foreach ($dir_array as $dir) {
                             if (is_writable($dir.'/')) {
-                                echo '<span class="ok"><li>'.__('Directory: <b> :dir </b> writable', 'system', array(':dir' => $dir)).'</li></span>';
+                                echo '<li class="ok">'.__('Directory: <b> :dir </b> writable', 'system', array(':dir' => $dir)).'</li>';
                             } else {
-                                echo '<span class="error"><li>'.__('Directory: <b> :dir </b> not writable', 'system', array(':dir' => $dir)).'</li></span>';
+                                echo '<li class="error">'.__('Directory: <b> :dir </b> not writable', 'system', array(':dir' => $dir)).'</li>';
                             }
                         }
 
                         if (is_writable(__FILE__)) {
-                            echo '<span class="ok"><li>'.__('Install script writable', 'system').'</li></span>';
+                            echo '<li class="ok">'.__('Install script writable', 'system').'</li>';
                         } else {
-                            echo '<span class="error"><li>'.__('Install script not writable', 'system').'</li></span>';
+                            echo '<li class="error">'.__('Install script not writable', 'system').'</li>';
                         }
 
                         if (is_writable('sitemap.xml')) {
-                            echo '<span class="ok"><li>'.__('Sitemap file writable', 'system').'</li></span>';
+                            echo '<li class="ok">'.__('Sitemap file writable', 'system').'</li>';
                         } else {
-                            echo '<span class="error"><li>'.__('Sitemap file not writable', 'system').'</li></span>';
+                            echo '<li class="error">'.__('Sitemap file not writable', 'system').'</li>';
                         }
 
                         if (is_writable('.htaccess')) {
-                            echo '<span class="ok"><li>'.__('Main .htaccess file writable', 'system').'</li></span>';
+                            echo '<li class="ok">'.__('Main .htaccess file writable', 'system').'</li>';
                         } else {
-                            echo '<span class="error"><li>'.__('Main .htaccess file not writable', 'system').'</li></span>';
+                            echo '<li class="error">'.__('Main .htaccess file not writable', 'system').'</li>';
                         }
 
-                        if (isset($errors['sitename']))    echo '<span class="error"><li>'.$errors['sitename'].'</li></span>';
-                        if (isset($errors['siteurl']))     echo '<span class="error"><li>'.$errors['siteurl'].'</li></span>';
-                        if (isset($errors['login']))       echo '<span class="error"><li>'.$errors['login'].'</li></span>';
-                        if (isset($errors['password']))    echo '<span class="error"><li>'.$errors['password'].'</li></span>';
-                        if (isset($errors['email']))       echo '<span class="error"><li>'.$errors['email'].'</li></span>';
-                        if (isset($errors['email_valid'])) echo '<span class="error"><li>'.$errors['email_valid'].'</li></span>';
+                        if (isset($errors['sitename']))    echo '<li class="error">'.$errors['sitename'].'</li>';
+                        if (isset($errors['siteurl']))     echo '<li class="error">'.$errors['siteurl'].'</li>';
+                        if (isset($errors['login']))       echo '<li class="error">'.$errors['login'].'</li>';
+                        if (isset($errors['password']))    echo '<li class="error">'.$errors['password'].'</li>';
+                        if (isset($errors['email']))       echo '<li class="error">'.$errors['email'].'</li>';
+                        if (isset($errors['email_valid'])) echo '<li class="error">'.$errors['email_valid'].'</li>';
                     ?>
                     </ul>
                 </div>
             </div>
             <div class="install-block-footer">
                 <div style="text-align:center;">
-                    <span class="small-grey-text">© 2012 - 2013 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                    <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
                 </div>
             </div>
 

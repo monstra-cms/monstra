@@ -62,7 +62,7 @@
 
         <div class="container form-signin">
 
-            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171"></a></div>
+            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="monstra" /></a></div>
             <div class="administration-area">
                 <hr>
                 <div>
@@ -127,7 +127,7 @@
         </div>
 
         <div style="text-align:center">
-            <span class="small-grey-text">© 2012 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+            <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
         </div>
 
     </body>

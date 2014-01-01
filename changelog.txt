@@ -1,27 +1,38 @@
-Monstra 2.3.0, xxxx-xx-xx
+Monstra 2.3.1, 2013-12-25
+------------------------
+- Localization: Major Fixes
+- Gelato: Image.php Major Fixes
+- Sitemap: Errors #175 - fixes
+- New favicon added #182 - by bernte
+- Layouts: General Fixes - by bernte
+- Installer: SERVER_PORT issue - fixed by KANekT
+- Gelato: Number Class - updated bytes format (JEDEC & IEC 60027) by mbarzda
+- Email Layout: footer fixes
+
+Monstra 2.3.0, 2013-12-19
 ------------------------
 - Update Twitter Bootstrap to 2.3.2
-- Update PHPMailer to 5.2.7
-- Monstra: Added ability to map Monstra Engine Directory
-- .htaccess SEO improvements
-- Files Manager: jasny bootstrap-fileupload - added #89 
 - Security: Added limits for login attempts #104
 - Security: Obfuscate users email to prevent spam-bots from sniffing it.
-- Users Plugin: login page fixes
-- Pages Plugin: page expand ajax bug #115 - fixed
-- Localization: PL added
-- Localization: NL added
-- Localization: DE fixed
-- Maintenance Mode Improvements
+- Core: Added ability to map Monstra Engine Directory.
+- Core: Maintenance Mode Improvements
 - Core: ORM::configure - driver options added
 - Gelato: Image.php fix for PNG files
-- Fix Number.php: Undefined offset
+- Gelato: Number.php: Undefined offset fix
 - XMLDB: error select for empty table fix
-- Update Stylesheet.php - sourcecode misses a linebreak after minified css
+- Plugin API: Stylesheet.php updates - sourcecode misses a linebreak after minified css
+- Files Manager: jasny bootstrap-fileupload - added #89 
+- Users Plugin: login page fixes
+- Users Plugin: Deleting users - fixed by Oleg Gatseluk #158
 - Pages Plugin: General method getPages() created #123
-- Users Plugin - Deleting users - fixed by Oleg Gatseluk #158
-- Pages Plugin - Improved available() method to show only published pages
+- Pages Plugin: page expand ajax bug #115 - fixed
+- Pages Plugin: Improved available() method to show only published pages
+- Pages Plugin: Bug with pages renaming - fixed
 - Monstra Email Templates #164
+- Localization: Major Fixes
+- Localization: PL added
+- Localization: NL added
+- .htaccess SEO improvements
 
 Monstra 2.2.1, 2013-04-06
 ------------------------
