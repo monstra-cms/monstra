@@ -9,18 +9,25 @@
         <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
 
         <!-- Styles -->
-        <?php Stylesheet::add('public/assets/css/bootstrap.css', 'backend', 1); ?>
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger-theme-flat.css" type="text/css" />
         <?php Stylesheet::add('public/assets/css/bootstrap-lightbox.css', 'backend', 2); ?>
-        <?php Stylesheet::add('public/assets/css/bootstrap-responsive.css', 'backend', 3); ?>
-        <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 4); ?>
+        <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
+        <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
         <?php Stylesheet::load(); ?>
 
         <!-- JavaScripts -->
-        <?php Javascript::add('public/assets/js/jquery.js', 'backend', 1); ?>
-        <?php Javascript::add('public/assets/js/bootstrap.js', 'backend', 2); ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="<?php echo Site::url(); ?>public/assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo Site::url(); ?>public/assets/js/messenger.min.js"></script>
+        <script src="<?php echo Site::url(); ?>public/assets/js/messenger-theme-flat.js"></script>
+        
         <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
-        <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 4); ?>
+        <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
+        <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
         <?php Javascript::load(); ?>
+
         <script type="text/javascript">
             $().ready(function () {
                 <?php if (Notification::get('reset_password') == 'reset_password') { ?>
@@ -61,14 +68,18 @@
                 <div>
                     <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br />
                     <form method="post">
-                        <label><?php echo __('Username', 'users'); ?></label>
-                        <input class="input-xlarge" name="login" type="text" />
-
-                        <label><?php echo __('Password', 'users'); ?></label>
-                        <input class="input-xlarge" name="password" type="password" />
-                        <br />
-                        <?php if (isset($login_error) && $login_error !== '') { ?><div class="alert alert-error"><?php echo $login_error; ?></div><?php } ?>
-                        <input type="submit" name="login_submit" class="btn" value="<?php echo __('Log In', 'users'); ?>" />
+                        <div class="form-group">
+                            <label><?php echo __('Username', 'users'); ?></label>
+                            <input class="form-control" name="login" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo __('Password', 'users'); ?></label>
+                            <input class="form-control" name="password" type="password" />
+                        </div>
+                        <div class="form-group">    
+                            <?php if (isset($login_error) && $login_error !== '') { ?><div class="alert alert-error"><?php echo $login_error; ?></div><?php } ?>
+                            <input type="submit" name="login_submit" class="btn btn-primary" value="<?php echo __('Log In', 'users'); ?>" />
+                        </div>
                     </form>
                 </div>
             </div>
@@ -79,13 +90,17 @@
                     <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br />
                     <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
                     <form method="post">
+                        <div class="form-group">
                         <label><?php echo __('Username', 'users'); ?></label>
-                        <input name="login" class="input-xlarge" type="text" value="<?php echo $user_login; ?>" />
-
+                        <input name="login" class="form-control" type="text" value="<?php echo $user_login; ?>" />                        
+                        </div>
                         <?php if (Option::get('captcha_installed') == 'true') { ?>
+                        <div class="form-group">
                         <label><?php echo __('Captcha', 'users'); ?></label>
-                        <input type="text" name="answer" class="input-xlarge">
+                        <input type="text" name="answer" class="form-control">
+                        <br>
                         <?php CryptCaptcha::draw(); ?>
+                        </div>
                         <?php } ?>
                         <br>
                         <?php
@@ -95,7 +110,9 @@
                                 }
                             }
                         ?>
-                        <input type="submit" name="reset_password_submit" class="btn" value="<?php echo __('Send New Password', 'users')?>" />
+                        <div class="form-group">
+                            <input type="submit" name="reset_password_submit" class="btn btn-primary" value="<?php echo __('Send New Password', 'users')?>" />
+                        </div>
                     </form>
                 </div>
             </div>
