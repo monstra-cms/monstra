@@ -114,46 +114,50 @@
         <meta name="description" content="Monstra Install Area">
         <link rel="icon" href="<?php echo $site_url; ?>favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo $site_url; ?>favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="<?php echo $site_url; ?>public/assets/css/bootstrap.css" media="all" type="text/css" />
-        <link rel="stylesheet" href="<?php echo $site_url; ?>public/assets/css/bootstrap-responsive.css" media="all" type="text/css" />
+        <link rel="stylesheet" href="<?php echo $site_url; ?>public/assets/css/bootstrap.min.css" media="all" type="text/css" />
         <link rel="stylesheet" href="<?php echo $site_url; ?>admin/themes/default/css/default.css" media="all" type="text/css" />
         <style>
 
-            .input-xlarge {
-                width: 285px;
+            .install-body {
+                margin-top: 40px;
+                background: #FAFAFA;
             }
 
             .install-languages {
-                margin: 0 auto 15px;
+                margin: 20px auto 15px;
                 text-align: center;
                 width: 390px;
             }
 
-            .install-block {
+            .install-block,
+            .monstra-dialog,
+            .install-block-footer {
                 margin: 0 auto;
-                float: none!important;
-                max-width: 300px;
-                 padding: 19px 29px 29px;
-                  background: none repeat scroll 0 0 #fff;
-                  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.15);
-                     -moz-box-shadow: 0 1px 5px rgba(0,0,0,.15);
-                          box-shadow: 0 1px 5px rgba(0,0,0,.15);
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-                border-radius: 4px;
+                width: 600px;                
             }
 
             .install-block-footer {
-                margin: 0 auto;
-                float: none!important;
-                margin-top:10px;
-                margin-bottom:10px;
-                max-width: 300px;
+                margin-top: 20px;
+                margin-bottom: 20px;
             }
 
-            .install-body {
-                background-color: #FBFBFB;
-                padding-top:40px;
+            .well {                                
+                border: none;
+                border-radius: 0px;
+                background: #fff;
+                color: #555;
+                -webkit-font-smoothing: subpixel-antialiased;
+                -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+                box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            }
+
+
+            .form-control {
+                border-radius: 0px;
+            }
+
+            .monstra-says {
+                margin: 10px;
             }
 
             .error {
@@ -175,10 +179,10 @@
 
             .language-link img {
                 -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-                filter: alpha(opacity=30);
-                -moz-opacity:0.3;
+                filter: alpha(opacity=30);                
                 -khtml-opacity: 0.3;
-                opacity: 0.3;
+                  -moz-opacity:0.3;
+                       opacity: 0.3;
             }
 
             .language-link-current img{
@@ -197,30 +201,14 @@
                 opacity: 1.0;
             }
 
-            @media (max-width: 480px) {
-
-                .input-xlarge {
-                    width: 100%;
-                }
-
-                .install-languages {
-                    text-align: left;
-                }
-
-                .install-languages a {
-                    padding: 0;
-                }
-
-            }
-
        </style>
        <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/jquery.js"></script>
-       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/bootstrap.js"></script>
+       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/bootstrap.min.js"></script>
     </head>
     <body class="install-body">
 
     <?php
-        if (version_compare(PHP_VERSION, "5.2.0", "<")) {
+        if (version_compare(PHP_VERSION, "5.2.3", "<")) {
             $errors['php'] = 'error';
         } else {
             $errors['php'] = '';
@@ -270,139 +258,154 @@
         }
         ?>
 
+            <div class="text-center"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo-256px.png" alt="Monstra"></a></div>
+
             <div class="install-languages">
                 <?php foreach ($languages_array as $lang_code) { ?>
-                <a data-placement="top" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
+                <a data-placement="bottom" data-toggle="tooltip" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
                 <?php } ?>
             </div>
-            <div class="install-block">
-                <div style="text-align:center;"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="Monstra"></a></div>
-                <hr>
-                <div>
-                    <form action="install.php" method="post">
-                        <input type="hidden" name="php" value="<?php echo $errors['php']; ?>" />
-                        <input type="hidden" name="simplexml" value="<?php echo $errors['simplexml']; ?>" />
-                        <input type="hidden" name="mod_rewrite" value="<?php echo $errors['mod_rewrite']; ?>" />
-                        <input type="hidden" name="install" value="<?php echo $errors['install']; ?>" />
-                        <input type="hidden" name="sitemap" value="<?php echo $errors['sitemap']; ?>" />
-                        <input type="hidden" name="htaccess" value="<?php echo $errors['htaccess']; ?>" />
-                        <input type="hidden" name="public" value="<?php echo $errors['public']; ?>" />
-                        <input type="hidden" name="storage" value="<?php echo $errors['storage']; ?>" />
-                        <input type="hidden" name="backups" value="<?php echo $errors['backups']; ?>" />
-                        <input type="hidden" name="tmp" value="<?php echo $errors['tmp']; ?>" />
 
-                        <label><?php echo __('Site Name', 'system'); ?></label>
-                        <input class="input-xlarge" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
-                        <br />
-                        <label><?php echo __('Site Url', 'system'); ?></label>
-                        <input class="input-xlarge" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
-                        <br />
-                        <label><?php echo __('Username', 'users'); ?></label>
-                        <input class="input-xlarge login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
-                        <br />
-                        <label><?php echo __('Password', 'users'); ?></label>
-                        <input class="input-xlarge" name="password" type="password" />
-                        <br />
-                        <label><?php echo __('Time zone', 'system'); ?></label>
-                        <select class="input-xlarge" name="timezone">
-                            <option value="Kwajalein">(GMT-12:00) International Date Line West</option>
-                            <option value="Pacific/Samoa">(GMT-11:00) Midway Island, Samoa</option>
-                            <option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
-                            <option value="America/Anchorage">(GMT-09:00) Alaska</option>
-                            <option value="America/Los_Angeles">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                            <option value="America/Tijuana">(GMT-08:00) Tijuana, Baja California</option>
-                            <option value="America/Denver">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                            <option value="America/Chihuahua">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
-                            <option value="America/Phoenix">(GMT-07:00) Arizona</option>
-                            <option value="America/Regina">(GMT-06:00) Saskatchewan</option>
-                            <option value="America/Tegucigalpa">(GMT-06:00) Central America</option>
-                            <option value="America/Chicago">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                            <option value="America/Mexico_City">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
-                            <option value="America/New_York">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                            <option value="America/Bogota">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
-                            <option value="America/Indiana/Indianapolis">(GMT-05:00) Indiana (East)</option>
-                            <option value="America/Caracas">(GMT-04:30) Caracas</option>
-                            <option value="America/Halifax">(GMT-04:00) Atlantic Time (Canada)</option>
-                            <option value="America/Manaus">(GMT-04:00) Manaus</option>
-                            <option value="America/Santiago">(GMT-04:00) Santiago</option>
-                            <option value="America/La_Paz">(GMT-04:00) La Paz</option>
-                            <option value="America/St_Johns">(GMT-03:30) Newfoundland</option>
-                            <option value="America/Argentina/Buenos_Aires">(GMT-03:00) Buenos Aires</option>
-                            <option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
-                            <option value="America/Godthab">(GMT-03:00) Greenland</option>
-                            <option value="America/Montevideo">(GMT-03:00) Montevideo</option>
-                            <option value="America/Argentina/Buenos_Aires">(GMT-03:00) Georgetown</option>
-                            <option value="Atlantic/South_Georgia">(GMT-02:00) Mid-Atlantic</option>
-                            <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
-                            <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
-                            <option value="Europe/London">(GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
-                            <option value="Atlantic/Reykjavik">(GMT) Monrovia, Reykjavik</option>
-                            <option value="Africa/Casablanca">(GMT) Casablanca</option>
-                            <option value="Europe/Belgrade">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
-                            <option value="Europe/Sarajevo">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
-                            <option value="Europe/Brussels">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
-                            <option value="Africa/Algiers">(GMT+01:00) West Central Africa</option>
-                            <option value="Europe/Amsterdam">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
-                            <option value="Africa/Cairo">(GMT+02:00) Cairo</option>
-                            <option value="Europe/Helsinki">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
-                            <option value="Europe/Athens">(GMT+02:00) Athens, Bucharest, Istanbul</option>
-                            <option value="Asia/Jerusalem">(GMT+02:00) Jerusalem</option>
-                            <option value="Asia/Amman">(GMT+02:00) Amman</option>
-                            <option value="Asia/Beirut">(GMT+02:00) Beirut</option>
-                            <option value="Africa/Windhoek">(GMT+02:00) Windhoek</option>
-                            <option value="Africa/Harare">(GMT+02:00) Harare, Pretoria</option>
-                            <option value="Asia/Kuwait">(GMT+03:00) Kuwait, Riyadh</option>
-                            <option value="Asia/Baghdad">(GMT+03:00) Baghdad</option>
-                            <option value="Europe/Minsk">(GMT+03:00) Minsk</option>
-                            <option value="Africa/Nairobi">(GMT+03:00) Nairobi</option>
-                            <option value="Asia/Tbilisi">(GMT+03:00) Tbilisi</option>
-                            <option value="Asia/Tehran">(GMT+03:30) Tehran</option>
-                            <option value="Asia/Muscat">(GMT+04:00) Abu Dhabi, Muscat</option>
-                            <option value="Asia/Baku">(GMT+04:00) Baku</option>
-                            <option value="Europe/Moscow">(GMT+04:00) Moscow, St. Petersburg, Volgograd</option>
-                            <option value="Asia/Yerevan">(GMT+04:00) Yerevan</option>
-                            <option value="Asia/Karachi">(GMT+05:00) Islamabad, Karachi</option>
-                            <option value="Asia/Tashkent">(GMT+05:00) Tashkent</option>
-                            <option value="Asia/Kolkata">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
-                            <option value="Asia/Colombo">(GMT+05:30) Sri Jayawardenepura</option>
-                            <option value="Asia/Katmandu">(GMT+05:45) Kathmandu</option>
-                            <option value="Asia/Dhaka">(GMT+06:00) Astana, Dhaka</option>
-                            <option value="Asia/Yekaterinburg">(GMT+06:00) Ekaterinburg</option>
-                            <option value="Asia/Rangoon">(GMT+06:30) Yangon (Rangoon)</option>
-                            <option value="Asia/Novosibirsk">(GMT+07:00) Almaty, Novosibirsk</option>
-                            <option value="Asia/Bangkok">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
-                            <option value="Asia/Beijing">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
-                            <option value="Asia/Krasnoyarsk">(GMT+08:00) Krasnoyarsk</option>
-                            <option value="Asia/Ulaanbaatar">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
-                            <option value="Asia/Kuala_Lumpur">(GMT+08:00) Kuala Lumpur, Singapore</option>
-                            <option value="Asia/Taipei">(GMT+08:00) Taipei</option>
-                            <option value="Australia/Perth">(GMT+08:00) Perth</option>
-                            <option value="Asia/Seoul">(GMT+09:00) Seoul</option>
-                            <option value="Asia/Tokyo">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
-                            <option value="Australia/Darwin">(GMT+09:30) Darwin</option>
-                            <option value="Australia/Adelaide">(GMT+09:30) Adelaide</option>
-                            <option value="Australia/Sydney">(GMT+10:00) Canberra, Melbourne, Sydney</option>
-                            <option value="Australia/Brisbane">(GMT+10:00) Brisbane</option>
-                            <option value="Australia/Hobart">(GMT+10:00) Hobart</option>
-                            <option value="Asia/Yakutsk">(GMT+10:00) Yakutsk</option>
-                            <option value="Pacific/Guam">(GMT+10:00) Guam, Port Moresby</option>
-                            <option value="Asia/Vladivostok">(GMT+11:00) Vladivostok</option>
-                            <option value="Pacific/Fiji">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
-                            <option value="Asia/Magadan">(GMT+12:00) Magadan, Solomon Is., New Caledonia</option>
-                            <option value="Pacific/Auckland">(GMT+12:00) Auckland, Wellington</option>
-                            <option value="Pacific/Tongatapu">(GMT+13:00) Nukualofa</option>
-                        </select>
-
-                        <label><?php echo __('Email', 'users'); ?></label>
-                        <input name="email" class="input-xlarge" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
-                        <br /><br />
-                        <input type="submit" class="btn" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
-                    </form>
-                </div>
-                <hr>
-                <p class="text-center"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
+            <div>
                 <div>
-                    <ul>
+                    <div class="install-block well">
+                        <form action="install.php" method="post">
+                            <input type="hidden" name="php" value="<?php echo $errors['php']; ?>" />
+                            <input type="hidden" name="simplexml" value="<?php echo $errors['simplexml']; ?>" />
+                            <input type="hidden" name="mod_rewrite" value="<?php echo $errors['mod_rewrite']; ?>" />
+                            <input type="hidden" name="install" value="<?php echo $errors['install']; ?>" />
+                            <input type="hidden" name="sitemap" value="<?php echo $errors['sitemap']; ?>" />
+                            <input type="hidden" name="htaccess" value="<?php echo $errors['htaccess']; ?>" />
+                            <input type="hidden" name="public" value="<?php echo $errors['public']; ?>" />
+                            <input type="hidden" name="storage" value="<?php echo $errors['storage']; ?>" />
+                            <input type="hidden" name="backups" value="<?php echo $errors['backups']; ?>" />
+                            <input type="hidden" name="tmp" value="<?php echo $errors['tmp']; ?>" />
+
+                            <div class="form-group">
+                                <label><?php echo __('Site Name', 'system'); ?></label>
+                                <input class="form-control" name="sitename" type="text" value="<?php if (Request::post('sitename')) echo Html::toText(Request::post('sitename')); ?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo __('Site Url', 'system'); ?></label>
+                                <input class="form-control" name="siteurl" type="text" value="<?php echo Html::toText($site_url); ?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo __('Username', 'users'); ?></label>
+                                <input class="form-control login" name="login" value="<?php if(Request::post('login')) echo Html::toText(Request::post('login')); ?>" type="text" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo __('Password', 'users'); ?></label>
+                                <input class="form-control" name="password" type="password" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo __('Time zone', 'system'); ?></label>
+                                <select class="form-control" name="timezone">
+                                    <option value="Kwajalein">(GMT-12:00) International Date Line West</option>
+                                    <option value="Pacific/Samoa">(GMT-11:00) Midway Island, Samoa</option>
+                                    <option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
+                                    <option value="America/Anchorage">(GMT-09:00) Alaska</option>
+                                    <option value="America/Los_Angeles">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                    <option value="America/Tijuana">(GMT-08:00) Tijuana, Baja California</option>
+                                    <option value="America/Denver">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                    <option value="America/Chihuahua">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+                                    <option value="America/Phoenix">(GMT-07:00) Arizona</option>
+                                    <option value="America/Regina">(GMT-06:00) Saskatchewan</option>
+                                    <option value="America/Tegucigalpa">(GMT-06:00) Central America</option>
+                                    <option value="America/Chicago">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                    <option value="America/Mexico_City">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+                                    <option value="America/New_York">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                    <option value="America/Bogota">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+                                    <option value="America/Indiana/Indianapolis">(GMT-05:00) Indiana (East)</option>
+                                    <option value="America/Caracas">(GMT-04:30) Caracas</option>
+                                    <option value="America/Halifax">(GMT-04:00) Atlantic Time (Canada)</option>
+                                    <option value="America/Manaus">(GMT-04:00) Manaus</option>
+                                    <option value="America/Santiago">(GMT-04:00) Santiago</option>
+                                    <option value="America/La_Paz">(GMT-04:00) La Paz</option>
+                                    <option value="America/St_Johns">(GMT-03:30) Newfoundland</option>
+                                    <option value="America/Argentina/Buenos_Aires">(GMT-03:00) Buenos Aires</option>
+                                    <option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
+                                    <option value="America/Godthab">(GMT-03:00) Greenland</option>
+                                    <option value="America/Montevideo">(GMT-03:00) Montevideo</option>
+                                    <option value="America/Argentina/Buenos_Aires">(GMT-03:00) Georgetown</option>
+                                    <option value="Atlantic/South_Georgia">(GMT-02:00) Mid-Atlantic</option>
+                                    <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+                                    <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
+                                    <option value="Europe/London">(GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+                                    <option value="Atlantic/Reykjavik">(GMT) Monrovia, Reykjavik</option>
+                                    <option value="Africa/Casablanca">(GMT) Casablanca</option>
+                                    <option value="Europe/Belgrade">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                                    <option value="Europe/Sarajevo">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+                                    <option value="Europe/Brussels">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+                                    <option value="Africa/Algiers">(GMT+01:00) West Central Africa</option>
+                                    <option value="Europe/Amsterdam">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                                    <option value="Africa/Cairo">(GMT+02:00) Cairo</option>
+                                    <option value="Europe/Helsinki">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                                    <option value="Europe/Athens">(GMT+02:00) Athens, Bucharest, Istanbul</option>
+                                    <option value="Asia/Jerusalem">(GMT+02:00) Jerusalem</option>
+                                    <option value="Asia/Amman">(GMT+02:00) Amman</option>
+                                    <option value="Asia/Beirut">(GMT+02:00) Beirut</option>
+                                    <option value="Africa/Windhoek">(GMT+02:00) Windhoek</option>
+                                    <option value="Africa/Harare">(GMT+02:00) Harare, Pretoria</option>
+                                    <option value="Asia/Kuwait">(GMT+03:00) Kuwait, Riyadh</option>
+                                    <option value="Asia/Baghdad">(GMT+03:00) Baghdad</option>
+                                    <option value="Europe/Minsk">(GMT+03:00) Minsk</option>
+                                    <option value="Africa/Nairobi">(GMT+03:00) Nairobi</option>
+                                    <option value="Asia/Tbilisi">(GMT+03:00) Tbilisi</option>
+                                    <option value="Asia/Tehran">(GMT+03:30) Tehran</option>
+                                    <option value="Asia/Muscat">(GMT+04:00) Abu Dhabi, Muscat</option>
+                                    <option value="Asia/Baku">(GMT+04:00) Baku</option>
+                                    <option value="Europe/Moscow">(GMT+04:00) Moscow, St. Petersburg, Volgograd</option>
+                                    <option value="Asia/Yerevan">(GMT+04:00) Yerevan</option>
+                                    <option value="Asia/Karachi">(GMT+05:00) Islamabad, Karachi</option>
+                                    <option value="Asia/Tashkent">(GMT+05:00) Tashkent</option>
+                                    <option value="Asia/Kolkata">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+                                    <option value="Asia/Colombo">(GMT+05:30) Sri Jayawardenepura</option>
+                                    <option value="Asia/Katmandu">(GMT+05:45) Kathmandu</option>
+                                    <option value="Asia/Dhaka">(GMT+06:00) Astana, Dhaka</option>
+                                    <option value="Asia/Yekaterinburg">(GMT+06:00) Ekaterinburg</option>
+                                    <option value="Asia/Rangoon">(GMT+06:30) Yangon (Rangoon)</option>
+                                    <option value="Asia/Novosibirsk">(GMT+07:00) Almaty, Novosibirsk</option>
+                                    <option value="Asia/Bangkok">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+                                    <option value="Asia/Beijing">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+                                    <option value="Asia/Krasnoyarsk">(GMT+08:00) Krasnoyarsk</option>
+                                    <option value="Asia/Ulaanbaatar">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+                                    <option value="Asia/Kuala_Lumpur">(GMT+08:00) Kuala Lumpur, Singapore</option>
+                                    <option value="Asia/Taipei">(GMT+08:00) Taipei</option>
+                                    <option value="Australia/Perth">(GMT+08:00) Perth</option>
+                                    <option value="Asia/Seoul">(GMT+09:00) Seoul</option>
+                                    <option value="Asia/Tokyo">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+                                    <option value="Australia/Darwin">(GMT+09:30) Darwin</option>
+                                    <option value="Australia/Adelaide">(GMT+09:30) Adelaide</option>
+                                    <option value="Australia/Sydney">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+                                    <option value="Australia/Brisbane">(GMT+10:00) Brisbane</option>
+                                    <option value="Australia/Hobart">(GMT+10:00) Hobart</option>
+                                    <option value="Asia/Yakutsk">(GMT+10:00) Yakutsk</option>
+                                    <option value="Pacific/Guam">(GMT+10:00) Guam, Port Moresby</option>
+                                    <option value="Asia/Vladivostok">(GMT+11:00) Vladivostok</option>
+                                    <option value="Pacific/Fiji">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+                                    <option value="Asia/Magadan">(GMT+12:00) Magadan, Solomon Is., New Caledonia</option>
+                                    <option value="Pacific/Auckland">(GMT+12:00) Auckland, Wellington</option>
+                                    <option value="Pacific/Tongatapu">(GMT+13:00) Nukualofa</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo __('Email', 'users'); ?></label>
+                                <input name="email" class="form-control" value="<?php if (Request::post('email')) echo Html::toText(Request::post('email')); ?>" type="text" />
+                            </div>                                
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
+                            </div>                                
+                        </form>
+                    </div>
+                </div>                
+                <p class="text-center monstra-says"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
+                <div class="monstra-dialog well">
+                    <ul class="list-unstyled">
                     <?php
 
                         if (version_compare(PHP_VERSION, "5.2.0", "<")) {
@@ -470,7 +473,7 @@
                 </div>
             </div>
             <div class="install-block-footer">
-                <div style="text-align:center;">
+                <div class="text-center">
                     <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
                 </div>
             </div>
