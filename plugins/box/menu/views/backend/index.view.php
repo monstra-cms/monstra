@@ -6,10 +6,10 @@
 <br />
 <?php
     echo (
-            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small'))
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
         );
 ?>
-<br /><br />
+<br><br>
 <?php } ?>
 
 <?php
@@ -26,7 +26,7 @@
 <br />
 <?php
     echo (
-            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-small'))
+            Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
         );
 ?>
 <br /><br />
@@ -62,10 +62,10 @@
             </td>
             <td>
                 <div class="pull-right">
-                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-small')); ?>
+                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-primary')); ?>
                 <?php echo Html::anchor(__('Delete', 'menu'),
                            'index.php?id=menu&delete_item='.$item['id'],
-                           array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
+                           array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
                  ?>
              </div>
             </td>

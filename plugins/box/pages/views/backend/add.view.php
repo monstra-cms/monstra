@@ -121,7 +121,7 @@
         ?>
     </div>
     <div class="col-xs-6">
-        <div class="pull-right"><?php echo __('Published on', 'pages'); ?>: <?php echo Form::input('page_date', $date, array('class' => 'input-large')); ?></div>
+        <div class="pull-right"> <?php echo Form::input('page_date', $date, array('class' => 'form-control')); ?></div>
         <?php echo Form::close(); ?>
     </div>
 </div>
