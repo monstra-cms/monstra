@@ -116,7 +116,6 @@
                     </form>
                 </div>
             </div>
-
             <hr>
             <div>
                 <div style="text-align:center;">

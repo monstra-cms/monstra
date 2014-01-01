@@ -49,58 +49,54 @@
     <nav class="navbar navbar-default navbar-inverse" role="navigation">
       
       <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<?php echo Option::get('siteurl'); ?>admin">MONSTRA</a>
-      </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo Option::get('siteurl'); ?>admin">MONSTRA</a>
+          </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-        <ul class="nav navbar-nav">          
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <?php Navigation::draw('content'); ?>
-            </ul>
-          </li>
-          <?php if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) { ?>               
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Extends', 'system'); ?> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <?php Navigation::draw('extends'); ?>                      
-            </ul>
-          </li>
-          <?php } ?>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('System', 'system'); ?> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <?php Navigation::draw('system'); ?>                       
-            </ul>
-          </li>
-        </ul>        
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?php echo Site::url(); ?>" target="_blank">View Site</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Awilum <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="<?php echo Site::url(); ?>admin/index.php?id=users&action=edit&user_id=<?php echo Session::get('user_id'); ?>">Profile</a></li>              
-              <li><a href="<?php echo Site::url(); ?>admin/?logout=do">Log Out</a></li>              
-            </ul>
-          </li>
-        </ul>        
-      </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+            <ul class="nav navbar-nav">          
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <?php Navigation::draw('content'); ?>
+                </ul>
+              </li>
+              <?php if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) { ?>               
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Extends', 'system'); ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <?php Navigation::draw('extends'); ?>                      
+                </ul>
+              </li>
+              <?php } ?>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('System', 'system'); ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <?php Navigation::draw('system'); ?>                       
+                </ul>
+              </li>
+            </ul>        
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<?php echo Site::url(); ?>" target="_blank"><?php echo __('View Site', 'system'); ?></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Session::get('user_login'); ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo Site::url(); ?>admin/index.php?id=users&action=edit&user_id=<?php echo Session::get('user_id'); ?>"><?php echo __('Profile', 'users')?></a></li>
+                  <li><a href="<?php echo Site::url(); ?>admin/?logout=do"><?php echo __('Log Out', 'users'); ?></a></li>              
+                </ul>
+              </li>
+            </ul>        
+          </div>
       </div>
     </nav>
 
     <div class="container">
-
         <div id="update-monstra"></div>
         <div><?php Action::run('admin_pre_template'); ?></div>
         <div>
@@ -117,22 +113,17 @@
             ?>
         </div>
         <div><?php Action::run('admin_post_template'); ?></div>
-
-        <!-- Block_footer -->
-        <footer>
-            <p class="pull-right">
-                <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
-                    <span class="hidden-phone">
-                        <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-                        <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-                    </span>
-                    © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
-                </span>
-            </p>
-        </footer>
-        <!-- /Block_footer -->
-
-    </div>
-
+      </div>
+      <footer class="container">
+          <p class="pull-right">
+              <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
+                  <span class="hidden-phone">
+                      <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+                      <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+                  </span>
+                  © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
+              </span>
+          </p>
+      </footer>
 </body>
 </html>
