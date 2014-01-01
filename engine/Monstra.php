@@ -39,11 +39,8 @@ class Monstra
     /**
      * The version of Monstra
      */
-<<<<<<< HEAD
     const VERSION = '2.4.0 pre-alpha';
-=======
-    const VERSION = '2.3.1';
->>>>>>> refs/remotes/origin/dev
+
 
     /**
      * Monstra environment
