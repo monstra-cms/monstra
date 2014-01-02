@@ -2,27 +2,35 @@
 <br>
 
 <!-- Filesmanager_upload_files -->
+    <div class="row">
     <?php
         echo (
-            Form::open(null, array('enctype' => 'multipart/form-data')).
+            Form::open(null, array('enctype' => 'multipart/form-data', 'class' => 'form-inline')).
             Form::hidden('csrf', Security::token())
         );
-    ?>
+    ?>    
+    <div class="col-md-6">
     <div class="fileupload fileupload-new" data-provides="fileupload">
-      <span class="btn btn-small btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></span>
+      <span class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></span>
+    <?php
+        echo (
+            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-primary')).
+            Form::close()
+        )
+    ?>      
       <span class="fileupload-preview"></span>
       <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
     </div>
-    <?php
-        echo (
-            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn')).
-            Form::close()
-        )
-    ?>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    </div>
 <!-- /Filesmanager_upload_files -->
 
+<br>
 <!-- Filesmanger_path -->
-<ul class="breadcrumb">
+<ol class="breadcrumb">
 
       <?php
         $path_parts = explode ('/',$path);
@@ -41,8 +49,9 @@
             echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a> <span class="divider">/</span></li>';
         }
     ?>
-</ul>
+</ol>
 <!-- /Filesmanger_path -->
+
 
 <table class="table table-bordered">
     <thead>
@@ -95,7 +104,7 @@
             <div class="pull-right">
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_file='.$file.'&path='.$path.'&token='.Security::token(),
-                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
+                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
             ?>
             </div>
             </td>
