@@ -56,6 +56,11 @@ td, th {
 code {
     border-radius: 0px;
 }
+.badge,
+.label {
+  font-weight: normal;
+  text-shadow:none;
+}
 
   /* Tabs */
 
