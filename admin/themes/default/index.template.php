@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger-theme-flat.css" type="text/css" />
-    <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap-datetimepicker.min.css" type="text/css" />
-    <?php Stylesheet::add('public/assets/css/bootstrap-lightbox.css', 'backend', 2); ?>
+    <?php Stylesheet::add('public/assets/css/chocolat.css', 'backend', 2); ?>
     <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
     <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
     <?php Stylesheet::load(); ?>
@@ -23,7 +22,7 @@
     <script src="<?php echo Site::url(); ?>public/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo Site::url(); ?>public/assets/js/messenger.min.js"></script>
     
-    <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
+    <?php Javascript::add('public/assets/js/jquery.chocolat.js', 'backend', 3); ?>
     <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
     <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
     <?php Javascript::load(); ?>
@@ -35,6 +34,16 @@
           extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
           theme: 'flat'
       }
+
+      $(document).ready(function(){
+          $('.chocolat').Chocolat({
+              overlayColor          : '#f2f2f2',
+              leftImg               : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/left.gif",  
+              rightImg              : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/right.gif", 
+              closeImg              : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/close.gif",   
+              loadingImg            : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/loading.gif", 
+          });
+      });
     </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
