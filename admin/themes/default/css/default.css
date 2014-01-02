@@ -13,6 +13,16 @@ styles.css
 *************************************
 1. GENERAL
 *************************************/
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot');
+  src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
 body {
   background: #FAFAFA;
 }
@@ -274,4 +284,9 @@ td, th {
 
 footer {
   margin-top: 40px;
+}
+
+
+.datapicker {
+  width: 200px;
 }
