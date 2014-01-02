@@ -22,8 +22,15 @@
       <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
     </div>
     </div>
-    <div class="col-md-2">
-
+    <div class="col-md-6">
+        <div class="pull-right">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#createNewFile">
+          Create New File
+        </button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#createNewDirectory">
+          Create New Directory
+        </button>
+        </div>
     </div>
     </div>
 <!-- /Filesmanager_upload_files -->
@@ -89,7 +96,7 @@
         <tr>
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
                 <?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) { ?>
-                    <?php echo Html::anchor(File::name($file), '#', array('rel' => $site_url.'public/' . $path.$file));?>
+                    <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('rel' => $site_url.'public/' . $path.$file, 'class' => 'chocolat', 'data-toggle' => 'lightbox'));?>
                 <?php } else { ?>
                     <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
                 <?php } ?>
@@ -113,11 +120,32 @@
     </tbody>
 </table>
 
-<div id="previewLightbox" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="previewLightbox" class="lightbox hide fade" tabindex="-1">
     <div class='lightbox-header'>
         <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
     </div>
     <div class='lightbox-content'>
         <img />
     </div>
+</div>
+
+<div id="createNewDirectory" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create New Directory</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">        
+            <label for="directoryName">Directory Name</label>
+            <input type="text" class="form-control" id="directoryName">        
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
 </div>
