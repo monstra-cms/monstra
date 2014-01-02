@@ -121,7 +121,14 @@
         ?>
     </div>
     <div class="col-xs-6">
-        <div class="pull-right"> <?php echo Form::input('page_date', $date, array('class' => 'form-control')); ?></div>
+        <div class="pull-right">               
+            <div class="input-group datapicker">
+                <?php echo Form::input('page_date', $date, array('class' => 'form-control')); ?>
+                <span class="input-group-addon add-on">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>            
+            </div>           
+        </div>
         <?php echo Form::close(); ?>
     </div>
 </div>
