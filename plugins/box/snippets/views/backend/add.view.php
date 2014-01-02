@@ -24,7 +24,7 @@
 <?php
     echo (
        Form::label('content', __('Snippet content', 'snippets')).
-       Form::textarea('content', $content, array('style' => 'width:100%;height:400px;', 'class'=>'source-editor'))
+       Form::textarea('content', $content, array('style' => 'width:100%;height:400px;', 'class'=>'source-editor form-control'))
     );
 ?>
 
@@ -32,7 +32,7 @@
     echo (
        Html::br(2).
        Form::submit('add_snippets_and_exit', __('Save and Exit', 'snippets'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-       Form::submit('add_snippets', __('Save', 'snippets'), array('class' => 'btn')).
+       Form::submit('add_snippets', __('Save', 'snippets'), array('class' => 'btn btn-default')).
        Form::close()
     );
 ?>
