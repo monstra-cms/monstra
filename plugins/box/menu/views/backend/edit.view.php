@@ -10,8 +10,8 @@
 
         <?php if (isset($errors['menu_item_name_empty'])) $error_class = ' error'; else $error_class = ''; ?>
 
-        <a href="javascript:;" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a> /
-        <a href="javascript:;" style="text-decoration:none; color:#333; border-bottom:1px dashed #333;" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
+        <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
+        <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
 
         <br><br>
 
