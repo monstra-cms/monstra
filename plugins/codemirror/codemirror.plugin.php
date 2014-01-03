@@ -52,6 +52,7 @@ class CodeMirror
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                     font-size: 14px;
                     line-height: 1.428571429;
+                    padding: 6px 9px;
                 }
             </style>
         ');
