@@ -265,6 +265,15 @@ td, th {
   display: none;
 }
 
+#editor_area {
+    height:400px!important; 
+    border: 1px solid #ccc;
+    color: #555;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+
 /* iPhone 4 */
 @media (max-width: 320px) {
     .markItUpButton11, 
