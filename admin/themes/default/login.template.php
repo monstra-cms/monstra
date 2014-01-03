@@ -5,13 +5,13 @@
         <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Monstra Admin Area">
-        <link rel="icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
         <!-- Styles -->
-        <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap.min.css" type="text/css" />
-        <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger.css" type="text/css" />
-        <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger-theme-flat.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger-theme-flat.css" type="text/css" />
         <?php Stylesheet::add('public/assets/css/bootstrap-lightbox.css', 'backend', 2); ?>
         <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
         <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
@@ -19,9 +19,9 @@
 
         <!-- JavaScripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="<?php echo Site::url(); ?>public/assets/js/bootstrap.min.js"></script>
-        <script src="<?php echo Site::url(); ?>public/assets/js/messenger.min.js"></script>
-        <script src="<?php echo Site::url(); ?>public/assets/js/messenger-theme-flat.js"></script>
+        <script src="<?php echo Site::url(); ?>/public/assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>
+        <script src="<?php echo Site::url(); ?>/public/assets/js/messenger-theme-flat.js"></script>
         
         <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
         <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>

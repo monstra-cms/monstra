@@ -5,8 +5,8 @@
     <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Monstra admin area" />
-    <link rel="icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.css" type="text/css" />
@@ -33,10 +33,10 @@
         $(document).ready(function(){
           $('.chocolat').Chocolat({
               overlayColor          : '#f2f2f2',
-              leftImg               : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/left.gif",  
-              rightImg              : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/right.gif", 
-              closeImg              : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/close.gif",   
-              loadingImg            : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/loading.gif", 
+              leftImg               : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/left.gif",  
+              rightImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/right.gif", 
+              closeImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/close.gif",   
+              loadingImg            : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/loading.gif", 
           });
         });
 
@@ -66,7 +66,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo Option::get('siteurl'); ?>admin">MONSTRA</a>
+            <a class="navbar-brand" href="<?php echo Option::get('siteurl'); ?>/admin">MONSTRA</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
