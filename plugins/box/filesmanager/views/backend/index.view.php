@@ -11,7 +11,7 @@
     ?>    
     <div class="col-md-6">
     <div class="fileupload fileupload-new" data-provides="fileupload">
-      <span class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></span>
+      <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></button>
     <?php
         echo (
             Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-primary')).
@@ -119,15 +119,6 @@
         <?php } } ?>
     </tbody>
 </table>
-
-<div id="previewLightbox" class="lightbox hide fade" tabindex="-1">
-    <div class='lightbox-header'>
-        <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-    </div>
-    <div class='lightbox-content'>
-        <img />
-    </div>
-</div>
 
 <div id="createNewDirectory" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
