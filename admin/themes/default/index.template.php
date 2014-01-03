@@ -18,7 +18,7 @@
     <?php Stylesheet::load(); ?>
 
     <!-- JavaScripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="<?php echo Site::url(); ?>public/assets/js/jquery.min.js"></script>
     <script src="<?php echo Site::url(); ?>public/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo Site::url(); ?>public/assets/js/messenger.min.js"></script>
     
