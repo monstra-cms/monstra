@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <plugin_location>plugins/blog/blog.plugin.php</plugin_location>
+    <plugin_status>active</plugin_status>
+    <plugin_priority>15</plugin_priority>
+    <plugin_name>Blog</plugin_name>
+    <plugin_description>Blog plugin for Monstra</plugin_description>
+    <plugin_version>1.7.3</plugin_version>
+    <plugin_author>Awilum</plugin_author>
+    <plugin_author_uri>http://monstra.org/</plugin_author_uri>
+</root>
