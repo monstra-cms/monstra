@@ -30,12 +30,7 @@
     <?php Action::run('admin_header'); ?>
 
     <script>
-      Messenger.options = {
-          extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
-          theme: 'flat'
-      }
-
-      $(document).ready(function(){
+        $(document).ready(function(){
           $('.chocolat').Chocolat({
               overlayColor          : '#f2f2f2',
               leftImg               : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/left.gif",  
@@ -43,7 +38,13 @@
               closeImg              : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/close.gif",   
               loadingImg            : "<?php echo Option::get('siteurl'); ?>public/assets/img/chocolat/loading.gif", 
           });
-      });
+        });
+
+        /* Messanger */
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
     </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
