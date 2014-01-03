@@ -34,13 +34,13 @@ class MarkItUp
     {
         echo ('
             <!-- markItUp! 1.1.13 -->
-            <script type="text/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/jquery.markitup.js"></script>
+            <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/markitup/markitup/jquery.markitup.js"></script>
             <!-- markItUp! toolbar settings -->
-            <script type="text/javascript" src="'.Option::get('siteurl').'plugins/markitup/markitup/sets/html/set.js"></script>
+            <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/markitup/markitup/sets/html/set.js"></script>
             <!-- markItUp! skin -->
-            <link rel="stylesheet" type="text/css" href="'.Option::get('siteurl').'plugins/markitup/markitup/skins/simple/style.css" />
+            <link rel="stylesheet" type="text/css" href="'.Option::get('siteurl').'/plugins/markitup/markitup/skins/simple/style.css" />
             <!--  markItUp! toolbar skin -->
-            <link rel="stylesheet" type="text/css" href="'.Option::get('siteurl').'plugins/markitup/markitup/sets/html/style.css" />
+            <link rel="stylesheet" type="text/css" href="'.Option::get('siteurl').'/plugins/markitup/markitup/sets/html/style.css" />
         ');
 
         echo ('<script>$(document).ready(function(){$("#editor_area").markItUp(mySettings);});</script>');
