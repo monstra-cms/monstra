@@ -20,7 +20,7 @@
     <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.css" type="text/css" />
     <?php Stylesheet::add('public/themes/default/css/default.css', 'frontend', 2); ?>
     <?php Stylesheet::load(); ?>
 
@@ -38,23 +38,24 @@
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="<?php echo Site::url(); ?>"><?php echo Site::name(); ?></a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-                <?php echo Menu::get(); ?>
-            </ul>
-            <div class="pull-right user-panel">
-              <?php Users::getPanel(); ?>
-            </div>
-          </div><!--/.nav-collapse -->
+          </button>
+          <a class="navbar-brand" href="<?php echo Site::url(); ?>"><?php echo Site::name(); ?></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <?php echo Menu::get(); ?>
+          </ul>
+          <div class="pull-right user-panel">
+            <?php Users::getPanel(); ?>
+          </div>
         </div>
       </div>
     </div>

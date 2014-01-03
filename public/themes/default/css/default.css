@@ -4,7 +4,16 @@ body {
 }
 
 .user-panel {
-    margin-top: 9px;
+    margin-top: 16px;
+}
+
+.user-panel {
+	color: #fff;
+}
+
+.user-panel a {
+	color: #fff;
+	text-decoration: underline;
 }
 
 .error {
