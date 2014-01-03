@@ -22,6 +22,9 @@
     // Get site URL
     $site_url = 'http://'.$_SERVER["SERVER_NAME"].$port.str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
+    // Replace last slash in site_url
+    $site_url = rtrim($site_url, '/');
+
     // Rewrite base
     $rewrite_base = str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
@@ -112,10 +115,10 @@
         <title>Monstra :: Install</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Monstra Install Area">
-        <link rel="icon" href="<?php echo $site_url; ?>favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="<?php echo $site_url; ?>favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="<?php echo $site_url; ?>public/assets/css/bootstrap.min.css" media="all" type="text/css" />
-        <link rel="stylesheet" href="<?php echo $site_url; ?>admin/themes/default/css/default.css" media="all" type="text/css" />
+        <link rel="icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="<?php echo $site_url; ?>/public/assets/css/bootstrap.css" media="all" type="text/css" />
+        <link rel="stylesheet" href="<?php echo $site_url; ?>/admin/themes/default/css/default.css" media="all" type="text/css" />
         <style>
 
             .install-body {
@@ -202,8 +205,8 @@
             }
 
        </style>
-       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/jquery.js"></script>
-       <script type="text/javascript" src="<?php echo $site_url; ?>public/assets/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="<?php echo $site_url; ?>/public/assets/js/jquery.min.js"></script>
+       <script type="text/javascript" src="<?php echo $site_url; ?>/public/assets/js/bootstrap.min.js"></script>
     </head>
     <body class="install-body">
 
@@ -258,11 +261,11 @@
         }
         ?>
 
-            <div class="text-center"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>public/assets/img/monstra-logo-256px.png" alt="Monstra"></a></div>
+            <div class="text-center"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>/public/assets/img/monstra-logo-256px.png" alt="Monstra"></a></div>
 
             <div class="install-languages">
                 <?php foreach ($languages_array as $lang_code) { ?>
-                <a data-placement="bottom" data-toggle="tooltip" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
+                <a data-placement="top" data-toggle="tooltip" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'/?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>/public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
                 <?php } ?>
             </div>
 
