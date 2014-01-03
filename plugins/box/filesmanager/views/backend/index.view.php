@@ -120,6 +120,28 @@
     </tbody>
 </table>
 
+
+<div id="createNewFile" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create New File</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">        
+            <label for="directoryName">File Name</label>
+            <input type="text" class="form-control" id="directoryName">        
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="createNewDirectory" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
