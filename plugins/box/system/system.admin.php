@@ -121,9 +121,6 @@ class SystemAdmin extends Backend
 
                     // Add trailing slashes
                     $_site_url = Request::post('system_url');
-                    if ($_site_url[strlen($_site_url)-1] !== '/') {
-                        $_site_url = $_site_url.'/';
-                    }
 
                     Option::update(array('sitename'          => Request::post('site_name'),
                                        'keywords'            => Request::post('site_keywords'),

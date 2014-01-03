@@ -128,9 +128,9 @@ class Stylesheet
 
             // Render
             if (BACKEND) {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/backend_site.minify.css'.'" type="text/css" />';
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.css'.'" type="text/css" />';
             } else {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.css'.'" type="text/css" />'."\n";
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.css'.'" type="text/css" />'."\n";
             }
         }
     }
@@ -144,8 +144,8 @@ class Stylesheet
                                  '@theme_site_url',
                                  '@theme_admin_url'),
                            array(Option::get('siteurl'),
-                                 Option::get('siteurl').'public/themes/'.Option::get('theme_site_name'),
-                                 Option::get('siteurl').'admin/themes/'.Option::get('theme_admin_name')),
+                                 Option::get('siteurl').'/public/themes/'.Option::get('theme_site_name'),
+                                 Option::get('siteurl').'/admin/themes/'.Option::get('theme_admin_name')),
                            $frontend_buffer);
     }
 

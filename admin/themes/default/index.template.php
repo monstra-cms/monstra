@@ -9,18 +9,18 @@
     <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>favicon.ico" type="image/x-icon" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger.css" type="text/css" />
-    <link rel="stylesheet" href="<?php echo Site::url(); ?>public/assets/css/messenger-theme-flat.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger-theme-flat.css" type="text/css" />
     <?php Stylesheet::add('public/assets/css/chocolat.css', 'backend', 2); ?>
     <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
     <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
     <?php Stylesheet::load(); ?>
 
     <!-- JavaScripts -->
-    <script src="<?php echo Site::url(); ?>public/assets/js/jquery.min.js"></script>
-    <script src="<?php echo Site::url(); ?>public/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo Site::url(); ?>public/assets/js/messenger.min.js"></script>
+    <script src="<?php echo Site::url(); ?>/public/assets/js/jquery.min.js"></script>
+    <script src="<?php echo Site::url(); ?>/public/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>
     
     <?php Javascript::add('public/assets/js/jquery.chocolat.js', 'backend', 3); ?>
     <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
