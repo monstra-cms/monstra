@@ -96,9 +96,9 @@
         <tr>
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
                 <?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) { ?>
-                    <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('rel' => $site_url.'public/' . $path.$file, 'class' => 'chocolat', 'data-toggle' => 'lightbox'));?>
+                    <?php echo Html::anchor(File::name($file), $site_url.'/public/' . $path.$file, array('rel' => $site_url.'/public/' . $path.$file, 'class' => 'chocolat', 'data-toggle' => 'lightbox'));?>
                 <?php } else { ?>
-                    <?php echo Html::anchor(File::name($file), $site_url.'public/' . $path.$file, array('target'=>'_blank'));?>
+                    <?php echo Html::anchor(File::name($file), $site_url.'/public/' . $path.$file, array('target'=>'_blank'));?>
                 <?php } ?>
             </td>
             <td class="hidden-phone">
