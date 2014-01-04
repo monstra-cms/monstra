@@ -59,7 +59,7 @@
                 $_parent = (trim($page['parent']) == '') ? '' : $page['parent'];
                 $parent  = (trim($page['parent']) == '') ? '' : $page['parent'].'/';
                 echo (trim($page['parent']) == '') ? '' : '&nbsp;';
-                echo $dash.Html::anchor(Html::toText($page['title']), $site_url.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent));
+                echo $dash.Html::anchor(Html::toText($page['title']), $site_url.'/'.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent));
             ?>
         </td>
         <td class="hidden-phone">
@@ -116,5 +116,5 @@
 </table>
 
 <form>
-    <input type="hidden" name="url" value="<?php echo Option::get('siteurl'); ?>admin/index.php?id=pages">
+    <input type="hidden" name="url" value="<?php echo Option::get('siteurl'); ?>/admin/index.php?id=pages">
 </form>
