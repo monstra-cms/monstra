@@ -66,7 +66,7 @@
             <div class="administration-area">
                 <hr>
                 <div>
-                    <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br />
+                    <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br>
                     <form method="post">
                         <div class="form-group">
                             <label><?php echo __('Username', 'users'); ?></label>
