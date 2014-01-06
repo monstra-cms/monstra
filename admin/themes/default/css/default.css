@@ -27,8 +27,35 @@ body {
     background: #252525;
 }
 
+ul.navbar-nav {
+    min-height: 60px;
+}
+
+.navbar-nav > li {
+    min-height: 60px;
+}
+
+.navbar-nav > li > a {
+    line-height: 30px;
+}
+
 .navbar-brand {
     font-size: 24px;
+    padding: 13px 15px;
+    line-height: inherit;
+}
+
+
+a.navbar-brand {
+    font-weight: bold;
+    color: #FAFAFA!important;
+}
+
+.nav > li > a > img {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #888;
+    margin: 0 0 0 4px;
 }
 
 h1,h2,h3,h4,h5 {

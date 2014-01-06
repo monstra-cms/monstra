@@ -102,7 +102,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo Site::url(); ?>" target="_blank"><?php echo __('View Site', 'system'); ?></a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Session::get('user_login'); ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Session::get('user_login'); ?> <img src="<?php echo Users::getGravatarURL(Session::get('user_email'), 16); ?>" alt=""> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="<?php echo Site::url(); ?>/admin/index.php?id=users&action=edit&user_id=<?php echo Session::get('user_id'); ?>"><?php echo __('Profile', 'users')?></a></li>
                   <li><a href="<?php echo Site::url(); ?>/admin/?logout=do"><?php echo __('Log Out', 'users'); ?></a></li>              
