@@ -485,10 +485,17 @@ class Users extends Frontend
 
     /**
      * Get Gravatar
+     *
+     *  <code>
+     *      <img src="<?php echo Users::getGravatarURL('monstra@monstra.org', 64); ?>" alt="">
+     *  </code>
+     *
+     * @param string  $email  Email
+     * @param integer $size   Image Size
      */
     public static function getGravatarURL($email, $size)
     {
-        return 'http://www.gravatar.com/avatar.php?gravatar_id='.md5($email).'&rating=PG'.'&size='.$size;
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($email))).'?size='.$size;
     }
 
 }
