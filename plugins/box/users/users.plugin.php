@@ -170,7 +170,7 @@ class Users extends Frontend
                         ->display();
 
             } else {
-                Request::redirect(Site::url().'users/'.Session::get('user_id'));
+                Request::redirect(Site::url().'/users/'.Session::get('user_id'));
             }
 
         } else {
@@ -240,7 +240,7 @@ class Users extends Frontend
                             }
 
                             Notification::set('success', __('Your changes have been saved.', 'users'));
-                            Request::redirect(Site::url().'users/'.$user['id']);
+                            Request::redirect(Site::url().'/users/'.$user['id']);
                         }
                     } else { }
 
@@ -253,7 +253,7 @@ class Users extends Frontend
                 ->display();
 
         } else {
-            Request::redirect(Site::url().'users/login');
+            Request::redirect(Site::url().'/users/login');
         }
     }
 
@@ -307,7 +307,7 @@ class Users extends Frontend
                     Notification::set('success', __('New password has been sent', 'users'));
 
                     // Redirect to password-reset page
-                    Request::redirect(Site::url().'users/password-reset');
+                    Request::redirect(Site::url().'/users/password-reset');
 
                 }
             }
@@ -356,7 +356,7 @@ class Users extends Frontend
                         Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
 
                         // Redirect to password-reset page
-                        Request::redirect(Site::url().'users/password-reset');
+                        Request::redirect(Site::url().'/users/password-reset');
 
                     }
 
@@ -403,7 +403,7 @@ class Users extends Frontend
                                     Session::set('user_id', (int) $user['id']);
                                     Session::set('user_login', (string) $user['login']);
                                     Session::set('user_role', (string) $user['role']);
-                                    Request::redirect(Site::url().'users/'.Session::get('user_id'));
+                                    Request::redirect(Site::url().'/users/'.Session::get('user_id'));
                                 } else {
                                     Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
 
@@ -440,7 +440,7 @@ class Users extends Frontend
 
             View::factory('box/users/views/frontend/login')->display();
         } else {
-            Request::redirect(Site::url().'users/'.Session::get('user_id'));
+            Request::redirect(Site::url().'/users/'.Session::get('user_id'));
         }
     }
 

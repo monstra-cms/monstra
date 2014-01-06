@@ -32,8 +32,8 @@
     <![endif]-->
 
     <!-- Fav icons -->
-    <link rel="icon" href="<?php echo Site::url(); ?>favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="<?php echo Site::url(); ?>favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
