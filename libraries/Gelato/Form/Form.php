@@ -141,7 +141,7 @@ class Form
             $attributes['type'] = 'text';
         }
 
-        return '<input'.Html::attributes($attributes).' />';
+        return '<input'.Html::attributes($attributes).'>';
     }
 
     /**
