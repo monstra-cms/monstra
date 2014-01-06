@@ -155,7 +155,7 @@ class Users extends Frontend
                             $mail->Send();
 
                             // Redirect to user profile
-                            Request::redirect(Option::get('siteurl').'users/'.Users::$users->lastId());
+                            Request::redirect(Option::get('siteurl').'/users/'.Users::$users->lastId());
                         }
 
                     } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }

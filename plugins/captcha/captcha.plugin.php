@@ -20,7 +20,7 @@ Plugin::register( __FILE__,
                 'http://monstra.org/');
 
 // Set crypt captcha path to images
-$cryptinstall = Option::get('siteurl').'plugins/captcha/crypt/images/';
+$cryptinstall = Option::get('siteurl').'/plugins/captcha/crypt/images/';
 
 // Include Crypt Captcha
 include PLUGINS . DS . 'captcha/crypt/cryptographp.fct.php';

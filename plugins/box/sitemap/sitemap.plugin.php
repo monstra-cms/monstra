@@ -82,7 +82,7 @@ class Sitemap extends Frontend
         $map .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
         foreach ($pages_list as $page) {
             if ($page['parent'] != '') { $parent = $page['parent'].'/'; $priority = '0.5'; } else { $parent = ''; $priority = '1.0'; }
-            $map .= "\t".'<url>'."\n\t\t".'<loc>'.Option::get('siteurl').$parent.$page['slug'].'</loc>'."\n\t\t".'<lastmod>'.date("Y-m-d", (int) $page['date']).'</lastmod>'."\n\t\t".'<changefreq>weekly</changefreq>'."\n\t\t".'<priority>'.$priority.'</priority>'."\n\t".'</url>'."\n";
+            $map .= "\t".'<url>'."\n\t\t".'<loc>'.Option::get('siteurl').'/'.$parent.$page['slug'].'</loc>'."\n\t\t".'<lastmod>'.date("Y-m-d", (int) $page['date']).'</lastmod>'."\n\t\t".'<changefreq>weekly</changefreq>'."\n\t\t".'<priority>'.$priority.'</priority>'."\n\t".'</url>'."\n";
         }
 
         // Get list of components
@@ -91,7 +91,7 @@ class Sitemap extends Frontend
         // Add components to sitemap
         if (count($components) > 0) {
             foreach ($components as $component) {
-                $map .= "\t".'<url>'."\n\t\t".'<loc>'.Option::get('siteurl').Text::lowercase($component).'</loc>'."\n\t\t".'<lastmod>'.date("Y-m-d", time()).'</lastmod>'."\n\t\t".'<changefreq>weekly</changefreq>'."\n\t\t".'<priority>1.0</priority>'."\n\t".'</url>'."\n";
+                $map .= "\t".'<url>'."\n\t\t".'<loc>'.Option::get('siteurl').'/'.Text::lowercase($component).'</loc>'."\n\t\t".'<lastmod>'.date("Y-m-d", time()).'</lastmod>'."\n\t\t".'<changefreq>weekly</changefreq>'."\n\t\t".'<priority>1.0</priority>'."\n\t".'</url>'."\n";
             }
         }
 

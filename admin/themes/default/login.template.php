@@ -62,11 +62,11 @@
 
         <div class="container form-signin">
 
-            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="monstra" /></a></div>
+            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo.png" height="27" width="171" alt="monstra" /></a></div>
             <div class="administration-area">
                 <hr>
                 <div>
-                    <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br />
+                    <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br>
                     <form method="post">
                         <div class="form-group">
                             <label><?php echo __('Username', 'users'); ?></label>
@@ -87,7 +87,7 @@
             <div class="reset-password-area">
                 <hr>
                 <div>
-                    <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br />
+                    <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br>
                     <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
                     <form method="post">
                         <div class="form-group">
