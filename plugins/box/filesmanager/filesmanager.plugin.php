@@ -27,6 +27,3 @@ if (Session::exists('user_role') && in_array(Session::get('user_role'), array('a
     Plugin::admin('filesmanager', 'box');
 
 }
-
-// Add Plugin Javascript
-Javascript::add('plugins/box/filesmanager/js/filesmanager.js', 'backend');

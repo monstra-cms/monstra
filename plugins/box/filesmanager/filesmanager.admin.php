@@ -17,7 +17,7 @@ class FilesmanagerAdmin extends Backend
         $forbidden_types = array('html', 'htm', 'js', 'jsb', 'mhtml', 'mht',
                                  'php', 'phtml', 'php3', 'php4', 'php5', 'phps',
                                  'shtml', 'jhtml', 'pl', 'py', 'cgi', 'sh', 'ksh', 'bsh', 'c', 'htaccess', 'htpasswd',
-                                 'exe', 'scr', 'dll', 'msi', 'vbs', 'bat', 'com', 'pif', 'cmd', 'vxd', 'cpl');
+                                 'exe', 'scr', 'dll', 'msi', 'vbs', 'bat', 'com', 'pif', 'cmd', 'vxd', 'cpl', 'empty');
 
         // Array of image types
         $image_types = array('jpg', 'png', 'bmp', 'gif', 'tif');
