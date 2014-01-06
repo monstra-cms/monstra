@@ -19,3 +19,20 @@ body {
 .error {
     color:red;
 }
+
+
+.form-control,
+.btn,
+.dropdown-menu,
+.modal-content,
+.badge,
+.label,
+.input-group-addon,
+code {
+    border-radius: 0px;
+}
+.badge,
+.label {
+    font-weight: normal;
+    text-shadow: none;
+}
