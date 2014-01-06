@@ -486,7 +486,7 @@ class Page extends Pages
      */
     public static function url()
     {
-        return Option::get('siteurl').Pages::$page['slug'];
+        return Option::get('siteurl').'/'.Pages::$page['slug'];
     }
 
     /**

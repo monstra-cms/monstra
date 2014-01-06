@@ -62,7 +62,7 @@
 
         <div class="container form-signin">
 
-            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>admin"><img src="<?php echo Option::get('siteurl'); ?>public/assets/img/monstra-logo.png" height="27" width="171" alt="monstra" /></a></div>
+            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo.png" height="27" width="171" alt="monstra" /></a></div>
             <div class="administration-area">
                 <hr>
                 <div>
