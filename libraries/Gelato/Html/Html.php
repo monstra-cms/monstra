@@ -157,7 +157,7 @@ class Html
      */
     public static function br($num = 1)
     {
-        return str_repeat("<br />",(int) $num);
+        return str_repeat("<br>",(int) $num);
     }
 
     /**

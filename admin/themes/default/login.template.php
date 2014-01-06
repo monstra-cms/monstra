@@ -87,7 +87,7 @@
             <div class="reset-password-area">
                 <hr>
                 <div>
-                    <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br />
+                    <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br>
                     <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
                     <form method="post">
                         <div class="form-group">
