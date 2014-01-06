@@ -49,7 +49,7 @@ class BackupAdmin extends Backend
             if (Security::check(Request::get('token'))) {
 
                 File::delete($backups_path . DS . Request::get('delete_file'));
-                Request::redirect(Option::get('siteurl').'admin/index.php?id=backup');
+                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
