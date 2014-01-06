@@ -139,6 +139,7 @@ class Users extends Frontend
                             Session::set('user_id', (int) $user['id']);
                             Session::set('user_login', (string) $user['login']);
                             Session::set('user_role', (string) $user['role']);
+                            Session::set('user_email', (string) $user['email']);
 
                             $mail = new PHPMailer();
                             $mail->CharSet = 'utf-8';
@@ -403,6 +404,7 @@ class Users extends Frontend
                                     Session::set('user_id', (int) $user['id']);
                                     Session::set('user_login', (string) $user['login']);
                                     Session::set('user_role', (string) $user['role']);
+                                    Session::set('user_email', (string) $user['email']);
                                     Request::redirect(Site::url().'/users/'.Session::get('user_id'));
                                 } else {
                                     Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
