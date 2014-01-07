@@ -9,7 +9,7 @@
         <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
         <!-- Styles -->
-        <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger.css" type="text/css" />
         <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger-theme-flat.css" type="text/css" />
         <?php Stylesheet::add('public/assets/css/bootstrap-lightbox.css', 'backend', 2); ?>
