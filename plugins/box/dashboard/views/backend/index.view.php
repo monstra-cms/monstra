@@ -10,14 +10,12 @@
 				    Create New <span class="caret"></span>
 				  </button>
 				  <ul class="dropdown-menu" role="menu">
-				    <li><a href="#">Page</a></li>
-				    <li><a href="#">Block</a></li>
-				    <li><a href="#">Snippet</a></li>
+				    <li><?php echo ( Html::anchor(__('Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Page', 'pages')))); ?></li>
+				    <li><?php echo ( Html::anchor(__('Block', 'block'), 'index.php?id=blocks&action=add_block', array('title' => __('Block', 'pages')))); ?></li>
+				    <li><?php echo ( Html::anchor(__('Snippet', 'snippet'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Snippet', 'pages')))); ?></li>
 				  </ul>
-				</div>
-
-				<?php //echo ( Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-primary'))); ?>
-				<?php echo ( Html::anchor(__('Upload File', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Upload File', 'pages'), 'class' => 'btn btn-primary'))); ?>
+				</div>			
+				<?php echo ( Html::anchor(__('Upload File', 'filesmanager'), 'index.php?id=filesmanager', array('title' => __('Upload File', 'filesmanager'), 'class' => 'btn btn-primary'))); ?>
 			</div>
 		</div>
 	</div>
