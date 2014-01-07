@@ -24,7 +24,7 @@ body {
 }
 
 .navbar-inverse {
-    background: #252525;
+    background: #222;
 }
 
 ul.navbar-nav {
@@ -45,15 +45,34 @@ ul.navbar-nav {
     line-height: inherit;
 }
 
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background: #333;
+}
 
 a.navbar-brand {
     font-weight: bold;
     color: #FAFAFA!important;
 }
 
+.navbar-nav .dropdown-menu > li > a {
+    padding: 7px 20px;
+}
+
+.nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.dropdown-menu .divider {
+    background-color: #555454;
+}
+
 .nav > li > a > img {
-    width: 16px;
-    height: 16px;
+    width: 28px;
+    height: 28px;
     border: 1px solid #888;
     margin: 0 0 0 4px;
 }
@@ -73,6 +92,16 @@ td, th {
 
 .nav-tabs > li > a {
     border-radius: 0px;
+}
+
+.dropdown-menu {
+    border: 1px solid #333;
+    background: #333;
+    box-shadow: none;
+}
+
+.dropdown-menu > li > a {
+    color: #eee;
 }
 
 .tab-page {
