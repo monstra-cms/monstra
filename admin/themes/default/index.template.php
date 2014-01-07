@@ -60,11 +60,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo Option::get('siteurl'); ?>/admin">MONSTRA</a>
+            <a class="navbar-brand" href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">MONSTRA</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
             <ul class="nav navbar-nav">          
+              <li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">Dashboard</a></li>              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
