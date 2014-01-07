@@ -52,11 +52,11 @@
 
         <?php Action::run('admin_header'); ?>
 
-        <!--[if lt IE 9]>
-        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
     </head>
     <body class="login-body">
 
@@ -66,7 +66,7 @@
             <div class="administration-area">
                 <hr>
                 <div>
-                    <h2 style="text-align:center;"><?php echo __('Administration', 'system'); ?></h2><br>
+                    <h2 class="text-center"><?php echo __('Administration', 'system'); ?></h2><br>
                     <form method="post">
                         <div class="form-group">
                             <label><?php echo __('Username', 'users'); ?></label>
@@ -118,7 +118,7 @@
             </div>
             <hr>
             <div>
-                <div style="text-align:center;">
+                <div class="text-center">
                     <a class="small-grey-text" href="<?php echo Option::get('siteurl'); ?>"><?php echo __('< Back to Website', 'system');?></a> -
                     <a class="small-grey-text reset-password-btn" href="javascript:;"><?php echo __('Forgot your password? >', 'system');?></a>
                     <a class="small-grey-text administration-btn" href="javascript:;"><?php echo __('Administration >', 'system');?></a>
@@ -126,7 +126,7 @@
             </div>
         </div>
 
-        <div style="text-align:center">
+        <div class="text-center">
             <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
         </div>
 
