@@ -355,3 +355,12 @@ td, th {
 footer {
     margin-top: 40px;
 }
+
+.well {                                
+    border: none;
+    border-radius: 0px;
+    background: #fff;
+    color: #555;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
