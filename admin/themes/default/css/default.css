@@ -50,9 +50,18 @@ ul.navbar-nav {
     background: #333;
 }
 
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background: #333; 
+}
+
 a.navbar-brand {
     font-weight: bold;
     color: #FAFAFA!important;
+}
+
+.navbar-nav .dropdown-menu {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .navbar-nav .dropdown-menu > li > a {
@@ -361,6 +370,21 @@ footer {
     border-radius: 0px;
     background: #fff;
     color: #555;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-            box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            box-shadow: 0 1px 3px rgba(0,0,0,.13);
+
+}
+
+
+.dashboard-well {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.dashboard-well a.welcome-back {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  padding-left: 0;
 }
