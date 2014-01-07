@@ -26,12 +26,12 @@
 
     <?php Action::run('theme_header'); ?>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Fav icons -->
+    <!-- Fav-icons -->
     <link rel="icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
   </head>
