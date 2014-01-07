@@ -29,7 +29,7 @@ body {
 .label,
 .input-group-addon,
 code {
-    border-radius: 0px;
+    border-radius: 0;
 }
 .badge,
 .label {
