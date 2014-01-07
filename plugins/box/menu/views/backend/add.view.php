@@ -5,8 +5,8 @@
 <?php echo (Form::hidden('csrf', Security::token())); ?>
 <?php if (isset($errors['menu_item_name_empty'])) $error_class = ' error'; else $error_class = ''; ?>
 
-<a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
-<a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
+<a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
+<a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
 
 <br><br>
 
@@ -67,7 +67,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a class="close" data-dismiss="modal">×</a>
+                <a class="close" data-dismiss="modal">&times;</a>
                 <h4 class="modal-title"><?php echo __('Select page', 'menu'); ?></h4>
             </div>
             <div class="modal-body">
@@ -88,7 +88,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a class="close" data-dismiss="modal">×</a>
+                <a class="close" data-dismiss="modal">&times;</a>
                 <h4 class="modal-title"><?php echo __('Select category', 'menu'); ?></h4>
             </div>
             <div class="modal-body">
