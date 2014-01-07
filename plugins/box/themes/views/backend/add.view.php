@@ -40,7 +40,7 @@
 
     echo (
         Html::br(2).
-        Form::submit('add_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
-        Form::submit('add_file', __('Save', 'themes'), array('class' => 'btn')).
+        Form::submit('add_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+        Form::submit('add_file', __('Save', 'themes'), array('class' => 'btn btn-default')).
         Form::close()
     );

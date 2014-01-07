@@ -48,8 +48,8 @@
     echo (
        Form::textarea('content', Html::toText($content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor')).
        Html::br(2).
-       Form::submit('edit_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn')).Html::nbsp(2).
-       Form::submit('edit_file', __('Save', 'themes'), array('class' => 'btn')). Html::nbsp().
+       Form::submit('edit_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+       Form::submit('edit_file', __('Save', 'themes'), array('class' => 'btn btn-default')). Html::nbsp().
        Form::close()
     );
 
