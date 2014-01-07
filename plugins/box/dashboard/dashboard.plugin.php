@@ -17,11 +17,14 @@ Plugin::register( __FILE__,
                 __('Dashboard plugin for Monstra', 'dashboard'),
                 '1.0.0',
                 'Awilum',
-                'http://monstra.org/');
+                'http://monstra.org/',
+                null,
+                'box');
+
 
 // Load Sandbox Admin for Editor and Admin
 if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor'))) {
 
-    Plugin::admin('dashboard');
+    Plugin::admin('dashboard', 'box');
 
 }
