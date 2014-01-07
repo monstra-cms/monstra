@@ -53,18 +53,20 @@
 </table>
 <!-- /Blocks_list -->
 
-<div id="embedCodes" class="modal hide fade">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-<h3><?php echo __('Embed Code', 'blocks'); ?></h3>
-</div>
-<div class="modal-body">
-<p>
-    <b><?php echo __('Shortcode', 'blocks'); ?></b><br>
-    <code id="shortcode"></code>
-    <br> <br>
-    <b><?php echo __('PHP Code', 'blocks'); ?></b><br>
-    <code id="phpcode"></code>
-</p>
-</div>
+<div class="modal fade" id="embedCodes"> 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">&times;</a>
+                <h4 class="modal-title"><?php echo __('Embed Code', 'snippets'); ?></h4>
+            </div>
+            <div class="modal-body">
+                <b><?php echo __('Shortcode', 'snippets'); ?></b><br>
+                <code id="shortcode"></code>
+                <br> <br>
+                <b><?php echo __('PHP Code', 'snippets'); ?></b><br>
+                <code id="phpcode"></code>
+            </div>
+        </div>
+    </div>
 </div>
