@@ -48,6 +48,7 @@
             'This user does not exist' => 'Такого пользователя не существует',
             'Version' => 'Версия',
             'Plugin does not exist' => 'Такого плагина не существует',
+            'Help' => 'Помощь',
 
             'Install script writable' => 'Установочный скрипт доступен для записи',
             'Install script not writable' => 'Установочный скрипт не доступен для записи',
