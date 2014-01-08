@@ -1,8 +1,6 @@
 <h2><?php if (Request::get('name') == 'error404') { echo __('Edit 404 Page', 'pages'); } else { echo __('Edit Page', 'pages'); } ?></h2>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php
     echo (
         Form::open().

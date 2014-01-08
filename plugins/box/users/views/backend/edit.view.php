@@ -9,9 +9,6 @@
 
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-<?php if (Notification::get('error'))   Alert::error(Notification::get('error')); ?>
-
 <div class="row">
     <div class="col-md-6">
     <?php

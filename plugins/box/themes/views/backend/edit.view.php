@@ -4,8 +4,6 @@
 <?php if ($action == 'script') { ?><h2><?php echo __('Edit Script', 'themes'); ?></h2><?php } ?>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php
     if ($content !== null) {
 

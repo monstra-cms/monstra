@@ -1,9 +1,6 @@
 <h3><?php echo __('Edit profile', 'users') ?></h3>
 <hr>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-<?php if (Notification::get('error'))   Alert::success(Notification::get('error')); ?>
-
 <form method="post">
 <?php
     echo (

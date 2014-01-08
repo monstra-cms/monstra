@@ -4,8 +4,6 @@
 <?php if ($action == 'script') { ?><h2><?php echo __('New Script', 'themes'); ?></h2><?php } ?>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php if (isset($errors['file_empty_name']) || isset($errors['file_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 
 <?php echo (Form::open(null, array('class' => 'form-horizontal'))); ?>

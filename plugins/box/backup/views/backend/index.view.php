@@ -1,8 +1,6 @@
 <h2><?php echo __('Backups', 'backup'); ?></h2>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <script>
 $().ready(function(){$('[name=create_backup]').click(function(){$(this).button('loading');});});
 </script>

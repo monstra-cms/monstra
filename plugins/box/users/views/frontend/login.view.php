@@ -1,6 +1,6 @@
 <h3><?php echo __('Log In', 'users'); ?></h3>
 <hr>
-<?php if (Notification::get('error')) Alert::error(Notification::get('error')); ?>
+
 <div class="row">
 	<div class="col-md-3">
 		<form method="post">

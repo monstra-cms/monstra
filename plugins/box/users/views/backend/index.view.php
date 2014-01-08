@@ -1,8 +1,6 @@
 <h2><?php echo __('Users', 'users'); ?></h2>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
 
 <div class="pull-right">

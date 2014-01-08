@@ -1,8 +1,6 @@
 <h2><?php echo __('New Page', 'pages'); ?></h2>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php
     echo (
         Form::open().

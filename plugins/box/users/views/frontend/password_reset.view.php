@@ -1,9 +1,6 @@
 <h3><?php echo __('Reset Password', 'users') ?></h3>
 <hr>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-<?php if (Notification::get('error'))   Alert::success(Notification::get('error')); ?>
-
 <div class="row">
 	<div class="col-md-3">
 		<form method="post">

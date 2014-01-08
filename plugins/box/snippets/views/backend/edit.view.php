@@ -1,8 +1,6 @@
 <h2><?php echo __('Edit Snippet', 'snippets'); ?></h2>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php
     if ($content !== null) {
 

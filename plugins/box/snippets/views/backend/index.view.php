@@ -15,8 +15,6 @@
 
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <!-- Snippets_list -->
 <table class="table table-bordered">
     <thead>

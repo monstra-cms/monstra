@@ -1,8 +1,6 @@
 <h2><?php echo __('New Block', 'blocks'); ?></h2>
 <br>
 
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
-
 <?php if (isset($errors['blocks_empty_name']) or isset($errors['blocks_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 
 <?php echo (Form::open()); ?>
