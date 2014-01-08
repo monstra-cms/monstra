@@ -24,6 +24,11 @@
     <?php Stylesheet::add('public/themes/default/css/default.css', 'frontend', 2); ?>
     <?php Stylesheet::load(); ?>
 
+    <!-- JavaScripts -->
+    <?php Javascript::add('public/assets/js/jquery.js', 'frontend', 1); ?>
+    <?php Javascript::add('public/assets/js/bootstrap.js', 'frontend', 2); ?>
+    <?php Javascript::load(); ?>
+
     <?php Action::run('theme_header'); ?>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
