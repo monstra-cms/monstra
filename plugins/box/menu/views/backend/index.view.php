@@ -10,8 +10,8 @@
         <br>
         <?php
             echo (
-                    Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
-                );
+                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
+            );
         ?>
     </div>
     <div class="clearfix"></div>
@@ -21,15 +21,10 @@
 <?php } ?>
 
 <?php
-
     foreach ($categories as $category) {
-
         $items = $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'order', 'category'), 'order', 'ASC');
-
         $category_to_add = ($category == '') ? '' : '&category='.$category;
-
 ?>
-
 
 <div>
     <div class="pull-left">
@@ -39,8 +34,8 @@
         <br>
         <?php
             echo (
-                    Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
-                );
+                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
+            );
         ?>
     </div>
     <div class="clearfix"></div>
@@ -52,7 +47,7 @@
     <thead>
         <tr>
             <th><?php echo __('Name', 'menu'); ?></th>
-            <th class="span2"><?php echo __('Order', 'menu'); ?></th>
+            <th><?php echo __('Order', 'menu'); ?></th>
             <th></th>
         </tr>
     </thead>

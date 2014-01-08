@@ -17,11 +17,11 @@
         <?php    
             echo Form::label('menu_item_name', __('Item name', 'menu'));
             echo Form::input('menu_item_name', $menu_item_name, array('class' => (isset($errors['menu_item_name_empty']) || isset($errors['menu_item_name_empty'])) ? 'form-control error-field' : 'form-control'));
+            if (isset($errors['menu_item_name_empty'])) echo '<div class="error-message">'.$errors['menu_item_name_empty'].'</div>';
         ?>
         </div>
         <div class="form-group">
         <?php
-            if (isset($errors['menu_item_name_empty'])) echo Html::nbsp(4).'<span style="color:red;">'.$errors['menu_item_name_empty'].'</span>';
             echo (
                 Form::label('menu_item_link', __('Item link', 'menu')).
                 Form::input('menu_item_link', $menu_item_link, array('class' => 'form-control'))
