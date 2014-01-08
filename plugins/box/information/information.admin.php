@@ -1,7 +1,7 @@
 <?php
 
 // Add plugin navigation link
-Navigation::add(__('Information', 'information'), 'system', 'information', 5);
+Navigation::add(__('Information', 'information'), 'system', 'information', 6);
 
 /**
  * Information Admin Class
