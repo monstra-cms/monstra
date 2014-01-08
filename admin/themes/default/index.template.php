@@ -109,6 +109,14 @@
     </nav>
 
     <div class="container">
+        
+        <?php
+            // Monstra Notifications
+            Notification::get('success') AND Alert::success(Notification::get('success')); 
+            Notification::get('warning') AND Alert::success(Notification::get('warning'));
+            Notification::get('error')   AND Alert::success(Notification::get('error'));
+        ?>
+
         <div id="update-monstra"></div>
         <div><?php Action::run('admin_pre_template'); ?></div>
         <div>
