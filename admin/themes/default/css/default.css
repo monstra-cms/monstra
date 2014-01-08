@@ -36,6 +36,10 @@ h1,h2,h3,h4,h5 {
     border:1px solid red!important;
 }
 
+.error-message {
+    color: red;
+}
+
 a.btn-expand {
     color: #333;
     font-weight: bold; 
