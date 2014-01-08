@@ -20,8 +20,7 @@
     <!-- JavaScripts -->
     <script src="<?php echo Site::url(); ?>/public/assets/js/jquery.min.js"></script>
     <script src="<?php echo Site::url(); ?>/public/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>
-    
+    <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>    
     <?php Javascript::add('public/assets/js/jquery.chocolat.js', 'backend', 3); ?>
     <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
     <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>

@@ -21,8 +21,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="<?php echo Site::url(); ?>/public/assets/js/bootstrap.min.js"></script>
         <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>
-        <script src="<?php echo Site::url(); ?>/public/assets/js/messenger-theme-flat.js"></script>
-        
+        <script src="<?php echo Site::url(); ?>/public/assets/js/messenger-theme-flat.js"></script>        
         <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
         <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
         <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
