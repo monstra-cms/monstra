@@ -96,7 +96,8 @@
 
         echo (
             Html::br().
-            Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn btn-primary')).
+            Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+            Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-default')).
             Form::close()
         );
 

@@ -34,7 +34,8 @@
            Form::textarea('content', Html::toText($content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor form-control')).
            Html::br(2).
            Form::submit('edit_snippets_and_exit', __('Save and Exit', 'snippets'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-           Form::submit('edit_snippets', __('Save', 'snippets'), array('class' => 'btn btn-default')). Html::nbsp().
+           Form::submit('edit_snippets', __('Save', 'snippets'), array('class' => 'btn btn-primary')). Html::nbsp(2).
+           Html::anchor(__('Cancel', 'snippets'), 'index.php?id=snippets', array('title' => __('Cancel', 'snippets'), 'class' => 'btn btn-default')).
            Form::close()
         );
 

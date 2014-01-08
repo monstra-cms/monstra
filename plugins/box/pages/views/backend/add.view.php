@@ -114,7 +114,8 @@
         <?php
             echo (
                 Form::submit('add_page_and_exit', __('Save and Exit', 'pages'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-                Form::submit('add_page', __('Save', 'pages'), array('class' => 'btn btn-default'))
+                Form::submit('add_page', __('Save', 'pages'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+                Html::anchor(__('Cancel', 'pages'), 'index.php?id=pages', array('title' => __('Cancel', 'pages'), 'class' => 'btn btn-default'))
             );
         ?>
     </div>

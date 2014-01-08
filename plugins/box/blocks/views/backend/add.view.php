@@ -25,7 +25,8 @@
     echo (
        Html::br().
        Form::submit('add_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-       Form::submit('add_blocks', __('Save', 'blocks'), array('class' => 'btn btn-default')).
+       Form::submit('add_blocks', __('Save', 'blocks'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+       Html::anchor(__('Cancel', 'blocks'), 'index.php?id=blocks', array('title' => __('Cancel', 'blocks'), 'class' => 'btn btn-default')).
        Form::close()
     );
 

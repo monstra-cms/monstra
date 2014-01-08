@@ -54,7 +54,8 @@
     </div>
     <?php
         echo (
-            Form::submit('register', __('Register', 'users'), array('class' => 'btn btn-primary')).
+            Form::submit('register', __('Register', 'users'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+            Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-default')).
             Form::close()
         );
     ?>

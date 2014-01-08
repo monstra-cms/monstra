@@ -55,7 +55,8 @@
         <div class="form-group">
         <?php
             echo (
-                Form::submit('menu_add_item', __('Save', 'menu'), array('class' => 'btn btn-primary')).
+                Form::submit('menu_add_item', __('Save', 'menu'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+                Html::anchor(__('Cancel', 'menu'), 'index.php?id=menu', array('title' => __('Cancel', 'menu'), 'class' => 'btn btn-default')).
                 Form::close()
             );
         ?>

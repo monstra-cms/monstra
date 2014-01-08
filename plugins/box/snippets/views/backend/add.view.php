@@ -31,7 +31,8 @@
     echo (
        Html::br(2).
        Form::submit('add_snippets_and_exit', __('Save and Exit', 'snippets'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-       Form::submit('add_snippets', __('Save', 'snippets'), array('class' => 'btn btn-default')).
+       Form::submit('add_snippets', __('Save', 'snippets'), array('class' => 'btn btn-primary')).Html::nbsp(2).
+       Html::anchor(__('Cancel', 'snippets'), 'index.php?id=snippets', array('title' => __('Cancel', 'snippets'), 'class' => 'btn btn-default')).
        Form::close()
     );
 ?>
