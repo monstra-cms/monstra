@@ -1,6 +1,24 @@
 Monstra 2.4.0, 2014-xx-xx
 ------------------------
-
+- Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
+- Update Twitter Bootstrap to 3.0.3
+- Admin: New Modern User Interface
+- Site: New default theme
+- W3 layout fixes
+- Responsive Chocolat Lightbox instead of TB Lightbox
+- Blog Plugin as a part of Monstra CMS 
+- CodeMirror Plugin as a part of Monstra CMS
+- Site Url without trailing slashes
+- Admin Help Section - added
+- Monstra Dashboard created and set as default Plugin for Admin Panel
+- Ink Framework for Monstra Email Templates
+- HubSpot Messaging Library added for notifications
+- Update jQuery to v1.10.2
+- Localization: Major Fixes
+- Users Plugin getGravatarURL() improve
+- Core: Store user_email in Session
+- Sandbox Plugin cleanup
+- Core: Javascript may be broken if there is no break line - fixed
 
 Monstra 2.3.1, 2013-12-25
 ------------------------
