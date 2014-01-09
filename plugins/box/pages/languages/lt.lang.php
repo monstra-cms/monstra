@@ -50,5 +50,6 @@
             'Access' => 'Prieiga',
             'Public' => 'Viešas',
             'Registered' => 'Registruotas',
+            'Cancel' => 'Cancel',
         )
     );

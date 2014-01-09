@@ -50,5 +50,6 @@
             'Access' => 'Доступ',
             'Public' => 'Публічний',
             'Registered' => 'Зареєстрованим',
+            'Cancel' => 'Cancel',
         ),
     );

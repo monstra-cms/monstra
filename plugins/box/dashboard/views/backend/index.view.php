@@ -11,8 +11,8 @@
 				  </button>
 				  <ul class="dropdown-menu" role="menu">
 				    <li><?php echo ( Html::anchor(__('Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Page', 'pages')))); ?></li>
-				    <li><?php echo ( Html::anchor(__('Block', 'block'), 'index.php?id=blocks&action=add_block', array('title' => __('Block', 'pages')))); ?></li>
-				    <li><?php echo ( Html::anchor(__('Snippet', 'snippet'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Snippet', 'pages')))); ?></li>
+				    <li><?php echo ( Html::anchor(__('Blocks', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Block', 'pages')))); ?></li>
+				    <li><?php echo ( Html::anchor(__('Snippets', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Snippet', 'pages')))); ?></li>
 				  </ul>
 				</div>			
 				<?php echo ( Html::anchor(__('Upload File', 'filesmanager'), 'index.php?id=filesmanager', array('title' => __('Upload File', 'filesmanager'), 'class' => 'btn btn-primary'))); ?>

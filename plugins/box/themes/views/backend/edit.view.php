@@ -21,12 +21,12 @@
 
 <?php echo (Form::label('name', __('Name', 'themes'))); ?>
 
-<div class="input-append">
-    <?php echo (Form::input('name', $name, array('class' => (isset($errors['file_empty_name']) || isset($errors['file_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?>
-    <?php if ($action == 'chunk') { ?><span class="add-on">.chunk.php</span><?php } ?>
-    <?php if ($action == 'template') { ?><span class="add-on">.template.php</span><?php } ?>
-    <?php if ($action == 'styles') { ?><span class="add-on">.css</span><?php } ?>
-    <?php if ($action == 'script') { ?><span class="add-on">.js</span><?php } ?>
+<div class="input-group">
+    <?php echo (Form::input('name', $name, array('class' => (isset($errors['file_empty_name']) || isset($errors['file_exists'])) ? 'form-control error-field' : 'form-control'))); ?>    
+    <?php if ($action == 'chunk') { ?><span class="input-group-addon">.chunk.php</span><?php } ?>
+    <?php if ($action == 'template') { ?><span class="input-group-addon">.template.php</span><?php } ?>
+    <?php if ($action == 'styles') { ?><span class="input-group-addon">.css</span><?php } ?>
+    <?php if ($action == 'script') { ?><span class="input-group-addon">.js</span><?php } ?>
 </div>
 
 <?php
@@ -34,7 +34,7 @@
     if (isset($errors['file_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['file_exists'].'</span>';
 ?>
 
-<br><br>
+<br>
 
 <?php
 
