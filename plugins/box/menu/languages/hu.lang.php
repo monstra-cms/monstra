@@ -23,5 +23,6 @@
             'Category' => 'Kategória',
             'Select category' => 'Válassza ki a kategóriát',
             'Required field' => 'Kötelező mező',
+            'Cancel' => 'Cancel',
         )
     );

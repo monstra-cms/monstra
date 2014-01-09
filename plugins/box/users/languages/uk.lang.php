@@ -62,5 +62,6 @@
             'About Me' => 'Про мене',
             'Profile' => 'Профіль',
             'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
+            'Cancel' => 'Cancel',
         )
     );

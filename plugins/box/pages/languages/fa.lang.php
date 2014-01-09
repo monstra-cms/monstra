@@ -50,5 +50,6 @@
             'Access' => 'دسترسی',
             'Public' => 'عمومی',
             'Registered' => 'اعضاء',
+            'Cancel' => 'Cancel',
         )
     );

@@ -25,5 +25,6 @@
             'Embed Code' => 'Osadzony kod',
             'Shortcode' => 'Krótki kod (shortcode)',
             'PHP Code' => 'Kod PHP',
+            'Cancel' => 'Cancel',
         )
     );

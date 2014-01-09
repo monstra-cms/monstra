@@ -23,5 +23,6 @@
             'Category' => 'مجموعه',
             'Select category' => 'انتخاب مجموعه',
             'Required field' => 'کادر الزامی',
+            'Cancel' => 'Cancel',
         )
     );

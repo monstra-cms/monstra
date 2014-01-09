@@ -23,5 +23,6 @@
             'Category' => 'Catégorie',
             'Select category' => 'Sélectionner une catégorie',
             'Required field' => 'Champ requis',
+            'Cancel' => 'Cancel',
         )
     );

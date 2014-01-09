@@ -25,5 +25,6 @@
             'Embed Code' => 'Vložený Kód',
             'Shortcode' => 'Skrátený kód',
             'PHP Code' => 'PHP Kód',
+            'Cancel' => 'Cancel',
         )
     );

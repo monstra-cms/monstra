@@ -23,5 +23,6 @@
             'Category' => 'Categorie',
             'Select category' => 'Selecteer categorie',
             'Required field' => 'Vereist veld',
+            'Cancel' => 'Cancel',
         )
     );

@@ -23,5 +23,6 @@
             'Category' => 'Kategorie',
             'Select category' => 'Kategorie auswählen',
             'Required field' => 'Pflichtfeld',
+            'Cancel' => 'Cancel',
         )
     );

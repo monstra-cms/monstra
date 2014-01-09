@@ -24,5 +24,6 @@
             'Category' => 'Kategorija',
             'Select category' => 'Pasirinkti kategoriją',
             'Required field' => 'Privalomas laukas',
+            'Cancel' => 'Cancel',
         )
     );
