@@ -367,5 +367,21 @@
             return Page::date($format);
         }
 
+
+        /**
+         * Get author of current post
+         *
+         *  <code>
+         *      echo Blog::getPostAuthor();
+         *  </code>
+         *
+         * @return string
+         */
+        public static function getPostAuthor()
+        {
+            return Page::author();
+        }
+
+
     }
 
