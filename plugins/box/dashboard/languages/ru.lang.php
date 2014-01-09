@@ -6,5 +6,6 @@
             'Dashboard plugin for Monstra' => 'Dashboard для Monstra',
             'Welcome back' => 'Добро пожаловать',
             'Create New' => 'Добавить',
+            'Upload File' => 'Загрузить Файл',
         )
     );
