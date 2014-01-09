@@ -352,5 +352,20 @@
             return Page::title();
         }
 
+
+        /**
+         * Get Blog Post Date
+         *
+         *  <code> 
+         *      echo Blog::getPostDate();
+         *  </code>
+         *
+         * @param  string $format Date format
+         * @return string
+         */
+        public static function getPostDate($format = 'Y-m-d') {
+            return Page::date($format);
+        }
+
     }
 
