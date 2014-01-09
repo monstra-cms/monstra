@@ -20,6 +20,7 @@ body {
     color:red;
 }
 
+/* Flat UI */
 .form-control,
 .btn,
 .dropdown-menu,
@@ -36,6 +37,7 @@ code {
     text-shadow: none;
 }
 
+/* Blog */
 .monstra-blog-title {
     margin-bottom: 0;
 }
@@ -47,4 +49,8 @@ code {
 .monstra-blog-post {
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+a.monstra-blog-tag {
+    text-decoration: none;
 }
