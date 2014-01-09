@@ -22,10 +22,10 @@
         <tr>
             <th width="3%"></th>
             <th><?php echo __('Name', 'pages'); ?></th>
-            <th class="hidden-phone"><?php echo __('Author', 'pages'); ?></th>
-            <th class="hidden-phone"><?php echo __('Status', 'pages'); ?></th>
-            <th class="hidden-phone"><?php echo __('Access', 'pages'); ?></th>
-            <th class="hidden-phone"><?php echo __('Date', 'pages'); ?></th>
+            <th><?php echo __('Author', 'pages'); ?></th>
+            <th><?php echo __('Status', 'pages'); ?></th>
+            <th><?php echo __('Access', 'pages'); ?></th>
+            <th><?php echo __('Date', 'pages'); ?></th>
             <th></th>
         </tr>
     </thead>
@@ -60,16 +60,16 @@
                 echo $dash.Html::anchor(Html::toText($page['title']), $site_url.'/'.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent));
             ?>
         </td>
-        <td class="hidden-phone">
+        <td>
             <?php echo $page['author']; ?>
         </td>
-        <td class="hidden-phone">
+        <td>
             <?php echo $page['status']; ?>
         </td>
-        <td class="hidden-phone">
+        <td>
             <?php echo $page['access']; ?>
         </td>
-        <td class="hidden-phone">
+        <td>
             <?php echo Date::format($page['date'], "j.n.Y"); ?>
         </td>
         <td>
