@@ -10,7 +10,7 @@
     if ($right_neighbour > $pages) $right_neighbour = $pages;
 
     if ($page > 1) {
-        echo ' <a href="?page=1'.$tag.'">'.__('begin', 'blog').'</a> ... <a href="?page=' . ($page-1) . $tag.'">'.__('prev', 'blog').'</a> ';
+        echo ' <a href="?page=1'.$tag.'">'.__('begin', 'blog').'</a> ... <a href="?page=' . ($page-1) . $tag.'"> '.__('prev', 'blog').'</a> ';
     }
 
     for ($i=$left_neighbour; $i<=$right_neighbour; $i++) {
