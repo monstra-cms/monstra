@@ -189,7 +189,7 @@ class Monstra
         }
 
         /**
-         * Auto cleanup if MONSTRA_DEBUG is TRUE
+         * Auto cleanup if DEVELOPMENT environment
          */
         if (Monstra::$environment == Monstra::DEVELOPMENT) {
             Monstra::cleanTmp();
