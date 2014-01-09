@@ -64,7 +64,7 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
             <ul class="nav navbar-nav">          
-              <li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">Dashboard</a></li>              
+              <li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard"><?php echo __('Dashboard', 'system'); ?></a></li>              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -136,7 +136,7 @@
       <footer class="container">
           <p class="pull-right">
               <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
-                  <span class="hidden-phone">
+                  <span>
                       <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
                       <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
                   </span>
