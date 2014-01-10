@@ -46,6 +46,9 @@ class PluginsAdmin extends Backend
                     // Clean Monstra TMP folder.
                     Monstra::cleanTmp();
 
+                    Stylesheet::stylesVersionIncrement();
+                    Javascript::javascriptVersionIncrement();
+
                     // Delete plugin form plugins table
                     $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
 
@@ -74,6 +77,9 @@ class PluginsAdmin extends Backend
                 // Clean Monstra TMP folder.
                 Monstra::cleanTmp();
 
+                Stylesheet::stylesVersionIncrement();
+                Javascript::javascriptVersionIncrement();
+
                 // Run plugin installer file
                 $plugin_name = str_replace(array("Plugin", ".manifest.xml"), "", Request::get('install'));
                 if (File::exists(PLUGINS . DS .basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php')) {
@@ -90,6 +96,12 @@ class PluginsAdmin extends Backend
         if (Request::get('delete_plugin_from_server')) {
 
             if (Security::check(Request::get('token'))) {
+
+                // Clean Monstra TMP folder.
+                Monstra::cleanTmp();
+                
+                Stylesheet::stylesVersionIncrement();
+                Javascript::javascriptVersionIncrement();
 
                 Dir::delete(PLUGINS . DS . basename(Request::get('delete_plugin_from_server'), '.manifest.xml'));
                 Request::redirect('index.php?id=plugins');
