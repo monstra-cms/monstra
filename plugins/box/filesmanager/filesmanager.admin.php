@@ -53,30 +53,8 @@ class FilesmanagerAdmin extends Backend
         }
 
         $files_path = ROOT . DS . 'public' . DS . $path;
-        $files_list = array();
-
+        
         $current = explode('/', $path);
-
-        // Get information about current path
-        $_list = FilesmanagerAdmin::fdir($files_path);
-
-        $files_list = array();
-
-        // Get files
-        if (isset($_list['files'])) {
-            foreach ($_list['files'] as $files) {
-                $files_list[] = $files;
-            }
-        }
-
-        $dir_list = array();
-
-        // Get dirs
-        if (isset($_list['dirs'])) {
-            foreach ($_list['dirs'] as $dirs) {
-                if (strpos($dirs, '.') === false) $dir_list[] = $dirs;
-            }
-        }
 
         // Delete file
         // -------------------------------------
@@ -97,8 +75,16 @@ class FilesmanagerAdmin extends Backend
             if (Security::check(Request::get('token'))) {
 
                 Dir::delete($files_path.Request::get('delete_dir'));
-                Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
 
+                if (!is_dir($files_path.Request::get('delete_dir'))) {
+                    Notification::set('success', __('Directory was deleted', 'system'));
+                } else {
+                    Notification::set('error', __('Directory was not deleted', 'system'));
+                }
+                
+                Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                
+                    
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
@@ -116,6 +102,54 @@ class FilesmanagerAdmin extends Backend
                 }
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+        }
+
+
+        if (Request::post('directory_name')) {
+            
+            if (Security::check(Request::post('csrf'))) {
+                
+                $abs_path = $files_path . Security::safeName(Request::post('directory_name'));
+                
+                if ( !is_dir($abs_path) ) {
+                    try {
+                        mkdir($abs_path);
+                    } catch(Exception $e) {
+                        $error = true;
+                    }
+                } else {
+                    $error = true;
+                }
+                
+                if ($error) {
+                    Alert::error(__('Directory was not created', 'system'));
+                }
+                
+            }
+            
+        }
+
+        // Get information about current path
+        $_list = FilesmanagerAdmin::fdir($files_path);
+
+        $files_list = array();
+
+        // Get files
+        if (isset($_list['files'])) {
+            foreach ($_list['files'] as $files) {
+                $files_list[] = $files;
+            }
+        }
+        
+        $dir_list = array();
+        
+        // Get dirs
+        if (isset($_list['dirs'])) {
+            foreach ($_list['dirs'] as $dirs) {
+                if (strpos($dirs, '.') === false && strpos($dirs, '..') === false){ 
+                    $dir_list[] = $dirs;
+                }
+            }
         }
 
         // Display view

@@ -85,7 +85,7 @@
             <div class="pull-right">
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path.'&token='.Security::token(),
-                       array('class' => 'btn btn-small', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
+                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
             ?>
             <div>
             </td>
@@ -149,16 +149,21 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Create New Directory</h4>
       </div>
-      <div class="modal-body">
-        <form role="form">        
+      <form role="form" method="POST">
+        <?php echo Form::hidden('csrf', Security::token()); ?>
+        <div class="modal-body">
+        
             <label for="directoryName">Directory Name</label>
-            <input type="text" class="form-control" id="directoryName">        
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Create</button>
-      </div>
+            <input type="hidden" name="path" value="<?php echo $path; ?>" />
+            <input type="text" class="form-control" id="directoryName" name="directory_name" />
+        
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create</button>
+        
+          </div>
+      </form>
     </div>
   </div>
 </div>
