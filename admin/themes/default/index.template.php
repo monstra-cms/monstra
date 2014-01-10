@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Monstra Admin Mrea" />
+    <meta name="description" content="Monstra Admin Area" />
     <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
@@ -49,8 +49,7 @@
 
   <body>
 
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">
-      
+    <nav class="navbar navbar-default navbar-inverse" role="navigation">      
       <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -135,13 +134,11 @@
       </div>
       <footer class="container">
           <p class="pull-right">
-              <span style="border-top:1px solid #E0E0E0; padding-top:10px;">
-                  <span>
-                      <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-                      <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-                  </span>
-                  © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
-              </span>
+            <span>
+              <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+              <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+              © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
+            </span>
           </p>
       </footer>
 </body>
