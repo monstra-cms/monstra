@@ -126,11 +126,24 @@ class Javascript
 
             // Render
             if (BACKEND) {
-                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.js"></script>';
+                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.js?'.Option::get('javascript_version').'"></script>';
             } else {
-                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.js"></script>'."\n";
+                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.js?'.Option::get('javascript_version').'"></script>'."\n";
             }
         }
     }
+
+    /**
+     *  javascriptVersionIncrement
+     */
+    public static function javascriptVersionIncrement() {
+        if (Option::exists('javascript_version')) {
+            Option::update('javascript_version',  (int) Option::get('javascript_version') + 1); 
+        } else {
+            Option::add('javascript_version', 1);
+            Option::update('javascript_version', (int) Option::get('javascript_version') + 1); 
+        }
+    }
+
 
 }

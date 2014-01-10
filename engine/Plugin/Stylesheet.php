@@ -128,9 +128,9 @@ class Stylesheet
 
             // Render
             if (BACKEND) {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.css'.'" type="text/css" />';
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.css?'.Option::get('styles_version').'" type="text/css" />';
             } else {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.css'.'" type="text/css" />'."\n";
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.css?'.Option::get('styles_version').'" type="text/css" />'."\n";
             }
         }
     }
@@ -147,6 +147,18 @@ class Stylesheet
                                  Option::get('siteurl').'/public/themes/'.Option::get('theme_site_name'),
                                  Option::get('siteurl').'/admin/themes/'.Option::get('theme_admin_name')),
                            $frontend_buffer);
+    }
+
+    /**
+     * stylesVersionIncrement
+     */
+    public static function stylesVersionIncrement() {
+        if (Option::exists('styles_version')) {
+            Option::update('styles_version',  (int) Option::get('styles_version') + 1); 
+        } else {
+            Option::add('styles_version', 1);
+            Option::update('styles_version', (int) Option::get('styles_version') + 1); 
+        }
     }
 
 }
