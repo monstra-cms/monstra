@@ -1,11 +1,8 @@
 <?php
-
     // Show template for exist user else show error
     if ($user !== null) {
-
-    echo ( '<h2>'.__('Edit profile', 'users').'</h2>' );
-
 ?>
+<h2><?php echo __('Edit profile', 'users'); ?></h2>
 
 <br>
 

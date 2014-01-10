@@ -1,6 +1,6 @@
 <!-- Users_add -->
+<h2><?php echo __('New User Registration', 'users'); ?></h2>
 <?php
-    echo ( '<h2>'.__('New User Registration', 'users').'</h2>' );
 
     echo (
         Html::br().
