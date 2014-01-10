@@ -5,6 +5,7 @@
             'Dashboard' => 'Dashboard',
             'Dashboard plugin for Monstra' => 'Dashboard пісочниця для Monstra',
             'Welcome back' => 'Добро пожаловать',
-            'Create New' => 'Завантажити файл',
+            'Create New' => 'Додати',
+            'Upload File' => 'Завантажити файл',
         )
     );
