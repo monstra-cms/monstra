@@ -53,7 +53,7 @@
         foreach ($path_parts as $p) {
             $s .= $p.'/';
             if($p == $current[count($current)-2]) $active = ' class="active"'; else $active = '';
-            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a> <span class="divider">/</span></li>';
+            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a></li>';
         }
     ?>
 </ol>
