@@ -112,8 +112,8 @@
         <?php
             // Monstra Notifications
             Notification::get('success') AND Alert::success(Notification::get('success')); 
-            Notification::get('warning') AND Alert::success(Notification::get('warning'));
-            Notification::get('error')   AND Alert::success(Notification::get('error'));
+            Notification::get('warning') AND Alert::warning(Notification::get('warning'));
+            Notification::get('error')   AND Alert::error(Notification::get('error'));
         ?>
 
         <div id="update-monstra"></div>
