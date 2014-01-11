@@ -153,12 +153,7 @@ class Stylesheet
      * stylesVersionIncrement
      */
     public static function stylesVersionIncrement() {
-        if (Option::exists('styles_version')) {
-            Option::update('styles_version',  (int) Option::get('styles_version') + 1); 
-        } else {
-            Option::add('styles_version', 1);
-            Option::update('styles_version', (int) Option::get('styles_version') + 1); 
-        }
+        Option::update('styles_version',  (int) Option::get('styles_version') + 1); 
     }
 
 }

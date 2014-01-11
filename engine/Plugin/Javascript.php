@@ -137,12 +137,7 @@ class Javascript
      *  javascriptVersionIncrement
      */
     public static function javascriptVersionIncrement() {
-        if (Option::exists('javascript_version')) {
-            Option::update('javascript_version',  (int) Option::get('javascript_version') + 1); 
-        } else {
-            Option::add('javascript_version', 1);
-            Option::update('javascript_version', (int) Option::get('javascript_version') + 1); 
-        }
+        Option::update('javascript_version', (int) Option::get('javascript_version') + 1); 
     }
 
 
