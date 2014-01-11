@@ -33,8 +33,8 @@
                 Form::input('page_name', $post_name, array('class' => (isset($errors['pages_empty_name'])) ? 'form-control error-field' : 'form-control'))
             );
 
-            if (isset($errors['pages_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_exists'].'</span>';
-            if (isset($errors['pages_empty_name'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_empty_name'].'</span>';
+            if (isset($errors['pages_exists'])) echo '<span class="error-message">'.$errors['pages_exists'].'</span>';
+            if (isset($errors['pages_empty_name'])) echo '<span class="error-message">'.$errors['pages_empty_name'].'</span>';
         ?>
         </div>
 

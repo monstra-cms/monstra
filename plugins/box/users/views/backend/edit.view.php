@@ -131,6 +131,6 @@
 
 <?php
     } else {
-        echo '<div class="message-error">'.__('This user does not exist', 'users').'</div>';
+        echo '<div class="error-message">'.__('This user does not exist', 'users').'</div>';
     }
 ?>

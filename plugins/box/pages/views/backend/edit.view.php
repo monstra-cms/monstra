@@ -25,7 +25,7 @@
                 Form::label('page_title', __('Title', 'pages')).
                 Form::input('page_title', $title_to_edit, array('class' => (isset($errors['pages_empty_title'])) ? 'form-control error-field' : 'form-control'))
             );
-            if (isset($errors['pages_empty_title'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_empty_title'].'</span>';
+            if (isset($errors['pages_empty_title'])) echo '<span class="error-message">'.$errors['pages_empty_title'].'</span>';
         ?>
         </div>
         <div class="form-group">
@@ -45,8 +45,8 @@
                 );
             }
 
-            if (isset($errors['pages_empty_name'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_empty_name'].'</span>';
-            if (isset($errors['pages_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_exists'].'</span>';
+            if (isset($errors['pages_empty_name'])) echo '<span class="error-message">'.$errors['pages_empty_name'].'</span>';
+            if (isset($errors['pages_exists'])) echo '<span class="error-message">'.$errors['pages_exists'].'</span>';
         ?>
         </div>
     </div>

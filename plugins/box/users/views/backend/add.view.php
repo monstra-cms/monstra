@@ -17,8 +17,8 @@
             Form::input('login', null, array('class' => (isset($errors['users_this_user_alredy_exists']) || isset($errors['users_empty_login'])) ? 'form-control error-field' : 'form-control'))
         );
 
-        if (isset($errors['users_this_user_alredy_exists'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_this_user_alredy_exists'].'</span>';
-        if (isset($errors['users_empty_login'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_login'].'</span>';
+        if (isset($errors['users_this_user_alredy_exists'])) echo '<span class="error-message">'.$errors['users_this_user_alredy_exists'].'</span>';
+        if (isset($errors['users_empty_login'])) echo '<span class="error-message">'.$errors['users_empty_login'].'</span>';
     ?>
     </div>
 
@@ -28,7 +28,7 @@
             Form::label('password', __('Password', 'users')).
             Form::password('password', null, array('class' => (isset($errors['users_empty_password'])) ? 'form-control error-field' : 'form-control'))
         );
-        if (isset($errors['users_empty_password'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_password'].'</span>';
+        if (isset($errors['users_empty_password'])) echo '<span class="error-message">'.$errors['users_empty_password'].'</span>';
     ?>
     </div>
 
@@ -40,8 +40,8 @@
             Form::input('email', null, array('class' => (isset($errors['users_this_email_alredy_exists']) || isset($errors['users_empty_email'])) ? 'form-control error-field' : 'form-control'))
         );
 
-        if (isset($errors['users_this_email_alredy_exists'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_this_email_alredy_exists'].'</span>';
-        if (isset($errors['users_empty_email'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['users_empty_email'].'</span>';
+        if (isset($errors['users_this_email_alredy_exists'])) echo '<span class="error-message">'.$errors['users_this_email_alredy_exists'].'</span>';
+        if (isset($errors['users_empty_email'])) echo '<span class="error-message">'.$errors['users_empty_email'].'</span>';
     ?>
     </div>
     <div class="form-group">

@@ -14,8 +14,8 @@
 </div>
 
 <?php
-    if (isset($errors['snippets_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['snippets_empty_name'].'</span>';
-    if (isset($errors['snippets_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['snippets_exists'].'</span>';
+    if (isset($errors['snippets_empty_name'])) echo '<span class="error-message">'.$errors['snippets_empty_name'].'</span>';
+    if (isset($errors['snippets_exists'])) echo '<span class="error-message">'.$errors['snippets_exists'].'</span>';
 ?>
 
 <br>
