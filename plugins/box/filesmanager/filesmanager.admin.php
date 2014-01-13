@@ -111,6 +111,8 @@ class FilesmanagerAdmin extends Backend
                 
                 $abs_path = $files_path . Security::safeName(Request::post('directory_name'));
                 
+                $error = false;
+                
                 if ( !is_dir($abs_path) ) {
                     try {
                         mkdir($abs_path);
@@ -123,6 +125,8 @@ class FilesmanagerAdmin extends Backend
                 
                 if ($error) {
                     Alert::error(__('Directory was not created', 'system'));
+                } else {
+                    Alert::success(__('Directory was created', 'system'));
                 }
                 
             }
