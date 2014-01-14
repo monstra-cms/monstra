@@ -285,7 +285,7 @@ class Html
         $attributes['src'] = $file;
         $attributes['alt'] = (isset($attributes['alt'])) ? $attributes['alt'] : pathinfo($file, PATHINFO_FILENAME);
 
-        return '<img'.Html::attributes($attributes).' />';
+        return '<img'.Html::attributes($attributes).'>';
     }    
     
 	/**
