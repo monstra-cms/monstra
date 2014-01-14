@@ -8,7 +8,7 @@ define('MONSTRA_ACCESS', true);
 require_once(ROOT . DS . 'engine' . DS . '_init.php');
 
 // Get all posts for blog parent page/post
-$posts = Pages::$pages->select('[parent="blog" and status="published"]', 5, 0, array('slug', 'title', 'author', 'date'), 'date', 'DESC');
+$posts = Pages::$pages->select('[parent="'.Blog::$parent_page_name.'" and status="published"]', 5, 0, array('slug', 'title', 'author', 'date'), 'date', 'DESC');
 
 // Date now
 $now = date("D, d M Y H:i:s T");
