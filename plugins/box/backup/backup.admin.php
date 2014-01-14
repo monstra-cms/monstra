@@ -15,8 +15,6 @@ class BackupAdmin extends Backend
     {
         $backups_path = ROOT . DS . 'backups';
 
-        $backups_list = array();
-
         // Create backup
         // -------------------------------------
         if (Request::post('create_backup')) {
@@ -71,12 +69,9 @@ class BackupAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
-        // Get backup list
-        $backups_list = File::scan($backups_path, '.zip');
-
         // Display view
         View::factory('box/backup/views/backend/index')
-                ->assign('backups_list', $backups_list)
+                ->assign('backups_list', File::scan($backups_path, '.zip'))
                 ->display();
     }
 }
