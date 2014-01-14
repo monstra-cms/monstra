@@ -1,14 +1,5 @@
 <?php
 
-// Check if is user is logged in then set variables for welcome button
-if (Session::exists('user_id')) {
-    $user_id = Session::get('user_id');
-    $user_login = Session::get('user_login');
-} else {
-    $user_id = '';
-    $user_login = '';
-}
-
 // Add plugin navigation link
 Navigation::add(__('Users', 'users'), 'system', 'users', 2);
 

@@ -21,8 +21,12 @@ Plugin::register( __FILE__,
                 'users',
                 'box');
 
-// Include Users Admin
-Plugin::Admin('users', 'box');
+if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor'))) {
+
+    // Include Users Admin
+    Plugin::Admin('users', 'box');
+    
+}
 
 // Add Plugin Javascript
 Javascript::add('plugins/box/users/js/users.js', 'backend');

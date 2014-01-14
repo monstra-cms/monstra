@@ -16,7 +16,7 @@
             Form::hidden('user_id', Request::get('user_id'))
         );
 
-        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {
+        if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
     ?>
         <div class="form-group">
     <?php
@@ -78,7 +78,7 @@
     ?>
         </div>
     <?php
-        if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], array('admin'))) {
+        if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
     ?>
         <div class="form-group">
     <?php
@@ -88,7 +88,7 @@
         </div>
     <?php
         } else {
-            echo Form::hidden('role', $_SESSION['user_role']);
+            echo Form::hidden('role', Session::get('user_role'));
         }
 
         echo (
@@ -127,7 +127,6 @@
 
 </div>
 
-<div style="clear:both;"></div>
 
 <?php
     } else {
