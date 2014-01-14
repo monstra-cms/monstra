@@ -37,7 +37,11 @@ class BackupAdmin extends Backend
                 // Add plugins folder
                 if (Request::post('add_plugins_folder')) $zip->readDir(PLUGINS . DS, false);
 
-                $zip->archive($backups_path . DS . Date::format(time(), "Y-m-d-H-i-s").'.zip');
+                if ($zip->archive($backups_path . DS . Date::format(time(), "Y-m-d-H-i-s").'.zip')) {
+                    Notification::set('success', __('Backup was created', 'backup'));
+                } else {
+                    Notification::set('error', __('Backup was not created', 'backup'));
+                }
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -48,7 +52,12 @@ class BackupAdmin extends Backend
 
             if (Security::check(Request::get('token'))) {
 
-                File::delete($backups_path . DS . Request::get('delete_file'));
+                if (File::delete($backups_path . DS . Request::get('delete_file'))) {
+                    Notification::set('success', __('Backup was deleted', 'system'));
+                } else {
+                    Notification::set('error', __('Backup was not deleted', 'system'));
+                }
+                
                 Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
