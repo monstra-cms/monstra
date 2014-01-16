@@ -47,7 +47,7 @@ class Action
      *  </code>
      *
      * @param string  $action_name    Action name
-     * @param string  $added_function Added function
+     * @param mixed   $added_function Added function
      * @param integer $priority       Priority. Default is 10
      * @param array   $args           Arguments
      */
@@ -56,7 +56,7 @@ class Action
         // Hooks a function on to a specific action.
         Action::$actions[] = array(
                         'action_name' => (string) $action_name,
-                        'function'    => (string) $added_function,
+                        'function'    => $added_function,
                         'priority'    => (int) $priority,
                         'args'        => $args
         );
