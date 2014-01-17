@@ -14,6 +14,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Admin Help Section - added
 - Monstra Dashboard created and set as default Plugin for Admin Panel
 - Ink Framework for Monstra Email Templates
+- Emails Manager Plugin added.
 - HubSpot Messaging Library added for notifications
 - Update jQuery to v1.10.2
 - Users Plugin getGravatarURL() improve
@@ -21,6 +22,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Core: Better statuses notification (error,success,warning)
 - Core: Store user_email in Session
 - Core: Javascript may be broken if there is no break line - fixed
+- Core: Added ability to avoid caching JS/CSS by the browser.
 - Sandbox Plugin cleanup
 - Localization: Major Fixes
 
