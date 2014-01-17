@@ -371,6 +371,15 @@ td, th {
     display: none;
 }
 
+.drop-file-here {
+    padding: 5px 40px;
+    background: #ccc;
+    margin-left: 4px;
+    background: #f7f7f7;
+    border: 3px dashed #D5D5D5;
+    color: #ccc;
+}
+
 /*************************************
     3. MEDIA QUERIES
 *************************************/

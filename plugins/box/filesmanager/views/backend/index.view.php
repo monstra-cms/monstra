@@ -10,7 +10,7 @@
         );
     ?>    
     <div class="col-md-6">
-    <div class="fileupload fileupload-new" data-provides="fileupload">
+    <div class="fileupload fileupload-new  pull-left" data-provides="fileupload">
       <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></button>
     <?php
         echo (
@@ -20,7 +20,9 @@
     ?>      
       <span class="fileupload-preview"></span>
       <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
+
     </div>
+    <div class="drop-file-here pull-left"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
     </div>
     <div class="col-md-6">
         <div class="pull-right">
