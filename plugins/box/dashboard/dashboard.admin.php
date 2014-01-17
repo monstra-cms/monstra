@@ -1,6 +1,9 @@
 <?php
 
 // Add Plugin Javascript
+Stylesheet::add('public/assets/css/daterangepicker-bs3.css', 'backend');
+Javascript::add('public/assets/js/moment.min.js', 'backend');
+Javascript::add('public/assets/js/daterangepicker.js', 'backend');
 Javascript::add('plugins/box/dashboard/js/ganalytics.js', 'backend');
 
 /**
@@ -49,6 +52,17 @@ class DashboardAdmin extends Backend
 		                Option::add('ga_view_id', $ga_view_id);
 		            } else {
 		                Option::update('ga_view_id', $ga_view_id);
+		            }
+		        }
+		        
+		        // tracking id
+		        $ga_tracking_id = trim(Request::post('ga_tracking_id'));
+		        if (!empty($ga_tracking_id)) {
+		            $opt_view_id = Option::get('ga_tracking_id');
+		            if (empty($opt_view_id)) {
+		                Option::add('ga_tracking_id', $ga_tracking_id);
+		            } else {
+		                Option::update('ga_tracking_id', $ga_tracking_id);
 		            }
 		        }
 		    }

@@ -12,11 +12,35 @@ $.monstra.ganalytics = {
     },
 
     _gaAreas: '#authOk,#authFail,#gaSettings,#gaLoading',
+    _startDate: moment().subtract('days', 29),
+    _endDate: moment(),
     
     init: function(data){
         $.extend(this.conf, data);
+        $('#gaSettingsLink').click(function(){
+            $.monstra.ganalytics.show('#gaSettings');
+        });
     },
-
+    
+    initDateRangePicker: function(){
+        $('#reportRange').daterangepicker({
+              ranges: {
+                 'Today': [moment(), moment()],
+                 'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                 'Last 7 Days': [moment().subtract('days', 6), moment()],
+                 'Last 30 Days': [moment().subtract('days', 29), moment()],
+                 'This Month': [moment().startOf('month'), moment().endOf('month')],
+                 'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+              },
+              startDate: $.monstra.ganalytics._startDate,
+              endDate: $.monstra.ganalytics._endDate
+            },function(start, end) {
+                $.monstra.ganalytics.getAnalyticsInfo(start._d, end._d);
+            }
+        );
+        $.monstra.ganalytics.getAnalyticsInfo($.monstra.ganalytics._startDate._d, $.monstra.ganalytics._endDate._d);
+    },
+    
     libOnloadHandle: function(){
         if ($.monstra.ganalytics.conf.clientId == '' 
             || $.monstra.ganalytics.conf.apiKey == '' 
@@ -43,7 +67,7 @@ $.monstra.ganalytics = {
     handleAuthResult: function(authResult){
         if (authResult && !authResult.error) {
             $.monstra.ganalytics.show('#authOk');
-            $.monstra.ganalytics.getAnalyticsInfo();
+            $.monstra.ganalytics.initDateRangePicker();
         } else {
             $.monstra.ganalytics.show('#authFail');
             if (authResult && typeof authResult.error != 'undefined') {
@@ -56,15 +80,12 @@ $.monstra.ganalytics = {
         }
     },
 
-    getAnalyticsInfo: function() {
+    getAnalyticsInfo: function(startDate, endDate) {
         gapi.client.load('analytics', 'v3', function(){
-            var dateOffset = (24*60*60*1000) * 30;
-            var cdate = new Date();
-            var mdate = new Date(cdate.getTime() - dateOffset);
             gapi.client.analytics.data.ga.get({
                 'ids': 'ga:'+ $.monstra.ganalytics.conf.viewId,
-                'start-date': $.monstra.ganalytics.formatDate(mdate),
-                'end-date': $.monstra.ganalytics.formatDate(cdate),
+                'start-date': $.monstra.ganalytics.formatDate(startDate),
+                'end-date': $.monstra.ganalytics.formatDate(endDate),
                 'metrics': 'ga:visits,ga:pageviews,ga:visitors',
                 'dimensions': 'ga:date'
             }).execute($.monstra.ganalytics.gaReportingResults);
@@ -85,7 +106,8 @@ $.monstra.ganalytics = {
                 if (res.columnHeaders[h].name == 'ga:visits') {
                     tmpr[1] = parseInt(res.rows[r][h]);
                 } else if (res.columnHeaders[h].name == 'ga:date') {
-                    tmpr[0] = res.rows[r][h];
+                    var parsed = res.rows[r][h].match(/([0-9]{4})([0-9]{2})([0-9]{2})/)
+                    tmpr[0] = parsed[1] +'-'+ parsed[2] +'-'+ parsed[3];
                 }
                 
                 if (res.rows.length == (parseInt(r)+1)) {
