@@ -127,7 +127,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <a class="close" data-dismiss="modal">&times;</a>
         <h4 class="modal-title" id="myModalLabel">Create New File</h4>
       </div>
       <div class="modal-body">
@@ -148,7 +148,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <a class="close" data-dismiss="modal">&times;</a>
         <h4 class="modal-title" id="myModalLabel">Create New Directory</h4>
       </div>
       <form role="form" method="POST">
