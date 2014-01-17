@@ -45,13 +45,27 @@
 
 			<div id="authOk" class="row hide">
 			    <div class="col-md-9">
-			        <div id="gaChart"></div>
+			        
+			        <div class="row">
+			            <div class="col-md-12">
+			                <div id="reportRange" class="pull-right">
+                                <span class="glyphicon glyphicon-calendar"><?php echo date("F j, Y", strtotime('-30 day')); ?> - <?php echo date("F j, Y"); ?></span> <b class="caret"></b>
+                            </div>
+                        </div>
+			        </div>
+			        
+			        <div class="row">
+			            <div class="col-md-12">
+			                <div id="gaChart" style="height:350px;"></div>
+		                </div>
+	                </div>
 			    </div>
 			    <div class="col-md-3">
-			    Today:<br/>
-			        Visits:<span id="gaVisits"></span><br/>
-			        Visitors:<span id="gaVisitors"></span><br/>
-			        Pageviews:<span id="gaPageviews"></span>
+			        <div><a href="javascript:void(0);" id="gaSettingsLink">Settings</a></div>
+			        <div><h3>Today</h3></div>
+			            <div>Visits:<span id="gaVisits"></span></div>
+			            <div>Visitors:<span id="gaVisitors"></span></div>
+			            <div>Pageviews:<span id="gaPageviews"></span></div>
 			    </div>
 			</div>
 
@@ -71,6 +85,8 @@
 						<label><?php echo __('API key', 'system'); ?><input name="ga_api_key" value="<?php echo Option::get('ga_api_key'); ?>" placeholder="<?php echo __('API key', 'system'); ?>" /></label>
 						
 						<label><?php echo __('View ID', 'system'); ?><input name="ga_view_id" value="<?php echo Option::get('ga_view_id'); ?>" placeholder="<?php echo __('View ID', 'system'); ?>" /></label>
+						
+						<label><?php echo __('Tracking ID', 'system'); ?><input name="ga_tracking_id" value="<?php echo Option::get('ga_tracking_id'); ?>" placeholder="<?php echo __('Tracking ID', 'system'); ?>" /></label>
 						
 						<input type="hidden" name="ga_settings_update" value="1" />
 						<button type="submit" class="btn btn-default"><?php echo __('Save', 'system'); ?></button>
