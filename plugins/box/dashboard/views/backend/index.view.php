@@ -35,45 +35,47 @@
 <div class="well dashboard-well">
 	<div class="row"><div class="col-md-12"><h4><?php echo __('Goggle Analytics', 'system'); ?></h4></div></div>
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 
-			<div id="gaAlerts" class="alert-warning"></div>
+			<div class="row alert-warning"><div class="col-md-12" id="gaAlerts"></div></div>
 
-			<div id="gaLoading">
-				spinner here ?
+			<div class="row" id="gaLoading">
+				<div class="col-md-12">Loading...</div>
 			</div>
 
-			<div id="authOk" class="hide">
-				<div class="row">
-				    <div class="col-md-8">
-				        <div id="gaChart"></div>
-				    </div>
-				    <div class="col-md-4">
-				    Today:<br/>
-				        Visits:<span id="gaVisits"></span><br/>
-				        Visitors:<span id="gaVisitors"></span><br/>
-				        Pageviews:<span id="gaPageviews"></span>
-				    </div>
-				<div/>
+			<div id="authOk" class="row hide">
+			    <div class="col-md-9">
+			        <div id="gaChart"></div>
+			    </div>
+			    <div class="col-md-3">
+			    Today:<br/>
+			        Visits:<span id="gaVisits"></span><br/>
+			        Visitors:<span id="gaVisitors"></span><br/>
+			        Pageviews:<span id="gaPageviews"></span>
+			    </div>
 			</div>
 
-			<div id="authFail" class="hide">
-				<button class="btn btn-default" id="authorizeButton"><?php echo __('Authorize', 'system'); ?></button>
+			<div id="authFail" class="row hide">
+				<div class="col-md-12">
+					<button class="btn btn-default" id="authorizeButton"><?php echo __('Authorize', 'system'); ?></button>
+				</div>
 			</div>
 
-			<div id="gaSettings" class="hide">
-				<form method="POST">
-				    <?php echo Form::hidden('csrf', Security::token()); ?>
-				    
-				    <label><?php echo __('Client ID', 'system'); ?><input name="ga_client_id" value="<?php echo Option::get('ga_client_id'); ?>" placeholder="<?php echo __('Client ID', 'system'); ?>" /></label>
-				    
-				    <label><?php echo __('API key', 'system'); ?><input name="ga_api_key" value="<?php echo Option::get('ga_api_key'); ?>" placeholder="<?php echo __('API key', 'system'); ?>" /></label>
-				    
-				    <label><?php echo __('View ID', 'system'); ?><input name="ga_view_id" value="<?php echo Option::get('ga_view_id'); ?>" placeholder="<?php echo __('View ID', 'system'); ?>" /></label>
-				    
-				    <input type="hidden" name="ga_settings_update" value="1" />
-				    <button type="submit" class="btn btn-default"><?php echo __('Save', 'system'); ?></button>
-			    </form>
+			<div id="gaSettings" class="row hide">
+				<div class="col-md-12">
+					<form method="POST">
+						<?php echo Form::hidden('csrf', Security::token()); ?>
+						
+						<label><?php echo __('Client ID', 'system'); ?><input name="ga_client_id" value="<?php echo Option::get('ga_client_id'); ?>" placeholder="<?php echo __('Client ID', 'system'); ?>" /></label>
+						
+						<label><?php echo __('API key', 'system'); ?><input name="ga_api_key" value="<?php echo Option::get('ga_api_key'); ?>" placeholder="<?php echo __('API key', 'system'); ?>" /></label>
+						
+						<label><?php echo __('View ID', 'system'); ?><input name="ga_view_id" value="<?php echo Option::get('ga_view_id'); ?>" placeholder="<?php echo __('View ID', 'system'); ?>" /></label>
+						
+						<input type="hidden" name="ga_settings_update" value="1" />
+						<button type="submit" class="btn btn-default"><?php echo __('Save', 'system'); ?></button>
+					</form>
+				</div>
 			</div>
 
 		</div>
