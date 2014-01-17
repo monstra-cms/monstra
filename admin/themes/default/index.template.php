@@ -31,7 +31,7 @@
     <script>
         $(document).ready(function(){
           $('.chocolat').Chocolat({
-              overlayColor          : '#f2f2f2',
+              overlayColor          : '#000',
               leftImg               : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/left.gif",  
               rightImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/right.gif", 
               closeImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/close.gif",   

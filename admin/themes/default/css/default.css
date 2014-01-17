@@ -371,6 +371,14 @@ td, th {
     display: none;
 }
 
+.modal-header {
+    border-bottom: 1px solid #F3F3F3;
+}
+
+.modal-footer {
+    border-top: 1px solid #F3F3F3;
+}
+
 .drop-file-here {
     padding: 5px 40px;
     background: #ccc;
@@ -378,6 +386,19 @@ td, th {
     background: #f7f7f7;
     border: 3px dashed #D5D5D5;
     color: #ccc;
+}
+
+.modal-backdrop {
+    background-color: #000;
+}
+
+.modal-backdrop.in {
+    opacity: 0.8;
+}
+
+.modal-content {
+    box-shadow: none;
+    border: none;
 }
 
 /*************************************
