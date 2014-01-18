@@ -212,10 +212,6 @@ code {
 }
 
 .tab-pane > table {
-    margin-top:-20px;
-}
-
-.tab-pane > table {
     border-top:none!important;
 }
 
