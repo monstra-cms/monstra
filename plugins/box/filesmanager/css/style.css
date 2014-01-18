@@ -1,0 +1,42 @@
+.upload-area {
+    border:2px dotted #0B85A1;
+    width:200px;
+    color:#92AAB0;
+    text-align: center;
+    padding-top:4px;
+    height: 34px;
+    display: inline-block;
+    float:left;
+    margin-left: 10px;
+}
+
+.upload-area-dragenter {
+    border: 2px solid #ff85A1 !important;
+}
+
+.upload-area-drop {
+    border: 2px dotted #0B85A1;
+}
+
+.upload-area-dragover {
+    border: 2px dotted #0B85A1;
+}
+
+.upload-progress {
+    height: 100%;
+    width: 0;
+    background-color: #0B85A1;
+    position: relative;
+    float: left;
+    max-width: 100%;
+    color: #ffffff;
+}
+
+.upload-file-info {
+    display: inline-block;
+    float: left;
+}
+
+.fileupload-controls {
+    float: left;
+}
