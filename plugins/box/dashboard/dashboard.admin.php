@@ -1,10 +1,10 @@
 <?php
 
 // Add Plugin Javascript
-Stylesheet::add('public/assets/css/daterangepicker-bs3.css', 'backend');
-Javascript::add('public/assets/js/moment.min.js', 'backend');
-Javascript::add('public/assets/js/daterangepicker.js', 'backend');
-Javascript::add('plugins/box/dashboard/js/ganalytics.js', 'backend');
+Stylesheet::add('public/assets/css/daterangepicker-bs3.css', 'backend', 11);
+Javascript::add('public/assets/js/moment.min.js', 'backend', 11);
+Javascript::add('public/assets/js/daterangepicker.js', 'backend', 12);
+Javascript::add('plugins/box/dashboard/js/ganalytics.js', 'backend', 13);
 
 /**
  * Dashboard admin class

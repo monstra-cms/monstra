@@ -1,8 +1,8 @@
 <?php
 
 // Add Plugin Javascript
-Stylesheet::add('plugins/box/filesmanager/css/style.css', 'backend');
-Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend');
+Stylesheet::add('plugins/box/filesmanager/css/style.css', 'backend', 11);
+Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend', 11);
 
 // Add plugin navigation link
 Navigation::add(__('Files', 'filesmanager'), 'content', 'filesmanager', 3);
