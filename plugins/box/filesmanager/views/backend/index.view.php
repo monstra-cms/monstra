@@ -1,6 +1,8 @@
 <h2><?php echo __('Files', 'filesmanager'); ?></h2>
 <br>
 
+<input type="hidden" id="fUploaderInit" value='<?php echo json_encode($fileuploader); ?>' />
+
 <!-- Filesmanager_upload_files -->
     <div class="row">
     <?php
@@ -10,7 +12,7 @@
         );
     ?>    
     <div class="col-md-6">
-    <div class="fileupload fileupload-new" data-provides="fileupload">
+    <div class="fileupload fileupload-new fileupload-controls" data-provides="fileupload">
       <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></button>
     <?php
         echo (
@@ -21,6 +23,11 @@
       <span class="fileupload-preview"></span>
       <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
     </div>
+    <div id="uploadArea" class="upload-area">
+        <div id="fuProgress" class="upload-progress"></div>
+        <div id="fuPlaceholder" class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
+    </div>
+    <div id="fileInfo" class="upload-file-info"></div>
     </div>
     <div class="col-md-6">
         <div class="pull-right">

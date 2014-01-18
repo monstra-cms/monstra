@@ -1,5 +1,9 @@
 <?php
 
+// Add Plugin Javascript
+Stylesheet::add('plugins/box/filesmanager/css/style.css', 'backend');
+Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend');
+
 // Add plugin navigation link
 Navigation::add(__('Files', 'filesmanager'), 'content', 'filesmanager', 3);
 
@@ -87,7 +91,7 @@ class FilesmanagerAdmin extends Backend
                     
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
-
+//var_dump($_POST); die;
         // Upload file
         // -------------------------------------
         if (Request::post('upload_file')) {
@@ -162,7 +166,10 @@ class FilesmanagerAdmin extends Backend
                 ->assign('image_types', $image_types)
                 ->assign('site_url', $site_url)
                 ->assign('files_path', $files_path)
-                ->display();
+                ->assign('fileuploader', array(
+                    'uploadUrl' => $site_url.'/admin/index.php?id=filesmanager&path='.$path,
+                    'csrf'      => Security::token()
+                ))->display();
 
     }
 
