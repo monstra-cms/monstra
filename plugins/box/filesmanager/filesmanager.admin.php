@@ -91,7 +91,7 @@ class FilesmanagerAdmin extends Backend
                     
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
-//var_dump($_POST); die;
+
         // Upload file
         // -------------------------------------
         if (Request::post('upload_file')) {
