@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger-theme-flat.css" type="text/css" />
     <?php Stylesheet::add('public/assets/css/chocolat.css', 'backend', 2); ?>
     <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
+    <?php Stylesheet::add('public/assets/css/icheck-blue.css', 'backend', 4); ?>
     <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
     <?php Stylesheet::load(); ?>
 
@@ -21,6 +22,7 @@
     <script src="<?php echo Site::url(); ?>/public/assets/js/jquery.min.js"></script>
     <script src="<?php echo Site::url(); ?>/public/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>    
+    <script src="<?php echo Site::url(); ?>/public/assets/js/icheck.min.js"></script>    
     <?php Javascript::add('public/assets/js/jquery.chocolat.js', 'backend', 3); ?>
     <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
     <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
@@ -29,7 +31,8 @@
     <?php Action::run('admin_header'); ?>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
+
           $('.chocolat').Chocolat({
               overlayColor          : '#000',
               leftImg               : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/left.gif",  
@@ -37,6 +40,13 @@
               closeImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/close.gif",   
               loadingImg            : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/loading.gif", 
           });
+
+          $('input').iCheck({
+              checkboxClass: 'icheckbox_square-blue',
+              radioClass: 'iradio_square-blue',
+              increaseArea: '20%'
+          });
+
         });      
     </script>
 
