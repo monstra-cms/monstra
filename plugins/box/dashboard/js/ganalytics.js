@@ -166,6 +166,9 @@ $.monstra.ganalytics = {
 };
 
 $(document).ready(function(){
-    $.monstra.ganalytics.init($.parseJSON($('#gaInitData').val()));
+    $val_gaInitData = $('#gaInitData').val();
+    if ($val_gaInitData !== undefined) {
+        $.monstra.ganalytics.init($.parseJSON($val_gaInitData));
+    }
 });
 
