@@ -109,6 +109,9 @@ $.monstra.fileuploader = {
 };
 
 $(document).ready(function(){
-    $.monstra.fileuploader.init($.parseJSON($('#fUploaderInit').val()));
+    $val_fUploaderInit = $('#fUploaderInit').val();
+    if ($val_fUploaderInit !== undefined) {
+        $.monstra.fileuploader.init($.parseJSON($val_fUploaderInit));
+    }
 });
 
