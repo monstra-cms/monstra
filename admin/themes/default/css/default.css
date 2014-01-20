@@ -191,6 +191,53 @@ code {
     text-shadow: none;
 }
 
+/* Inputs */
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.form-control,
+.uneditable-input {
+  color: #3c3c3c;
+  border-color: #d0d0d0;
+  background-color: #fff; 
+}
+select:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.form-control:focus,
+.uneditable-input:focus {
+    border-color: #aaaaaa;
+    -webkit-box-shadow: 0 0 8px #dce1e5;
+    -moz-box-shadow: 0 0 8px #dce1e5;
+    box-shadow: 0 0 8px #dce1e5; 
+}
+
 /* Datapicker */
 .datapicker {
     width: 200px;
@@ -224,19 +271,6 @@ code {
     border-left: 1px solid #DDDDDD;
     border-right: 1px solid #DDDDDD;
     padding: 20px 10px 10px;
-}
-
-/* Inputs */
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=url]:focus,
-input[type=phone]:focus,
-input[type=password]:focus,
-select:focus,
-textarea:focus {
-    border-color: #999;
-    box-shadow: none;
-    outline: none!important;
 }
 
 /* Tables */
