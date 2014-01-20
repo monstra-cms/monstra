@@ -91,7 +91,7 @@ $.monstra.fileuploader = {
             $('#fuPlaceholder').hide();
         }
         var progressBarWidth = progress * $('#uploadArea').width() / 100;  
-        $('#fuProgress').animate({ width: progressBarWidth }, 10).html(progress + "% ");
+        $('#fuProgress').animate({ width: progressBarWidth }, 10);
     },
     
     setFileNameSize: function(fname, fsize){

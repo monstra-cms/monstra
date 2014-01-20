@@ -24,7 +24,7 @@
 .upload-progress {
     height: 100%;
     width: 0;
-    background-color: #0B85A1;
+    background-color: #428bca;
     position: relative;
     float: left;
     max-width: 100%;
@@ -38,4 +38,8 @@
 
 .fileupload-controls {
     float: left;
+}
+
+.upload-file-pholder {
+    padding-top: 5px;
 }
