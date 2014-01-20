@@ -152,10 +152,10 @@ class Users extends Frontend
                             $mail->AddReplyTo(Option::get('system_email'));
                             $mail->AddAddress($user['email'], $user['login']);
                             $mail->Subject = Option::get('sitename');
-                            $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+                            $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                                 ->assign('site_name', Option::get('sitename'))
                                 ->assign('user_login', $user['login'])
-                                ->assign('view', 'new_user_email')
+                                ->assign('email_template', 'new_user')
                                 ->render());
                             $mail->Send();
 

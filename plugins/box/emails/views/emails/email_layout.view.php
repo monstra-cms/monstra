@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="ink.css"> <!-- For testing only -->
 
     <style type="text/css">
-      <?php include 'inc.css'; ?>           
+      <?php include 'inc.css'; ?>   
     </style>
     <style type="text/css">
-
-      /* Your custom styles go here */
 
     </style>
   </head>
@@ -20,9 +18,7 @@
       <tr>
         <td class="center" align="center" valign="top">
           <center>
-
-          <!-- Email Content -->
-
+            <?php include STORAGE . DS . 'emails' . DS . $email_template . '.email.php'; ?>
           </center>
         </td>
       </tr>
