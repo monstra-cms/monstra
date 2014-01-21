@@ -34,7 +34,7 @@ class EmailsAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             // Save Email Template
-                            File::setContent(STORAGE . DS  . 'emails' . DS . Request::post('email_template_name') .'.email.php', Request::post('email_template_content'));
+                            File::setContent(STORAGE . DS  . 'emails' . DS . Request::post('email_template_name') .'.email.php', Request::post('content'));
 
                             Notification::set('success', __('Your changes to the email template <i>:name</i> have been saved.', 'emails', array(':name' => Request::post('email_template_name'))));
 
