@@ -9,13 +9,13 @@ Navigation::add(__('Emails', 'emails'), 'system', 'emails', 5);
 class EmailsAdmin extends Backend
 {
     /**
-     * Main Sandbox admin function
+     * Main Emails admin function
      */
     public static function main()
     {
-        //
-        // Do something here...
-        //
+        // Init vars
+        $email_templates_path = STORAGE . DS  . 'emails' . DS;
+        $email_templates_list = array();
 
         // Check for get actions
         // -------------------------------------
@@ -27,19 +27,46 @@ class EmailsAdmin extends Backend
 
                 // Plugin action
                 // -------------------------------------
-                case "edit":
-                    //
-                    // Do something here...
-                    //
+                case "edit_email_template":
+
+                    if (Request::post('edit_email_template') || Request::post('edit_email_template_and_exit') ) {
+                        
+                        if (Security::check(Request::post('csrf'))) {
+
+                            // Save Email Template
+                            File::setContent(STORAGE . DS  . 'emails' . DS . Request::post('email_template_name') .'.email.php', Request::post('email_template_content'));
+
+                            Notification::set('success', __('Your changes to the email template <i>:name</i> have been saved.', 'emails', array(':name' => Request::post('email_template_name'))));
+
+                            if (Request::post('edit_email_template_and_exit')) {
+                                Request::redirect('index.php?id=emails');
+                            } else {
+                                Request::redirect('index.php?id=emails&action=edit_email_template&filename='.Request::post('email_template_name'));
+                            }
+
+                        }
+
+                    }
+
+                    $email_template_content = File::getContent($email_templates_path.Request::get('filename').'.email.php');
+
+                    // Display view
+                    View::factory('box/emails/views/backend/edit')
+                            ->assign('email_template_content', Text::toHtml($email_template_content))                    
+                            ->display();
                 break;
 
             }
 
         } else {
 
-            // Display view
-            View::factory('box/emails/views/backend/index')->display();
-        }
+            // Get email templates
+            $email_templates_list = File::scan($email_templates_path, '.email.php');
 
+            // Display view
+            View::factory('box/emails/views/backend/index')
+                    ->assign('email_templates_list', $email_templates_list)
+                    ->display();
+        }
     }
 }
