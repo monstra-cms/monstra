@@ -298,13 +298,13 @@ class Users extends Frontend
                     $mail->AddReplyTo(Option::get('system_email'));
                     $mail->AddAddress($user['email'], $user['login']);
                     $mail->Subject = __('Your new password for :site_name', 'users', array(':site_name' => $site_name));
-                    $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+                    $mail->MsgHTML(View::factory('box/users/views/emails/email_layout')
                         ->assign('site_url', $site_url)
                         ->assign('site_name', $site_name)
                         ->assign('user_id', $user['id'])
                         ->assign('user_login', $user['login'])
                         ->assign('new_password', $new_password)
-                        ->assign('view', 'new_password_email')
+                        ->assign('email_template', 'new_password')
                         ->render());
                     $mail->Send();
 
@@ -353,7 +353,7 @@ class Users extends Frontend
                             ->assign('user_id', $user['id'])
                             ->assign('user_login', $user['login'])
                             ->assign('new_hash', $new_hash)
-                            ->assign('view', 'reset_password_email')
+                            ->assign('email_template', 'reset_password')
                             ->render());
                         $mail->Send();
 
