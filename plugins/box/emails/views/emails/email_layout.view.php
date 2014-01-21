@@ -4,13 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width"/>
 
-    <link rel="stylesheet" href="ink.css"> <!-- For testing only -->
-
     <style type="text/css">
       <?php include 'inc.css'; ?>   
-    </style>
-    <style type="text/css">
-
     </style>
   </head>
   <body>
