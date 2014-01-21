@@ -57,7 +57,7 @@ class CodeMirror
             </style>
         ');
 
-        if (Request::get('id') == 'themes' || Request::get('id') == 'snippets') { 
+        if (Request::get('id') == 'themes' || Request::get('id') == 'snippets' || Request::get('id') == 'emails') { 
             echo ('<script>
                         $(document).ready(function() {
                             var editor = CodeMirror.fromTextArea(document.getElementById("content"), {
