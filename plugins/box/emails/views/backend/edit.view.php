@@ -14,8 +14,8 @@ if ($email_template_content !== null) {
 <?php
 
     echo (        
-       Form::label('email_template_content', __('Email template content', 'emails')).
-       Form::textarea('email_template_content', Html::toText($email_template_content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor form-control'))
+       Form::label('content', __('Email template content', 'emails')).
+       Form::textarea('content', Html::toText($email_template_content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor form-control'))
     );
 
     echo (
