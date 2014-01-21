@@ -155,7 +155,7 @@ class Users extends Frontend
                             $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                                 ->assign('site_name', Option::get('sitename'))
                                 ->assign('user_login', $user['login'])
-                                ->assign('email_template', 'new_user')
+                                ->assign('email_template', 'new-user')
                                 ->render());
                             $mail->Send();
 
@@ -304,7 +304,7 @@ class Users extends Frontend
                         ->assign('user_id', $user['id'])
                         ->assign('user_login', $user['login'])
                         ->assign('new_password', $new_password)
-                        ->assign('email_template', 'new_password')
+                        ->assign('email_template', 'new-password')
                         ->render());
                     $mail->Send();
 
@@ -353,7 +353,7 @@ class Users extends Frontend
                             ->assign('user_id', $user['id'])
                             ->assign('user_login', $user['login'])
                             ->assign('new_hash', $new_hash)
-                            ->assign('email_template', 'reset_password')
+                            ->assign('email_template', 'reset-password')
                             ->render());
                         $mail->Send();
 
