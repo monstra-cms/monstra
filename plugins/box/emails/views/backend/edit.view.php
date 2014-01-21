@@ -8,7 +8,7 @@ if ($email_template_content !== null) {
 ?>
 <?php echo (Form::label('name', __('Name', 'emails'))); ?>
 <div class="input-group">
-    <?php echo (Form::input('name', Request::get('filename'), array('disabled', 'class' => 'form-control'))); ?><span class="input-group-addon">.emails.php</span>
+    <?php echo (Form::input('name', Request::get('filename'), array('disabled', 'class' => 'form-control'))); ?><span class="input-group-addon">.email.php</span>
 </div>
 <br>
 <?php
