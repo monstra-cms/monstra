@@ -38,7 +38,7 @@
               leftImg               : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/left.gif",  
               rightImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/right.gif", 
               closeImg              : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/close.gif",   
-              loadingImg            : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/loading.gif", 
+              loadingImg            : "<?php echo Option::get('siteurl'); ?>/public/assets/img/chocolat/loading.gif"
           });
 
           $('input').iCheck({
@@ -120,7 +120,7 @@
         
         <?php
             // Monstra Notifications
-            Notification::get('success') AND Alert::success(Notification::get('success')); 
+            Notification::get('success') AND Alert::success(Notification::get('success'));
             Notification::get('warning') AND Alert::warning(Notification::get('warning'));
             Notification::get('error')   AND Alert::error(Notification::get('error'));
         ?>

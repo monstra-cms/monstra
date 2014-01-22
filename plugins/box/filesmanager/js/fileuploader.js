@@ -4,7 +4,8 @@ $.monstra.fileuploader = {
     
     conf: {
         uploadUrl: '',
-        csrf: ''
+        csrf: '',
+		errorMsg: ''
     },
     
     init: function(conf){
@@ -45,6 +46,7 @@ $.monstra.fileuploader = {
             var fd = new FormData();
             fd.append('file', files[i]);
             fd.append('upload_file', 'upload_file');
+			fd.append('dragndrop', '1');
             fd.append('csrf', $.monstra.fileuploader.conf.csrf);
             //this.setFileNameSize(files[i].name, files[i].size);
             
@@ -78,11 +80,16 @@ $.monstra.fileuploader = {
             success: function(data){
                 $.monstra.fileuploader.setProgress(100);
                 location.href = $.monstra.fileuploader.conf.uploadUrl;
-                /*$('#fuProgress').fadeOut('slow', function(){
-                    $('#fuProgress').css({width: 0, display: 'block'});
-                    $('#fuPlaceholder').show();
-                });*/
-            }
+            },
+			error: function(){
+				Messenger().post({
+					type: 'error',
+					message : $.monstra.fileuploader.conf.errorMsg,
+					hideAfter: 3
+				});
+				$('#fuProgress').animate({ width: 0 }, 1);
+				$('#fuPlaceholder').show();
+			}
         });
     },
     

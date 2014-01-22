@@ -67,6 +67,11 @@ class FilesmanagerAdmin extends Backend
             if (Security::check(Request::get('token'))) {
 
                 File::delete($files_path.Request::get('delete_file'));
+                if (!is_file($files_path.Request::get('delete_file'))) {
+                    Notification::set('success', __('File was deleted', 'system'));
+                } else {
+                    Notification::set('error', __('File was not deleted', 'system'));
+                }
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -98,13 +103,32 @@ class FilesmanagerAdmin extends Backend
 
             if (Security::check(Request::post('csrf'))) {
 
+                $error = false;
                 if ($_FILES['file']) {
                     if ( ! in_array(File::ext($_FILES['file']['name']), $forbidden_types)) {
-                        move_uploaded_file($_FILES['file']['tmp_name'], $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), '-', true).'.'.File::ext($_FILES['file']['name']));
-                        Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                        $filepath = $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), '-', true).'.'.File::ext($_FILES['file']['name']);
+                        $uploaded = move_uploaded_file($_FILES['file']['tmp_name'], $filepath);
+                        if ($uploaded !== false && is_file($filepath)) {
+                            Notification::set('success', __('File was uploaded', 'system'));
+                        } else {
+                            $error = 'File was not uploaded';
+                        }
+                    } else {
+                        $error = 'Forbidden file type';
                     }
+                } else {
+                    $error = 'File was not uploaded';
                 }
 
+                if ($error) {
+                    Notification::set('error', __($error, 'system'));
+                }
+
+                if (Request::post('dragndrop')) {
+                    Request::shutdown();
+                } else {
+                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                }
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
@@ -172,7 +196,8 @@ class FilesmanagerAdmin extends Backend
                 ->assign('files_path', $files_path)
                 ->assign('fileuploader', array(
                     'uploadUrl' => $site_url.'/admin/index.php?id=filesmanager&path='.$path,
-                    'csrf'      => Security::token()
+                    'csrf'      => Security::token(),
+                    'errorMsg'  => __('Upload server error', 'system')
                 ))->display();
 
     }

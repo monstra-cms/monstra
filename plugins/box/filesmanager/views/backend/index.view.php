@@ -135,12 +135,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <a class="close" data-dismiss="modal">&times;</a>
-        <h4 class="modal-title" id="myModalLabel">Create New File</h4>
+        <h4 class="modal-title">Create New File</h4>
       </div>
       <div class="modal-body">
         <form role="form">        
-            <label for="directoryName">File Name</label>
-            <input type="text" class="form-control" id="directoryName">        
+            <label for="cdDirectoryName">File Name</label>
+            <input type="text" class="form-control" id="cdDirectoryName">
         </form>
       </div>
       <div class="modal-footer">
