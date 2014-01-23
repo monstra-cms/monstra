@@ -38,6 +38,7 @@ class I18n
         'gl' => 'Galego',
         'hu' => 'Magyar',
         'it' => 'Italiano',
+        'id' => 'Bahasa Indonesia',
         'ja' => '日本語',
         'lt' => 'Lietuvių',
         'nl' => 'Nederlands',
