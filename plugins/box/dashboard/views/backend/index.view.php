@@ -33,7 +33,10 @@
 <script src="https://apis.google.com/js/client.js?onload=glibOnloadHandle"></script>
 
 <div class="well dashboard-well">
-	<div class="row"><div class="col-md-12"><h4><?php echo __('Goggle Analytics', 'system'); ?></h4></div></div>
+	<div class="row">
+        <div class="col-md-10"><h4><?php echo __('Goggle Analytics', 'system'); ?></h4></div>
+        <div class="col-md-2"><a href="#" class="gaSettingsLink"><?php echo __('Settings', 'system'); ?></a></div>
+    </div>
 	<div class="row">
 		<div class="col-md-12">
 
@@ -61,7 +64,6 @@
 	                </div>
 			    </div>
 			    <div class="col-md-3">
-			        <div><a href="javascript:void(0);" id="gaSettingsLink">Settings</a></div>
 			        <div><h3>Today</h3></div>
 			            <div>Visits:<span id="gaVisits"></span></div>
 			            <div>Visitors:<span id="gaVisitors"></span></div>
@@ -74,6 +76,12 @@
 					<button class="btn btn-default" id="authorizeButton"><?php echo __('Authorize', 'system'); ?></button>
 				</div>
 			</div>
+
+            <div id="reauthError" class="row hide">
+                <div class="col-md-12">
+                    <?php echo __('Please check your analytics settings then exit from google account and authorize with right google analytics account.', 'system'); ?>
+                </div>
+            </div>
 
 			<div id="gaSettings" class="row hide">
 				<div class="col-md-12">
@@ -93,6 +101,12 @@
 					</form>
 				</div>
 			</div>
+
+            <div id="gaHelpLink" class="row hide">
+                <div class="col-md-12">
+                    <br />Google Analytics help page: <a href="https://support.google.com/analytics/?hl=en" target="_blank">https://support.google.com/analytics/?hl=en</a>
+                </div>
+            </div>
 
 		</div>
 	</div>

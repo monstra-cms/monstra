@@ -11,14 +11,14 @@ $.monstra.ganalytics = {
         authScopes: 'https://www.googleapis.com/auth/analytics.readonly'
     },
 
-    _gaAreas: '#authOk,#authFail,#gaSettings,#gaLoading',
+    _gaAreas: '#authOk,#authFail,#gaSettings,#gaLoading,#reauthError,#gaHelpLink',
     _startDate: moment().subtract('days', 29),
     _endDate: moment(),
     
     init: function(data){
         $.extend(this.conf, data);
-        $('#gaSettingsLink').click(function(){
-            $.monstra.ganalytics.show('#gaSettings');
+        $('.gaSettingsLink').click(function(){
+            $.monstra.ganalytics.show('#gaSettings,#gaHelpLink');
         });
     },
     
@@ -94,7 +94,7 @@ $.monstra.ganalytics = {
 
     gaReportingResults: function(res){
         if (typeof res.error != 'undefined' && typeof res.error.message != 'undefined') {
-            $.monstra.ganalytics.showError(res.error.message);
+            $.monstra.ganalytics.showError(res.error.message, res.error.code);
             return;
         }
         
@@ -148,8 +148,14 @@ $.monstra.ganalytics = {
         $(selector).removeClass('hide').show();
     },
 
-    showError: function(msg){
+    showError: function(msg, errCode){
+		if (typeof errCode !== 'undefined' && errCode == 403) {
+			$.monstra.ganalytics.show('#reauthError,#gaHelpLink');
+		} else {
+			$.monstra.ganalytics.show('#gaHelpLink');
+		}
         $('#gaAlerts').html(msg);
+		$('#authOk').addClass('hide');
     },
     
     setVisits: function(val){
