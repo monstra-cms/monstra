@@ -3,6 +3,7 @@
 // Add Plugin Javascript
 Stylesheet::add('plugins/box/filesmanager/css/style.css', 'backend', 11);
 Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend', 11);
+Javascript::add('plugins/box/filesmanager/js/filesmanager.js', 'backend', 11);
 
 // Add plugin navigation link
 Navigation::add(__('Files', 'filesmanager'), 'content', 'filesmanager', 3);
@@ -94,6 +95,47 @@ class FilesmanagerAdmin extends Backend
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
                 
                     
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+        }
+
+
+        // Rename file/dir
+        // -------------------------------------
+        if (Request::post('rename_type')) {
+
+            if (Security::check(Request::post('csrf'))) {
+
+                $rename_type = Request::post('rename_type');
+                $rename_from = Request::post('rename_from');
+                $rename_to = Request::post('rename_to');
+
+                if (empty($rename_to)) {
+                    Notification::set('error', __('Can not be empty', 'system'));
+                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                }
+
+                $ext = ($rename_type === 'file') ? '.'. File::ext($rename_from) : '';
+                $rename_to = $files_path . Security::safeName($rename_to).$ext;
+
+                if (is_dir($rename_to)) {
+                    Notification::set('error', __('Directory exists', 'system'));
+                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                }
+
+                if (is_file($rename_to)) {
+                    Notification::set('error', __('File exists', 'system'));
+                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                }
+
+                $success = rename($files_path.$rename_from, $rename_to);
+
+                if ($success) {
+                    Notification::set('success', __('Renamed successfully', 'system'));
+                } else {
+                    Notification::set('error', __('Failure', 'system'));
+                }
+                Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 

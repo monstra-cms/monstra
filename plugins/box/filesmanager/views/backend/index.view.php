@@ -69,7 +69,7 @@
 <!-- /Filesmanger_path -->
 
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="filesDirsList">
     <thead>
         <tr>
             <th><?php echo __('Name', 'filesmanager'); ?></th>
@@ -92,11 +92,14 @@
             </td>
             <td>
             <div class="pull-right">
+                <button class="btn btn-primary js-rename-dir" data-dirname="<?php echo $dir; ?>" data-path="<?php echo $path; ?>">
+                    <?php echo __('Rename', 'filesmanager'); ?>
+                </button>
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path.'&token='.Security::token(),
                        array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
             ?>
-            <div>
+            </div>
             </td>
         </tr>
         <?php } ?>
@@ -118,6 +121,9 @@
             </td>
             <td>
             <div class="pull-right">
+                <button class="btn btn-primary js-rename-file" data-filename="<?php echo $file; ?>" data-path="<?php echo $path; ?>">
+                    <?php echo __('Rename', 'filesmanager'); ?>
+                </button>
             <?php echo Html::anchor(__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_file='.$file.'&path='.$path.'&token='.Security::token(),
                        array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
@@ -171,6 +177,38 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary">Create</button>
         
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="renameDialog" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h4 class="modal-title">Rename</h4>
+      </div>
+      <form role="form" method="POST">
+        <?php echo Form::hidden('csrf', Security::token()); ?>
+        <div class="modal-body">
+
+            <label for="renameTo">
+                <span id="dirRenameType"><?php echo __('Directory:', 'filesmanager'); ?></span>
+                <span id="fileRenameType"><?php echo __('File:', 'filesmanager'); ?></span>
+                <strong id="renameToHolder"></strong>
+            </label>
+            <input type="hidden" name="path" value="" />
+            <input type="hidden" name="rename_type" value="" />
+            <input type="hidden" name="rename_from" value="" />
+            <input type="text" class="form-control" id="renameTo" name="rename_to" />
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary"><?php echo __('Rename', 'filesmanager'); ?></button>
+
           </div>
       </form>
     </div>
