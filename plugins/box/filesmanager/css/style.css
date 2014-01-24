@@ -1,7 +1,7 @@
 .upload-area {
-    border:2px dotted #0B85A1;
+    border:2px dashed #DEDEDE;
     width:200px;
-    color:#92AAB0;
+    color:#DEDEDE;
     text-align: center;
     height: 34px;
     display: inline-block;
