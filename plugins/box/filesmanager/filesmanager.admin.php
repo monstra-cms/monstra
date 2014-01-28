@@ -69,9 +69,9 @@ class FilesmanagerAdmin extends Backend
 
                 File::delete($files_path.Request::get('delete_file'));
                 if (!is_file($files_path.Request::get('delete_file'))) {
-                    Notification::set('success', __('File was deleted', 'system'));
+                    Notification::set('success', __('File was deleted', 'filesmanager'));
                 } else {
-                    Notification::set('error', __('File was not deleted', 'system'));
+                    Notification::set('error', __('File was not deleted', 'filesmanager'));
                 }
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
 
@@ -87,9 +87,9 @@ class FilesmanagerAdmin extends Backend
                 Dir::delete($files_path.Request::get('delete_dir'));
 
                 if (!is_dir($files_path.Request::get('delete_dir'))) {
-                    Notification::set('success', __('Directory was deleted', 'system'));
+                    Notification::set('success', __('Directory was deleted', 'filesmanager'));
                 } else {
-                    Notification::set('error', __('Directory was not deleted', 'system'));
+                    Notification::set('error', __('Directory was not deleted', 'filesmanager'));
                 }
                 
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
@@ -110,7 +110,7 @@ class FilesmanagerAdmin extends Backend
                 $rename_to = Request::post('rename_to');
 
                 if (empty($rename_to)) {
-                    Notification::set('error', __('Can not be empty', 'system'));
+                    Notification::set('error', __('Can not be empty', 'filesmanager'));
                     Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
                 }
 
@@ -118,21 +118,21 @@ class FilesmanagerAdmin extends Backend
                 $rename_to = $files_path . Security::safeName($rename_to).$ext;
 
                 if (is_dir($rename_to)) {
-                    Notification::set('error', __('Directory exists', 'system'));
+                    Notification::set('error', __('Directory exists', 'filesmanager'));
                     Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
                 }
 
                 if (is_file($rename_to)) {
-                    Notification::set('error', __('File exists', 'system'));
+                    Notification::set('error', __('File exists', 'filesmanager'));
                     Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
                 }
 
                 $success = rename($files_path.$rename_from, $rename_to);
 
                 if ($success) {
-                    Notification::set('success', __('Renamed successfully', 'system'));
+                    Notification::set('success', __('Renamed successfully', 'filesmanager'));
                 } else {
-                    Notification::set('error', __('Failure', 'system'));
+                    Notification::set('error', __('Failure', 'filesmanager'));
                 }
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
 
@@ -151,7 +151,7 @@ class FilesmanagerAdmin extends Backend
                         $filepath = $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), '-', true).'.'.File::ext($_FILES['file']['name']);
                         $uploaded = move_uploaded_file($_FILES['file']['tmp_name'], $filepath);
                         if ($uploaded !== false && is_file($filepath)) {
-                            Notification::set('success', __('File was uploaded', 'system'));
+                            Notification::set('success', __('File was uploaded', 'filesmanager'));
                         } else {
                             $error = 'File was not uploaded';
                         }
@@ -163,7 +163,7 @@ class FilesmanagerAdmin extends Backend
                 }
 
                 if ($error) {
-                    Notification::set('error', __($error, 'system'));
+                    Notification::set('error', __($error, 'filesmanager'));
                 }
 
                 if (Request::post('dragndrop')) {
@@ -195,9 +195,9 @@ class FilesmanagerAdmin extends Backend
                 }
                 
                 if ($error) {
-                    Alert::error(__('Directory was not created', 'system'));
+                    Alert::error(__('Directory was not created', 'filesmanager'));
                 } else {
-                    Alert::success(__('Directory was created', 'system'));
+                    Alert::success(__('Directory was created', 'filesmanager'));
                 }
                 
             }
@@ -240,7 +240,7 @@ class FilesmanagerAdmin extends Backend
                 ->assign('fileuploader', array(
                     'uploadUrl' => $site_url.'/admin/index.php?id=filesmanager&path='.$path,
                     'csrf'      => Security::token(),
-                    'errorMsg'  => __('Upload server error', 'system')
+                    'errorMsg'  => __('Upload server error', 'filesmanager')
                 ))->display();
 
     }
