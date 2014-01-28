@@ -33,9 +33,6 @@
     </div>
     <div class="col-md-6">
         <div class="pull-right">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#createNewFile">
-          Create New File
-        </button>
         <button class="btn btn-primary" data-toggle="modal" data-target="#createNewDirectory">
           Create New Directory
         </button>
@@ -135,28 +132,6 @@
     </tbody>
 </table>
 
-
-<div id="createNewFile" class="modal fade" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <a class="close" data-dismiss="modal">&times;</a>
-        <h4 class="modal-title">Create New File</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form">        
-            <label for="cdDirectoryName">File Name</label>
-            <input type="text" class="form-control" id="cdDirectoryName">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Create</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div id="createNewDirectory" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -166,17 +141,14 @@
       </div>
       <form role="form" method="POST">
         <?php echo Form::hidden('csrf', Security::token()); ?>
-        <div class="modal-body">
-        
+          <div class="modal-body">
             <label for="directoryName">Directory Name</label>
             <input type="hidden" name="path" value="<?php echo $path; ?>" />
-            <input type="text" class="form-control" id="directoryName" name="directory_name" />
-        
+            <input type="text" class="form-control" id="directoryName" name="directory_name" />        
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Create</button>
-        
+            <button type="submit" class="btn btn-primary">Create</button>        
           </div>
       </form>
     </div>
@@ -208,7 +180,6 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary"><?php echo __('Rename', 'filesmanager'); ?></button>
-
           </div>
       </form>
     </div>

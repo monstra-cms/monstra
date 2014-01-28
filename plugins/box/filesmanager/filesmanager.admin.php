@@ -174,7 +174,8 @@ class FilesmanagerAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
-
+        // Create Directory
+        // -------------------------------------
         if (Request::post('directory_name')) {
             
             if (Security::check(Request::post('csrf'))) {
