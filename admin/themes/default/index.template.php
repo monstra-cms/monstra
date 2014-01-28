@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="<?php echo Site::url(); ?>" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//www.gravatar.com" />
+    
     <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Monstra Admin Area" />
