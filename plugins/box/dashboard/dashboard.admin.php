@@ -74,3 +74,12 @@ class DashboardAdmin extends Backend
     }
 
 }
+
+
+class Dashboard 
+{
+	public static function addNewItem()
+	{
+		
+	}
+}
