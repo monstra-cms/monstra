@@ -24,7 +24,9 @@ Monstra 2.4.0, 2014-xx-xx
 - Core: Store user_email in Session
 - Core: Javascript may be broken if there is no break line - fixed
 - Core: Added ability to avoid caching JS/CSS by the browser.
+- Prefetch DNS added to reduce look up times
 - Sandbox Plugin cleanup
+- Localization: JA, ID translations added
 - Localization: Major Fixes
 
 Monstra 2.3.1, 2013-12-25
