@@ -5,8 +5,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Admin: New Modern User Interface
 - Site: New default theme
 - W3 layout fixes
-- Filesmanager plugin: added ability to create directories.
-- Filesmanager plugin: added ability to create & edit files.
+- Filesmanager plugin: added ability to create & rename directories.
 - Responsive Chocolat Lightbox instead of TB Lightbox
 - Blog Plugin as a part of Monstra CMS 
 - CodeMirror Plugin as a part of Monstra CMS
