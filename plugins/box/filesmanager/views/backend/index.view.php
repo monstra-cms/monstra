@@ -11,7 +11,7 @@
             Form::hidden('csrf', Security::token())
         );
     ?>    
-    <div class="col-md-6">
+    <div class="col-md-10">
     <div class="fileupload fileupload-new fileupload-controls" data-provides="fileupload">
       <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></button>
     <?php
@@ -29,9 +29,11 @@
         <div id="fuPlaceholder" class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
     </div>
     <div id="fileInfo" class="upload-file-info"></div>
-
+    <div class="btn btn-link">
+      Maximum upload file size: <?php echo $upload_max_filesize; ?>
     </div>
-    <div class="col-md-6">
+    </div>
+    <div class="col-md-2">
         <div class="pull-right">
         <button class="btn btn-primary" data-toggle="modal" data-target="#createNewDirectory">
           <?php echo __('Create New Directory', 'filesmanager'); ?>

@@ -236,6 +236,7 @@ class FilesmanagerAdmin extends Backend
                 ->assign('forbidden_types', $forbidden_types)
                 ->assign('image_types', $image_types)
                 ->assign('site_url', $site_url)
+                ->assign('upload_max_filesize', FilesmanagerAdmin::uploadSize())
                 ->assign('files_path', $files_path)
                 ->assign('fileuploader', array(
                     'uploadUrl' => $site_url.'/admin/index.php?id=filesmanager&path='.$path,
@@ -271,6 +272,15 @@ class FilesmanagerAdmin extends Backend
         } else {
             return false;
         }
+    }
+
+    /**
+     * Get Upload Size
+     */
+    public static function uploadSize() 
+    {
+        return Number::byteFormat(min(Number::convertToBytes(ini_get('upload_max_filesize')),
+                                      Number::convertToBytes(ini_get('post_max_size'))));
     }
 
 }
