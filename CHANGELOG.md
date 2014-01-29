@@ -20,6 +20,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Update jQuery to v1.10.2
 - Users Plugin getGravatarURL() improve
 - Plugin API - Actions - Closure support added.
+- Plugin API - Filters - Closure support added.
 - Core: Better statuses notification (error,success,warning)
 - Core: Store user_email in Session
 - Core: Javascript may be broken if there is no break line - fixed
