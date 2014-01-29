@@ -91,7 +91,7 @@ class Filter
      *  </code>
      *
      * @param  string  $filter_name     The name of the filter to hook the $function_to_add to.
-     * @param  string  $function_to_add The name of the function to be called when the filter is applied.
+     * @param  mixed   $function_to_add The name of the function to be called when the filter is applied.
      * @param  integer $priority        Function to add priority - default is 10.
      * @param  integer $accepted_args   The number of arguments the function accept default is 1.
      * @return boolean
@@ -100,7 +100,7 @@ class Filter
     {
         // Redefine arguments
         $filter_name     = (string) $filter_name;
-        $function_to_add = (string) $function_to_add;
+        $function_to_add = $function_to_add;
         $priority        = (int) $priority;
         $accepted_args   = (int) $accepted_args;
 
