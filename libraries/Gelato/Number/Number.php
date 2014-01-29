@@ -58,14 +58,14 @@ class Number
      * @return int
      */
     public static function convertToBytes( $num ) {
-        $size  = strtolower( $size );
-        $bytes = (int) $size;
-        if ( strpos( $size, 'k' ) !== false )
-            $bytes = intval( $size ) * 1024;
-        elseif ( strpos( $size, 'm' ) !== false )
-            $bytes = intval($size) * 1024 * 1024;
-        elseif ( strpos( $size, 'g' ) !== false )
-            $bytes = intval( $size ) * 1024 * 1024 * 1024;
+        $num  = strtolower( $num );
+        $bytes = (int) $num;
+        if ( strpos( $num, 'k' ) !== false )
+            $bytes = intval( $num ) * 1024;
+        elseif ( strpos( $num, 'm' ) !== false )
+            $bytes = intval($num) * 1024 * 1024;
+        elseif ( strpos( $num, 'g' ) !== false )
+            $bytes = intval( $num ) * 1024 * 1024 * 1024;
         return $bytes;
     }
 
