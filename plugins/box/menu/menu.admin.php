@@ -53,6 +53,7 @@ class MenuAdmin extends Backend
                     $menu_item_name       = $item['name'];
                     $menu_item_link       = $item['link'];
                     $menu_item_category   = $item['category'];
+                    $menu_item_class      = $item['class'];
                     $menu_item_target     = $item['target'];
                     $menu_item_order      = $item['order'];
 
@@ -68,6 +69,7 @@ class MenuAdmin extends Backend
                                 if (Request::post('menu_item_name')) $menu_item_name = Request::post('menu_item_name'); else $menu_item_name = $item['name'];
                                 if (Request::post('menu_item_link')) $menu_item_link = Request::post('menu_item_link'); else $menu_item_link = $item['link'];
                                 if (Request::post('menu_item_category')) $menu_item_category = Request::post('menu_item_category'); else $menu_item_category = $item['category'];
+                                if (Request::post('menu_item_class')) $menu_item_class = Request::post('menu_item_class'); else $menu_item_class = $item['class'];
                                 if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = $item['target'];
                                 if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = $item['order'];
 
@@ -80,6 +82,7 @@ class MenuAdmin extends Backend
                                                          array('name' => Request::post('menu_item_name'),
                                                               'link'       => Request::post('menu_item_link'),
                                                               'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                              'class'      => Request::post('menu_item_class'),
                                                               'target'     => Request::post('menu_item_target'),
                                                               'order'      => Request::post('menu_item_order')));
 
@@ -95,6 +98,7 @@ class MenuAdmin extends Backend
                             ->assign('menu_item_name', $menu_item_name)
                             ->assign('menu_item_link', $menu_item_link)
                             ->assign('menu_item_category', $menu_item_category)
+                            ->assign('menu_item_class', $menu_item_class)
                             ->assign('menu_item_target', $menu_item_target)
                             ->assign('menu_item_order', $menu_item_order)
                             ->assign('menu_item_target_array', $menu_item_target_array)
@@ -114,6 +118,7 @@ class MenuAdmin extends Backend
                     $menu_item_name = '';
                     $menu_item_link = '';
                     $menu_item_category = '';
+                    $menu_item_class = '';
                     $menu_item_target = '';
                     $menu_item_order = '';
                     $errors = array();
@@ -131,6 +136,7 @@ class MenuAdmin extends Backend
                                 if (Request::post('menu_item_name')) $menu_item_name = Request::post('menu_item_name'); else $menu_item_name = '';
                                 if (Request::post('menu_item_link')) $menu_item_link = Request::post('menu_item_link'); else $menu_item_link = '';
                                 if (Request::post('menu_item_category')) $menu_item_category = Request::post('menu_item_category'); else $menu_item_category = $current_category;
+                                if (Request::post('menu_item_class')) $menu_item_class = Request::post('menu_item_class'); else $menu_item_class = '';
                                 if (Request::post('menu_item_target')) $menu_item_target = Request::post('menu_item_target'); else $menu_item_target = '';
                                 if (Request::post('menu_item_order')) $menu_item_order = Request::post('menu_item_order'); else $menu_item_order = '';
 
@@ -142,6 +148,7 @@ class MenuAdmin extends Backend
                                 MenuAdmin::$menu->insert(array('name' => Request::post('menu_item_name'),
                                                                'link'       => Request::post('menu_item_link'),
                                                                'category'   => Security::safeName(Request::post('menu_item_category'), '-', true),
+                                                               'class'      => Request::post('menu_item_class'),
                                                                'target'     => Request::post('menu_item_target'),
                                                                'order'      => Request::post('menu_item_order')));
 
@@ -156,6 +163,7 @@ class MenuAdmin extends Backend
                             ->assign('menu_item_name', $menu_item_name)
                             ->assign('menu_item_link', $menu_item_link)
                             ->assign('menu_item_category', $menu_item_category)
+                            ->assign('menu_item_class', $menu_item_class)
                             ->assign('menu_item_target', $menu_item_target)
                             ->assign('menu_item_order', $menu_item_order)
                             ->assign('menu_item_target_array', $menu_item_target_array)

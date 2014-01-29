@@ -3,6 +3,7 @@
     $anchor_active = '';
     $li_active = '';
     $target = '';
+    $after_text = '';
 
     if (count($items) > 0) {
         foreach ($items as $item) {
@@ -10,7 +11,7 @@
             $item['link'] = Html::toText($item['link']);
             $item['name'] = Html::toText($item['name']);
 
-            $pos = strpos($item['link'], 'http://');
+            $pos = strpos($item['link'], 'http://') || ($item['link'] !== '' && $item['link']{0} == '#');
             if ($pos === false) {
                 $link = Option::get('siteurl').$item['link'];
             } else {
@@ -43,10 +44,22 @@
                 $target = ' target="'.$item['target'].'" ';
             }
 
-            echo '<li'.$li_active.'>'.'<a href="'.$link.'"'.$anchor_active.$target.'>'.$item['name'].'</a>'.'</li>';
+            if($item['class'] !== '') {
+                if(array_key_exists($item['class'], $after_text_array)) {
+                    $after_text = $after_text_array[$item['class']];
+                }
 
+                if($li_active !== '') {
+                    $li_active = ' class="active '.$item['class'].'"';
+                } else {
+                    $li_active = ' class="'.$item['class'].'"';
+                }
+            }
+
+            echo '<li'.$li_active.'>'.'<a href="'.$link.'"'.$anchor_active.$target.'>'.$item['name'].'</a>'.$after_text.'</li>';
             $anchor_active = '';
             $li_active = '';
             $target = '';
+            $after_text = '';
         }
     }

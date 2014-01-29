@@ -39,19 +39,33 @@ class Menu
     /**
      * Get menu
      *
-     * @param string $category Category name
+     * @param string $category   Category name
+     * @param array  $after_text Text after item menu
      */
-    public static function get($category = '')
+    public static function get($category = '', $after_text = '')
+    {
+        echo Menu::getAsString($category, $after_text);
+    }
+
+    /**
+     * Get menu as string
+     *
+     * @param string $category   Category name
+     * @param array  $after_text Text after item menu
+     * @return string
+     */
+    public static function getAsString($category = '', $after_text = '')
     {
         // Get menu table
         $menu = new Table('menu');
 
         // Display view
-        View::factory('box/menu/views/frontend/index')
-                ->assign('items', $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'order', 'category'), 'order', 'ASC'))
+        return View::factory('box/menu/views/frontend/index')
+                ->assign('items', $menu->select('[category="'.$category.'"]', 'all', null, array('id', 'name', 'link', 'target', 'class', 'order', 'category'), 'order', 'ASC'))
                 ->assign('uri', Uri::segments())
                 ->assign('defpage', Option::get('defaultpage'))
-                ->display();
-
+                ->assign('after_text_array', $after_text)
+                ->render();
     }
+
 }
