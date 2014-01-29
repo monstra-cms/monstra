@@ -19,6 +19,7 @@ $.monstra.ganalytics = {
         $.extend(this.conf, data);
         $('.gaSettingsLink').click(function(){
             $.monstra.ganalytics.show('#gaSettings,#gaHelpLink');
+			$('.gaSettingsLink').hide();
         });
     },
     
@@ -46,7 +47,8 @@ $.monstra.ganalytics = {
             || $.monstra.ganalytics.conf.apiKey == '' 
             || $.monstra.ganalytics.conf.viewId == ''
         ) {
-            $.monstra.ganalytics.show('#gaSettings');
+            $.monstra.ganalytics.show('#gaSettings,#gaHelpLink');
+			$('.gaSettingsLink').hide();
             return false;
         }
         gapi.client.setApiKey(this.conf.apiKey);
@@ -143,6 +145,7 @@ $.monstra.ganalytics = {
     },
 
     show: function(selector){
+		$('.gaSettingsLink').show();
         $('#gaAlerts').html('');
         $($.monstra.ganalytics._gaAreas).addClass('hide');
         $(selector).removeClass('hide').show();
