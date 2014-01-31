@@ -5,6 +5,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Admin: New Modern User Interface
 - Site: New default theme
 - W3 layout fixes
+- Idiorm Updated to 1.4.1
 - Filesmanager plugin: added ability to create & rename directories.
 - Responsive Chocolat Lightbox instead of TB Lightbox
 - Blog Plugin as a part of Monstra CMS 
