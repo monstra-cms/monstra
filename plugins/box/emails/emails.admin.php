@@ -48,11 +48,11 @@ class EmailsAdmin extends Backend
 
                     }
 
-                    $email_template_content = File::getContent($email_templates_path.Request::get('filename').'.email.php');
+                    $content = File::getContent($email_templates_path.Request::get('filename').'.email.php');
 
                     // Display view
                     View::factory('box/emails/views/backend/edit')
-                            ->assign('email_template_content', Text::toHtml($email_template_content))                    
+                            ->assign('content', $content)
                             ->display();
                 break;
 
