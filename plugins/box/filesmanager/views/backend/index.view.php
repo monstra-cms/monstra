@@ -12,25 +12,26 @@
         );
     ?>    
     <div class="col-md-10">
-    <div class="fileupload fileupload-new fileupload-controls" data-provides="fileupload">
-      <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file" /></button>
-    <?php
-        echo (
-            Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-primary')).
-            Form::close()
-        )
-    ?>      
-      <span class="fileupload-preview"></span>
-      <a href="#" class="close fileupload-exists" data-dismiss="fileupload">×</a>
 
+    <div class="fileinput fileinput-new pull-left" data-provides="fileinput">
+      <span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
+      <?php
+          echo (
+              Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-primary')).
+              Form::close()
+          )
+      ?>            
+      <span class="fileinput-filename"></span>   
+      <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
     </div>
+
     <div id="uploadArea" class="upload-area">
         <div id="fuProgress" class="upload-progress"></div>
         <div id="fuPlaceholder" class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
     </div>
     <div id="fileInfo" class="upload-file-info"></div>
-    <div class="btn btn-link">
-      Maximum upload file size: <?php echo $upload_max_filesize; ?>
+    <div class="btn btn-link file-size-max-upload">
+        <?php echo __('Maximum upload file size: :upload_max_filesize', 'pages', array(':upload_max_filesize' => $upload_max_filesize)); ?>
     </div>
     </div>
     <div class="col-md-2">

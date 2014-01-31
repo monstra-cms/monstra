@@ -43,3 +43,14 @@
 .upload-file-pholder {
     padding-top: 5px;
 }
+
+.file-size-max-upload {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.file-size-max-upload:hover {
+    color: #ccc;
+    cursor: default;
+    text-decoration: none;
+}
