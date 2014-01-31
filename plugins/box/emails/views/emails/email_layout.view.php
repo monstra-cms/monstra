@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width"/>
 
     <style type="text/css">
-      <?php include 'inc.css'; ?>   
+      <?php include PLUGINS_BOX . '/emails/css/inc.css'; ?>   
     </style>
   </head>
   <body>
