@@ -59,13 +59,18 @@
     </head>
     <body class="login-body">
 
+        <?php
+            // Monstra Notifications
+            Notification::get('success') AND Alert::success(Notification::get('success'));
+            Notification::get('warning') AND Alert::warning(Notification::get('warning'));
+            Notification::get('error')   AND Alert::error(Notification::get('error'));
+        ?>
+
         <div class="container form-signin">
 
-            <div style="text-align:center;"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo.png" height="27" width="171" alt="monstra" /></a></div>
-            <div class="administration-area">
-                <hr>
+            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo-256px.png" alt="monstra" /></a></div>
+            <div class="administration-area well">
                 <div>
-                    <h2 class="text-center"><?php echo __('Administration', 'system'); ?></h2><br>
                     <form method="post">
                         <div class="form-group">
                             <label><?php echo __('Username', 'users'); ?></label>
@@ -75,19 +80,15 @@
                             <label><?php echo __('Password', 'users'); ?></label>
                             <input class="form-control" name="password" type="password" />
                         </div>
-                        <div class="form-group">    
-                            <?php if (isset($login_error) && $login_error !== '') { ?><div class="alert alert-error"><?php echo $login_error; ?></div><?php } ?>
+                        <div class="form-group">
                             <input type="submit" name="login_submit" class="btn btn-primary" value="<?php echo __('Log In', 'users'); ?>" />
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div class="reset-password-area">
-                <hr>
+            <div class="reset-password-area well">
                 <div>
-                    <h2 style="text-align:center;"><?php echo __('Reset Password', 'users'); ?></h2><br>
-                    <?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
                     <form method="post">
                         <div class="form-group">
                         <label><?php echo __('Username', 'users'); ?></label>
@@ -110,17 +111,17 @@
                             }
                         ?>
                         <div class="form-group">
-                            <input type="submit" name="reset_password_submit" class="btn btn-primary" value="<?php echo __('Send New Password', 'users')?>" />
+                            <input type="submit" name="reset_password_submit" class="btn btn-primary" value="<?php echo __('Get New Password', 'users')?>" />
                         </div>
                     </form>
                 </div>
             </div>
-            <hr>
+
             <div>
                 <div class="text-center">
-                    <a class="small-grey-text" href="<?php echo Option::get('siteurl'); ?>"><?php echo __('< Back to Website', 'system');?></a> -
-                    <a class="small-grey-text reset-password-btn" href="javascript:;"><?php echo __('Forgot your password? >', 'system');?></a>
-                    <a class="small-grey-text administration-btn" href="javascript:;"><?php echo __('Administration >', 'system');?></a>
+                    <a class="small-grey-text" href="<?php echo Option::get('siteurl'); ?>"><?php echo __('Back to Website', 'system');?></a> -
+                    <a class="small-grey-text reset-password-btn" href="javascript:;"><?php echo __('Forgot your password ?', 'system');?></a>
+                    <a class="small-grey-text administration-btn" href="javascript:;"><?php echo __('Log in', 'system');?></a>
                 </div>
             </div>
         </div>

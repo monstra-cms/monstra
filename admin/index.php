@@ -82,6 +82,9 @@ if (Request::post('login_submit')) {
             }
         }
     }
+
+    Notification::set('error', $login_error);
+
 }
 
 // Errors
@@ -117,13 +120,13 @@ if (Request::post('reset_password_submit')) {
         $mail->AddReplyTo(Option::get('system_email'));
         $mail->AddAddress($user['email'], $user['login']);
         $mail->Subject = __('Your login details for :site_name', 'users', array(':site_name' => $site_name));
-        $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+        $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
             ->assign('site_url', $site_url)
             ->assign('site_name', $site_name)
             ->assign('user_id', $user['id'])
             ->assign('user_login', $user['login'])
             ->assign('new_hash', $new_hash)
-            ->assign('view', 'reset_password_email')
+            ->assign('email_template', 'reset-password')
             ->render());
         $mail->Send();
 

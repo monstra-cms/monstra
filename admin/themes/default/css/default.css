@@ -92,6 +92,20 @@ footer span {
   padding-left: 0;
 }
 
+/* Admin Form */
+.form-signin  {
+    width: 400px;
+}
+
+.form-signin {
+    margin-top: 40px;
+}
+
+.form-signin .administration-area,
+.form-signin .reset-password-area {
+    margin-top: 40px;
+}
+
 /* Dropdown Menu */
 .dropdown-menu .divider {
     background-color: #555454;
@@ -108,6 +122,10 @@ footer span {
 }
 
 /* Navbar */
+.navbar-inverse .navbar-nav > li > a {
+    color: #eee;
+}
+
 .navbar-inverse {
     background: #222;
 }
