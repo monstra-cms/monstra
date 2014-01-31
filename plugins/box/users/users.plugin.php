@@ -298,7 +298,7 @@ class Users extends Frontend
                     $mail->AddReplyTo(Option::get('system_email'));
                     $mail->AddAddress($user['email'], $user['login']);
                     $mail->Subject = __('Your new password for :site_name', 'users', array(':site_name' => $site_name));
-                    $mail->MsgHTML(View::factory('box/users/views/emails/email_layout')
+                    $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                         ->assign('site_url', $site_url)
                         ->assign('site_name', $site_name)
                         ->assign('user_id', $user['id'])
@@ -312,7 +312,7 @@ class Users extends Frontend
                     Notification::set('success', __('New password has been sent', 'users'));
 
                     // Redirect to password-reset page
-                    Request::redirect(Site::url().'/users/password-reset');
+                    Request::redirect(Site::url().'/users/login');
 
                 }
             }
@@ -347,7 +347,7 @@ class Users extends Frontend
                         $mail->AddReplyTo(Option::get('system_email'));
                         $mail->AddAddress($user['email'], $user['login']);
                         $mail->Subject = __('Your login details for :site_name', 'users', array(':site_name' => $site_name));
-                        $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+                        $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                             ->assign('site_url', $site_url)
                             ->assign('site_name', $site_name)
                             ->assign('user_id', $user['id'])
