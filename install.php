@@ -39,12 +39,17 @@
 
     // Select Monstra language
     if (Request::get('language')) {
+        if (Request::get('action') && Request::get('action') == 'install') {
+            $action = '?action=install';
+        } else {
+            $action = '';
+        }
         if (in_array(Request::get('language'), $languages_array)) {
             if (Option::update('language', Request::get('language'))) {
-                Request::redirect($site_url);
+                Request::redirect($site_url.$action);
             }
         } else {
-            Request::redirect($site_url);
+            Request::redirect($site_url.$action);
         }
     }
 
@@ -105,6 +110,8 @@
 
             // Installation done :)
             header("location: index.php?install=done");
+        } else {            
+            Notification::setNow('errors', $errors);                
         }
     }
 ?>
@@ -119,6 +126,7 @@
         <link rel="shortcut icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo $site_url; ?>/public/assets/css/bootstrap.css" media="all" type="text/css" />
         <link rel="stylesheet" href="<?php echo $site_url; ?>/admin/themes/default/css/default.css" media="all" type="text/css" />
+
         <style>
 
             .install-body {
@@ -129,7 +137,7 @@
             .install-languages {
                 margin: 20px auto 20px;
                 text-align: center;
-                width: 390px;
+                width: 600px;
             }
 
             .install-block,
@@ -165,14 +173,24 @@
 
             .error {
                 color:#8E0505;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
             }
 
             .ok {
                 color:#00853F;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
             }
 
             .warn {
                 color: #F74C18;
+                padding-top: 5px;
+                padding-bottom: 5px;
             }
 
             .install-languages a {
@@ -204,11 +222,16 @@
                 opacity: 1.0;
             }
 
+            .continue {
+                width: 100%;
+            }
+
        </style>
-       <script type="text/javascript" src="<?php echo $site_url; ?>/public/assets/js/jquery.min.js"></script>
-       <script type="text/javascript" src="<?php echo $site_url; ?>/public/assets/js/bootstrap.min.js"></script>
+       <script src="<?php echo $site_url; ?>/public/assets/js/jquery.min.js"></script>
+       <script src="<?php echo $site_url; ?>/public/assets/js/bootstrap.min.js"></script>
     </head>
     <body class="install-body">
+
 
     <?php
         if (version_compare(PHP_VERSION, "5.2.3", "<")) {
@@ -264,13 +287,36 @@
         <div class="text-center"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>/public/assets/img/monstra-logo-256px.png" alt="Monstra"></a></div>
 
         <div class="install-languages">
+            <?php
+                if (Request::get('action') && Request::get('action') == 'install') {
+                    $action = '&action=install';
+                } else {
+                    $action = '';
+                }
+            ?>
             <?php foreach ($languages_array as $lang_code) { ?>
-            <a data-placement="top" data-toggle="tooltip" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'/?language=' . $lang_code; ?>"><img src="<?php echo $site_url; ?>/public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
+            <a data-placement="top" data-toggle="tooltip" class="language-link<?php if (Option::get('language') == $lang_code) echo ' language-link-current';?>" title="<?php echo I18n::$locales[$lang_code]; ?>" href="<?php echo $site_url.'/?language=' . $lang_code.$action; ?>"><img src="<?php echo $site_url; ?>/public/assets/img/flags/<?php echo $lang_code?>.png" alt="<?php echo $lang_code?>"></a>
             <?php } ?>
         </div>        
             
-        <div class="install-block well">
-            <form action="install.php" method="post">
+        <div class="install-block <?php if(Request::get('action') && Request::get('action') == 'install') { ?><?php } else { ?> hide <?php } ?>">
+
+            <ul class="list-unstyled">
+            <?php
+                // Monstra Notifications
+                if (Notification::get('errors') && count(Notification::get('errors') > 0)) {
+                    foreach (Notification::get('errors') as $error) {
+            ?>
+                 <li class="error alert alert-danger"><?php echo $error; ?></li>
+            <?php
+                    }
+                    
+                }        
+            ?>
+            </ul>
+
+        <div class="well">
+            <form action="install.php?action=install" method="post">
                 <input type="hidden" name="php" value="<?php echo $errors['php']; ?>">
                 <input type="hidden" name="simplexml" value="<?php echo $errors['simplexml']; ?>">
                 <input type="hidden" name="mod_rewrite" value="<?php echo $errors['mod_rewrite']; ?>">
@@ -402,66 +448,66 @@
                     <input type="submit" class="btn btn-primary" name="install_submit" value="<?php echo __('Install', 'system'); ?>" />
                 </div>                                
             </form>
+
+            </div>
         </div>
 
-        <p class="text-center monstra-says"><strong><?php echo __('...Monstra says...', 'system'); ?></strong></p>
-
-        <div class="monstra-dialog well">
+        <div class="monstra-dialog <?php if(Request::get('action') && Request::get('action') == 'install') { ?>hide<?php } ?>">
             <ul class="list-unstyled">
             <?php
 
                 if (version_compare(PHP_VERSION, "5.2.0", "<")) {
-                    echo '<li class="error">'.__('PHP 5.2 or greater is required', 'system').'</li>';
+                    echo '<li class="error alert alert-danger">'.__('PHP 5.2 or greater is required', 'system').'</li>';
                 } else {
-                    echo '<li class="ok">'.__('PHP Version', 'system').' '.PHP_VERSION.'</li>';
+                    echo '<li class="ok alert alert-success">'.__('PHP Version', 'system').' '.PHP_VERSION.'</li>';
                 }
 
                 if (in_array('SimpleXML', $php_modules)) {
-                    echo '<li class="ok">'.__('Module SimpleXML is installed', 'system').'</li>';
+                    echo '<li class="ok alert alert-success">'.__('Module SimpleXML is installed', 'system').'</li>';
                 } else {
-                    echo '<li class="error">'.__('SimpleXML module is required', 'system').'</li>';
+                    echo '<li class="error alert alert-danger">'.__('SimpleXML module is required', 'system').'</li>';
                 }
 
                 if (in_array('dom', $php_modules)) {
-                    echo '<li class="ok">'.__('Module DOM is installed', 'system').'</li>';
+                    echo '<li class="ok alert alert-success">'.__('Module DOM is installed', 'system').'</li>';
                 } else {
-                    echo '<li class="error">'.__('Module DOM is required', 'system').'</li>';
+                    echo '<li class="error alert alert-danger">'.__('Module DOM is required', 'system').'</li>';
                 }
 
                 if (function_exists('apache_get_modules')) {
                     if ( ! in_array('mod_rewrite',apache_get_modules())) {
-                        echo '<li class="error">'.__('Apache Mod Rewrite is required', 'system').'</li>';
+                        echo '<li class="error alert alert-danger">'.__('Apache Mod Rewrite is required', 'system').'</li>';
                     } else {
-                        echo '<li class="ok">'.__('Module Mod Rewrite is installed', 'system').'</li>';
+                        echo '<li class="ok alert alert-success">'.__('Module Mod Rewrite is installed', 'system').'</li>';
                     }
                 } else {
-                    echo '<li class="ok">'.__('Module Mod Rewrite is installed', 'system').'</li>';
+                    echo '<li class="ok alert alert-success">'.__('Module Mod Rewrite is installed', 'system').'</li>';
                 }
 
                 foreach ($dir_array as $dir) {
                     if (is_writable($dir.'/')) {
-                        echo '<li class="ok">'.__('Directory: <b> :dir </b> writable', 'system', array(':dir' => $dir)).'</li>';
+                        echo '<li class="ok alert alert-success">'.__('Directory: <b> :dir </b> writable', 'system', array(':dir' => $dir)).'</li>';
                     } else {
-                        echo '<li class="error">'.__('Directory: <b> :dir </b> not writable', 'system', array(':dir' => $dir)).'</li>';
+                        echo '<li class="error alert alert-danger">'.__('Directory: <b> :dir </b> not writable', 'system', array(':dir' => $dir)).'</li>';
                     }
                 }
 
                 if (is_writable(__FILE__)) {
-                    echo '<li class="ok">'.__('Install script writable', 'system').'</li>';
+                    echo '<li class="ok alert alert-success">'.__('Install script writable', 'system').'</li>';
                 } else {
-                    echo '<li class="error">'.__('Install script not writable', 'system').'</li>';
+                    echo '<li class="error alert alert-danger">'.__('Install script not writable', 'system').'</li>';
                 }
 
                 if (is_writable('sitemap.xml')) {
-                    echo '<li class="ok">'.__('Sitemap file writable', 'system').'</li>';
+                    echo '<li class="ok alert alert-success">'.__('Sitemap file writable', 'system').'</li>';
                 } else {
-                    echo '<li class="error">'.__('Sitemap file not writable', 'system').'</li>';
+                    echo '<li class="error alert alert-danger">'.__('Sitemap file not writable', 'system').'</li>';
                 }
 
                 if (is_writable('.htaccess')) {
-                    echo '<li class="ok">'.__('Main .htaccess file writable', 'system').'</li>';
+                    echo '<li class="ok alert alert-success">'.__('Main .htaccess file writable', 'system').'</li>';
                 } else {
-                    echo '<li class="error">'.__('Main .htaccess file not writable', 'system').'</li>';
+                    echo '<li class="error alert alert-danger">'.__('Main .htaccess file not writable', 'system').'</li>';
                 }
 
                 if (isset($errors['sitename']))    echo '<li class="error">'.$errors['sitename'].'</li>';
@@ -472,16 +518,24 @@
                 if (isset($errors['email_valid'])) echo '<li class="error">'.$errors['email_valid'].'</li>';
             ?>
             </ul>
+            <a href="install.php?action=install" class="btn btn-primary continue">Continue</a>
         </div>
     
-        <div class="install-block-footer">
+        <div class="install-block-footer login-footer">
             <div class="text-center">
-                <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                <span>© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
             </div>
         </div>
 
        <script type="text/javascript">
             $('.language-link').tooltip();
+        
+            $(document).ready(function() {
+                $('.continue').click(function() {
+                    $('.monstra-dialog').addClass('hide');
+                    $('.install-block').removeClass('hide');
+                });
+            });
        </script>
     </body>
 </html>
