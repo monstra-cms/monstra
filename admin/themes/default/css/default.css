@@ -207,10 +207,14 @@ a.navbar-brand {
 .label,
 .input-group-addon,
 .alert,
+.tooltip,
+.tooltip-inner,
 code {
     border-radius: 0px;
 }
 .badge,
+.tooltip,
+.tooltip-inner,
 .label {
     font-weight: normal;
     text-shadow: none;

@@ -122,13 +122,13 @@
         <div class="login-footer">
 
             <div class="text-center">
-                <a class="small-grey-text" href="<?php echo Option::get('siteurl'); ?>"><?php echo __('Back to Website', 'system');?></a> -
-                <a class="small-grey-text reset-password-btn" href="javascript:;"><?php echo __('Forgot your password ?', 'system');?></a>
-                <a class="small-grey-text administration-btn" href="javascript:;"><?php echo __('Log in', 'system');?></a>
+                <a href="<?php echo Option::get('siteurl'); ?>"><?php echo __('Back to Website', 'system');?></a> -
+                <a class="reset-password-btn" href="javascript:;"><?php echo __('Forgot your password ?', 'system');?></a>
+                <a class="administration-btn" href="javascript:;"><?php echo __('Log in', 'system');?></a>
             </div>
 
             <div class="text-center">
-                <span class="small-grey-text">© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                <span>© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
             </div>
 
         </div>
