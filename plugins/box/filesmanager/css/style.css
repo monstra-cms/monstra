@@ -10,15 +10,11 @@
 }
 
 .upload-area-dragenter {
-    border: 2px solid #ff85A1 !important;
+    border: 2px dashed #428bca !important;
 }
 
 .upload-area-drop {
-    border: 2px dotted #0B85A1;
-}
-
-.upload-area-dragover {
-    border: 2px dotted #0B85A1;
+    border: 2px dashed #428bca;
 }
 
 .upload-progress {
