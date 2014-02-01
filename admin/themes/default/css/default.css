@@ -49,14 +49,20 @@ a.btn-expand {
     padding-right:4px;
 }
 
+.login-footer, 
+.login-footer a {
+    color:#777;
+    font-size:12px;
+}
+
 footer {
     margin-top: 40px;
 }
 
 footer,
 footer a {
-    color:#333;
-    font-size:10px;
+    color:#777;
+    font-size:12px;
 }
 
 footer span {
