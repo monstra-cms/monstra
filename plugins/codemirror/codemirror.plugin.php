@@ -58,13 +58,20 @@ class CodeMirror
         ');
 
         if (Request::get('id') == 'themes' || Request::get('id') == 'snippets' || Request::get('id') == 'emails') { 
+            
+            if (Request::get('id') == 'emails') {
+                $mode = 'xml';
+            } else { 
+                $mode = 'htmlmixed';
+            }
+            
             echo ('<script>
                         $(document).ready(function() {
                             var editor = CodeMirror.fromTextArea(document.getElementById("content"), {
                                 lineNumbers: false,
                                 matchBrackets: true,
                                 indentUnit: 4,
-                                mode:  "htmlmixed",
+                                mode:  "'.$mode.'",
                                 indentWithTabs: true,
                                 theme: "'.CodeMirror::$theme.'"                        
                             });

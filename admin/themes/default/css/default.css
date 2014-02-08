@@ -49,14 +49,20 @@ a.btn-expand {
     padding-right:4px;
 }
 
+.login-footer, 
+.login-footer a {
+    color:#777;
+    font-size:12px;
+}
+
 footer {
     margin-top: 40px;
 }
 
 footer,
 footer a {
-    color:#333;
-    font-size:10px;
+    color:#777;
+    font-size:12px;
 }
 
 footer span {
@@ -92,6 +98,20 @@ footer span {
   padding-left: 0;
 }
 
+/* Admin Form */
+.form-signin  {
+    width: 400px;
+}
+
+.form-signin {
+    margin-top: 40px;
+}
+
+.form-signin .administration-area,
+.form-signin .reset-password-area {
+    margin-top: 40px;
+}
+
 /* Dropdown Menu */
 .dropdown-menu .divider {
     background-color: #555454;
@@ -108,6 +128,10 @@ footer span {
 }
 
 /* Navbar */
+.navbar-inverse .navbar-nav > li > a {
+    color: #eee;
+}
+
 .navbar-inverse {
     background: #222;
 }
@@ -182,10 +206,15 @@ a.navbar-brand {
 .badge,
 .label,
 .input-group-addon,
+.alert,
+.tooltip,
+.tooltip-inner,
 code {
     border-radius: 0px;
 }
 .badge,
+.tooltip,
+.tooltip-inner,
 .label {
     font-weight: normal;
     text-shadow: none;

@@ -46,6 +46,10 @@ $().ready(function(){$('[name=create_backup]').click(function(){$(this).button('
         <td><?php echo Number::byteFormat(filesize(ROOT . DS . 'backups' . DS . $backup)); ?></td>
         <td>
             <div class="pull-right">
+            <?php echo Html::anchor(__('Restore', 'backup'),
+                      '',
+                      array('class' => 'btn btn-primary'));
+            ?>
             <?php echo Html::anchor(__('Delete', 'backup'),
                       'index.php?id=backup&delete_file='.$backup.'&token='.Security::token(),
                        array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete backup: :backup', 'backup', array(':backup' => Date::format($name, 'F jS, Y - g:i A')))."')"));

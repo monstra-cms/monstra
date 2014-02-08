@@ -1,7 +1,7 @@
 <h2><?php echo __('Edit Email Template', 'emails'); ?></h2>
 <br>
 <?php   
-if ($email_template_content !== null) {
+if ($content !== null) {
     echo (Form::open());
     echo (Form::hidden('csrf', Security::token()));
     echo (Form::hidden('email_template_name', Request::get('filename')));
@@ -15,7 +15,7 @@ if ($email_template_content !== null) {
 
     echo (        
        Form::label('content', __('Email template content', 'emails')).
-       Form::textarea('content', Html::toText($email_template_content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor form-control'))
+       Form::textarea('content', Html::toText($content), array('style' => 'width:100%;height:400px;', 'class' => 'source-editor form-control'))
     );
 
     echo (
