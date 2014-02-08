@@ -411,6 +411,7 @@ td, th {
     border-bottom: 1px solid #ccc;
 }
 
+
 /* Editor */
 #editor_area {
     height: 400px!important; 
@@ -432,6 +433,10 @@ td, th {
 
 .modal-header {
     border-bottom: 1px solid #F3F3F3;
+}
+
+.modal-header .close {
+    font-size: 26px;
 }
 
 .modal-footer {
