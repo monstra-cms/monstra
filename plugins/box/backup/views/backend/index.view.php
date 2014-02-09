@@ -47,7 +47,7 @@ $().ready(function(){$('[name=create_backup]').click(function(){$(this).button('
         <td>
             <div class="pull-right">
             <?php echo Html::anchor(__('Restore', 'backup'),
-                      '',
+                'index.php?id=backup&restore='.$backup.'&token='.Security::token(),
                       array('class' => 'btn btn-primary'));
             ?>
             <?php echo Html::anchor(__('Delete', 'backup'),

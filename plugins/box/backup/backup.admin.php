@@ -69,6 +69,31 @@ class BackupAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
+        // Restore backup
+        // -------------------------------------
+        if (Request::get('restore')) {
+
+            if (Security::check(Request::get('token'))) {
+
+                $tmp_dir = sys_get_temp_dir() . uniqid('monstra_');
+
+                if (Dir::create($tmp_dir)) {
+                    $file_locations = Zip::factory()->extract($backups_path . DS . Request::get('restore'), $tmp_dir);
+                     if (!empty($file_locations)) {
+                         Dir::copy($tmp_dir, ROOT . DS);
+                         Notification::set('success', __('Backup was restored', 'system'));
+                     } else {
+                         Notification::set('error', __('Unzip error', 'system'));
+                     }
+                } else {
+                    Notification::set('error', __('Backup was not restored', 'system'));
+                }
+
+                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
+
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+        }
+
         // Display view
         View::factory('box/backup/views/backend/index')
                 ->assign('backups_list', File::scan($backups_path, '.zip'))
