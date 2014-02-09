@@ -44,8 +44,8 @@
                         <td>
                             <div class="pull-right">
                             <?php echo Html::anchor(__('?', 'plugins'),
-                                       '#'.$plugin['id'],
-                                       array('class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#readme'));
+                                       '#',
+                                       array('class' => 'btn btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => $plugin['id']));
                             ?>
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
@@ -133,6 +133,14 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('.readme_plugin').click(function() {
+            
+        });
+    });
+</script>
 
 
 <!-- Modal -->
