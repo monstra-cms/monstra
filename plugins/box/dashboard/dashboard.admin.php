@@ -78,8 +78,29 @@ class DashboardAdmin extends Backend
 
 class Dashboard 
 {
+
+    /**
+     * Items
+     *
+     * @var array
+     */
+    public static $items = array();
+
+
+    /**
+     * 
+     */
 	public static function addNewItem()
+	{
+        Dashboard::$items[] = array(
+            'name' => (string) $name,
+            'url'  => (string) $url,
+        );
+	}
+
+	public static function drawItems() 
 	{
 		
 	}
+
 }
