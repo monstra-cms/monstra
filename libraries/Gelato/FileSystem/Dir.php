@@ -203,4 +203,26 @@ class Dir
         return $total_size;
     }
 
+    /**
+     * Copy directory.
+     * <code>
+     *      Dir::copy('source_folder_path', 'destination_folder_path);
+     *  </code>
+     * @param $src
+     * @param $dst
+     */
+    public static function copy($src, $dst) {
+        $dir = opendir($src);
+        @mkdir($dst);
+        while(false !== ( $file = readdir($dir)) ) {
+            if (( $file != '.' ) && ( $file != '..' )) {
+                if ( is_dir($src .'/'. $file) ) {
+                    self::copy($src .'/'. $file, $dst .'/'. $file);
+                } else {
+                    copy($src .'/'. $file,$dst .'/'. $file);
+                }
+            }
+        }
+        closedir($dir);
+    }
 }

@@ -1,5 +1,8 @@
 <?php
 
+Stylesheet::add('plugins/box/filesmanager/css/style.css', 'backend', 11);
+Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend', 11);
+
 // Add plugin navigation link
 Navigation::add(__('Plugins', 'plugins'), 'extends', 'plugins', 1);
 
@@ -110,6 +113,65 @@ class PluginsAdmin extends Backend
 
         }
 
+        // Upload & extract plugin archive
+        // -------------------------------------
+        if (Request::post('upload_file')) {
+
+            if (Security::check(Request::post('csrf'))) {
+
+                if ($_FILES['file']) {
+                    if (in_array(File::ext($_FILES['file']['name']), array('zip'))) {
+
+                        $tmp_dir = sys_get_temp_dir() . uniqid('monstra_');
+
+                        $error = 'Plugin was not uploaded';
+
+                        if (Dir::create($tmp_dir)) {
+                            $file_locations = Zip::factory()->extract($_FILES['file']['tmp_name'], $tmp_dir);
+                            if (!empty($file_locations)) {
+
+                                $manifest = '';
+                                foreach ($file_locations as $filepath) {
+                                    if (substr($filepath, -strlen('.manifest.xml')) === '.manifest.xml') {
+                                        $manifest = $filepath;
+                                        break;
+                                    }
+                                }
+
+                                if (!empty($manifest) && basename(dirname($manifest)) === 'install') {
+                                    $manifest_file = pathinfo($manifest, PATHINFO_BASENAME);
+                                    $plugin_name = str_replace('.manifest.xml', '', $manifest_file);
+
+                                    if (Dir::create(PLUGINS . DS . $plugin_name)) {
+                                        $tmp_plugin_dir = dirname(dirname($manifest));
+                                        Dir::copy($tmp_plugin_dir, PLUGINS . DS . $plugin_name);
+                                        Notification::set('success', __('Plugin was uploaded', 'plugins'));
+                                        $error = false;
+                                    }
+                                }
+                            }
+                        } else {
+                            $error = 'System error';
+                        }
+                    } else {
+                        $error = 'Forbidden plugin file type';
+                    }
+                } else {
+                    $error = 'Plugin was not uploaded';
+                }
+
+                if ($error) {
+                    Notification::set('error', __($error, 'plugins'));
+                }
+
+                if (Request::post('dragndrop')) {
+                    Request::shutdown();
+                } else {
+                    Request::redirect($site_url.'/admin/index.php?id=plugins');
+                }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+        }
+
         // Installed plugins
         $plugins_installed = array();
 
@@ -149,6 +211,11 @@ class PluginsAdmin extends Backend
                 ->assign('installed_plugins', $installed_plugins)
                 ->assign('plugins_to_intall', $plugins_to_intall)
                 ->assign('_users_plugins', $_users_plugins)
+                ->assign('fileuploader', array(
+                    'uploadUrl' => $site_url.'/admin/index.php?id=plugins',
+                    'csrf'      => Security::token(),
+                    'errorMsg'  => __('Upload server error', 'filesmanager')
+                ))
                 ->display();
     }
 }

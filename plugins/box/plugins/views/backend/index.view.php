@@ -1,6 +1,8 @@
 <h2><?php echo __('Plugins', 'plugins'); ?></h2>
 <br>
 
+<input type="hidden" id="fUploaderInit" value='<?php echo json_encode($fileuploader); ?>' />
+
 <div class="tabbable">
 
     <!-- Plugins_tabs -->
@@ -93,6 +95,34 @@
                     <?php } ?>
                 </tbody>
             </table>
+
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                    echo (
+                        Form::open(null, array('enctype' => 'multipart/form-data', 'class' => 'form-inline')).
+                        Form::hidden('csrf', Security::token())
+                    );
+                ?>
+                <div class="fileupload fileupload-new fileupload-controls" data-provides="fileupload">
+                    <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'plugins'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'plugins'); ?></span><input type="file" name="file" /></button>
+                        <?php
+                            echo (
+                                Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
+                                Form::close()
+                            );
+                        ?>
+                    <span class="fileupload-preview"></span>
+
+                </div>
+                <div id="uploadArea" class="upload-area">
+                    <div id="fuProgress" class="upload-progress"></div>
+                    <div id="fuPlaceholder" class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
+                </div>
+                <div id="fileInfo" class="upload-file-info"></div>
+            </div>
+        </div>
+
         </div>
         <!-- /Plugins_to_install_list -->
 
