@@ -16,5 +16,6 @@
             'Get More Plugins' => 'さらにプラグインを取得',
             'Install' => 'インストール',
             'Uninstall' => '停止',
+            'README.md not found' => 'README.md not found',
         )
     );

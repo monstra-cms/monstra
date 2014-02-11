@@ -16,5 +16,6 @@
             'Get More Plugins' => 'دریافت افزونه های بیشتر',
             'Install' => 'نصب',
             'Uninstall' => 'حذف',
+            'README.md not found' => 'README.md not found',
         )
     );

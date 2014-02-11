@@ -16,5 +16,6 @@
             'Get More Plugins' => 'Cari Plugins Baru',
             'Install' => 'Memasangkan',
             'Uninstall' => 'Menghapus Program',
+            'README.md not found' => 'README.md not found',
         )
     );

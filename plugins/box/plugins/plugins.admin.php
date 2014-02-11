@@ -15,13 +15,6 @@ Action::add('admin_pre_render','PluginsAdmin::_readmeLoadAjax');
 class PluginsAdmin extends Backend
 {
 
-    public static function _readmeLoadAjax() {
-        if (Request::post('readme_plugin')) {
-            echo Text::toHtml(markdown(Html::toText(File::getContent(PLUGINS . DS . Request::post('readme_plugin') . DS . 'README.md'))));
-            Request::shutdown();
-        }
-    }
-
     /**
      * Plugins admin
      */
@@ -230,4 +223,19 @@ class PluginsAdmin extends Backend
                 ))
                 ->display();
     }
+
+    /**
+     * _readmeLoadAjax
+     */
+    public static function _readmeLoadAjax() {
+        if (Request::post('readme_plugin')) {
+            if (File::exists($file = PLUGINS . DS . Request::post('readme_plugin') . DS . 'README.md')) {
+                echo Text::toHtml(markdown(Html::toText(File::getContent($file))));
+            } else {
+                echo __('README.md not found', 'plugins');
+            }
+            Request::shutdown();
+        }
+    }
+
 }
