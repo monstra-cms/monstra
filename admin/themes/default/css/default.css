@@ -209,15 +209,22 @@ a.navbar-brand {
 .alert,
 .tooltip,
 .tooltip-inner,
+pre,
 code {
     border-radius: 0px;
 }
 .badge,
 .tooltip,
 .tooltip-inner,
-.label {
+.label,
+pre,
+code {
     font-weight: normal;
     text-shadow: none;
+}
+
+pre {
+    border: none;
 }
 
 /* Inputs */
