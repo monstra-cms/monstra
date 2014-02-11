@@ -137,7 +137,14 @@
 <script>
     $(document).ready(function () {
         $('.readme_plugin').click(function() {
-            
+            $.ajax({
+                type:"post",
+                data:"readme_plugin="+$(this).attr('readme_plugin'),
+                url: "<?php echo Site::url(); ?>/admin/index.php?id=plugins",
+                success: function(data){
+                    $('#readme .modal-body').html(data);
+                }
+            });
         });
     });
 </script>
@@ -149,15 +156,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">README.md</h4>
       </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <div class="modal-body"></div>
     </div>
   </div>
 </div>

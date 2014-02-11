@@ -6,11 +6,22 @@ Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend', 11);
 // Add plugin navigation link
 Navigation::add(__('Plugins', 'plugins'), 'extends', 'plugins', 1);
 
+// Add action on admin_pre_render hook
+Action::add('admin_pre_render','PluginsAdmin::_readmeLoadAjax');
+
 /**
  * Plugins Admin
  */
 class PluginsAdmin extends Backend
 {
+
+    public static function _readmeLoadAjax() {
+        if (Request::post('readme_plugin')) {
+            echo Text::toHtml(markdown(Html::toText(File::getContent(PLUGINS . DS . Request::post('readme_plugin') . DS . 'README.md'))));
+            Request::shutdown();
+        }
+    }
+
     /**
      * Plugins admin
      */
@@ -112,6 +123,7 @@ class PluginsAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
         }
+
 
         // Upload & extract plugin archive
         // -------------------------------------
