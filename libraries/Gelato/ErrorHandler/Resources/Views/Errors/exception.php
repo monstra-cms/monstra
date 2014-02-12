@@ -5,12 +5,12 @@
 <title>Error</title>
 <style type="text/css">
 body {
-    background: #eee;
+    background: #F5F5F5;
     padding: 0;
     margin: 0;
 }
 #gelato-error {
-    background:#eee;
+    background:#F5F5F5;
     color:0;
     width:100%;
     font-size:14px;
@@ -25,12 +25,12 @@ body {
 }
 
 #gelato-error a {
-    color:#cc0a0a;
+    color:#DC143C;
     text-decoration:none;
 }
 
 #gelato-error .error {
-    background:#cc0a0a;
+    background:#DC143C;
     color:#fff;
     font-size:24px;
     font-weight:700;
