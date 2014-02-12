@@ -31,3 +31,4 @@ ob_end_clean();
 <?php } ?>
 </channel>
 </rss>
+<?php Response::status(200); ?>
