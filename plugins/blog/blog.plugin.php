@@ -20,6 +20,8 @@ Plugin::register( __FILE__,
                 'Awilum',            
                 'http://monstra.org/');
 
+// Add action
+Action::add('frontend_pre_render', 'Blog::_rss');
 
 /**
  * Blog Class
@@ -33,7 +35,6 @@ class Blog {
      * @var string
      */
     public static $parent_page_name = 'blog';
-
 
     /**
      * Get tags
@@ -382,6 +383,15 @@ class Blog {
         return Page::author();
     }
 
+    /**
+     * _rss
+     */
+    public static function _rss() {
+        if (Uri::segment(0) == 'rss') {
+            include PLUGINS . DS . 'blog' . DS . 'rss.php';
+            Request::shutdown();
+        }
+    }
 
 }
 
