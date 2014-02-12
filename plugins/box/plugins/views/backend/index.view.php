@@ -43,10 +43,12 @@
                         </td>
                         <td>
                             <div class="pull-right">
+                            <?php if (File::exists(PLUGINS . DS . $plugin['id'] . DS . 'README.md')) { ?>
                             <?php echo Html::anchor(__('?', 'plugins'),
-                                       '#'.$plugin['id'],
-                                       array('class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#readme'));
+                                       '#',
+                                       array('class' => 'btn btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => $plugin['id']));
                             ?>
+                            <?php } ?>
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
                                        array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
@@ -134,6 +136,21 @@
 
 </div>
 
+<script>
+    $(document).ready(function () {
+        $('.readme_plugin').click(function() {
+            $.ajax({
+                type:"post",
+                data:"readme_plugin="+$(this).attr('readme_plugin'),
+                url: "<?php echo Site::url(); ?>/admin/index.php?id=plugins",
+                success: function(data){
+                    $('#readme .modal-body').html(data);
+                }
+            });
+        });
+    });
+</script>
+
 
 <!-- Modal -->
 <div class="modal fade" id="readme" tabindex="-1" role="dialog" aria-hidden="true">
@@ -141,15 +158,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">README.md</h4>
       </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <div class="modal-body"></div>
     </div>
   </div>
 </div>

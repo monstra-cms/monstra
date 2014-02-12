@@ -6,17 +6,27 @@ Monstra 2.4.0, 2014-xx-xx
 - Site: New default theme
 - W3 layout fixes
 - Idiorm Updated to 1.4.1
-- Filesmanager plugin: added ability to create & rename directories.
+- Prefetch DNS to reduce look up times
+- Files Manager: added ability to create & rename directories.
+- Files Manager: Maximum upload file size message - added.
+- Files Manager: Bootstrap fileinput.js updated to 3.0.0
+- Backup: Restore Site from Backup added
+- Plugins Manager: Uploading new plugins via the admin panel added
+- Plugins Manager: Read plugin help(README.MD) ability added.
 - Responsive Chocolat Lightbox instead of TB Lightbox
 - Blog Plugin as a part of Monstra CMS 
 - CodeMirror Plugin as a part of Monstra CMS
+- Markdown Plugin as a part of Monstra CMS
 - Site Url without trailing slashes
 - Admin Help Section - added
 - Monstra Dashboard created and set as default Plugin for Admin Panel
+- Monstra Dashboard Google Analytics statistic added.
 - Ink Framework for Monstra Email Templates
-- iCheck plugin for checkboxes
+- iCheck plugin for checkboxes added.
 - Emails Manager Plugin added.
 - HubSpot Messaging Library added for notifications
+- Gelato: Unzip Functionality added.
+- Gelato: Number Class new method convertToBytes() added.
 - Update jQuery to v1.10.2
 - Users Plugin getGravatarURL() improve
 - Plugin API - Actions - Closure support added.
@@ -27,7 +37,8 @@ Monstra 2.4.0, 2014-xx-xx
 - Core: Added ability to avoid caching JS/CSS by the browser.
 - Prefetch DNS added to reduce look up times
 - Sandbox Plugin cleanup
-- Localization: Japanese(JA), Indonesian(ID) translations added
+- New Flags: Japanese(JA), Indonesian(ID) added.
+- Localization: Japanese(JA), Indonesian(ID) translations added.
 - Localization: Major Fixes
 
 Monstra 2.3.1, 2013-12-25

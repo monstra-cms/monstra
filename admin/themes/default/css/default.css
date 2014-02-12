@@ -209,15 +209,22 @@ a.navbar-brand {
 .alert,
 .tooltip,
 .tooltip-inner,
+pre,
 code {
     border-radius: 0px;
 }
 .badge,
 .tooltip,
 .tooltip-inner,
-.label {
+.label,
+pre,
+code {
     font-weight: normal;
     text-shadow: none;
+}
+
+pre {
+    border: none;
 }
 
 /* Inputs */
@@ -411,6 +418,7 @@ td, th {
     border-bottom: 1px solid #ccc;
 }
 
+
 /* Editor */
 #editor_area {
     height: 400px!important; 
@@ -432,6 +440,10 @@ td, th {
 
 .modal-header {
     border-bottom: 1px solid #F3F3F3;
+}
+
+.modal-header .close {
+    font-size: 26px;
 }
 
 .modal-footer {
@@ -458,6 +470,14 @@ td, th {
 .modal-content {
     box-shadow: none;
     border: none;
+}
+
+#readme .modal-dialog {
+    width: 70%;
+}
+
+#readme .modal-body {
+    padding-top: 0px;
 }
 
 /*************************************

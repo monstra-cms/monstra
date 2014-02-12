@@ -16,5 +16,6 @@
             'Get More Plugins' => 'Scarica altri plugin',
             'Install' => 'Installa',
             'Uninstall' => 'Disinstalla',
+            'README.md not found' => 'README.md not found',
         )
     );
