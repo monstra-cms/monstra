@@ -69,7 +69,7 @@ class BackupAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
-        // Restore backup
+        // Delete backup
         // -------------------------------------
         if (Request::get('restore')) {
 
