@@ -69,13 +69,13 @@ class BackupAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
-        // Delete backup
+        // Restore backup
         // -------------------------------------
         if (Request::get('restore')) {
 
             if (Security::check(Request::get('token'))) {
 
-                $tmp_dir = sys_get_temp_dir() . uniqid('monstra_');
+                $tmp_dir = ROOT . DS . 'tmp' . DS . uniqid('backup_');
 
                 if (Dir::create($tmp_dir)) {
                     $file_locations = Zip::factory()->extract($backups_path . DS . Request::get('restore'), $tmp_dir);
