@@ -10,15 +10,6 @@ $().ready(function(){$('[name=create_backup]').click(function(){$(this).button('
     echo (
         Form::open(null, array('class' => 'form-inline')) .
         Form::hidden('csrf', Security::token()).
-        '<div class="checkbox"><label>'.
-        Form::checkbox('add_storage_folder', null, true, array('disabled' => 'disabled')) . ' ' . __('storage', 'backup') . ' ' . Html::nbsp(2) .
-        '</label></div>'.
-        '<div class="checkbox"><label>'.
-        Form::checkbox('add_public_folder') . ' ' . __('public', 'backup') . ' ' . Html::nbsp(2) .
-        '</label></div>'.
-        '<div class="checkbox"><label>'.
-        Form::checkbox('add_plugins_folder') . ' ' . __('plugins', 'backup') . ' ' . Html::nbsp(2) .
-        '</label></div>'.
         Form::submit('create_backup', __('Create Backup', 'backup'), array('class' => 'btn btn-primary', 'data-loading-text' => __('Creating...', 'backup'))).
         Form::close()
     );
