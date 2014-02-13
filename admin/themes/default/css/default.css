@@ -49,6 +49,13 @@ a.btn-expand {
     padding-right:4px;
 }
 
+.btn:active,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  box-shadow: none;
+}
+
 .login-footer, 
 .login-footer a {
     color:#777;
@@ -470,6 +477,20 @@ td, th {
 .modal-content {
     box-shadow: none;
     border: none;
+}
+
+.modal-header .close:hover {
+    background: #D3D3D3;
+}
+
+.modal-header .close {
+    text-shadow:none;
+    background: #DCDCDC;
+    width: 1.0em;
+    height: 1.0em;
+    text-align: center;
+    font-weight: 900;
+    cursor: pointer;
 }
 
 #readme .modal-dialog {
