@@ -47,7 +47,9 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="masthead">
+
+    <div class="navbar" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,12 +61,24 @@
           <a class="navbar-brand" href="<?php echo Site::url(); ?>"><?php echo Site::name(); ?></a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav pull-right">
               <?php echo Menu::get(); ?>
           </ul>
-          <div class="pull-right user-panel">
+          <!--<div class="pull-right user-panel">
             <?php Users::getPanel(); ?>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
+
+    <div class="page-header container text-center">
+      <?php if (Uri::segment(0) == 'users') { ?>
+        <h1><?php echo __('Users', 'users'); ?></h1>
+      <?php } elseif (Uri::segment(0) == 'sitemap') { ?>
+        <h1><?php echo __('Sitemap', 'sitemap'); ?></h1>
+      <?php } else { ?>
+        <h1><?php echo Page::title(); ?></h1>
+      <?php } ?>
+    </div>
+
+  </div>

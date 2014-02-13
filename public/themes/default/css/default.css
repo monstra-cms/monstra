@@ -1,19 +1,15 @@
 body {
-    padding-top: 60px;
-    padding-bottom: 40px;
+    
 }
 
-.user-panel {
-    margin-top: 16px;
+a {
+    color: #4169E1;
+    text-decoration: none;
 }
 
-.user-panel {
-	color: #fff;
-}
-
-.user-panel a {
-	color: #fff;
-	text-decoration: underline;
+a:hover {
+    color: #DC143C;
+    text-decoration: none;
 }
 
 .error {
@@ -53,4 +49,57 @@ code {
 
 a.monstra-blog-tag {
     text-decoration: none;
+}
+
+.masthead {
+    min-height: 300px;
+    padding-top: 30px;
+    background: -webkit-linear-gradient(45deg, #b39c68, #a56365, #412e4c);
+    background: -moz-linear-gradient(45deg, #b39c68, #a56365, #412e4c);
+    background: -o-linear-gradient(45deg, #b39c68, #a56365, #412e4c);
+    background: linear-gradient(45deg, #b39c68, #a56365, #412e4c);
+}
+
+.navbar {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+}
+
+.navbar-nav a {
+    color: #fff;
+}
+
+.navbar-nav a:hover {
+    color: #333;
+    background: #fff;
+}
+
+.navbar-nav > li.active > a {
+    background: #fff;
+    color: #333;
+}
+
+a.navbar-brand {
+    color: #fff;
+    font-size: 36px;
+}
+
+.page-header {
+    color: #fff;
+    border:none;
+}
+
+.page-header h1 {
+    font-size: 64px;
+}
+
+.tags .label {
+    font-size: 16px;
+}
+
+footer {
+    padding-bottom: 40px;
+    color: #aaa;
 }
