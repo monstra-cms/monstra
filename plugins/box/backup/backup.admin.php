@@ -30,10 +30,10 @@ class BackupAdmin extends Backend
                 $zip->readDir(STORAGE . DS, false);
 
                 // Add public folder
-                if (Request::post('add_public_folder')) $zip->readDir(ROOT . DS . 'public' . DS, false);
+                $zip->readDir(ROOT . DS . 'public' . DS, false);
 
                 // Add plugins folder
-                if (Request::post('add_plugins_folder')) $zip->readDir(PLUGINS . DS, false);
+                $zip->readDir(PLUGINS . DS, false, null, array(PLUGINS . DS . 'box'));
 
                 if ($zip->archive($backups_path . DS . Date::format(time(), "Y-m-d-H-i-s").'.zip')) {
                     Notification::set('success', __('Backup was created', 'backup'));

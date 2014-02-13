@@ -270,7 +270,7 @@ class Zip
      * @param  string  $root_path         Root path
      * @return mixed
      */
-    public function readDir($path, $preserve_filepath = true, $root_path = null)
+    public function readDir($path, $preserve_filepath = true, $root_path = null, $exclude_files = array())
     {
         if ( ! $fp = @opendir($path)) {
             return false;
@@ -283,12 +283,12 @@ class Zip
 
         while (false !== ($file = readdir($fp))) {
 
-            if (substr($file, 0, 1) == '.') {
+            if (substr($file, 0, 1) == '.' || in_array($path.$file, $exclude_files)) {
                 continue;
             }
 
             if (@is_dir($path.$file)) {
-                $this->readDir($path.$file."/", $preserve_filepath, $root_path);
+                $this->readDir($path.$file."/", $preserve_filepath, $root_path, $exclude_files);
             } else {
                 if (false !== ($data = file_get_contents($path.$file))) {
                     $name = str_replace("\\", "/", $path);
