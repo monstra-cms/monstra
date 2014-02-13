@@ -52,12 +52,7 @@ a.monstra-blog-tag {
 }
 
 .masthead {
-    min-height: 300px;
-    padding-top: 30px;
-    background: -webkit-linear-gradient(45deg, #b39c68, #a56365, #412e4c);
-    background: -moz-linear-gradient(45deg, #b39c68, #a56365, #412e4c);
-    background: -o-linear-gradient(45deg, #b39c68, #a56365, #412e4c);
-    background: linear-gradient(45deg, #b39c68, #a56365, #412e4c);
+    background: linear-gradient(45deg, #412e4c, #a56365, #b39c68);
 }
 
 .navbar {
@@ -65,38 +60,64 @@ a.monstra-blog-tag {
     border-radius: 0;
     margin-bottom: 0;
     background-color: transparent;
+    background-color: #fff;
 }
 
 .navbar-nav a {
-    color: #fff;
+    color: #696969;
+}
+
+.navbar-nav > li > a:hover {
+    background: transparent;
+    color: #000;
 }
 
 .navbar-nav a:hover {
-    color: #333;
-    background: #fff;
+    color: #000;
+    background: transparent;
 }
 
 .navbar-nav > li.active > a {
-    background: #fff;
-    color: #333;
+    background: transparent;
+    color: #000;
 }
 
 a.navbar-brand {
-    color: #fff;
+    color: #000;
     font-size: 36px;
+}
+
+.navbar .container {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .page-header {
     color: #fff;
     border:none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: none;
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 
 .page-header h1 {
-    font-size: 64px;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .tags .label {
-    font-size: 16px;
+    font-size: 14px;
+}
+
+.container {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 footer {
