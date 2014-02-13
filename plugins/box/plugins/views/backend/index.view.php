@@ -110,16 +110,15 @@
                         Form::hidden('csrf', Security::token())
                     );
                 ?>
-                <div class="fileupload fileupload-new fileupload-controls" data-provides="fileupload">
-                    <button class="btn btn-default btn-file"><span class="fileupload-new"><?php echo __('Select file', 'plugins'); ?></span><span class="fileupload-exists"><?php echo __('Change', 'plugins'); ?></span><input type="file" name="file" /></button>
+                <div class="fileinput fileinput-new pull-left" data-provides="fileinput">
+                    <span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
                         <?php
                             echo (
                                 Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
                                 Form::close()
                             );
                         ?>
-                    <span class="fileupload-preview"></span>
-
+                    <span class="fileinput-filename"></span>
                 </div>
                 <div id="uploadArea" class="upload-area">
                     <div id="fuProgress" class="upload-progress"></div>
