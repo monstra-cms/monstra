@@ -1,19 +1,21 @@
-<h2><?php echo __('Backups', 'backup'); ?></h2>
-<br>
-
-<script>
-$().ready(function(){$('[name=create_backup]').click(function(){$(this).button('loading');});});
-</script>
+<script>$().ready(function(){$('[name=create_backup]').click(function(){$(this).button('loading');});});</script>
 
 <div>
-<?php
-    echo (
-        Form::open(null, array('class' => 'form-inline')) .
-        Form::hidden('csrf', Security::token()).
-        Form::submit('create_backup', __('Create Backup', 'backup'), array('class' => 'btn btn-primary', 'data-loading-text' => __('Creating...', 'backup'))).
-        Form::close()
-    );
-?>
+    <div class="pull-left">
+        <h2><?php echo __('Backups', 'backup'); ?></h2>
+    </div>
+    <div class="pull-right">
+        <br>
+        <?php
+            echo (
+                Form::open(null, array('class' => 'form-inline')) .
+                Form::hidden('csrf', Security::token()).
+                Form::submit('create_backup', __('Create Backup', 'backup'), array('class' => 'btn btn-primary', 'data-loading-text' => __('Creating...', 'backup'))).
+                Form::close()
+            );
+        ?>
+    </div>
+    <div class="clearfix"></div>
 </div>
 
 <br>
