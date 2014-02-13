@@ -69,7 +69,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a class="close" data-dismiss="modal">×</a>
+                <div class="close" data-dismiss="modal">&times;</div>
                 <h4 class="modal-title"><?php echo __('Select page', 'menu'); ?></h4>
             </div>
             <div class="modal-body">
@@ -90,7 +90,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a class="close" data-dismiss="modal">×</a>
+                <div class="close" data-dismiss="modal">&times;</div>
                 <h4 class="modal-title"><?php echo __('Select category', 'menu'); ?></h4>
             </div>
             <div class="modal-body">
