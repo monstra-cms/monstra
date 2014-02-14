@@ -5,37 +5,44 @@ $.monstra.fileuploader = {
     conf: {
         uploadUrl: '',
         csrf: '',
-		errorMsg: ''
+		errorMsg: '',
+        uploaderId: ''
     },
-    
+
+    _uploaderObj: null,
+
     init: function(conf){
+        if (!conf.uploaderId) {
+            throw 'uploaderId not specified';
+        }
         $.extend(this.conf, conf);
-        var area = $('#uploadArea');
-        area.on('dragenter', function(e){
+        this._uploaderObj = $('#'+ this.conf.uploaderId);
+        var area = this._uploaderObj.find('.upload-area');
+        area.off('dragenter.fuploader').on('dragenter.fuploader', function(e){
             e.stopPropagation();
             e.preventDefault();
             $(this).addClass('upload-area-dragenter');
         });
-        area.on('dragover', function(e){
+        area.off('dragover.fuploader').on('dragover.fuploader', function(e){
             e.stopPropagation();
             e.preventDefault();
         });
-        area.on('drop', function(e){
+        area.off('drop.fuploader').on('drop.fuploader', function(e){
             $(this).removeClass('upload-area-dragenter').removeClass('upload-area-dragover').addClass('upload-area-drop');
             e.preventDefault();
             var files = e.originalEvent.dataTransfer.files;
             $.monstra.fileuploader.uploadFileHandle(files, area);
         });
-        $(document).on('dragover', function(e){
+        $(document).off('dragover.fuploader').on('dragover.fuploader', function(e){
             e.stopPropagation();
             e.preventDefault();
             area.removeClass('upload-area-dragenter').removeClass('upload-area-drop').addClass('upload-area-dragover');
         });
-        $(document).on('dragenter', function(e){
+        $(document).off('dragenter.fuploader').on('dragenter.fuploader', function(e){
             e.stopPropagation();
             e.preventDefault();
         });
-        $(document).on('drop', function(e){
+        $(document).off('drop.fuploader').on('drop.fuploader', function(e){
             e.stopPropagation();
             e.preventDefault();
         });
@@ -87,18 +94,18 @@ $.monstra.fileuploader = {
 					message : $.monstra.fileuploader.conf.errorMsg,
 					hideAfter: 3
 				});
-				$('#fuProgress').animate({ width: 0 }, 1);
-				$('#fuPlaceholder').show();
+                this._uploaderObj.find('.upload-progress').animate({ width: 0 }, 1);
+                this._uploaderObj.find('.upload-file-pholder').show();
 			}
         });
     },
     
     setProgress: function(progress){
         if (parseInt(progress) > 0) {
-            $('#fuPlaceholder').hide();
+            this._uploaderObj.find('.upload-file-pholder').hide();
         }
-        var progressBarWidth = progress * $('#uploadArea').width() / 100;  
-        $('#fuProgress').animate({ width: progressBarWidth }, 10);
+        var progressBarWidth = progress * this._uploaderObj.find('.upload-area').width() / 100;
+        this._uploaderObj.find('.upload-progress').animate({ width: progressBarWidth }, 10);
     },
     
     setFileNameSize: function(fname, fsize){
@@ -111,14 +118,14 @@ $.monstra.fileuploader = {
             sizeStr = sizeKB.toFixed(2)+' KB';
         }
         
-        $('#fileInfo').html(fname +' '+ sizeStr);
+        this._uploaderObj.find('.upload-file-info').html(fname +' '+ sizeStr);
     }
 };
 
 $(document).ready(function(){
     $val_fUploaderInit = $('#fUploaderInit').val();
     if ($val_fUploaderInit !== undefined) {
-        $.monstra.fileuploader.init($.parseJSON($val_fUploaderInit));
+        $.monstra.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, $.parseJSON($val_fUploaderInit)));
     }
 });
 

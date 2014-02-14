@@ -25,14 +25,16 @@
       <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
     </div>
 
-    <div id="uploadArea" class="upload-area">
-        <div id="fuProgress" class="upload-progress"></div>
-        <div id="fuPlaceholder" class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
-    </div>
-    <div id="fileInfo" class="upload-file-info"></div>
-    <div class="btn btn-link file-size-max-upload">
-        <?php echo __('Maximum upload file size: :upload_max_filesize', 'pages', array(':upload_max_filesize' => $upload_max_filesize)); ?>
-    </div>
+	<div id="DgDfileUploader">
+		<div class="upload-area">
+			<div class="upload-progress"></div>
+			<div class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
+		</div>
+		<div class="upload-file-info"></div>
+		<div class="btn btn-link file-size-max-upload">
+			<?php echo __('Maximum upload file size: :upload_max_filesize', 'pages', array(':upload_max_filesize' => $upload_max_filesize)); ?>
+		</div>
+	</div>
     </div>
     <div class="col-md-2">
         <div class="pull-right">

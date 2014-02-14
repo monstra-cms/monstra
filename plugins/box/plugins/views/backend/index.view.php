@@ -121,11 +121,13 @@
                     <span class="fileupload-preview"></span>
 
                 </div>
-                <div id="uploadArea" class="upload-area">
-                    <div id="fuProgress" class="upload-progress"></div>
-                    <div id="fuPlaceholder" class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
-                </div>
-                <div id="fileInfo" class="upload-file-info"></div>
+				<div id="DgDfileUploader">
+					<div class="upload-area">
+						<div class="upload-progress"></div>
+						<div class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
+					</div>
+					<div class="upload-file-info"></div>
+				</div>
             </div>
         </div>
 
