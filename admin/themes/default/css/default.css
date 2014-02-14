@@ -425,6 +425,40 @@ td, th {
     border-bottom: 1px solid #ccc;
 }
 
+.vertical-align {
+    display: table;
+    width: 100%;
+}
+
+.vertical-align > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vertical-align > div > h1, 
+.vertical-align > div > h2,
+.vertical-align > div > h3,
+.vertical-align > div > h4,
+.vertical-align > div > h5 { 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.margin-top-1em {
+    margin-bottom: 1em;
+}
+
+.margin-top-2em {
+    margin-bottom: 2em;
+}
+
+.margin-bottom-1em {
+    margin-bottom: 1em;
+}
+
+.margin-bottom-2em {
+    margin-bottom: 2em;
+}
 
 /* Editor */
 #editor_area {
