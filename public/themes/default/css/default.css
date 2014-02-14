@@ -52,6 +52,9 @@ a.monstra-blog-tag {
 }
 
 .masthead {
+    background: -webkit-linear-gradient(45deg, #412e4c, #a56365, #b39c68);
+    background: -moz-linear-gradient(45deg, #412e4c, #a56365, #b39c68);
+    background: -o-linear-gradient(45deg, #412e4c, #a56365, #b39c68);
     background: linear-gradient(45deg, #412e4c, #a56365, #b39c68);
 }
 
