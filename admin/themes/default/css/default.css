@@ -501,6 +501,10 @@ td, th {
     padding-top: 0px;
 }
 
+#Choco_container_via {
+    display: none;
+}
+
 /*************************************
     3. MEDIA QUERIES
 *************************************/
