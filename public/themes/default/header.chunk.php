@@ -72,10 +72,20 @@
     </div>
 
     <div class="page-header container text-center">
-      <?php if (Uri::segment(0) == 'users') { ?>
+      <?php if (Uri::segment(0) == 'users'  && Uri::segment(1) == '') { ?>
         <h1><?php echo __('Users', 'users'); ?></h1>
       <?php } elseif (Uri::segment(0) == 'sitemap') { ?>
         <h1><?php echo __('Sitemap', 'sitemap'); ?></h1>
+      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'registration') { ?>        
+        <h1><?php echo __('Registration', 'users'); ?></h1>
+      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'login') { ?>
+        <h1><?php echo __('Sign In', 'users'); ?></h1>
+      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'password-reset') { ?>                
+        <h1><?php echo __('Reset Password', 'users') ?></h1>
+      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(2) == 'edit') { ?>                
+        <h1><?php echo __('Edit profile', 'users') ?></h1>
+      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) ) { ?>
+        <h1><?php echo __('Profile', 'users'); ?></h1>
       <?php } else { ?>
         <h1><?php echo Page::title(); ?></h1>
       <?php } ?>
