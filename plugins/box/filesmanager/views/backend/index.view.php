@@ -141,7 +141,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <a class="close" data-dismiss="modal">&times;</a>
+        <div class="close" data-dismiss="modal">&times;</div>
         <h4 class="modal-title" id="myModalLabel"><?php echo __('Create New Directory', 'filesmanager'); ?></h4>
       </div>
       <form role="form" method="POST">
@@ -164,7 +164,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <a class="close" data-dismiss="modal">&times;</a>
+        <div class="close" data-dismiss="modal">&times;</div>
         <h4 class="modal-title"><?php echo __('Rename', 'filesmanager'); ?></h4>
       </div>
       <form role="form" method="POST">

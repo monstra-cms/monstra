@@ -11,7 +11,7 @@
             <div class="col-xs-8">
                 <?php echo Blog::getPosts(3); ?>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4 tags">
                 <h3>Tags</h3>
                 <?php echo Blog::getTags(); ?>
             </div>
