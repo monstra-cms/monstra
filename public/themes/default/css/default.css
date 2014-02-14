@@ -1,5 +1,5 @@
 body {
-    
+    background: #F5F5F5;
 }
 
 a {
@@ -103,8 +103,8 @@ a.navbar-brand {
     margin-top: 0px;
     margin-bottom: 0px;
     border-bottom: none;
-    padding-bottom: 0px;
-    padding-top: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .page-header h1 {
@@ -118,12 +118,14 @@ a.navbar-brand {
     font-size: 14px;
 }
 
-.container {
-    margin-bottom: 10px;
-    margin-top: 10px;
+.container-wide {
+    background:#fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 footer {
-    padding-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: #aaa;
 }

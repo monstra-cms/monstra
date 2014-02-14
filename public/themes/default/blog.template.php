@@ -1,4 +1,6 @@
 <?php Chunk::get('header'); ?>
+<div class="container-wide">
+
     <div class="container">
 
         <div class="row">
@@ -23,5 +25,7 @@
             </div>
         </div>
 
-        <hr>
+    </div>
+    
+</div>
 <?php Chunk::get('footer'); ?>
