@@ -1,6 +1,3 @@
-<h3><?php echo __('Log In', 'users'); ?></h3>
-<hr>
-
 <div class="row">
 	<div class="col-md-3">
 		<form method="post">

@@ -1,5 +1,3 @@
-<h3><?php echo __('Users', 'users'); ?></h3>
-<hr>
 <table>
     <tr>
         <td></td>

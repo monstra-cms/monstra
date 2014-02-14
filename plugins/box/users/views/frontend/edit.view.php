@@ -1,6 +1,3 @@
-<h3><?php echo __('Edit profile', 'users') ?></h3>
-<hr>
-
 <div class="row">
 	<div class="col-md-3">
 
@@ -48,6 +45,7 @@
 		</div>
 		<div class="form-group">
 		<input type="submit" class="btn btn-primary" value="<?php echo __('Save', 'users'); ?>" name="edit_profile">
+		<?php echo Html::anchor(__('Cancel', 'users'), Site::url().'/users/'.Uri::segment(1), array('title' => __('Cancel', 'pages'), 'class' => 'btn btn-default')); ?>
 		</div>
 		</form>
 	</div>
