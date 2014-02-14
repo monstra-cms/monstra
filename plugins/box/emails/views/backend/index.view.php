@@ -1,19 +1,15 @@
-<div>
-    <div class="pull-left">
+<div class="vertical-align margin-bottom-1em">
+    <div class="text-left">
         <h2><?php echo __('Emails', 'emails'); ?></h2>
     </div>    
-    <div class="pull-right">
-        <br>
+    <div class="text-right">
         <?php
             echo (
                 Html::anchor(__('Edit Layout', 'emails'), 'index.php?id=emails&action=edit_email_template&filename=layout', array('title' => __('Edit Layout', 'emails'), 'class' => 'btn btn-primary'))
             );
         ?>
     </div>
-    <div class="clearfix"></div>
 </div>
-
-<br>
 
 <table class="table table-bordered">
     <thead>

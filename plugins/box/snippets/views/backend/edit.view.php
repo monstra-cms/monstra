@@ -1,5 +1,4 @@
-<h2><?php echo __('Edit Snippet', 'snippets'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('Edit Snippet', 'snippets'); ?></h2>
 
 <?php
     if ($content !== null) {

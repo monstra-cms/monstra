@@ -1,9 +1,8 @@
-<h2><?php echo __('Users', 'users'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('Users', 'users'); ?></h2>
 
 <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
 
-<div class="pull-right">
+<div class="pull-right margin-bottom-1em">
 <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
 <?php echo Form::hidden('csrf', Security::token()); ?>
 <div class="checkbox">
@@ -14,8 +13,6 @@
 <?php echo Form::input('users_frontend_submit', 'users_frontend_submit', array('style' => 'display:none;')); ?>
 <?php echo Form::close();?>
 </div>
-
-<br><br>
 
 <!-- Users_list -->
 <table class="table table-bordered">

@@ -1,5 +1,4 @@
-<h2><?php echo __('New Block', 'blocks'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('New Block', 'blocks'); ?></h2>
 
 <?php if (isset($errors['blocks_empty_name']) or isset($errors['blocks_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 

@@ -1,8 +1,7 @@
 <!-- Users_add -->
-<h2><?php echo __('New User Registration', 'users'); ?></h2>
+<h2 class="margin-bottom-1em"><?php echo __('New User Registration', 'users'); ?></h2>
 <?php
     echo (
-        Html::br().
         Form::open().
         Form::hidden('csrf', Security::token())
     );

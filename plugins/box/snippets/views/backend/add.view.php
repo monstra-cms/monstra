@@ -1,6 +1,4 @@
-<h2><?php echo __('New Snippet', 'snippets'); ?></h2>
-<br>
-
+<h2 class="margin-bottom-1em"><?php echo __('New Snippet', 'snippets'); ?></h2>
 
 <?php if (isset($errors['snippets_empty_name']) or isset($errors['snippets_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 

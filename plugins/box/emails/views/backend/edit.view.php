@@ -1,5 +1,5 @@
-<h2><?php echo __('Edit Email Template', 'emails'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('Edit Email Template', 'emails'); ?></h2>
+
 <?php   
 if ($content !== null) {
     echo (Form::open());

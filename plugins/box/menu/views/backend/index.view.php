@@ -1,5 +1,4 @@
-<h2><?php echo __('Menu', 'menu'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('Menu', 'menu'); ?></h2>
 
 <?php if ($menu->count() == 0) { ?>
 <div>

@@ -1,5 +1,4 @@
-<h2><?php echo __('New item', 'menu'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('New item', 'menu'); ?></h2>
 
 <?php echo (Form::open()); ?>
 <?php echo (Form::hidden('csrf', Security::token())); ?>

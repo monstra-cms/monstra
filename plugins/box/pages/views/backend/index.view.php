@@ -1,9 +1,8 @@
-<div>
-    <div class="pull-left">
+<div class="vertical-align margin-bottom-1em">
+    <div class="text-left">
         <h2><?php echo __('Pages', 'pages'); ?></h2>
     </div>
-    <div class="pull-right">
-        <br>
+    <div class="text-right">
         <?php
             echo (
                 Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-primary')). Html::nbsp(3).
@@ -11,11 +10,7 @@
             );
         ?>
     </div>
-
-    <div class="clearfix"></div>
 </div>
-
-<br>
 
 <table class="table table-bordered">
     <thead>

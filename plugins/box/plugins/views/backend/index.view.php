@@ -1,5 +1,4 @@
-<h2><?php echo __('Plugins', 'plugins'); ?></h2>
-<br>
+<h2 class="margin-bottom-1em"><?php echo __('Plugins', 'plugins'); ?></h2>
 
 <input type="hidden" id="fUploaderInit" value='<?php echo json_encode($fileuploader); ?>' />
 

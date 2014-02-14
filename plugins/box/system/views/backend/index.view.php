@@ -7,7 +7,7 @@
 <?php } ?>
 <?php Action::run('admin_system_extra_buttons'); ?>
 
-<hr />
+<hr>
 
 <div class="row">
     <div class="col-md-6">

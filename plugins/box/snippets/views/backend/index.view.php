@@ -1,19 +1,15 @@
-<div>
-    <div class="pull-left">
+<div class="vertical-align margin-bottom-1em">
+    <div class="text-left">
         <h2><?php echo __('Snippets', 'snippets'); ?></h2>
     </div>
-    <div class="pull-right">
-        <br>
+    <div class="text-right">
         <?php
             echo (
                     Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-primary')). Html::nbsp(3)
                 );
         ?>
     </div>
-    <div class="clearfix"></div>
 </div>
-
-<br>
 
 <!-- Snippets_list -->
 <table class="table table-bordered">

@@ -1,11 +1,10 @@
 <script>$().ready(function(){$('[name=create_backup]').click(function(){$(this).button('loading');});});</script>
 
-<div>
-    <div class="pull-left">
+<div class="vertical-align margin-bottom-1em">
+    <div class="text-left">
         <h2><?php echo __('Backups', 'backup'); ?></h2>
     </div>
-    <div class="pull-right">
-        <br>
+    <div class="text-right">
         <?php
             echo (
                 Form::open(null, array('class' => 'form-inline')) .
@@ -15,10 +14,7 @@
             );
         ?>
     </div>
-    <div class="clearfix"></div>
 </div>
-
-<br>
 
 <!-- Backup_list -->
 <table class="table table-bordered">
