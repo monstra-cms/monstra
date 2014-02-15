@@ -115,7 +115,7 @@ class FilesmanagerAdmin extends Backend
                 }
 
                 $ext = ($rename_type === 'file') ? '.'. File::ext($rename_from) : '';
-                $rename_to = $files_path . Security::safeName($rename_to).$ext;
+                $rename_to = $files_path . Security::safeName($rename_to, null, false).$ext;
 
                 if (is_dir($rename_to)) {
                     Notification::set('error', __('Directory exists', 'filesmanager'));
@@ -148,7 +148,7 @@ class FilesmanagerAdmin extends Backend
                 $error = false;
                 if ($_FILES['file']) {
                     if ( ! in_array(File::ext($_FILES['file']['name']), $forbidden_types)) {
-                        $filepath = $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), '-', true).'.'.File::ext($_FILES['file']['name']);
+                        $filepath = $files_path.Security::safeName(basename($_FILES['file']['name'], File::ext($_FILES['file']['name'])), null, false).'.'.File::ext($_FILES['file']['name']);
                         $uploaded = move_uploaded_file($_FILES['file']['tmp_name'], $filepath);
                         if ($uploaded !== false && is_file($filepath)) {
                             Notification::set('success', __('File was uploaded', 'filesmanager'));
@@ -180,7 +180,7 @@ class FilesmanagerAdmin extends Backend
             
             if (Security::check(Request::post('csrf'))) {
                 
-                $abs_path = $files_path . Security::safeName(Request::post('directory_name'));
+                $abs_path = $files_path . Security::safeName(Request::post('directory_name'), null, false);
                 
                 $error = false;
                 
