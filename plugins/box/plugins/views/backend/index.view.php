@@ -89,6 +89,12 @@
                         </td>
                         <td>
                             <div class="pull-right">
+                            <?php if (File::exists(PLUGINS . DS . basename($plug['plugin'], '.manifest.xml') . DS . 'README.md')) { ?>
+                            <?php echo Html::anchor(__('?', 'plugins'),
+                                       '#',
+                                       array('class' => 'btn btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => basename($plug['plugin'], '.manifest.xml')));
+                            ?>
+                            <?php } ?>
                             <?php echo Html::anchor(__('Install', 'plugins'), 'index.php?id=plugins&install='.$plug['plugin'].'&token='.Security::token(), array('class' => 'btn btn-primary')); ?>
                             <?php echo Html::anchor(__('Delete', 'plugins'),
                                        'index.php?id=plugins&delete_plugin_from_server='.Text::lowercase(basename($plug['path'],'.manifest.xml')).'&token='.Security::token(),
