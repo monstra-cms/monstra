@@ -111,7 +111,7 @@ class Security
      *  </code>
      *
      * @param  string  $str       String
-     * @param  string  $delimiter String delimiter
+     * @param  mixed   $delimiter String delimiter
      * @param  boolean $lowercase String Lowercase
      * @return string
      */
@@ -121,7 +121,7 @@ class Security
         $str       = (string) $str;
         $delimiter = (string) $delimiter;
         $lowercase = (bool) $lowercase;
-        $delimiter = (string) $delimiter;
+        $delimiter = $delimiter;
 
         // Remove tags
         $str = filter_var($str, FILTER_SANITIZE_STRING);
@@ -150,8 +150,10 @@ class Security
 
         // Remove characters
         $str = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $str );
-        $str = preg_replace("/[\/_|+ -]+/", $delimiter, $str );
-        $str = trim($str, $delimiter);
+        if ($delimiter != null) {
+            $str = preg_replace("/[\/_|+ -]+/", $delimiter, $str );
+            $str = trim($str, $delimiter);
+        }
 
         // Lowercase
         if ($lowercase === true) $str = Text::lowercase($str);
