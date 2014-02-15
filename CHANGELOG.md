@@ -1,7 +1,7 @@
 Monstra 2.4.0, 2014-xx-xx
 ------------------------
 - Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
-- Update Twitter Bootstrap to 3.1.0
+- Update Twitter Bootstrap to 3.1.1
 - Admin: New Modern User Interface
 - Site: New default theme
 - W3 layout fixes
@@ -28,7 +28,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Gelato: Unzip Functionality added.
 - Gelato: Number Class new method convertToBytes() added.
 - Gelato: ErroHandler styles updates
-- Update jQuery to v1.10.2
+- Update jQuery to 2.1.0
 - Users Plugin getGravatarURL() improve
 - Plugin API - Actions - Closure support added.
 - Plugin API - Filters - Closure support added.
