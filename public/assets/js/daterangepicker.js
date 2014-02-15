@@ -1,7 +1,7 @@
 /**
-* @version: 1.3
+* @version: 1.3.2
 * @author: Dan Grossman http://www.dangrossman.info/
-* @date: 2014-01-14
+* @date: 2014-01-22
 * @copyright: Copyright (c) 2012-2014 Dan Grossman. All rights reserved.
 * @license: Licensed under Apache License v2.0. See http://www.apache.org/licenses/LICENSE-2.0
 * @website: http://www.improvely.com/
@@ -22,11 +22,11 @@
                 '<div class="calendar right"></div>' +
                 '<div class="ranges">' +
                   '<div class="range_inputs">' +
-                    '<div class="daterangepicker_start_input" style="float: left">' +
+                    '<div class="daterangepicker_start_input">' +
                       '<label for="daterangepicker_start"></label>' +
                       '<input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled" />' +
                     '</div>' +
-                    '<div class="daterangepicker_end_input" style="float: left; padding-left: 11px">' +
+                    '<div class="daterangepicker_end_input">' +
                       '<label for="daterangepicker_end"></label>' +
                       '<input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled" />' +
                     '</div>' +
@@ -182,6 +182,10 @@
                     // Create a copy of daysOfWeek to avoid modification of original
                     // options object for reusability in multiple daterangepicker instances
                     this.locale.daysOfWeek = options.locale.daysOfWeek.slice();
+                }
+
+                if (typeof options.locale.monthNames == 'object') {
+                  this.locale.monthNames = options.locale.monthNames.slice();
                 }
 
                 if (typeof options.locale.firstDay == 'number') {
@@ -387,7 +391,7 @@
             if (!this.timePicker)
                 this.endDate = this.endDate.startOf('day');
 
-            this.endDate = this.endDate.clone();
+            this.oldEndDate = this.endDate.clone();
 
             this.updateView();
             this.updateCalendars();
@@ -840,7 +844,7 @@
                 dateHtml = this.renderDropdowns(calendar[1][1], minDate, maxDate);
             }
 
-            html += '<th colspan="5" style="width: auto">' + dateHtml + '</th>';
+            html += '<th colspan="5" class="month">' + dateHtml + '</th>';
             if (!maxDate || maxDate.isAfter(calendar[1][1])) {
                 html += '<th class="next available"><i class="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th>';
             } else {
