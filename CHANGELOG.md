@@ -27,6 +27,7 @@ Monstra 2.4.0, 2014-xx-xx
 - HubSpot Messaging Library added for notifications
 - Gelato: Unzip Functionality added.
 - Gelato: Number Class new method convertToBytes() added.
+- Gelato: ErroHandler styles updates
 - Update jQuery to v1.10.2
 - Users Plugin getGravatarURL() improve
 - Plugin API - Actions - Closure support added.
