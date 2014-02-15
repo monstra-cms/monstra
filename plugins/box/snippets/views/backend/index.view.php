@@ -56,10 +56,10 @@
             </div>
             <div class="modal-body">
                 <b><?php echo __('Shortcode', 'snippets'); ?></b><br>
-                <code id="shortcode"></code>
-                <br> <br>
+                <pre><code id="shortcode"></code></pre>
+                <br>
                 <b><?php echo __('PHP Code', 'snippets'); ?></b><br>
-                <code id="phpcode"></code>
+                <pre><code id="phpcode"></code></pre>
             </div>
         </div>
     </div>
