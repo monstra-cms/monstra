@@ -23,12 +23,12 @@
             <table class="container">
               <tr>
                 <td>
-                  <table class="row email-header" style="padding:10px 20px 10px 0px;">
+                  <table class="row">
                     <tr>
                       <td class="wrapper">
                         <table class="twelve columns">
                           <tr>
-                            <td>
+                            <td class="email-header" style="padding:10px 20px 10px 0px;">
                               <h1><?php echo $site_name; ?></h1>
                             </td>
                           </tr>
@@ -36,12 +36,12 @@
                       </td>
                     </tr>
                   </table>
-                  <table class="row email-content" style="padding:20px 20px 20px 20px; border:1px solid #F5F5F5; background:#fdfdfd;">
+                  <table class="row">
                     <tr>
                       <td class="wrapper">
                         <table class="twelve columns">
                           <tr>
-                            <td>
+                            <td class="email-content" style="border:1px solid #F5F5F5; background:#fdfdfd; padding:20px 20px 20px 20px;">
                               <?php include STORAGE . DS . 'emails' . DS . $email_template . '.email.php'; ?>
                             </td>
                           </tr>
