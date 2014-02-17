@@ -1,11 +1,12 @@
 Monstra 2.4.0, 2014-xx-xx
 ------------------------
 - Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
-- Update Twitter Bootstrap to 3.1.1
+- Twitter Bootstrap updated to 3.1.1
+- Idiorm updated to 1.4.1
+- jQuery updated to 2.1.0
 - Admin: New Modern User Interface
 - Site: New default theme
-- W3 layout fixes
-- Idiorm Updated to 1.4.1
+- Layout fixes according to World Wide Web Consortium (W3C) Standards
 - Prefetch DNS to reduce look up times
 - Files Manager: added ability to create & rename directories.
 - Files Manager: Maximum upload file size message - added.
@@ -28,7 +29,6 @@ Monstra 2.4.0, 2014-xx-xx
 - Gelato: Unzip Functionality added.
 - Gelato: Number Class new method convertToBytes() added.
 - Gelato: ErroHandler styles updates
-- Update jQuery to 2.1.0
 - Users Plugin getGravatarURL() improve
 - Plugin API - Actions - Closure support added.
 - Plugin API - Filters - Closure support added.
