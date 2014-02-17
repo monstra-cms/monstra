@@ -29,8 +29,8 @@
     <?php Stylesheet::load(); ?>
 
     <!-- JavaScripts -->
-    <?php Javascript::add('public/assets/js/jquery.js', 'frontend', 1); ?>
-    <?php Javascript::add('public/assets/js/bootstrap.js', 'frontend', 2); ?>
+    <?php Javascript::add('public/assets/js/jquery.min.js', 'frontend', 1); ?>
+    <?php Javascript::add('public/assets/js/bootstrap.min.js', 'frontend', 2); ?>
     <?php Javascript::load(); ?>
 
     <?php Action::run('theme_header'); ?>
@@ -63,10 +63,9 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right">
               <?php echo Menu::get(); ?>
+              <?php Users::getPanel(); ?>
           </ul>
-          <!--<div class="pull-right user-panel">
-            <?php Users::getPanel(); ?>
-          </div>-->
+          <ul>
         </div>
       </div>
     </div>
