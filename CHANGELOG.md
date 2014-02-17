@@ -18,8 +18,11 @@ Monstra 2.4.0, 2014-xx-xx
 - Blog Plugin as a part of Monstra CMS 
 - CodeMirror Plugin as a part of Monstra CMS
 - Markdown Plugin as a part of Monstra CMS
+- MarkItUp Color Pallete fixes
 - Site Url without trailing slashes
-- Admin Help Section - added
+- Admin Help Section - added.
+- Pages Plugin: tags field added.
+- Monstra automatically renames files - fixed
 - Monstra Dashboard created and set as default Plugin for Admin Panel
 - Monstra Dashboard Google Analytics statistic added.
 - Ink Framework for Monstra Email Templates
