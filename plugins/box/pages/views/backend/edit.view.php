@@ -16,7 +16,7 @@
     <li <?php if (Notification::get('settings')) { ?>class="active"<?php } ?>><a href="#settings" data-toggle="tab"><?php echo __('Settings', 'pages'); ?></a></li>
 </ul>
 
-<div class="tab-content tab-page">
+<div class="tab-content tab-page margin-bottom-1em">
     <div class="tab-pane <?php if (Notification::get('page')) { ?>active<?php } ?>" id="page">
         <div class="form-group">
         <?php
@@ -135,13 +135,30 @@
     </div>
 </div>
 
-<br>
+<div class="row margin-bottom-1em">
+    <div class="col-xs-12">
+        <?php Action::run('admin_editor', array(Html::toText($to_edit))); ?>
+    </div>
+</div>
 
-<?php Action::run('admin_editor', array(Html::toText($to_edit))); ?>
+<div class="row margin-top-1em">
+    <div class="col-xs-12">
+        <div class="form-group">
+            <div class="input-group">
+                <?php    
+                    echo (            
+                        Form::input('page_tags', $tags_to_edit, array('class' => 'form-control'))
+                    );
+                ?>
+                <span class="input-group-addon add-on">
+                    <?php echo __('Tags', 'pages'); ?>
+                </span>            
+            </div>
+        </div>
+    </div>
+</div>
 
-<br>
-
-<div class="row">
+<div class="row margin-top-1em">
     <div class="col-xs-6">
         <?php
             echo (
