@@ -46,5 +46,6 @@
             'Script content' => 'Script content',
             'New Script' => 'New Script',
             'Edit Script' => 'Edit Script',
+            'Site Theme' => 'Site Theme',
         )
     );
