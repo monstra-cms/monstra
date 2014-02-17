@@ -3,17 +3,55 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width"/>
-
     <style type="text/css">
-      <?php include PLUGINS_BOX . '/emails/css/inc.css'; ?>   
+      <?php include PLUGINS_BOX . '/emails/css/inc.css'; ?>
+      .email-header {
+        padding: 10px 20px 10px 0px;
+      }
+      .email-content {
+        border: 1px solid #F5F5F5;
+        background: #fdfdfd;
+        padding: 20px 20px 20px 20px;
+      }
     </style>
   </head>
-  <body>
+  <body>   
     <table class="body">
       <tr>
         <td class="center" align="center" valign="top">
           <center>
-            <?php include STORAGE . DS . 'emails' . DS . $email_template . '.email.php'; ?>
+            <table class="container">
+              <tr>
+                <td>
+                  <table class="row email-header" style="padding:10px 20px 10px 0px;">
+                    <tr>
+                      <td class="wrapper">
+                        <table class="twelve columns">
+                          <tr>
+                            <td>
+                              <h1><?php echo $site_name; ?></h1>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <table class="row email-content" style="padding:20px 20px 20px 20px; border:1px solid #F5F5F5; background:#fdfdfd;">
+                    <tr>
+                      <td class="wrapper">
+                        <table class="twelve columns">
+                          <tr>
+                            <td>
+                              <?php include STORAGE . DS . 'emails' . DS . $email_template . '.email.php'; ?>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </center>
         </td>
       </tr>
