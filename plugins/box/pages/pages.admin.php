@@ -559,7 +559,7 @@ class PagesAdmin extends Backend
             $count = 0;
 
             // Get pages
-            $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'expand', 'access', 'parent'));
+            $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'expand', 'access', 'parent', 'template'));
 
             // Loop
             foreach ($pages_list as $page) {
@@ -574,6 +574,7 @@ class PagesAdmin extends Backend
                 $pages_array[$count]['author']  = $page['author'];
                 $pages_array[$count]['expand']  = $page['expand'];
                 $pages_array[$count]['slug']    = $page['slug'];
+                $pages_array[$count]['template']= $page['template'];
 
                 if (isset($page['parent'])) {
                     $c_p = $page['parent'];
