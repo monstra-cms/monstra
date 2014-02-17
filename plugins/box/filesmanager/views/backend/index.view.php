@@ -45,9 +45,8 @@
     </div>
 <!-- /Filesmanager_upload_files -->
 
-<br>
 <!-- Filesmanger_path -->
-<ol class="breadcrumb">
+<ol class="breadcrumb margin-top-1em">
 
       <?php
         $path_parts = explode ('/',$path);
@@ -68,7 +67,6 @@
     ?>
 </ol>
 <!-- /Filesmanger_path -->
-
 
 <table class="table table-bordered" id="filesDirsList">
     <thead>

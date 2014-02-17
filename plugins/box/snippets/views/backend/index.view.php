@@ -5,8 +5,8 @@
     <div class="text-right">
         <?php
             echo (
-                    Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-primary')). Html::nbsp(3)
-                );
+                Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-primary')). Html::nbsp(3)
+            );
         ?>
     </div>
 </div>
@@ -51,7 +51,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <a class="close" data-dismiss="modal">&times;</a>
+                <div class="close" data-dismiss="modal">&times;</div>
                 <h4 class="modal-title"><?php echo __('Embed Code', 'snippets'); ?></h4>
             </div>
             <div class="modal-body">

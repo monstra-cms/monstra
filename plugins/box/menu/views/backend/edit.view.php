@@ -11,10 +11,8 @@
 
         <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
         <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
-
-        <br><br>
-
-        <div class="form-group">
+    
+        <div class="form-group margin-top-2em">
         <?php
             echo Form::label('menu_item_name', __('Item name', 'menu'));
             echo Form::input('menu_item_name', $menu_item_name, array('class' => (isset($errors['menu_item_name_empty']) || isset($errors['menu_item_name_empty'])) ? 'form-control error-field' : 'form-control'));
@@ -101,4 +99,4 @@
             </div>
         </div>
     </div>
-</div> 
+</div>

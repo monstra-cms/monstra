@@ -11,7 +11,7 @@
 
 ?>
 
-        <div class="form-group">
+        <div class="form-group margin-bottom-1em">
         <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
         <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'form-control error-field' : 'form-control'))); ?>
         <?php
@@ -20,13 +20,15 @@
         ?>
         </div>
 
-<br>
-<?php
 
-        Action::run('admin_editor', array(Html::toText($content)));
+<div class="row margin-bottom-1em">
+    <div class="col-xs-12">
+        <?php Action::run('admin_editor', array(Html::toText($content))); ?>
+    </div>
+</div>
 
+<?php      
         echo (
-           Html::br().
            Form::submit('edit_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn btn-primary')).Html::nbsp(2).
            Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn btn-primary')). Html::nbsp(2).
            Html::anchor(__('Cancel', 'blocks'), 'index.php?id=blocks', array('title' => __('Cancel', 'blocks'), 'class' => 'btn btn-default')).

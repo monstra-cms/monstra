@@ -1,22 +1,18 @@
 <h2 class="margin-bottom-1em"><?php echo __('Menu', 'menu'); ?></h2>
 
 <?php if ($menu->count() == 0) { ?>
-<div>
-    <div class="pull-left">
+<div class="vertical-align margin-bottom-1em">
+    <div class="text-left">
         <h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3>
     </div>
-    <div class="pull-right">
-        <br>
+    <div class="text-right">
         <?php
             echo (
                 Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
             );
         ?>
     </div>
-    <div class="clearfix"></div>
 </div>
-
-<br>
 <?php } ?>
 
 <?php
@@ -25,11 +21,11 @@
         $category_to_add = ($category == '') ? '' : '&category='.$category;
 ?>
 
-<div>
-    <div class="pull-left">
+<div class="vertical-align margin-bottom-1em">
+    <div class="text-left">
         <h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
     </div>
-    <div class="pull-right">
+    <div class="text-right">
         <br>
         <?php
             echo (
@@ -37,10 +33,7 @@
             );
         ?>
     </div>
-    <div class="clearfix"></div>
 </div>
-
-<br>
 
 <table class="table table-bordered">
     <thead>
@@ -84,5 +77,4 @@
         <?php } ?>
     </tbody>
 </table>
-<br>
 <?php } ?>

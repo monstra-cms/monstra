@@ -16,18 +16,17 @@
     if (isset($errors['snippets_exists'])) echo '<span class="error-message">'.$errors['snippets_exists'].'</span>';
 ?>
 
-<br>
-
+<div class="margin-top-2em margin-bottom-2em">
 <?php
     echo (
        Form::label('content', __('Snippet content', 'snippets')).
        Form::textarea('content', $content, array('style' => 'width:100%;height:400px;', 'class'=>'source-editor form-control'))
     );
 ?>
+</div>
 
 <?php
     echo (
-       Html::br(2).
        Form::submit('add_snippets_and_exit', __('Save and Exit', 'snippets'), array('class' => 'btn btn-primary')).Html::nbsp(2).
        Form::submit('add_snippets', __('Save', 'snippets'), array('class' => 'btn btn-primary')).Html::nbsp(2).
        Html::anchor(__('Cancel', 'snippets'), 'index.php?id=snippets', array('title' => __('Cancel', 'snippets'), 'class' => 'btn btn-default')).

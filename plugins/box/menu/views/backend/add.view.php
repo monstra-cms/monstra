@@ -7,9 +7,7 @@
 <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
 <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
 
-<br><br>
-
-<div class="row">
+<div class="row margin-top-2em">
     <div class="col-md-6">
 
         <div class="form-group">
