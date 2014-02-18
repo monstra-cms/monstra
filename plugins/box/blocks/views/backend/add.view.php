@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('New Block', 'blocks'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('New Block', 'blocks'); ?></h2>
 
 <?php if (isset($errors['blocks_empty_name']) or isset($errors['blocks_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 
@@ -6,7 +6,7 @@
 
 <?php echo (Form::hidden('csrf', Security::token())); ?>
 
-<div class="form-group margin-bottom-1em">
+<div class="form-group margin-bottom-1">
   <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
   <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'form-control error-field' : 'form-control'))); ?>
   <?php
@@ -15,7 +15,7 @@
   ?>
 </div>
 
-<div class="row margin-bottom-1em">
+<div class="row margin-bottom-1">
     <div class="col-xs-12">
         <?php Action::run('admin_editor', array(Html::toText($content))); ?>
     </div>

@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('New Page', 'pages'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('New Page', 'pages'); ?></h2>
 
 <?php
     echo (
@@ -13,7 +13,7 @@
     <li <?php if (Notification::get('settings')) { ?>class="active"<?php } ?>><a href="#settings" data-toggle="tab"><?php echo __('Settings', 'pages'); ?></a></li>
 </ul>
 
-<div class="tab-content tab-page margin-bottom-1em">
+<div class="tab-content tab-page margin-bottom-1">
     <div class="tab-pane <?php if (Notification::get('page')) { ?>active<?php } ?>" id="page">
         <div class="form-group">
         <?php
@@ -102,13 +102,13 @@
     </div>
 </div>
 
-<div class="row margin-bottom-1em">
+<div class="row margin-bottom-1">
     <div class="col-xs-12">
         <?php Action::run('admin_editor', array(Html::toText($post_content))); ?>
     </div>
 </div>
 
-<div class="row margin-top-1em">
+<div class="row margin-top-1">
     <div class="col-xs-12">
         <div class="form-group">
             <div class="input-group">
@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<div class="row margin-top-1em">
+<div class="row margin-top-1">
     <div class="col-xs-6">
         <?php
             echo (

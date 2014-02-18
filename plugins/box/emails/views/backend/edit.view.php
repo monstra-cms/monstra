@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('Edit Email Template', 'emails'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Edit Email Template', 'emails'); ?></h2>
 
 <?php   
 if ($content !== null) {
@@ -11,7 +11,7 @@ if ($content !== null) {
     <?php echo (Form::input('name', Request::get('filename'), array('disabled', 'class' => 'form-control'))); ?><span class="input-group-addon">.email.php</span>
 </div>
 
-<div class="margin-top-2em margin-bottom-2em">
+<div class="margin-top-2 margin-bottom-2">
 <?php
     echo (        
        Form::label('content', __('Email template content', 'emails')).

@@ -1,6 +1,6 @@
 <script>$().ready(function(){$('[name=create_backup]').click(function(){$(this).button('loading');});});</script>
 
-<div class="vertical-align margin-bottom-1em">
+<div class="vertical-align margin-bottom-1">
     <div class="text-left">
         <h2><?php echo __('Backups', 'backup'); ?></h2>
     </div>

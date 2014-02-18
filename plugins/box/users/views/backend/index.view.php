@@ -1,8 +1,8 @@
-<h2 class="margin-bottom-1em"><?php echo __('Users', 'users'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Users', 'users'); ?></h2>
 
 <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
 
-<div class="pull-right margin-bottom-1em">
+<div class="pull-right margin-bottom-1">
 <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
 <?php echo Form::hidden('csrf', Security::token()); ?>
 <div class="checkbox">

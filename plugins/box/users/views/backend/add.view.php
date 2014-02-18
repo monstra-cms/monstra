@@ -1,5 +1,5 @@
 <!-- Users_add -->
-<h2 class="margin-bottom-1em"><?php echo __('New User Registration', 'users'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('New User Registration', 'users'); ?></h2>
 <?php
     echo (
         Form::open().

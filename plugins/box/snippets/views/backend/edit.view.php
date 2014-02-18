@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('Edit Snippet', 'snippets'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Edit Snippet', 'snippets'); ?></h2>
 
 <?php
     if ($content !== null) {
@@ -24,7 +24,7 @@
             if (isset($errors['snippets_exists'])) echo '<span class="error-message">'.$errors['snippets_exists'].'</span>';
         ?>
 
-<div class="margin-top-2em margin-bottom-2em">
+<div class="margin-top-2 margin-bottom-2">
 <?php
   echo (
       Form::label('content', __('Snippet content', 'snippets')).

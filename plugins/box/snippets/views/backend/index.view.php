@@ -1,4 +1,4 @@
-<div class="vertical-align margin-bottom-1em">
+<div class="vertical-align margin-bottom-1">
     <div class="text-left">
         <h2><?php echo __('Snippets', 'snippets'); ?></h2>
     </div>

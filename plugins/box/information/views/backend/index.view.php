@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('Information', 'information'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Information', 'information'); ?></h2>
 
 <div class="tabbable">
     <ul class="nav nav-tabs">

@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('Files', 'filesmanager'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Files', 'filesmanager'); ?></h2>
 
 <input type="hidden" id="fUploaderInit" value='<?php echo json_encode($fileuploader); ?>' />
 
@@ -46,7 +46,7 @@
 <!-- /Filesmanager_upload_files -->
 
 <!-- Filesmanger_path -->
-<ol class="breadcrumb margin-top-1em">
+<ol class="breadcrumb margin-top-1">
 
       <?php
         $path_parts = explode ('/',$path);

@@ -1,7 +1,7 @@
-<h2 class="margin-bottom-1em"><?php echo __('Menu', 'menu'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Menu', 'menu'); ?></h2>
 
 <?php if ($menu->count() == 0) { ?>
-<div class="vertical-align margin-bottom-1em">
+<div class="vertical-align margin-bottom-1">
     <div class="text-left">
         <h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3>
     </div>
@@ -21,7 +21,7 @@
         $category_to_add = ($category == '') ? '' : '&category='.$category;
 ?>
 
-<div class="vertical-align margin-bottom-1em">
+<div class="vertical-align margin-bottom-1">
     <div class="text-left">
         <h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
     </div>

@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('Edit item', 'menu'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('Edit item', 'menu'); ?></h2>
 
 <div class="row">
     <div class="col-md-6">
@@ -12,7 +12,7 @@
         <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
         <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
     
-        <div class="form-group margin-top-2em">
+        <div class="form-group margin-top-2">
         <?php
             echo Form::label('menu_item_name', __('Item name', 'menu'));
             echo Form::input('menu_item_name', $menu_item_name, array('class' => (isset($errors['menu_item_name_empty']) || isset($errors['menu_item_name_empty'])) ? 'form-control error-field' : 'form-control'));

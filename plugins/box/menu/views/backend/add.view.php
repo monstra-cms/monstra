@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1em"><?php echo __('New item', 'menu'); ?></h2>
+<h2 class="margin-bottom-1"><?php echo __('New item', 'menu'); ?></h2>
 
 <?php echo (Form::open()); ?>
 <?php echo (Form::hidden('csrf', Security::token())); ?>
@@ -7,7 +7,7 @@
 <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
 <a href="javascript:;" class="btn btn-default" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
 
-<div class="row margin-top-2em">
+<div class="row margin-top-2">
     <div class="col-md-6">
 
         <div class="form-group">

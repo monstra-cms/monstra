@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h2 class="margin-bottom-1em"><?php echo __('Site Settings', 'system'); ?></h2>
+        <h2 class="margin-bottom-1"><?php echo __('Site Settings', 'system'); ?></h2>
         <?php
             echo (
                 Form::open().
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <h2 class="margin-bottom-1em"><?php echo __('System Settings', 'system'); ?></h2>
+        <h2 class="margin-bottom-1"><?php echo __('System Settings', 'system'); ?></h2>
         <div class="form-group">
         <?php
             echo (
