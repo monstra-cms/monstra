@@ -107,33 +107,35 @@
                 </tbody>
             </table>
 
-        <div class="row">
-            <div class="col-md-12">
-                <?php
-                    echo (
-                        Form::open(null, array('enctype' => 'multipart/form-data', 'class' => 'form-inline')).
-                        Form::hidden('csrf', Security::token())
-                    );
-                ?>
-                <div class="fileinput fileinput-new pull-left" data-provides="fileinput">
-                    <span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
-                        <?php
-                            echo (
-                                Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
-                                Form::close()
-                            );
-                        ?>
-                    <span class="fileinput-filename"></span>
-                </div>
-				<div id="DgDfileUploader">
-					<div class="upload-area">
-						<div class="upload-progress"></div>
-						<div class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
+		 <?php if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN'): ?>
+			<div class="row">
+				<div class="col-md-12">
+					<?php
+						echo (
+							Form::open(null, array('enctype' => 'multipart/form-data', 'class' => 'form-inline')).
+							Form::hidden('csrf', Security::token())
+						);
+					?>
+					<div class="fileinput fileinput-new pull-left" data-provides="fileinput">
+						<span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
+							<?php
+								echo (
+									Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
+									Form::close()
+								);
+							?>
+						<span class="fileinput-filename"></span>
 					</div>
-					<div class="upload-file-info"></div>
+					<div id="DgDfileUploader">
+						<div class="upload-area">
+							<div class="upload-progress"></div>
+							<div class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
+						</div>
+						<div class="upload-file-info"></div>
+					</div>
 				</div>
-            </div>
-        </div>
+			</div>
+		 <?php endif; ?>
 
         </div>
         <!-- /Plugins_to_install_list -->

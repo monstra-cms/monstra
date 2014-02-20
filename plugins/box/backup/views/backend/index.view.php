@@ -35,9 +35,12 @@
         <td><?php echo Number::byteFormat(filesize(ROOT . DS . 'backups' . DS . $backup)); ?></td>
         <td>
             <div class="pull-right">
-            <?php echo Html::anchor(__('Restore', 'backup'),
-                'index.php?id=backup&restore='.$backup.'&token='.Security::token(),
-                      array('class' => 'btn btn-primary'));
+            <?php
+				if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+					echo Html::anchor(__('Restore', 'backup'),
+						'index.php?id=backup&restore='.$backup.'&token='.Security::token(),
+							  array('class' => 'btn btn-primary'));
+				}
             ?>
             <?php echo Html::anchor(__('Delete', 'backup'),
                       'index.php?id=backup&delete_file='.$backup.'&token='.Security::token(),
