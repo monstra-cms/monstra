@@ -173,7 +173,7 @@ class PluginsAdmin extends Backend
                 if (Request::post('dragndrop')) {
                     Request::shutdown();
                 } else {
-                    Request::redirect($site_url.'/admin/index.php?id=plugins');
+                    Request::redirect($site_url.'/admin/index.php?id=plugins#installnew');
                 }
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
