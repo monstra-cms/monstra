@@ -1,6 +1,13 @@
-<h2 class="margin-bottom-1"><?php echo __('Files', 'filesmanager'); ?></h2>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.monstra.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
+		$(document).on('uploaded.fuploader', function(){
+			location.href = $.monstra.fileuploader.conf.uploadUrl;
+		});
+	});
+</script>
 
-<input type="hidden" id="fUploaderInit" value='<?php echo json_encode($fileuploader); ?>' />
+<h2 class="margin-bottom-1"><?php echo __('Files', 'filesmanager'); ?></h2>
 
 <!-- Filesmanager_upload_files -->
     <div class="row">

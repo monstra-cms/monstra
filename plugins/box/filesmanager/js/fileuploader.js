@@ -86,7 +86,7 @@ $.monstra.fileuploader = {
             },
             success: function(data){
                 $.monstra.fileuploader.setProgress(100);
-                location.href = $.monstra.fileuploader.conf.uploadUrl;
+                $.event.trigger('uploaded.fuploader');
             },
 			error: function(){
 				Messenger().post({
@@ -121,11 +121,3 @@ $.monstra.fileuploader = {
         this._uploaderObj.find('.upload-file-info').html(fname +' '+ sizeStr);
     }
 };
-
-$(document).ready(function(){
-    $val_fUploaderInit = $('#fUploaderInit').val();
-    if ($val_fUploaderInit !== undefined) {
-        $.monstra.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, $.parseJSON($val_fUploaderInit)));
-    }
-});
-
