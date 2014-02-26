@@ -69,6 +69,7 @@
             'Field "Password" is empty' => 'Pole "Hasło" jest puste',
             'Field "Site url" is empty' => 'Pole "URL witryny" jest puste',
             'Email not valid' => 'Email jest nieprawidłowy',
+            'Continue' => 'Kontynuuj',
             'Install' => 'Instaluj',
             '...Monstra says...' => '...Monstra mówi...',
             'Sitemap file writable' => 'Plik mapy witryny ma możliwość zapisu',
