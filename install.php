@@ -518,7 +518,7 @@
                 if (isset($errors['email_valid'])) echo '<li class="error">'.$errors['email_valid'].'</li>';
             ?>
             </ul>
-            <a href="install.php?action=install" class="btn btn-primary continue">Continue</a>
+            <a href="install.php?action=install" class="btn btn-primary continue"><?php echo __('Continue', 'system'); ?></a>
         </div>
     
         <div class="install-block-footer login-footer">
