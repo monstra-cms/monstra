@@ -49,6 +49,7 @@
             'This user does not exist' => 'Ten użytkownik nie istnieje',
             'Version' => 'Wersja',
             'Plugin does not exist' => 'Wtyczka nie istnieje',
+            'Help' => 'Pomoc',
 
             'Install script writable' => 'Skrypt instalacyjny ma możliwość zapisu',
             'Install script not writable' => 'Skrypt instalacyjny nie ma możliwości zapisu',

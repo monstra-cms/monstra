@@ -46,5 +46,6 @@
             'Script content' => 'Zawartość skryptu',
             'New Script' => 'Nowy skrypt',
             'Edit Script' => 'Edytuj skrypt',
+            'Site Theme' => 'Motyw strony',
         )
     );
