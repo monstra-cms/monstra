@@ -8,6 +8,7 @@
             'Actions' => '操作',
             'Delete' => '削除',
             'Upload' => 'アップロード',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'ディレクトリ',
             'Delete directory: :dir' => 'ディレクトリの削除: :dir',
             'Delete file: :file' => 'ファイルの削除 :file',
