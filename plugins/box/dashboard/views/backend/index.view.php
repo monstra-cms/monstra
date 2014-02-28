@@ -15,7 +15,7 @@
 				    <li><?php echo ( Html::anchor(__('Snippets', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Snippet', 'pages')))); ?></li>
 				  </ul>
 				</div>			
-				<?php echo ( Html::anchor(__('Upload File', 'filesmanager'), 'index.php?id=filesmanager', array('title' => __('Upload File', 'filesmanager'), 'class' => 'btn btn-primary'))); ?>
+				<?php echo ( Html::anchor(__('Upload File', 'dashboard'), 'index.php?id=filesmanager', array('title' => __('Upload File', 'dashboard'), 'class' => 'btn btn-primary'))); ?>
 			</div>
 		</div>
 	</div>
