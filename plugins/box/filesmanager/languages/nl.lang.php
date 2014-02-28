@@ -8,6 +8,7 @@
             'Actions' => 'Acties',
             'Delete' => 'Verwijderen',
             'Upload' => 'Uploaden',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'Map',
             'Delete directory: :dir' => 'Verwijder map: :dir',
             'Delete file: :file' => 'Verwijder bestand: :file',
