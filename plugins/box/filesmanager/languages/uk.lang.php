@@ -8,6 +8,7 @@
             'Actions' => 'Дії',
             'Delete' => 'Видалити',
             'Upload' => 'Загрузити',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'директорія',
             'Delete directory: :dir' => 'Видалити директорію: :dir',
             'Delete file: :file' => 'Видалити файл: :file',
