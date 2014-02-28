@@ -8,6 +8,7 @@
             'Actions' => 'Akcje',
             'Delete' => 'Usuń',
             'Upload' => 'Prześlij',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'katalog',
             'Delete directory: :dir' => 'Czy napewno usunąć katalog: :dir',
             'Delete file: :file' => 'Czy napewno usunąć plik :file',
