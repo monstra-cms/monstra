@@ -8,6 +8,7 @@
             'Actions' => 'Tindakan',
             'Delete' => 'Hapus',
             'Upload' => 'Unduh',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'Direktori',
             'Delete directory: :dir' => 'Hapus Direktori: :dir',
             'Delete file: :file' => 'Hapus File: :file',
