@@ -8,6 +8,7 @@
             'Actions' => 'Akcije',
             'Delete' => 'Obriši',
             'Upload' => 'Dodaj',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'Direktorijum',
             'Delete directory: :dir' => 'Obriši direktorijum: :dir',        
             'Delete file: :file' => 'Obriši fajl :file',
