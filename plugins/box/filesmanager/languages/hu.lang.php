@@ -8,6 +8,7 @@
             'Actions' => 'Műveletek',
             'Delete' => 'Törlés',
             'Upload' => 'Feltöltés',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'directory',
             'Delete directory: :dir' => 'Directory törlése: :dir',
             'Delete file: :file' => 'Fájl törlése :file',
