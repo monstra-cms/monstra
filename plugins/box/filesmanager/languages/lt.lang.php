@@ -8,6 +8,7 @@
             'Actions' => 'Veiksmai',
             'Delete' => 'Ištrinti',
             'Upload' => 'Įkelti',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'aplankas',
             'Delete directory: :dir' => 'Ištrinti aplanką: :dir',
             'Delete file: :file' => 'Ištrinti bylą :file',
