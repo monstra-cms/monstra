@@ -8,6 +8,7 @@
             'Actions' => 'Akcie',
             'Delete' => 'Vymazať',
             'Upload' => 'Nahrať',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'priečinok',
             'Delete directory: :dir' => 'Vymazať priečinok: :dir',
             'Delete file: :file' => 'Vymazať súbor :file',
