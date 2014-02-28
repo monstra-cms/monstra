@@ -65,7 +65,6 @@
               <?php echo Menu::get(); ?>
               <?php Users::getPanel(); ?>
           </ul>
-          <ul>
         </div>
       </div>
     </div>
