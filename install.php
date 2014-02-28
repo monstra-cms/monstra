@@ -289,7 +289,7 @@
         <div class="install-languages">
             <?php
                 if (Request::get('action') && Request::get('action') == 'install') {
-                    $action = '&action=install';
+                    $action = '&amp;action=install';
                 } else {
                     $action = '';
                 }
