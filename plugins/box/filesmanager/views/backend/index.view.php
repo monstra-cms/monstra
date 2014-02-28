@@ -69,7 +69,7 @@
         foreach ($path_parts as $p) {
             $s .= $p.'/';
             if($p == $current[count($current)-2]) $active = ' class="active"'; else $active = '';
-            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a></li>';
+            echo '<li'.$active.'><a href="index.php?id=filesmanager&amp;path='.$s.'">'.$p.'</a></li>';
         }
     ?>
 </ol>
@@ -88,7 +88,7 @@
         <?php if (isset($dir_list)) foreach ($dir_list as $dir) { ?>
         <tr>
             <td>
-                <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&path='.$path.$dir.'/'); ?></b>
+                <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&amp;path='.$path.$dir.'/'); ?></b>
             </td>
             <td>
 
