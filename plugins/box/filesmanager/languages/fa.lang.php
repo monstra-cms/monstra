@@ -8,6 +8,7 @@
             'Actions' => 'عملیات',
             'Delete' => 'حذف',
             'Upload' => 'آپلود',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'شاخه',
             'Delete directory: :dir' => 'حذف شاخه: :dir',        
             'Delete file: :file' => 'حذف فایل :file',
