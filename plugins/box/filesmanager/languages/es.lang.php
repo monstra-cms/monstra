@@ -8,6 +8,7 @@
             'Actions' => 'Acciones',
             'Delete' => 'Borrar',
             'Upload' => 'Subir',
+            'Create New Directory' => 'Create New Directory',
             'directory' => 'directorio',
             'Delete directory: :dir' => 'Borrar directorio: :dir',
             'Delete file: :file' => 'Borrar archivo :file',
