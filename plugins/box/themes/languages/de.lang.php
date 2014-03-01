@@ -46,6 +46,6 @@
             'Script content' => 'Script Inhalt',
             'New Script' => 'Neues Script',
             'Edit Script' => 'Bearbeite Script',
-            'Site Theme' => 'Site Theme',
+            'Site Theme' => 'Seiten Theme',
         )
     );
