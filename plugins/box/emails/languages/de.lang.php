@@ -14,6 +14,6 @@
             'Save' => 'Speichern',
             'Cancel' => 'Abbrechen',
             'This email template does not exist' => 'Dieses Email Template existiert nicht',
-            'Your changes to the email template <i>:name</i> have been saved.' => 'Die Änderung am Email Template <i>:name</i> wurden gespeichert.',
+            'Your changes to the email template <i>:name</i> have been saved.' => 'Deine Änderung am Email Template <i>:name</i> wurden gespeichert.',
         )
     );
