@@ -50,7 +50,7 @@ class SnippetsAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
@@ -104,7 +104,7 @@ class SnippetsAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($snippets_path.Request::get('filename').'.snippet.php');
@@ -124,7 +124,7 @@ class SnippetsAdmin extends Backend
                         Notification::set('success', __('Snippet <i>:name</i> deleted', 'snippets', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=snippets');
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                 break;
             }

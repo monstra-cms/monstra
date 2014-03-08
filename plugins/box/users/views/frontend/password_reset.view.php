@@ -15,7 +15,7 @@
 
 		<?php if (Option::get('captcha_installed') == 'true') { ?>
 		<div class="form-group">
-			<label><?php echo __('Captcha', 'users'); ?></label>
+			<label><?php echo __('Captcha', 'captcha'); ?></label>
 			<input type="text" name="answer" class="form-control"><?php if (isset($errors['users_captcha_wrong'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_captcha_wrong'].'</span>'; ?>
 			<br>
 			<?php CryptCaptcha::draw(); ?>

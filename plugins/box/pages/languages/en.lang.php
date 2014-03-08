@@ -35,7 +35,6 @@
             'Your changes to the page <i>:page</i> have been saved.' => 'Your changes to the page <i> :page </i> have been saved.',
             'The page <i>:page</i> cloned.' => 'The page <i>:page</i> cloned.',
             'Status' => 'Status',
-            'Actions' => 'Actions',
             'Add' => 'Add',
             'Published' => 'Published',
             'Draft' => 'Draft',
@@ -51,5 +50,7 @@
             'Public' => 'Public',
             'Registered' => 'Registered',
             'Cancel' => 'Cancel',
+            'Maximum upload file size: :upload_max_filesize' => 'Maximum upload file size: :upload_max_filesize',
+            'Tags' => 'Tags',
         )
     );

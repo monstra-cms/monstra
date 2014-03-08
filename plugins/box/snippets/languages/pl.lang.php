@@ -3,8 +3,7 @@
     return array(
         'snippets' => array(
             'Snippets' => 'Skrawki (snippets)',
-            'Snippets manager' => 'Zarządzaj skrawkami',
-            'Actions' => 'Akcje',
+            'Snippets manager plugin' => 'Wtyczka zarządzania skrawkami',
             'Delete' => 'Usuń',
             'Edit' => 'Edytuj',
             'Name' => 'Nazwa',
@@ -25,6 +24,7 @@
             'Embed Code' => 'Osadzony kod',
             'Shortcode' => 'Krótki kod (shortcode)',
             'PHP Code' => 'Kod PHP',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Anuluj',
+            '<b>Snippet <u>:name</u> is not found!</b>' => '<b>Skrawek <u>:name</u> nie został znaleziony!</b>',
         )
     );

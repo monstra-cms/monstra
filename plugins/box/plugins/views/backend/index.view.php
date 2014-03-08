@@ -118,7 +118,7 @@
 						<span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
 							<?php
 								echo (
-									Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
+									Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-primary')).
 									Form::close()
 								);
 							?>
@@ -127,7 +127,7 @@
 					<div id="DgDfileUploader">
 						<div class="upload-area">
 							<div class="upload-progress"></div>
-							<div class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
+							<div class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
 						</div>
 						<div class="upload-file-info"></div>
 					</div>

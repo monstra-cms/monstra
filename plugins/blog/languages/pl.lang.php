@@ -8,5 +8,6 @@
             'end' => 'koniec',
             'prev' => 'poprzedni',
             'next' => 'następny',
+            'Related posts' => 'Powiązane posty',
         ) 
     );

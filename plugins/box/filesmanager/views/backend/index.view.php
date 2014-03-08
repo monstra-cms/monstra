@@ -38,7 +38,7 @@
 		</div>
 		<div class="upload-file-info"></div>
 		<div class="btn btn-link file-size-max-upload">
-			<?php echo __('Maximum upload file size: :upload_max_filesize', 'filesmanager', array(':upload_max_filesize' => $upload_max_filesize)); ?>
+			<?php echo __('Maximum upload file size: :upload_max_filesize', 'pages', array(':upload_max_filesize' => $upload_max_filesize)); ?>
 		</div>
 	</div>
     </div>

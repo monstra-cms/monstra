@@ -4,6 +4,7 @@
         'blocks' => array(
             'Blocks' => 'Bloki',
             'Blocks manager' => 'Zarządzaj blokami',
+            'Blocks manager plugin' => 'Wtyczka zarządzania blokami',
             'Delete' => 'Usuń',
             'Edit' => 'Edytuj',
             'Name' => 'Nazwa',
@@ -12,7 +13,6 @@
             'Edit Block' => 'Edytuj blok',
             'Save' => 'Zapisz',
             'Save and Exit' => 'Zapisz i wyjdź',
-            'Actions' => 'Akcje',
             'Required field' => 'Pole wymagane',
             'This block already exists' => 'Ten blok już istnieje',
             'This block does not exist' => 'Ten blok nie istnieje',
@@ -20,11 +20,11 @@
             'Block content' => 'Zawartość bloku',
             'Block <i>:name</i> deleted' => 'Blok <i>:name</i> został usunięty',
             'Your changes to the block <i>:name</i> have been saved.' => 'Twoje zmiany dla bloku <i>:name</i> zostały zapisane.',
-            'Delete block: :block' => 'Czy napewno usunąć blok: :block',
             'View Embed Code' => 'Pokaż osadzony kod',
             'Embed Code' => 'Osadzony kod',
             'Shortcode' => 'Krótki kod (shortcode)',
             'PHP Code' => 'Kod PHP',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Anuluj',
+            '<b>Block <u>:name</u> is not found!</b>' => '<b>Blok <u>:name</u> nie został znaleziony!</b>',
         )
     );

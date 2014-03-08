@@ -75,7 +75,7 @@ class FilesmanagerAdmin extends Backend
                 }
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Delete dir
@@ -95,7 +95,7 @@ class FilesmanagerAdmin extends Backend
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
                 
                     
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
 
@@ -136,7 +136,7 @@ class FilesmanagerAdmin extends Backend
                 }
                 Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Upload file
@@ -171,7 +171,7 @@ class FilesmanagerAdmin extends Backend
                 } else {
                     Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
                 }
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Create Directory

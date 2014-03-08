@@ -110,7 +110,7 @@
         <div class="form-group">
     <?php
         echo (
-            Form::label('new_password', __('New password', 'users')).
+            Form::label('new_password', __('New Password', 'users')).
             Form::password('new_password', null, array('class' => 'form-control'))
         );
     ?>

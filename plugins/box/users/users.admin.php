@@ -41,7 +41,7 @@ class UsersAdmin extends Backend
 
                 Request::redirect('index.php?id=users');
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Check for get actions
@@ -91,7 +91,7 @@ class UsersAdmin extends Backend
                                     Request::redirect('index.php?id=users');
                                 }
 
-                            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                         }
 
                         // Display view
@@ -147,7 +147,7 @@ class UsersAdmin extends Backend
                                         
                                     } 
 
-                                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                         }
 
@@ -166,7 +166,7 @@ class UsersAdmin extends Backend
                                     Request::redirect('index.php?id=users&action=edit&user_id='.Request::post('user_id'));
                                 }
 
-                            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                         }
 
                         if ( ((int) Session::get('user_id') == (int) Request::get('user_id')) or (in_array(Session::get('user_role'), array('admin')) && count($user) != 0) ) {
@@ -208,7 +208,7 @@ class UsersAdmin extends Backend
                             
                             Request::redirect('index.php?id=users');
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                     }
 
