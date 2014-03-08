@@ -50,7 +50,6 @@
             'Public' => 'Dla wszystkich',
             'Registered' => 'Dla zarejestrowanych',
             'Cancel' => 'Anuluj',
-            'Maximum upload file size: :upload_max_filesize' => 'Maksymalny rozmiar przesyłanego pliku: :upload_max_filesize',
             'Tags' => 'Tagi',
         )
     );

@@ -38,5 +38,6 @@
             'Directory:' => 'Directory:',
             'File:' => 'File:',
             'Upload File' => 'Upload File',
+            'Maximum upload file size: :upload_max_filesize' => 'Maximum upload file size: :upload_max_filesize',
         )
     );

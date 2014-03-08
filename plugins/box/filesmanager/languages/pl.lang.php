@@ -38,5 +38,6 @@
             'Directory:' => 'Katalog:',
             'File:' => 'Plik:',
             'Upload File' => 'Prześlij plik',
+            'Maximum upload file size: :upload_max_filesize' => 'Maksymalny rozmiar przesyłanego pliku: :upload_max_filesize',
         )
     );
