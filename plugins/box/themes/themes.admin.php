@@ -42,7 +42,7 @@ class ThemesAdmin extends Backend
 
                 Request::redirect('index.php?id=themes');
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Save site theme
@@ -57,7 +57,7 @@ class ThemesAdmin extends Backend
 
                 Request::redirect('index.php?id=themes');
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Its mean that you can add your own actions for this plugin
@@ -95,7 +95,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                     // Save fields
@@ -123,10 +123,10 @@ class ThemesAdmin extends Backend
 
                             if (count($errors) == 0) {
 
-                                // Save chunk
+                                // Save template
                                 File::setContent($template_path.Security::safeName(Request::post('name')).'.template.php', Request::post('content'));
 
-                                Notification::set('success', __('Your changes to the chunk <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
+                                Notification::set('success', __('Your changes to the template <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
 
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
@@ -135,7 +135,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                     // Save fields
@@ -163,7 +163,7 @@ class ThemesAdmin extends Backend
 
                             if (count($errors) == 0) {
 
-                                // Save chunk
+                                // Save styles
                                 File::setContent($style_path.Security::safeName(Request::post('name')).'.css', Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
@@ -175,7 +175,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                     // Save fields
@@ -203,7 +203,7 @@ class ThemesAdmin extends Backend
 
                             if (count($errors) == 0) {
 
-                                // Save chunk
+                                // Save script
                                 File::setContent($script_path.Security::safeName(Request::post('name')).'.js', Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
@@ -215,7 +215,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                     // Save fields
@@ -272,7 +272,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($chunk_path.Request::get('filename').'.chunk.php');
@@ -291,7 +291,7 @@ class ThemesAdmin extends Backend
                 // -------------------------------------
                 case "edit_template":
 
-                    // Save current chunk action
+                    // Save current template action
                     if (Request::post('edit_file') || Request::post('edit_file_and_exit') ) {
 
                         if (Security::check(Request::post('csrf'))) {
@@ -316,7 +316,7 @@ class ThemesAdmin extends Backend
                                     $save_filename = $template_new_filename;
                                 }
 
-                                // Save chunk
+                                // Save template
                                 File::setContent($save_filename, Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the template <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.template.php'))));
@@ -328,7 +328,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($chunk_path.Request::get('filename').'.template.php');
@@ -347,7 +347,7 @@ class ThemesAdmin extends Backend
                 // -------------------------------------
                 case "edit_styles":
 
-                    // Save current chunk action
+                    // Save current styles action
                     if (Request::post('edit_file') || Request::post('edit_file_and_exit') ) {
 
                         if (Security::check(Request::post('csrf'))) {
@@ -372,7 +372,7 @@ class ThemesAdmin extends Backend
                                     $save_filename = $styles_new_filename;
                                 }
 
-                                // Save chunk
+                                // Save styles
                                 File::setContent($save_filename, Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.css'))));
@@ -384,7 +384,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($style_path.Request::get('filename').'.css');
@@ -403,7 +403,7 @@ class ThemesAdmin extends Backend
                 // -------------------------------------
                 case "edit_script":
 
-                    // Save current chunk action
+                    // Save current script action
                     if (Request::post('edit_file') || Request::post('edit_file_and_exit') ) {
 
                         if (Security::check(Request::post('csrf'))) {
@@ -428,7 +428,7 @@ class ThemesAdmin extends Backend
                                     $save_filename = $script_new_filename;
                                 }
 
-                                // Save chunk
+                                // Save script
                                 File::setContent($save_filename, Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.js'))));
@@ -440,7 +440,7 @@ class ThemesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($script_path.Request::get('filename').'.js');
@@ -465,7 +465,7 @@ class ThemesAdmin extends Backend
                         Notification::set('success', __('Chunk <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=themes');
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                 break;
 
@@ -479,7 +479,7 @@ class ThemesAdmin extends Backend
                         Notification::set('success', __('Styles <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=themes');
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                 break;
 
@@ -493,7 +493,7 @@ class ThemesAdmin extends Backend
                         Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=themes');
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                 break;
 

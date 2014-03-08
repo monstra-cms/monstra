@@ -8,7 +8,6 @@
             'Name' => 'Nazwa',
             'Delete' => 'Usuń',
             'Order' => 'Kolejność',
-            'Actions' => 'Akcje',
             'Create New Item' => 'Utwórz nową pozycję',
             'New item' => 'Nowa pozycja',
             'Item name' => 'Nazwa pozycji',
@@ -23,6 +22,6 @@
             'Category' => 'Kategoria',
             'Select category' => 'Wybierz kategorię',
             'Required field' => 'Pole wymagane',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Anuluj',
         )
     );

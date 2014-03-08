@@ -8,5 +8,6 @@
             'end' => 'end',
             'prev' => 'prev',
             'next' => 'next',
+            'Related posts' => 'Related posts',
         ) 
     );

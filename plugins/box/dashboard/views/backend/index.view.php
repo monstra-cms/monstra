@@ -43,7 +43,7 @@
 			<div class="row alert-warning"><div class="col-md-12" id="gaAlerts"></div></div>
 
 			<div class="row" id="gaLoading">
-				<div class="col-md-12">Loading...</div>
+   <div class="col-md-12"><?php echo __('Loading...', 'system'); ?></div>
 			</div>
 
 			<div id="authOk" class="row hide">

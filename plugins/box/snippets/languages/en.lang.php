@@ -3,8 +3,7 @@
     return array(
         'snippets' => array(
             'Snippets' => 'Snippets',
-            'Snippets manager' => 'Snippets manager',
-            'Actions' => 'Actions',
+            'Snippets manager plugin' => 'Snippets manager plugin',
             'Delete' => 'Delete',
             'Edit' => 'Edit',
             'Name' => 'Name',
@@ -26,5 +25,6 @@
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
             'Cancel' => 'Cancel',
+            '<b>Snippet <u>:name</u> is not found!</b>' => '<b>Snippet <u>:name</u> is not found!</b>',
         )
     );

@@ -126,8 +126,8 @@ class Users extends Frontend
                         if ($user_password == '') $errors['users_empty_password'] = __('Required field', 'users');
                         if ($user_email == '')    $errors['users_empty_email']    = __('Required field', 'users');
                         if ($user_email != '' && ! Valid::email($user_email)) $errors['users_invalid_email'] = __('User email is invalid', 'users');
-                        if (Users::$users->select("[login='".$user_login."']")) $errors['users_this_user_alredy_exists'] = __('This user alredy exist', 'users');
-                        if (Users::$users->select("[email='".$user_email."']")) $errors['users_this_email_alredy_exists'] = __('This email alredy exist', 'users');
+                        if (Users::$users->select("[login='".$user_login."']")) $errors['users_this_user_alredy_exists'] = __('This user already exists', 'users');
+                        if (Users::$users->select("[email='".$user_email."']")) $errors['users_this_email_alredy_exists'] = __('This email already exists', 'users');
 
                         if (count($errors) == 0) {
 
@@ -163,7 +163,7 @@ class Users extends Frontend
                             Request::redirect(Option::get('siteurl').'/users/'.Users::$users->lastId());
                         }
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                 }
 
                 // Display view
@@ -249,7 +249,7 @@ class Users extends Frontend
                         }
                     } else { }
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
             }
 
@@ -325,7 +325,7 @@ class Users extends Frontend
                 // Check csrf
                 if (Security::check(Request::post('csrf'))) {
 
-                    if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'users');
+                    if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'captcha');
                     if ($user_login == '') $errors['users_empty_field'] = __('Required field', 'users');
                     if ($user_login != '' && ! Users::$users->select("[login='".$user_login."']")) $errors['users_user_doesnt_exists'] = __('This user doesnt exist', 'users');
 
@@ -365,7 +365,7 @@ class Users extends Frontend
 
                     }
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
             }
 
@@ -440,7 +440,7 @@ class Users extends Frontend
                             }
                         }
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                 }
             }
 

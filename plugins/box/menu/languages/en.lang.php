@@ -8,7 +8,6 @@
             'Name' => 'Name',
             'Delete' => 'Delete',
             'Order' => 'Order',
-            'Actions' => 'Actions',
             'Create New Item' => 'Create new item',
             'New item' => 'New item',
             'Item name' => 'Item name',

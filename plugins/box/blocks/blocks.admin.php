@@ -51,7 +51,7 @@ class BlocksAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                     // Save fields
@@ -106,7 +106,7 @@ class BlocksAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     if (Request::post('editor')) $content = Request::post('editor'); else $content = File::getContent($blocks_path.Request::get('filename').'.block.html');
@@ -126,7 +126,7 @@ class BlocksAdmin extends Backend
                         Notification::set('success', __('Block <i>:name</i> deleted', 'blocks', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=blocks');
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                 break;
             }

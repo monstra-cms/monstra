@@ -41,7 +41,7 @@ class BackupAdmin extends Backend
                     Notification::set('error', __('Backup was not created', 'backup'));
                 }
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Delete backup
@@ -51,14 +51,14 @@ class BackupAdmin extends Backend
             if (Security::check(Request::get('token'))) {
 
                 if (File::delete($backups_path . DS . Request::get('delete_file'))) {
-                    Notification::set('success', __('Backup was deleted', 'system'));
+                    Notification::set('success', __('Backup was deleted', 'backup'));
                 } else {
-                    Notification::set('error', __('Backup was not deleted', 'system'));
+                    Notification::set('error', __('Backup was not deleted', 'backup'));
                 }
                 
                 Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Download backup
@@ -66,7 +66,7 @@ class BackupAdmin extends Backend
         if (Request::get('download')) {
             if (Security::check(Request::get('token'))) {
                 File::download($backups_path . DS . Request::get('download'));
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Restore backup
@@ -81,17 +81,17 @@ class BackupAdmin extends Backend
                     $file_locations = Zip::factory()->extract($backups_path . DS . Request::get('restore'), $tmp_dir);
                      if (!empty($file_locations)) {
                          Dir::copy($tmp_dir, ROOT . DS);
-                         Notification::set('success', __('Backup was restored', 'system'));
+                         Notification::set('success', __('Backup was restored', 'backup'));
                      } else {
-                         Notification::set('error', __('Unzip error', 'system'));
+                         Notification::set('error', __('Unzip error', 'backup'));
                      }
                 } else {
-                    Notification::set('error', __('Backup was not restored', 'system'));
+                    Notification::set('error', __('Backup was not restored', 'backup'));
                 }
 
                 Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
 
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
 
         // Display view

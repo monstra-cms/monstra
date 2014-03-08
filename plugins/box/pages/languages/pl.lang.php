@@ -35,7 +35,6 @@
             'Your changes to the page <i>:page</i> have been saved.' => 'Twoje zmiany na stronie <i> :page </i> zostały zapisane.',
             'The page <i>:page</i> cloned.' => 'Strona <i>:page</i> została skopiowana.',
             'Status' => 'Status',
-            'Actions' => 'Akcje',
             'Add' => 'Dodaj podstronę',
             'Published' => 'Opublikowana',
             'Draft' => 'Projekt',
@@ -50,6 +49,7 @@
             'Access' => 'Dostęp',
             'Public' => 'Dla wszystkich',
             'Registered' => 'Dla zarejestrowanych',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Anuluj',
+            'Tags' => 'Tagi',
         )
     );

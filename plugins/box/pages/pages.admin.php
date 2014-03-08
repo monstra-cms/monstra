@@ -28,7 +28,7 @@ class PagesAdmin extends Backend
                 $pages = new Table('pages');
                 $pages->updateWhere('[slug="'.Request::post('page_slug').'"]', array('expand' => Request::post('page_expand')));
                 Request::shutdown();
-            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+            } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
         }
     }
 
@@ -123,7 +123,7 @@ class PagesAdmin extends Backend
                         // Redirect
                         Request::redirect('index.php?id=pages');
 
-                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                    } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                 break;
 
@@ -199,7 +199,7 @@ class PagesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
                     }
 
@@ -377,7 +377,7 @@ class PagesAdmin extends Backend
                                 }
                             }
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                     // Get all pages
@@ -501,7 +501,7 @@ class PagesAdmin extends Backend
                             // Redirect
                             Request::redirect('index.php?id=pages');
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                 break;
@@ -525,7 +525,7 @@ class PagesAdmin extends Backend
                             // Redirect
                             Request::redirect('index.php?id=pages');
 
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
                     
                 break;
@@ -549,7 +549,7 @@ class PagesAdmin extends Backend
                             // Redirect
                             Request::redirect('index.php?id=pages');
                             
-                        } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                        } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
                     }
 
                 break;

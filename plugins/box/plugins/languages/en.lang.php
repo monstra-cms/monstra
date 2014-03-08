@@ -3,8 +3,8 @@
     return array(
         'plugins' => array(
             'Plugins' => 'Plugins',
+            'Plugins manager' => 'Plugins manager',
             'Name' => 'Name',
-            'Actions' => 'Actions',
             'Description' => 'Description',
             'Installed' => 'Installed',
             'Install New' => 'Install New',
@@ -17,5 +17,10 @@
             'Install' => 'Install',
             'Uninstall' => 'Uninstall',
             'README.md not found' => 'README.md not found',
+            'Plugin was not uploaded' => 'Plugin was not uploaded',
+            'Plugin was uploaded' => 'Plugin was uploaded',
+            'System error' => 'System error',
+            'Forbidden plugin file type' => 'Forbidden plugin file type',
+            '?' => '?',
         )
     );

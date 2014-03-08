@@ -54,7 +54,7 @@
     );
 ?>
 
-<?php echo (Html::anchor(__('Create New Template', 'themes'), 'index.php?id=themes&action=add_template', array('title' => __('Create New Template'), 'class' => 'btn btn-default')).Html::br(2)); ?>
+	<?php echo (Html::anchor(__('Create New Template', 'themes'), 'index.php?id=themes&action=add_template', array('title' => __('Create New Template', 'themes'), 'class' => 'btn btn-default')).Html::br(2)); ?>
 
 <!-- Templates_list -->
 <table class="table table-bordered">
@@ -74,7 +74,7 @@
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_template&filename='.basename($template, '.template.php'), array('class' => 'btn btn-primary')); ?>
                     <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php').'&token='.Security::token(), array('title' => __('Clone'))); ?></li>
+		       <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
                 </div>
                     <?php echo Html::anchor(__('Delete', 'themes'),
@@ -124,7 +124,7 @@
 </table>
 <!-- /Chunks_list -->
 
-<?php echo (Html::anchor(__('Create New Styles', 'themes'), 'index.php?id=themes&action=add_styles', array('title' => __('Create New Style', 'themes'), 'class' => 'btn btn-default')).Html::br(2)); ?>
+<?php echo (Html::anchor(__('Create New Styles', 'themes'), 'index.php?id=themes&action=add_styles', array('title' => __('Create New Styles', 'themes'), 'class' => 'btn btn-default')).Html::br(2)); ?>
 
 <!-- Styles_list -->
 <table class="table table-bordered">

@@ -74,7 +74,7 @@ class SystemAdmin extends Backend
 
                     Request::redirect('index.php?id=system');
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
 
             }
 
@@ -91,7 +91,7 @@ class SystemAdmin extends Backend
                         Request::redirect('index.php?id=system');
                     }
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
             }
 
             // Set maintenance state on or off
@@ -110,7 +110,7 @@ class SystemAdmin extends Backend
                         Request::redirect('index.php?id=system');
                     }
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
             }
 
             // Edit settings
@@ -136,7 +136,7 @@ class SystemAdmin extends Backend
                     Notification::set('success', __('Your changes have been saved.', 'system'));
                     Request::redirect('index.php?id=system');
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                } else { die(__('Request was denied because it contained an invalid security token. Please refresh the page and try again.', 'system')); }
             }
 
             // Its mean that you can add your own actions for this plugin
