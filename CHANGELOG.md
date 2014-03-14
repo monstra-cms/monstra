@@ -41,8 +41,8 @@ Monstra 2.4.0, 2014-xx-xx
 - Core: Added ability to avoid caching JS/CSS by the browser.
 - Prefetch DNS added to reduce look up times
 - Sandbox Plugin cleanup
-- New Flags: Japanese(JA), Indonesian(ID) added.
-- Localization: Japanese(JA), Indonesian(ID) translations added.
+- New Flags: Japanese(JA), Indonesian(ID), Chinese(ZH-CN) added.
+- Localization: Japanese(JA), Indonesian(ID), Chinese(ZH-CN) translations added.
 - Localization: Major Fixes
 
 Monstra 2.3.1, 2013-12-25
