@@ -109,7 +109,7 @@ class Blog {
         }
     
         foreach($posts as $post) {
-            $tags_string .= $post['keywords'].',';
+            $tags_string .= $post['tags'].',';
         }
 
         $tags_string = substr($tags_string, 0, strlen($tags_string)-1);   
@@ -155,7 +155,7 @@ class Blog {
         $page = (Request::get('page')) ? (int)Request::get('page') : 1;
 
         if (Request::get('tag')) {
-            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and contains(keywords, "'.Request::get('tag').'")]';                
+            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and contains(tags, "'.Request::get('tag').'")]';                
             Notification::set('tag', Request::get('tag'));
         } else {
             $query = '[parent="'.Blog::$parent_page_name.'" and status="published"]';
@@ -252,7 +252,7 @@ class Blog {
 
         foreach($tags as $tag) {
 
-            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and contains(keywords, "'.$tag.'") and slug!="'.Page::slug().'"]';
+            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and contains(tags, "'.$tag.'") and slug!="'.Page::slug().'"]';
             
             if ($result = Arr::subvalSort(Pages::$pages->select($query, ($limit == null) ? 'all' : (int)$limit), 'date', 'DESC')) {
                 $related_posts = $result; 
