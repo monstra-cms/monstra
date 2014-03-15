@@ -18,7 +18,7 @@
         <div class="form-group">
         <?php
             echo (                
-                Form::label('page_title', __('Title', 'pages')).
+                Form::label('page_title', __('Name', 'pages')).
                 Form::input('page_title', $post_title, array('class' => (isset($errors['pages_empty_title'])) ? 'form-control error-field' : 'form-control'))
             );
             if (isset($errors['pages_empty_title'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_empty_title'].'</span>';
@@ -28,7 +28,7 @@
         <?php
 
             echo (
-                Form::label('page_name', __('Name (slug)', 'pages')).
+                Form::label('page_name', __('Slug (url)', 'pages')).
                 Form::input('page_name', $post_name, array('class' => (isset($errors['pages_empty_name'])) ? 'form-control error-field' : 'form-control'))
             );
 
@@ -39,6 +39,14 @@
 
     </div>
     <div class="tab-pane <?php if (Notification::get('metadata')) { ?>active<?php } ?>" id="metadata">
+        <div class="form-group">
+        <?php
+            echo (
+                Form::label('page_meta_title', __('Title', 'pages')).
+                Form::input('page_meta_title', $post_meta_title, array('class' => 'form-control'))
+            );
+        ?>
+        </div>
         <div class="form-group">
         <?php
             echo (

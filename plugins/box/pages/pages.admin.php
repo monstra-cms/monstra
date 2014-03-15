@@ -100,6 +100,7 @@ class PagesAdmin extends Backend
                                                  'access'       => (isset($orig_page['access'])) ? $orig_page['access'] : 'public',
                                                  'expand'       => (isset($orig_page['expand'])) ? $orig_page['expand'] : '0',
                                                  'title'        => $rand_page_title,
+                                                 'meta_title'   => $orig_page['meta_title'],
                                                  'description'  => $orig_page['description'],
                                                  'keywords'     => $orig_page['keywords'],
                                                  'tags'         => $orig_page['tags'],
@@ -172,6 +173,7 @@ class PagesAdmin extends Backend
                                                         'robots_index' => $robots_index,
                                                         'robots_follow'=> $robots_follow,
                                                         'title'        => Request::post('page_title'),
+                                                        'meta_title'   => Request::post('page_meta_title'),
                                                         'description'  => Request::post('page_description'),
                                                         'keywords'     => Request::post('page_keywords'),
                                                         'tags'         => Request::post('page_tags'),
@@ -219,6 +221,7 @@ class PagesAdmin extends Backend
                     // Save fields
                     if (Request::post('page_name'))        $post_name        = Request::post('page_name'); else $post_name = '';
                     if (Request::post('page_title'))       $post_title       = Request::post('page_title'); else $post_title = '';
+                    if (Request::post('page_meta_title'))  $post_meta_title  = Request::post('page_meta_title'); else $post_meta_title = '';                    
                     if (Request::post('page_keywords'))    $post_keywords    = Request::post('page_keywords'); else $post_keywords = '';
                     if (Request::post('page_description')) $post_description = Request::post('page_description'); else $post_description = '';
                     if (Request::post('page_tags'))        $post_tags        = Request::post('page_tags'); else $post_tags = '';
@@ -241,6 +244,7 @@ class PagesAdmin extends Backend
                     View::factory('box/pages/views/backend/add')
                             ->assign('post_name', $post_name)
                             ->assign('post_title', $post_title)
+                            ->assign('post_meta_title', $post_meta_title)                            
                             ->assign('post_description', $post_description)
                             ->assign('post_keywords', $post_keywords)
                             ->assign('post_tags', $post_tags)
@@ -288,6 +292,7 @@ class PagesAdmin extends Backend
                             // Save fields
                             if (Request::post('page_name'))        $post_name        = Request::post('page_name'); else $post_name = '';
                             if (Request::post('page_title'))       $post_title       = Request::post('page_title'); else $post_title = '';
+                            if (Request::post('page_meta_title'))  $post_meta_title  = Request::post('page_meta_title'); else $post_meta_title = '';                            
                             if (Request::post('page_keywords'))    $post_keywords    = Request::post('page_keywords'); else $post_keywords = '';
                             if (Request::post('page_description')) $post_description = Request::post('page_description'); else $post_description = '';
                             if (Request::post('page_tags'))        $post_tags        = Request::post('page_tags'); else $post_tags = '';
@@ -327,6 +332,7 @@ class PagesAdmin extends Backend
                                                               'template'    => Request::post('templates'),
                                                               'parent'      => $parent_page,
                                                               'title'       => Request::post('page_title'),
+                                                              'meta_title'  => Request::post('page_meta_title'),                                                              
                                                               'description' => Request::post('page_description'),
                                                               'keywords'    => Request::post('page_keywords'),
                                                               'tags'        => Request::post('page_tags'),
@@ -351,6 +357,7 @@ class PagesAdmin extends Backend
                                                               'template'    => Request::post('templates'),
                                                               'parent'      => $parent_page,
                                                               'title'       => Request::post('page_title'),
+                                                              'meta_title'       => Request::post('page_meta_title'),                                                              
                                                               'description' => Request::post('page_description'),
                                                               'keywords'    => Request::post('page_keywords'),
                                                               'tags'        => Request::post('page_tags'),
@@ -413,6 +420,7 @@ class PagesAdmin extends Backend
                         // Safe fields or load fields
                         if (Request::post('page_name'))         $slug_to_edit        = Request::post('page_name'); else $slug_to_edit = $page['slug'];
                         if (Request::post('page_title'))        $title_to_edit       = Request::post('page_title'); else $title_to_edit = $page['title'];
+                        if (Request::post('page_meta_title'))   $meta_title_to_edit  = Request::post('page_meta_title'); else $meta_title_to_edit = $page['meta_title'];                        
                         if (Request::post('page_description'))  $description_to_edit = Request::post('page_description'); else $description_to_edit = $page['description'];
                         if (Request::post('page_keywords'))     $keywords_to_edit    = Request::post('page_keywords'); else $keywords_to_edit = $page['keywords'];
                         if (Request::post('page_tags'))         $tags_to_edit        = Request::post('page_tags'); else $tags_to_edit = $page['tags'];
@@ -446,6 +454,7 @@ class PagesAdmin extends Backend
                         View::factory('box/pages/views/backend/edit')
                                 ->assign('slug_to_edit', $slug_to_edit)
                                 ->assign('title_to_edit', $title_to_edit)
+                                ->assign('meta_title_to_edit', $meta_title_to_edit)                                
                                 ->assign('description_to_edit', $description_to_edit)
                                 ->assign('keywords_to_edit', $keywords_to_edit)
                                 ->assign('tags_to_edit', $tags_to_edit)
@@ -574,6 +583,7 @@ class PagesAdmin extends Backend
             foreach ($pages_list as $page) {
 
                 $pages_array[$count]['title']   = $page['title'];
+                $pages_array[$count]['meta_title'] = isset($page['meta_title']) ? $page['meta_title'] : '';
                 $pages_array[$count]['parent']  = $page['parent'];
                 $pages_array[$count]['_status'] = $page['status'];
                 $pages_array[$count]['_access'] = $page['access'];
