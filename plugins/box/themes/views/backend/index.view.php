@@ -1,52 +1,49 @@
-<div class="row-fluid">
+<div class="row">
+        <div class="col-xs-6">
 
-    <div class="span6">
+            <h2 class="margin-bottom-1"><?php echo __('Site Theme', 'themes'); ?></h2>
 
-        <h2><?php echo __('Site Theme', 'themes'); ?></h2>
-        <br>
+            <!-- Themes_selector -->
+            <?php
+                echo (
+                    Form::open().
+                    Form::hidden('csrf', Security::token()).
+                    Form::label('themes', __('Select Theme', 'themes')).
+                    Form::select('themes', $themes_site, $current_site_theme, array('class' => 'form-control')). Html::br().
+                    Form::submit('save_site_theme', __('Save', 'themes'), array('class' => 'btn btn-primary')).
+                    Form::close()
+                );
+            ?>
+            <!-- /Themes_selector -->
 
-        <!-- Themes_selector -->
-        <?php
-            echo (
-                Form::open().
-                Form::hidden('csrf', Security::token()).
-                Form::label('themes', __('Select Theme', 'themes')).
-                Form::select('themes', $themes_site, $current_site_theme, array('class' => 'form-control')). Html::br().
-                Form::submit('save_site_theme', __('Save', 'themes'), array('class' => 'btn btn-primary')).
-                Form::close()
-            );
-        ?>
-        <!-- /Themes_selector -->
+        </div>
 
-    </div>
+        <div class="col-xs-6">
 
-    <div class="span6">
+            <h2 class="margin-bottom-1"><?php echo __('Admin Theme', 'themes'); ?></h2>
+   
+            <!-- Themes_selector -->
+            <?php
+                echo (
+                    Form::open().
+                    Form::hidden('csrf', Security::token()).
+                    Form::label('themes', __('Select Theme', 'themes')).
+                    Form::select('themes', $themes_admin, $current_admin_theme, array('class' => 'form-control')). Html::br().
+                    Form::submit('save_admin_theme', __('Save', 'themes'), array('class' => 'btn btn-primary')).
+                    Form::close()
+                );
+            ?>
+            <!-- /Themes_selector -->
 
-        <h2><?php echo __('Admin Theme', 'themes'); ?></h2>
-        <br>
-
-        <!-- Themes_selector -->
-        <?php
-            echo (
-                Form::open().
-                Form::hidden('csrf', Security::token()).
-                Form::label('themes', __('Select Theme', 'themes')).
-                Form::select('themes', $themes_admin, $current_admin_theme, array('class' => 'form-control')). Html::br().
-                Form::submit('save_admin_theme', __('Save', 'themes'), array('class' => 'btn btn-primary')).
-                Form::close()
-            );
-        ?>
-        <!-- /Themes_selector -->
-
-    </div>
+        </div>
 
 </div>
 
 <hr>
 
-<div class="row-fluid">
+<div class="row">
 
-    <div class="span12">
+    <div class="col-xs-12">
 
 <?php
     echo (
@@ -72,8 +69,11 @@
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_template&filename='.basename($template, '.template.php'), array('class' => 'btn btn-primary')); ?>
-                    <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php').'&token='.Security::token(), array('title' => __('Clone'))); ?></li>
                     </ul>
                 </div>
@@ -107,8 +107,11 @@
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_chunk&filename='.basename($chunk, '.chunk.php'), array('class' => 'btn btn-primary')); ?>
-                    <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
 				</div>
@@ -142,8 +145,11 @@
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_styles&filename='.basename($style, '.css'), array('class' => 'btn btn-primary')); ?>
-                    <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_styles&filename='.basename($style, '.css').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
 				</div>
@@ -177,8 +183,11 @@
             <div class="pull-right">
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_script&filename='.basename($script, '.js'), array('class' => 'btn btn-primary')); ?>
-                    <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#" style="font-family:arial;"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_script&filename='.basename($script, '.js').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
                 </div>

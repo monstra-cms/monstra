@@ -1,7 +1,7 @@
-<?php if ($action == 'chunk') { ?><h2><?php echo __('New Chunk', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'template') { ?><h2><?php echo __('New Template', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'styles') { ?><h2><?php echo __('New Styles', 'themes'); ?></h2><?php } ?>
-<?php if ($action == 'script') { ?><h2><?php echo __('New Script', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'chunk') { ?><h2 class="margin-bottom-1"><?php echo __('New Chunk', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'template') { ?><h2 class="margin-bottom-1"><?php echo __('New Template', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'styles') { ?><h2 class="margin-bottom-1"><?php echo __('New Styles', 'themes'); ?></h2><?php } ?>
+<?php if ($action == 'script') { ?><h2 class="margin-bottom-1"><?php echo __('New Script', 'themes'); ?></h2><?php } ?>
 <br>
 
 <?php if (isset($errors['file_empty_name']) || isset($errors['file_exists'])) $error_class = 'error'; else $error_class = ''; ?>
@@ -21,24 +21,26 @@
 </div>
 
 <?php
-    if (isset($errors['file_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['file_empty_name'].'</span>';
-    if (isset($errors['file_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['file_exists'].'</span>';
+    if (isset($errors['file_empty_name'])) echo '<span class="error-message">'.$errors['file_empty_name'].'</span>';
+    if (isset($errors['file_exists'])) echo '<span class="error-message">'.$errors['file_exists'].'</span>';
 ?>
 
-<br>
-
+<div class="margin-top-2 margin-bottom-2">
 <?php
-
     if ($action == 'chunk') { echo Form::label('content', __('Chunk content', 'themes')); }
     if ($action == 'template') { echo Form::label('content', __('Template content', 'themes')); }
     if ($action == 'styles') { echo Form::label('content', __('Styles content', 'themes')); }
     if ($action == 'script') { echo Form::label('content', __('Script content', 'themes')); }
 
-    echo Form::textarea('content', $content, array('style' => 'width:100%;height:400px;', 'class' => 'source-editor'));
+    echo Form::textarea('content', $content, array('style' => 'width:100%;height:400px;', 'class' => 'source-editor')); 
+?>
+</div>
 
+<?php
     echo (
-        Html::br(2).
         Form::submit('add_file_and_exit', __('Save and Exit', 'themes'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-        Form::submit('add_file', __('Save', 'themes'), array('class' => 'btn btn-default')).
+        Form::submit('add_file', __('Save', 'themes'), array('class' => 'btn btn-default')).Html::nbsp(2).
+        Html::anchor(__('Cancel', 'themes'), 'index.php?id=themes', array('title' => __('Cancel', 'themes'), 'class' => 'btn btn-default')).
         Form::close()
     );
+?>
