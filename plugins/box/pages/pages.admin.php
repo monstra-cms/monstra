@@ -420,10 +420,10 @@ class PagesAdmin extends Backend
                         // Safe fields or load fields
                         if (Request::post('page_name'))         $slug_to_edit        = Request::post('page_name'); else $slug_to_edit = $page['slug'];
                         if (Request::post('page_title'))        $title_to_edit       = Request::post('page_title'); else $title_to_edit = $page['title'];
-                        if (Request::post('page_meta_title'))   $meta_title_to_edit  = Request::post('page_meta_title'); else $meta_title_to_edit = $page['meta_title'];                        
+                        if (Request::post('page_meta_title'))   $meta_title_to_edit  = Request::post('page_meta_title'); else $meta_title_to_edit = isset($page['meta_title']) ? $page['meta_title'] : '';
                         if (Request::post('page_description'))  $description_to_edit = Request::post('page_description'); else $description_to_edit = $page['description'];
                         if (Request::post('page_keywords'))     $keywords_to_edit    = Request::post('page_keywords'); else $keywords_to_edit = $page['keywords'];
-                        if (Request::post('page_tags'))         $tags_to_edit        = Request::post('page_tags'); else $tags_to_edit = $page['tags'];
+                        if (Request::post('page_tags'))         $tags_to_edit        = Request::post('page_tags'); else $tags_to_edit = isset($page['tags']) ? $page['tags'] : '';;
                         if (Request::post('editor'))            $to_edit             = Request::post('editor'); else $to_edit = Text::toHtml($page_content);
 
                         if (Request::post('robots_index'))      $post_robots_index  = true; else if ($page['robots_index'] == 'noindex') $post_robots_index = true; else  $post_robots_index = false;
