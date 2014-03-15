@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row margin-bottom-2">
         <div class="col-xs-6">
 
             <h2 class="margin-bottom-1"><?php echo __('Site Theme', 'themes'); ?></h2>
