@@ -17,6 +17,9 @@ $.monstra.filesmanager = {
 				$(e.currentTarget).attr('data-path')
 			);
 		});
+        $('#filesDirsList').on('click', '.js-file-info', function(e, el){
+            $.monstra.filesmanager.showInfoDialog(e.currentTarget);
+        });
 	},
 
 	showRenameDialog: function(type, renameFrom, path){
@@ -28,7 +31,22 @@ $.monstra.filesmanager = {
 		dialog.find('[id$="RenameType"]').hide();
 		dialog.find('#'+ type +'RenameType').show();
 		dialog.modal('show');
-	}
+	},
+
+    showInfoDialog: function(btnEl){
+        var dialog = $('#fileInfoDialog');
+        dialog.find('.js-dimension-blck').hide();
+        dialog.find('.js-filename').html($(btnEl).attr('data-filename'));
+        dialog.find('.js-filetype').html($(btnEl).attr('data-filetype'));
+        dialog.find('.js-filesize').html($(btnEl).attr('data-filesize'));
+        dialog.find('.js-link').html($(btnEl).attr('data-link'));
+        var dimension = $(btnEl).attr('data-dimension').trim();
+        if (dimension) {
+            dialog.find('.js-dimension').html(dimension);
+            dialog.find('.js-dimension-blck').show();
+        }
+        dialog.modal('show');
+    }
 };
 
 $(document).ready(function(){

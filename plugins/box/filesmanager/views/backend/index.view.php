@@ -110,7 +110,13 @@
         </tr>
         <?php } ?>
         <?php if (isset($files_list)) foreach ($files_list as $file) { $ext = File::ext($file); ?>
-        <?php if ( ! in_array($ext, $forbidden_types)) { ?>
+        <?php if ( ! in_array($ext, $forbidden_types)) {
+			$dimension = '';
+			if (in_array(strtolower($ext), $image_types)) {
+				$dim = getimagesize($files_path. DS .$file);
+				if (isset($dim[0]) && isset($dim[1])) { $dimension = $dim[1] .'x'. $dim[0] .' px'; }
+			}
+		?>
         <tr>
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
                 <?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) { ?>
@@ -127,6 +133,15 @@
             </td>
             <td>
             <div class="pull-right">
+				<button class="btn btn-primary js-file-info"
+					data-filename="<?php echo str_replace('"', '\'', htmlentities($file)); ?>"
+					data-filetype="<?php echo $ext; ?>"
+					data-filesize="<?php echo Number::byteFormat(filesize($files_path. DS .$file)); ?>"
+					data-dimension="<?php echo htmlentities($dimension); ?>"
+					data-link="<?php echo $site_url.'/public/' . $path.$file; ?>"
+				>
+					<?php echo __('Info', 'filesmanager'); ?>
+				</button>
                 <button class="btn btn-primary js-rename-file" data-filename="<?php echo $file; ?>" data-path="<?php echo $path; ?>">
                     <?php echo __('Rename', 'filesmanager'); ?>
                 </button>
@@ -191,4 +206,40 @@
       </form>
     </div>
   </div>
+</div>
+
+<div id="fileInfoDialog" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="close" data-dismiss="modal">&times;</div>
+				<h4 class="modal-title"><?php echo __('File Information', 'filesmanager'); ?></h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-3"><?php echo __('Filename:', 'filesmanager'); ?></div>
+					<div class="col-md-9 js-filename"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"><?php echo __('Filetype:', 'filesmanager'); ?></div>
+					<div class="col-md-9 js-filetype"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"><?php echo __('Filesize:', 'filesmanager'); ?></div>
+					<div class="col-md-9 js-filesize"></div>
+				</div>
+				<div class="row js-dimension-blck">
+					<div class="col-md-3"><?php echo __('Dimension:', 'filesmanager'); ?></div>
+					<div class="col-md-9 js-dimension"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"><?php echo __('Link:', 'filesmanager'); ?></div>
+					<div class="col-md-9 js-link"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __('Cancel', 'filesmanager'); ?></button>
+			</div>
+		</div>
+	</div>
 </div>
