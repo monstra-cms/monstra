@@ -69,6 +69,7 @@
             'Field "Password" is empty' => 'Field "Password" is empty',
             'Field "Site url" is empty' => 'Field "Site url" is empty',
             'Email not valid' => 'Email not valid',
+            'Continue' => 'Continue',
             'Install' => 'Install',
             '...Monstra says...' => '...Monstra says...',
             'Sitemap file writable' => 'Sitemap file writable',

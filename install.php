@@ -35,7 +35,7 @@
     $dir_array = array('public', 'storage', 'backups', 'tmp');
 
     // Languages array
-    $languages_array = array('en', 'ru', 'fr', 'de', 'it', 'es', 'lt', 'pl', 'pt-br', 'hu', 'fa' , 'sk', 'uk', 'nl', 'sr-yu', 'id', 'ja');
+    $languages_array = array('en', 'ru', 'fr', 'de', 'it', 'es', 'lt', 'pl', 'pt-br', 'hu', 'fa' , 'sk', 'uk', 'nl', 'sr-yu', 'id', 'ja', 'zh-cn');
 
     // Select Monstra language
     if (Request::get('language')) {
@@ -518,7 +518,7 @@
                 if (isset($errors['email_valid'])) echo '<li class="error">'.$errors['email_valid'].'</li>';
             ?>
             </ul>
-            <a href="install.php?action=install" class="btn btn-primary continue">Continue</a>
+            <a href="install.php?action=install" class="btn btn-primary continue"><?php echo __('Continue', 'system'); ?></a>
         </div>
     
         <div class="install-block-footer login-footer">

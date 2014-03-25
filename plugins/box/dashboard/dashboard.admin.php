@@ -76,6 +76,9 @@ class DashboardAdmin extends Backend
 }
 
 
+/**
+ * Dashboard
+ */
 class Dashboard 
 {
 
@@ -90,17 +93,30 @@ class Dashboard
     /**
      * 
      */
-	public static function addNewItem()
+	public static function addNewItem($id, $title, $url, $priority = 1)
 	{
         Dashboard::$items[] = array(
-            'name' => (string) $name,
-            'url'  => (string) $url,
+            'id'       => (string) $id,
+            'title'    => (string) $title,
+            'url'      => (string) $url,
+            'priority' => (int) $priority,
         );
 	}
 
+
+	/**
+	 * 
+	 */
 	public static function drawItems() 
 	{
-		
+		// Sort items by priority
+        $items = Arr::subvalSort(Dashboard::$items, 'priority');
+
+		foreach ($items as $item) {
+			echo '<li>';
+			echo Html::anchor($item['title'], $item['url'], array('title' => $item['title']));
+			echo '</li>';
+		}
 	}
 
 }

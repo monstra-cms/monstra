@@ -26,6 +26,6 @@
             'Embed Code' => 'Embed Code',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Abbrechen',
         )
     );

@@ -10,9 +10,7 @@
 				    <?php echo __('Create New', 'dashboard'); ?> <span class="caret"></span>
 				  </button>
 				  <ul class="dropdown-menu" role="menu">
-				    <li><?php echo ( Html::anchor(__('Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Page', 'pages')))); ?></li>
-				    <li><?php echo ( Html::anchor(__('Blocks', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Block', 'pages')))); ?></li>
-				    <li><?php echo ( Html::anchor(__('Snippets', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Snippet', 'pages')))); ?></li>
+				  	<?php Dashboard::drawItems(); ?>
 				  </ul>
 				</div>			
 				<?php echo ( Html::anchor(__('Upload File', 'filesmanager'), 'index.php?id=filesmanager', array('title' => __('Upload File', 'filesmanager'), 'class' => 'btn btn-primary'))); ?>
@@ -84,27 +82,32 @@
             </div>
 
 			<div id="gaSettings" class="row hide">
-				<div class="col-md-12">
+				<div class="col-md-4">
 					<form method="POST">
-						<?php echo Form::hidden('csrf', Security::token()); ?>
-						
-						<label><?php echo __('Client ID', 'system'); ?><input name="ga_client_id" value="<?php echo Option::get('ga_client_id'); ?>" placeholder="<?php echo __('Client ID', 'system'); ?>" /></label>
-						
-						<label><?php echo __('API key', 'system'); ?><input name="ga_api_key" value="<?php echo Option::get('ga_api_key'); ?>" placeholder="<?php echo __('API key', 'system'); ?>" /></label>
-						
-						<label><?php echo __('View ID', 'system'); ?><input name="ga_view_id" value="<?php echo Option::get('ga_view_id'); ?>" placeholder="<?php echo __('View ID', 'system'); ?>" /></label>
-						
-						<label><?php echo __('Tracking ID', 'system'); ?><input name="ga_tracking_id" value="<?php echo Option::get('ga_tracking_id'); ?>" placeholder="<?php echo __('Tracking ID', 'system'); ?>" /></label>
-						
+						<?php echo Form::hidden('csrf', Security::token()); ?>						
+						<div class="form-group">
+							<label><?php echo __('Client ID', 'system'); ?></label><input name="ga_client_id" class="form-control" value="<?php echo Option::get('ga_client_id'); ?>">
+						</div>					
+						<div class="form-group">	
+							<label><?php echo __('API key', 'system'); ?></label><input name="ga_api_key" class="form-control" value="<?php echo Option::get('ga_api_key'); ?>">
+						</div>												
+						<div class="form-group">	
+							<label><?php echo __('View ID', 'system'); ?></label><input name="ga_view_id" class="form-control" value="<?php echo Option::get('ga_view_id'); ?>">
+						</div>						
+						<div class="form-group">	
+							<label><?php echo __('Tracking ID', 'system'); ?></label><input name="ga_tracking_id" class="form-control" value="<?php echo Option::get('ga_tracking_id'); ?>">
+						</div>						
 						<input type="hidden" name="ga_settings_update" value="1" />
-						<button type="submit" class="btn btn-default"><?php echo __('Save', 'system'); ?></button>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary"><?php echo __('Save', 'system'); ?></button>
+						</div>
 					</form>
 				</div>
 			</div>
 
             <div id="gaHelpLink" class="row hide">
                 <div class="col-md-12">
-                    <br />Google Analytics help page: <a href="https://support.google.com/analytics/?hl=en" target="_blank">https://support.google.com/analytics/?hl=en</a>
+                    Google Analytics help page: <a href="https://support.google.com/analytics/?hl=en" target="_blank">https://support.google.com/analytics/?hl=en</a>
                 </div>
             </div>
 

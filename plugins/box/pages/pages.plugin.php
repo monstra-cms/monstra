@@ -283,7 +283,7 @@ class Pages extends Frontend
      */
     public static function title()
     {
-        return Pages::$page['title'];
+        return isset(Pages::$page['meta_title']) ? Pages::$page['meta_title'] : Pages::$page['title'];
     }
 
     /**

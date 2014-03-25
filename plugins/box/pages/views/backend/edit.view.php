@@ -21,7 +21,7 @@
         <div class="form-group">
         <?php
             echo (
-                Form::label('page_title', __('Title', 'pages')).
+                Form::label('page_title', __('Name', 'pages')).
                 Form::input('page_title', $title_to_edit, array('class' => (isset($errors['pages_empty_title'])) ? 'form-control error-field' : 'form-control'))
             );
             if (isset($errors['pages_empty_title'])) echo '<span class="error-message">'.$errors['pages_empty_title'].'</span>';
@@ -32,7 +32,7 @@
 
             if (Request::get('name') !== 'error404') {
                 echo (
-                    Form::label('page_name', __('Name (slug)', 'pages'))
+                    Form::label('page_name', __('Slug (url)', 'pages'))
                 );
             }
 
@@ -50,6 +50,14 @@
         </div>
     </div>
     <div class="tab-pane <?php if (Notification::get('metadata')) { ?>active<?php } ?>" id="metadata">
+        <div class="form-group">
+        <?php
+            echo (
+                Form::label('page_meta_title', __('Title', 'pages')).
+                Form::input('page_meta_title', $meta_title_to_edit, array('class' => 'form-control'))
+            );
+        ?>
+        </div>
         <div class="form-group">
         <?php
             echo (

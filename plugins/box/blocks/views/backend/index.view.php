@@ -27,7 +27,7 @@
             <div class="pull-right">            
                 <div class="btn-group">
                     <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-primary')); ?>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
