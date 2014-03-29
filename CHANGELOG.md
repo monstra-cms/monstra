@@ -24,6 +24,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Admin Help Section - added.
 - Pages Plugin: tags field added.
 - Pages Plugin: Meta Title added.
+- Sitemap Errors Fixes.
 - Monstra automatically renames files - fixed
 - Monstra Dashboard created and set as default Plugin for Admin Panel
 - Monstra Dashboard Google Analytics statistic added.
