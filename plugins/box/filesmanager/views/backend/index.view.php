@@ -133,7 +133,7 @@
             </td>
             <td>
             <div class="pull-right">
-				<button class="btn btn-primary js-file-info"
+				<button class="btn btn-info js-file-info"
 					data-filename="<?php echo str_replace('"', '\'', htmlentities($file)); ?>"
 					data-filetype="<?php echo $ext; ?>"
 					data-filesize="<?php echo Number::byteFormat(filesize($files_path. DS .$file)); ?>"
@@ -236,9 +236,6 @@
 					<div class="col-md-3"><?php echo __('Link:', 'filesmanager'); ?></div>
 					<div class="col-md-9 js-link"></div>
 				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __('Cancel', 'filesmanager'); ?></button>
 			</div>
 		</div>
 	</div>
