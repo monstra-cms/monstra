@@ -283,7 +283,7 @@ class Pages extends Frontend
      */
     public static function title()
     {
-        return isset(Pages::$page['meta_title']) ? Pages::$page['meta_title'] : Pages::$page['title'];
+        return !empty(Pages::$page['meta_title']) ? Pages::$page['meta_title'] : Pages::$page['title'];
     }
 
     /**
@@ -333,6 +333,7 @@ class Pages extends Frontend
         foreach ($pages_list as $page) {
 
             $pages_array[$count]['title']   = Html::toText($page['title']);
+            $pages_array[$count]['meta_title'] = !empty($page['meta_title']) ? Html::toText($page['meta_title']) : $page['title'];
             $pages_array[$count]['parent']  = $page['parent'];
             $pages_array[$count]['date']    = $page['date'];
             $pages_array[$count]['author']  = $page['author'];

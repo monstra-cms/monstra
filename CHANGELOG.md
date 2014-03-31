@@ -11,6 +11,7 @@ Monstra 2.4.0, 2014-xx-xx
 - Files Manager: added ability to create & rename directories.
 - Files Manager: Maximum upload file size message - added.
 - Files Manager: Bootstrap fileinput.js updated to 3.0.0
+- Files Manager: File Info Popup
 - Backup: Restore Site from Backup added
 - Plugins Manager: Uploading new plugins via the admin panel added
 - Plugins Manager: Read plugin help(README.MD) ability added.
@@ -22,6 +23,8 @@ Monstra 2.4.0, 2014-xx-xx
 - Site Url without trailing slashes
 - Admin Help Section - added.
 - Pages Plugin: tags field added.
+- Pages Plugin: Meta Title added.
+- Sitemap Errors Fixes.
 - Monstra automatically renames files - fixed
 - Monstra Dashboard created and set as default Plugin for Admin Panel
 - Monstra Dashboard Google Analytics statistic added.
@@ -39,10 +42,11 @@ Monstra 2.4.0, 2014-xx-xx
 - Core: Store user_email in Session
 - Core: Javascript may be broken if there is no break line - fixed
 - Core: Added ability to avoid caching JS/CSS by the browser.
+- Core: Monstra automatically rename files Issue - fixed
 - Prefetch DNS added to reduce look up times
 - Sandbox Plugin cleanup
-- New Flags: Japanese(JA), Indonesian(ID), Chinese(ZH-CN) added.
-- Localization: Japanese(JA), Indonesian(ID), Chinese(ZH-CN) translations added.
+- New Flags: Japanese(JA), Indonesian(ID), Chinese(ZH-CN), Turkish(TR) added.
+- Localization: Japanese(JA), Indonesian(ID), Chinese(ZH-CN), Turkish(TR) translations added.
 - Localization: Major Fixes
 
 Monstra 2.3.1, 2013-12-25

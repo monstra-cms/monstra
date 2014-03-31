@@ -119,7 +119,7 @@ class Security
     {
         // Redefine vars
         $str       = (string) $str;
-        $delimiter = (string) $delimiter;
+        $delimiter = $delimiter;
         $lowercase = (bool) $lowercase;
         $delimiter = $delimiter;
 
@@ -149,9 +149,9 @@ class Security
         $str = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
 
         // Remove characters
-        $str = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $str );
+        $str = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $str);
         if ($delimiter != null) {
-            $str = preg_replace("/[\/_|+ -]+/", $delimiter, $str );
+            $str = preg_replace("/[\/_|+ -]+/", $delimiter, $str);
             $str = trim($str, $delimiter);
         }
 
