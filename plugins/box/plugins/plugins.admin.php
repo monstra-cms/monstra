@@ -128,7 +128,7 @@ class PluginsAdmin extends Backend
                 if ($_FILES['file']) {
                     if (in_array(File::ext($_FILES['file']['name']), array('zip'))) {
 
-                        $tmp_dir = sys_get_temp_dir() . uniqid('monstra_');
+                        $tmp_dir = ROOT . DS .'tmp'. DS . uniqid('plugin_');
 
                         $error = 'Plugin was not uploaded';
 
