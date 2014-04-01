@@ -43,7 +43,6 @@ Monstra 2.4.0, 2014-xx-xx
 - Core: Javascript may be broken if there is no break line - fixed
 - Core: Added ability to avoid caching JS/CSS by the browser.
 - Core: Monstra automatically rename files Issue - fixed
-- Prefetch DNS added to reduce look up times
 - Sandbox Plugin cleanup
 - New Flags: Japanese(JA), Indonesian(ID), Chinese(ZH-CN), Turkish(TR) added.
 - Localization: Japanese(JA), Indonesian(ID), Chinese(ZH-CN), Turkish(TR) translations added.
