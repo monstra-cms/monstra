@@ -134,7 +134,7 @@
 </div>
 
 <div class="row margin-top-1">
-    <div class="col-xs-6">
+    <div class="col-sm-6">
         <?php
             echo (
                 Form::submit('add_page_and_exit', __('Save and Exit', 'pages'), array('class' => 'btn btn-primary')).Html::nbsp(2).
@@ -143,7 +143,7 @@
             );
         ?>
     </div>
-    <div class="col-xs-6">
+    <div class="col-sm-6 visible-sm visible-md visible-lg">
         <div class="pull-right">               
             <div class="input-group datapicker">
                 <?php echo Form::input('page_date', $date, array('class' => 'form-control')); ?>

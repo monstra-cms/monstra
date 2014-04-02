@@ -1,9 +1,9 @@
 <div class="well dashboard-well">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-xs-6">
 			<a class="btn btn-link welcome-back"><?php echo __('Welcome back', 'dashboard'); ?>, <strong><?php echo Session::get('user_login'); ?></strong></a>
 		</div>
-		<div class="col-md-6">
+		<div class="col-xs-6">
 			<div class="pull-right">
 				<div class="btn-group">
 				  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
