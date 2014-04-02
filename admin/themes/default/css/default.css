@@ -529,8 +529,9 @@ td, th {
     3. MEDIA QUERIES
 *************************************/
 
-/* iPhone 4 */
-@media (max-width: 320px) {
+
+@media (max-width: 480px) {
+    /* MarkItUp */
     .markItUpButton11, 
     .markItUpButton12, 
     .markItUpButton13,
@@ -544,4 +545,12 @@ td, th {
     .markItUpSeparator{
         display: none;
     }
+
+    /* Dashboard */
+    .dashboard-well .col-xs-6 {
+        width: 100%;
+    }
+    .dashboard-well .col-xs-6 .pull-right {
+        float: left!important;
+    }    
 }

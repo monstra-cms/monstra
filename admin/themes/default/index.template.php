@@ -148,7 +148,8 @@
         </div>
         <div><?php Action::run('admin_post_template'); ?></div>
       </div>
-      <footer class="container">
+      <div class="margin-top-1  margin-bottom-1 hidden-md"></div>
+      <footer class="container visible-md visible-lg">
           <p class="pull-right">
             <span>
               <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
