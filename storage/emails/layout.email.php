@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width"/>
     <style type="text/css">
       <?php include PLUGINS_BOX . '/emails/css/inc.css'; ?>
+    </style>
+    <style type="text/css">      
       .email-header {
         padding: 10px 20px 10px 0px;
       }
