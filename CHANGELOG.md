@@ -27,7 +27,6 @@ Monstra 2.4.0, 2014-xx-xx
 - Sitemap Errors Fixes.
 - Monstra automatically renames files - fixed
 - Monstra Dashboard created and set as default Plugin for Admin Panel
-- Monstra Dashboard Google Analytics statistic added.
 - Ink Framework for Monstra Email Templates
 - iCheck plugin for checkboxes added.
 - Emails Manager Plugin added.
