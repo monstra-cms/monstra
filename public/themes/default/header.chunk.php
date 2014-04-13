@@ -61,7 +61,7 @@
           <a class="navbar-brand" href="<?php echo Site::url(); ?>"><?php echo Site::name(); ?></a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav navbar-nav">
               <?php echo Menu::get(); ?>
               <?php Users::getPanel(); ?>
           </ul>

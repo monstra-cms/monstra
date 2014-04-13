@@ -66,6 +66,14 @@ a.monstra-blog-tag {
     background-color: #fff;
 }
 
+.navbar-nav  {
+    float: right;
+}
+
+.icon-bar {
+    background: #333;
+}
+
 .navbar-nav a {
     color: #696969;
 }
@@ -128,4 +136,10 @@ footer {
     margin-top: 20px;
     margin-bottom: 20px;
     color: #aaa;
+}
+
+@media (max-width: 600px) {
+    .navbar-nav  {
+        float: left;
+    }
 }
