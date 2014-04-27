@@ -21,7 +21,7 @@
                 Form::label('page_title', __('Name', 'pages')).
                 Form::input('page_title', $post_title, array('class' => (isset($errors['pages_empty_title'])) ? 'form-control error-field' : 'form-control'))
             );
-            if (isset($errors['pages_empty_title'])) echo Html::nbsp(3).'<span style="color:red">'.$errors['pages_empty_title'].'</span>';
+            if (isset($errors['pages_empty_title'])) echo Html::nbsp(3).'<span class="error-message">'.$errors['pages_empty_title'].'</span>';
         ?>            
         </div>
         <div class="form-group">
