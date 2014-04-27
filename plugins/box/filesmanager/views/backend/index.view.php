@@ -217,23 +217,23 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-md-3"><?php echo __('Filename:', 'filesmanager'); ?></div>
+					<div class="col-md-3"><?php echo __('Filename', 'filesmanager'); ?>:</div>
 					<div class="col-md-9 js-filename"></div>
 				</div>
 				<div class="row">
-					<div class="col-md-3"><?php echo __('Filetype:', 'filesmanager'); ?></div>
+					<div class="col-md-3"><?php echo __('Filetype', 'filesmanager'); ?>:</div>
 					<div class="col-md-9 js-filetype"></div>
 				</div>
 				<div class="row">
-					<div class="col-md-3"><?php echo __('Filesize:', 'filesmanager'); ?></div>
+					<div class="col-md-3"><?php echo __('Filesize', 'filesmanager'); ?>:</div>
 					<div class="col-md-9 js-filesize"></div>
 				</div>
 				<div class="row js-dimension-blck">
-					<div class="col-md-3"><?php echo __('Dimension:', 'filesmanager'); ?></div>
+					<div class="col-md-3"><?php echo __('Dimension', 'filesmanager'); ?>:</div>
 					<div class="col-md-9 js-dimension"></div>
 				</div>
 				<div class="row">
-					<div class="col-md-3"><?php echo __('Link:', 'filesmanager'); ?></div>
+					<div class="col-md-3"><?php echo __('Link', 'filesmanager'); ?>:</div>
 					<div class="col-md-9 js-link"></div>
 				</div>
 			</div>

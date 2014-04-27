@@ -16,6 +16,7 @@
             'Get More Plugins' => 'Скачать другие плагины',
             'Install' => 'Установить',
             'Uninstall' => 'Удалить',
-            'README.md not found' => 'README.md not found',
+            'README.md not found' => 'README.md не найден',
+            'Info' => 'Инфо',
         )
     );
