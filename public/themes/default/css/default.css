@@ -58,6 +58,8 @@ code {
 
 a.monstra-blog-tag {
     text-decoration: none;
+    float: left;
+    padding: 5px;
 }
 
 .masthead {
