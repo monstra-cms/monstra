@@ -109,20 +109,6 @@ class MinifyCSS
                 (\\b|[#\'"-])        # 3 = first character of a value
             /x', '$1$2:$3', $css);
 
-        // remove ws in selectors
-        $css = preg_replace_callback('/
-                (?:              # non-capture
-                    \\s*
-                    [^~>+,\\s]+  # selector part
-                    \\s*
-                    [,>+~]       # combinators
-                )+
-                \\s*
-                [^~>+,\\s]+      # selector part
-                {                # open declaration block
-            /x'
-            ,array($this, '_selectorsCB'), $css);
-
         // minimize hex colors
         $css = preg_replace('/([^=])#([a-f\\d])\\2([a-f\\d])\\3([a-f\\d])\\4([\\s;\\}])/i'
             , '$1#$2$3$4$5', $css);
