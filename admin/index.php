@@ -83,7 +83,7 @@ if (Request::post('login_submit')) {
         }
     }
 
-    Notification::set('error', $login_error);
+    Notification::setNow('error', $login_error);
 
 }
 
