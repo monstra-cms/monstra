@@ -1,17 +1,16 @@
 <h2 class="margin-bottom-1"><?php echo __('Users', 'users'); ?></h2>
 
-<?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
-
-<div class="pull-right margin-bottom-1">
-<?php echo Form::open(null, array('name' => 'users_frontend')); ?>
-<?php echo Form::hidden('csrf', Security::token()); ?>
-<div class="checkbox">
-<label>
-<?php echo Form::checkbox('users_frontend_registration', null, $users_frontend_registration); ?> <?php echo __('Allow user registration', 'users') ?>
-</label>
-</div>
-<?php echo Form::input('users_frontend_submit', 'users_frontend_submit', array('style' => 'display:none;')); ?>
-<?php echo Form::close();?>
+<div class="vertical-align margin-bottom-1">
+    <div class="text-left">
+        <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
+    </div>
+    <div class="text-right">
+        <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
+        <?php echo Form::hidden('csrf', Security::token()); ?>
+        <?php echo Form::checkbox('users_frontend_registration', 'users_frontend_registration', $users_frontend_registration); ?> <?php echo __('Allow user registration', 'users') ?>
+        <?php echo Form::input('users_frontend_submit', 'users_frontend_submit', array('style' => 'display:none;')); ?>
+        <?php echo Form::close();?>
+    </div>
 </div>
 
 <!-- Users_list -->
