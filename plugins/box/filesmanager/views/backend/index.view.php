@@ -37,7 +37,7 @@
 			<div class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
 		</div>
 		<div class="upload-file-info"></div>
-		<div class="btn btn-link file-size-max-upload">
+		<div class="btn btn-link file-size-max-upload hidden-sm hidden-md">
 			<?php echo __('Maximum upload file size: :upload_max_filesize', 'filesmanager', array(':upload_max_filesize' => $upload_max_filesize)); ?>
 		</div>
 	</div>

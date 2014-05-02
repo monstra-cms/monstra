@@ -43,7 +43,7 @@
                             <?php if (File::exists(PLUGINS . DS . $plugin['id'] . DS . 'README.md')) { ?>
                             <?php echo Html::anchor(__('Info', 'plugins'),
                                        '#',
-                                       array('class' => 'btn btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => $plugin['id']));
+                                       array('class' => 'btn btn-info hidden-sm hidden-md readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => $plugin['id']));
                             ?>
                             <?php } ?>
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
