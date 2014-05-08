@@ -1,3 +1,4 @@
+<div class="system-buttons">
 <?php echo Html::anchor(__('Create Sitemap', 'system'), 'index.php?id=system&sitemap=create&token='.Security::token(), array('class' => 'btn btn-default')).Html::nbsp(2); ?>
 <?php echo Html::anchor(__('Delete Temporary Files', 'system'), 'index.php?id=system&temporary_files=delete&token='.Security::token(), array('class' => 'btn btn-default')).Html::nbsp(2); ?>
 <?php if ('off' == Option::get('maintenance_status', 'system')) { ?>
@@ -6,6 +7,7 @@
 <?php echo Html::anchor(__('Maintenance Mode Off', 'system'), 'index.php?id=system&maintenance=off&token='.Security::token(), array('class' => 'btn btn-danger')); ?>
 <?php } ?>
 <?php Action::run('admin_system_extra_buttons'); ?>
+</div>
 
 <hr>
 

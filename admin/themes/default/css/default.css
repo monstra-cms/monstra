@@ -107,7 +107,7 @@ footer span {
 
 /* Admin Form */
 .form-signin  {
-    width: 400px;
+    max-width: 400px;
 }
 
 .form-signin {
@@ -553,4 +553,8 @@ td, th {
     .dashboard-well .col-xs-6 .pull-right {
         float: left!important;
     }    
+
+    .system-buttons .btn {
+        width: 100%;
+    }
 }

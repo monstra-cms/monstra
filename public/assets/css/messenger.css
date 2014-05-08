@@ -89,7 +89,7 @@ ul.messenger.messenger-fixed.messenger-on-top.messenger-on-left, ul.messenger.me
 }
 /* line 72, ../../src/sass/messenger.sass */
 ul.messenger.messenger-fixed.messenger-on-right, ul.messenger.messenger-fixed.messenger-on-left {
-  width: 420px;
+  max-width: 420px;
 }
 /* line 75, ../../src/sass/messenger.sass */
 ul.messenger.messenger-fixed.messenger-on-right .messenger-actions, ul.messenger.messenger-fixed.messenger-on-left .messenger-actions {
