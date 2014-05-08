@@ -1,13 +1,11 @@
-<div class="system-buttons">
 <?php echo Html::anchor(__('Create Sitemap', 'system'), 'index.php?id=system&sitemap=create&token='.Security::token(), array('class' => 'btn btn-default')).Html::nbsp(2); ?>
-<?php echo Html::anchor(__('Delete Temporary Files', 'system'), 'index.php?id=system&temporary_files=delete&token='.Security::token(), array('class' => 'btn btn-default')).Html::nbsp(2); ?>
+<?php echo Html::anchor(__('Delete Temporary Files', 'system'), 'index.php?id=system&temporary_files=delete&token='.Security::token(), array('class' => 'btn btn-phone btn-default')).Html::nbsp(2); ?>
 <?php if ('off' == Option::get('maintenance_status', 'system')) { ?>
-<?php echo Html::anchor(__('Maintenance Mode On', 'system'), 'index.php?id=system&maintenance=on&token='.Security::token(), array('class' => 'btn btn-default')); ?>
+<?php echo Html::anchor(__('Maintenance Mode On', 'system'), 'index.php?id=system&maintenance=on&token='.Security::token(), array('class' => 'btn btn-phone default')); ?>
 <?php } else { ?>
-<?php echo Html::anchor(__('Maintenance Mode Off', 'system'), 'index.php?id=system&maintenance=off&token='.Security::token(), array('class' => 'btn btn-danger')); ?>
+<?php echo Html::anchor(__('Maintenance Mode Off', 'system'), 'index.php?id=system&maintenance=off&token='.Security::token(), array('class' => 'btn btn-phone btn-danger')); ?>
 <?php } ?>
 <?php Action::run('admin_system_extra_buttons'); ?>
-</div>
 
 <hr>
 
@@ -110,7 +108,7 @@
     <div class="col-md-6">
         <?php
             echo (
-                Form::submit('edit_settings', __('Save', 'system'), array('class' => 'btn btn-primary')).
+                Form::submit('edit_settings', __('Save', 'system'), array('class' => 'btn btn-phone btn-primary')).
                 Form::close()
             );
         ?>   
