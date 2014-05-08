@@ -92,7 +92,7 @@
         echo (
             Html::br().
             Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
-            Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-phone btn-default')).
+            Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-phone btn-cancel btn-default')).
             Form::close()
         );
 

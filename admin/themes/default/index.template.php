@@ -63,7 +63,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class="page-<?php echo Request::get('id'); ?>">
 
     <nav class="navbar navbar-default navbar-inverse" role="navigation">      
       <div class="container">

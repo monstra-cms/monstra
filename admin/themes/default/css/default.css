@@ -569,4 +569,8 @@ td, th {
     .users-btns > div:nth-child(2) {
         margin-top: 15px;
     }
+
+    .page-users .btn-cancel {
+        margin-bottom: 20px;
+    }
 }
