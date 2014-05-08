@@ -1,4 +1,4 @@
-<?php echo Html::anchor(__('Create Sitemap', 'system'), 'index.php?id=system&sitemap=create&token='.Security::token(), array('class' => 'btn btn-default')).Html::nbsp(2); ?>
+<?php echo Html::anchor(__('Create Sitemap', 'system'), 'index.php?id=system&sitemap=create&token='.Security::token(), array('class' => 'btn btn-phone btn-default')).Html::nbsp(2); ?>
 <?php echo Html::anchor(__('Delete Temporary Files', 'system'), 'index.php?id=system&temporary_files=delete&token='.Security::token(), array('class' => 'btn btn-phone btn-default')).Html::nbsp(2); ?>
 <?php if ('off' == Option::get('maintenance_status', 'system')) { ?>
 <?php echo Html::anchor(__('Maintenance Mode On', 'system'), 'index.php?id=system&maintenance=on&token='.Security::token(), array('class' => 'btn btn-phone default')); ?>
