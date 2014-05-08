@@ -16,7 +16,7 @@
             );
 
             if (isset($errors['users_this_user_alredy_exists'])) echo '<span class="error-message">'.$errors['users_this_user_alredy_exists'].'</span>';
-            if (isset($errors['users_empty_login'])) echo '<span class="error-message">'.$errors['users_empty_login'].'</span>';
+            if (isset($errors['users_empty_l-ogin'])) echo '<span class="error-message">'.$errors['users_empty_login'].'</span>';
         ?>
         </div>
 
@@ -52,8 +52,8 @@
         </div>
         <?php
             echo (
-                Form::submit('register', __('Register', 'users'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-                Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-default')).
+                Form::submit('register', __('Register', 'users'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
+                Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-phone btn-default')).
                 Form::close()
             );
         ?>

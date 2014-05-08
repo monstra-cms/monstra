@@ -557,4 +557,16 @@ td, th {
     .btn-phone {
         width: 100%;
     }
+
+    /* Users */
+    .users-btns > div {
+        display: block;        
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .users-btns > div:nth-child(2) {
+        margin-top: 15px;
+    }
 }

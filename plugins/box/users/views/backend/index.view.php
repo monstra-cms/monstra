@@ -1,6 +1,6 @@
 <h2 class="margin-bottom-1"><?php echo __('Users', 'users'); ?></h2>
 
-<div class="vertical-align margin-bottom-1">
+<div class="users-btns vertical-align margin-bottom-1">
     <div class="text-left">
         <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
     </div>
@@ -18,9 +18,9 @@
     <thead>
         <tr>
             <th><?php echo __('Username', 'users'); ?></th>
-            <th><?php echo __('Email', 'users'); ?></th>
-            <th><?php echo __('Registered', 'users'); ?></th>
-            <th><?php echo __('Role', 'users'); ?></th>
+            <th class="visible-lg hidden-xs"><?php echo __('Email', 'users'); ?></th>
+            <th class="visible-lg hidden-xs"><?php echo __('Registered', 'users'); ?></th>
+            <th class="visible-lg hidden-xs"><?php echo __('Role', 'users'); ?></th>
             <th></th>
         </tr>
     </thead>
@@ -30,13 +30,13 @@
         <td>
             <?php echo Html::toText($user['login']); ?>
         </td>
-        <td>
+        <td class="visible-lg hidden-xs">
             <?php echo Html::toText($user['email']); ?>
         </td>
-        <td>
+        <td class="visible-lg hidden-xs">
             <?php echo Date::format($user['date_registered']); ?>
         </td>
-        <td>
+        <td class="visible-lg hidden-xs">
             <?php echo $roles["{$user['role']}"]; ?>
         </td>
         <td>

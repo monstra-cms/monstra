@@ -91,8 +91,8 @@
 
         echo (
             Html::br().
-            Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-            Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-default')).
+            Form::submit('edit_profile', __('Save', 'users'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
+            Html::anchor(__('Cancel', 'users'), 'index.php?id=users', array('title' => __('Cancel', 'users'), 'class' => 'btn btn-phone btn-default')).
             Form::close()
         );
 
@@ -117,7 +117,7 @@
         </div>
     <?php
         echo (    
-            Form::submit('edit_profile_password', __('Save', 'users'), array('class' => 'btn btn-primary')).
+            Form::submit('edit_profile_password', __('Save', 'users'), array('class' => 'btn btn-phone btn-primary')).
             Form::close()
         );
     ?>
