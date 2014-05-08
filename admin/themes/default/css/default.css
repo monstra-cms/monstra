@@ -554,8 +554,15 @@ td, th {
         float: left!important;
     }    
 
+    
     .btn-phone {
         width: 100%;
+    }
+
+    .row-phone {
+        display: block!important;
+        width: 100%!important;
+        text-align: left!important;
     }
 
     /* Users */

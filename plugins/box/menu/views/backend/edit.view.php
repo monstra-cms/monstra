@@ -9,8 +9,9 @@
 
         <?php if (isset($errors['menu_item_name_empty'])) $error_class = ' error'; else $error_class = ''; ?>
 
-        <a href="#" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
-        <a href="#" class="btn btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
+        <a href="#" class="btn btn-phone btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectPageModal"><?php echo __('Select page', 'menu'); ?></a>
+        <?php echo Html::nbsp(2); ?>
+        <a href="#" class="btn btn-phone btn-default" data-toggle="modal" data-toggle="modal" data-target="#selectCategoryModal"><?php echo __('Select category', 'menu'); ?></a>
     
         <div class="form-group margin-top-2">
         <?php
@@ -54,8 +55,8 @@
         </div>    
         <?php
             echo (
-                Form::submit('menu_add_item', __('Save', 'menu'), array('class' => 'btn btn-primary')).Html::nbsp(2).
-                Html::anchor(__('Cancel', 'menu'), 'index.php?id=menu', array('title' => __('Cancel', 'menu'), 'class' => 'btn btn-default')).
+                Form::submit('menu_add_item', __('Save', 'menu'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
+                Html::anchor(__('Cancel', 'menu'), 'index.php?id=menu', array('title' => __('Cancel', 'menu'), 'class' => 'btn btn-phone btn-default')).
                 Form::close()
             );
         ?>

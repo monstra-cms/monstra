@@ -1,11 +1,11 @@
 <div class="vertical-align margin-bottom-1">
-    <div class="text-left">
+    <div class="text-left row-phone">
         <h2><?php echo __('Snippets', 'snippets'); ?></h2>
     </div>
-    <div class="text-right">
+    <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-primary')). Html::nbsp(3)
+                Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>

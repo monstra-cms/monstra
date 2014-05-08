@@ -2,13 +2,13 @@
 
 <?php if ($menu->count() == 0) { ?>
 <div class="vertical-align margin-bottom-1">
-    <div class="text-left">
+    <div class="text-left row-phone">
         <h3><?php echo __('Category', 'menu'); ?>: <?php echo 'default'; ?></h3>
     </div>
-    <div class="text-right">
+    <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
+                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add', array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>
@@ -22,14 +22,14 @@
 ?>
 
 <div class="vertical-align margin-bottom-1">
-    <div class="text-left">
+    <div class="text-left row-phone">
         <h3><?php echo __('Category', 'menu'); ?>: <?php echo ($category == '') ? 'default' : $category; ?></h3>
     </div>
-    <div class="text-right">
+    <div class="text-right row-phone">
         <br>
         <?php
             echo (
-                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-primary'))
+                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>
