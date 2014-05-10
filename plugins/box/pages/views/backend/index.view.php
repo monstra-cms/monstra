@@ -1,12 +1,12 @@
 <div class="vertical-align margin-bottom-1">
-    <div class="text-left">
+    <div class="text-left row-phone">
         <h2><?php echo __('Pages', 'pages'); ?></h2>
     </div>
-    <div class="text-right">
+    <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-primary')). Html::nbsp(3).
-                Html::anchor(__('Edit 404 Page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-default'))
+                Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-phone btn-primary')). Html::nbsp(3).
+                Html::anchor(__('Edit 404 Page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-phone btn-default'))
             );
         ?>
     </div>
