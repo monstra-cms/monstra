@@ -79,7 +79,7 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($chunk_path.Security::safeName(Request::post('name'), null, false)).'.chunk.php') $errors['file_exists'] = __('This chunk already exists', 'themes');
+                            if (file_exists($chunk_path.Security::safeName(Request::post('name'), null, false).'.chunk.php')) $errors['file_exists'] = __('This chunk already exists', 'themes');
 
                             if (count($errors) == 0) {
 
