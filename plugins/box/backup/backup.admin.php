@@ -41,6 +41,8 @@ class BackupAdmin extends Backend
                     Notification::set('error', __('Backup was not created', 'backup'));
                 }
 
+                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
+
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
