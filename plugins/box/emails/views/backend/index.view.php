@@ -1,11 +1,11 @@
 <div class="vertical-align margin-bottom-1">
-    <div class="text-left">
+    <div class="text-left row-phone">
         <h2><?php echo __('Emails', 'emails'); ?></h2>
     </div>    
-    <div class="text-right">
+    <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Edit Layout', 'emails'), 'index.php?id=emails&action=edit_email_template&filename=layout', array('title' => __('Edit Layout', 'emails'), 'class' => 'btn btn-primary'))
+                Html::anchor(__('Edit Layout', 'emails'), 'index.php?id=emails&action=edit_email_template&filename=layout', array('title' => __('Edit Layout', 'emails'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>

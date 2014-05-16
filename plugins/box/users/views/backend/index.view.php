@@ -2,7 +2,7 @@
 
 <div class="users-btns vertical-align margin-bottom-1">
     <div class="text-left">
-        <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-primary')); ?>
+        <?php echo Html::anchor(__('Register New User', 'users'), 'index.php?id=users&action=add', array('title' => __('Register New User', 'users'), 'class' => 'btn btn-phone btn-primary')); ?>
     </div>
     <div class="text-right">
         <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
