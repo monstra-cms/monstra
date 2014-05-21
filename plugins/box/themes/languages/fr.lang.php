@@ -39,6 +39,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Les modifications apportées au chunk <i>:name</i> ont été enregistrées.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Les modifications apportées au styles <i>:name</i> ont été enregistrées.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Les modifications apportées au modèle <i>:name</i> ont été enregistrées.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Champs requis',
             'Scripts' => 'Scripts',
             'Create new script' => 'Créer un nouveau script',

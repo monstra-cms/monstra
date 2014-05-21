@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => '<i>:name</i> チャンクへの変更は保存されました。',
             'Your changes to the styles <i>:name</i> have been saved.' => ' <i>:name</i> スタイルへの変更は保存されました。',
             'Your changes to the template <i>:name</i> have been saved.' => '<i>:name</i> テンプレートへの変更は保存されました。',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => '必須項目',
             'Scripts' => 'スクリプト',
             'Create New Script' => '新規スクリプトの作成',

@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Yığın Değişikliği <i>:name</i> kaydedildi.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'YStil Değişikliği <i>:name</i> kaydedildi.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Tema Değişikliği <i>:name</i> kaydedildi.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Zorunlu Alan',
             'Scripts' => 'Scriptler',
             'Create New Script' => 'Yeni Script Oluştur',

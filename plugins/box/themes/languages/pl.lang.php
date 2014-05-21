@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Twoje zmiany dla cegiełki <i>:name</i> zostały zapisane.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Twoje zmiany dla stylów <i>:name</i> zostały zapisane.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Twoje zmiany dla szablonu <i>:name</i> zostały zapisane.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Pole wymagane',
             'Scripts' => 'Skrypty',
             'Create New Script' => 'Utwórz nowy skrypt',

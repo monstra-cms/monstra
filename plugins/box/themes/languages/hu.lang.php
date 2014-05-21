@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'A chunk <i>:name</i> változtatásai mentve.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'A styles <i>:name</i> változtatásai mentve.',
             'Your changes to the template <i>:name</i> have been saved.' => 'A sablon <i>:name</i> változtatásai mentve.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Kötelező mező',
             'Scripts' => 'Szkriptek',
             'Create New Script' => 'Új Szkript Készítése',

@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => '您修改的区块 <i>:name</i> 已保存。',
             'Your changes to the styles <i>:name</i> have been saved.' => '您修改的样式 <i>:name</i> 已保存。',
             'Your changes to the template <i>:name</i> have been saved.' => '您修改的模板 <i>:name</i> 已保存。',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => '必填字段',
             'Scripts' => '脚本',
             'Create New Script' => '创建新脚本',

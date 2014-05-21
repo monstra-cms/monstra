@@ -41,6 +41,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Perubahan pada chunk <i>:name</i> telah disimpan.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Perubahan pada model <i>:name</i> telah disimpan.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Perubahan pada template <i>:name</i> telah disimpan.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Isian yang Diperlukan',
             'Scripts' => 'Skrip',
             'Create New Script' => 'Buat Skrip Baru',
