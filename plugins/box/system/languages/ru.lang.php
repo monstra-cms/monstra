@@ -21,7 +21,7 @@
             'Default Page' => 'Страница по умолчанию',
             'Time zone' => 'Временная зона',
             'Language' => 'Язык',
-            'Email' => 'Емейл',
+            'Email' => 'Эл. почта',
             'Save' => 'Сохранить',
             'System version' => 'Версия системы',
             'System version ID' => 'Версия системы ID',
