@@ -3,15 +3,15 @@
     return array(
         'backup' => array(
     		'Backups' => 'Yedekler',
-            'Backup Date' => 'Yedek tarihi',
-    		'Create Backup' => 'Yedek Oluştur',
+            'Backup Date' => 'Yedekleme Tarihi',
+    		'Create Backup' => 'Yedek Al',
     		'Delete' => 'Sil',
-            'storage' => 'Depolama',
-            'public' => 'Genel',
-            'plugins' => 'Eklentiler',
+            'storage' => 'depo',
+            'public' => 'genel',
+            'plugins' => 'eklentiler',
             'Size' => 'Boyut',
             'Actions' => 'Eylemler',
-            'Delete backup: :backup' => 'Yedek silindi: :backup',
+            'Delete backup: :backup' => ':backup adlı yedek silinsin mi',
             'Creating...' => 'Oluşturuluyor...',
         )
 	);
