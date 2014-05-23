@@ -3,15 +3,15 @@
     return array(
         'filesmanager' => array(
             'Files' => 'Dosyalar',
-            'Files manager' => 'Dosya Yöneticisi',
-            'Name' => 'İsim',
+            'Files manager' => 'Dosya yöneticisi',
+            'Name' => 'Ad',
             'Actions' => 'İşlemler',
             'Delete' => 'Sil',
             'Upload' => 'Yükle',
             'directory' => 'dizin',
-            'Delete directory: :dir' => 'Dizin Silindi: :dir',
-            'Delete file: :file' => 'Dosya silindi :file',
-            'Extension' => 'Uzantılar',
+            'Delete directory: :dir' => ':dir dizini silinsin mi',
+            'Delete file: :file' => ':file dosyası silinsin mi',
+            'Extension' => 'Uzantı',
             'Size' => 'Boyut',
         )
     );
