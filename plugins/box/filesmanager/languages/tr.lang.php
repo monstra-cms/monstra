@@ -35,5 +35,6 @@
             'Directory:' => 'Dizin:',
             'File:' => 'Dosya:',
             'Drop File Here' => 'Dosyayı Buraya Bırakınız',
+            'Maximum upload file size: :upload_max_filesize' => 'Dosya büyüklüğü üst sınırı: :upload_max_filesize',
         )
     );
