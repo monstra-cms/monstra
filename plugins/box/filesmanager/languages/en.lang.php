@@ -32,5 +32,6 @@
             'Upload server error' => 'Upload server error',
             'Directory:' => 'Directory:',
             'File:' => 'File:',
+            'Drop File Here' => 'Drop File Here',
         )
     );
