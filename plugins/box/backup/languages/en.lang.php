@@ -3,6 +3,7 @@
     return array(
         'backup' => array(
     		'Backups' => 'Backups',
+    		'Backup' => 'Backup',
             'Backup Date' => 'Backup Date',
     		'Create Backup' => 'Create Backup',
     		'Delete' => 'Delete',
