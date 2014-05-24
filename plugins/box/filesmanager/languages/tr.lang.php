@@ -32,5 +32,7 @@
             'Directory was not created' => 'Dizin oluşturulmadı',
             'Directory was created' => 'Dizin oluşturuldu',
             'Upload server error' => 'Yükleme sunucusunda hata',
+            'Directory:' => 'Dizin:',
+            'File:' => 'Dosya:',
         )
     );
