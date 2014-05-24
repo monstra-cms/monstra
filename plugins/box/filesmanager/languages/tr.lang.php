@@ -15,6 +15,7 @@
             'Extension' => 'Uzantı',
             'Size' => 'Boyut',
             'Directory Name' => 'Dizin Adı',
+            'Select file' => 'Dosya seç',
             'Cancel' => 'Vazgeç',
             'Create' => 'Oluştur',
         )
