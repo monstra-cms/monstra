@@ -50,6 +50,7 @@
             'Access' => 'Erişim',
             'Public' => 'Herkese Açık',
             'Registered' => 'Yalnızca Üyelere Açık',
+            'Cancel' => 'Vazgeç',
             'Tags' => 'Etiketler',
         )
     );
