@@ -16,7 +16,8 @@
             'Title' => 'Başlık',
             'Name' => 'Ad',
             'Author' => 'Yazar',
-            'Name (slug)' => 'Ad (makine adı)',
+            'Name (slug)' => 'Ad (makine adı)', // check whether in use or not
+            'Slug (url)' => 'Url adı (makine adı)',
             'Description' => 'Açıklama',
             'Keywords' => 'Anahtar Sözcükler',
             'Parent' => 'Üst Sayfa',
