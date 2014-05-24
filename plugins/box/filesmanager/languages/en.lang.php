@@ -33,5 +33,6 @@
             'Directory:' => 'Directory:',
             'File:' => 'File:',
             'Drop File Here' => 'Drop File Here',
+            'Maximum upload file size: :upload_max_filesize' => 'Maximum upload file size: :upload_max_filesize',
         )
     );
