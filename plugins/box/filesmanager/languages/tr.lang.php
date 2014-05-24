@@ -18,5 +18,18 @@
             'Select file' => 'Dosya seç',
             'Cancel' => 'Vazgeç',
             'Create' => 'Oluştur',
+            'File was deleted' => 'Dosya silindi',
+            'File was not deleted' => 'Dosya silinmedi',
+            'Directory was deleted' => 'Dizin silindi',
+            'Directory was not deleted' => 'Dizin silinmedi',
+            'Can not be empty' => 'Boş olamaz',
+            'Directory exists' => 'Dizin zaten var',
+            'File exists' => 'Dosya zaten var',
+            'Renamed successfully' => 'Başarıyla yeniden adlandırıldı',
+            'Failure' => 'Başarısız',
+            'File was uploaded' => 'Dosya yüklendi',
+            'Directory was not created' => 'Dizin oluşturulmadı',
+            'Directory was created' => 'Dizin oluşturuldu',
+            'Upload server error' => 'Yükleme sunucusunda hata',
         )
     );
