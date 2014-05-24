@@ -30,5 +30,7 @@
             'Directory was not created' => 'Directory was not created',
             'Directory was created' => 'Directory was created',
             'Upload server error' => 'Upload server error',
+            'Directory:' => 'Directory:',
+            'File:' => 'File:',
         )
     );
