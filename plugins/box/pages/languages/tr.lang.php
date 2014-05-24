@@ -17,7 +17,7 @@
             'Name' => 'Ad',
             'Author' => 'Yazar',
             'Name (slug)' => 'Ad (makine adı)', // check whether in use or not
-            'Slug (url)' => 'Url adı (makine adı)',
+            'Slug (url)' => 'Url Adı (Makine Adı)',
             'Description' => 'Açıklama',
             'Keywords' => 'Anahtar Sözcükler',
             'Parent' => 'Üst Sayfa',
