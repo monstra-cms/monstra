@@ -63,5 +63,6 @@
             'Your login details for :site_name' => ':site_name için giriş bilgileriniz',
             'About Me' => 'Hakkımda',
             'Profile' => 'Profil',
+            'Cancel' => 'Vazgeç',
         )
     );
