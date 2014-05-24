@@ -18,6 +18,7 @@
             'Select file' => 'Dosya seç',
             'Cancel' => 'Vazgeç',
             'Create' => 'Oluştur',
+            'Rename' => 'Yeniden Adlandır',
             'File was deleted' => 'Dosya silindi',
             'File was not deleted' => 'Dosya silinmedi',
             'Directory was deleted' => 'Dizin silindi',
