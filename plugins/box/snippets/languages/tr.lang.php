@@ -24,5 +24,6 @@
             'Embed Code' => 'Gömülü Kod',
             'Shortcode' => 'Kısa Kod',
             'PHP Code' => 'PHP Kodu',
+            'Cancel' => 'Vazgeç',
         )
     );
