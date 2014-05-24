@@ -47,6 +47,7 @@
             'Script content' => 'Betik içeriği',
             'New Script' => 'Yeni Betik',
             'Edit Script' => 'Betiği Düzenle',
+            'Site Theme' => 'Site Teması',
             'Cancel' => 'Vazgeç',
         )
     );
