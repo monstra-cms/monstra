@@ -34,5 +34,6 @@
             'Upload server error' => 'Yükleme sunucusunda hata',
             'Directory:' => 'Dizin:',
             'File:' => 'Dosya:',
+            'Drop File Here' => 'Dosyayı Buraya Bırakınız',
         )
     );
