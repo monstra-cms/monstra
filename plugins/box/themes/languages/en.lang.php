@@ -48,5 +48,6 @@
             'New Script' => 'New Script',
             'Edit Script' => 'Edit Script',
             'Site Theme' => 'Site Theme',
+            'Cancel' => 'Cancel',
         )
     );
