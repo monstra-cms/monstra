@@ -14,5 +14,6 @@
             'Delete file: :file' => ':file dosyası silinsin mi',
             'Extension' => 'Uzantı',
             'Size' => 'Boyut',
+            'Directory Name' => 'Dizin Adı',
         )
     );
