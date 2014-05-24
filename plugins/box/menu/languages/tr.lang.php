@@ -23,5 +23,6 @@
             'Category' => 'Kategori',
             'Select category' => 'Kategori seç',
             'Required field' => 'Zorunlu alan',
+            'Cancel' => 'Vazgeç',
         )
     );
