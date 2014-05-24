@@ -16,6 +16,7 @@
             'Size' => 'Size',
             'Select file' => 'Select file',
             'Change' => 'Change',
+            'Rename' => 'Rename',
             'File was deleted' => 'File was deleted',
             'File was not deleted' => 'File was not deleted',
             'Directory was deleted' => 'Directory was deleted',
