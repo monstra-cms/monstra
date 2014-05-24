@@ -7,6 +7,7 @@
             'Backup Date' => 'Yedekleme Tarihi',
     		'Create Backup' => 'Yedek Al',
     		'Delete' => 'Sil',
+    		'Restore' => 'Geri Yükle',
             'storage' => 'depo',
             'public' => 'genel',
             'plugins' => 'eklentiler',
