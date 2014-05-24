@@ -3,6 +3,7 @@
     return array(
         'backup' => array(
     		'Backups' => 'Yedekler',
+    		'Backup' => 'Yedek',
             'Backup Date' => 'Yedekleme Tarihi',
     		'Create Backup' => 'Yedek Al',
     		'Delete' => 'Sil',
