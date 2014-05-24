@@ -51,5 +51,6 @@
             'Public' => 'Public',
             'Registered' => 'Registered',
             'Cancel' => 'Cancel',
+            'Tags' => 'Tags',
         )
     );
