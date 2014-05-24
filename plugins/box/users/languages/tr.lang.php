@@ -15,7 +15,7 @@
             'Delete' => 'Sil',
             'Log In' => 'Giriş',
             'Log Out' => 'Çıkış',
-            'Register New user' => 'Yeni üye kaydet',
+            'Register New User' => 'Yeni Üye Kaydet',
             'New User Registration' => 'Yeni Üye Kaydı',
             'Delete user: :user' => ':user kullanıcısı silinsin mi',
             'User <i>:user</i> have been deleted.' => '<i>:user</i> kullanıcısı silindi.',
