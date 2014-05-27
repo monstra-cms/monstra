@@ -42,11 +42,11 @@ class CodeMirror
             <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/htmlmixed/htmlmixed.js"></script>
             <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/xml/xml.js"></script>
             <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/javascript/javascript.js"></script>
-			<script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/css/css.js"></script>
+            <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/css/css.js"></script>
             <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/clike/clike.js"></script>
             <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/mode/php/php.js"></script>
             <script type="text/javascript" src="'.Option::get('siteurl').'/plugins/codemirror/codemirror/addon/selection/active-line.js"></script>
-			<link rel="stylesheet" href="'.Option::get('siteurl').'/plugins/codemirror/codemirror/theme/'.CodeMirror::$theme.'.css">
+            <link rel="stylesheet" href="'.Option::get('siteurl').'/plugins/codemirror/codemirror/theme/'.CodeMirror::$theme.'.css">
             <style>
                 .CodeMirror {
                     height:400px!important; 
@@ -65,7 +65,7 @@ class CodeMirror
             if (Request::get('action') == 'edit_styles') {
                 $mode = 'text/css';
             } else {
-				$mode = 'application/x-httpd-php';
+                $mode = 'application/x-httpd-php';
 			}
             
             echo ('<script>
