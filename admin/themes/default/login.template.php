@@ -122,8 +122,8 @@
         <div class="login-footer">
 
             <div class="text-center">
-                <a href="<?php echo Option::get('siteurl'); ?>"><?php echo __('Back to Website', 'system');?></a> -
-                <a class="reset-password-btn" href="javascript:;"><?php echo __('Forgot your password ?', 'system');?></a>
+                <a href="<?php echo Option::get('siteurl'); ?>"><?php echo __('< Back to Website', 'system');?></a> -
+                <a class="reset-password-btn" href="javascript:;"><?php echo __('Forgot your password ? >', 'system');?></a>
                 <a class="administration-btn" href="javascript:;"><?php echo __('Log in', 'system');?></a>
             </div>
 
