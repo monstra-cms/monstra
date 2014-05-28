@@ -111,7 +111,7 @@
                             }
                         ?>
                         <div class="form-group">
-                            <input type="submit" name="reset_password_submit" class="btn btn-primary" value="<?php echo __('Get New Password', 'users')?>" />
+                            <input type="submit" name="reset_password_submit" class="btn btn-primary" value="<?php echo __('Send New Password', 'users')?>" />
                         </div>
                     </form>
                 </div>
@@ -124,7 +124,7 @@
             <div class="text-center">
                 <a href="<?php echo Option::get('siteurl'); ?>"><?php echo __('Back to Website', 'system');?></a> -
                 <a class="reset-password-btn" href="javascript:;"><?php echo __('Forgot your password ?', 'system');?></a>
-                <a class="administration-btn" href="javascript:;"><?php echo __('Log in', 'system');?></a>
+                <a class="administration-btn" href="javascript:;"><?php echo __('Log In', 'users');?></a>
             </div>
 
             <div class="text-center">
