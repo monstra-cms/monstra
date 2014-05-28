@@ -25,7 +25,7 @@ if ($content !== null) {
 
        Form::submit('edit_email_template_and_exit', __('Save and Exit', 'emails'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
        Form::submit('edit_email_template', __('Save', 'emails'), array('class' => 'btn btn-phone btn-primary')). Html::nbsp(2).
-       Html::anchor(__('Cancel', 'blocks'), 'index.php?id=emails', array('title' => __('Cancel', 'emails'), 'class' => 'btn btn-phone btn-default')).
+       Html::anchor(__('Cancel', 'emails'), 'index.php?id=emails', array('title' => __('Cancel', 'emails'), 'class' => 'btn btn-phone btn-default')).
        Form::close()
     );
 

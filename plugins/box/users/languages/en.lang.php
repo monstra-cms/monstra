@@ -15,7 +15,7 @@
             'Delete' => 'Delete',
             'Log In' => 'Log In',
             'Log Out' => 'Log Out',
-            'Register New user' => 'Register New User',
+            'Register New User' => 'Register New User',
             'New User Registration' => 'New User Registration',
             'Delete user: :user' => 'Delete user: :user',
             'User <i>:user</i> have been deleted.' => 'User <i>:user</i> have been deleted.',
