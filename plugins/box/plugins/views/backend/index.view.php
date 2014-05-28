@@ -88,7 +88,7 @@
                         <td>
                             <div class="pull-right">
                             <?php if (File::exists(PLUGINS . DS . basename($plug['plugin'], '.manifest.xml') . DS . 'README.md')) { ?>
-                            <?php echo Html::anchor(__('?', 'plugins'),
+                            <?php echo Html::anchor(__('Info', 'plugins'),
                                        '#',
                                        array('class' => 'btn btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => basename($plug['plugin'], '.manifest.xml')));
                             ?>
