@@ -77,7 +77,7 @@
       <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'registration') { ?>        
         <h1><?php echo __('Registration', 'users'); ?></h1>
       <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'login') { ?>
-        <h1><?php echo __('Sign In', 'users'); ?></h1>
+        <h1><?php echo __('Log In', 'users'); ?></h1>
       <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'password-reset') { ?>                
         <h1><?php echo __('Reset Password', 'users') ?></h1>
       <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(2) == 'edit') { ?>                
