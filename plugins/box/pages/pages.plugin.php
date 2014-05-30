@@ -531,7 +531,7 @@ class Page extends Pages
 
     public static function _content($attributes)
     {
-        return Page::content((isset($attributes['name']) ? $attributes['name'] : ''));
+        return Pages::content((isset($attributes['name']) ? $attributes['name'] : ''));
     }
 
 }
