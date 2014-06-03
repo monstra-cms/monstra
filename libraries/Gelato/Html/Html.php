@@ -51,7 +51,7 @@ class Html
      *
      *  <code>
      *
-     *      // Registering a Htmlk macro
+     *      // Registering a Html macro
      *      Html::macro('my_element', function() {
      *          return '<element id="monstra">';
      *      });
@@ -61,7 +61,7 @@ class Html
      *
      *
      *      // Registering a Html macro with parameters
-     *      Html::macro('my_element', function(id = '') {
+     *      Html::macro('my_element', function($id = '') {
      *      	return '<element id="'.$id.'">';
      *      });
      *
