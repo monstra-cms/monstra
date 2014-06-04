@@ -371,15 +371,6 @@ class Pages extends Frontend
 }
 
 /**
- * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
- */
-Shortcode::add('page_author', 'Page::author');
-Shortcode::add('page_slug', 'Page::slug');
-Shortcode::add('page_url', 'Page::url');
-Shortcode::add('page_content', 'Page::_content');
-Shortcode::add('page_date', 'Page::_date');
-
-/**
  * Page class
  */
 class Page extends Pages
@@ -535,3 +526,12 @@ class Page extends Pages
     }
 
 }
+
+/**
+ * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
+ */
+Shortcode::add('page_author', 'Page::author');
+Shortcode::add('page_slug', 'Page::slug');
+Shortcode::add('page_url', 'Page::url');
+Shortcode::add('page_content', 'Page::_content');
+Shortcode::add('page_date', 'Page::_date');
