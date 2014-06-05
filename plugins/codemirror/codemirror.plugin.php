@@ -71,7 +71,7 @@ class CodeMirror
             echo ('<script>
                         $(document).ready(function() {
                             var editor = CodeMirror.fromTextArea(document.getElementById("content"), {
-                                lineNumbers: true,
+                                lineNumbers: false,
                                 styleActiveLine: true,
                                 matchBrackets: true,
                                 indentUnit: 4,
