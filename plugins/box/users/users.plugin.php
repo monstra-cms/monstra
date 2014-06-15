@@ -100,7 +100,7 @@ class Users extends Frontend
      */
     public static function getRegistration()
     {
-        if (Option::get('users_frontend_registration') == 'true') {
+        if (Option::get('users_frontend_registration')) {
 
             // Is User Loged in ?
             if ( ! Session::get('user_id')) {
