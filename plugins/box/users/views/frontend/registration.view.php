@@ -33,8 +33,8 @@
 			<input type="text" name="answer" class="form-control"><?php if (isset($errors['users_captcha_wrong'])) echo Html::nbsp(3).'<span class="error">'.$errors['users_captcha_wrong'].'</span>'; ?>
 			<br>			
 			<?php CryptCaptcha::draw(); ?>
-			<?php } ?>
 		</div>
+		<?php } ?>
 		<div class="form-group">
 			<input type="submit" class="btn btn-primary" value="<?php echo __('Register', 'users'); ?>" name="register">
 		</div>
