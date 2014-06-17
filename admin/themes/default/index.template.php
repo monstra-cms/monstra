@@ -104,7 +104,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Help', 'system'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
+                    <?php if (Option::get('language') == 'ru') { ?>
+                    <li><a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li> /
+                    <?php } else { ?>
                     <li><a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
+                    <?php } ?>
                 </ul>
               </li>
             </ul>        
@@ -152,7 +156,11 @@
       <footer class="container visible-md visible-lg">
           <p class="pull-right">
             <span>
+              <?php if (Option::get('language') == 'ru') { ?>
+              <a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+              <?php } else { ?>
               <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+              <?php } ?>
               <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
               © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
             </span>
