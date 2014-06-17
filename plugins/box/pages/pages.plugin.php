@@ -447,16 +447,17 @@ class Page extends Pages
      */
     public static function breadcrumbs()
     {
-        $current_page = Pages::$requested_page;
-        $parent_page = '';
-        if ($current_page !== 'error404') {
-            $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
-            if (trim($page['parent']) !== '') {
-                $parent = true;
-                $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
-            } else {
-                $parent = false;
-            }
+        if (Uri::command() == 'pages') {
+            $current_page = Pages::$requested_page;
+            $parent_page = '';
+            if ($current_page !== 'error404') {
+                $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
+                if (trim($page['parent']) !== '') {
+                    $parent = true;
+                    $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
+                } else {
+                    $parent = false;
+                }
 
             // Display view
             View::factory('box/pages/views/frontend/breadcrumbs')
@@ -465,7 +466,8 @@ class Page extends Pages
                     ->assign('parent', $parent)
                     ->assign('parent_page', $parent_page)
                     ->display();
-        }
+            }
+        }    
     }
 
     /**
