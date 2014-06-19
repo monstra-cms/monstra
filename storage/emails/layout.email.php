@@ -33,6 +33,7 @@
                             <td class="email-header" style="padding:10px 20px 10px 0px;">
                               <h1><?php echo $site_name; ?></h1>
                             </td>
+                            <td class="expander"></td>
                           </tr>
                         </table>
                       </td>
@@ -46,6 +47,7 @@
                             <td class="email-content" style="border:1px solid #F5F5F5; background:#fdfdfd; padding:20px 20px 20px 20px;">
                               <?php include STORAGE . DS . 'emails' . DS . $email_template . '.email.php'; ?>
                             </td>
+                            <td class="expander"></td>
                           </tr>
                         </table>
                       </td>
