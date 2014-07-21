@@ -581,3 +581,10 @@ td, th {
         margin-bottom: 20px;
     }
 }
+
+
+@media (max-width: 768px) {
+    .nav > li > a {
+        padding: 15px 9px!important;
+    }
+}
