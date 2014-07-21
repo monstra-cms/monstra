@@ -298,7 +298,7 @@ Monstra 1.1.4, 2012-06-09
 ------------------------
 - Improve Monstra Error Handler
 
- Monstra 1.1.3, 2012-06-06
+Monstra 1.1.3, 2012-06-06
 ------------------------
 - Improve Monstra Error Handler
 
