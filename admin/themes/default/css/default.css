@@ -588,3 +588,30 @@ td, th {
         padding: 15px 9px!important;
     }
 }
+
+@media (max-width: 320px) {
+    .mobile-nav-tabs .nav-tabs > li {
+        width: 100%;    
+        height: 46px;
+        margin: 0px;    
+    }
+    .mobile-nav-tabs .nav-tabs > li > a {
+        background: #fff;
+        border: 0;
+    }
+    .mobile-nav-tabs .nav-tabs > li.active > a, 
+    .mobile-nav-tabs .nav-tabs > li.active > a:hover, 
+    .mobile-nav-tabs .nav-tabs > li.active > a:focus {
+        border: 0;
+        color: #fff;
+        background-color: #428bca;
+    }
+    .mobile-nav-tabs .nav-tabs {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 0;
+    }
+    .mobile-nav-tabs .tab-pane > table {
+        border-top: 1px solid #ddd!important;
+    }
+}

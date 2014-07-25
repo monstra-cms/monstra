@@ -1,6 +1,6 @@
 <h2 class="margin-bottom-1"><?php echo __('Information', 'information'); ?></h2>
 
-<div class="tabbable">
+<div class="tabbable mobile-nav-tabs">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#system" data-toggle="tab"><?php echo __('System', 'information'); ?></a></li>
         <li><a href="#server" data-toggle="tab"><?php echo __('Server', 'information'); ?></a></li>
@@ -91,6 +91,7 @@
 
         <div class="tab-pane" id="directory-permissions">
 
+            <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -125,12 +126,13 @@
                     </tr>
                 </tbody>
             </table>
-
+            </div>
         </div>
 
         <div class="tab-pane" id="security">
 
             <?php clearstatcache(); ?>
+            <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -158,6 +160,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
 
         </div>
 
