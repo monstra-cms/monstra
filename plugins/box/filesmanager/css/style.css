@@ -50,3 +50,9 @@
     cursor: default;
     text-decoration: none;
 }
+
+@media (max-width: 320px) {
+    .create-new-dir {
+        float:left!important;
+    }
+}

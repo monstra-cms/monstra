@@ -31,7 +31,7 @@
       <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
     </div>
 
-	<div id="DgDfileUploader">
+	<div id="DgDfileUploader" class="hidden-xs">
 		<div class="upload-area">
 			<div class="upload-progress"></div>
 			<div class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
@@ -43,7 +43,7 @@
 	</div>
     </div>
     <div class="col-md-2">
-        <div class="pull-right">
+        <div class="pull-right create-new-dir">
         <button class="btn btn-primary" data-toggle="modal" data-target="#createNewDirectory">
           <?php echo __('Create New Directory', 'filesmanager'); ?>
         </button>
@@ -75,6 +75,7 @@
 </ol>
 <!-- /Filesmanger_path -->
 
+<div class="table-responsive">
 <table class="table table-bordered" id="filesDirsList">
     <thead>
         <tr>
@@ -155,6 +156,7 @@
         <?php } } ?>
     </tbody>
 </table>
+</div>
 
 <div id="createNewDirectory" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
