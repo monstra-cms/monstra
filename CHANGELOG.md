@@ -1,4 +1,4 @@
-Monstra 2.4.0, 2014-xx-xx
+Monstra 3.0.0, 2014-xx-xx
 ------------------------
 - Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
 - Twitter Bootstrap updated to 3.1.1
