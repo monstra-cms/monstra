@@ -1,6 +1,6 @@
 <h2 class="margin-bottom-1"><?php echo __('Plugins', 'plugins'); ?></h2>
 
-<div class="tabbable">
+<div class="tabbable mobile-nav-tabs">
 
     <!-- Plugins_tabs -->
     <ul class="nav nav-tabs">
@@ -13,6 +13,7 @@
     <div class="tab-content">
 
         <div class="tab-pane active" id="installed">
+            <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -56,9 +57,11 @@
                     <?php } } ?>
                 </tbody>
             </table>
+            </div>
         </div>
 
          <div class="tab-pane" id="installnew">
+            <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -104,6 +107,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
 
 		 <?php if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN'): ?>
 			<div class="row">
