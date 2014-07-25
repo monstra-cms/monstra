@@ -17,6 +17,7 @@
 </div>
 
 <!-- Backup_list -->
+<div class="table-responsive">
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -52,4 +53,5 @@
     <?php } ?>
     </tbody>
 </table>
+</div>
 <!-- /Backup_list -->
