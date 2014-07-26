@@ -21,7 +21,7 @@ class UsersAdmin extends Backend
         // Get uses table
         $users = new Table('users');
 
-        if (Option::get('users_frontend_registration') == '1') {
+        if (Option::get('users_frontend_registration') === 'true') {
             $users_frontend_registration = true;
         } else {
             $users_frontend_registration = false;
@@ -31,7 +31,7 @@ class UsersAdmin extends Backend
 
             if (Security::check(Request::post('csrf'))) {
 
-                if (Request::post('users_frontend_registration')) $users_frontend_registration = '1'; else $users_frontend_registration = '0';
+                if (Request::post('users_frontend_registration')) $users_frontend_registration = 'true'; else $users_frontend_registration = 'false';
                 
                 if (Option::update('users_frontend_registration', $users_frontend_registration)) {
                     Notification::set('success', __('Your changes have been saved.', 'users'));
