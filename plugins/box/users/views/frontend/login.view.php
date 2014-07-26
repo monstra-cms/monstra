@@ -1,4 +1,13 @@
-<div class="row">
+<div class="row">	
+	<div class="col-md-12">		
+	    <?php
+            // Monstra Notifications
+            Notification::get('error') AND $error = Notification::get('error');
+            echo '<div class="error margin-bottom-1">'.$error."</div>";
+        ?>
+    </div>
+</div>
+<div class="row">	
 	<div class="col-md-3">
 		<form method="post">
 		    <?php echo Form::hidden('csrf', Security::token()); ?>
