@@ -105,7 +105,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
                     <?php if (Option::get('language') == 'ru') { ?>
-                    <li><a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li> /
+                    <li><a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
                     <?php } else { ?>
                     <li><a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
                     <?php } ?>
