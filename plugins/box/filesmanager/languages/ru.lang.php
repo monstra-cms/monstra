@@ -12,7 +12,7 @@
             'Maximum upload file size: :upload_max_filesize' => 'Максимальный размер файла: :upload_max_filesize',
             'Rename' => 'Переименовать',
             'Renamed successfully' => 'Успешно переименован',
-            'Failure' => 'Failure',
+            'Failure' => 'Провал',
             'Forbidden file type' => 'Запрещенный тип файла',
             'Upload server error' => 'Ошибка сервера при загрузке',
             'Can not be empty' => 'Не может быть пустым',
