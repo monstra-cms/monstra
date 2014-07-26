@@ -27,6 +27,12 @@ a:hover {
     float: left;
 }
 
+.success {
+    color:#9BBA1C;
+    display: inline-block;
+    float: left;  
+}
+
 .margin-top-1 {
     margin-top: 1em;
 }
