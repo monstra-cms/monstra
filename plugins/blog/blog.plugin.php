@@ -109,7 +109,9 @@ class Blog {
         }
     
         foreach($posts as $post) {
-            $tags_string .= $post['tags'].',';
+            if (isset($post['tags'])) {
+                $tags_string .= $post['tags'].',';
+            }
         }
 
         $tags_string = substr($tags_string, 0, strlen($tags_string)-1);   
