@@ -19,7 +19,7 @@ Plugin::register( __FILE__,
                 'Awilum',    
                 'http://monstra.org/');
 
-// Add new filter
+// Uncomment code below to use Markdown on Site Content
 Filter::add('content', 'markdown', 1);
 
 use \Michelf\MarkdownExtra;
