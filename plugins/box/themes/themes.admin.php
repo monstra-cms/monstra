@@ -79,19 +79,19 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($chunk_path.Security::safeName(Request::post('name')).'.chunk.php')) $errors['file_exists'] = __('This chunk already exists', 'themes');
+                            if (file_exists($chunk_path.Security::safeName(Request::post('name'), null, false).'.chunk.php')) $errors['file_exists'] = __('This chunk already exists', 'themes');
 
                             if (count($errors) == 0) {
 
                                 // Save chunk
-                                File::setContent($chunk_path.Security::safeName(Request::post('name')).'.chunk.php', Request::post('content'));
+                                File::setContent($chunk_path.Security::safeName(Request::post('name'), null, false).'.chunk.php', Request::post('content'));
 
-                                Notification::set('success', __('Your changes to the chunk <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
+                                Notification::set('success', __('Your changes to the chunk <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_chunk&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_chunk&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -119,19 +119,19 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($template_path.Security::safeName(Request::post('name')).'.template.php')) $errors['file_exists'] = __('This template already exists', 'themes');
+                            if (file_exists($template_path.Security::safeName(Request::post('name', null, false))).'.template.php') $errors['file_exists'] = __('This template already exists', 'themes');
 
                             if (count($errors) == 0) {
 
                                 // Save chunk
-                                File::setContent($template_path.Security::safeName(Request::post('name')).'.template.php', Request::post('content'));
+                                File::setContent($template_path.Security::safeName(Request::post('name'), null, false).'.template.php', Request::post('content'));
 
-                                Notification::set('success', __('Your changes to the chunk <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
+                                Notification::set('success', __('Your changes to the chunk <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_template&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_template&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -159,19 +159,19 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($style_path.Security::safeName(Request::post('name')).'.css')) $errors['file_exists'] = __('This styles already exists', 'themes');
+                            if (file_exists($style_path.Security::safeName(Request::post('name'), null, false)).'.css') $errors['file_exists'] = __('This styles already exists', 'themes');
 
                             if (count($errors) == 0) {
 
                                 // Save chunk
-                                File::setContent($style_path.Security::safeName(Request::post('name')).'.css', Request::post('content'));
+                                File::setContent($style_path.Security::safeName(Request::post('name'), null, false).'.css', Request::post('content'));
 
-                                Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
+                                Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_styles&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_styles&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -199,19 +199,19 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($script_path.Security::safeName(Request::post('name')).'.js')) $errors['file_exists'] = __('This script already exists', 'themes');
+                            if (file_exists($script_path.Security::safeName(Request::post('name'), null, false)).'.js') $errors['file_exists'] = __('This script already exists', 'themes');
 
                             if (count($errors) == 0) {
 
                                 // Save chunk
-                                File::setContent($script_path.Security::safeName(Request::post('name')).'.js', Request::post('content'));
+                                File::setContent($script_path.Security::safeName(Request::post('name'), null, false).'.js', Request::post('content'));
 
-                                Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name')))));
+                                Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_script&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_script&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -241,14 +241,14 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if ((file_exists($chunk_path.Security::safeName(Request::post('name')).'.chunk.php')) and (Security::safeName(Request::post('chunk_old_name')) !== Security::safeName(Request::post('name')))) $errors['file_exists'] = __('This chunk already exists', 'themes');
+                            if ((file_exists($chunk_path.Security::safeName(Request::post('name'), null, false).'.chunk.php') and (Security::safeName(Request::post('chunk_old_name'), null, false)) !== Security::safeName(Request::post('name'), null, false))) $errors['file_exists'] = __('This chunk already exists', 'themes');
 
                             // Save fields
                             if (Request::post('content')) $content = Request::post('content'); else $content = '';
                             if (count($errors) == 0) {
 
                                 $chunk_old_filename = $chunk_path.Request::post('chunk_old_name').'.chunk.php';
-                                $chunk_new_filename = $chunk_path.Security::safeName(Request::post('name')).'.chunk.php';
+                                $chunk_new_filename = $chunk_path.Security::safeName(Request::post('name'), null, false).'.chunk.php';
                                 if ( ! empty($chunk_old_filename)) {
                                     if ($chunk_old_filename !== $chunk_new_filename) {
                                         rename($chunk_old_filename, $chunk_new_filename);
@@ -268,7 +268,7 @@ class ThemesAdmin extends Backend
                                 if (Request::post('edit_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_chunk&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_chunk&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -297,14 +297,14 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if ((file_exists($template_path.Security::safeName(Request::post('name')).'.template.php')) and (Security::safeName(Request::post('template_old_name')) !== Security::safeName(Request::post('name')))) $errors['template_exists'] = __('This template already exists', 'themes');
+                            if ((file_exists($template_path.Security::safeName(Request::post('name'), null, false).'.template.php') and (Security::safeName(Request::post('template_old_name'), null, false)) !== Security::safeName(Request::post('name'), null, false))) $errors['template_exists'] = __('This template already exists', 'themes');
 
                             // Save fields
                             if (Request::post('content')) $content = Request::post('content'); else $content = '';
                             if (count($errors) == 0) {
 
                                 $template_old_filename = $template_path.Request::post('template_old_name').'.template.php';
-                                $template_new_filename = $template_path.Security::safeName(Request::post('name')).'.template.php';
+                                $template_new_filename = $template_path.Security::safeName(Request::post('name'), null, false).'.template.php';
                                 if ( ! empty($template_old_filename)) {
                                     if ($template_old_filename !== $template_new_filename) {
                                         rename($template_old_filename, $template_new_filename);
@@ -324,7 +324,7 @@ class ThemesAdmin extends Backend
                                 if (Request::post('edit_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_template&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_template&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -353,14 +353,14 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if ((file_exists($style_path.Security::safeName(Request::post('name')).'.css')) and (Security::safeName(Request::post('styles_old_name')) !== Security::safeName(Request::post('name')))) $errors['file_exists'] = __('This styles already exists', 'themes');
+                            if ((file_exists($style_path.Security::safeName(Request::post('name'), null, false).'.css') and (Security::safeName(Request::post('styles_old_name'), null, false)) !== Security::safeName(Request::post('name'), null, false))) $errors['file_exists'] = __('This styles already exists', 'themes');
 
                             // Save fields
                             if (Request::post('content')) $content = Request::post('content'); else $content = '';
                             if (count($errors) == 0) {
 
                                 $styles_old_filename = $style_path.Request::post('styles_old_name').'.css';
-                                $styles_new_filename = $style_path.Security::safeName(Request::post('name')).'.css';
+                                $styles_new_filename = $style_path.Security::safeName(Request::post('name'), null, false).'.css';
                                 if ( ! empty($styles_old_filename)) {
                                     if ($styles_old_filename !== $styles_new_filename) {
                                         rename($styles_old_filename, $styles_new_filename);
@@ -380,7 +380,7 @@ class ThemesAdmin extends Backend
                                 if (Request::post('edit_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_styles&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_styles&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 
@@ -409,14 +409,14 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if ((file_exists($script_path.Security::safeName(Request::post('name')).'.js')) and (Security::safeName(Request::post('script_old_name')) !== Security::safeName(Request::post('name')))) $errors['file_exists'] = __('This script already exists', 'themes');
+                            if ((file_exists($script_path.Security::safeName(Request::post('name'), null, false).'.js')) and (Security::safeName(Request::post('script_old_name'), null, false)) !== Security::safeName(Request::post('name'), null, false)) $errors['file_exists'] = __('This script already exists', 'themes');
 
                             // Save fields
                             if (Request::post('content')) $content = Request::post('content'); else $content = '';
                             if (count($errors) == 0) {
 
                                 $script_old_filename = $script_path.Request::post('script_old_name').'.js';
-                                $script_new_filename = $script_path.Security::safeName(Request::post('name')).'.js';
+                                $script_new_filename = $script_path.Security::safeName(Request::post('name'), null, false).'.js';
                                 if ( ! empty($script_old_filename)) {
                                     if ($script_old_filename !== $script_new_filename) {
                                         rename($script_old_filename, $script_new_filename);
@@ -436,7 +436,7 @@ class ThemesAdmin extends Backend
                                 if (Request::post('edit_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
-                                    Request::redirect('index.php?id=themes&action=edit_script&filename='.Security::safeName(Request::post('name')));
+                                    Request::redirect('index.php?id=themes&action=edit_script&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
                             }
 

@@ -4,23 +4,17 @@
 <meta charset="utf-8">
 <title>Error</title>
 <style type="text/css">
+body {
+    background: #F5F5F5;
+    padding: 0;
+    margin: 0;
+}
 #gelato-error {
-    background:#eee;
+    background:#F5F5F5;
     color:0;
-    width:95%;
+    width:100%;
     font-size:14px;
     font-family:Verdana, Arial, Helvetica, "Nimbus Sans", FreeSans, Malayalam, sans-serif;
-    margin:20px auto;
-
-    -webkit-box-shadow: 1px 1px 18px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    1px 1px 18px rgba(50, 50, 50, 0.75);
-    box-shadow:         1px 1px 18px rgba(50, 50, 50, 0.75);
-
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-
-
 }
 
 #gelato-error pre {
@@ -31,23 +25,17 @@
 }
 
 #gelato-error a {
-    color:#cc0a0a;
+    color:#DC143C;
     text-decoration:none;
 }
 
 #gelato-error .error {
-    background:#cc0a0a;
+    background:#DC143C;
     color:#fff;
     font-size:24px;
     font-weight:700;
     padding:10px;
 
-    -moz-border-radius-topleft: 5px;
-    -webkit-border-top-left-radius: 5px;
-     border-top-left-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -webkit-border-top-right-radius: 5px;
-    border-top-right-radius: 5px;
 }
 
 #gelato-error .body {
@@ -288,7 +276,10 @@
     <?php endforeach; ?>
     </table>
     </div>
-    <div style="padding-top:20px;padding-bottom:20px; padding-left:10px;"><a href="http://gelato.monstra.org">Gelato Library</a></div>
+    <div style="padding-top:20px;padding-bottom:20px; padding-left:10px;">
+        <a href="http://monstra.org">MONSTRA</a>
+        <a href="http://gelato.monstra.org">GELATO</a>
+    </div>
 </div>
 
 <script type="text/javascript">

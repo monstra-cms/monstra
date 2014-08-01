@@ -6,7 +6,7 @@
  *	@package Monstra
  *  @subpackage Plugins
  *	@author Romanenko Sergey / Awilum
- *	@copyright 2012-2013 Romanenko Sergey / Awilum
+ *	@copyright 2012-2014 Romanenko Sergey / Awilum
  *	@version 1.0.0
  *
  */
@@ -21,8 +21,12 @@ Plugin::register( __FILE__,
                 'users',
                 'box');
 
-// Include Users Admin
-Plugin::Admin('users', 'box');
+if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor'))) {
+
+    // Include Users Admin
+    Plugin::Admin('users', 'box');
+    
+}
 
 // Add Plugin Javascript
 Javascript::add('plugins/box/users/js/users.js', 'backend');
@@ -139,6 +143,7 @@ class Users extends Frontend
                             Session::set('user_id', (int) $user['id']);
                             Session::set('user_login', (string) $user['login']);
                             Session::set('user_role', (string) $user['role']);
+                            Session::set('user_email', (string) $user['email']);
 
                             $mail = new PHPMailer();
                             $mail->CharSet = 'utf-8';
@@ -147,15 +152,15 @@ class Users extends Frontend
                             $mail->AddReplyTo(Option::get('system_email'));
                             $mail->AddAddress($user['email'], $user['login']);
                             $mail->Subject = Option::get('sitename');
-                            $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+                            $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                                 ->assign('site_name', Option::get('sitename'))
                                 ->assign('user_login', $user['login'])
-                                ->assign('view', 'new_user_email')
+                                ->assign('email_template', 'new-user')
                                 ->render());
                             $mail->Send();
 
                             // Redirect to user profile
-                            Request::redirect(Option::get('siteurl').'users/'.Users::$users->lastId());
+                            Request::redirect(Option::get('siteurl').'/users/'.Users::$users->lastId());
                         }
 
                     } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -170,7 +175,7 @@ class Users extends Frontend
                         ->display();
 
             } else {
-                Request::redirect(Site::url().'users/'.Session::get('user_id'));
+                Request::redirect(Site::url().'/users/'.Session::get('user_id'));
             }
 
         } else {
@@ -240,7 +245,7 @@ class Users extends Frontend
                             }
 
                             Notification::set('success', __('Your changes have been saved.', 'users'));
-                            Request::redirect(Site::url().'users/'.$user['id']);
+                            Request::redirect(Site::url().'/users/'.$user['id']);
                         }
                     } else { }
 
@@ -253,7 +258,7 @@ class Users extends Frontend
                 ->display();
 
         } else {
-            Request::redirect(Site::url().'users/login');
+            Request::redirect(Site::url().'/users/login');
         }
     }
 
@@ -293,13 +298,13 @@ class Users extends Frontend
                     $mail->AddReplyTo(Option::get('system_email'));
                     $mail->AddAddress($user['email'], $user['login']);
                     $mail->Subject = __('Your new password for :site_name', 'users', array(':site_name' => $site_name));
-                    $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+                    $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                         ->assign('site_url', $site_url)
                         ->assign('site_name', $site_name)
                         ->assign('user_id', $user['id'])
                         ->assign('user_login', $user['login'])
                         ->assign('new_password', $new_password)
-                        ->assign('view', 'new_password_email')
+                        ->assign('email_template', 'new-password')
                         ->render());
                     $mail->Send();
 
@@ -307,7 +312,7 @@ class Users extends Frontend
                     Notification::set('success', __('New password has been sent', 'users'));
 
                     // Redirect to password-reset page
-                    Request::redirect(Site::url().'users/password-reset');
+                    Request::redirect(Site::url().'/users/login');
 
                 }
             }
@@ -342,13 +347,13 @@ class Users extends Frontend
                         $mail->AddReplyTo(Option::get('system_email'));
                         $mail->AddAddress($user['email'], $user['login']);
                         $mail->Subject = __('Your login details for :site_name', 'users', array(':site_name' => $site_name));
-                        $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+                        $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
                             ->assign('site_url', $site_url)
                             ->assign('site_name', $site_name)
                             ->assign('user_id', $user['id'])
                             ->assign('user_login', $user['login'])
                             ->assign('new_hash', $new_hash)
-                            ->assign('view', 'reset_password_email')
+                            ->assign('email_template', 'reset-password')
                             ->render());
                         $mail->Send();
 
@@ -356,7 +361,7 @@ class Users extends Frontend
                         Notification::set('success', __('Your login details for :site_name has been sent', 'users', array(':site_name' => $site_name)));
 
                         // Redirect to password-reset page
-                        Request::redirect(Site::url().'users/password-reset');
+                        Request::redirect(Site::url().'/users/password-reset');
 
                     }
 
@@ -383,36 +388,65 @@ class Users extends Frontend
             // Login Form Submit
             if (Request::post('login_submit')) {
 
-                // Check csrf
-                if (Security::check(Request::post('csrf'))) {
+                if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
+                    
+                    Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
 
-                    $user = Users::$users->select("[login='" . trim(Request::post('username')) . "']", null);
+                } else {
 
-                    if (count($user) !== 0) {
-                        if ($user['login'] == Request::post('username')) {
-                            if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
-                                if ($user['role'] == 'admin' || $user['role'] == 'editor') {
-                                    Session::set('admin', true);
+                    // Check csrf
+                    if (Security::check(Request::post('csrf'))) {
+
+                        $user = Users::$users->select("[login='" . trim(Request::post('username')) . "']", null);
+
+                        if (count($user) !== 0) {
+                            if ($user['login'] == Request::post('username')) {
+                                if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
+                                    if ($user['role'] == 'admin' || $user['role'] == 'editor') {
+                                        Session::set('admin', true);
+                                    }
+                                    Session::set('user_id', (int) $user['id']);
+                                    Session::set('user_login', (string) $user['login']);
+                                    Session::set('user_role', (string) $user['role']);
+                                    Session::set('user_email', (string) $user['email']);
+                                    Request::redirect(Site::url().'/users/'.Session::get('user_id'));
+                                } else {
+                                    Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
+
+                                    if (Cookie::get('login_attempts')) {
+                                        if (Cookie::get('login_attempts') < 5) {
+                                            $attempts = Cookie::get('login_attempts') + 1;
+                                            Cookie::set('login_attempts', $attempts , 600);
+                                        } else {
+                                            Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
+                                        }
+                                    } else {
+                                        Cookie::set('login_attempts', 1, 600);
+                                    }
                                 }
-                                Session::set('user_id', (int) $user['id']);
-                                Session::set('user_login', (string) $user['login']);
-                                Session::set('user_role', (string) $user['role']);
-                                Request::redirect(Site::url().'users/'.Session::get('user_id'));
+                            }
+                        } else {
+                            Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
+
+                            if (Cookie::get('login_attempts')) {
+                                if (Cookie::get('login_attempts') < 5) {
+                                    $attempts = Cookie::get('login_attempts') + 1;
+                                    Cookie::set('login_attempts', $attempts , 600);
+                                } else {
+                                    Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
+                                }
                             } else {
-                                Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
+                                Cookie::set('login_attempts', 1, 600);
                             }
                         }
-                    } else {
-                        Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
-                    }
 
-                } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
-
+                    } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+                }
             }
 
             View::factory('box/users/views/frontend/login')->display();
         } else {
-            Request::redirect(Site::url().'users/'.Session::get('user_id'));
+            Request::redirect(Site::url().'/users/'.Session::get('user_id'));
         }
     }
 
@@ -457,10 +491,17 @@ class Users extends Frontend
 
     /**
      * Get Gravatar
+     *
+     *  <code>
+     *      <img src="<?php echo Users::getGravatarURL('monstra@monstra.org', 64); ?>" alt="">
+     *  </code>
+     *
+     * @param string  $email  Email
+     * @param integer $size   Image Size
      */
     public static function getGravatarURL($email, $size)
     {
-        return 'http://www.gravatar.com/avatar.php?gravatar_id='.md5($email).'&rating=PG'.'&size='.$size;
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($email))).'?size='.$size;
     }
 
 }

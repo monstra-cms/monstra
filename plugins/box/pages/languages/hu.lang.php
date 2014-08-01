@@ -50,5 +50,6 @@
             'Access' => 'Hozzáférés',
             'Public' => 'Nyilvános',
             'Registered' => 'Regisztrált',
+            'Cancel' => 'Cancel',
         )
     );

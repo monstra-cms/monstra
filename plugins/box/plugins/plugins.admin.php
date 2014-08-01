@@ -1,13 +1,21 @@
 <?php
 
+Stylesheet::add('plugins/box/filesmanager/css/style.css', 'backend', 11);
+Javascript::add('plugins/box/filesmanager/js/fileuploader.js', 'backend', 11);
+Javascript::add('plugins/box/plugins/js/plugins.js', 'backend', 11);
+
 // Add plugin navigation link
 Navigation::add(__('Plugins', 'plugins'), 'extends', 'plugins', 1);
+
+// Add action on admin_pre_render hook
+Action::add('admin_pre_render','PluginsAdmin::_readmeLoadAjax');
 
 /**
  * Plugins Admin
  */
 class PluginsAdmin extends Backend
 {
+
     /**
      * Plugins admin
      */
@@ -46,6 +54,9 @@ class PluginsAdmin extends Backend
                     // Clean Monstra TMP folder.
                     Monstra::cleanTmp();
 
+                    Stylesheet::stylesVersionIncrement();
+                    Javascript::javascriptVersionIncrement();
+
                     // Delete plugin form plugins table
                     $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
 
@@ -74,6 +85,9 @@ class PluginsAdmin extends Backend
                 // Clean Monstra TMP folder.
                 Monstra::cleanTmp();
 
+                Stylesheet::stylesVersionIncrement();
+                Javascript::javascriptVersionIncrement();
+
                 // Run plugin installer file
                 $plugin_name = str_replace(array("Plugin", ".manifest.xml"), "", Request::get('install'));
                 if (File::exists(PLUGINS . DS .basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php')) {
@@ -91,11 +105,77 @@ class PluginsAdmin extends Backend
 
             if (Security::check(Request::get('token'))) {
 
+                // Clean Monstra TMP folder.
+                Monstra::cleanTmp();
+                
+                Stylesheet::stylesVersionIncrement();
+                Javascript::javascriptVersionIncrement();
+
                 Dir::delete(PLUGINS . DS . basename(Request::get('delete_plugin_from_server'), '.manifest.xml'));
                 Request::redirect('index.php?id=plugins');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
+        }
+
+
+        // Upload & extract plugin archive
+        // -------------------------------------
+        if (Request::post('upload_file')) {
+
+            if (Security::check(Request::post('csrf'))) {
+
+                if ($_FILES['file']) {
+                    if (in_array(File::ext($_FILES['file']['name']), array('zip'))) {
+
+                        $tmp_dir = ROOT . DS .'tmp'. DS . uniqid('plugin_');
+
+                        $error = 'Plugin was not uploaded';
+
+                        if (Dir::create($tmp_dir)) {
+                            $file_locations = Zip::factory()->extract($_FILES['file']['tmp_name'], $tmp_dir);
+                            if (!empty($file_locations)) {
+
+                                $manifest = '';
+                                foreach ($file_locations as $filepath) {
+                                    if (substr($filepath, -strlen('.manifest.xml')) === '.manifest.xml') {
+                                        $manifest = $filepath;
+                                        break;
+                                    }
+                                }
+
+                                if (!empty($manifest) && basename(dirname($manifest)) === 'install') {
+                                    $manifest_file = pathinfo($manifest, PATHINFO_BASENAME);
+                                    $plugin_name = str_replace('.manifest.xml', '', $manifest_file);
+
+                                    if (Dir::create(PLUGINS . DS . $plugin_name)) {
+                                        $tmp_plugin_dir = dirname(dirname($manifest));
+                                        Dir::copy($tmp_plugin_dir, PLUGINS . DS . $plugin_name);
+                                        Notification::set('success', __('Plugin was uploaded', 'plugins'));
+                                        $error = false;
+                                    }
+                                }
+                            }
+                        } else {
+                            $error = 'System error';
+                        }
+                    } else {
+                        $error = 'Forbidden plugin file type';
+                    }
+                } else {
+                    $error = 'Plugin was not uploaded';
+                }
+
+                if ($error) {
+                    Notification::set('error', __($error, 'plugins'));
+                }
+
+                if (Request::post('dragndrop')) {
+                    Request::shutdown();
+                } else {
+                    Request::redirect($site_url.'/admin/index.php?id=plugins#installnew');
+                }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
         // Installed plugins
@@ -137,6 +217,26 @@ class PluginsAdmin extends Backend
                 ->assign('installed_plugins', $installed_plugins)
                 ->assign('plugins_to_intall', $plugins_to_intall)
                 ->assign('_users_plugins', $_users_plugins)
+                ->assign('fileuploader', array(
+                    'uploadUrl' => $site_url.'/admin/index.php?id=plugins',
+                    'csrf'      => Security::token(),
+                    'errorMsg'  => __('Upload server error', 'filesmanager')
+                ))
                 ->display();
     }
+
+    /**
+     * _readmeLoadAjax
+     */
+    public static function _readmeLoadAjax() {
+        if (Request::post('readme_plugin')) {
+            if (File::exists($file = PLUGINS . DS . Request::post('readme_plugin') . DS . 'README.md')) {
+                echo Text::toHtml(markdown(Html::toText(File::getContent($file))));
+            } else {
+                echo __('README.md not found', 'plugins');
+            }
+            Request::shutdown();
+        }
+    }
+
 }

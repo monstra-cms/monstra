@@ -9,7 +9,7 @@
  * @package     Monstra
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -111,7 +111,7 @@ class Security
      *  </code>
      *
      * @param  string  $str       String
-     * @param  string  $delimiter String delimiter
+     * @param  mixed   $delimiter String delimiter
      * @param  boolean $lowercase String Lowercase
      * @return string
      */
@@ -119,9 +119,9 @@ class Security
     {
         // Redefine vars
         $str       = (string) $str;
-        $delimiter = (string) $delimiter;
+        $delimiter = $delimiter;
         $lowercase = (bool) $lowercase;
-        $delimiter = (string) $delimiter;
+        $delimiter = $delimiter;
 
         // Remove tags
         $str = filter_var($str, FILTER_SANITIZE_STRING);
@@ -149,9 +149,11 @@ class Security
         $str = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
 
         // Remove characters
-        $str = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $str );
-        $str = preg_replace("/[\/_|+ -]+/", $delimiter, $str );
-        $str = trim($str, $delimiter);
+        $str = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $str);
+        if ($delimiter != null) {
+            $str = preg_replace("/[\/_|+ -]+/", $delimiter, $str);
+            $str = trim($str, $delimiter);
+        }
 
         // Lowercase
         if ($lowercase === true) $str = Text::lowercase($str);

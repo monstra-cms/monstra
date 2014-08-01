@@ -14,7 +14,7 @@
             'Actions' => 'Aktionen',
             'Delete' => 'Löschen',
             'Log In' => 'Einloggen',
-            'Log Out' => 'Ausloggen',
+            'Log Out' => 'Abmelden',
             'Register New User' => 'Registriere Neuen Benutzer',
             'New User Registration' => 'Neuen Benutzer registrieren',
             'Delete user: :user' => 'Lösche Benutzer: :user',
@@ -63,5 +63,7 @@
             'Your login details for :site_name' => 'Deine Login-Daten für :site_name',
             'About Me' => 'Über Mich',
             'Profile' => 'Profil',
+            'You are banned for 10 minutes. Try again later' => 'Du wurdest für 10 Minuten blockiert. Bitte probier es später nochmal',
+            'Cancel' => 'Abbrechen',
         )
     );

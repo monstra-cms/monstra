@@ -23,5 +23,6 @@
             'Category' => 'Категорія',
             'Select category' => 'Вибрати категорію',
             'Required field' => 'Обов’язкове поле',
+            'Cancel' => 'Cancel',
         )
     );

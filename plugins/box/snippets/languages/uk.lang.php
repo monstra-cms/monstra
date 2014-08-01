@@ -25,5 +25,6 @@
             'Embed Code' => 'Код для вставки',
             'Shortcode' => 'Шорткод',
             'PHP Code' => 'PHP код',
+            'Cancel' => 'Відмінити',
         )
     );

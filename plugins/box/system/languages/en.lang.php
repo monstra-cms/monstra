@@ -49,7 +49,8 @@
             'This user does not exist' => 'This user does not exist',
             'Version' => 'Version',
             'Plugin does not exist' => 'Plugin does not exist',
-
+            'Help' => 'Help',
+            
             'Install script writable' => 'Install script writable',
             'Install script not writable' => 'Install script not writable',
             'Directory: <b> :dir </b> writable' => 'Directory: <b> :dir </b> writable',
@@ -68,6 +69,7 @@
             'Field "Password" is empty' => 'Field "Password" is empty',
             'Field "Site url" is empty' => 'Field "Site url" is empty',
             'Email not valid' => 'Email not valid',
+            'Continue' => 'Continue',
             'Install' => 'Install',
             '...Monstra says...' => '...Monstra says...',
             'Sitemap file writable' => 'Sitemap file writable',

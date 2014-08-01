@@ -50,5 +50,6 @@
             'Access' => 'Prístup',
             'Public' => 'Verejný',
             'Registered' => 'Po prihlásení',
+            'Cancel' => 'Cancel',
         )
     );

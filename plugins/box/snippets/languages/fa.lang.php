@@ -25,5 +25,6 @@
             'Embed Code' => 'کد درج شده', 
             'Shortcode' => 'کدکوتاه',
             'PHP Code' => 'کد PHP',
+            'Cancel' => 'Cancel',
         )
     );

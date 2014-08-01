@@ -1,14 +1,5 @@
 <?php
 
-// Check if is user is logged in then set variables for welcome button
-if (Session::exists('user_id')) {
-    $user_id = Session::get('user_id');
-    $user_login = Session::get('user_login');
-} else {
-    $user_id = '';
-    $user_login = '';
-}
-
 // Add plugin navigation link
 Navigation::add(__('Users', 'users'), 'system', 'users', 2);
 
@@ -30,7 +21,7 @@ class UsersAdmin extends Backend
         // Get uses table
         $users = new Table('users');
 
-        if (Option::get('users_frontend_registration') == 'true') {
+        if (Option::get('users_frontend_registration') === 'true') {
             $users_frontend_registration = true;
         } else {
             $users_frontend_registration = false;
@@ -41,7 +32,13 @@ class UsersAdmin extends Backend
             if (Security::check(Request::post('csrf'))) {
 
                 if (Request::post('users_frontend_registration')) $users_frontend_registration = 'true'; else $users_frontend_registration = 'false';
-                Option::update('users_frontend_registration', $users_frontend_registration);
+                
+                if (Option::update('users_frontend_registration', $users_frontend_registration)) {
+                    Notification::set('success', __('Your changes have been saved.', 'users'));
+                } else {
+                    Notification::set('error', __('Your changes was not saved.', 'users'));
+                }
+
                 Request::redirect('index.php?id=users');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -79,14 +76,18 @@ class UsersAdmin extends Backend
                                 if ($users->select("[email='".$user_email."']")) $errors['users_this_email_already_exists'] = __('This email already exists', 'users');
 
                                 if (count($errors) == 0) {
-                                    $users->insert(array('login'           => Security::safeName($user_login),
-                                                         'password'        => Security::encryptPassword(Request::post('password')),
-                                                         'email'           => Request::post('email'),
-                                                         'hash'            => Text::random('alnum', 12),
-                                                         'date_registered' => time(),
-                                                         'role'            => Request::post('role')));
 
-                                    Notification::set('success', __('New user have been registered.', 'users'));
+                                    if ($users->insert(array('login'           => Security::safeName($user_login),
+                                                             'password'        => Security::encryptPassword(Request::post('password')),
+                                                             'email'           => Request::post('email'),
+                                                             'hash'            => Text::random('alnum', 12),
+                                                             'date_registered' => time(),
+                                                             'role'            => Request::post('role')))) {
+                                        Notification::set('success', __('New user have been registered.', 'users'));
+                                    } else {
+                                        Notification::set('error', __('New user was not registered.', 'users'));
+                                    }
+
                                     Request::redirect('index.php?id=users');
                                 }
 
@@ -128,6 +129,7 @@ class UsersAdmin extends Backend
                                 if (Security::check(Request::post('csrf'))) {
 
                                     if (Security::safeName(Request::post('login')) != '') {
+
                                         if ($users->update(Request::post('user_id'), array('login' => Security::safeName(Request::post('login')),
                                                                                       'firstname' => Request::post('firstname'),
                                                                                       'lastname'  => Request::post('lastname'),
@@ -136,11 +138,14 @@ class UsersAdmin extends Backend
                                                                                       'twitter'   => Request::post('twitter'),
                                                                                       'about_me'  => Request::post('about_me'),
                                                                                       'role'      => Request::post('role')))) {
-
                                             Notification::set('success', __('Your changes have been saved.', 'users'));
-                                            Request::redirect('index.php?id=users&action=edit&user_id='.Request::post('user_id'));
+                                        } else {
+                                            Notification::set('error', __('Your changes was not saved.', 'users'));
                                         }
-                                    } else { }
+                                        
+                                        Request::redirect('index.php?id=users&action=edit&user_id='.Request::post('user_id'));
+                                        
+                                    } 
 
                                 } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
@@ -151,8 +156,13 @@ class UsersAdmin extends Backend
                             if (Security::check(Request::post('csrf'))) {
 
                                 if (trim(Request::post('new_password')) != '') {
-                                    $users->update(Request::post('user_id'), array('password' => Security::encryptPassword(trim(Request::post('new_password')))));
-                                    Notification::set('success', __('Your changes have been saved.', 'users'));
+                                    
+                                    if ($users->update(Request::post('user_id'), array('password' => Security::encryptPassword(trim(Request::post('new_password')))))) {
+                                        Notification::set('success', __('Your changes have been saved.', 'users'));
+                                    } else {
+                                        Notification::set('error', __('Your changes was not saved.', 'users'));
+                                    }
+                    
                                     Request::redirect('index.php?id=users&action=edit&user_id='.Request::post('user_id'));
                                 }
 
@@ -190,8 +200,12 @@ class UsersAdmin extends Backend
                         if (Security::check(Request::get('token'))) {
 
                             $user = $users->select('[id="'.Request::get('user_id').'"]', null);
-                            $users->delete(Request::get('user_id'));
-                            Notification::set('success', __('User <i>:user</i> have been deleted.', 'users', array(':user' => $user['login'])));
+                            if ($users->delete(Request::get('user_id'))) {
+                                Notification::set('success', __('User <i>:user</i> have been deleted.', 'users', array(':user' => $user['login'])));
+                            } else {
+                                Notification::set('error', __('User <i>:user</i> was not deleted.', 'users', array(':user' => $user['login'])));
+                            }
+                            
                             Request::redirect('index.php?id=users');
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }

@@ -25,5 +25,6 @@
             'Embed Code' => 'Codigo incrustado',
             'Shortcode' => 'Codigo corto',
             'PHP Code' => 'Codigo PHP',
+            'Cancel' => 'Cancel',
         )
     );

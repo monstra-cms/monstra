@@ -9,7 +9,7 @@
  * @package     Gelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -243,6 +243,10 @@ class Image
 
         // Destroy an image
         imagedestroy($old_image);
+        
+        // Save new width and height
+        $this->width = $new_width;
+        $this->height = $new_height;
 
         return $this;
     }
@@ -282,10 +286,14 @@ class Image
         imagefill($this->image, 0, 0, $transparent);
 
         // Copy and resize part of an image with resampling
-        imagecopyresampled($this->image, $old_image, 0, 0, 0, 0, $width, $height, $width, $height);
+        imagecopyresampled($this->image, $old_image, 0, 0, $x, $y, $width, $height, $width, $height);
 
         // Destroy an image
         imagedestroy($old_image);
+        
+        // Save new width and height
+        $this->width  = $width;
+        $this->height = $height;
 
         return $this;
     }

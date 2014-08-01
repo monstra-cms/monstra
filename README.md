@@ -1,12 +1,10 @@
 # Monstra CMS
-Fast and small content management system written in PHP!
+Monstra is a modern and lightweight Content Management System.
 
 ## System Requirements
-- UNIX/Linux host
-- PHP 5.2.3 or higher
-- SimpleXML Module
-- Apache Mod Rewrite
-- Multibyte String
+Operation system: Unix, Linux, Windows, Mac OS   
+Middleware: PHP 5.2.3 or higher with PHP's [SimpleXML module](http://php.net/simplexml) and [Multibyte String module](http://php.net/mbstring)   
+Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) or Ngnix with [Rewrite Module](http://wiki.nginx.org/HttpRewriteModule)   
 
 ## Steps to Install
 1. [Download the latest version.](http://monstra.org/download)
@@ -21,13 +19,13 @@ Fast and small content management system written in PHP!
 2. Donate to keep Monstra free. We will add you to Monstra [Sponsors Page.](http://monstra.org/contribute/sponsors)
 3. Develop a new plugin.
 4. Create a new theme.
-5. Find and [report issues.](https://github.com/MonstraLab/monstra-cms/issues)
+5. Find and [report issues.](https://github.com/Awilum/monstra-cms/issues)
 6. Link back to [Monstra](http://monstra.org).
 
 ## Links
 - [Site](http://monstra.org)
 - [Forum](http://forum.monstra.org)
 - [Documentation](http://monstra.org/documentation)
-- [Github Repository](https://github.com/MonstraLab/monstra-cms)
+- [Github Repository](https://github.com/Awilum/monstra-cms)
 
-Copyright (C) 2012-2013 Romanenko Sergey / Awilum [awilum@msn.com]
+Copyright (C) 2012-2014 Romanenko Sergey / Awilum [awilum@msn.com]

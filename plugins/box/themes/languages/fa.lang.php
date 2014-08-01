@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'تغییرات شما بر روی قسمت <i>:name</i> ذخیره شد.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'تغییرات شما بر روی استایل <i>:name</i> ذخیره شد.',
             'Your changes to the template <i>:name</i> have been saved.' => 'تغییرات شما بر روی قالب <i>:name</i> ذخیره شد.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'کادرهای الزامی',
             'Scripts' => 'اسکریپت ها',
             'Create New Script' => 'ایجاد اسکریپت جدید',

@@ -12,7 +12,7 @@
 
             $pos = strpos($item['link'], 'http://');
             if ($pos === false) {
-                $link = Option::get('siteurl').$item['link'];
+                $link = Option::get('siteurl').'/'.$item['link'];
             } else {
                 $link = $item['link'];
             }

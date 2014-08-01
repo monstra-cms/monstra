@@ -25,5 +25,6 @@
             'Embed Code' => 'Embed Kod', 
             'Shortcode' => 'Kratak kod',
             'PHP Code' => 'PHP kod',
+            'Cancel' => 'Cancel',
         )
     );

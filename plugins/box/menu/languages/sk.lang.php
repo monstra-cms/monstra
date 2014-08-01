@@ -23,5 +23,6 @@
             'Category' => 'Kategória',
             'Select category' => 'Vybrať kategóriu',
             'Required field' => 'Povinné políčko',
+            'Cancel' => 'Cancel',
         )
     );

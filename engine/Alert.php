@@ -9,7 +9,7 @@
  * @package     Monstra
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -35,16 +35,21 @@ class Alert
      *  </code>
      *
      * @param string  $message Message
-     * @param integer $time    Time
+     * @param integer $seconds Seconds
      */
-    public static function success($message, $time = 3000)
+    public static function success($message, $seconds = 3)
     {
         // Redefine vars
         $message = (string) $message;
-        $time    = (int) $time;
+        $seconds    = (int) $seconds;
 
-        echo '<div class="alert alert-info">'.$message.'</div>
-              <script type="text/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';
+        echo '<script type="text/javascript">
+                Messenger().post({
+                    type: "success",
+                    message : "'.$message.'",                    
+                    hideAfter: '.$seconds.'
+                }); 
+             </script>';
     }
 
     /**
@@ -55,16 +60,21 @@ class Alert
      *  </code>
      *
      * @param string  $message Message
-     * @param integer $time    Time
+     * @param integer $seconds Seconds
      */
-    public static function warning($message, $time = 3000)
+    public static function warning($message, $seconds = 3)
     {
         // Redefine vars
         $message = (string) $message;
-        $time    = (int) $time;
+        $seconds    = (int) $seconds;
 
-        echo '<div class="alert alert-warning">'.$message.'</div>
-              <script type="text/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';
+        echo '<script type="text/javascript">
+                Messenger().post({
+                    type: "info",
+                    message : "'.$message.'",                    
+                    hideAfter: '.$seconds.'
+                }); 
+             </script>';
     }
 
     /**
@@ -75,16 +85,21 @@ class Alert
      *  </code>
      *
      * @param string  $message Message
-     * @param integer $time    Time
+     * @param integer $seconds Seconds
      */
-    public static function error($message, $time = 3000)
+    public static function error($message, $seconds = 3)
     {
         // Redefine vars
         $message = (string) $message;
-        $time    = (int) $time;
+        $seconds    = (int) $seconds;
 
-        echo '<div class="alert alert-error">'.$message.'</div>
-              <script type="text/javascript">setTimeout(\'$(".alert").slideUp("slow")\', '.$time.'); </script>';
+        echo '<script type="text/javascript">
+                Messenger().post({
+                    type: "error",
+                    message : "'.$message.'",                    
+                    hideAfter: '.$seconds.'
+                }); 
+             </script>';
     }
 
 }

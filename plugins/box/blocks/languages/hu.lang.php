@@ -25,5 +25,6 @@
             'Embed Code' => 'Beágyazott kód',
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
+            'Cancel' => 'Cancel',
         )
     );

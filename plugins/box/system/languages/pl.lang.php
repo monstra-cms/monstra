@@ -42,13 +42,14 @@
             'View Site' => 'Pokaż witrynę',
             'Welcome, :username' => 'Witaj, :username',
             'Reset Password' => 'Resetuj hasło',
-            '< Back to Website' => '< Wróć do witryny internetowej',
-            'Forgot your password? >' => 'Nie pamiętasz swojego hasła? >',
-            'Administration >' => 'Administracja >',
+            'Back to Website' => 'Wróć do witryny internetowej',
+            'Forgot your password ?' => 'Nie pamiętasz swojego hasła ?',
+            'Administration' => 'Administracja',
             'Send New Password' => 'Wyślij nowe hasło',
             'This user does not exist' => 'Ten użytkownik nie istnieje',
             'Version' => 'Wersja',
             'Plugin does not exist' => 'Wtyczka nie istnieje',
+            'Help' => 'Pomoc',
 
             'Install script writable' => 'Skrypt instalacyjny ma możliwość zapisu',
             'Install script not writable' => 'Skrypt instalacyjny nie ma możliwości zapisu',
@@ -68,6 +69,7 @@
             'Field "Password" is empty' => 'Pole "Hasło" jest puste',
             'Field "Site url" is empty' => 'Pole "URL witryny" jest puste',
             'Email not valid' => 'Email jest nieprawidłowy',
+            'Continue' => 'Kontynuuj',
             'Install' => 'Instaluj',
             '...Monstra says...' => '...Monstra mówi...',
             'Sitemap file writable' => 'Plik mapy witryny ma możliwość zapisu',
@@ -76,5 +78,6 @@
             'Main .htaccess file not writable' => 'Główny plik .htaccess nie ma możliwości zapisu',
             'Official Support Forum' => 'Wsparcie oficjalnego forum',
             'Documentation' => 'Dokumentacja',
+            'Your changes have been saved.' => 'Twoje zmiany zostały zapisane.',
         )
     );

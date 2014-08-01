@@ -16,5 +16,6 @@
             'Get More Plugins' => 'Még több Plugin',
             'Install' => 'Telepít',
             'Uninstall' => 'Töröl',
+            'README.md not found' => 'README.md not found',
         )
     );

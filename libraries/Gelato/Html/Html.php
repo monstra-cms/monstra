@@ -9,7 +9,7 @@
  * @package     Gelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -51,7 +51,7 @@ class Html
      *
      *  <code>
      *
-     *      // Registering a Htmlk macro
+     *      // Registering a Html macro
      *      Html::macro('my_element', function() {
      *          return '<element id="monstra">';
      *      });
@@ -61,7 +61,7 @@ class Html
      *
      *
      *      // Registering a Html macro with parameters
-     *      Html::macro('my_element', function(id = '') {
+     *      Html::macro('my_element', function($id = '') {
      *      	return '<element id="'.$id.'">';
      *      });
      *
@@ -157,7 +157,7 @@ class Html
      */
     public static function br($num = 1)
     {
-        return str_repeat("<br />",(int) $num);
+        return str_repeat("<br>",(int) $num);
     }
 
     /**
@@ -285,7 +285,7 @@ class Html
         $attributes['src'] = $file;
         $attributes['alt'] = (isset($attributes['alt'])) ? $attributes['alt'] : pathinfo($file, PATHINFO_FILENAME);
 
-        return '<img'.Html::attributes($attributes).' />';
+        return '<img'.Html::attributes($attributes).'>';
     }    
     
 	/**

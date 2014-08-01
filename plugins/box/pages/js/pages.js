@@ -9,7 +9,7 @@ $.monstra.pages = {
     pageExpand: function(slug, expand, token) {
         $.ajax({
             type:"post",        
-            data:"slug="+slug+"&expand="+expand+"&token="+token,
+            data:"page_slug="+slug+"&page_expand="+expand+"&token="+token,
             url: $('form input[name="url"]').val()
         });
     },

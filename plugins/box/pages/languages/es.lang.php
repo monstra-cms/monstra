@@ -50,5 +50,6 @@
             'Access' => 'Acceso',
             'Public' => 'Publico',
             'Registered' => 'Registrado',
+            'Cancel' => 'Cancel',
         )
     );

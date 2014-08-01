@@ -39,6 +39,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Vaše promene na komadićima <i>:name</i> su sačuvane.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Promene na stilovima <i>:name</i> su sačuvane.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Promene na šablonu <i>:name</i> su sačuvane.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Potrebno polje',
             'Scripts' => 'Skripte',
             'Create new script' => 'Kreiraj novu skriptu',

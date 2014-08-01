@@ -6,7 +6,7 @@
  *	@package Monstra
  *  @subpackage Plugins
  *	@author Romanenko Sergey / Awilum
- *	@copyright 2012-2013 Romanenko Sergey / Awilum
+ *	@copyright 2012-2014 Romanenko Sergey / Awilum
  *	@version 1.0.0
  *
  */
@@ -27,6 +27,3 @@ if (Session::exists('user_role') && in_array(Session::get('user_role'), array('a
     Plugin::admin('filesmanager', 'box');
 
 }
-
-// Add Plugin Javascript
-Javascript::add('plugins/box/filesmanager/js/filesmanager.js', 'backend');

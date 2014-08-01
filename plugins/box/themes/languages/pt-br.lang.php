@@ -41,6 +41,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Suas alterações no pedaço <i>:name</i> foram salvas',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Suas alterações no estilo <i>:name</i> foram salvas.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Suas alterações no template <i>:name</i> foram salvas.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'This field should not be empty' => 'Este campo não pode estar vazio',
             'Scripts' => 'Scripts',
             'Create New Script' => 'Criar novo script',

@@ -6,7 +6,7 @@
  *	@package Monstra
  *  @subpackage Plugins
  *	@author Romanenko Sergey / Awilum
- *	@copyright 2012-2013 Romanenko Sergey / Awilum
+ *	@copyright 2012-2014 Romanenko Sergey / Awilum
  *	@version 1.0.0
  *
  */
@@ -283,7 +283,7 @@ class Pages extends Frontend
      */
     public static function title()
     {
-        return Pages::$page['title'];
+        return !empty(Pages::$page['meta_title']) ? Pages::$page['meta_title'] : Pages::$page['title'];
     }
 
     /**
@@ -333,6 +333,7 @@ class Pages extends Frontend
         foreach ($pages_list as $page) {
 
             $pages_array[$count]['title']   = Html::toText($page['title']);
+            $pages_array[$count]['meta_title'] = !empty($page['meta_title']) ? Html::toText($page['meta_title']) : $page['title'];
             $pages_array[$count]['parent']  = $page['parent'];
             $pages_array[$count]['date']    = $page['date'];
             $pages_array[$count]['author']  = $page['author'];
@@ -368,15 +369,6 @@ class Pages extends Frontend
     }
 
 }
-
-/**
- * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
- */
-Shortcode::add('page_author', 'Page::author');
-Shortcode::add('page_slug', 'Page::slug');
-Shortcode::add('page_url', 'Page::url');
-Shortcode::add('page_content', 'Page::_content');
-Shortcode::add('page_date', 'Page::_date');
 
 /**
  * Page class
@@ -455,16 +447,17 @@ class Page extends Pages
      */
     public static function breadcrumbs()
     {
-        $current_page = Pages::$requested_page;
-        $parent_page = '';
-        if ($current_page !== 'error404') {
-            $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
-            if (trim($page['parent']) !== '') {
-                $parent = true;
-                $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
-            } else {
-                $parent = false;
-            }
+        if (Uri::command() == 'pages') {
+            $current_page = Pages::$requested_page;
+            $parent_page = '';
+            if ($current_page !== 'error404') {
+                $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
+                if (trim($page['parent']) !== '') {
+                    $parent = true;
+                    $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
+                } else {
+                    $parent = false;
+                }
 
             // Display view
             View::factory('box/pages/views/frontend/breadcrumbs')
@@ -473,7 +466,8 @@ class Page extends Pages
                     ->assign('parent', $parent)
                     ->assign('parent_page', $parent_page)
                     ->display();
-        }
+            }
+        }    
     }
 
     /**
@@ -486,7 +480,7 @@ class Page extends Pages
      */
     public static function url()
     {
-        return Option::get('siteurl').Pages::$page['slug'];
+        return Option::get('siteurl').'/'.Pages::$page['slug'];
     }
 
     /**
@@ -530,7 +524,17 @@ class Page extends Pages
 
     public static function _content($attributes)
     {
-        return Page::content((isset($attributes['name']) ? $attributes['name'] : ''));
+        return Pages::content((isset($attributes['name']) ? $attributes['name'] : ''));
     }
 
 }
+
+
+/**
+ * Add new shortcodes {page_author} {page_slug} {page_url} {page_date} {page_content}
+ */
+Shortcode::add('page_author', 'Page::author');
+Shortcode::add('page_slug', 'Page::slug');
+Shortcode::add('page_url', 'Page::url');
+Shortcode::add('page_content', 'Page::_content');
+Shortcode::add('page_date', 'Page::_date');

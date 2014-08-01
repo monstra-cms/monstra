@@ -9,7 +9,7 @@
  * @package     Monstra
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -33,24 +33,58 @@ $users = new Table('users');
 // Admin login
 if (Request::post('login_submit')) {
 
-    $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
-    if (count($user) !== 0) {
-        if ($user['login'] == Request::post('login')) {
-            if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
-                if ($user['role'] == 'admin' || $user['role'] == 'editor') {
-                    Session::set('admin', true);
-                    Session::set('user_id', (int) $user['id']);
-                    Session::set('user_login', (string) $user['login']);
-                    Session::set('user_role', (string) $user['role']);
-                    Request::redirect('index.php');
+    if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
+        
+        $login_error = __('You are banned for 10 minutes. Try again later', 'users');
+    
+    } else {
+
+        $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
+        if (count($user) !== 0) {
+            if ($user['login'] == Request::post('login')) {
+                if (trim($user['password']) == Security::encryptPassword(Request::post('password'))) {
+                    if ($user['role'] == 'admin' || $user['role'] == 'editor') {
+                        Session::set('admin', true);
+                        Session::set('user_id', (int) $user['id']);
+                        Session::set('user_login', (string) $user['login']);
+                        Session::set('user_role', (string) $user['role']);
+                        Session::set('user_email', (string) $user['email']);
+                        Request::redirect('index.php');
+                    }
+                } else {
+                    $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
+
+                    if (Cookie::get('login_attempts')) {
+                        if (Cookie::get('login_attempts') < 5) {
+                            $attempts = Cookie::get('login_attempts') + 1;
+                            Cookie::set('login_attempts', $attempts, 600);
+                        } else {
+                            $login_error = __('You are banned for 10 minutes. Try again later', 'users');
+                        }
+                    } else {
+                        Cookie::set('login_attempts', 1, 600);
+                    }
+
+                }
+            }
+        } else {
+            $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
+
+            if (Cookie::get('login_attempts')) {
+                if (Cookie::get('login_attempts') < 5) {
+                    $attempts = Cookie::get('login_attempts') + 1;
+                    Cookie::set('login_attempts', $attempts, 600);
+                } else {
+                    $login_error = __('You are banned for 10 minutes. Try again later', 'users');
                 }
             } else {
-                $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
+                Cookie::set('login_attempts', 1, 600);
             }
         }
-    } else {
-        $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');
     }
+
+    Notification::setNow('error', $login_error);
+
 }
 
 // Errors
@@ -86,13 +120,13 @@ if (Request::post('reset_password_submit')) {
         $mail->AddReplyTo(Option::get('system_email'));
         $mail->AddAddress($user['email'], $user['login']);
         $mail->Subject = __('Your login details for :site_name', 'users', array(':site_name' => $site_name));
-        $mail->MsgHTML(View::factory('box/users/views/emails/layout_email')
+        $mail->MsgHTML(View::factory('box/emails/views/emails/email_layout')
             ->assign('site_url', $site_url)
             ->assign('site_name', $site_name)
             ->assign('user_id', $user['id'])
             ->assign('user_login', $user['login'])
             ->assign('new_hash', $new_hash)
-            ->assign('view', 'reset_password_email')
+            ->assign('email_template', 'reset-password')
             ->render());
         $mail->Send();
 
@@ -101,7 +135,7 @@ if (Request::post('reset_password_submit')) {
         Notification::set('reset_password', 'reset_password');
 
         // Redirect to password-reset page
-        Request::redirect(Site::url().'admin');
+        Request::redirect(Site::url().'/admin');
 
     }
 
@@ -127,7 +161,7 @@ if ($is_admin) {
     if (Request::get('id')) {
         $area = Request::get('id');
     } else {
-        Request::redirect('index.php?id=pages');
+        Request::redirect('index.php?id=dashboard');
     }
 
     $plugins_registered = Plugin::$plugins;

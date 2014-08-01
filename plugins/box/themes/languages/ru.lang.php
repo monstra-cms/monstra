@@ -42,11 +42,13 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Ваши изменения к чанку <i>:name</i> были сохранены',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Ваши изменения к стилям <i>:name</i> были сохранены',
             'Your changes to the template <i>:name</i> have been saved.' => 'Ваши изменения к шаблону <i>:name</i> были сохранены',
+            'Chunk <i>:name</i> deleted' => 'Чанк <i>:name</i> удален',
             'Required field' => 'Обязательное поле',
             'Scripts' => 'Скрипты',
             'Create New Script' => 'Создать новый скрипт',
             'Script content' => 'Содержимое скрипта',
             'New Script' => 'Новый скрипт',
             'Edit Script' => 'Редактирование скрипта',
+            'Cancel' => 'Отмена',
         )
     );

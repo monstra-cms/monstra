@@ -16,5 +16,6 @@
             'Get More Plugins' => 'Gauti daugiau papildinių',
             'Install' => 'Įdiegti',
             'Uninstall' => 'Išdiegti',
+            'README.md not found' => 'README.md not found',
         )
     );

@@ -16,5 +16,6 @@
             'Get More Plugins' => 'Získať viacej pluginov',
             'Install' => 'Inštalovať',
             'Uninstall' => 'Odinštalovať',
+            'README.md not found' => 'README.md not found',
         )
     );

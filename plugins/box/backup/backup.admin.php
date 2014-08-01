@@ -15,8 +15,6 @@ class BackupAdmin extends Backend
     {
         $backups_path = ROOT . DS . 'backups';
 
-        $backups_list = array();
-
         // Create backup
         // -------------------------------------
         if (Request::post('create_backup')) {
@@ -32,12 +30,18 @@ class BackupAdmin extends Backend
                 $zip->readDir(STORAGE . DS, false);
 
                 // Add public folder
-                if (Request::post('add_public_folder')) $zip->readDir(ROOT . DS . 'public' . DS, false);
+                $zip->readDir(ROOT . DS . 'public' . DS, false);
 
                 // Add plugins folder
-                if (Request::post('add_plugins_folder')) $zip->readDir(PLUGINS . DS, false);
+                $zip->readDir(PLUGINS . DS, false, null, array(PLUGINS . DS . 'box'));
 
-                $zip->archive($backups_path . DS . Date::format(time(), "Y-m-d-H-i-s").'.zip');
+                if ($zip->archive($backups_path . DS . Date::format(time(), "Y-m-d-H-i-s").'.zip')) {
+                    Notification::set('success', __('Backup was created', 'backup'));
+                } else {
+                    Notification::set('error', __('Backup was not created', 'backup'));
+                }
+
+                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -48,8 +52,13 @@ class BackupAdmin extends Backend
 
             if (Security::check(Request::get('token'))) {
 
-                File::delete($backups_path . DS . Request::get('delete_file'));
-                Request::redirect(Option::get('siteurl').'admin/index.php?id=backup');
+                if (File::delete($backups_path . DS . Request::get('delete_file'))) {
+                    Notification::set('success', __('Backup was deleted', 'backup'));
+                } else {
+                    Notification::set('error', __('Backup was not deleted', 'backup'));
+                }
+                
+                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -62,12 +71,34 @@ class BackupAdmin extends Backend
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
 
-        // Get backup list
-        $backups_list = File::scan($backups_path, '.zip');
+        // Restore backup
+        // -------------------------------------
+        if (Request::get('restore')) {
+
+            if (Security::check(Request::get('token'))) {
+
+                $tmp_dir = ROOT . DS . 'tmp' . DS . uniqid('backup_');
+
+                if (Dir::create($tmp_dir)) {
+                    $file_locations = Zip::factory()->extract($backups_path . DS . Request::get('restore'), $tmp_dir);
+                     if (!empty($file_locations)) {
+                         Dir::copy($tmp_dir, ROOT . DS);
+                         Notification::set('success', __('Backup was restored', 'backup'));
+                     } else {
+                         Notification::set('error', __('Unzip error', 'backup'));
+                     }
+                } else {
+                    Notification::set('error', __('Backup was not restored', 'backup'));
+                }
+
+                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
+
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+        }
 
         // Display view
         View::factory('box/backup/views/backend/index')
-                ->assign('backups_list', $backups_list)
+                ->assign('backups_list', File::scan($backups_path, '.zip'))
                 ->display();
     }
 }

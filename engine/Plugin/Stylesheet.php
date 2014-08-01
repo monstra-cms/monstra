@@ -9,7 +9,7 @@
  * @package     Monstra
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -128,9 +128,9 @@ class Stylesheet
 
             // Render
             if (BACKEND) {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/backend_site.minify.css'.'" type="text/css" />';
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.css?'.Option::get('styles_version').'" type="text/css" />';
             } else {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.css'.'" type="text/css" />'."\n";
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.css?'.Option::get('styles_version').'" type="text/css" />'."\n";
             }
         }
     }
@@ -144,9 +144,16 @@ class Stylesheet
                                  '@theme_site_url',
                                  '@theme_admin_url'),
                            array(Option::get('siteurl'),
-                                 Option::get('siteurl').'public/themes/'.Option::get('theme_site_name'),
-                                 Option::get('siteurl').'admin/themes/'.Option::get('theme_admin_name')),
+                                 Option::get('siteurl').'/public/themes/'.Option::get('theme_site_name'),
+                                 Option::get('siteurl').'/admin/themes/'.Option::get('theme_admin_name')),
                            $frontend_buffer);
+    }
+
+    /**
+     * stylesVersionIncrement
+     */
+    public static function stylesVersionIncrement() {
+        Option::update('styles_version',  (int) Option::get('styles_version') + 1); 
     }
 
 }

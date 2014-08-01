@@ -16,7 +16,8 @@
             'Title' => 'Title',
             'Name' => 'Name',
             'Author' => 'Author',
-            'Name (slug)' => 'Name (slug)',
+            'Name (slug)' => 'Name (slug)', // check whether in use or not
+            'Slug (url)' => 'Slug (url)',
             'Description' => 'Description',
             'Keywords' => 'Keywords',
             'Parent' => 'Parent',
@@ -50,5 +51,7 @@
             'Access' => 'Access',
             'Public' => 'Public',
             'Registered' => 'Registered',
+            'Cancel' => 'Cancel',
+            'Tags' => 'Tags',
         )
     );

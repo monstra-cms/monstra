@@ -78,13 +78,15 @@ class SandboxAdmin extends Backend
         }
 
         echo (
+            '<div class="col-xs-3">'.
             Form::open().
             Form::hidden('csrf', Security::token()).
             Form::label('sandbox_form_template', __('Sandbox template', 'sandbox')).
-            Form::select('sandbox_form_template', $templates, Option::get('sandbox_template')).
+            Form::select('sandbox_form_template', $templates, Option::get('sandbox_template'), array('class' => 'form-control')).
             Html::br().
-            Form::submit('sandbox_component_save', __('Save', 'sandbox'), array('class' => 'btn')).
-            Form::close()
+            Form::submit('sandbox_component_save', __('Save', 'sandbox'), array('class' => 'btn btn-default')).
+            Form::close().
+            '</div>'
         );
     }
 

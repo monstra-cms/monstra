@@ -17,7 +17,7 @@ function checkMonstraVersion()
                         var current_monstra_version = "'.Monstra::VERSION.'";
                         var stable_monstra_version = data.version;
                         if (current_monstra_version < stable_monstra_version) {
-                            $("#update-monstra").addClass("alert").html("'.__("Published a new version of the :monstra", "system", array(":monstra" => "<a target='_blank' href='http://monstra.org/download'>Monstra</a>")).'");
+                            $("#update-monstra").addClass("alert alert-info").html("'.__("Published a new version of the :monstra", "system", array(":monstra" => "<a target='_blank' href='http://monstra.org/download'>Monstra</a>")).'");
                         }
                     }
                 );
@@ -121,9 +121,6 @@ class SystemAdmin extends Backend
 
                     // Add trailing slashes
                     $_site_url = Request::post('system_url');
-                    if ($_site_url[strlen($_site_url)-1] !== '/') {
-                        $_site_url = $_site_url.'/';
-                    }
 
                     Option::update(array('sitename'          => Request::post('site_name'),
                                        'keywords'            => Request::post('site_keywords'),

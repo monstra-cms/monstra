@@ -1,0 +1,1 @@
+<?php include STORAGE . DS . 'emails' . DS . 'layout.email.php'; ?>

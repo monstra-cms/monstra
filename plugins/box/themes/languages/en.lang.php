@@ -40,11 +40,14 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Your changes to the chunk <i>:name</i> have been saved.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Your changes to the styles <i>:name</i> have been saved.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Your changes to the template <i>:name</i> have been saved.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Required field',
             'Scripts' => 'Scripts',
             'Create New Script' => 'Create New Script',
             'Script content' => 'Script content',
             'New Script' => 'New Script',
             'Edit Script' => 'Edit Script',
+            'Site Theme' => 'Site Theme',
+            'Cancel' => 'Cancel',
         )
     );

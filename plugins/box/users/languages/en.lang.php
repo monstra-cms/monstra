@@ -15,7 +15,7 @@
             'Delete' => 'Delete',
             'Log In' => 'Log In',
             'Log Out' => 'Log Out',
-            'Register New user' => 'Register New User',
+            'Register New User' => 'Register New User',
             'New User Registration' => 'New User Registration',
             'Delete user: :user' => 'Delete user: :user',
             'User <i>:user</i> have been deleted.' => 'User <i>:user</i> have been deleted.',
@@ -63,5 +63,7 @@
             'Your login details for :site_name' => 'Your login details for :site_name',
             'About Me' => 'About Me',
             'Profile' => 'Profile',
+            'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
+            'Cancel' => 'Cancel',
         )
     );

@@ -1,7 +1,4 @@
-<h2><?php echo __('Edit Block', 'blocks'); ?></h2>
-<br />
-
-<?php if (Notification::get('success')) Alert::success(Notification::get('success')); ?>
+<h2 class="margin-bottom-1"><?php echo __('Edit Block', 'blocks'); ?></h2>
 
 <?php
     if ($content !== null) {
@@ -9,31 +6,32 @@
         if (isset($errors['blocks_empty_name']) or isset($errors['blocks_exists'])) $error_class = 'error'; else $error_class = '';
 
         echo (Form::open());
-
         echo (Form::hidden('csrf', Security::token()));
-
         echo (Form::hidden('blocks_old_name', Request::get('filename')));
 
 ?>
 
-    <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
-
-        <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'input-xxlarge error-field' : 'input-xxlarge'))); ?>
-
+        <div class="form-group margin-bottom-1">
+        <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
+        <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'form-control error-field' : 'form-control'))); ?>
         <?php
-            if (isset($errors['blocks_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_empty_name'].'</span>';
-            if (isset($errors['blocks_exists'])) echo '&nbsp;&nbsp;&nbsp;<span style="color:red">'.$errors['blocks_exists'].'</span>';
+            if (isset($errors['blocks_empty_name'])) echo '<span class="error-message">'.$errors['blocks_empty_name'].'</span>';
+            if (isset($errors['blocks_exists'])) echo '<span class="error-message">'.$errors['blocks_exists'].'</span>';
         ?>
+        </div>
 
-<br /><br />
-<?php
 
-        Action::run('admin_editor', array(Html::toText($content)));
+<div class="row margin-bottom-1">
+    <div class="col-xs-12">
+        <?php Action::run('admin_editor', array(Html::toText($content))); ?>
+    </div>
+</div>
 
+<?php      
         echo (
-           Html::br().
-           Form::submit('edit_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn default')).Html::nbsp(2).
-           Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn default')). Html::nbsp().
+           Form::submit('edit_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
+           Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn btn-phone btn-primary')). Html::nbsp(2).
+           Html::anchor(__('Cancel', 'blocks'), 'index.php?id=blocks', array('title' => __('Cancel', 'blocks'), 'class' => 'btn btn-phone btn-default')).
            Form::close()
         );
 

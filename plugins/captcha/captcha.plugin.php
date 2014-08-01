@@ -6,7 +6,7 @@
  *  @package Monstra
  *  @subpackage Plugins
  *  @author Romanenko Sergey / Awilum
- *  @copyright 2012-2013 Romanenko Sergey / Awilum
+ *  @copyright 2012-2014 Romanenko Sergey / Awilum
  *  @version 1.0.0
  *
  */
@@ -20,7 +20,7 @@ Plugin::register( __FILE__,
                 'http://monstra.org/');
 
 // Set crypt captcha path to images
-$cryptinstall = Option::get('siteurl').'plugins/captcha/crypt/images/';
+$cryptinstall = Option::get('siteurl').'/plugins/captcha/crypt/images/';
 
 // Include Crypt Captcha
 include PLUGINS . DS . 'captcha/crypt/cryptographp.fct.php';

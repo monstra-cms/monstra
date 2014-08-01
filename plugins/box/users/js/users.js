@@ -7,9 +7,9 @@ $.monstra.users = {
     },
 
     usersFrontendRegistration: function() {
-        $("[name=users_frontend_registration]").click(function() {
-            $("[name=users_frontend]").submit();
-        }); 
+		$('#users_frontend_registration').on('ifChanged', function(event){
+			$("form[name=users_frontend]").submit();
+		});
     }
 
 };

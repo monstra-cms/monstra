@@ -41,6 +41,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Šablono dalies <i>:name</i> pakeitimai išsaugoti.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Stiliaus aprašo <i>:name</i> pakeitimai išsaugoti.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Šablono <i>:name</i> pakeitimai išsaugoti.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'This field should not be empty' => 'Šis laukas negali būti tuščias',
             'Scripts' => 'Skriptai',
             'Create New Script' => 'Sukurti naują skriptą',

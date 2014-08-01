@@ -50,5 +50,6 @@
             'Access' => 'Pristup',
             'Public' => 'Javno',
             'Registered' => 'Registrovani',
+            'Cancel' => 'Cancel',
         )
     );

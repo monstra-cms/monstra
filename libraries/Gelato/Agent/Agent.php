@@ -9,7 +9,7 @@
  * @package     Gelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -71,6 +71,12 @@ class Agent
         'infoseek',
         'lycos',
         'ia_archiver',
+        'yandex',
+        'mail.ru',
+        'ask.com',
+        'Copyscape.com',
+        'bing.com',
+
     );
 
     /**

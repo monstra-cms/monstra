@@ -9,7 +9,7 @@
  * @package     Monstra
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -92,7 +92,7 @@ class Javascript
                 if ($backend_regenerate) {
                     foreach ($javascripts as $javascript) {
                         if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
-                            $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
+                            $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file'])."\n";
                         }
                     }
                     file_put_contents($backend_site_js_path, $backend_buffer);
@@ -115,7 +115,7 @@ class Javascript
                 if ($frontend_regenerate) {
                     foreach ($javascripts as $javascript) {
                         if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
-                            $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file']);
+                            $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file'])."\n";
                         }
                     }
                     file_put_contents($frontend_site_js_path, $frontend_buffer);
@@ -126,11 +126,19 @@ class Javascript
 
             // Render
             if (BACKEND) {
-                echo '<script type="text/javascript" src="'.Option::get('siteurl').'tmp/minify/backend_site.minify.js"></script>';
+                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.js?'.Option::get('javascript_version').'"></script>';
             } else {
-                echo '<script type="text/javascript" src="'.Option::get('siteurl').'tmp/minify/frontend_site.minify.js"></script>';
+                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.js?'.Option::get('javascript_version').'"></script>'."\n";
             }
         }
     }
+
+    /**
+     *  javascriptVersionIncrement
+     */
+    public static function javascriptVersionIncrement() {
+        Option::update('javascript_version', (int) Option::get('javascript_version') + 1); 
+    }
+
 
 }

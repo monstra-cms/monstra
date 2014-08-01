@@ -40,6 +40,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Uw wijzigingen aan onderdeel <i>:name</i> zijn opgeslagen.',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Uw wijzigingen aan stijl <i>:name</i> zijn opgeslagen.',
             'Your changes to the template <i>:name</i> have been saved.' => 'Uw wijzigingen aan template <i>:name</i> zijn opgeslagen.',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'This field should not be empty' => 'Dit veld mag niet leeg zijn.',
             'Scripts' => 'Scripts',
             'Create New Script' => 'Nieuw Script',

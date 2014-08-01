@@ -9,7 +9,7 @@
  * @package     Gelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2013 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -28,7 +28,7 @@ class Number
     }
 
     /**
-     * Convert bytes in 'kb','mb','gb','tb','pb'
+     * Convert bytes in 'KB','MB','GB','TiB','PiB'
      *
      *  <code>
      *      echo Number::byteFormat(10000);
@@ -42,9 +42,31 @@ class Number
         // Redefine vars
         $size = (int) $size;
 
-        $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
+        $unit = array('B', 'KB', 'MB', 'GB', 'TiB', 'PiB');
 
         return @round($size/pow(1024, ($i=floor(log($size, 1024)))), 2).' '.$unit[($i < 0 ? 0 : $i)];
+    }
+
+    /**
+     * Convert 'KB','MB','GB' in bytes
+     *
+     *  <code>
+     *      echo Number::convertToBytes('10MB');
+     *  </code>
+     *
+     * @param  string $num Number to convert
+     * @return int
+     */
+    public static function convertToBytes( $num ) {
+        $num  = strtolower( $num );
+        $bytes = (int) $num;
+        if ( strpos( $num, 'k' ) !== false )
+            $bytes = intval( $num ) * 1024;
+        elseif ( strpos( $num, 'm' ) !== false )
+            $bytes = intval($num) * 1024 * 1024;
+        elseif ( strpos( $num, 'g' ) !== false )
+            $bytes = intval( $num ) * 1024 * 1024 * 1024;
+        return $bytes;
     }
 
     /**

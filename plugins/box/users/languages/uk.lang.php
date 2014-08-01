@@ -61,5 +61,7 @@
             'Your login details for :site_name' => 'Ваші дані для доступу до :site_name',
             'About Me' => 'Про мене',
             'Profile' => 'Профіль',
+            'You are banned for 10 minutes. Try again later' => 'Вы заблоковани на 10 хвилин. Спробуйте піздніше',
+            'Cancel' => 'Відмінити',
         )
     );
