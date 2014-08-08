@@ -119,7 +119,7 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($template_path.Security::safeName(Request::post('name', null, false)).'.template.php')) $errors['file_exists'] = __('This template already exists', 'themes');
+                            if (file_exists($template_path.Security::safeName(Request::post('name'), null, false).'.template.php')) $errors['file_exists'] = __('This template already exists', 'themes');
 
                             if (count($errors) == 0) {
 
