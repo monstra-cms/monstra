@@ -54,6 +54,7 @@ class PluginsAdmin extends Backend
                     // Clean Monstra TMP folder.
                     Monstra::cleanTmp();
 
+                    // Increment Styles and Javascript version
                     Stylesheet::stylesVersionIncrement();
                     Javascript::javascriptVersionIncrement();
 
