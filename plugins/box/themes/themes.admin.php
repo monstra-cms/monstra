@@ -37,8 +37,12 @@ class ThemesAdmin extends Backend
 
                 Option::update('theme_site_name', Request::post('themes'));
 
-                // Cleanup minify
-                if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
+                // Clean Monstra TMP folder.
+                Monstra::cleanTmp();
+
+                // Increment Styles and Javascript version
+                Stylesheet::stylesVersionIncrement();
+                Javascript::javascriptVersionIncrement();
 
                 Request::redirect('index.php?id=themes');
 
@@ -52,8 +56,8 @@ class ThemesAdmin extends Backend
 
                 Option::update('theme_admin_name', Request::post('themes'));
 
-                // Cleanup minify
-                if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
+                // Clean Monstra TMP folder.
+                Monstra::cleanTmp();
 
                 Request::redirect('index.php?id=themes');
 
@@ -119,7 +123,7 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($template_path.Security::safeName(Request::post('name', null, false))).'.template.php') $errors['file_exists'] = __('This template already exists', 'themes');
+                            if (file_exists($template_path.Security::safeName(Request::post('name'), null, false).'.template.php')) $errors['file_exists'] = __('This template already exists', 'themes');
 
                             if (count($errors) == 0) {
 
@@ -159,7 +163,7 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($style_path.Security::safeName(Request::post('name'), null, false)).'.css') $errors['file_exists'] = __('This styles already exists', 'themes');
+                            if (file_exists($style_path.Security::safeName(Request::post('name'), null, false).'.css')) $errors['file_exists'] = __('This styles already exists', 'themes');
 
                             if (count($errors) == 0) {
 
@@ -168,11 +172,18 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
+                                // Clean Monstra TMP folder.
+                                Monstra::cleanTmp();
+
+                                // Increment Styles version
+                                Stylesheet::stylesVersionIncrement();
+
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
                                     Request::redirect('index.php?id=themes&action=edit_styles&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
+
                             }
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -199,7 +210,7 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($script_path.Security::safeName(Request::post('name'), null, false)).'.js') $errors['file_exists'] = __('This script already exists', 'themes');
+                            if (file_exists($script_path.Security::safeName(Request::post('name'), null, false).'.js')) $errors['file_exists'] = __('This script already exists', 'themes');
 
                             if (count($errors) == 0) {
 
@@ -208,11 +219,20 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
+
+                                // Clean Monstra TMP folder.
+                                Monstra::cleanTmp();
+
+                                // Increment Javascript version
+                                Javascript::javascriptVersionIncrement();
+
+
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
                                     Request::redirect('index.php?id=themes&action=edit_script&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
+
                             }
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -377,6 +397,12 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.css'))));
 
+                                // Clean Monstra TMP folder.
+                                Monstra::cleanTmp();
+
+                                // Increment Styles version
+                                Stylesheet::stylesVersionIncrement();
+
                                 if (Request::post('edit_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
@@ -433,6 +459,12 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.js'))));
 
+                                // Clean Monstra TMP folder.
+                                Monstra::cleanTmp();
+
+                                // Increment Javascript version
+                                Javascript::javascriptVersionIncrement();
+
                                 if (Request::post('edit_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
@@ -477,6 +509,13 @@ class ThemesAdmin extends Backend
 
                         File::delete($style_path.Request::get('filename').'.css');
                         Notification::set('success', __('Styles <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
+
+                        // Clean Monstra TMP folder.
+                        Monstra::cleanTmp();
+
+                        // Increment Styles version
+                        Stylesheet::stylesVersionIncrement();
+
                         Request::redirect('index.php?id=themes');
 
                     } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -491,6 +530,13 @@ class ThemesAdmin extends Backend
 
                         File::delete($script_path.Request::get('filename').'.js');
                         Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
+
+                        // Clean Monstra TMP folder.
+                        Monstra::cleanTmp();
+
+                        // Increment Javascript version
+                        Javascript::javascriptVersionIncrement();
+
                         Request::redirect('index.php?id=themes');
 
                     } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -519,6 +565,12 @@ class ThemesAdmin extends Backend
                         File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.css',
                                          File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') . '.css'));
 
+                        // Clean Monstra TMP folder.
+                        Monstra::cleanTmp();
+
+                        // Increment Styles version
+                        Stylesheet::stylesVersionIncrement();
+
                         Request::redirect('index.php?id=themes');
                     }
 
@@ -533,6 +585,13 @@ class ThemesAdmin extends Backend
                         File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.js',
                                          File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') . '.js'));
 
+
+                        // Clean Monstra TMP folder.
+                        Monstra::cleanTmp();
+
+                        // Increment Javascript version
+                        Javascript::javascriptVersionIncrement();
+                        
                         Request::redirect('index.php?id=themes');
                     }
 

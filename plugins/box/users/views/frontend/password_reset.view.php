@@ -2,8 +2,8 @@
 	<div class="col-md-12">		
 	    <?php
             // Monstra Notifications
-            Notification::get('success') AND $success = Notification::get('success');
-            echo '<div class="success margin-bottom-1">'.$success."</div>";
+	     	$success = Notification::get('success') ?: '';
+	     	($success != '') AND print('<div class="success margin-bottom-1">'.$success.'</div>');
         ?>
     </div>
 </div>

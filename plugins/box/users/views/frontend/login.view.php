@@ -2,8 +2,8 @@
 	<div class="col-md-12">		
 	    <?php
             // Monstra Notifications
-            Notification::get('error') AND $error = Notification::get('error');
-            echo '<div class="error margin-bottom-1">'.$error."</div>";
+            $error = Notification::get('error') ?: '';
+            ($error != '') AND print('<div class="error margin-bottom-1">'.$error.'</div>');
         ?>
     </div>
 </div>
