@@ -12,7 +12,7 @@
             'Clone' => 'Clonar',
             'Edit' => 'Editar',
             'Delete' => 'Eliminar',
-            'Delete Page: :page' => 'Eliminar página: :page',
+            'Delete page: :page' => 'Eliminar página: :page',
             'Title' => 'Título',
             'Name' => 'Nombre',
             'Author' => 'Autor',
