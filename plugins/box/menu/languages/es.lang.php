@@ -2,8 +2,8 @@
 
     return array(
         'menu' => array(
-            'Menu' => 'Menú',
-            'Menu Manager' => 'Administrador de menú',
+            'Menu' => 'Menús',
+            'Menu Manager' => 'Administrador de menús',
             'Edit' => 'Editar',
             'Name' => 'Nombre',
             'Delete' => 'Eliminar',
@@ -15,7 +15,7 @@
             'Item order' => 'Orden del Item',
             'Item target' => 'Objetivo del Item',
             'Item link' => 'Enlace del Item',
-            'Item category' => 'Categoría del Item',
+            'Item category' => 'Target del Item',
             'Save' => 'Guardar',
             'Edit item' => 'Editar Item',
             'Delete item :name' => 'Eliminar Item :name',
