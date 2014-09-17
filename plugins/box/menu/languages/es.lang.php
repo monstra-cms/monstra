@@ -18,7 +18,7 @@
             'Item category' => 'Categoría del Item',
             'Save' => 'Guardar',
             'Edit item' => 'Editar Item',
-            'Delete item :name' => 'Eliminar Item :name',
+            'Delete item :name' => 'Eliminar Item: :name ?',
             'Select page' => 'Seleccionar página',
             'Category' => 'Categoría',
             'Select category' => 'Seleccionar categoría',
