@@ -2,8 +2,8 @@
 
     return array(
         'pages' => array(
-            'Pages' => 'Paginas',
-            'Pages manager' => 'Administrador de paginas',
+            'Pages' => 'Páginas',
+            'Pages manager' => 'Administrador de páginas',
             'Content' => 'Contenido',
             'Create New Page' => 'Crear Nueva Página',
             'New Page' => 'Nueva página',
