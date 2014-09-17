@@ -34,7 +34,7 @@
             'Old password' => 'Contraseña antigua',
             'New password' => 'Nueva contraseña',
             'Welcome' => 'Bienvenido',
-            'Wrong <b>username</b> or <b>password</b>' => '<b>Nombre de usuario</b> o <b>Contraseña</b> erroneo',
+            'Wrong <b>username</b> or <b>password</b>' => '<b>Nombre de usuario</b> o <b>Contraseña</b> erróneo',
             'Your changes have been saved.' => 'Tus cambios han sido guardados.',
             'New user have been registered.' => 'Nuevo usuario registrado.',
             'Captcha' => 'Captcha',
