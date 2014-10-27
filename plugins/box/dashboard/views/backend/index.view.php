@@ -44,8 +44,14 @@
 		<div class="col-md-3">			
 			<h3><?php echo __('Help', 'system'); ?></h3>
 			<ul class="list-unstyled">
-                <li><a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
-                <li><a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
+				<li><a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
+				<li>
+				<?php if (Option::get('language') == 'ru') { ?>
+				<a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a>
+				<?php } else { ?>
+				<a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a>
+				<?php } ?>
+				</li>
 			</ul>
 		</div>
 	</div>

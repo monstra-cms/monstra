@@ -1,3 +1,11 @@
+Monstra 3.0.1, 2014-08-10
+------------------------
+- Minimum php is 5.3 
+- Themes Plugin: Imposible to create new CSS - fixed
+- Themes Plugin: js and css counter does not recalculate - fixed
+- Error in Monstra Notifications - fixed
+- Updated plugins url from plugins.monstra.org to monstra.org/download/plugins
+
 Monstra 3.0.0, 2014-08-01
 ------------------------
 - Mobile Ready! Monstra fully responsive for mobile devices, tablets, and normal computer screens.
