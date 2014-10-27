@@ -24,7 +24,7 @@ Options -Indexes
 	# RewriteCond %{HTTP_HOST} ^www.example.org [NC]
  	# RewriteRule ^(.*)$ http://example.org/$1 [R=301,L]
 	
-	RewriteBase /%siteurlhere%/
+	RewriteBase /
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php [QSA,L]
