@@ -44,4 +44,4 @@
     echo $sitemap_html;
 
 ?>
-</ul>
+</ul></ul>
