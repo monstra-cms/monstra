@@ -16,6 +16,6 @@
             'Get More Plugins' => 'Dodaj još dodataka',
             'Install' => 'Instaliraj',
             'Uninstall' => 'Deinstaliraj',
-            'README.md not found' => 'README.md not found',
+            'README.md not found' => 'README.md Nije nađeno',
         )
     );
