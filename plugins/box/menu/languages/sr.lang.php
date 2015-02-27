@@ -23,6 +23,6 @@
             'Category' => 'Kategorija',
             'Select category' => 'Odaberi kategoriju',
             'Required field' => 'Polje je potrebno',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Otkaži',
         )
     );
