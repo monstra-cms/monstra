@@ -501,7 +501,11 @@ class Users extends Frontend
      */
     public static function getGravatarURL($email, $size)
     {
-        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($email))).'?size='.$size;
+        if( isset($_SERVER['HTTPS'] ) ) {
+          return 'https://secure.gravatar.com/avatar/'.md5(strtolower(trim($email))).'?size='.$size;
+        } else {
+          return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($email))).'?size='.$size;
+        }
     }
 
 }
