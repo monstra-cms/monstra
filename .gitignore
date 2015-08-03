@@ -5,6 +5,7 @@ Thumbs.db
 *.project
 *.sublime-project
 *.sublime-workspace
+/nbproject/*
 
 # ignore user .htaccess
 /.htaccess
