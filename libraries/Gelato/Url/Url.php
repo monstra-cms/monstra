@@ -103,7 +103,7 @@ class Url
      */
     public static function current()
     {
-        return (!empty($_SERVER['HTTPS'])) ? Security::sanitizeURL("https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']) : Security::sanitizeURL("http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+        return (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
     }
 
 
