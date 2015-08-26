@@ -90,12 +90,17 @@ class Javascript
 
                 // Regenerate site javascript
                 if ($backend_regenerate) {
+                   
                     foreach ($javascripts as $javascript) {
                         if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
                             $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file'])."\n";
                         }
                     }
-                    file_put_contents($backend_site_js_path, $backend_buffer);
+
+                    if (Monstra::$environment == Monstra::DEVELOPMENT) {                    
+                    }
+                    
+                    file_put_contents($backend_site_js_path, MinifyJS::process($backend_buffer));
                     $backend_regenerate = false;
                 }
 
@@ -118,7 +123,11 @@ class Javascript
                             $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file'])."\n";
                         }
                     }
-                    file_put_contents($frontend_site_js_path, $frontend_buffer);
+
+                    if (Monstra::$environment == Monstra::DEVELOPMENT) {
+                    }
+
+                    file_put_contents($frontend_site_js_path, MinifyJS::process($frontend_buffer));
                     $frontend_regenerate = false;
                 }
 
