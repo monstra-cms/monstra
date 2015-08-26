@@ -6,6 +6,7 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 /nbproject/*
+ftpsync.settings
 
 # ignore user .htaccess
 /.htaccess
