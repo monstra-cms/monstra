@@ -61,13 +61,10 @@ class Users extends Frontend
     {
         /* /users */
         if (Uri::segment(0) == 'users' && !Uri::segment(1)) return 'list';
-        /* /users/JSON */
-        if (Uri::segment(1) == 'JSON') return 'ajax';
         /* /users/(int) */
-        //if (Uri::segment(1) && (Uri::segment(1) !== 'login' && Uri::segment(1) == 'JSON' && Uri::segment(1) !== 'registration' && Uri::segment(1) !== 'password-reset' && Uri::segment(2) !== 'edit')) return 'profile';
+        if (Uri::segment(1) && (Uri::segment(1) !== 'login' && Uri::segment(1) !== 'registration' && Uri::segment(1) !== 'password-reset' && Uri::segment(2) !== 'edit')) return 'profile';
         /* /users/login */
         if (Uri::segment(1) == 'login') return 'login';
-
         /* /users/registration */
         if (Uri::segment(1) == 'registration') return 'registration';
         /* /pusers/password-reset */
@@ -437,11 +434,9 @@ class Users extends Frontend
                                     Session::set('user_login', (string) $user['login']);
                                     Session::set('user_role', (string) $user['role']);
                                     Session::set('user_email', (string) $user['email']);
-                                    if ($ajax){
-                                      return json_encode("test");
-                                    }else {
-                                      Request::redirect(Site::url().'/users/'.Session::get('user_id'));
-                                    }
+
+                                    Request::redirect(Site::url().'/users/'.Session::get('user_id'));
+
                                 } else {
                                     Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
 
