@@ -377,6 +377,12 @@ class Users extends Frontend
         }
     }
 
+    /**
+     * To check if the cached login is over.
+     * @param string $username 
+     * @param Integer $num 
+     * @return Boolean
+     */
     protected static function check_loginprotect($username="Guest",$num=5){
       Cache::configure('cache_time', 600);
       $amount = Cache::get('login_attempts',$username);
@@ -387,6 +393,11 @@ class Users extends Frontend
       }
     }
 
+    /**
+     * Description
+     * @param string $username 
+     * @param Integer $num 
+     */
     protected static function loginprotect($username="Guest",$num=5){
       Cache::configure('cache_time', 600);
       $amount = Cache::get('login_attempts',$username);
@@ -400,8 +411,9 @@ class Users extends Frontend
       } else {
         Cache::put('login_attempts',$username,1);
       }
-
     }
+
+
     /**
      * Get User login
      */
