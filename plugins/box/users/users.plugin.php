@@ -25,7 +25,7 @@ if (Session::exists('user_role') && in_array(Session::get('user_role'), array('a
 
     // Include Users Admin
     Plugin::Admin('users', 'box');
-    
+
 }
 
 // Add Plugin Javascript
@@ -377,6 +377,31 @@ class Users extends Frontend
         }
     }
 
+    protected static function check_loginprotect($username="Guest",$num=5){
+      Cache::configure('cache_time', 600);
+      $amount = Cache::get('login_attempts',$username);
+      if ($amount && $amount >= $num) {
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+    protected static function loginprotect($username="Guest",$num=5){
+      Cache::configure('cache_time', 600);
+      $amount = Cache::get('login_attempts',$username);
+      if ($amount) {
+          if ($amount < $num) {
+              $attempts = $amount + 1;
+              Cache::put('login_attempts',$username,$attempts);
+          } else {
+              Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
+          }
+      } else {
+        Cache::put('login_attempts',$username,1);
+      }
+
+    }
     /**
      * Get User login
      */
@@ -387,9 +412,9 @@ class Users extends Frontend
 
             // Login Form Submit
             if (Request::post('login_submit')) {
+                if (Users::check_loginprotect(trim(Request::post('username')),5)){
+                //if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
 
-                if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
-                    
                     Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
 
                 } else {
@@ -409,44 +434,27 @@ class Users extends Frontend
                                     Session::set('user_login', (string) $user['login']);
                                     Session::set('user_role', (string) $user['role']);
                                     Session::set('user_email', (string) $user['email']);
+
                                     Request::redirect(Site::url().'/users/'.Session::get('user_id'));
+
                                 } else {
                                     Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
 
-                                    if (Cookie::get('login_attempts')) {
-                                        if (Cookie::get('login_attempts') < 5) {
-                                            $attempts = Cookie::get('login_attempts') + 1;
-                                            Cookie::set('login_attempts', $attempts , 600);
-                                        } else {
-                                            Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
-                                        }
-                                    } else {
-                                        Cookie::set('login_attempts', 1, 600);
-                                    }
+                                    Users::loginprotect(Request::post('username'),5);
                                 }
                             }
                         } else {
                             Notification::setNow('error', __('Wrong <b>username</b> or <b>password</b>', 'users'));
 
-                            if (Cookie::get('login_attempts')) {
-                                if (Cookie::get('login_attempts') < 5) {
-                                    $attempts = Cookie::get('login_attempts') + 1;
-                                    Cookie::set('login_attempts', $attempts , 600);
-                                } else {
-                                    Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
-                                }
-                            } else {
-                                Cookie::set('login_attempts', 1, 600);
-                            }
+                            Users::loginprotect(Request::post('username'),5);
                         }
 
                     } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                 }
             }
-
-            View::factory('box/users/views/frontend/login')->display();
+              View::factory('box/users/views/frontend/login')->display();
         } else {
-            Request::redirect(Site::url().'/users/'.Session::get('user_id'));
+              Request::redirect(Site::url().'/users/'.Session::get('user_id'));
         }
     }
 
