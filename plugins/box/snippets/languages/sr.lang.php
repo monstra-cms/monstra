@@ -12,7 +12,7 @@
             'New snippet' => 'Novi klip',
             'Edit snippet' => 'Izmeni klip',        
             'Save' => 'Sačuvaj',        
-            'Save and exit' => 'sačuvaj i izađi',        
+            'Save and exit' => 'Sačuvaj i izađi',        
             'This snippet already exists' => 'Ovaj klip već postoji',
             'This snippet does not exist' => 'Ovaj klip ne postoji',
             'Delete snippet: :snippet' => 'Obriši klip: :snippet',
@@ -25,6 +25,6 @@
             'Embed Code' => 'Embed kod', 
             'Shortcode' => 'Kratak kod',
             'PHP Code' => 'PHP kod',
-            'Cancel' => 'Cancel',
+            'Cancel' => 'Otkaži',
         )
     );
