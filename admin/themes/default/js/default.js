@@ -21,3 +21,10 @@ Messenger.options = {
     extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
     theme: 'flat'
 }
+$(document).ready(function() {
+	$('#page_title').keyup(function() {
+		$('#page_name').val($(this).val().toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-'));
+	});
+});
+
+
