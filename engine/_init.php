@@ -27,7 +27,7 @@ Monstra::$environment = Monstra::PRODUCTION;
  * Report Errors
  */
 if (Monstra::$environment == Monstra::PRODUCTION) {
-    error_reporting(0); 
+    error_reporting(0);
 } else {
     error_reporting(-1);
 }

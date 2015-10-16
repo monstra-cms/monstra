@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Filter
 {
@@ -52,12 +49,12 @@ class Filter
 
         $args = array_slice(func_get_args(), 2);
 
-        if ( ! isset(Filter::$filters[$filter_name])) {
+        if (! isset(Filter::$filters[$filter_name])) {
             return $value;
         }
 
         foreach (Filter::$filters[$filter_name] as $priority => $functions) {
-            if ( ! is_null($functions)) {
+            if (! is_null($functions)) {
                 foreach ($functions as $function) {
                     $all_args = array_merge(array($value), $args);
                     $function_name = $function['function'];
@@ -120,5 +117,4 @@ class Filter
 
         return true;
     }
-
 }

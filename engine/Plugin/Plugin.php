@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Plugin
 {
@@ -45,7 +42,9 @@ class Plugin
      */
     public static function init()
     {
-        if ( ! isset(self::$instance)) self::$instance = new Plugin();
+        if (! isset(self::$instance)) {
+            self::$instance = new Plugin();
+        }
         return self::$instance;
     }
 
@@ -102,7 +101,7 @@ class Plugin
         if (BACKEND) {
 
             // Plugin admin folder
-            if ( ! empty($alt_folder)) {
+            if (! empty($alt_folder)) {
                 $folder = $alt_folder . DS . strtolower($plug);
             } else {
                 $folder = strtolower($plug);
@@ -157,7 +156,11 @@ class Plugin
         $id = strtolower(basename($file, '.plugin.php'));
 
         // Set plugin privilege 'box' if $box is true
-        if ($box) $privilege = 'box'; else $privilege = '';
+        if ($box) {
+            $privilege = 'box';
+        } else {
+            $privilege = '';
+        }
 
         // Register plugin in global plugins array.
         Plugin::$plugins[$id] = array(
@@ -175,9 +178,8 @@ class Plugin
         // Example:
         //    www.example.org/guestbook
         //    www.example.org/news
-        if ( ! empty($component)) {
+        if (! empty($component)) {
             Plugin::$components[] = $component;
         }
     }
-
 }

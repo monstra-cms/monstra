@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Table
 {
@@ -46,7 +43,9 @@ class Table
      */
     public static function configure($setting, $value)
     {
-        if (property_exists("table", $setting)) Table::$$setting = $value;
+        if (property_exists("table", $setting)) {
+            Table::$$setting = $value;
+        }
     }
 
     /**
@@ -113,7 +112,7 @@ class Table
         // Redefine vars
         $table_name = (string) $table_name;
 
-        if ( ! file_exists(Table::$tables_dir . '/' . $table_name . '.table.xml') &&
+        if (! file_exists(Table::$tables_dir . '/' . $table_name . '.table.xml') &&
             is_dir(dirname(Table::$tables_dir)) &&
             is_writable(dirname(Table::$tables_dir)) &&
             isset($fields) &&
@@ -121,12 +120,13 @@ class Table
 
             // Create table fields
             $_fields = '<fields>';
-            foreach ($fields as $field) $_fields .= "<$field/>";
+            foreach ($fields as $field) {
+                $_fields .= "<$field/>";
+            }
             $_fields .= '</fields>';
 
             // Create new table
-            return file_put_contents(Table::$tables_dir . '/' . $table_name . '.table.xml','<?xml version="1.0" encoding="UTF-8"?><root><options><autoincrement>0</autoincrement></options>'.$_fields.'</root>', LOCK_EX);
-
+            return file_put_contents(Table::$tables_dir . '/' . $table_name . '.table.xml', '<?xml version="1.0" encoding="UTF-8"?><root><options><autoincrement>0</autoincrement></options>'.$_fields.'</root>', LOCK_EX);
         } else {
 
             // Something wrong... return false
@@ -150,7 +150,7 @@ class Table
         $table_name = (string) $table_name;
 
         // Drop
-        if ( ! is_dir(Table::$tables_dir . '/' . $table_name . '.table.xml')) {
+        if (! is_dir(Table::$tables_dir . '/' . $table_name . '.table.xml')) {
             return unlink(Table::$tables_dir . '/' . $table_name . '.table.xml');
         }
 
@@ -260,12 +260,9 @@ class Table
 
             // Save table
             return Table::_save($table);
-
         } else {
             return false;
-
         }
-
     }
 
     /**
@@ -297,10 +294,8 @@ class Table
 
             // Save table
             return Table::_save($table);
-
         } else {
             return false;
-
         }
     }
 
@@ -408,7 +403,6 @@ class Table
 
             // If exists fields to insert then insert them
             if (count($fields) !== 0) {
-
                 $table_fields = array_diff_key($field_names, $fields);
 
                 // Defined fields
@@ -424,10 +418,8 @@ class Table
 
             // Save table
             return Table::_save($this->table);
-
         } else {
             return false;
-
         }
     }
 
@@ -474,12 +466,10 @@ class Table
         // If row count is null then select only one record
         // eg: $users->select('[login="admin"]', null);
         if ($row_count == null) {
-
             if (isset($tmp[0])) {
                 $_records   = $tmp[0];
                 $one_record = true;
             }
-
         } else {
 
             // If row count is 'all' then select all records
@@ -496,12 +486,9 @@ class Table
 
         // If array of fields is exits then get records with this fields only
         if (count($fields) > 0) {
-
             if (count($_records) > 0) {
-
                 $count = 0;
                 foreach ($_records as $key => $record) {
-
                     foreach ($fields as $field) {
                         $record_array[$count][$field] = (string) $record->$field;
                     }
@@ -515,7 +502,6 @@ class Table
                     }
 
                     $count++;
-
                 }
 
                 // Sort records
@@ -527,9 +513,7 @@ class Table
                 } elseif ($offset !== null && is_int($row_count)) {
                     $records = array_slice($records, $offset, $row_count);
                 }
-
             }
-
         } else {
 
             // Convert from XML object to array
@@ -537,7 +521,6 @@ class Table
             if (! $one_record) {
                 $count = 0;
                 foreach ($_records as $xml_objects) {
-
                     $vars = get_object_vars($xml_objects);
 
                     foreach ($vars as $key => $value) {
@@ -562,7 +545,6 @@ class Table
                 } elseif ($offset !== null && is_int($row_count)) {
                     $records = array_slice($records, $offset, $row_count);
                 }
-
             } else {
 
                 // Single record
@@ -575,7 +557,6 @@ class Table
 
         // Return records
         return $records;
-
     }
 
     /**
@@ -601,7 +582,6 @@ class Table
 
             // Delete
             unset($xml_arr[0]);
-
         }
 
         // Save table
@@ -631,7 +611,6 @@ class Table
 
             // Delete
             unset($xml_arr[0]);
-
         }
 
         // Save table
@@ -690,10 +669,8 @@ class Table
 
             // Save table
             return Table::_save($this->table);
-
         } else {
             return false;
-
         }
     }
 
@@ -747,16 +724,13 @@ class Table
 
                     // And add new one
                     $xml_arr->addChild($key, XML::safe($value, false));
-
                 }
             }
 
             // Save table
             return Table::_save($this->table);
-
         } else {
             return false;
-
         }
     }
 
@@ -801,9 +775,17 @@ class Table
     protected static function subvalSort($a, $subkey, $order = null)
     {
         if (count($a) != 0 || (!empty($a))) {
-            foreach ($a as $k=>$v) $b[$k] = function_exists('mb_strtolower') ? mb_strtolower($v[$subkey]) : strtolower($v[$subkey]);
-            if ($order==null || $order== 'ASC') asort($b); else if ($order == 'DESC') arsort($b);
-            foreach ($b as $key=>$val) $c[] = $a[$key];
+            foreach ($a as $k=>$v) {
+                $b[$k] = function_exists('mb_strtolower') ? mb_strtolower($v[$subkey]) : strtolower($v[$subkey]);
+            }
+            if ($order==null || $order== 'ASC') {
+                asort($b);
+            } elseif ($order == 'DESC') {
+                arsort($b);
+            }
+            foreach ($b as $key=>$val) {
+                $c[] = $a[$key];
+            }
 
             return $c;
         }
@@ -872,5 +854,4 @@ class Table
             // report about errors...
         }
     }
-
 }

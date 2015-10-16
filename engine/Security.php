@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Security
 {
@@ -100,7 +97,7 @@ class Security
      */
     public static function encryptPassword($password)
     {
-       return md5(md5(trim($password) . MONSTRA_PASSWORD_SALT));
+        return md5(md5(trim($password) . MONSTRA_PASSWORD_SALT));
     }
 
     /**
@@ -156,11 +153,13 @@ class Security
         }
 
         // Lowercase
-        if ($lowercase === true) $str = Text::lowercase($str);
+        if ($lowercase === true) {
+            $str = Text::lowercase($str);
+        }
 
         // Return safe name
         return $str;
-     }
+    }
 
     /**
      * Create safe url.
@@ -176,9 +175,9 @@ class Security
     {
         $url = trim($url);
         $url = rawurldecode($url);
-        $url = str_replace(array('--','&quot;','!','@','#','$','%','^','*','(',')','+','{','}','|',':','"','<','>',
-                                  '[',']','\\',';',"'",',','*','+','~','`','laquo','raquo',']>','&#8216;','&#8217;','&#8220;','&#8221;','&#8211;','&#8212;'),
-                            array('-','-','','','','','','','','','','','','','','','','','','','','','','','','','','',''),
+        $url = str_replace(array('--', '&quot;', '!', '@', '#', '$', '%', '^', '*', '(', ')', '+', '{', '}', '|', ':', '"', '<', '>',
+                                  '[', ']', '\\', ';', "'", ',', '*', '+', '~', '`', 'laquo', 'raquo', ']>', '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8211;', '&#8212;'),
+                            array('-', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
                             $url);
         $url = str_replace('--', '-', $url);
         $url = rtrim($url, "-");
@@ -189,7 +188,7 @@ class Security
         $url = preg_replace('/^\./', '', $url);
 
         return $url;
-     }
+    }
 
     /**
      * Sanitize URL to prevent XSS - Cross-site scripting
@@ -237,5 +236,4 @@ class Security
         // Return safe string
         return $str;
     }
-
 }

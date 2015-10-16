@@ -1,19 +1,11 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- *  Monstra - Content Management System.
- *  Site: www.mostra.org
- *  Copyright (C) 2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
- *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -39,7 +31,7 @@ class Monstra
     /**
      * The version of Monstra
      */
-    const VERSION = '3.0.1';
+    const VERSION = '3.0.2';
 
 
     /**
@@ -85,7 +77,9 @@ class Monstra
          * Compress HTML with gzip
          */
         if (MONSTRA_GZIP) {
-            if ( ! ob_start("ob_gzhandler")) ob_start();
+            if (! ob_start("ob_gzhandler")) {
+                ob_start();
+            }
         } else {
             ob_start();
         }
@@ -94,16 +88,19 @@ class Monstra
          * Send default header and set internal encoding
          */
         header('Content-Type: text/html; charset=UTF-8');
-        function_exists('mb_language') AND mb_language('uni');
-        function_exists('mb_regex_encoding') AND mb_regex_encoding('UTF-8');
-        function_exists('mb_internal_encoding') AND mb_internal_encoding('UTF-8');
+        function_exists('mb_language') and mb_language('uni');
+        function_exists('mb_regex_encoding') and mb_regex_encoding('UTF-8');
+        function_exists('mb_internal_encoding') and mb_internal_encoding('UTF-8');
 
         /**
          * Gets the current configuration setting of magic_quotes_gpc
          * and kill magic quotes
          */
         if (get_magic_quotes_gpc()) {
-            function stripslashesGPC(&$value) { $value = stripslashes($value); }
+            function stripslashesGPC(&$value)
+            {
+                $value = stripslashes($value);
+            }
             array_walk_recursive($_GET, 'stripslashesGPC');
             array_walk_recursive($_POST, 'stripslashesGPC');
             array_walk_recursive($_COOKIE, 'stripslashesGPC');
@@ -120,7 +117,7 @@ class Monstra
         /**
          * Define Monstra Folder for Gelato Logs
          */
-        define ('GELATO_LOGS_PATH', LOGS);
+        define('GELATO_LOGS_PATH', LOGS);
 
         /**
          * Include Gelato Library
@@ -209,7 +206,11 @@ class Monstra
          * Set default timezone
          */
         @ini_set('date.timezone', Option::get('timezone'));
-        if (function_exists('date_default_timezone_set')) date_default_timezone_set(Option::get('timezone')); else putenv('TZ='.Option::get('timezone'));
+        if (function_exists('date_default_timezone_set')) {
+            date_default_timezone_set(Option::get('timezone'));
+        } else {
+            putenv('TZ='.Option::get('timezone'));
+        }
 
         /**
          * Sanitize URL to prevent XSS - Cross-site scripting
@@ -239,7 +240,9 @@ class Monstra
         /**
          * Init site module
          */
-        if ( ! BACKEND) Site::init();
+        if (! BACKEND) {
+            Site::init();
+        }
     }
 
     /**
@@ -300,7 +303,6 @@ class Monstra
         } else {
             throw new RuntimeException("The pluggable shortcodes.php file does not exist.");
         }
-
     }
 
     /**
@@ -309,10 +311,18 @@ class Monstra
     public static function cleanTmp()
     {
         // Cleanup minify
-        if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) foreach ($files as $file) File::delete(MINIFY . DS . $file);
+        if (count($files = File::scan(MINIFY, array('css', 'js', 'php'))) > 0) {
+            foreach ($files as $file) {
+                File::delete(MINIFY . DS . $file);
+            }
+        }
 
         // Cleanup cache
-        if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);
+        if (count($namespaces = Dir::scan(CACHE)) > 0) {
+            foreach ($namespaces as $namespace) {
+                Dir::delete(CACHE . DS . $namespace);
+            }
+        }
     }
 
     /**
@@ -322,8 +332,9 @@ class Monstra
      */
     public static function init()
     {
-        if ( ! isset(self::$instance)) self::$instance = new Monstra();
+        if (! isset(self::$instance)) {
+            self::$instance = new Monstra();
+        }
         return self::$instance;
     }
-
 }

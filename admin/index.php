@@ -1,19 +1,16 @@
 <?php
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 // Main engine defines
 define('DS', DIRECTORY_SEPARATOR);
@@ -32,13 +29,9 @@ $users = new Table('users');
 
 // Admin login
 if (Request::post('login_submit')) {
-
     if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
-        
         $login_error = __('You are banned for 10 minutes. Try again later', 'users');
-    
     } else {
-
         $user = $users->select("[login='" . trim(Request::post('login')) . "']", null);
         if (count($user) !== 0) {
             if ($user['login'] == Request::post('login')) {
@@ -64,7 +57,6 @@ if (Request::post('login_submit')) {
                     } else {
                         Cookie::set('login_attempts', 1, 600);
                     }
-
                 }
             }
         } else {
@@ -84,7 +76,6 @@ if (Request::post('login_submit')) {
     }
 
     Notification::setNow('error', $login_error);
-
 }
 
 // Errors
@@ -97,10 +88,15 @@ $user_login = trim(Request::post('login'));
 
 // Reset Password Form Submit
 if (Request::post('reset_password_submit')) {
-
-    if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'users');
-    if ($user_login == '') $errors['users_empty_field'] = __('Required field', 'users');
-    if ($user_login != '' && ! $users->select("[login='".$user_login."']")) $errors['users_user_doesnt_exists'] = __('This user doesnt exist', 'users');
+    if (Option::get('captcha_installed') == 'true' && ! CryptCaptcha::check(Request::post('answer'))) {
+        $errors['users_captcha_wrong'] = __('Captcha code is wrong', 'users');
+    }
+    if ($user_login == '') {
+        $errors['users_empty_field'] = __('Required field', 'users');
+    }
+    if ($user_login != '' && ! $users->select("[login='".$user_login."']")) {
+        $errors['users_user_doesnt_exists'] = __('This user doesnt exist', 'users');
+    }
 
     if (count($errors) == 0) {
 
@@ -136,7 +132,6 @@ if (Request::post('reset_password_submit')) {
 
         // Redirect to password-reset page
         Request::redirect(Site::url().'/admin');
-
     }
 
     Notification::setNow('reset_password', 'reset_password');
@@ -184,12 +179,10 @@ if ($is_admin) {
 
     // Backend post render
     Action::run('admin_post_render');
-
 } else {
 
     // Display login template
     require 'themes'. DS . Option::get('theme_admin_name') . DS . 'login.template.php';
-
 }
 
 // Flush (send) the output buffer and turn off output buffering

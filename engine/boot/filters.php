@@ -3,7 +3,9 @@
 /**
  * Evaluate a string as PHP code
  */
-if (MONSTRA_EVAL_PHP) Filter::add('content', 'evalPHP');
+if (MONSTRA_EVAL_PHP) {
+    Filter::add('content', 'evalPHP');
+}
 function obEval($mathes)
 {
     ob_start();
@@ -13,7 +15,10 @@ function obEval($mathes)
 
     return $mathes;
 }
-function evalPHP($str) { return preg_replace_callback('/\[php\](.*?)\[\/php\]/ms','obEval', $str); }
+function evalPHP($str)
+{
+    return preg_replace_callback('/\[php\](.*?)\[\/php\]/ms', 'obEval', $str);
+}
 
 /**
  * Add shortcode parser filter

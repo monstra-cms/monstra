@@ -12,19 +12,24 @@
 *************************************/
 
 @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot');
-  src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
-       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+    font-family: 'Glyphicons Halflings';
+
+    src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('@site_url/public/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('@site_url/public/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('@site_url/public/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+    src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot');
 }
 
 body {
-    background: #FAFAFA;
+    background: #fafafa;
 }
 
-h1,h2,h3,h4,h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: #222;
 }
 
@@ -33,7 +38,7 @@ h1,h2,h3,h4,h5 {
 }
 
 .error-field {
-    border:1px solid red!important;
+    border: 1px solid red!important;
 }
 
 .error-message {
@@ -41,25 +46,29 @@ h1,h2,h3,h4,h5 {
 }
 
 a.btn-expand {
-    color: #333;
-    font-weight: bold; 
-    font-size:14px;  
+    font-size: 14px;
+    font-weight: bold;
+
+    padding-right: 4px;
+    padding-left: 4px;
+
     text-decoration: none;
-    padding-left:4px;
-    padding-right:4px;
+
+    color: #333;
 }
 
 .btn:active,
 .btn.active {
-  background-image: none;
-  outline: 0;
-  box-shadow: none;
+    outline: 0;
+    background-image: none;
+    box-shadow: none;
 }
 
-.login-footer, 
+.login-footer,
 .login-footer a {
-    color:#777;
-    font-size:12px;
+    font-size: 12px;
+
+    color: #777;
 }
 
 footer {
@@ -68,13 +77,15 @@ footer {
 
 footer,
 footer a {
-    color:#777;
-    font-size:12px;
+    font-size: 12px;
+
+    color: #777;
 }
 
 footer span {
-    border-top: 1px solid #E0E0E0; 
     padding-top: 10px;
+
+    border-top: 1px solid #e0e0e0;
 }
 
 /*************************************
@@ -82,31 +93,34 @@ footer span {
 *************************************/
 
 /* Well */
-.well {                                
+.well {
+    color: #555;
     border: none;
     border-radius: 0px;
     background: #fff;
-    color: #555;
-    -webkit-font-smoothing: subpixel-antialiased;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
             box-shadow: 0 1px 3px rgba(0,0,0,.13);
 
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .dashboard-well {
-  padding-top: 6px;
-  padding-bottom: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .dashboard-well a.welcome-back {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  padding-left: 0;
+    font-size: 16px;
+
+    padding-left: 0;
+
+    text-decoration: none;
+
+    color: #333;
 }
 
 /* Admin Form */
-.form-signin  {
+.form-signin {
     max-width: 400px;
 }
 
@@ -161,8 +175,9 @@ ul.navbar-nav {
 
 .navbar-brand {
     font-size: 24px;
-    padding: 13px 15px;
     line-height: inherit;
+
+    padding: 13px 15px;
 }
 
 .navbar-inverse .navbar-nav > .open > a,
@@ -174,12 +189,13 @@ ul.navbar-nav {
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-    background: #333; 
+    background: #333;
 }
 
 a.navbar-brand {
     font-weight: bold;
-    color: #FAFAFA!important;
+
+    color: #fafafa!important;
 }
 
 .navbar-nav .dropdown-menu {
@@ -193,16 +209,17 @@ a.navbar-brand {
 
 .nav > li > a {
     padding-top: 15px;
+    padding-right: 20px;
     padding-bottom: 15px;
     padding-left: 20px;
-    padding-right: 20px;
 }
 
 .nav > li > a > img {
     width: 28px;
     height: 28px;
-    border: 1px solid #888;
     margin: 0 0 0 4px;
+
+    border: 1px solid #888;
 }
 
 /* Flat Elements */
@@ -227,6 +244,7 @@ code {
 pre,
 code {
     font-weight: normal;
+
     text-shadow: none;
 }
 
@@ -253,9 +271,9 @@ input[type="tel"],
 input[type="color"],
 .form-control,
 .uneditable-input {
-  color: #3c3c3c;
-  border-color: #d0d0d0;
-  background-color: #fff; 
+    color: #3c3c3c;
+    border-color: #d0d0d0;
+    background-color: #fff;
 }
 select:focus,
 textarea:focus,
@@ -277,8 +295,8 @@ input[type="color"]:focus,
 .uneditable-input:focus {
     border-color: #aaaaaa;
     -webkit-box-shadow: 0 0 8px #dce1e5;
-    -moz-box-shadow: 0 0 8px #dce1e5;
-    box-shadow: 0 0 8px #dce1e5; 
+       -moz-box-shadow: 0 0 8px #dce1e5;
+            box-shadow: 0 0 8px #dce1e5;
 }
 
 /* Datapicker */
@@ -288,8 +306,8 @@ input[type="color"]:focus,
 
 /* Breadcrumb */
 .breadcrumb {
-    background: #fff;
     border-radius: 0px;
+    background: #fff;
 }
 
 /* Tabs */
@@ -302,7 +320,7 @@ input[type="color"]:focus,
 }
 
 .tab-pane > table {
-    border-top:none!important;
+    border-top: none!important;
 }
 
 .tab-content {
@@ -310,17 +328,20 @@ input[type="color"]:focus,
 }
 
 .tab-page {
-    border-bottom: 1px solid #DDDDDD;
-    border-left: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
     padding: 20px 10px 10px;
+
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
 }
 
 /* Tables */
 table {
     max-width: 100%;
-    border-collapse: collapse;
+
     border-spacing: 0;
+    border-collapse: collapse;
+
     background-color: transparent;
 }
 .table {
@@ -329,9 +350,12 @@ table {
 }
 .table th,
 .table td {
-    padding: 8px;
     line-height: 18px;
+
+    padding: 8px;
+
     text-align: left;
+
     border-top: 1px solid #dddddd;
     background: #fff;
 }
@@ -355,9 +379,11 @@ table {
     padding: 4px 5px;
 }
 .table-bordered {
+    border-collapse: separate;
+
     border: 1px solid #dddddd;
     border-left: 0;
-    border-collapse: separate;
+
     *border-collapse: collapsed;
 }
 .table-bordered th:first-child,
@@ -366,7 +392,7 @@ table {
 }
 
 .table-bordered td:first-child {
-    padding-left:15px;
+    padding-left: 15px;
 }
 
 .table-bordered thead:first-child tr:first-child th,
@@ -376,7 +402,8 @@ table {
 }
 
 .table-bordered thead tr th {
-    font-weight:bold;
+    font-weight: bold;
+
     background-color: #fff;
 }
 
@@ -402,16 +429,19 @@ table {
 
 .table-bordered th,
 .table-bordered td {
-    border-left: none;
     height: 50px;
+
+    border-left: none;
 }
 
 .table-bordered > thead > tr {
     height: 45px;
 }
 
-td, th {
+td,
+th {
     display: table-cell;
+
     vertical-align: inherit!important;
 }
 
@@ -421,25 +451,27 @@ td, th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-    border: 0; 
+    border: 0;
     border-bottom: 1px solid #ccc;
 }
 
 .vertical-align {
     display: table;
+
     width: 100%;
 }
 
 .vertical-align > div {
     display: table-cell;
+
     vertical-align: middle;
 }
 
-.vertical-align > div > h1, 
+.vertical-align > div > h1,
 .vertical-align > div > h2,
 .vertical-align > div > h3,
 .vertical-align > div > h4,
-.vertical-align > div > h5 { 
+.vertical-align > div > h5 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -462,17 +494,19 @@ td, th {
 
 /* Editor */
 #editor_area {
-    height: 400px!important; 
-    border: 1px solid #ccc;
-    color: #555;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.428571429;
+
+    height: 400px!important;
     padding: 6px 9px;
+
+    color: #555;
+    border: 1px solid #ccc;
 }
 
 .markItUpHeader ul li {
-    padding: 5px; 
+    padding: 5px;
 }
 
 .markItUpHeader ul .markItUpSeparator {
@@ -480,7 +514,7 @@ td, th {
 }
 
 .modal-header {
-    border-bottom: 1px solid #F3F3F3;
+    border-bottom: 1px solid #f3f3f3;
 }
 
 .modal-header .close {
@@ -488,16 +522,17 @@ td, th {
 }
 
 .modal-footer {
-    border-top: 1px solid #F3F3F3;
+    border-top: 1px solid #f3f3f3;
 }
 
 .drop-file-here {
-    padding: 5px 40px;
-    background: #ccc;
     margin-left: 4px;
-    background: #f7f7f7;
-    border: 3px dashed #D5D5D5;
+    padding: 5px 40px;
+
     color: #ccc;
+    border: 3px dashed #d5d5d5;
+    background: #ccc;
+    background: #f7f7f7;
 }
 
 .modal-backdrop {
@@ -509,8 +544,8 @@ td, th {
 }
 
 .modal-content {
-    box-shadow: none;
     border: none;
+    box-shadow: none;
 }
 
 #readme .modal-dialog {
@@ -532,8 +567,8 @@ td, th {
 
 @media (max-width: 480px) {
     /* MarkItUp */
-    .markItUpButton11, 
-    .markItUpButton12, 
+    .markItUpButton11,
+    .markItUpButton12,
     .markItUpButton13,
     .markItUpButton14,
     .markItUpButton15,
@@ -542,7 +577,7 @@ td, th {
     .markItUpButton18 {
         display: none;
     }
-    .markItUpSeparator{
+    .markItUpSeparator {
         display: none;
     }
 
@@ -552,25 +587,29 @@ td, th {
     }
     .dashboard-well .col-xs-6 .pull-right {
         float: left!important;
-    }    
+    }
 
-    
+
     .btn-phone {
         width: 100%;
     }
 
     .row-phone {
         display: block!important;
+
         width: 100%!important;
+
         text-align: left!important;
     }
 
     /* Users */
     .users-btns > div {
-        display: block;        
-        text-align: left;
-        margin-top: 10px;
+        display: block;
+
         width: 100%;
+        margin-top: 10px;
+
+        text-align: left;
     }
 
     .users-btns > div:nth-child(2) {
@@ -591,24 +630,25 @@ td, th {
 
 @media (max-width: 320px) {
     .mobile-nav-tabs .nav-tabs > li {
-        width: 100%;    
+        width: 100%;
         height: 46px;
-        margin: 0px;    
+        margin: 0px;
     }
     .mobile-nav-tabs .nav-tabs > li > a {
+        border: 0;
         background: #fff;
-        border: 0;
     }
-    .mobile-nav-tabs .nav-tabs > li.active > a, 
-    .mobile-nav-tabs .nav-tabs > li.active > a:hover, 
+    .mobile-nav-tabs .nav-tabs > li.active > a,
+    .mobile-nav-tabs .nav-tabs > li.active > a:hover,
     .mobile-nav-tabs .nav-tabs > li.active > a:focus {
-        border: 0;
         color: #fff;
+        border: 0;
         background-color: #428bca;
     }
     .mobile-nav-tabs .nav-tabs {
         margin-top: 10px;
         margin-bottom: 10px;
+
         border: 0;
     }
     .mobile-nav-tabs .tab-pane > table {

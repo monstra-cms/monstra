@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Uri
 {
@@ -61,7 +58,14 @@ class Uri
 
         // Ability to pass parameters
         foreach ($uri as $i => $u) {
-            if (isset($uri[$i])) { $pos = strrpos($uri[$i], "?"); if ($pos === false) { $uri[$i] = Security::sanitizeURL($uri[$i]); } else { $uri[$i] = Security::sanitizeURL(substr($uri[$i], 0, $pos)); } }
+            if (isset($uri[$i])) {
+                $pos = strrpos($uri[$i], "?");
+                if ($pos === false) {
+                    $uri[$i] = Security::sanitizeURL($uri[$i]);
+                } else {
+                    $uri[$i] = Security::sanitizeURL(substr($uri[$i], 0, $pos));
+                }
+            }
         }
 
         // Return uri segments
@@ -99,10 +103,10 @@ class Uri
         // Get uri segments
         $uri = Uri::segments();
 
-        if ( ! isset($uri[0])) {
+        if (! isset($uri[0])) {
             $uri[0] = Uri::$default_component;
         } else {
-            if ( ! in_array($uri[0], Plugin::$components)  ) {
+            if (! in_array($uri[0], Plugin::$components)) {
                 $uri[0] = Uri::$default_component;
             } else {
                 $uri[0] = $uri[0];
@@ -130,18 +134,16 @@ class Uri
         $uri = Uri::segments();
 
         // http://site.com/ and http://site.com/index.php same main home pages
-        if ( ! isset($uri[0])) {
+        if (! isset($uri[0])) {
             $uri[0] = '';
         }
 
         // param1/param2
         if ($uri[0] !== Uri::$default_component) {
             if (isset($uri[1])) {
-
                 foreach ($uri as $part) {
                     $data[] = $part;
                 }
-
             } else { // default
                 $data[0] = $uri[0];
             }
@@ -158,5 +160,4 @@ class Uri
 
         return $data;
     }
-
 }
