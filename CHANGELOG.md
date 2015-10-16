@@ -1,6 +1,6 @@
 Monstra 3.0.2, 2015-10-16
 ------------------------
-- Added Monstra MIT LICENSE instead of GNU GPL v3
+- Added Monstra MIT LICENSE instead of GNU GENERAL PUBLIC LICENSE v3
 - Code standards fixes.
 - Localization: Major Fixes for ES and SR
 
