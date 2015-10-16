@@ -50,10 +50,10 @@ class I18n
         'sk' => 'Slovenčina',
         'sl' => 'Slovenščina',
         'sv' => 'Svenska',
-        'sr-yu' => 'Serbian',
+        'sr' => 'Srpski',
         'tr' => 'Türkçe',
         'uk' => 'Українська',
-        'zh-cn' => 'ä¸­æ–‡',
+        'zh-cn' => '简体中文',
     );
 
     /**

@@ -2,6 +2,6 @@
     
     return array(
         'sitemap' => array(
-            'Sitemap' => 'Mapasajta',
+            'Sitemap' => 'Mapa sajta',
         )
     );

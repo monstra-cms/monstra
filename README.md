@@ -1,5 +1,7 @@
-# Monstra CMS
-Monstra is a modern and lightweight Content Management System.
+# Monstra
+Monstra is a modern and lightweight Content Management System.   
+
+[![Join the chat at https://gitter.im/monstra-cms/monstra](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/monstra-cms/monstra?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## System Requirements
 Operation system: Unix, Linux, Windows, Mac OS   
@@ -19,13 +21,13 @@ Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mo
 2. Donate to keep Monstra free. We will add you to Monstra [Sponsors Page.](http://monstra.org/contribute/sponsors)
 3. Develop a new plugin.
 4. Create a new theme.
-5. Find and [report issues.](https://github.com/Awilum/monstra-cms/issues)
+5. Find and [report issues.](https://github.com/monstra-cms/monstra/issues)
 6. Link back to [Monstra](http://monstra.org).
 
 ## Links
 - [Site](http://monstra.org)
 - [Forum](http://forum.monstra.org)
 - [Documentation](http://monstra.org/documentation)
-- [Github Repository](https://github.com/Awilum/monstra-cms)
+- [Github Repository](https://github.com/monstra-cms/monstra)
 
-Copyright (C) 2012-2014 Romanenko Sergey / Awilum [awilum@msn.com]
+Copyright (C) 2012-2015 Romanenko Sergey / Awilum [awilum@msn.com]

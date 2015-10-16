@@ -3,7 +3,7 @@
     return array(
         'backup' => array(
             'Backups' => 'Bekapovi',
-            'Backup' => 'Backup',
+            'Backup' => 'Backap',
             'Create Backup' => 'Kreiraj Bekap',
             'Delete' => 'Obriši',
             'storage' => 'lokacija arhive',
