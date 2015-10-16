@@ -1,6 +1,12 @@
+Monstra 3.0.2, 2015-10-16
+------------------------
+- Added Monstra MIT LICENSE instead of GNU GPL v3
+- Code standards fixes.
+- Localization: Major Fixes for ES and SR
+
 Monstra 3.0.1, 2014-08-10
 ------------------------
-- Minimum php is 5.3 
+- Minimum php is 5.3
 - Themes Plugin: Imposible to create new CSS - fixed
 - Themes Plugin: js and css counter does not recalculate - fixed
 - Error in Monstra Notifications - fixed
@@ -24,7 +30,7 @@ Monstra 3.0.0, 2014-08-01
 - Plugins Manager: Uploading new plugins via the admin panel added
 - Plugins Manager: Read plugin help(README.MD) ability added.
 - Responsive Chocolat Lightbox instead of TB Lightbox
-- Blog Plugin as a part of Monstra CMS 
+- Blog Plugin as a part of Monstra CMS
 - CodeMirror Plugin as a part of Monstra CMS
 - Markdown Plugin as a part of Monstra CMS
 - MarkItUp Color Pallete fixes
@@ -78,7 +84,7 @@ Monstra 2.3.0, 2013-12-19
 - Gelato: Number.php: Undefined offset fix
 - XMLDB: error select for empty table fix
 - Plugin API: Stylesheet.php updates - sourcecode misses a linebreak after minified css
-- Files Manager: jasny bootstrap-fileupload - added #89 
+- Files Manager: jasny bootstrap-fileupload - added #89
 - Users Plugin: login page fixes
 - Users Plugin: Deleting users - fixed by Oleg Gatseluk #158
 - Pages Plugin: General method getPages() created #123
@@ -230,7 +236,7 @@ Monstra 2.0.0, 2012-10-09
 - Users Plugin: Admin - New User Registration Validation - Fixed
 - Users Plugin: Added ability to set "about me" information.
 - Improved Password Reset Logic.
-- Information Plugin: Added new tab "Server" with common server information. 
+- Information Plugin: Added new tab "Server" with common server information.
 - Box Plugins: CSRF vulnerability resolved.
 - Sitemap Plugin: Basic search engine optimization.
 - Improved Menu Plugin. Added ability to manage items categories.
@@ -240,12 +246,12 @@ Monstra 2.0.0, 2012-10-09
 - Dir Helper: Fixed size() method.
 - New Default Theme: built with best frontend optimization practice.
 - Options API: Updated get() method. Return empty string if option value doesnt exists.
-- CSS variables: Added - @theme_site_url @theme_admin_url 
+- CSS variables: Added - @theme_site_url @theme_admin_url
 - CSS variables: Deleted - @theme_url
 - Themes Plugin: Added ability to create/edit/clone JavaScripts. Added ability to change admin theme in one click.
-- Apply filter 'content' to Blocks. 
+- Apply filter 'content' to Blocks.
 - Array Helper: get() method improved. New methods keyExists() isAssoc() set() delete() random() added.
-- Plugin API: Fixed Javascript and Stylesheet class. 
+- Plugin API: Fixed Javascript and Stylesheet class.
 - Plugin API: Added ability to set view file from current theme folder.
 - New options theme_admin_name, theme_site_name, users_frontend_registration added.
 - Form Helper: Custom Macros - added
@@ -265,10 +271,10 @@ Monstra 1.3.0, 2012-09-01
 - Improve Default Monstra theme.
 - Security: Fix Script Insertion Vulnerability.
 - Blocks and Snippets plugins code fix. Issue #35, Issue #34
-- XMLDB: new method updateField() 
-- Plugin API: path updates. 
+- XMLDB: new method updateField()
+- Plugin API: path updates.
 - Dir Helper: new method size()
-- Filesmanager: shows directory size. 
+- Filesmanager: shows directory size.
 - Security Helper: update safeName() method.
 - Pages Plugin: new method children() Get children pages for a specific parent page.
 - Update translates.
@@ -276,11 +282,11 @@ Monstra 1.3.0, 2012-09-01
 
 Monstra 1.2.1, 2012-08-09
 ------------------------
-- Admin styles: add .error class 
+- Admin styles: add .error class
 - Fix translates
 - Security: fix Cross Site Request Forgery
 - Site Module: fix template() function
-- Html Helper: fix nbsp() function 
+- Html Helper: fix nbsp() function
 - Site Module: fix template() function
 
 Monstra 1.2.0, 2012-07-03

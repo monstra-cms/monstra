@@ -1,19 +1,16 @@
 <?php
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 // Main engine defines
 define('DS', DIRECTORY_SEPARATOR);
@@ -48,7 +45,7 @@ if (file_exists('install.php')) {
             header('HTTP/1.1 503 Service Temporarily Unavailable');
             header('Status: 503 Service Temporarily Unavailable');
             header('Retry-After: 600');
-            die (Text::toHtml(Option::get('maintenance_message')));
+            die(Text::toHtml(Option::get('maintenance_message')));
         }
     }
 

@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class DB
 {
@@ -42,7 +39,9 @@ class DB
      */
     public static function configure($setting, $value)
     {
-        if (property_exists("db", $setting)) DB::$$setting = $value;
+        if (property_exists("db", $setting)) {
+            DB::$$setting = $value;
+        }
     }
 
     /**
@@ -58,7 +57,9 @@ class DB
         $db_name = (string) $db_name;
 
         // Create
-        if (is_dir(DB::$db_dir . '/' . $db_name)) return false;
+        if (is_dir(DB::$db_dir . '/' . $db_name)) {
+            return false;
+        }
         return mkdir(DB::$db_dir . '/' . $db_name, $chmod);
     }
 
@@ -74,8 +75,18 @@ class DB
         $db_name = (string) $db_name;
 
         // Drop
-        if (is_dir(DB::$db_dir . '/' . $db_name)){$ob=scandir(DB::$db_dir . '/' . $db_name); foreach ($ob as $o) {if ($o!='.'&&$o!='..') {if(filetype(DB::$db_dir . '/' . $db_name.'/'.$o)=='dir')DB::drop(DB::$db_dir . '/' . $db_name.'/'.$o); else unlink(DB::$db_dir . '/' . $db_name.'/'.$o);}}}
-        reset($ob); rmdir(DB::$db_dir . '/' . $db_name);
+        if (is_dir(DB::$db_dir . '/' . $db_name)) {
+            $ob=scandir(DB::$db_dir . '/' . $db_name); foreach ($ob as $o) {
+     if ($o!='.'&&$o!='..') {
+         if (filetype(DB::$db_dir . '/' . $db_name.'/'.$o)=='dir') {
+             DB::drop(DB::$db_dir . '/' . $db_name.'/'.$o);
+         } else {
+             unlink(DB::$db_dir . '/' . $db_name.'/'.$o);
+         }
+     }
+ }
+        }
+        reset($ob);
+        rmdir(DB::$db_dir . '/' . $db_name);
     }
-
 }

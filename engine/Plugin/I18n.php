@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class I18n
 {
@@ -77,7 +74,9 @@ class I18n
      */
     public static function init($locale)
     {
-        if ( ! isset(self::$instance)) self::$instance = new I18n($locale);
+        if (! isset(self::$instance)) {
+            self::$instance = new I18n($locale);
+        }
         return self::$instance;
     }
 
@@ -116,7 +115,6 @@ class I18n
 
             // Loop through each installed plugin
             foreach ($records as $record) {
-
                 if (is_dir(ROOT . DS . dirname($record['location']) . DS . 'languages')) {
 
                     // Init var
@@ -127,7 +125,6 @@ class I18n
 
                         // Merge the language strings into the sub table
                         $t = array_merge($t, include ROOT . DS . dirname($record['location']) . DS . 'languages' . DS . $locale . '.lang.php');
-
                     }
 
                     // Append the sub table, preventing less specific language files from overloading more specific files
@@ -164,9 +161,12 @@ class I18n
         $string = (string) $string;
 
         // Return string
-        if (isset(I18n::$dictionary[$namespace][$string])) return I18n::$dictionary[$namespace][$string]; else return $string;
+        if (isset(I18n::$dictionary[$namespace][$string])) {
+            return I18n::$dictionary[$namespace][$string];
+        } else {
+            return $string;
+        }
     }
-
 }
 
 /**

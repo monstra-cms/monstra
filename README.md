@@ -30,4 +30,5 @@ Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mo
 - [Documentation](http://monstra.org/documentation)
 - [Github Repository](https://github.com/monstra-cms/monstra)
 
-Copyright (C) 2012-2015 Romanenko Sergey / Awilum [awilum@msn.com]
+## License
+See [LICENSE](https://github.com/monstra-cms/monstra/blob/master/LICENSE.md)

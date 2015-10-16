@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Navigation
 {
@@ -83,7 +80,11 @@ class Navigation
             foreach ($items as $item) {
 
                 // If current plugin id == selected item id then set class to current
-                if (Request::get('id') == $item['id'] && $item['external'] == false) $class = 'class = "current" '; else $class = '';
+                if (Request::get('id') == $item['id'] && $item['external'] == false) {
+                    $class = 'class = "current" ';
+                } else {
+                    $class = '';
+                }
 
                 // If current category == item category and navigation type is left them draw this item
                 if ($item['category'] == $category && $item['type'] == Navigation::LEFT) {
@@ -133,7 +134,11 @@ class Navigation
             foreach ($items as $item) {
 
                 // If current plugin id == selected item id then set class to current
-                if (Request::get('id') == $item['id'] && $item['external'] == false) $class = 'class = "current" '; else $class = '';
+                if (Request::get('id') == $item['id'] && $item['external'] == false) {
+                    $class = 'class = "current" ';
+                } else {
+                    $class = '';
+                }
 
                 // If current category == item category and navigation type is left them draw this item
                 if ($item['category'] == $category && $item['type'] == Navigation::LEFT) {
@@ -158,7 +163,6 @@ class Navigation
                 }
             }
         }
-
     }
 
     /**
@@ -179,7 +183,11 @@ class Navigation
         foreach ($items as $item) {
 
             // If current plugin id == selected item id then set class to current
-            if (Request::get('id') == $item['id'] && $item['external'] == false) $class = 'selected = "selected" '; else $class = '';
+            if (Request::get('id') == $item['id'] && $item['external'] == false) {
+                $class = 'selected = "selected" ';
+            } else {
+                $class = '';
+            }
 
             // If current category == item category and navigation type is left them draw this item
             if ($item['category'] == $category && $item['type'] == Navigation::LEFT) {
@@ -191,5 +199,4 @@ class Navigation
             }
         }
     }
-
 }

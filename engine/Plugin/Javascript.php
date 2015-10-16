@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Javascript
 {
@@ -66,7 +63,6 @@ class Javascript
 
         // Load javascripts
         if (count(Javascript::$javascripts) > 0) {
-
             $backend_buffer = '';
             $backend_regenerate = false;
 
@@ -80,8 +76,8 @@ class Javascript
 
                 // Build backend site javascript
                 foreach ($javascripts as $javascript) {
-                    if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
-                        if ( ! file_exists($backend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($backend_site_js_path)) {
+                    if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both'))) {
+                        if (! file_exists($backend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($backend_site_js_path)) {
                             $backend_regenerate = true;
                             break;
                         }
@@ -91,20 +87,19 @@ class Javascript
                 // Regenerate site javascript
                 if ($backend_regenerate) {
                     foreach ($javascripts as $javascript) {
-                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both')) ) {
+                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'backend') or ($javascript['load'] == 'both'))) {
                             $backend_buffer .= file_get_contents(ROOT . DS . $javascript['file'])."\n";
                         }
                     }
                     file_put_contents($backend_site_js_path, $backend_buffer);
                     $backend_regenerate = false;
                 }
-
             } else {
 
                 // Build frontend site javascript
                 foreach ($javascripts as $javascript) {
-                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
-                        if ( ! file_exists($frontend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($frontend_site_js_path)) {
+                    if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both'))) {
+                        if (! file_exists($frontend_site_js_path) or filemtime(ROOT . DS . $javascript['file']) > filemtime($frontend_site_js_path)) {
                             $frontend_regenerate = true;
                             break;
                         }
@@ -114,14 +109,13 @@ class Javascript
                 // Regenerate site javascript
                 if ($frontend_regenerate) {
                     foreach ($javascripts as $javascript) {
-                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both')) ) {
+                        if ((file_exists(ROOT . DS . $javascript['file'])) and (($javascript['load'] == 'frontend') or ($javascript['load'] == 'both'))) {
                             $frontend_buffer .= file_get_contents(ROOT . DS . $javascript['file'])."\n";
                         }
                     }
                     file_put_contents($frontend_site_js_path, $frontend_buffer);
                     $frontend_regenerate = false;
                 }
-
             }
 
             // Render
@@ -136,9 +130,8 @@ class Javascript
     /**
      *  javascriptVersionIncrement
      */
-    public static function javascriptVersionIncrement() {
-        Option::update('javascript_version', (int) Option::get('javascript_version') + 1); 
+    public static function javascriptVersionIncrement()
+    {
+        Option::update('javascript_version', (int) Option::get('javascript_version') + 1);
     }
-
-
 }

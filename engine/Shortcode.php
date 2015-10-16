@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Shortcode
 {
@@ -55,7 +52,9 @@ class Shortcode
         $shortcode = (string) $shortcode;
 
         // Add new shortcode
-        if (is_callable($callback_function)) Shortcode::$shortcode_tags[$shortcode] = $callback_function;
+        if (is_callable($callback_function)) {
+            Shortcode::$shortcode_tags[$shortcode] = $callback_function;
+        }
     }
 
     /**
@@ -73,7 +72,9 @@ class Shortcode
         $shortcode = (string) $shortcode;
 
         // Delete shortcode
-        if (Shortcode::exists($shortcode)) unset(Shortcode::$shortcode_tags[$shortcode]);
+        if (Shortcode::exists($shortcode)) {
+            unset(Shortcode::$shortcode_tags[$shortcode]);
+        }
     }
 
     /**
@@ -121,7 +122,9 @@ class Shortcode
      */
     public static function parse($content)
     {
-        if ( ! Shortcode::$shortcode_tags) return $content;
+        if (! Shortcode::$shortcode_tags) {
+            return $content;
+        }
 
         $shortcodes = implode('|', array_map('preg_quote', array_keys(Shortcode::$shortcode_tags)));
         $pattern    = "/(.?)\{([$shortcodes]+)(.*?)(\/)?\}(?(4)|(?:(.+?)\{\/\s*\\2\s*\}))?(.?)/s";
@@ -147,9 +150,9 @@ class Shortcode
 
         if (preg_match_all('/(\w+) *= *(?:([\'"])(.*?)\\2|([^ "\'>]+))/', $matches[3], $match, PREG_SET_ORDER)) {
             foreach ($match as $attribute) {
-                if ( ! empty($attribute[4])) {
+                if (! empty($attribute[4])) {
                     $attributes[strtolower($attribute[1])] = $attribute[4];
-                } elseif ( ! empty($attribute[3])) {
+                } elseif (! empty($attribute[3])) {
                     $attributes[strtolower($attribute[1])] = $attribute[3];
                 }
             }
@@ -158,5 +161,4 @@ class Shortcode
         // Check if this shortcode realy exists then call user function else return empty string
         return (isset(Shortcode::$shortcode_tags[$shortcode])) ? $prefix . call_user_func(Shortcode::$shortcode_tags[$shortcode], $attributes, $matches[5], $shortcode) . $suffix : '';
     }
-
 }

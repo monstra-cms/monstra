@@ -1,19 +1,16 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
- *
- * @package     Monstra
- *
- * @author      Romanenko Sergey / Awilum <awilum@msn.com>
- * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ * @package Monstra
+ * @author Romanenko Sergey / Awilum <awilum@msn.com>
+ * @link http://monstra.org
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 
 class Stylesheet
 {
@@ -66,7 +63,6 @@ class Stylesheet
 
         // Load stylesheets
         if (count(Stylesheet::$stylesheets) > 0) {
-
             $backend_buffer = '';
             $backend_regenerate = false;
 
@@ -80,8 +76,8 @@ class Stylesheet
 
                 // Build backend site stylesheets
                 foreach ($stylesheets as $stylesheet) {
-                    if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both')) ) {
-                        if ( ! file_exists($backend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($backend_site_css_path)) {
+                    if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both'))) {
+                        if (! file_exists($backend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($backend_site_css_path)) {
                             $backend_regenerate = true;
                             break;
                         }
@@ -91,7 +87,7 @@ class Stylesheet
                 // Regenerate site stylesheet
                 if ($backend_regenerate) {
                     foreach ($stylesheets as $stylesheet) {
-                        if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both')) ) {
+                        if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'backend') or ($stylesheet['load'] == 'both'))) {
                             $backend_buffer .= file_get_contents(ROOT . DS . $stylesheet['file']);
                         }
                     }
@@ -99,13 +95,12 @@ class Stylesheet
                     file_put_contents($backend_site_css_path, MinifyCSS::process($backend_buffer));
                     $backend_regenerate = false;
                 }
-
             } else {
 
                 // Build frontend site stylesheets
                 foreach ($stylesheets as $stylesheet) {
-                    if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both')) ) {
-                        if ( ! file_exists($frontend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($frontend_site_css_path)) {
+                    if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both'))) {
+                        if (! file_exists($frontend_site_css_path) or filemtime(ROOT . DS . $stylesheet['file']) > filemtime($frontend_site_css_path)) {
                             $frontend_regenerate = true;
                             break;
                         }
@@ -115,7 +110,7 @@ class Stylesheet
                 // Regenerate site stylesheet
                 if ($frontend_regenerate) {
                     foreach ($stylesheets as $stylesheet) {
-                        if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both')) ) {
+                        if ((file_exists(ROOT . DS . $stylesheet['file'])) and (($stylesheet['load'] == 'frontend') or ($stylesheet['load'] == 'both'))) {
                             $frontend_buffer .= file_get_contents(ROOT . DS . $stylesheet['file']);
                         }
                     }
@@ -123,7 +118,6 @@ class Stylesheet
                     file_put_contents($frontend_site_css_path, MinifyCSS::process($frontend_buffer));
                     $frontend_regenerate = false;
                 }
-
             }
 
             // Render
@@ -152,8 +146,8 @@ class Stylesheet
     /**
      * stylesVersionIncrement
      */
-    public static function stylesVersionIncrement() {
-        Option::update('styles_version',  (int) Option::get('styles_version') + 1); 
+    public static function stylesVersionIncrement()
+    {
+        Option::update('styles_version',  (int) Option::get('styles_version') + 1);
     }
-
 }

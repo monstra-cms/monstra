@@ -1,7 +1,7 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra CMS Defines
+ * Monstra Defines
  */
 
 /**
@@ -91,3 +91,4 @@ define('MONSTRA_GZIP', false);
 //define('MONSTRA_DB_DSN', 'mysql:dbname=monstra;host=localhost;port=3306');
 //define('MONSTRA_DB_USER', 'root');
 //define('MONSTRA_DB_PASSWORD', 'password');
+
