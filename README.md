@@ -1,5 +1,6 @@
 # Monstra
 Monstra is a modern and lightweight Content Management System.
+[![Join the chat at https://gitter.im/monstra-cms/monstra](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/monstra-cms/monstra?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## System Requirements
 Operation system: Unix, Linux, Windows, Mac OS   
