@@ -1,10 +1,10 @@
 <?php defined('MONSTRA_ACCESS') or die('No direct script access.');
 
 /**
- *  Monstra requires PHP 5.3.0 or greater
+ *  Monstra requires PHP 5.3.2 or greater
  */
-if (version_compare(PHP_VERSION, "5.3.0", "<")) {
-    exit("Monstra requires PHP 5.3.0 or greater.");
+if (version_compare(PHP_VERSION, "5.3.2", "<")) {
+    exit("Monstra requires PHP 5.3.2 or greater.");
 }
 
 /**

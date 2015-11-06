@@ -277,7 +277,7 @@
 
 
     <?php
-        if (version_compare(PHP_VERSION, "5.2.3", "<")) {
+        if (version_compare(PHP_VERSION, "5.3.2", "<")) {
             $errors['php'] = 'error';
         } else {
             $errors['php'] = '';
