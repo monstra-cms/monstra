@@ -156,7 +156,7 @@ if ($is_admin) {
     if (Request::get('id')) {
         $area = Request::get('id');
     } else {
-        Request::redirect('index.php?id=dashboard');
+        Request::redirect(Site::url().'/admin/index.php?id=dashboard');
     }
 
     $plugins_registered = Plugin::$plugins;
