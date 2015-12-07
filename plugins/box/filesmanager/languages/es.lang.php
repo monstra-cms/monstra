@@ -34,7 +34,7 @@
             'Create' => 'Crear',
             'directory' => 'directorio',
             'Delete directory: :dir' => 'Eliminar directorio: :dir',
-            'Delete file: :file' => 'Eliminar archivo :file',
+            'Delete file: :file' => 'Eliminar archivo: :file',
             'Extension' => 'Extensión',
             'Size' => 'Tamaño',
             'Select file' => 'Seleccionar archivo',
