@@ -263,6 +263,11 @@ class Monstra
         } else {
             throw new RuntimeException("The defines file does not exist.");
         }
+        
+        // a last gasp catch-all to ensure that any front-end systems won't cause an exception, but will simply fail to use the correct URL
+        // (This is normally in defines.php)
+        if (!defined('ADMIN')) 
+            define('ADMIN', 'admin'); 
     }
 
     /**
