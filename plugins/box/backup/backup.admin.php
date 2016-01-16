@@ -41,7 +41,7 @@ class BackupAdmin extends Backend
                     Notification::set('error', __('Backup was not created', 'backup'));
                 }
 
-                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
+                Request::redirect(Option::get('siteurl').'/'.ADMIN.'/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -58,7 +58,7 @@ class BackupAdmin extends Backend
                     Notification::set('error', __('Backup was not deleted', 'backup'));
                 }
                 
-                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
+                Request::redirect(Option::get('siteurl').'/'.ADMIN.'/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -91,7 +91,7 @@ class BackupAdmin extends Backend
                     Notification::set('error', __('Backup was not restored', 'backup'));
                 }
 
-                Request::redirect(Option::get('siteurl').'/admin/index.php?id=backup');
+                Request::redirect(Option::get('siteurl').'/'.ADMIN.'/index.php?id=backup');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }

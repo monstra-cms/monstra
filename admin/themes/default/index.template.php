@@ -21,7 +21,7 @@
     <?php Stylesheet::add('public/assets/css/chocolat.css', 'backend', 2); ?>
     <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
     <?php Stylesheet::add('public/assets/css/icheck-blue.css', 'backend', 4); ?>
-    <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
+    <?php Stylesheet::add(ADMIN.'/themes/default/css/default.css', 'backend', 5); ?>
     <?php Stylesheet::load(); ?>
 
     <!-- JavaScripts -->
@@ -31,7 +31,7 @@
     <script src="<?php echo Site::url(); ?>/public/assets/js/icheck.min.js"></script>    
     <?php Javascript::add('public/assets/js/jquery.chocolat.js', 'backend', 3); ?>
     <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
-    <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
+    <?php Javascript::add(ADMIN.'/themes/default/js/default.js', 'backend', 5); ?>
     <?php Javascript::load(); ?>
 
     <?php Action::run('admin_header'); ?>
@@ -74,12 +74,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">MONSTRA</a>
+            <a class="navbar-brand" href="<?php echo Site::url().'/'.ADMIN; ?>/index.php?id=dashboard">MONSTRA</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
             <ul class="nav navbar-nav">          
-              <li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard"><?php echo __('Dashboard', 'dashboard'); ?></a></li>              
+              <li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url().'/'.ADMIN; ?>/index.php?id=dashboard"><?php echo __('Dashboard', 'dashboard'); ?></a></li>              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -117,8 +117,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Session::get('user_login'); ?> <img src="<?php echo Users::getGravatarURL(Session::get('user_email'), 28); ?>" alt=""> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo Site::url(); ?>/admin/index.php?id=users&action=edit&user_id=<?php echo Session::get('user_id'); ?>"><?php echo __('Profile', 'users')?></a></li>
-                  <li><a href="<?php echo Site::url(); ?>/admin/?logout=do"><?php echo __('Log Out', 'users'); ?></a></li>              
+                  <li><a href="<?php echo Site::url().'/'.ADMIN; ?>/index.php?id=users&action=edit&user_id=<?php echo Session::get('user_id'); ?>"><?php echo __('Profile', 'users')?></a></li>
+                  <li><a href="<?php echo Site::url().'/'.ADMIN; ?>/?logout=do"><?php echo __('Log Out', 'users'); ?></a></li>              
                 </ul>
               </li>
             </ul>        

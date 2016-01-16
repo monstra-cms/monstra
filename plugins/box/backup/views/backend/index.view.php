@@ -31,7 +31,7 @@
     <tr>
         <td>
             <?php $name = strtotime(str_replace('-', '', basename($backup, '.zip'))); ?>
-            <?php echo Html::anchor(Date::format($name, 'F jS, Y - g:i A'), Option::get('siteurl').'/admin/index.php?id=backup&download='.$backup.'&token='.Security::token()); ?>
+            <?php echo Html::anchor(Date::format($name, 'F jS, Y - g:i A'), Option::get('siteurl').'/'.ADMIN.'/index.php?id=backup&download='.$backup.'&token='.Security::token()); ?>
         </td>
         <td class="visible-lg hidden-xs"><?php echo Number::byteFormat(filesize(ROOT . DS . 'backups' . DS . $backup)); ?></td>
         <td>

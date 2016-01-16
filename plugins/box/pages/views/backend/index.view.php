@@ -109,5 +109,5 @@
 </div>
 
 <form>
-    <input type="hidden" name="url" value="<?php echo Option::get('siteurl'); ?>/admin/index.php?id=pages">
+    <input type="hidden" name="url" value="<?php echo Option::get('siteurl').'/'.ADMIN; ?>/index.php?id=pages">
 </form>

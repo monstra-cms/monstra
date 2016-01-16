@@ -152,7 +152,7 @@
             $.ajax({
                 type:"post",
                 data:"readme_plugin="+$(this).attr('readme_plugin'),
-                url: "<?php echo Site::url(); ?>/admin/index.php?id=plugins",
+                url: "<?php echo Site::url().'/'.ADMIN; ?>/index.php?id=plugins",
                 success: function(data){
                     $('#readme .modal-body').html(data);
                 }

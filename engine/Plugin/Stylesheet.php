@@ -139,7 +139,7 @@ class Stylesheet
                                  '@theme_admin_url'),
                            array(Option::get('siteurl'),
                                  Option::get('siteurl').'/public/themes/'.Option::get('theme_site_name'),
-                                 Option::get('siteurl').'/admin/themes/'.Option::get('theme_admin_name')),
+                                 Option::get('siteurl').'/'.ADMIN.'/themes/'.Option::get('theme_admin_name')),
                            $frontend_buffer);
     }
 

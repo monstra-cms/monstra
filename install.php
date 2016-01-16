@@ -168,7 +168,7 @@
         <link rel="icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo $site_url; ?>/public/assets/css/bootstrap.css" media="all" type="text/css" />
-        <link rel="stylesheet" href="<?php echo $site_url; ?>/admin/themes/default/css/default.css" media="all" type="text/css" />
+        <link rel="stylesheet" href="<?php echo $site_url.'/'.ADMIN; ?>/themes/default/css/default.css" media="all" type="text/css" />
 
         <style>
 

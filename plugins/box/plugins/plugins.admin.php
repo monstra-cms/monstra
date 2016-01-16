@@ -174,7 +174,7 @@ class PluginsAdmin extends Backend
                 if (Request::post('dragndrop')) {
                     Request::shutdown();
                 } else {
-                    Request::redirect($site_url.'/admin/index.php?id=plugins#installnew');
+                    Request::redirect($site_url.'/'.ADMIN.'/index.php?id=plugins#installnew');
                 }
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -219,7 +219,7 @@ class PluginsAdmin extends Backend
                 ->assign('plugins_to_intall', $plugins_to_intall)
                 ->assign('_users_plugins', $_users_plugins)
                 ->assign('fileuploader', array(
-                    'uploadUrl' => $site_url.'/admin/index.php?id=plugins',
+                    'uploadUrl' => $site_url.'/'.ADMIN.'/index.php?id=plugins',
                     'csrf'      => Security::token(),
                     'errorMsg'  => __('Upload server error', 'filesmanager')
                 ))

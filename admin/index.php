@@ -11,10 +11,18 @@
  * file that was distributed with this source code.
  */
 
+/** 
+ * Define __DIR__ constant for PHP 5.2.x
+ */
+if ( ! defined('__DIR__')) {
+    define('__DIR__', dirname(__FILE__));
+}
+
 
 // Main engine defines
 define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', rtrim(str_replace(array('admin'), array(''), dirname(__FILE__)), '\\/'));
+define('ROOT', rtrim(dirname(__DIR__), '\\/')); // eg '/home/user/public_html'
+define('ADMIN', basename(__DIR__)); // eg 'admin'
 define('BACKEND', true);
 define('MONSTRA_ACCESS', true);
 
@@ -131,7 +139,7 @@ if (Request::post('reset_password_submit')) {
         Notification::set('reset_password', 'reset_password');
 
         // Redirect to password-reset page
-        Request::redirect(Site::url().'/admin');
+        Request::redirect(Site::url().'/'.ADMIN.'');
     }
 
     Notification::setNow('reset_password', 'reset_password');

@@ -12,7 +12,9 @@ define('THEMES_SITE', ROOT . DS . 'public' . DS . 'themes');
 /**
  * The filesystem path to the admin 'themes' folder
  */
-define('THEMES_ADMIN', ROOT . DS . 'admin' . DS . 'themes');
+if (!defined('ADMIN'))
+	define('ADMIN', 'admin'); // change this if you use the members area in the front webite
+define('THEMES_ADMIN', ROOT . DS . 'admin' . DS . 'themes'); 
 
 /**
  * The filesystem path to the 'plugins' folder

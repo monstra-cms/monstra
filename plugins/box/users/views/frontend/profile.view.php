@@ -12,7 +12,7 @@
 <?php if (Users::isLoged()) { ?>
 <br>
 <a href="<?php echo Site::url(); ?>/users/<?php echo $user['id']; ?>/edit"><?php echo __('Edit profile', 'users'); ?></a> /
-<?php if (in_array(Session::get('user_role'), array('admin', 'editor'))) { ?> <a href="<?php echo Site::url(); ?>/admin"><?php echo __('Administration', 'system'); ?></a> / <?php } ?>
+<?php if (in_array(Session::get('user_role'), array('admin', 'editor'))) { ?> <a href="<?php echo Site::url().'/'.ADMIN; ?>"><?php echo __('Administration', 'system'); ?></a> / <?php } ?>
 <a href="<?php echo Site::url(); ?>/users/logout"><?php echo __('Log Out', 'users'); ?></a>
 <?php } ?>
 <?php } else { echo __('This users doesnt exists', 'users'); } ?>

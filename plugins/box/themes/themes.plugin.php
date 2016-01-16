@@ -40,11 +40,16 @@ class Themes
     {
         $themes_folders = array();
 
+        $themes_dir = THEMES_ADMIN;
+        if (ADMIN!='admin' && THEMES_ADMIN==ROOT . DS . 'admin' . DS . 'themes')
+            // admin folder changed, but not the THEMES_ADMIN definition
+            $themes_dir = ROOT . DS . ADMIN . DS . 'themes';
+
         // Get all themes folders
-        $_themes_admin_folders = Dir::scan(THEMES_ADMIN);
+        $_themes_admin_folders = Dir::scan($themes_dir);
 
         // Create an array of valid themes folders
-        foreach($_themes_admin_folders as $folder) if (File::exists(THEMES_ADMIN . DS . $folder . DS . 'index.template.php')) $__themes_admin_folders[] = $folder;
+        foreach($_themes_admin_folders as $folder) if (File::exists($themes_dir . DS . $folder . DS . 'index.template.php')) $__themes_admin_folders[] = $folder;
         foreach($__themes_admin_folders as $theme) $themes[$theme] = $theme;
 
         return $themes;
