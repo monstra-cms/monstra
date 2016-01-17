@@ -107,6 +107,11 @@ class Sitemap extends Frontend
      */
     protected static function getComponents()
     {
+        //if users are not public, add this page to forbidden_components
+        if (!filter_var(Option::get('users_public_listing'), FILTER_VALIDATE_BOOLEAN)) {
+            Sitemap::$forbidden_components[] = 'users';
+        }
+        
         $components = array();
 
         if (count(Plugin::$components) > 0) {

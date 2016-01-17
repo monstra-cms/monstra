@@ -80,9 +80,17 @@ class Users extends Frontend
      */
     public static function getList()
     {
-        View::factory('box/users/views/frontend/index')
-            ->assign('users', Users::$users->select(null, 'all'))
-            ->display();
+        if (filter_var(Option::get('users_public_listing'), FILTER_VALIDATE_BOOLEAN)) {
+            
+            View::factory('box/users/views/frontend/index')
+                ->assign('users', Users::$users->select(null, 'all'))
+                ->display();
+        } else {
+            
+            Request::redirect('/error404');
+            
+        }
+        
     }
 
     /**
@@ -90,9 +98,18 @@ class Users extends Frontend
      */
     public static function getProfile($id)
     {
-        View::factory('box/users/views/frontend/profile')
-            ->assign('user', Users::$users->select("[id=".(int) $id."]", null))
-            ->display();
+        if (filter_var(Option::get('users_public_listing'), FILTER_VALIDATE_BOOLEAN)
+           || Session::get('user_id') == $id) {
+        
+            View::factory('box/users/views/frontend/profile')
+                ->assign('user', Users::$users->select("[id=".(int) $id."]", null))
+                ->display();
+            
+        } else {
+            
+            Request::redirect('/error404');
+            
+        }
     }
 
     /**
@@ -210,7 +227,7 @@ class Users extends Frontend
     public static function logout()
     {
         Session::destroy();
-        Request::redirect($_SERVER["HTTP_REFERER"]);
+        Request::redirect('/'); //redirect to homepage
     }
 
     /**

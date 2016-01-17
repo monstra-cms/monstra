@@ -7,6 +7,7 @@
     <div class="text-right">
         <?php echo Form::open(null, array('name' => 'users_frontend')); ?>
         <?php echo Form::hidden('csrf', Security::token()); ?>
+        <?php echo Form::checkbox('users_public_listing', 'users_public_listing', $users_public_listing); ?> <?php echo __('Users publicly visible', 'users') ?> &nbsp;
         <?php echo Form::checkbox('users_frontend_registration', 'users_frontend_registration', $users_frontend_registration); ?> <?php echo __('Allow user registration', 'users') ?>
         <?php echo Form::input('users_frontend_submit', 'users_frontend_submit', array('style' => 'display:none;')); ?>
         <?php echo Form::close();?>
