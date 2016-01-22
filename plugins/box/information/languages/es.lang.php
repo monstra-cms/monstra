@@ -28,7 +28,7 @@
             'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
             'Debido al tipo y cantidad de información que un error podría dar a los intrusos cuando Core::$environment = Core::DEVELOPMENT, le recomendamos ajuste Core::PRODUCTION en sistemas de producción.',
             'Monstra version' => 'Versión Monstra',
-            'Directory Permissions' => 'Permisos de directorio',
+            'Directory Permissions' => 'Permisos del Directorio',
             'Directory' => 'Directorio',
             'Writable' => 'Accesible',
             'Unwritable' => 'No accesible',
