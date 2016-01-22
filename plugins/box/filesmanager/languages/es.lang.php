@@ -9,7 +9,7 @@
             'Delete' => 'Eliminar',
             'Upload' => 'Subir',
             'Drop File Here' => 'Arrastrar Archivo Aquí',
-            'Maximum upload file size: :upload_max_filesize' => 'Tamaño máximo del archivo: :upload_max_filesize',
+            'Maximum upload file size: :upload_max_filesize' => 'Tamaño máximo de subida: :upload_max_filesize',
             'Rename' => 'Renombrar',
             'Renamed successfully' => 'Renombrado exitoso',
             'Failure' => 'Fracaso',
