@@ -14,6 +14,6 @@
             'Save' => 'Guardar',
             'Cancel' => 'Cancelar',
             'This email template does not exist' => 'Esta plantilla de email no existe',
-            'Your changes to the email template <i>:name</i> have been saved.' => 'Tus cambios en la plantilla de email <i>:name</i> han sido guardados.',
+            'Your changes to the email template <i>:name</i> have been saved.' => 'Sus cambios en la plantilla de email <i>:name</i> han sido guardados.',
         )
     );
