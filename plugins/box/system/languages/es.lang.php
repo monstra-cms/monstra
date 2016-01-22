@@ -42,7 +42,7 @@
             'View Site' => 'Ver Sitio Web',
             'Welcome, :username' => 'Bienvenido, :username',
             'Reset Password' => 'Restablecer Contraseña',
-            'Back to Website' => 'Regresar al Sitio Web',
+            '< Back to Website' => '< Regresar al Sitio Web',
             'Forgot your password? >' => '¿Olvidó su contraseña? >',
             'Administration >' => 'Administración >',
             'Send New Password' => 'Enviar Nueva Contraseña',
