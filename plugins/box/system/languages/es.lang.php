@@ -64,7 +64,7 @@
             'SimpleXML module is required' => 'El Módulo SimpleXML es requerido',
             'Field "Site name" is empty' => 'El campo "Nombre del Sitio" está vacío',
             'Field "Email" is empty' => 'El campo "Correo Electrónico" está vacío',
-            'Field "Username" is empty' => 'El campo "Nombre de Usuario" está vacío',
+            'Field "Username" is empty' => 'El campo "Nombre de usuario" está vacío',
             'Field "Password" is empty' => 'El campo "Contraseña" está vacío',
             'Field "Site url" is empty' => 'El campo "URL del Sitio" está vacío',
             'Email not valid' => 'El correo electrónico no es válido',
