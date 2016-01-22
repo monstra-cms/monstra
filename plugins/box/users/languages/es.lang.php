@@ -4,7 +4,7 @@
         'users' => array(
             'Users' => 'Usuarios',
             'Login' => 'Iniciar sesión',
-            'Username' => 'Usuario',
+            'Username' => 'Nombre de usuario',
             'Password' => 'Contraseña',
             'Registered' => 'Registrado',
             'Email' => 'Email',
