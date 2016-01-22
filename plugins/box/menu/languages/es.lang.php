@@ -13,7 +13,7 @@
             'New item' => 'Nuevo Item',
             'Item name' => 'Nombre del Item',
             'Item order' => 'Orden del Item',
-            'Item target' => 'Objetivo del Item',
+            'Item target' => 'Target del Item',
             'Item link' => 'Enlace del Item',
             'Item category' => 'Categoría del Item',
             'Save' => 'Guardar',
