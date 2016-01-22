@@ -8,7 +8,7 @@
     	    'Create Backup' => 'Crear Backup',
 	    'Restore' => 'Restaurar', 
 	    'Delete' => 'Eliminar',
-            'storage' => 'Almacen',
+            'storage' => 'Almacenamiento',
             'public' => 'público',
             'plugins' => 'plugins',
             'Size' => 'Tamaño',
