@@ -18,23 +18,23 @@
             'Not Installed' => 'No instalado',
             'Security check results' => 'Resultados del control de seguridad',
             'The configuration file has been found to be writable. We would advise you to remove all write permissions on defines.php on production systems.' =>
-            'El archivo de configuración se ha encontrado ser de escritura. Le recomendamos quitar todos los permisos de escritura en defines.php en los sistemas de producción.',
+            'El archivo de configuración se ha encontrado ser accesible. Le recomendamos quitar todos los permisos de escritura en defines.php en los sistemas de producción.',
             'The Monstra core directory (":path") and/or files underneath it has been found to be writable. We would advise you to remove all write permissions. <br>You can do this on unix systems with: <code>chmod -R a-w :path</code>' =>
-            'El directorio núcleo Monstra (":path") y/o los archivos por debajo de ella se han encontrado ser de escritura. Le recomendamos quitar todos los permisos de escritura. <br>Usted puede hacer esto en sistemas Unix con: <code>chmod -R a-w :path</code>',
+            'El directorio núcleo de Monstra (":path") y/o los archivos por debajo del mismo se han encontrado ser accesibles. Le recomendamos quitar todos los permisos de escritura. <br>Usted puede hacer esto en sistemas Unix con: <code>chmod -R a-w :path</code>',
             'The Monstra .htaccess file has been found to be writable. We would advise you to remove all write permissions. <br>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
-            'El archivo .htaccess de Monstra se ha encontrado ser de escritura. Le recomendamos quitar todos los permisos de escritura. <br>Usted puede hacer esto en sistemas Unix con: <code>chmod a-w :path</code>',
+            'El archivo .htaccess de Monstra se ha encontrado ser accesible. Le recomendamos quitar todos los permisos de escritura. <br>Usted puede hacer esto en sistemas Unix con: <code>chmod a-w :path</code>',
             'The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br>You can do this on unix systems with: <code>chmod a-w :path</code>' =>
-            'El archivo index.php de Monstra se ha encontrado ser de escritura. Le recomendamos quitar todos los permisos de escritura. <br>Usted puede hacer esto en sistemas Unix con: <code>chmod a-w :path</code>',
+            'El archivo index.php de Monstra se ha encontrado ser accesible. Le recomendamos quitar todos los permisos de escritura. <br>Usted puede hacer esto en sistemas Unix con: <code>chmod a-w :path</code>',
             'Due to the type and amount of information an error might give intruders when Core::$environment = Core::DEVELOPMENT, we strongly advise setting Core::PRODUCTION in production systems.' =>
             'Debido al tipo y cantidad de información que un error podría dar a los intrusos cuando Core::$environment = Core::DEVELOPMENT, le recomendamos ajuste Core::PRODUCTION en sistemas de producción.',
-            'Monstra version' => 'Monstra versión',
-            'Directory Permissions' => 'Permisos de directorios',
+            'Monstra version' => 'Versión Monstra',
+            'Directory Permissions' => 'Permisos de directorio',
             'Directory' => 'Directorio',
             'Writable' => 'Accesible',
             'Unwritable' => 'No accesible',
             'Status' => 'Estado',
-            'PHP Built On' => 'PHP Construido En',
-            'Web Server' => 'Servidor Web',
-            'WebServer to PHP Interface' => 'Servidor Web En Interfaz PHP',
+            'PHP Built On' => 'PHP construido en',
+            'Web Server' => 'Servidor web',
+            'WebServer to PHP Interface' => 'Servidor web para interfaz PHP',
         )
     );
