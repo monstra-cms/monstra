@@ -5,7 +5,7 @@
             'Dashboard' => 'Dashboard',
             'Dashboard plugin for Monstra' => 'Dashboard plugin para Monstra',
             'Welcome back' => 'Bienvenido nuevamente',
-            'Create New' => 'Crear Nuevo',
-            'Upload File' => 'Subir Archivo',
+            'Create New' => 'Crear nuevo',
+            'Upload File' => 'Subir archivo',
         )
     );
