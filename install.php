@@ -35,7 +35,7 @@
     $dir_array = array('public', 'storage', 'backups', 'tmp');
 
     // Languages array
-    $languages_array = array('en', 'ru', 'fr', 'de', 'it', 'es', 'lt', 'pl', 'pt-br', 'hu', 'fa' , 'sk', 'uk', 'nl', 'sr-yu', 'id', 'ja', 'zh-cn', 'tr');
+    $languages_array = array('en', 'ru', 'fr', 'de', 'it', 'es', 'lt', 'pl', 'pt-br', 'hu', 'fa' , 'sk', 'uk', 'nl', 'sr', 'id', 'ja', 'zh-cn', 'tr');
 
     // Select Monstra language
     if (Request::get('language')) {
