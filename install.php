@@ -524,8 +524,8 @@
             <ul class="list-unstyled">
             <?php
 
-                if (version_compare(PHP_VERSION, "5.2.0", "<")) {
-                    echo '<li class="error alert alert-danger">'.__('PHP 5.2 or greater is required', 'system').'</li>';
+                if (version_compare(PHP_VERSION, "5.3.2", "<")) {
+                    echo '<li class="error alert alert-danger">'.__('PHP 5.3.2 or greater is required', 'system').'</li>';
                 } else {
                     echo '<li class="ok alert alert-success">'.__('PHP Version', 'system').' '.PHP_VERSION.'</li>';
                 }
@@ -603,7 +603,7 @@
 
         <div class="install-block-footer login-footer">
             <div class="text-center">
-                <span>© 2012 - 2015 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                <span>© 2012 - 2016 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
             </div>
         </div>
 
