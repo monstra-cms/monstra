@@ -36,25 +36,25 @@ class FilesmanagerAdmin extends Backend
         // Add slash if not exists
         if (substr($path, -1, 1) != '/') {
             $path .= '/';
-            Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+            Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
         }
 
         // Upload corectly!
         if ($path == 'uploads' || $path == 'uploads//') {
             $path = 'uploads/';
-            Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+            Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
         }
 
         // Only 'uploads' folder!
         if (strpos($path, 'uploads') === false) {
             $path = 'uploads/';
-            Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+            Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
         }
 
         // Set default path value if path is empty
         if ($path == '') {
             $path = 'uploads/';
-            Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+            Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
         }
 
         $files_path = ROOT . DS . 'public' . DS . $path;
@@ -73,7 +73,7 @@ class FilesmanagerAdmin extends Backend
                 } else {
                     Notification::set('error', __('File was not deleted', 'filesmanager'));
                 }
-                Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -92,7 +92,7 @@ class FilesmanagerAdmin extends Backend
                     Notification::set('error', __('Directory was not deleted', 'filesmanager'));
                 }
                 
-                Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
                 
                     
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -111,7 +111,7 @@ class FilesmanagerAdmin extends Backend
 
                 if (empty($rename_to)) {
                     Notification::set('error', __('Can not be empty', 'filesmanager'));
-                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                    Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
                 }
 
                 $ext = ($rename_type === 'file') ? '.'. File::ext($rename_from) : '';
@@ -119,12 +119,12 @@ class FilesmanagerAdmin extends Backend
 
                 if (is_dir($rename_to)) {
                     Notification::set('error', __('Directory exists', 'filesmanager'));
-                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                    Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
                 }
 
                 if (is_file($rename_to)) {
                     Notification::set('error', __('File exists', 'filesmanager'));
-                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                    Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
                 }
 
                 $success = rename($files_path.$rename_from, $rename_to);
@@ -134,7 +134,7 @@ class FilesmanagerAdmin extends Backend
                 } else {
                     Notification::set('error', __('Failure', 'filesmanager'));
                 }
-                Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -169,7 +169,7 @@ class FilesmanagerAdmin extends Backend
                 if (Request::post('dragndrop')) {
                     Request::shutdown();
                 } else {
-                    Request::redirect($site_url.'/admin/index.php?id=filesmanager&path='.$path);
+                    Request::redirect($site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path);
                 }
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -239,7 +239,7 @@ class FilesmanagerAdmin extends Backend
                 ->assign('upload_max_filesize', FilesmanagerAdmin::uploadSize())
                 ->assign('files_path', $files_path)
                 ->assign('fileuploader', array(
-                    'uploadUrl' => $site_url.'/admin/index.php?id=filesmanager&path='.$path,
+                    'uploadUrl' => $site_url.'/'.ADMIN.'/index.php?id=filesmanager&path='.$path,
                     'csrf'      => Security::token(),
                     'errorMsg'  => __('Upload server error', 'filesmanager')
                 ))->display();

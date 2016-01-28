@@ -121,8 +121,8 @@
                         <td><?php if (Dir::writable(PLUGINS)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
                     </tr>
                     <tr>
-                        <td><?php echo ROOT . DS . 'admin' ?></td>
-                        <td><?php if (Dir::writable(ROOT . DS . 'admin')) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
+                        <td><?php echo ROOT . DS . ADMIN ?></td>
+                        <td><?php if (Dir::writable(ROOT . DS . ADMIN)) { ?><span class="badge badge-success"><?php echo __('Writable', 'information'); ?></span><?php } else { ?><span class="badge badge-error"><?php echo __('Unwritable', 'information'); ?></span><?php } ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -150,6 +150,19 @@
                         <tr>
                             <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>
                             <td><?php echo __('The Monstra index.php file has been found to be writable. We would advise you to remove all write permissions. <br>You can do this on unix systems with: <code>chmod a-w :path</code>', 'information', array(':path' => ROOT . DS . 'index.php')); ?></td>
+                        </tr>
+                    <?php } ?>
+                    <?php if (Dir::exists(ROOT . DS . 'admin')) { 
+                        $new_admin = 'admin' . bin2hex(openssl_random_pseudo_bytes(2));
+                        ?>
+                        <tr>
+                            <td><span class="badge badge-error" style="padding-left:5px; padding-right:5px;"><b>!</b></span> </td>
+                            <td><?php echo __('The Monstra admin folder should be renamed to something else. We suggest <code>:name</code> or something memorable.<br>You can rename the folder on unix systems with: <code>mv :pathadmin :path:name</code> <br> You will then access this admin website via <code>:url</code><br><br>You may also need to update <code>:defines</code> by adding <code>:newdefine</code>, particularly if you have a members area.', 'information', 
+                                array(':path' => ROOT . DS, 
+                                    ':name' => $new_admin, 
+                                    ':url' => Option::get('siteurl').'/'.$new_admin, 
+                                    ':defines' => ROOT . DS . 'boot' . DS . 'defines.php',
+                                    ':newdefine' => 'if (!defined(\'ADMIN\')) define(\'ADMIN\', \''.$new_admin.'\');')); ?></td>
                         </tr>
                     <?php } ?>
                     <?php if (Monstra::$environment == Monstra::DEVELOPMENT) { ?>

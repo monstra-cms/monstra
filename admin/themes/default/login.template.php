@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger-theme-flat.css" type="text/css" />
         <?php Stylesheet::add('public/assets/css/bootstrap-lightbox.css', 'backend', 2); ?>
         <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
-        <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
+        <?php Stylesheet::add(ADMIN.'/themes/default/css/default.css', 'backend', 5); ?>
         <?php Stylesheet::load(); ?>
 
         <!-- JavaScripts -->
@@ -24,7 +24,7 @@
         <script src="<?php echo Site::url(); ?>/public/assets/js/messenger-theme-flat.js"></script>        
         <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
         <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
-        <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
+        <?php Javascript::add(ADMIN.'/themes/default/js/default.js', 'backend', 5); ?>
         <?php Javascript::load(); ?>
 
         <script type="text/javascript">
@@ -68,7 +68,7 @@
 
         <div class="container form-signin">
 
-            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo-256px.png" alt="monstra" /></a></div>
+            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl').'/'.ADMIN; ?>"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo-256px.png" alt="monstra" /></a></div>
             <div class="administration-area well">
                 <div>
                     <form method="post">
