@@ -14,11 +14,11 @@
 @font-face {
     font-family: 'Glyphicons Halflings';
 
+    src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot');
     src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
     url('@site_url/public/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
     url('@site_url/public/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
     url('@site_url/public/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-    src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot');
 }
 
 body {
@@ -86,6 +86,10 @@ footer span {
     padding-top: 10px;
 
     border-top: 1px solid #e0e0e0;
+}
+
+footer .highlight {
+    color: #333;
 }
 
 /*************************************
