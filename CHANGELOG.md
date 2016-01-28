@@ -2,6 +2,9 @@ Monstra 3.0.3, 2016-01-XX
 ------------------------
 - Improved Monstra Security
 - Minimum PHP version for Monstra is 5.3.2
+- Admin: Fixed 404 error when using certain server configurations
+- Localization: Major Fixes for SR, KA-GE, and ES
+- Install Script Fixes
 
 Monstra 3.0.2, 2015-10-16
 ------------------------
@@ -146,7 +149,7 @@ Monstra 2.1.3, 2012-12-09
 - Pages Plugin: add ability to get content for specific page.
 - XMLDB: New method factory() added.
 - Twitter Bootstrap updated to Version 2.2.2
-- Sitemap Plugin: _blank removed.
+- Sitemap Plugin: `_blank` removed.
 - Filesmanager Plugin: fixes.
 - Backup Plugin: fixes.
 
