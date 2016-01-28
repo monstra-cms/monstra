@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Markdown plugin with Parsedown parser
+ *  Markdown plugin
  *
  *  @package Monstra
  *  @subpackage Plugins

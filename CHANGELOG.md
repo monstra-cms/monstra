@@ -1,7 +1,6 @@
-Monstra 3.0.3, 2015-11-XX
+Monstra 3.0.3, 2016-01-XX
 ------------------------
 - Improved Monstra Security
-- Added Parsedown Parser
 - Minimum PHP version for Monstra is 5.3.2
 
 Monstra 3.0.2, 2015-10-16
