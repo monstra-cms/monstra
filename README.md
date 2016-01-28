@@ -5,7 +5,7 @@ Monstra is a modern and lightweight Content Management System.
 
 ## System Requirements
 Operation system: Unix, Linux, Windows, Mac OS   
-Middleware: PHP 5.3.0 or higher with PHP's [SimpleXML module](http://php.net/simplexml) and [Multibyte String module](http://php.net/mbstring)   
+Middleware: PHP 5.3.2 or higher with PHP's [SimpleXML module](http://php.net/simplexml) and [Multibyte String module](http://php.net/mbstring)   
 Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) or Ngnix with [Rewrite Module](http://wiki.nginx.org/HttpRewriteModule)   
 
 ## Steps to Install
