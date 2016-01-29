@@ -33,6 +33,7 @@ class I18n
         'fi' => 'Suomi',
         'fr' => 'Français',
         'gl' => 'Galego',
+        'ka-ge' => 'Georgian',
         'hu' => 'Magyar',
         'it' => 'Italiano',
         'id' => 'Bahasa Indonesia',

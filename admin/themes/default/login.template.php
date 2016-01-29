@@ -21,7 +21,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="<?php echo Site::url(); ?>/public/assets/js/bootstrap.min.js"></script>
         <script src="<?php echo Site::url(); ?>/public/assets/js/messenger.min.js"></script>
-        <script src="<?php echo Site::url(); ?>/public/assets/js/messenger-theme-flat.js"></script>        
+        <script src="<?php echo Site::url(); ?>/public/assets/js/messenger-theme-flat.js"></script>
         <?php Javascript::add('public/assets/js/bootstrap-lightbox.js', 'backend', 3); ?>
         <?php Javascript::add('public/assets/js/bootstrap-fileupload.js', 'backend', 4); ?>
         <?php Javascript::add('admin/themes/default/js/default.js', 'backend', 5); ?>
@@ -92,7 +92,7 @@
                     <form method="post">
                         <div class="form-group">
                         <label><?php echo __('Username', 'users'); ?></label>
-                        <input name="login" class="form-control" type="text" value="<?php echo $user_login; ?>" />                        
+                        <input name="login" class="form-control" type="text" value="<?php echo $user_login; ?>" />
                         </div>
                         <?php if (Option::get('captcha_installed') == 'true') { ?>
                         <div class="form-group">
@@ -128,11 +128,8 @@
             </div>
 
             <div class="text-center">
-                <span>© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                © 2012 - 2016 <a href="http://monstra.org/about/license" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
             </div>
-
         </div>
-            
-
     </body>
 </html>
