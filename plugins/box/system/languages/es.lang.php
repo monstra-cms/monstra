@@ -43,7 +43,7 @@
             'Welcome, :username' => 'Bienvenido, :username',
             'Reset Password' => 'Restablecer Contraseña',
             'Back to Website' => 'Regresar al sitio web',
-            'Forgot your password ?' => '¿Olvidó su contraseña?',
+            'Forgot your password ?' => '¿Olvidaste tu contraseña?',
             'Administration >' => 'Administración',
             'Send New Password' => 'Enviar nueva contraseña',
             'This user does not exist' => 'Este usuario no existe',
@@ -67,7 +67,7 @@
             'Field "Username" is empty' => 'El campo "Nombre de usuario" está vacío',
             'Field "Password" is empty' => 'El campo "Contraseña" está vacío',
             'Field "Site url" is empty' => 'El campo "URL del sitio" está vacío',
-            'Email not valid' => 'El correo electrónico no es válido',
+            'Email not invalid' => 'El correo electrónico es inválido',
 		  'Continue' => 'Continuar',
             'Install' => 'Instalar',
             '...Monstra says...' => '...Monstra dice...',
@@ -77,6 +77,6 @@
             'Main .htaccess file not writable' => 'El archivo principal .htaccess no es accesible',
             'Official Support Forum' => 'Foro de Soporte Oficial',
             'Documentation' => 'Documentación',
-            'Your changes have been saved.' => 'Sus cambios han sido guardados.',
+            'Your changes have been saved.' => 'Tus cambios han sido guardados.',
         )
     );
