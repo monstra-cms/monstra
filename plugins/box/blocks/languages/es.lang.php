@@ -19,7 +19,7 @@
             'Delete block: :block' => 'Eliminar bloque: :block',
             'Block content' => 'Contenido del bloque',
             'Block <i>:name</i> deleted' => 'Bloque <i>:name</i> eliminado',
-            'Your changes to the block <i>:name</i> have been saved.' => 'Sus cambios en el bloque <i>:name</i> han sido guardados.',
+            'Your changes to the block <i>:name</i> have been saved.' => 'Tus cambios en el bloque <i>:name</i> han sido guardados.',
             'Delete block: :block' => 'Eliminar bloque: :block',
             'View Embed Code' => 'Ver código incrustado',
             'Embed Code' => 'Incrustar código',
