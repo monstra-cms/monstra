@@ -5,6 +5,9 @@ Thumbs.db
 *.project
 *.sublime-project
 *.sublime-workspace
+/nbproject/*
+ftpsync.settings
+.remote-sync.json
 
 # ignore user .htaccess
 /.htaccess

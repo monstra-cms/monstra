@@ -128,10 +128,11 @@ class Stylesheet
             }
         }
     }
-
     /**
-     * CSS Parser
-     */
+    * CSS Parser
+    * @param string $frontend_buffer 
+    * @return string
+    */
     public static function parseVariables($frontend_buffer)
     {
         return str_replace(array('@site_url',
@@ -145,6 +146,7 @@ class Stylesheet
 
     /**
      * stylesVersionIncrement
+     * @return type
      */
     public static function stylesVersionIncrement()
     {

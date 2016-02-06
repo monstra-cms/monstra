@@ -196,6 +196,7 @@ class Security
     public static function runSanitizeURL()
     {
         $_GET = array_map('Security::sanitizeURL', $_GET);
+        $_SERVER = array_map('Security::sanitizeURL', $_SERVER);
     }
 
     /**
