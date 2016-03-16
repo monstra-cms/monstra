@@ -59,7 +59,7 @@ class Stylesheet
     public static function load()
     {
         $backend_site_css_path  = MINIFY . DS . 'backend_site.minify.css';
-        $frontend_site_css_path = MINIFY . DS . 'frontend_site.minify.css';
+        $frontend_site_css_path = MINIFY . DS . 'frontend_site.minify.'.Option::get('styles_version').'.css';
 
         // Load stylesheets
         if (count(Stylesheet::$stylesheets) > 0) {
@@ -124,7 +124,7 @@ class Stylesheet
             if (BACKEND) {
                 echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.css?'.Option::get('styles_version').'" type="text/css" />';
             } else {
-                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.css?'.Option::get('styles_version').'" type="text/css" />'."\n";
+                echo '<link rel="stylesheet" href="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.'.Option::get('styles_version').'.css" type="text/css" />'."\n";
             }
         }
     }

@@ -59,7 +59,7 @@ class Javascript
     public static function load()
     {
         $backend_site_js_path  = MINIFY . DS . 'backend_site.minify.js';
-        $frontend_site_js_path = MINIFY . DS . 'frontend_site.minify.js';
+        $frontend_site_js_path = MINIFY . DS . 'frontend_site.minify.'.Option::get('javascript_version').'.js';
 
         // Load javascripts
         if (count(Javascript::$javascripts) > 0) {
@@ -122,7 +122,7 @@ class Javascript
             if (BACKEND) {
                 echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/backend_site.minify.js?'.Option::get('javascript_version').'"></script>';
             } else {
-                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.js?'.Option::get('javascript_version').'"></script>'."\n";
+                echo '<script type="text/javascript" src="'.Option::get('siteurl').'/tmp/minify/frontend_site.minify.'.Option::get('javascript_version').'.js"></script>'."\n";
             }
         }
     }
