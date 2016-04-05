@@ -4,7 +4,8 @@ Monstra 3.0.4, 2016-04-05
 id for none admin edits
 - Fixed ability to read robots.txt
 - Stylesheet: Changed minified URIs to eliminate query strings
-
+- FilesManager: added alphabetical order for files and directories
+- Localization: Major Fixes for ES locale
 
 Monstra 3.0.3, 2016-01-29
 ------------------------
