@@ -214,6 +214,8 @@ class FilesmanagerAdmin extends Backend
             foreach ($_list['files'] as $files) {
                 $files_list[] = $files;
             }
+            // sort file list alphabetically
+            sort($files_list);
         }
         
         $dir_list = array();
@@ -225,6 +227,8 @@ class FilesmanagerAdmin extends Backend
                     $dir_list[] = $dirs;
                 }
             }
+            // sort directory list alphabetically
+            sort($dir_list);
         }
 
         // Display view

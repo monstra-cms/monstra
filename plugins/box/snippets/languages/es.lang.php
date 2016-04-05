@@ -18,7 +18,7 @@
             'Delete snippet: :snippet' => 'Eliminar snippet: :snippet',
             'Snippet content' => 'Contenido del snippet',
             'Snippet <i>:name</i> deleted' => 'Snippet <i>:name</i> eliminado',
-            'Your changes to the snippet <i>:name</i> have been saved.' => 'Sus cambios realizados en el snippet <i>:name</i> han sido guardados.',
+            'Your changes to the snippet <i>:name</i> have been saved.' => 'Tus cambios realizados en el snippet <i>:name</i> han sido guardados.',
             'Delete snippet: :snippet' => 'Eliminar snippet: :snippet',
             'Required field' => 'Dato requerido',
             'View Embed Code' => 'Ver código incrustado',

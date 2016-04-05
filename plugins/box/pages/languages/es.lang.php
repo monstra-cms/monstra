@@ -32,7 +32,7 @@
             'Extra' => 'Extra',
             'Save' => 'Guardar',
             'Save and Exit' => 'Guardar y salir',
-            'Your changes to the page <i>:page</i> have been saved.' => 'Sus cambios realizados en la página <i>:page</i> han sido guardados.',
+            'Your changes to the page <i>:page</i> have been saved.' => 'Tus cambios realizados en la página <i>:page</i> han sido guardados.',
             'The page <i>:page</i> cloned.' => 'La página <i>:page</i> ha sido clonada.',
             'Status' => 'Estado',
             'Actions' => 'Acciones',
