@@ -1,3 +1,11 @@
+Monstra 3.0.4, 2016-04-05
+------------------------
+- Fixed User Security by adding a check that compares POST id with SESSION
+id for none admin edits
+- Fixed ability to read robots.txt
+- Stylesheet: Changed minified URIs to eliminate query strings
+
+
 Monstra 3.0.3, 2016-01-29
 ------------------------
 - Improved Monstra Security
