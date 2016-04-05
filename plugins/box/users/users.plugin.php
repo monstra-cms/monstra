@@ -228,27 +228,32 @@ class Users extends Frontend
 
                 // Check csrf
                 if (Security::check(Request::post('csrf'))) {
-
-                    if (Security::safeName(Request::post('login')) != '') {
-                        if (Users::$users->update(Request::post('user_id'),
-                                                                array('login' => Security::safeName(Request::post('login')),
-                                                                      'firstname' => Request::post('firstname'),
-                                                                      'lastname'  => Request::post('lastname'),
-                                                                      'email'     => Request::post('email'),
-                                                                      'skype'     => Request::post('skype'),
-                                                                      'about_me'  => Request::post('about_me'),
-                                                                      'twitter'   => Request::post('twitter')))) {
-
-                            // Change password
-                            if (trim(Request::post('new_password')) != '') {
-                                Users::$users->update(Request::post('user_id'), array('password' => Security::encryptPassword(trim(Request::post('new_password')))));
+                    
+                    // Check for POST data manipulation
+                    if( ((int) Session::get('user_id') == (int) Request::post('user_id')) or (in_array(Session::get('user_role'), array('admin'))) ) {
+                        
+                        if (Security::safeName(Request::post('login')) != '') {
+                            if (Users::$users->update(Request::post('user_id'),
+                                                                    array('login' => Security::safeName(Request::post('login')),
+                                                                          'firstname' => Request::post('firstname'),
+                                                                          'lastname'  => Request::post('lastname'),
+                                                                          'email'     => Request::post('email'),
+                                                                          'skype'     => Request::post('skype'),
+                                                                          'about_me'  => Request::post('about_me'),
+                                                                          'twitter'   => Request::post('twitter')))) {
+    
+                                // Change password
+                                if (trim(Request::post('new_password')) != '') {
+                                    Users::$users->update(Request::post('user_id'), array('password' => Security::encryptPassword(trim(Request::post('new_password')))));
+                                }
+    
+                                Notification::set('success', __('Your changes have been saved.', 'users'));
+                                Request::redirect(Site::url().'/users/'.$user['id']);
                             }
-
-                            Notification::set('success', __('Your changes have been saved.', 'users'));
-                            Request::redirect(Site::url().'/users/'.$user['id']);
-                        }
-                    } else { }
-
+                        } else { }
+                        
+                    } else { die('Monstra says: This is not your profile...'); }
+                        
                 } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
             }
