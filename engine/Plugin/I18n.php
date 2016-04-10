@@ -75,9 +75,9 @@ class I18n
      *
      * @param string $dir Plugins directory
      */
-    public static function init($locale)
+    public static function init($namespace = 'default', $locale)
     {
-        if ( ! isset(self::$instance)) self::$instance = new I18n($locale);
+        if ( ! isset(self::$instance)) self::$instance = new I18n($namespace, $locale);
         return self::$instance;
     }
 
@@ -94,13 +94,13 @@ class I18n
     /**
      * Construct
      */
-    protected function __construct($locale)
+    protected function __construct($namespace = 'default', $locale)
     {
         // Redefine arguments
         $locale = (string) $locale;
 
         // Get lang table for current locale
-        $lang_table = Cache::get('i18n', $locale);
+        $lang_table = Cache::get('i18n_'.$namespace, $locale);
 
         // If lang_table is empty then create new
         if (! $lang_table) {
@@ -136,7 +136,7 @@ class I18n
             }
 
             // Save lang table for current locale
-            Cache::put('i18n', $locale, $lang_table);
+            Cache::put('i18n_'.$namespace, $locale, $lang_table);
 
             // Update dictionary
             I18n::$dictionary = $lang_table;

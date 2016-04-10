@@ -57,7 +57,8 @@ class SystemAdmin extends Backend
 
             // Get all pages
             $pages_array = array();
-            $pages_list = $pages->select('[slug!="error404" and parent="" and status="published"]');
+            $pages_list = $pages->select('[slug!="error404" and parent="" and locale="'.Site::getDefaultSiteLocale().'" and status="published"]');
+            
             foreach ($pages_list as $page) {
                 $pages_array[$page['slug']] = Html::toText($page['title']);
             }
@@ -131,6 +132,7 @@ class SystemAdmin extends Backend
                                        'timezone'            => Request::post('system_timezone'),
                                        'system_email'        => Request::post('system_email'),
                                        'language'            => Request::post('system_language'),
+                                       'site_language'       => Request::post('site_language'),
                                        'maintenance_message' => Request::post('site_maintenance_message')));
 
                     Notification::set('success', __('Your changes have been saved.', 'system'));

@@ -221,4 +221,38 @@ class Site
         return __('Powered by', 'system').' <a href="http://monstra.org" target="_blank">Monstra</a> ' . Monstra::VERSION;
     }
 
+    /**
+     * 
+     */
+    public static function getLocales() {
+        $language_files = File::scan(PLUGINS_BOX . DS . 'system' . DS . 'languages' . DS, '.lang.php');
+        foreach ($language_files as $language) {
+            $parts = explode('.', $language);
+            $languages_array[$parts[0]] = I18n::$locales[$parts[0]];
+        }
+        return $languages_array;
+    }
+
+    /**
+     * 
+     */
+    public static function getDefaultSiteLocale() {
+        return Option::get('site_language');
+    }   
+
+    /**
+     * 
+     */
+    public static function getCurrentSiteLocale() {
+        $site_locales = Site::getLocales();        
+
+
+        if (Uri::segment(0) && array_key_exists(Uri::segment(0), $site_locales)) {
+            return Uri::segment(0);            
+        } else {
+            $site_locale = Cookie::get('site_locale');
+            return !empty($site_locale) ? $site_locale : Option::get('site_language');
+        }
+
+    }
 }

@@ -9,6 +9,20 @@
                 Html::anchor(__('Edit 404 Page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-phone btn-default'))
             );
         ?>
+        &nbsp;
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Locale to edit <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu text-left" role="menu">
+            <?php 
+            $locales = Site::getLocales();
+            foreach ($locales as $key => $locale) {                
+            ?>
+            <li><a href="<?php echo Site::url(); ?>/admin/index.php?id=pages&locale_to_edit=<?php echo $key; ?>&token=<?php echo Security::token(); ?>"><?php echo $locale; ?> <?php if ($key == PagesAdmin::$locale_to_edit) { ?><i class="glyphicon glyphicon-ok"></i><?php } ?></a></li>
+            <?php } ?>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -39,7 +53,7 @@
      <tr <?php echo $visibility; ?> <?php if (trim($page['parent']) !== '') {?> rel="children_<?php echo $page['parent']; ?>" <?php } ?>>
         <td>
         <?php
-            if (count(PagesAdmin::$pages->select('[parent="'.(string) $page['slug'].'"]', 'all')) > 0) {
+            if (count(PagesAdmin::$pages->select('[parent="'.(string) $page['slug'].'" and locale="'.PagesAdmin::$locale_to_edit.'"]', 'all')) > 0) {
                 if (isset($page['expand']) && $page['expand'] == '1') {
                     echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">+</a>';
                 } else {
@@ -50,10 +64,11 @@
         </td>
         <td>
             <?php
+                $page_locale = ($page['locale'] == Site::getDefaultSiteLocale()) ? '' : $page['locale'].'/';
                 $_parent = (trim($page['parent']) == '') ? '' : $page['parent'];
                 $parent  = (trim($page['parent']) == '') ? '' : $page['parent'].'/';
                 echo (trim($page['parent']) == '') ? '' : '&nbsp;';
-                echo $dash.Html::anchor(Html::toText($page['title']), $site_url.'/'.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent));
+                echo $dash.Html::anchor(Html::toText($page['title']), $site_url.'/'.$page_locale.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent));
             ?>
         </td>
         <td class="visible-lg hidden-xs">

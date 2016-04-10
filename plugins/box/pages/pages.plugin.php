@@ -58,6 +58,13 @@ class Pages extends Frontend
     public static $requested_page = null;
 
     /**
+     * Locale
+     *
+     * @var string
+     */
+    public static $locale = '';
+
+    /**
      *  Main function
      */
     public static function main()
@@ -77,7 +84,16 @@ class Pages extends Frontend
         $requested_page = Pages::lowLoader(Uri::segments());
         Pages::$requested_page = $requested_page;
 
-        return Pages::$pages->select('[slug="'.$requested_page.'"]', null);
+        if($requested_page == 'error404') {            
+            $page = Pages::$pages->select('[slug="'.$requested_page.'" and locale="'.Pages::$locale.'"]', null);            
+            if(count($page) == 0) {
+                $page = Pages::$pages->select('[slug="'.$requested_page.'" and locale="'.Site::getDefaultSiteLocale().'"]', null);
+            }            
+        } else {
+            $page = Pages::$pages->select('[slug="'.$requested_page.'" and locale="'.Pages::$locale.'"]', null);
+        }   
+
+        return $page;
     }
 
     /**
@@ -91,14 +107,34 @@ class Pages extends Frontend
     {
         $defpage = Option::get('defaultpage');
 
+        if (Arr::keyExists(Site::getLocales(), $data[0])) {
+            $locale = $data[0];  
+            if ($locale == Site::getDefaultSiteLocale()) {
+                if ((isset($data[2])) && ($data[2] != '')) {
+                    Request::redirect(Site::url().'/'.$data[1].'/'.$data[2], 301);    
+                } else {
+                    Request::redirect(Site::url().'/'.(isset($data[1]) ? $data[1] : '') , 301);
+                }                
+            }
+            $data[0] = isset($data[1]) ? $data[1] : '';
+            $data[1] = isset($data[2]) ? $data[2] : '';
+            if ($data[0] == '') unset($data[0]);
+            if ($data[1] == '') unset($data[1]);
+        } else {
+            $locale = Site::getDefaultSiteLocale();
+        }
+
+        Pages::$locale = $locale;
+        Cookie::set('site_locale', $locale);
+
         // If data count 2 then it has Parent/Child
         if (count($data) >= 2) {
 
             // If exists parent file
-            if (count(Pages::$pages->select('[slug="'.$data[0].'"]')) !== 0) {
+            if (count(Pages::$pages->select('[slug="'.$data[0].'" and locale="'.$locale.'"]')) !== 0) {
 
                 // Get child file and get parent page name
-                $child_page = Pages::$pages->select('[slug="'.$data[1].'"]', null);
+                $child_page = Pages::$pages->select('[slug="'.$data[1].'" and locale="'.$locale.'"]', null);
 
                 // If child page parent is not empty then get his parent
                 if (count($child_page) == 0) {
@@ -150,15 +186,17 @@ class Pages extends Frontend
             }
 
         } else { // Only parent page come
+
             if (empty($data[0])) {
 
                 $id = $defpage;
 
             } else {
+                
 
                 // Get current page
-                $current_page = Pages::$pages->select('[slug="'.$data[0].'"]', null);
-
+                $current_page = Pages::$pages->select('[slug="'.$data[0].'" and locale="'.$locale.'"]', null);
+               
                 // Hack For old Monstra
                 $current_page['access'] = (isset($current_page['access'])) ? $current_page['access'] : 'public' ;
 
@@ -176,7 +214,7 @@ class Pages extends Frontend
                 if ($c_p !== '') {
 
                     if ($c_p == $data[0]) {
-                        if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {
+                        if (count(Pages::$pages->select('[slug="'.$data[0].'"] and locale="'.$locale.'"]', null)) != 0) {
 
                             if ((($current_page['status'] == 'published') or
                                 (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
@@ -194,17 +232,17 @@ class Pages extends Frontend
                                 $id = 'error404';
                                 Response::status(404);
                             }
-                        } else {
+                        } else {                                                    
                             $id = 'error404';
                             Response::status(404);
                         }
-                    } else {
+                    } else {                        
                         $id = 'error404';
                         Response::status(404);
                     }
                 } else {
 
-                    if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {
+                    if (count(Pages::$pages->select('[slug="'.$data[0].'" and locale="'.$locale.'"]', null)) != 0) {
                         if ((($current_page['status'] == 'published') or
                             (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
                             ($current_page['access'] == 'public')) {
@@ -217,11 +255,12 @@ class Pages extends Frontend
 
                             $id = $data[0];
 
-                        } else {
+                        } else {                            
                             $id = 'error404';
                             Response::status(404);
                         }
                     } else {
+
                         $id = 'error404';
                         Response::status(404);
                     }
@@ -248,11 +287,13 @@ class Pages extends Frontend
      *
      * @return string
      */
-    public static function content($slug = '')
+    public static function content($slug = '', $locale = '')
     {
         if ( ! empty($slug)) {
 
-            $page = Table::factory('pages')->select('[slug="'.$slug.'"]', null);
+            $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
+            $page = Table::factory('pages')->select('[slug="'.$slug.'" and locale="'.$locale.'"]', null);
 
             if ( ! empty($page)) {
 
@@ -318,17 +359,19 @@ class Pages extends Frontend
     /**
      * Get pages
      */
-    public static function getPages()
+    public static function getPages($locale = '')
     {
         // Init vars
         $pages_array = array();
         $count = 0;
 
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
         // Get pages table
         $pages = new Table('pages');
 
         // Get Pages List
-        $pages_list = $pages->select('[slug!="error404" and status="published"]');
+        $pages_list = $pages->select('[slug!="error404" and status="published" and locale="'.$locale.'"]');
 
         foreach ($pages_list as $page) {
 
@@ -337,6 +380,7 @@ class Pages extends Frontend
             $pages_array[$count]['parent']  = $page['parent'];
             $pages_array[$count]['date']    = $page['date'];
             $pages_array[$count]['author']  = $page['author'];
+            $pages_array[$count]['locale']  = $page['locale'];
             $pages_array[$count]['slug']    = ($page['slug'] == Option::get('defaultpage')) ? '' : $page['slug'] ;
 
             if (isset($page['parent'])) {
@@ -346,7 +390,7 @@ class Pages extends Frontend
             }
 
             if ($c_p != '') {
-                $_page = $pages->select('[slug="'.$page['parent'].'"]', null);
+                $_page = $pages->select('[slug="'.$page['parent'].'" and locale="'.$locale.'"]', null);
 
                 if (isset($_page['title'])) {
                     $_title = $_page['title'];
@@ -414,9 +458,10 @@ class Page extends Pages
      * @param  string $parent Parent page
      * @return array
      */
-    public static function children($parent)
+    public static function children($parent, $locale = '')
     {
-        return Pages::$pages->select('[parent="'.(string) $parent.'"]', 'all');
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+        return Pages::$pages->select('[parent="'.(string) $parent.'" and locale="'.$locale.'"]', 'all');
     }
 
     /**
@@ -427,9 +472,11 @@ class Page extends Pages
      *  </code>
      *
      */
-    public static function available()
+    public static function available($locale = '')
     {
-        $pages = Pages::$pages->select('[parent="'.Pages::$requested_page.'"]', 'all');
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
+        $pages = Pages::$pages->select('[parent="'.Pages::$requested_page.'" and locale="'.$locale.'"]', 'all');
 
         // Display view
         View::factory('box/pages/views/frontend/available_pages')
@@ -445,16 +492,17 @@ class Page extends Pages
      *  </code>
      *
      */
-    public static function breadcrumbs()
+    public static function breadcrumbs($locale = '')
     {
         if (Uri::command() == 'pages') {
+            $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
             $current_page = Pages::$requested_page;
             $parent_page = '';
             if ($current_page !== 'error404') {
-                $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
+                $page = Pages::$pages->select('[slug="'.$current_page.'" and locale="'.$locale.'"]', null);
                 if (trim($page['parent']) !== '') {
                     $parent = true;
-                    $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
+                    $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'" and locale="'.$locale.'"]', null);
                 } else {
                     $parent = false;
                 }

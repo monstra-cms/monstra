@@ -224,7 +224,11 @@ class Monstra
         /**
          * Init I18n
          */
-        I18n::init(Option::get('language'));
+        if (BACKEND) {
+            I18n::init('admin', Option::get('language'));
+        } else {
+            I18n::init('site', Site::getCurrentSiteLocale()); 
+        }
 
         /**
          * Init Plugins API
@@ -235,7 +239,7 @@ class Monstra
          * Init Notification service
          */
         Notification::init();
-
+ 
         /**
          * Init site module
          */
@@ -314,6 +318,7 @@ class Monstra
         // Cleanup cache
         if (count($namespaces = Dir::scan(CACHE)) > 0) foreach ($namespaces as $namespace) Dir::delete(CACHE . DS . $namespace);
     }
+
 
     /**
      * Initialize Monstra Engine

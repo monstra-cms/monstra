@@ -20,6 +20,13 @@ class PagesAdmin extends Backend
     public static $pages = null;
 
     /**
+     * Locale
+     *
+     * @var string
+     */
+    public static $locale_to_edit = '';
+
+    /**
      * _pageExpandAjax
      */
     public static function _pageExpandAjax()
@@ -27,7 +34,7 @@ class PagesAdmin extends Backend
         if (Request::post('page_slug')) {
             if (Security::check(Request::post('token'))) {
                 $pages = new Table('pages');
-                $pages->updateWhere('[slug="'.Request::post('page_slug').'"]', array('expand' => Request::post('page_expand')));
+                $pages->updateWhere('[slug="'.Request::post('page_slug').'" and locale="'.PagesAdmin::$locale_to_edit.'"]', array('expand' => Request::post('page_expand')));
                 Request::shutdown();
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
         }
@@ -44,6 +51,23 @@ class PagesAdmin extends Backend
         $templates_path = THEMES_SITE;
 
         $errors = array();
+
+        if (Request::get('locale_to_edit')) {
+            if (Security::check(Request::get('token'))) {
+                if (Arr::keyExists(Site::getLocales(), Request::get('locale_to_edit'))) {
+                    Cookie::set('locale_to_edit', Request::get('locale_to_edit'));
+                    Request::redirect(Site::url().'/admin/index.php?id=pages');
+                }
+            } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
+        }
+
+        if (Cookie::get('locale_to_edit')) {
+            $locale_to_edit = Cookie::get('locale_to_edit');
+        } else {
+            $locale_to_edit = Site::getDefaultSiteLocale();
+        }
+
+        PagesAdmin::$locale_to_edit = $locale_to_edit;
 
         $pages = new Table('pages');
         PagesAdmin::$pages = $pages;
@@ -106,6 +130,7 @@ class PagesAdmin extends Backend
                                                  'keywords'     => $orig_page['keywords'],
                                                  'tags'         => $orig_page['tags'],
                                                  'date'         => $orig_page['date'],
+                                                 'locale'       => $orig_page['locale'],
                                                  'author'       => $orig_page['author']))) {
 
                             // Get cloned page ID
@@ -149,7 +174,7 @@ class PagesAdmin extends Backend
                             //--------------
                             if (trim(Request::post('page_name')) == '') $errors['pages_empty_name'] = __('Required field', 'pages');
                             if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('Required field', 'pages');
-                            if (count($pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'"]')) != 0) $errors['pages_exists'] = __('This page already exists', 'pages');
+                            if (count($pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'" and locale="'.$locale_to_edit.'"]')) != 0) $errors['pages_exists'] = __('This page already exists', 'pages');
 
                             // Prepare date
                             if (Valid::date(Request::post('page_date'))) {
@@ -179,6 +204,7 @@ class PagesAdmin extends Backend
                                                         'keywords'     => Request::post('page_keywords'),
                                                         'tags'         => Request::post('page_tags'),
                                                         'date'         => $date,
+                                                        'locale'       => $locale_to_edit,
                                                         'author'       => $author))) {
 
                                     // Get inserted page ID
@@ -287,7 +313,7 @@ class PagesAdmin extends Backend
                             // Validate
                             //--------------
                             if (trim(Request::post('page_name')) == '') $errors['pages_empty_name'] = __('Required field', 'pages');
-                            if ((count($pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'"]')) != 0) and (Security::safeName(Request::post('page_old_name'), '-', true) !== Security::safeName(Request::post('page_name'), '-', true))) $errors['pages_exists'] = __('This page already exists', 'pages');
+                            if ((count($pages->select('[slug="'.Security::safeName(Request::post('page_name'), '-', true).'" and locale="'.$locale_to_edit.'"]')) != 0) and (Security::safeName(Request::post('page_old_name'), '-', true) !== Security::safeName(Request::post('page_name'), '-', true))) $errors['pages_exists'] = __('This page already exists', 'pages');
                             if (trim(Request::post('page_title')) == '') $errors['pages_empty_title'] = __('Required field', 'pages');
 
                             // Save fields
@@ -328,7 +354,7 @@ class PagesAdmin extends Backend
                                         }
                                     }
 
-                                    if ($pages->updateWhere('[slug="'.Request::get('name').'"]',
+                                    if ($pages->updateWhere('[slug="'.Request::get('name').'" and locale="'.$locale_to_edit.'"]',
                                                         array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
                                                               'template'    => Request::post('templates'),
                                                               'parent'      => $parent_page,
@@ -342,6 +368,7 @@ class PagesAdmin extends Backend
                                                               'status'      => Request::post('status'),
                                                               'access'      => Request::post('access'),
                                                               'date'        => $date,
+                                                              'locale'       => $locale_to_edit,
                                                               'author'      => $author))) {
 
                                         File::setContent(STORAGE . DS . 'pages' . DS . Request::post('page_id') . '.page.txt', XML::safe(Request::post('editor')));
@@ -353,7 +380,7 @@ class PagesAdmin extends Backend
 
                                 } else {
 
-                                    if ($pages->updateWhere('[slug="'.Request::get('name').'"]',
+                                    if ($pages->updateWhere('[slug="'.Request::get('name').'" and locale="'.$locale_to_edit.'"]',
                                                         array('slug'        => Security::safeName(Request::post('page_name'), '-', true),
                                                               'template'    => Request::post('templates'),
                                                               'parent'      => $parent_page,
@@ -367,6 +394,7 @@ class PagesAdmin extends Backend
                                                               'status'      => Request::post('status'),
                                                               'access'      => Request::post('access'),
                                                               'date'        => $date,
+                                                              'locale'       => $locale_to_edit,
                                                               'author'      => $author))) {
 
                                         File::setContent(STORAGE . DS . 'pages' . DS . Request::post('page_id') . '.page.txt', XML::safe(Request::post('editor')));
@@ -412,7 +440,15 @@ class PagesAdmin extends Backend
                         $templates_array[basename($file,'.template.php')] = basename($file, '.template.php');
                     }
 
-                    $page = $pages->select('[slug="'.Request::get('name').'"]', null);
+                    if (Request::get('name') == 'error404') {
+                        $page = $pages->select('[slug="'.Request::get('name').'" and locale="'.$locale_to_edit.'"]', null);
+                        if (count($page) == 0) {
+                            
+                        }
+                    } else {
+                        $page = $pages->select('[slug="'.Request::get('name').'" and locale="'.$locale_to_edit.'"]', null);
+                    }
+
 
                     if ($page) {
 
@@ -488,7 +524,7 @@ class PagesAdmin extends Backend
                         if (Security::check(Request::get('token'))) {
 
                             // Get specific page
-                            $page = $pages->select('[slug="'.Request::get('name').'"]', null);
+                            $page = $pages->select('[slug="'.Request::get('name').'" and locale="'.$locale_to_edit.'"]', null);
 
                             //  Delete page and update <parent> fields
                             if ($pages->deleteWhere('[slug="'.$page['slug'].'" ]')) {
@@ -524,7 +560,7 @@ class PagesAdmin extends Backend
 
                         if (Security::check(Request::get('token'))) {
 
-                            $pages->updateWhere('[slug="'.Request::get('slug').'"]', array('access' => Request::get('access')));
+                            $pages->updateWhere('[slug="'.Request::get('slug').'" and locale="'.$locale_to_edit.'"]', array('access' => Request::get('access')));
 
                             // Run delete extra actions
                             Action::run('admin_pages_action_update_access');
@@ -548,7 +584,7 @@ class PagesAdmin extends Backend
 
                         if (Security::check(Request::get('token'))) {
 
-                            $pages->updateWhere('[slug="'.Request::get('slug').'"]', array('status' => Request::get('status')));
+                            $pages->updateWhere('[slug="'.Request::get('slug').'" and locale="'.$locale_to_edit.'"]', array('status' => Request::get('status')));
 
                             // Run delete extra actions
                             Action::run('admin_pages_action_update_status');
@@ -578,7 +614,7 @@ class PagesAdmin extends Backend
             $count = 0;
 
             // Get pages
-            $pages_list = $pages->select(null, 'all', null, array('slug', 'title', 'status', 'date', 'author', 'expand', 'access', 'parent', 'template', 'tags'));
+            $pages_list = $pages->select('[locale="'.$locale_to_edit.'"]', 'all', null, array('slug', 'title', 'status', 'date', 'author', 'expand', 'access', 'parent', 'template', 'tags', 'locale'));
 
             // Loop
             foreach ($pages_list as $page) {
@@ -595,6 +631,7 @@ class PagesAdmin extends Backend
                 $pages_array[$count]['expand']  = $page['expand'];
                 $pages_array[$count]['slug']    = $page['slug'];
                 $pages_array[$count]['tags']    = $page['tags'];
+                $pages_array[$count]['locale']    = $page['locale'];
                 $pages_array[$count]['template']= $page['template'];
 
                 if (isset($page['parent'])) {
@@ -605,7 +642,7 @@ class PagesAdmin extends Backend
 
                 if ($c_p != '') {
 
-                    $_page = $pages->select('[slug="'.$page['parent'].'"]', null);
+                    $_page = $pages->select('[slug="'.$page['parent'].'" and locale="'.$locale_to_edit.'"]', null);
 
                     if (isset($_page['title'])) {
                         $_title = $_page['title'];

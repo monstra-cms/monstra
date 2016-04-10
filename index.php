@@ -38,6 +38,18 @@ if (file_exists('install.php')) {
     // Load Engine init file
     require_once ROOT. DS . 'engine'. DS . '_init.php';
 
+
+    /*
+    $pages = new Table('pages');
+    $pages_list = $pages->select(null, 'all');
+    
+    foreach($pages_list as $page) {    	
+    	$pages->update($page['id'], array('locale' => 'en'));
+    }
+    */
+    
+//    Option::add('site_language', 'ru');
+
     // Check for maintenance mod
     if ('on' == Option::get('maintenance_status')) {
 

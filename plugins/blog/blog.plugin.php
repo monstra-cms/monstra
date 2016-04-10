@@ -64,14 +64,17 @@ class Blog {
      *
      * @return string
      */
-    public static function breadcrumbs() {
+    public static function breadcrumbs($locale = '') {
+        
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
         $current_page = Pages::$requested_page;
         $parent_page = '';
         if ($current_page !== 'error404') {  
-            $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
+            $page = Pages::$pages->select('[slug="'.$current_page.'" and locale="'.$locale.'"]', null);
             if (trim($page['parent']) !== '') {
                 $parent = true;    
-                $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
+                $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'" and locale="'.$locale.'"]', null);
             } else { 
                 $parent = false;
             }
@@ -96,16 +99,18 @@ class Blog {
      *
      * @return array
      */
-    public static function getTagsArray($slug = null) {
+    public static function getTagsArray($slug = null, $locale='') {
 
         // Init vars
         $tags = array();
         $tags_string = '';
 
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
         if ($slug == null) {
-            $posts = Pages::$pages->select('[parent="'.Blog::$parent_page_name.'" and status="published"]', 'all');
+            $posts = Pages::$pages->select('[parent="'.Blog::$parent_page_name.'" and status="published" and locale="'.$locale.'"]', 'all');
         } else {
-            $posts = Pages::$pages->select('[parent="'.Blog::$parent_page_name.'" and status="published" and slug="'.$slug.'"]', 'all');
+            $posts = Pages::$pages->select('[parent="'.Blog::$parent_page_name.'" and status="published" and slug="'.$slug.'" and locale="'.$locale.'"]', 'all');
         }
     
         foreach($posts as $post) {
@@ -151,16 +156,18 @@ class Blog {
      * @param  integer $num Number of posts to show
      * @return string
      */
-    public static function getPosts($nums = 10) {
+    public static function getPosts($nums = 10, $locale = '') {
+
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
 
         // Get page param
         $page = (Request::get('page')) ? (int)Request::get('page') : 1;
 
         if (Request::get('tag')) {
-            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and contains(tags, "'.Request::get('tag').'")]';                
+            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and locale="'.$locale.'" and contains(tags, "'.Request::get('tag').'")]';                
             Notification::set('tag', Request::get('tag'));
         } else {
-            $query = '[parent="'.Blog::$parent_page_name.'" and status="published"]';
+            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and locale="'.$locale.'"]';
             Notification::clean();
         }
 
@@ -183,12 +190,14 @@ class Blog {
         if ($start < 0) $start = 0;
 
         // Get posts and sort by DESC
-        $posts = Pages::$pages->select($query, $nums, $start, array('slug', 'title', 'author', 'date'), 'date', 'DESC');
+        $posts = Pages::$pages->select($query, $nums, $start, array('slug', 'title', 'author', 'date', 'locale', 'template'), 'date', 'DESC');
 
         // Loop
         foreach($posts as $key => $post) {
             $post_short = explode("{cut}", Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . $post['id'] . '.page.txt')));
             $posts[$key]['content'] = Filter::apply('content', $post_short[0]);
+            $posts[$key]['slug'] = $posts[$key]['slug'];
+            $posts[$key]['locale'] = ($posts[$key]['locale'] == Site::getCurrentSiteLocale()) ? '' : $posts[$key]['locale'].'/';
         }
 
         // Display view
@@ -216,10 +225,12 @@ class Blog {
      * @param  integer $num Number of posts to show
      * @return string
      */
-    public static function getPostsBlock($nums = 10) {
+    public static function getPostsBlock($nums = 10, $locale = '') {
+
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
 
         // XPath Query
-        $query = '[parent="'.Blog::$parent_page_name.'" and status="published"]';
+        $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and locale="'.$locale.'"]';
 
         // Get posts and sort by DESC
         $posts = Pages::$pages->select($query, $nums, 0, array('slug', 'title', 'author', 'date'), 'date', 'DESC');
@@ -247,14 +258,16 @@ class Blog {
      *
      * @return string
      */
-    public static function getRelatedPosts($limit = null) {
+    public static function getRelatedPosts($limit = null, $locale = '') {
+
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
 
         $related_posts = array();
         $tags = Blog::getTagsArray(Page::slug());
 
         foreach($tags as $tag) {
 
-            $query = '[parent="'.Blog::$parent_page_name.'" and status="published" and contains(tags, "'.$tag.'") and slug!="'.Page::slug().'"]';
+            $query = '[parent="'.Blog::$parent_page_name.'" and locale="'.$locale.'" and status="published" and contains(tags, "'.$tag.'") and slug!="'.Page::slug().'"]';
             
             if ($result = Arr::subvalSort(Pages::$pages->select($query, ($limit == null) ? 'all' : (int)$limit), 'date', 'DESC')) {
                 $related_posts = $result; 
@@ -303,9 +316,11 @@ class Blog {
      *
      * @return string
      */
-    public static function getPostBeforeCut($slug) {
+    public static function getPostBeforeCut($slug, $locale = '') {
 
-        $page = Pages::$pages->select('[slug="'.$slug.'"]', null);
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
+        $page = Pages::$pages->select('[slug="'.$slug.'" and locale="'.$locale.'"]', null);
 
         // Get post
         $post = explode("{cut}", Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt')));
@@ -327,9 +342,11 @@ class Blog {
      *
      * @return string
      */
-    public static function getPostAfterCut($slug) {
+    public static function getPostAfterCut($slug, $locale = '') {
 
-        $page = Pages::$pages->select('[slug="'.$slug.'"]', null);
+        $locale = ($locale == '') ? Site::getCurrentSiteLocale() : $locale;
+
+        $page = Pages::$pages->select('[slug="'.$slug.'" and locale="'.$locale.'"]', null);
 
         // Get post
         $post = explode("{cut}", Text::toHtml(File::getContent(STORAGE . DS . 'pages' . DS . $page['id'] . '.page.txt')));

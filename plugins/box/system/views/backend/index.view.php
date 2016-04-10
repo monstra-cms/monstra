@@ -80,8 +80,16 @@
         <div class="form-group">
         <?php
             echo (
-                Form::label('system_language', __('Language', 'system')).
+                Form::label('system_language', __('Common Language', 'system')).
                 Form::select('system_language', $languages_array, Option::get('language'), array('class' => 'form-control'))
+            );
+        ?>
+        </div>
+        <div class="form-group">
+        <?php
+            echo (
+                Form::label('site_language', __('Site Language', 'system')).
+                Form::select('site_language', $languages_array, Option::get('site_language'), array('class' => 'form-control'))
             );
         ?>
         </div>
