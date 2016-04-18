@@ -9,9 +9,9 @@ $_SESSION['cryptdir'] = dirname($cryptinstall);
  */
 function dsp_crypt($cfg = 0, $reload = 1)
 {
-    echo "<table><tr><td><img id='cryptogram' src='".$_SESSION['cryptdir']."/cryptographp.php?cfg=".$cfg."&".SID."'></td>";
-    if ($reload) echo "<td>&nbsp;&nbsp;<a title='".($reload==1?'':$reload)."' style=\"cursor:pointer\" onclick=\"javascript:document.images.cryptogram.src='".$_SESSION['cryptdir']."/cryptographp.php?cfg=".$cfg."&".SID."&'+Math.round(Math.random(0)*1000)+1\"><img src=\"".$_SESSION['cryptdir']."/images/reload.png\"></a></td>";
-    echo "</tr></table>";
+    echo '<table><tr><td><img id="cryptogram" src="'.$_SESSION['cryptdir'].'/cryptographp.php?cfg='.$cfg.'&amp;'.SID.'" alt="captcha"></td>';
+    if ($reload) echo '<td>&nbsp;&nbsp;<a title="'.($reload==1?'':$reload).'" style="cursor:pointer" onclick="javascript:document.images.cryptogram.src=\''.$_SESSION['cryptdir'].'/cryptographp.php?cfg='.$cfg.'&amp;'.SID.'&amp;\'+Math.round(Math.random(0)*1000)+1"><img src="'.$_SESSION['cryptdir'].'/images/reload.png" alt="reload"></a></td>';
+    echo '</tr></table>';
 }
 
 /**
