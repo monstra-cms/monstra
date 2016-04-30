@@ -2,7 +2,7 @@
 
 // Add plugin navigation link
 Navigation::add(__('Blocks', 'blocks'), 'content', 'blocks', 2);
-Dashboard::addNewItem('blocks', __('Blocks', 'blocks'), 'index.php?id=blocks&action=add_block', 2);
+Dashboard::addNewItem('blocks', __('Block', 'blocks'), __('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', 2);
 
 /**
  * Blocks Admin Class

@@ -2,7 +2,7 @@
 
 // Add plugin navigation link
 Navigation::add(__('Snippets', 'snippets'), 'extends', 'snippets', 3);
-Dashboard::addNewItem('snippets', __('Snippets', 'snippets'), 'index.php?id=snippets&action=add_snippet', 3);
+Dashboard::addNewItem('snippets', __('Snippet', 'snippets'), __('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', 3);
 
 /**
  * Snippets Admin Class
