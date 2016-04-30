@@ -2,7 +2,7 @@
 
     return array(
         'themes' => array(
-            'Themes' => 'Темы',
+            'Themes' => 'Теми',
             'Themes manager' => 'Менеджер тем',
             'Select Theme' => 'Вибрати тему',
             'Save' => 'Зберегти',
@@ -18,6 +18,7 @@
             'Edit' => 'Редагувати',
             'Delete' => 'Видалити',
             'Actions' => 'Дії',
+            'Admin Theme' => 'Тема ',
             'Create New Chunk' => 'Створити новий чанк',
             'New Chunk' => 'Новый чанк',
             'Chunks' => 'Чанки',
