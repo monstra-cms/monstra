@@ -38,7 +38,7 @@ AddDefaultCharset UTF-8
 	## End - Rewrite rules to block out some common exploits.
 
 	## Begin - Rewrite rules for Monstra
-	RewriteBase /%siteurlhere%/
+	RewriteBase /monstra.git/branches/feature/
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php [QSA,L]

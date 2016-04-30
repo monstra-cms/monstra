@@ -93,11 +93,12 @@ class Dashboard
     /**
      * 
      */
-	public static function addNewItem($id, $title, $url, $priority = 1)
+	public static function addNewItem($id, $title, $hint, $url, $priority = 1)
 	{
         Dashboard::$items[] = array(
             'id'       => (string) $id,
             'title'    => (string) $title,
+            'hint'    => (string) $hint,
             'url'      => (string) $url,
             'priority' => (int) $priority,
         );
@@ -114,7 +115,7 @@ class Dashboard
 
 		foreach ($items as $item) {
 			echo '<li>';
-			echo Html::anchor($item['title'], $item['url'], array('title' => $item['title']));
+			echo Html::anchor($item['title'], $item['url'], array('title' => $item['hint']));
 			echo '</li>';
 		}
 	}

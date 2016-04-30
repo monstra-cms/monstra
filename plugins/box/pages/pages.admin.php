@@ -2,7 +2,7 @@
 
 // Add plugin navigation link
 Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
-Dashboard::addNewItem('pages', __('Page', 'pages'), 'index.php?id=pages&action=add_page', 1);
+Dashboard::addNewItem('pages', __('Page', 'pages'), __('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', 1);
 
 // Add action on admin_pre_render hook
 Action::add('admin_pre_render','PagesAdmin::_pageExpandAjax');
