@@ -4,7 +4,7 @@
         'backup' => array(
             'Backups' => 'Бекапи',
             'Backup' => 'Бекап',
-            'Create Backup' => 'Зробити бекап',
+            'Create Backup' => 'Створити бекап',
             'Delete' => 'Видалити',
             'storage' => 'дані',
             'public' => 'публічна',

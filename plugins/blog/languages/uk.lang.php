@@ -3,7 +3,7 @@
     return array(
         'blog' => array(
             'Blog' => 'Блог',
-            'Blog plugin for Monstra' => 'Плагін блогі для Monstra',
+            'Blog plugin for Monstra' => 'Плагін блога для Monstra',
             'begin' => 'початок',
             'end' => 'кінець',
             'prev' => 'назад',
