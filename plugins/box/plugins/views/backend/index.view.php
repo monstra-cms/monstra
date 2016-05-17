@@ -49,7 +49,7 @@
                             <?php } ?>
                             <?php echo Html::anchor(__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
-                                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
+                                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Uninstall plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
                             ?>
                             </div>
                         </td>
