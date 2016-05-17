@@ -101,13 +101,23 @@ class SystemAdmin extends Backend
                 if (Security::check(Request::get('token'))) {
 
                     if ('on' == Request::get('maintenance')) {
+						
                         Option::update('maintenance_status', 'on');
-                        Request::redirect('index.php?id=system');
+						
+						Notification::set('success', __('Monstra proceeds to the maintenance mode.', 'system'));
+                        
+						Request::redirect('index.php?id=system');
+						
                     }
 
                     if ('off' == Request::get('maintenance')) {
+						
                         Option::update('maintenance_status', 'off');
-                        Request::redirect('index.php?id=system');
+						
+						Notification::set('success', __('Monstra out of maintenance mode.', 'system'));
+                        
+						Request::redirect('index.php?id=system');
+						
                     }
 
                 } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
