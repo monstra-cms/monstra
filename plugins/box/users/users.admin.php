@@ -20,7 +20,10 @@ class UsersAdmin extends Backend
 
         // Get uses table
         $users = new Table('users');
-
+        
+        //public visibility check, default is false
+        $users_public_listing = filter_var(Option::get('users_public_listing'), FILTER_VALIDATE_BOOLEAN);
+        
         if (Option::get('users_frontend_registration') === 'true') {
             $users_frontend_registration = true;
         } else {
@@ -31,6 +34,13 @@ class UsersAdmin extends Backend
 
             if (Security::check(Request::post('csrf'))) {
 
+                if (Request::post('users_public_listing')) {
+                    $users_public_listing = 'true';
+                } else {
+                    $users_public_listing = 'false';
+                }
+                if (!Option::exists('users_public_listing')) Option::add('users_public_listing', $users_public_listing); else Option::update('users_public_listing', $users_public_listing);
+                
                 if (Request::post('users_frontend_registration')) $users_frontend_registration = 'true'; else $users_frontend_registration = 'false';
                 
                 if (Option::update('users_frontend_registration', $users_frontend_registration)) {
@@ -222,6 +232,7 @@ class UsersAdmin extends Backend
                 View::factory('box/users/views/backend/index')
                         ->assign('roles', $roles)
                         ->assign('users_list', $users->select())
+                        ->assign('users_public_listing', $users_public_listing)
                         ->assign('users_frontend_registration', $users_frontend_registration)
                         ->display();
 

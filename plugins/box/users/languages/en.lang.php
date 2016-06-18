@@ -55,6 +55,7 @@
             'Monstra says: This is not your profile...' => 'Monstra says: This is not your profile...',
             'User registration is closed.' => 'User registration is closed.',
             'Allow user registration' => 'Allow user registration',
+            'Users publicly visible' => 'Users publicly visible',
             'Required field' => 'Required field',
             'This user doesnt exist' => 'This user doesnt exist',
             'Captcha code is wrong' => 'Captcha code is wrong',
