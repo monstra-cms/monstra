@@ -5,7 +5,7 @@
     <plugin_priority>15</plugin_priority>
     <plugin_name>Blog</plugin_name>
     <plugin_description>Blog plugin for Monstra</plugin_description>
-    <plugin_version>1.7.3</plugin_version>
-    <plugin_author>Awilum</plugin_author>
-    <plugin_author_uri>http://monstra.org/</plugin_author_uri>
+    <plugin_version>1.8.0</plugin_version>
+    <plugin_author>Samir KHERRAZ</plugin_author>
+    <plugin_author_uri>http://www.samir-kherraz.tk/</plugin_author_uri>
 </root>

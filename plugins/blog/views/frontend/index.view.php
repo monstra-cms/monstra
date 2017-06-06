@@ -1,7 +1,12 @@
 <?php foreach($posts as $post) { ?>
-    <h3 class="monstra-blog-title"><a href="<?php echo Option::get('siteurl'); ?>/<?php echo Blog::$parent_page_name; ?>/<?php echo $post['slug'] ?>"><?php echo $post['title']; ?></a></h3>
-    <small class="monstra-blog-date"><?php echo Date::format($post['date'], 'd M Y'); ?> / <?php echo $post['author']; ?></small>
-    <div class="monstra-blog-post">
-	    <?php echo $post['content']; ?>
-    </div>    
-<?php } ?>
+       
+<div class="panel panel-primary">
+          <div class="panel-heading "><?php echo $post['title']; ?></div>
+          <div class="panel-body ">
+            	    <?php echo $post['content']; ?>
+          </div>
+          <div class="panel-footer">
+          <a class="btn btn-sm btn-info" href="<?php echo Option::get('siteurl'); ?>/<?php echo Blog::$parent_page_name; ?>/<?php echo $post['slug'] ?>">Lire la suite</a>
+         </div>
+</div>   
+<?php } ?>			

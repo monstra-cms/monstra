@@ -19,6 +19,8 @@
             </div>
         </div>
 
+        <?php echo Comments::init();?>
+
         <div class="row">
             <div class="col-xs-12">
                 <?php Action::run('theme_post_content'); ?>

@@ -8,5 +8,5 @@
             'end' => 'end',
             'prev' => 'prev',
             'next' => 'next',
-        ) 
+        )
     );
