@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="<?php echo Site::url(); ?>" />
-    <link rel="dns-prefetch" href="//www.google-analytics.com" />
-    
-    <title><?php echo Site::name() . ' - ' . Site::title(); ?></title>
+    <link rel="dns-prefetch" href="<?php echo Site::url(); ?>" />    
+    <title><?php echo  Site::title() . ' - ' .Site::name(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo Site::description(); ?>">
     <meta name="keywords" content="<?php echo Site::keywords(); ?>">
-    <meta name="robots" content="<?php echo Page::robots(); ?>">
+    <meta name="robots" content="index, follow">
 
     <?php Action::run('theme_meta'); ?>
 
@@ -24,13 +22,26 @@
     <meta itemprop="name" content="<?php echo Site::title(); ?> | <?php echo Site::name(); ?>">
 
     <!-- Styles -->
+
+
     <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.css" type="text/css" />
-    <?php Stylesheet::add('public/themes/default/css/default.css', 'frontend', 2); ?>
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.flatty.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/themes/default/css/default.css" type="text/css" />
+   
+
+
+
     <?php Stylesheet::load(); ?>
 
+
+
     <!-- JavaScripts -->
-    <?php Javascript::add('public/assets/js/jquery.min.js', 'frontend', 1); ?>
+    <script src="<?php echo Site::url(); ?>/public/assets/js/jquery.min.js"></script>
+
+
     <?php Javascript::add('public/assets/js/bootstrap.min.js', 'frontend', 2); ?>
+    <?php Javascript::add('public/themes/default/js/default.js', 'frontend', 6); ?>  
     <?php Javascript::load(); ?>
 
     <?php Action::run('theme_header'); ?>
@@ -43,50 +54,113 @@
     <!-- Fav-icons -->
     <link rel="icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
-  </head>
+    </head>
 
   <body>
 
-  <div class="masthead">
-
-    <div class="navbar" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<?php echo Site::url(); ?>"><?php echo Site::name(); ?></a>
+<div class="container-fluid headerbg">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu_collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo Site::url(); ?>">
+                    <?php echo Site::name(); ?>
+            </a>        
         </div>
-        <div class="collapse navbar-collapse">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="menu_collapse">
+            
           <ul class="nav navbar-nav">
-              <?php echo Menu::get(); ?>
-              <?php Users::getPanel(); ?>
+                <?php echo Menu::get(); ?>
           </ul>
+                 
+          <ul class="nav navbar-nav navbar-right">
+                <?php Users::getPanel(); ?>          
+          </ul>
+            
         </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+
+    
+    
+    
+    <div id="topTitle" style="display:none;background:#1a242f">
+          <div class="container text-center">
+            <div class="navbar-brand">
+          
+                <?php
+
+                $class=  Uri::segment(0);
+                if (Uri::segment(0) == 'users'  && Uri::segment(1) == '') {
+                    echo __('Users', 'users');
+                } elseif (Uri::segment(0) == 'sitemap') {
+                    echo __('Sitemap', 'sitemap');
+                } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'registration') {
+                    echo __('Registration', 'users');
+                } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'login') {
+                    echo __('Log In', 'users');
+                } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'password-reset') {
+                    echo __('Reset Password', 'users');
+                } elseif (Uri::segment(0) == 'users' && Uri::segment(2) == 'edit') {
+                    echo __('Edit profile', 'users');
+                } elseif (Uri::segment(0) == 'users' && Uri::segment(1)) {
+                    echo __('Profile', 'users');
+                } elseif (class_exists($class)) {
+                    echo $class::title() ;
+                } else {
+                    echo Page::title();
+                }
+            ?>
+          </div>
+              
+          <a class="navbar-brand navbar-right " href="#top">
+              
+              <i class="fa fa-angle-up" aria-hidden="true"></i>
+
+          </a>
+              
+        </div>
+        
       </div>
-    </div>
+</nav>
+      
 
-    <div class="page-header container text-center">
-      <?php if (Uri::segment(0) == 'users'  && Uri::segment(1) == '') { ?>
-        <h1><?php echo __('Users', 'users'); ?></h1>
-      <?php } elseif (Uri::segment(0) == 'sitemap') { ?>
-        <h1><?php echo __('Sitemap', 'sitemap'); ?></h1>
-      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'registration') { ?>        
-        <h1><?php echo __('Registration', 'users'); ?></h1>
-      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'login') { ?>
-        <h1><?php echo __('Log In', 'users'); ?></h1>
-      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'password-reset') { ?>                
-        <h1><?php echo __('Reset Password', 'users') ?></h1>
-      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(2) == 'edit') { ?>                
-        <h1><?php echo __('Edit profile', 'users') ?></h1>
-      <?php } elseif (Uri::segment(0) == 'users' && Uri::segment(1) ) { ?>
-        <h1><?php echo __('Profile', 'users'); ?></h1>
-      <?php } else { ?>
-        <h1><?php echo Page::title(); ?></h1>
-      <?php } ?>
-    </div>
+    <div class="jumbotron transparent text-inverse">
+      <div class="container ">
+        <h1 id="headerTitle" class=" text-center">
+            <?php
+            $class=  Uri::segment(0);
+            if (Uri::segment(0) == 'users'  && Uri::segment(1) == '') {
+                echo __('Users', 'users');
+            } elseif (Uri::segment(0) == 'sitemap') {
+                echo __('Sitemap', 'sitemap');
+            } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'registration') {
+                echo __('Registration', 'users');
+            } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'login') {
+                echo __('Log In', 'users');
+            } elseif (Uri::segment(0) == 'users' && Uri::segment(1) == 'password-reset') {
+                echo __('Reset Password', 'users');
+            } elseif (Uri::segment(0) == 'users' && Uri::segment(2) == 'edit') {
+                echo __('Edit profile', 'users');
+            } elseif (Uri::segment(0) == 'users' && Uri::segment(1)) {
+                echo __('Profile', 'users');
+            } elseif (class_exists($class)) {
+                echo $class::title() ;
+            } else {
+                echo Page::title();
+            }
 
+        ?>
+        </h1>
+            
+      </div>
+    </div> 
   </div>

@@ -14,7 +14,7 @@
 
         <div class="tab-pane active" id="installed">
             <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th><?php echo __('Name', 'plugins'); ?></th>

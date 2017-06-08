@@ -23,7 +23,7 @@
       <span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
       <?php
           echo (
-              Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-primary')).
+              Form::submit('upload_file', __('Upload', 'filesmanager'), array('class' => 'btn btn-success')).
               Form::close()
           )
       ?>            
@@ -76,7 +76,7 @@
 <!-- /Filesmanger_path -->
 
 <div class="table-responsive">
-<table class="table table-bordered" id="filesDirsList">
+<table class="table table-striped " id="filesDirsList">
     <thead>
         <tr>
             <th><?php echo __('Name', 'filesmanager'); ?></th>
@@ -89,7 +89,7 @@
         <?php if (isset($dir_list)) foreach ($dir_list as $dir) { ?>
         <tr>
             <td>
-                <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&path='.$path.$dir.'/'); ?></b>
+                <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&path='.$path.$dir.'/',array("class"=>"btn btn-default")); ?></b>
             </td>
             <td>
 
@@ -100,9 +100,9 @@
             <td>
             <div class="pull-right">
                 <button class="btn btn-primary js-rename-dir" data-dirname="<?php echo $dir; ?>" data-path="<?php echo $path; ?>">
-                    <?php echo __('Rename', 'filesmanager'); ?>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
                 </button>
-                <?php echo Html::anchor(__('Delete', 'filesmanager'),
+                <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                            'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path.'&token='.Security::token(),
                            array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
                 ?>

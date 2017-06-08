@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root><options><autoincrement>4</autoincrement></options><fields><name/><link/><target/><order/><category/></fields><menu><id>1</id><uid>30152dec4d</uid><name>Home</name><link>home</link><category/><target/><order>1</order></menu><menu><id>2</id><uid>b8f8bb4daf</uid><name>Users</name><link>users</link><category/><target/><order>3</order></menu><menu><id>4</id><uid>c4d4cab28e</uid><name>Blog</name><link>blog</link><category/><target/><order>2</order></menu></root>
+<root>
+    <options>
+        <autoincrement>4</autoincrement>
+    </options>
+    <fields>
+        <name/>
+        <link/>
+        <target/>
+        <order/>
+        <category/>
+    </fields>
+    <menu>
+        <id>1</id>
+        <uid>30152dec4d</uid>
+        <name>Home</name>
+        <link>home</link>
+        <category/>
+        <target/>
+        <order>1</order>
+    </menu>
+    <menu>
+        <id>2</id>
+        <uid>b8f8bb4daf</uid>
+        <name>Users</name>
+        <link>users</link>
+        <category/>
+        <target/>
+        <order>3</order>
+    </menu>
+    <menu>
+        <id>4</id>
+        <uid>c4d4cab28e</uid>
+        <name>Blog</name>
+        <link>category-1</link>
+        <category/>
+        <target/>
+        <order>2</order>
+    </menu>
+</root>

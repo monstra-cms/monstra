@@ -16,7 +16,7 @@
             'Forbidden file type' => 'Forbidden file type',
             'Upload server error' => 'Upload server error',
             'Can not be empty' => 'Can not be empty',
-            'Create New Directory' => 'Create New Directory',
+            'Create New Directory' => 'Créer un nouveau dossier',
             'Directory Name' => 'Directory Name',
             'Directory:' => 'Directory:',
             'Directory was not created' => 'Directory was not created',

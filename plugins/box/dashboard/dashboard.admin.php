@@ -4,6 +4,7 @@
 Stylesheet::add('public/assets/css/daterangepicker-bs3.css', 'backend', 11);
 Javascript::add('public/assets/js/moment.min.js', 'backend', 11);
 Javascript::add('public/assets/js/daterangepicker.js', 'backend', 12);
+Javascript::add('public/assets/js/daterangepicker.js', 'backend', 12);
 Javascript::add('plugins/box/dashboard/js/ganalytics.js', 'backend', 13);
 
 /**

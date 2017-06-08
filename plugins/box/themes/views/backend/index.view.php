@@ -54,7 +54,7 @@
 <?php echo (Html::anchor(__('Create New Template', 'themes'), 'index.php?id=themes&action=add_template', array('title' => __('Create New Template'), 'class' => 'btn btn-default')).Html::br(2)); ?>
 
 <!-- Templates_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Templates', 'themes'); ?></th>
@@ -68,7 +68,7 @@
         <td>
             <div class="pull-right">
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_template&filename='.basename($template, '.template.php'), array('class' => 'btn btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=themes&action=edit_template&filename='.basename($template, '.template.php'), array('class' => 'btn btn-primary')); ?>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -77,7 +77,7 @@
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_template&filename='.basename($template, '.template.php').'&token='.Security::token(), array('title' => __('Clone'))); ?></li>
                     </ul>
                 </div>
-                    <?php echo Html::anchor(__('Delete', 'themes'),
+                    <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                                'index.php?id=themes&action=delete_template&filename='.basename($template, '.template.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-danger btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete template: :name', 'themes', array(':name' => basename($template, '.template.php')))."')"));
                     ?>
@@ -92,7 +92,7 @@
 <?php echo (Html::anchor(__('Create New Chunk', 'themes'), 'index.php?id=themes&action=add_chunk', array('title' => __('Create New Chunk', 'themes'), 'class' => 'btn btn-default')).Html::br(2)); ?>
 
 <!-- Chunks_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Chunks', 'themes'); ?></th>
@@ -106,7 +106,7 @@
         <td>
             <div class="pull-right">
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_chunk&filename='.basename($chunk, '.chunk.php'), array('class' => 'btn btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=themes&action=edit_chunk&filename='.basename($chunk, '.chunk.php'), array('class' => 'btn btn-primary')); ?>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -115,7 +115,7 @@
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
 				</div>
-                    <?php echo Html::anchor(__('Delete', 'themes'),
+                    <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                                'index.php?id=themes&action=delete_chunk&filename='.basename($chunk, '.chunk.php').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-danger btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete chunk: :name', 'themes', array(':name' => basename($chunk, '.chunk.php')))."')"));
                     ?>
@@ -130,7 +130,7 @@
 <?php echo (Html::anchor(__('Create New Styles', 'themes'), 'index.php?id=themes&action=add_styles', array('title' => __('Create New Style', 'themes'), 'class' => 'btn btn-default')).Html::br(2)); ?>
 
 <!-- Styles_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Styles', 'themes'); ?></td>
@@ -144,7 +144,7 @@
         <td>
             <div class="pull-right">
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_styles&filename='.basename($style, '.css'), array('class' => 'btn btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=themes&action=edit_styles&filename='.basename($style, '.css'), array('class' => 'btn btn-primary')); ?>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -153,7 +153,7 @@
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_styles&filename='.basename($style, '.css').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
 				</div>
-                    <?php echo Html::anchor(__('Delete', 'themes'),
+                    <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                                'index.php?id=themes&action=delete_styles&filename='.basename($style, '.css').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-danger btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete styles: :name', 'themes', array(':name' => basename($style, '.css')))."')"));
                     ?>
@@ -168,7 +168,7 @@
 <?php echo (Html::anchor(__('Create New Script', 'themes'), 'index.php?id=themes&action=add_script', array('title' => __('Create New Script', 'themes'), 'class' => 'btn btn-default')).Html::br(2)); ?>
 
 <!-- Scripts_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Scripts', 'themes'); ?></th>
@@ -182,7 +182,7 @@
         <td>
             <div class="pull-right">
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'themes'), 'index.php?id=themes&action=edit_script&filename='.basename($script, '.js'), array('class' => 'btn btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=themes&action=edit_script&filename='.basename($script, '.js'), array('class' => 'btn btn-primary')); ?>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -191,7 +191,7 @@
                         <li><?php echo Html::anchor(__('Clone', 'themes'), 'index.php?id=themes&action=clone_script&filename='.basename($script, '.js').'&token='.Security::token(), array('title' => __('Clone', 'themes'))); ?></li>
                     </ul>
                 </div>
-                    <?php echo Html::anchor(__('Delete', 'themes'),
+                    <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                                'index.php?id=themes&action=delete_script&filename='.basename($script, '.js').'&token='.Security::token(),
                                array('class' => 'btn btn-actions btn-danger btn-actions-default', 'onclick' => "return confirmDelete('".__('Delete script: :name', 'themes', array(':name' => basename($script, '.js')))."')"));
                     ?>

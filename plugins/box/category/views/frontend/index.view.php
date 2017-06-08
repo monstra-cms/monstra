@@ -6,7 +6,7 @@
             	    <?php echo $post['content']; ?>
           </div>
           <div class="panel-footer">
-          <a class="btn btn-sm btn-info" href="<?php echo Option::get('siteurl'); ?>/<?php echo Blog::$parent_page_name; ?>/<?php echo $post['slug'] ?>">Lire la suite</a>
+          <a class="btn btn-sm btn-info" href="<?php echo Option::get('siteurl'); ?>/<?php echo Category::$parent_page_name; ?>/<?php echo $post['slug'] ?>">Lire la suite</a>
          </div>
 </div>   
 <?php } ?>			

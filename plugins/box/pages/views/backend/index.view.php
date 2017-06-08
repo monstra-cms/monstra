@@ -12,8 +12,7 @@
     </div>
 </div>
 
-<div class="table-responsive">
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th width="3%"></th>
@@ -41,9 +40,9 @@
         <?php
             if (count(PagesAdmin::$pages->select('[parent="'.(string) $page['slug'].'"]', 'all')) > 0) {
                 if (isset($page['expand']) && $page['expand'] == '1') {
-                    echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">+</a>';
+                    echo '<a href="javascript:;" class="btn-expand parent btn btn-default" token="'.Security::token().'" rel="'.$page['slug'].'">+</a>';
                 } else {
-                    echo '<a href="javascript:;" class="btn-expand parent" token="'.Security::token().'" rel="'.$page['slug'].'">-</a>';
+                    echo '<a href="javascript:;" class="btn-expand parent btn btn-default" token="'.Security::token().'" rel="'.$page['slug'].'">-</a>';
                 }
             }
         ?>
@@ -71,7 +70,7 @@
         <td>
             <div class="pull-right">
                 <div class="btn-group">
-                  <?php echo Html::anchor(__('Edit', 'pages'), 'index.php?id=pages&action=edit_page&name='.$page['slug'], array('class' => 'btn btn-primary')); ?>
+                  <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=pages&action=edit_page&name='.$page['slug'], array('class' => 'btn btn-primary')); ?>
                   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only">Toggle Dropdown</span>
@@ -91,7 +90,7 @@
                   </ul>
                 </div>
 
-                <?php echo Html::anchor(__('Delete', 'pages'),
+                <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                            'index.php?id=pages&action=delete_page&name='.$page['slug'].'&token='.Security::token(),
                            array('class' => 'btn btn-danger btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__("Delete page: :page", 'pages', array(':page' => Html::toText($page['title'])))."')"));
                 ?>
@@ -106,7 +105,6 @@
     ?>
     </tbody>
 </table>
-</div>
 
 <form>
     <input type="hidden" name="url" value="<?php echo Option::get('siteurl'); ?>/admin/index.php?id=pages">
