@@ -24,15 +24,21 @@
     // Get array with the names of all modules compiled and loaded
     $php_modules = get_loaded_extensions();
 
+    // Protocol to use
+    $protocol = 'http';
+
     // Get server port
     if ($_SERVER["SERVER_PORT"] == "80") {
         $port = "";
+    } elseif ($_SERVER["SERVER_PORT"] == "443") {
+        $port = "";
+        $protocol = 'https';
     } else {
         $port = ':'.$_SERVER["SERVER_PORT"];
     }
 
     // Get site URL
-    $site_url = 'http://'.$_SERVER["SERVER_NAME"].$port.str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
+    $site_url = $protocol . '://'.$_SERVER["SERVER_NAME"].$port.str_replace(array("index.php", "install.php"), "", $_SERVER['PHP_SELF']);
 
     // Replace last slash in site_url
     $site_url = rtrim($site_url, '/');
