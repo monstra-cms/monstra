@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /monstra/
+Disallow: /site/plugins/
+Disallow: /site/config/
+Disallow: /vendor/

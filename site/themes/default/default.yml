@@ -1,0 +1,13 @@
+name: Default
+version: 1.0.0
+description: Default Monstra theme
+author:
+  name: Sergey Romanenko
+  email: awilum@msn.com
+  url: https://github.com/Awilum
+homepage: https://github.com/Monstra/Monstra
+bugs: https://github.com/Monstra/Monstra/issues
+license: MIT
+
+# Theme settings
+enabled: true
