@@ -1,3 +1,3 @@
-    <?php Theme::getTemplate('tail'); ?>
+    <?php Theme::getTemplate('partials/tail'); ?>
   </body>
 </html>
