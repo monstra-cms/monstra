@@ -88,7 +88,7 @@ class Pages
      */
     public static function getPages($url = '', $order_by = 'date', $order_type = 'DESC', $ignore = array('404'), $limit = null)
     {
-        $pages = File::scan(STORAGE_PATH . '/pages/' . $url, 'md');
+        $pages = File::scan(CONTENT_PATH . '/pages/' . $url, 'md');
 
         if ($pages) {
             foreach ($pages as $page) {
@@ -110,7 +110,7 @@ class Pages
 
                     $_pages[$key] = Yaml::parse($_page[1]);
 
-                    $url = str_replace(STORAGE_PATH . '/pages', Url::getBase(), $page);
+                    $url = str_replace(CONTENT_PATH . '/pages', Url::getBase(), $page);
                     $url = str_replace('index.md', '', $url);
                     $url = str_replace('.md', '', $url);
                     $url = str_replace('\\', '/', $url);
@@ -165,23 +165,23 @@ class Pages
     public static function getPage($url)
     {
 
-        // If url is empty that its a homepage
+        // If url is empty then its a homepage
         if ($url) {
-            $file = STORAGE_PATH . '/pages/' . $url;
+            $file = CONTENT_PATH . '/pages/' . $url;
         } else {
-            $file = STORAGE_PATH . '/pages/' . 'index';
+            $file = CONTENT_PATH . '/pages/' . Config::get('site.pages.main') . '/' . 'index';
         }
 
         // Select the file
         if (is_dir($file)) {
-            $file = STORAGE_PATH . '/pages/' . $url .'/index.md';
+            $file = CONTENT_PATH . '/pages/' . $url .'/index.md';
         } else {
             $file .= '.md';
         }
 
         // Get 404 page if file not exists
         if (!file_exists($file)) {
-            $file = STORAGE_PATH . '/pages/' . '404.md';
+            $file = CONTENT_PATH . '/pages/404/' . 'index.md';
             Response::status(404);
         }
 
@@ -197,7 +197,7 @@ class Pages
 
             $page = Yaml::parse($_page[1]);
 
-            $url = str_replace(STORAGE_PATH . '/pages', Url::getBase(), $file);
+            $url = str_replace(CONTENT_PATH . '/pages', Url::getBase(), $file);
             $url = str_replace('index.md', '', $url);
             $url = str_replace('.md', '', $url);
             $url = str_replace('\\', '/', $url);

@@ -12,11 +12,11 @@
 // Define the path to the root directory (without trailing slash).
 define('ROOT_DIR', str_replace(DIRECTORY_SEPARATOR, '/', getcwd()));
 
-// Define the path to the storage directory (without trailing slash).
-define('SITE_PATH', ROOT_DIR . '/site');
+// Define the path to the site directory (without trailing slash).
+define('SITE_PATH', ROOT_DIR . '/site-katerinasitnikova');
 
-// Define the path to the storage directory (without trailing slash).
-define('STORAGE_PATH', SITE_PATH . '/storage');
+// Define the path to the content directory (without trailing slash).
+define('CONTENT_PATH', SITE_PATH . '/content');
 
 // Define the path to the themes directory (without trailing slash).
 define('THEMES_PATH', SITE_PATH . '/themes');
@@ -29,6 +29,3 @@ define('CONFIG_PATH', SITE_PATH . '/config');
 
 // Define the path to the cache directory (without trailing slash).
 define('CACHE_PATH', SITE_PATH . '/cache');
-
-// Define the path to the cache directory (without trailing slash).
-define('ACCOUNTS_PATH', SITE_PATH . '/cache');
