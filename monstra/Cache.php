@@ -67,7 +67,7 @@ class Cache
         static::$now = time();
 
         // Cache key allows us to invalidate all cache on configuration changes.
-        static::$key = (Config::get('site.cache.prefix') ? Config::get('site.cache.prefix') : 'Monstra') . '-' . md5(ROOT_DIR . Monstra::VERSION);
+        static::$key = (Config::get('site.cache.prefix') ? Config::get('site.cache.prefix') : 'monstra') . '-' . md5(ROOT_DIR . Monstra::VERSION);
 
         // Get Cache Driver
         static::$driver = static::getCacheDriver();
@@ -196,6 +196,7 @@ class Cache
     public static function clear()
     {
         Dir::delete(CACHE_PATH . '/doctrine/');
+        Dir::delete(CACHE_PATH . '/fenom/');
     }
 
     /**

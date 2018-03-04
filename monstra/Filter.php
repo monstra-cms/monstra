@@ -1,4 +1,5 @@
 <?php
+namespace Monstra;
 
 /**
  * This file is part of the Monstra.
@@ -9,8 +10,15 @@
  * file that was distributed with this source code.
  */
 
+
 class Filter
 {
+
+    /**
+     * @var Monstra
+     */
+    protected $monstra;
+
     /**
      * Filters
      *
@@ -20,13 +28,11 @@ class Filter
     protected static $filters = [];
 
     /**
-     * Protected constructor since this is a static class.
-     *
-     * @access protected
+     * Construct
      */
-    protected function __construct()
+    public function __construct(Monstra $c)
     {
-        // Nothing here
+        $this->monstra = $c;
     }
 
     /**
@@ -41,7 +47,7 @@ class Filter
      * @param  mixed  $value       The value on which the filters hooked.
      * @return mixed
      */
-    public static function apply($filter_name, $value)
+    public function dispatch($filter_name, $value)
     {
         // Redefine arguments
         $filter_name = (string) $filter_name;
@@ -93,13 +99,15 @@ class Filter
      * @param  integer $accepted_args   The number of arguments the function accept default is 1.
      * @return boolean
      */
-    public static function add($filter_name, $function_to_add, $priority = 10, $accepted_args = 1)
+    public function addListener($filter_name, $function_to_add, $priority = 10, $accepted_args = 1)
     {
         // Redefine arguments
         $filter_name     = (string) $filter_name;
         $function_to_add = $function_to_add;
         $priority        = (int) $priority;
         $accepted_args   = (int) $accepted_args;
+
+        //die($function_to_add);
 
         // Check that we don't already have the same filter at the same priority. Thanks to WP :)
         if (isset(static::$filters[$filter_name]["$priority"])) {

@@ -1,10 +1,14 @@
 <?php
-
-// Monstra requires PHP 5.5.9 or greater
-version_compare(PHP_VERSION, "5.5.9", "<") and exit("Monstra requires PHP 5.5.9 or greater.");
+namespace Monstra;
 
 // Register the auto-loader.
-require_once __DIR__ . '/vendor/autoload.php';
+$loader = require __DIR__ . '/vendor/autoload.php';
 
-// Initialize Monstra Application
-Monstra::init();
+// Check PHP Version
+version_compare($ver = PHP_VERSION, $req = '7.1.3', '<') and exit(sprintf('You are running PHP %s, but Monstra needs at least <strong>PHP %s</strong> to run.', $ver, $req));
+
+// Get Monstra Instance
+$app = Monstra::instance();
+
+// Run Monstra Application
+$app->run();

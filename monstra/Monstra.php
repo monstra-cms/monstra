@@ -1,6 +1,14 @@
 <?php
+namespace Monstra;
 
- /**
+use Pimple\Container as Container;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\Event;
+use ParsedownExtra;
+
+/**
   * Monstra
   *
   * @package Monstra
@@ -11,7 +19,7 @@
   * file that was distributed with this source code.
   */
 
-class Monstra
+class Monstra extends Container
 {
     /**
      * An instance of the Monstra class
@@ -19,80 +27,101 @@ class Monstra
      * @var object
      * @access protected
      */
-    protected static $instance = null;
+    protected static $instance;
 
     /**
      * The version of Monstra
      *
      * @var string
      */
-    const VERSION = '4.0.0 alpha';
+    const VERSION = 'X.X.X alfa';
 
     /**
-     * Protected clone method to enforce singleton behavior.
-     *
-     * @access protected
+     * Init Monstra Application
      */
-    protected function __clone()
+    protected static function init()
     {
-        // Nothing here.
+        $container = new static();
+
+        $container['filesystem'] = function ($c) {
+            return new Filesystem();
+        };
+
+        $container['finder'] = function ($c) {
+            return new Finder();
+        };
+
+        $container['config'] = function ($c) {
+            return new Config($c);
+        };
+
+        $container['markdown'] = function ($c) {
+            return new ParsedownExtra();
+        };
+
+        $container['events'] = function ($c) {
+            return new EventDispatcher();
+        };
+
+        $container['filters'] = function ($c) {
+            return new Filter($c);
+        };
+
+        $container['plugins'] = function ($c) {
+            return new Plugins($c);
+        };
+
+        $container['plugins']->init();
+
+        $container['pages'] = function ($c) {
+          return new Pages($c);
+        };
+
+
+        $container['themes'] = function ($c) {
+            return new Themes($c);
+        };
+
+        return $container;
     }
 
     /**
-     * Constructor.
-     *
-     * @access protected
+     * Run Monstra Application
      */
-    protected function __construct()
+    public function run()
     {
-        // Init Config
-        Config::init();
-
         // Turn on output buffering
         ob_start();
 
         // Display Errors
-        Config::get('site.errors.display') and error_reporting(-1);
+        $this['config']->get('site.errors.display') and error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 
         // Set internal encoding
         function_exists('mb_language') and mb_language('uni');
-        function_exists('mb_regex_encoding') and mb_regex_encoding(Config::get('site.charset'));
-        function_exists('mb_internal_encoding') and mb_internal_encoding(Config::get('site.charset'));
+        function_exists('mb_regex_encoding') and mb_regex_encoding($this['config']->get('site.charset'));
+        function_exists('mb_internal_encoding') and mb_internal_encoding($this['config']->get('site.charset'));
 
         // Set default timezone
-        date_default_timezone_set(Config::get('site.timezone'));
+        date_default_timezone_set($this['config']->get('site.timezone'));
 
-        // Start the session
-        Session::start();
-
-        // Init Cache
-        Cache::init();
-
-        // Init Plugins
-        Plugins::init();
-
-        // Init Blocks
-        Blocks::init();
-
-        // Init Pages
-        Pages::init();
+        $this['themes']->renderTemplate($this['pages']->getPage(\Url::getUriString()));
 
         // Flush (send) the output buffer and turn off output buffering
         ob_end_flush();
     }
 
     /**
-     * Initialize Monstra Application
-     *
-     *  <code>
-     *      Monstra::init();
-     *  </code>
+     * Get Monstra Application Instance
      *
      * @access public
      * @return object
      */
-    public static function init()
+    public static function instance()
     {
-        return !isset(self::$instance) and self::$instance = new Monstra();
+        if (!self::$instance) {
+            self::$instance = static::init();
+            MonstraTrait::setMonstra(self::$instance);
+        }
+        return self::$instance;
     }
 }

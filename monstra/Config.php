@@ -1,4 +1,8 @@
 <?php
+namespace Monstra;
+
+use Arr;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * This file is part of the Monstra.
@@ -12,12 +16,9 @@
 class Config
 {
     /**
-     * An instance of the Config class
-     *
-     * @var object
-     * @access  protected
+     * @var Monstra
      */
-    protected static $instance = null;
+    protected $monstra;
 
     /**
      * Config
@@ -28,86 +29,54 @@ class Config
     protected static $config = [];
 
     /**
-     * Protected clone method to enforce singleton behavior.
-     *
-     * @access  protected
-     */
-    protected function __clone()
-    {
-        // Nothing here.
-    }
-
-    /**
      * Constructor.
      *
      * @access  protected
      */
-    protected function __construct()
+    public function __construct(Monstra $c)
     {
-        static::$config['site'] = Yaml::parseFile(CONFIG_PATH . '/' . 'site.yml');
+        $this->monstra = $c;
+
+        if ($this->monstra['filesystem']->exists($site_config = CONFIG_PATH . '/' . 'site.yml')) {
+            self::$config['site'] = Yaml::parse(file_get_contents($site_config));
+        } else {
+            throw new RuntimeException("Monstra site config file does not exist.");
+        }
     }
 
     /**
      * Set new or update existing config variable
      *
-     *  <code>
-     *      Config::set('site.title', 'value');
-     *  </code>
-     *
      * @access public
      * @param string $key   Key
      * @param mixed  $value Value
      */
-    public static function set($key, $value)
+    public function set($key, $value)
     {
-        Arr::set(static::$config, $key, $value);
+        Arr::set(self::$config, $key, $value);
     }
 
     /**
      * Get config variable
-     *
-     *  <code>
-     *      Config::get('site');
-     *      Config::get('site.title');
-     *      Config::get('site.title', 'Default title');
-     *  </code>
      *
      * @access  public
      * @param  string $key Key
      * @param  mixed  $default Default value
      * @return mixed
      */
-    public static function get($key, $default = null)
+    public function get($key, $default = null)
     {
-        return Arr::get(static::$config, $key, $default);
+        return Arr::get(self::$config, $key, $default);
     }
 
     /**
      * Get config array
      *
-     *  <code>
-     *      $config = Config::getConfig();
-     *  </code>
-     *
      * @access  public
      * @return array
      */
-    public static function getConfig()
+    public function getConfig()
     {
-        return static::$config;
-    }
-
-    /**
-     * Initialize Monstra Config
-     *
-     *  <code>
-     *      Config::init();
-     *  </code>
-     *
-     * @access  public
-     */
-    public static function init()
-    {
-        return !isset(self::$instance) and self::$instance = new Config();
+        return self::$config;
     }
 }
