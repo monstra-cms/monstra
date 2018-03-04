@@ -1,9 +1,6 @@
 <?php
 namespace Monstra;
 
-use Url;
-use Response;
-
 /**
  * This file is part of the Monstra.
  *
@@ -26,19 +23,6 @@ class Themes
     public function __construct(Monstra $c)
     {
         $this->monstra = $c;
-    }
-
-    public function renderTemplate($page)
-    {
-        if (empty($page['template'])) {
-            $template_name = 'index';
-        } else {
-            $template_name = $page['template'];
-        }
-
-        $template_ext = '.php';
-
-        include THEMES_PATH . '/' . $this->monstra['config']->get('site.theme') . '/' . $template_name . $template_ext;
     }
 
 }

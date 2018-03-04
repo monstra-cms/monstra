@@ -77,7 +77,6 @@ class Monstra extends Container
           return new Pages($c);
         };
 
-
         $container['themes'] = function ($c) {
             return new Themes($c);
         };
@@ -104,7 +103,8 @@ class Monstra extends Container
         // Set default timezone
         date_default_timezone_set($this['config']->get('site.timezone'));
 
-        $this['themes']->renderTemplate($this['pages']->getPage(\Url::getUriString()));
+        // Render page
+        $this['pages']->renderPage($this['pages']->getPage(\Url::getUriString()));
 
         // Flush (send) the output buffer and turn off output buffering
         ob_end_flush();
