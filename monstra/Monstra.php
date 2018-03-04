@@ -51,9 +51,16 @@ class Monstra extends Container
             return new Finder();
         };
 
+        $container['cache'] = function ($c) {
+            return new Cache($c);
+        };
+
         $container['config'] = function ($c) {
             return new Config($c);
         };
+
+        // Start the session
+        //\Session::start();
 
         $container['markdown'] = function ($c) {
             return new ParsedownExtra();

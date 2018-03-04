@@ -103,13 +103,8 @@ class Page
      */
     public function renderPage($page)
     {
-        if (empty($page['template'])) {
-            $template_name = 'index';
-        } else {
-            $template_name = $page['template'];
-        }
-
         $template_ext = '.php';
+        $template_name = empty($page['template']) ? 'index' : $page['template'];
 
         include THEMES_PATH . '/' . $this->monstra['config']->get('site.theme') . '/' . $template_name . $template_ext;
     }

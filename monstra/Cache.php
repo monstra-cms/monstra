@@ -1,4 +1,5 @@
 <?php
+namespace Monstra;
 
 /**
  * This file is part of the Monstra.
@@ -12,11 +13,9 @@
 class Cache
 {
     /**
-     * An instance of the Cache class
-     *
-     * @var object
+     * @var Monstra
      */
-    protected static $instance = null;
+    protected $monstra;
 
     /**
      * Unique cache key
@@ -47,33 +46,28 @@ class Cache
     protected static $driver;
 
     /**
-     * Protected clone method to enforce singleton behavior.
-     *
-     * @access  protected
-     */
-    protected function __clone()
-    {
-        // Nothing here.
-    }
-
-    /**
      * Constructor.
      *
      * @access  protected
      */
-    protected function __construct()
+    public function __construct(Monstra $c)
     {
+        $this->monstra = $c;
+
         // Set current time
         static::$now = time();
 
         // Cache key allows us to invalidate all cache on configuration changes.
-        static::$key = (Config::get('site.cache.prefix') ? Config::get('site.cache.prefix') : 'monstra') . '-' . md5(ROOT_DIR . Monstra::VERSION);
+        static::$key = ($this->monstra['config']->get('site.cache.prefix') ? $this->monstra['config']->get('site.cache.prefix') : 'monstra') . '-' . md5(ROOT_DIR . 'Monstra::VERSION');
 
         // Get Cache Driver
-        static::$driver = static::getCacheDriver();
+        static::$driver = $this->getCacheDriver();
 
         // Set the cache namespace to our unique key
         static::$driver->setNamespace(static::$key);
+
+        // Return
+        return static::$driver;
     }
 
     /**
@@ -82,9 +76,9 @@ class Cache
      * @access public
      * @return object
      */
-    public static function getCacheDriver()
+    public function getCacheDriver()
     {
-        $driver_name = Config::get('site.cache.driver');
+        $driver_name = $this->monstra['config']->get('site.cache.driver');
 
         if (!$driver_name || $driver_name == 'auto') {
             if (extension_loaded('apc')) {
@@ -110,21 +104,21 @@ class Cache
                 break;
             case 'memcache':
                 $memcache = new \Memcache();
-                $memcache->connect(Config::get('site.cache.memcache.server', 'localhost'),
-                                   Config::get('site.cache.memcache.port', 11211));
+                $memcache->connect($this->monstra['config']->get('site.cache.memcache.server', 'localhost'),
+                                   $this->monstra['config']->get('site.cache.memcache.port', 11211));
                 $driver = new \Doctrine\Common\Cache\MemcacheCache();
                 $driver->setMemcache($memcache);
                 break;
             case 'redis':
                 $redis = new \Redis();
-                $redis->connect(Config::get('site.cache.redis.server', 'localhost'),
-                                Config::get('site.cache.redis.port', 6379));
+                $redis->connect($this->monstra['config']->get('site.cache.redis.server', 'localhost'),
+                                $this->monstra['config']->get('site.cache.redis.port', 6379));
                 $driver = new \Doctrine\Common\Cache\RedisCache();
                 $driver->setRedis($redis);
                 break;
             default:
                 // Create doctrine cache directory if its not exists
-                !Dir::exists($cache_directory = CACHE_PATH . '/doctrine/') and Dir::create($cache_directory);
+                !$this->monstra['filesystem']->exists($cache_directory = CACHE_PATH . '/doctrine/') and $this->monstra['filesystem']->mkdir($cache_directory);
                 $driver = new \Doctrine\Common\Cache\FilesystemCache($cache_directory);
                 break;
         }
@@ -138,7 +132,7 @@ class Cache
      * @access public
      * @return object
      */
-    public static function driver()
+    public function driver()
     {
         return static::$driver;
     }
@@ -149,7 +143,7 @@ class Cache
      * @access public
      * @return string
      */
-    public static function getKey()
+    public function getKey()
     {
         return static::$key;
     }
@@ -163,7 +157,7 @@ class Cache
      */
     public function fetch($id)
     {
-        if (Config::get('site.cache.enabled')) {
+        if ($this->monstra['config']->get('site.cache.enabled')) {
             return static::$driver->fetch($id);
         } else {
             return false;
@@ -182,7 +176,7 @@ class Cache
      */
     public function save($id, $data, $lifetime = null)
     {
-        if (Config::get('site.cache.enabled')) {
+        if ($this->monstra['config']->get('site.cache.enabled')) {
             if ($lifetime === null) {
                 $lifetime = static::getLifetime();
             }
@@ -193,10 +187,9 @@ class Cache
     /**
      * Clear Cache
      */
-    public static function clear()
+    public function clear()
     {
-        Dir::delete(CACHE_PATH . '/doctrine/');
-        Dir::delete(CACHE_PATH . '/fenom/');
+        $this->monstra['filesystem']->remove(CACHE_PATH . '/doctrine/');
     }
 
     /**
@@ -205,7 +198,7 @@ class Cache
      * @access public
      * @param int $future timestamp
      */
-    public static function setLifetime($future)
+    public function setLifetime($future)
     {
         if (!$future) {
             return;
@@ -224,10 +217,10 @@ class Cache
      * @access public
      * @return mixed
      */
-    public static function getLifetime()
+    public function getLifetime()
     {
         if (static::$lifetime === null) {
-            static::$lifetime = Config::get('site.cache.lifetime') ?: 604800;
+            static::$lifetime = $this->monstra['config']->get('site.cache.lifetime') ?: 604800;
         }
         return static::$lifetime;
     }
@@ -242,8 +235,8 @@ class Cache
      * @access public
      * @return object
      */
-    public static function init()
+    public function init()
     {
-        return !isset(self::$instance) and self::$instance = new Cache();
+
     }
 }

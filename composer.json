@@ -30,7 +30,6 @@
         "force/shortcode" : "*",
         "force/arr" : "*",
         "force/http" : "*",
-        "force/filesystem" : "*",
         "force/token" : "*",
         "force/url" : "*"
     },
