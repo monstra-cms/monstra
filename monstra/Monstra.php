@@ -62,10 +62,6 @@ class Monstra extends Container
         // Start the session
         //\Session::start();
 
-        $container['markdown'] = function ($c) {
-            return new ParsedownExtra();
-        };
-
         $container['events'] = function ($c) {
             return new EventDispatcher();
         };
@@ -79,6 +75,10 @@ class Monstra extends Container
         };
 
         $container['plugins']->init();
+
+        $container['markdown'] = function ($c) {
+            return new ParsedownExtra();
+        };
 
         $container['pages'] = function ($c) {
           return new Pages($c);

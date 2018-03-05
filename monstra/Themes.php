@@ -25,4 +25,11 @@ class Themes
         $this->monstra = $c;
     }
 
+    public function getTemplate($template_name)
+    {
+        $template_ext = '.php';
+
+        include THEMES_PATH . '/' . $this->monstra['config']->get('site.theme') . '/' . $template_name . $template_ext;
+    }
+
 }
