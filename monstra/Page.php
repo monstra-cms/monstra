@@ -56,10 +56,10 @@ class Page
             }
 
             if (is_array($page_content)) {
-                $page['summary'] = $page['summary'];
-                $page['content'] = $page['content'];
+                $page['summary'] = $this->monstra['markdown']->text($page['summary']);
+                $page['content'] = $this->monstra['markdown']->text($page['content']);
             } else {
-                $page['content'] = $page_content;
+                $page['content'] = $this->monstra['markdown']->text($page_content);
             }
         }
 
