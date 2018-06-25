@@ -1,12 +1,12 @@
 # Monstra
-Monstra is a modern and lightweight Content Management System.   
+Monstra is a modern and lightweight Content Management System.
 
 [![Join the chat at https://gitter.im/monstra-cms/monstra](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/monstra-cms/monstra?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## System Requirements
-Operation system: Unix, Linux, Windows, Mac OS   
-Middleware: PHP 5.3.2 or higher with PHP's [SimpleXML module](http://php.net/simplexml) and [Multibyte String module](http://php.net/mbstring)   
-Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) or Ngnix with [Rewrite Module](http://wiki.nginx.org/HttpRewriteModule)   
+Operation system: Unix, Linux, Windows, Mac OS
+Middleware: PHP 5.3.2 or higher with PHP's [SimpleXML module](http://php.net/simplexml) and [Multibyte String module](http://php.net/mbstring)
+Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) or Ngnix with [Rewrite Module](http://wiki.nginx.org/HttpRewriteModule)
 
 ## Steps to Install
 1. [Download the latest version.](http://monstra.org/download)
@@ -28,7 +28,8 @@ Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mo
 - [Site](http://monstra.org)
 - [Forum](http://forum.monstra.org)
 - [Documentation](http://monstra.org/documentation)
-- [Github Repository](https://github.com/monstra-cms/monstra)
+- [GitHub Documentation](https://github.com/monstra-cms/monstra-cms-documentation)
+- [GitHub Repository](https://github.com/monstra-cms/monstra)
 
 ## License
 See [LICENSE](https://github.com/monstra-cms/monstra/blob/master/LICENSE.md)
