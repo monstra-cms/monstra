@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root><options><autoincrement>1</autoincrement></options><fields><login/><password/><email/><role/><date_registered/><firstname/><lastname/><login/><twitter/><skype/><hash/><about_me/></fields><users><id>1</id><uid>e099f48cc6</uid><firstname/><lastname/><twitter/><skype/><about_me/><login>admin</login><password>e8883934c769cbc24bda5c71ce9744f1</password><email>utoyvo@gmail.com</email><hash>OaNM0gNQlCsz</hash><date_registered>1532108474</date_registered><role>admin</role></users></root>
+<root><options><autoincrement>0</autoincrement></options><fields><login/><password/><email/><role/><date_registered/><firstname/><lastname/><login/><twitter/><skype/><hash/><about_me/></fields></root>
