@@ -6,6 +6,7 @@ id for none admin edits
 - Stylesheet: Changed minified URIs to eliminate query strings
 - FilesManager: added alphabetical order for files and directories
 - Localization: Major Fixes for ES locale
+- Added Privacy policy page
 
 Monstra 3.0.3, 2016-01-29
 ------------------------
