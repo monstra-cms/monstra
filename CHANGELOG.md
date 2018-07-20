@@ -1,5 +1,6 @@
-Monstra 3.0.4, 2016-04-05
+Monstra 3.0.4, 2018-07-21
 ------------------------
+- Added Privacy policy page
 - Fixed User Security by adding a check that compares POST id with SESSION
 id for none admin edits
 - Fixed ability to read robots.txt

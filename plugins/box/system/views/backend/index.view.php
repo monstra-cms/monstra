@@ -58,6 +58,14 @@
                 );
             ?>
         </div>
+        <div class="form-group">
+            <?php
+                echo (
+                    Form::label('site_privacy_policy', __('Privacy policy', 'system')).
+                    Form::select('site_privacy_policy', $pages_array, Option::get('privacy_policy'), array('class' => 'form-control'))
+                );
+            ?>
+        </div>
     </div>
     <div class="col-md-6">
         <h2 class="margin-bottom-1"><?php echo __('System Settings', 'system'); ?></h2>

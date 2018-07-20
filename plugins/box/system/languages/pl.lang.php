@@ -50,7 +50,7 @@
             'Version' => 'Wersja',
             'Plugin does not exist' => 'Wtyczka nie istnieje',
             'Help' => 'Pomoc',
-
+            'Privacy policy' => 'Polityka prywatności',
             'Install script writable' => 'Skrypt instalacyjny ma możliwość zapisu',
             'Install script not writable' => 'Skrypt instalacyjny nie ma możliwości zapisu',
             'Directory: <b> :dir </b> writable' => 'Katalog: <b> :dir </b> z możliwością zapisu',

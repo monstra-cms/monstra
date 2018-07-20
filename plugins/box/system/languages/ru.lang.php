@@ -50,7 +50,7 @@
             'Plugin does not exist' => 'Такого плагина не существует',
             'Help' => 'Помощь',
             'Continue' => 'Продолжить',
-
+            'Privacy policy' => 'Политика приватности',
             'Install script writable' => 'Установочный скрипт доступен для записи',
             'Install script not writable' => 'Установочный скрипт не доступен для записи',
             'Directory: <b> :dir </b> writable' => 'Директория <b> :dir </b> доступна для записи',
