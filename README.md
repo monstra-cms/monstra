@@ -1,4 +1,4 @@
-# THIS PROJECT IS NOT SUPPORTED ANYMORE! Check FLEXTYPE.ORG
+# THIS PROJECT IS NOT SUPPORTED ANYMORE!<br>Check FLEXTYPE.ORG
 
 ## Monstra
 Monstra is a modern and lightweight Content Management System.
