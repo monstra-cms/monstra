@@ -1,7 +1,7 @@
-<div class="well dashboard-well">
+<div class="well">
 	<div class="row">
 		<div class="col-xs-6">
-			<a class="btn btn-link welcome-back"><?php echo __('Welcome back', 'dashboard'); ?>, <strong><?php echo Session::get('user_login'); ?></strong></a>
+			<h4><?php echo __('Welcome back', 'dashboard'); ?>, <strong><?php echo Session::get('user_login'); ?></strong></h4>
 		</div>
 		<div class="col-xs-6">
 			<div class="pull-right">
@@ -21,7 +21,7 @@
 
 <?php /*include 'ga.view.php';*/ ?>
 
-<div class="well dashboard-well">
+<div class="container">
 	<div class="row">
 		<div class="col-md-3">
 			<h3><?php echo __('Content', 'pages'); ?></h3>

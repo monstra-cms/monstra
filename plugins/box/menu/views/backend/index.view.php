@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Name', 'menu'); ?></th>
@@ -66,8 +66,8 @@
             </td>
             <td>
                 <div class="pull-right">
-                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-primary')); ?>
-                <?php echo Html::anchor(__('Delete', 'menu'),
+                <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-primary')); ?>
+                <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                            'index.php?id=menu&delete_item='.$item['id'],
                            array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
                  ?>

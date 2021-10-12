@@ -1,5 +1,4 @@
 <!-- Users_add -->
-<h2 class="margin-bottom-1"><?php echo __('New User Registration', 'users'); ?></h2>
 <?php
     echo (
         Form::open().
@@ -7,7 +6,9 @@
     );
 ?>
  <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-offset-3">
+    <h2 class="margin-bottom-1"><?php echo __('New User Registration', 'users'); ?></h2>
+
         <div class="form-group">
         <?php
             echo (

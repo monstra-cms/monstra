@@ -1,3 +1,10 @@
+Monstra 3.1.0, 2017-06-08
+------------------------
+- Module Blog changed to module Category and integrated into box
+- New look on Public and Admin theme
+- Adding to box module Comments
+- Including Font Awesomeand removing glyphi...
+
 Monstra 3.0.4, 2016-04-05
 ------------------------
 - Fixed User Security by adding a check that compares POST id with SESSION

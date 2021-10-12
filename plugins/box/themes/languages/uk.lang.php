@@ -2,7 +2,7 @@
 
     return array(
         'themes' => array(
-            'Themes' => 'Теми',
+            'Themes' => 'Темы',
             'Themes manager' => 'Менеджер тем',
             'Select Theme' => 'Вибрати тему',
             'Save' => 'Зберегти',
@@ -18,9 +18,8 @@
             'Edit' => 'Редагувати',
             'Delete' => 'Видалити',
             'Actions' => 'Дії',
-            'Admin Theme' => 'Тема ',
             'Create New Chunk' => 'Створити новий чанк',
-            'New Chunk' => 'Новий чанк',
+            'New Chunk' => 'Новый чанк',
             'Chunks' => 'Чанки',
             'Create New Styles' => 'Створити нові стилі',
             'New Styles' => 'Нові стилі',
@@ -42,7 +41,7 @@
             'Your changes to the chunk <i>:name</i> have been saved.' => 'Ваші зміни до чанку <i>:name</i> були збережені',
             'Your changes to the styles <i>:name</i> have been saved.' => 'Ваші зміни до стиля <i>:name</i> були збережені',
             'Your changes to the template <i>:name</i> have been saved.' => 'Ваші зміни до шаблону <i>:name</i> були збережені',
-            'Chunk <i>:name</i> deleted' => 'Чанк <i>:name</i> видалено',
+            'Chunk <i>:name</i> deleted' => 'Chunk <i>:name</i> deleted',
             'Required field' => 'Обов’язкове поле',
             'Scripts' => 'Скрипти',
             'Create New Script' => 'Створити новий скрипт',

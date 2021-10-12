@@ -5,9 +5,9 @@
  *
  *	@package Monstra
  *  @subpackage Plugins
- *	@author Romanenko Sergey / Awilum
- *	@copyright 2012-2014 Romanenko Sergey / Awilum
- *	@version 1.0.0
+ *	@author Samir KHERRAZ / Romanenko Sergey / Awilum
+ *	@copyright 2012-2017 Samir KHERRAZ / Romanenko Sergey / Awilum
+ *	@version 1.0.1
  *
  */
 
@@ -15,9 +15,9 @@
 Plugin::register( __FILE__,
                 __('Users', 'users'),
                 __('Users manager', 'users'),
-                '1.0.0',
-                'Awilum',
-                'http://monstra.org/',
+                '1.0.1',
+                'Samir KHERRAZ',
+                'http://www.samir-kherraz.tk/',
                 'users',
                 'box');
 

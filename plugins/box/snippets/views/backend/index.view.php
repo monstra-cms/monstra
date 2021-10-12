@@ -12,7 +12,7 @@
 </div>
 
 <!-- Snippets_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Snippets', 'snippets'); ?></th>

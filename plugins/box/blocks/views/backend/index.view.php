@@ -12,7 +12,7 @@
 </div>
 
 <!-- Blocks_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Blocks', 'blocks'); ?></th>
@@ -26,7 +26,7 @@
         <td>
             <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-primary')); ?>
                     <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -35,7 +35,7 @@
                         <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.monstra.blocks.showEmbedCodes("'.basename($block, '.block.html').'");')); ?></li>
                     </ul>
                 </div>
-                <?php echo Html::anchor(__('Delete', 'blocks'),
+                <?php echo Html::anchor('<i class="fa fa-trash" aria-hidden="true"></i>',
                           'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
                            array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
                 ?>            

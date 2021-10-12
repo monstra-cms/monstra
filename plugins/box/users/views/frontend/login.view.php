@@ -1,5 +1,5 @@
 <div class="row">	
-	<div class="col-md-12">		
+	<div class="col-md-6 col-md-offset-3 ">		
 	    <?php
             // Monstra Notifications
             $error = Notification::get('error') ?: '';
@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="row">	
-	<div class="col-md-3">
+	<div class="col-md-6 col-md-offset-3">
 		<form method="post">
 		    <?php echo Form::hidden('csrf', Security::token()); ?>
 		    <div class="form-group">

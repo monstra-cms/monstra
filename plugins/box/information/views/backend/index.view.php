@@ -12,7 +12,7 @@
 
         <div class="tab-pane active" id="system">
 
-            <table class="table table-bordered">
+            <table class="table table-striped" >
                 <thead>
                     <tr>
                         <th><?php echo __('Name', 'information'); ?></th>
@@ -39,7 +39,7 @@
 
         <div class="tab-pane" id="server">
 
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th><?php echo __('Name', 'information'); ?></th>
@@ -92,7 +92,7 @@
         <div class="tab-pane" id="directory-permissions">
 
             <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th><?php echo __('Directory', 'information'); ?></th>
@@ -133,7 +133,7 @@
 
             <?php clearstatcache(); ?>
             <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th colspan="2"><?php echo __('Security check results', 'information'); ?></th>

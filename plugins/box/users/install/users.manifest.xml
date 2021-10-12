@@ -5,7 +5,7 @@
     <plugin_priority>7</plugin_priority>
     <plugin_name>Users</plugin_name>
     <plugin_description>Users plugin</plugin_description>
-    <plugin_version>1.0.0</plugin_version>
-    <plugin_author>Awilum</plugin_author>
-    <plugin_author_uri>http://monstra.org/</plugin_author_uri>
+    <plugin_version>1.0.1</plugin_version>
+    <plugin_author>Samir KHERRAz</plugin_author>
+    <plugin_author_uri>http://www.samir-kherraz.tk</plugin_author_uri>
 </root>

@@ -1,7 +1,9 @@
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
 <h2 class="margin-bottom-1"><?php echo __('Edit item', 'menu'); ?></h2>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
 
         <?php echo (Form::open()); ?>
 
@@ -55,7 +57,7 @@
         </div>    
         <?php
             echo (
-                Form::submit('menu_add_item', __('Save', 'menu'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
+                Form::submit('menu_add_item', __('Save', 'menu'), array('class' => 'btn btn-phone btn-success')).Html::nbsp(2).
                 Html::anchor(__('Cancel', 'menu'), 'index.php?id=menu', array('title' => __('Cancel', 'menu'), 'class' => 'btn btn-phone btn-default')).
                 Form::close()
             );
@@ -100,4 +102,7 @@
             </div>
         </div>
     </div>
+</div>
+
+</div>
 </div>

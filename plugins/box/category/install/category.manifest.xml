@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <plugin_location>plugins/category/category.plugin.php</plugin_location>
+    <plugin_status>active</plugin_status>
+    <plugin_priority>15</plugin_priority>
+    <plugin_name>category</plugin_name>
+    <plugin_description>category plugin for Monstra</plugin_description>
+    <plugin_version>1.0.0</plugin_version>
+    <plugin_author>Samir KHERRAZ</plugin_author>
+    <plugin_author_uri>http://www.samir-kherraz.tk/</plugin_author_uri>
+</root>

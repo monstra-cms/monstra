@@ -16,12 +16,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/bootstrap.flatty.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Site::url(); ?>/public/assets/css/messenger-theme-flat.css" type="text/css" />
-    <?php Stylesheet::add('public/assets/css/chocolat.css', 'backend', 2); ?>
+    <?php //Stylesheet::add('public/assets/css/chocolat.css', 'backend', 2); ?>
     <?php Stylesheet::add('public/assets/css/bootstrap-fileupload.css', 'backend', 3); ?>
     <?php Stylesheet::add('public/assets/css/icheck-blue.css', 'backend', 4); ?>
-    <?php Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
+    <?php //Stylesheet::add('admin/themes/default/css/default.css', 'backend', 5); ?>
     <?php Stylesheet::load(); ?>
 
     <!-- JavaScripts -->
@@ -56,6 +58,13 @@
         });
     </script>
 
+    <style>
+  td{
+    vertical-align: middle !important;
+    padding-left: 2% !important;
+  }
+    </style>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
@@ -65,9 +74,9 @@
 
   <body class="page-<?php echo Request::get('id'); ?>">
 
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
       <div class="container">
-          <div class="navbar-header">
+          <div class="navbar-header ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>

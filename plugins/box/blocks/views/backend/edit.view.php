@@ -29,8 +29,8 @@
 
 <?php      
         echo (
-           Form::submit('edit_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn btn-phone btn-primary')).Html::nbsp(2).
-           Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn btn-phone btn-primary')). Html::nbsp(2).
+           Form::submit('edit_blocks_and_exit', __('Save and Exit', 'blocks'), array('class' => 'btn btn-info')).Html::nbsp(2).
+           Form::submit('edit_blocks', __('Save', 'blocks'), array('class' => 'btn btn-phone btn-success')). Html::nbsp(2).
            Html::anchor(__('Cancel', 'blocks'), 'index.php?id=blocks', array('title' => __('Cancel', 'blocks'), 'class' => 'btn btn-phone btn-default')).
            Form::close()
         );

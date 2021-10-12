@@ -3,22 +3,19 @@
     return array(
         'plugins' => array(
             'Plugins' => 'Плагіни',
-            'Installed' => 'Встановлені',
-            'Install New' => 'Встановити нові',
+            'Installed' => 'Установлені',
+            'Install New' => 'Установити нові',
             'Actions' => 'Дії',
             'Name' => 'Назва',
             'Description' => 'Опис',
             'Delete' => 'Видалити',
             'Delete plugin :plugin' => 'Видалити плагін :plugin',
-            'This plugin does not exist' => 'Такий плагін не існує',
+            'This plugin does not exist' => 'Такого плагіна не існує',
             'Version' => 'Версія',
             'Author' => 'Автор',
             'Get More Plugins' => 'Завантажити інші плагіни',
-            'Install' => 'Встановити',
+            'Install' => 'Установити',
             'Uninstall' => 'Видалити',
-            'README.md not found' => 'README.md не знайдено',
-            'Info' => 'Інфо',
-            'Upload' => 'Завантажити',
-            'Drop File Here' => 'Перенесіть файл сюди',
+            'README.md not found' => 'README.md not found',
         )
     );

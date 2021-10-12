@@ -14,7 +14,7 @@
 </div>
 
 <!-- Users_list -->
-<table class="table table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
             <th><?php echo __('Username', 'users'); ?></th>
@@ -41,7 +41,7 @@
         </td>
         <td>
             <div class="pull-right">
-            <?php echo Html::anchor(__('Edit', 'users'), 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-primary')); ?>
+            <?php echo Html::anchor('<i class="fa fa-pencil" aria-hidden="true"></i>', 'index.php?id=users&action=edit&user_id='.$user['id'], array('class' => 'btn btn-primary')); ?>
             <?php
                 if ((int)$user['id'] != (int)Session::get('user_id')) {
                     echo Html::anchor(__('Delete', 'users'),

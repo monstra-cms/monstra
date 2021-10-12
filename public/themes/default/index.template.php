@@ -1,7 +1,6 @@
 <?php Chunk::get('header'); ?>
-<div class="container-wide">
 
-    <div class="container">
+    <div class="container main">
 
         <div class="row">
             <div class="col-xs-12">
@@ -21,7 +20,8 @@
             </div>
         </div>
 
+        <?php echo Comments::init(); ?>
+
     </div>
-    
-</div>
+<?php Chunk::get('share'); ?>
 <?php Chunk::get('footer'); ?>
