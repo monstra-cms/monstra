@@ -79,5 +79,7 @@
             'Official Support Forum' => 'Офіційний Форум Підтримки',
             'Documentation' => 'Документація',
             'Your changes have been saved.' => 'Ваші зміни були збережені.',
+            'Monstra proceeds to the maintenance mode.' => 'Monstra переходить в режим технічного обслуговування.',
+            'Monstra out of maintenance mode.' => 'Monstra виходить з режиму технічного обслуговування.',
         )
     );

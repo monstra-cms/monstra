@@ -79,5 +79,7 @@
             'Official Support Forum' => 'Official Support Forum',
             'Documentation' => 'Documentation',
             'Your changes have been saved.' => 'Your changes have been saved.',
+            'Monstra proceeds to the maintenance mode.' => 'Monstra proceeds to the maintenance mode.',
+            'Monstra out of maintenance mode.' => 'Monstra out of maintenance mode.',
         )
     );

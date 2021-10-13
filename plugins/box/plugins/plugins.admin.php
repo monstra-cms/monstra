@@ -61,6 +61,9 @@ class PluginsAdmin extends Backend
                     // Delete plugin form plugins table
                     $plugins->deleteWhere('[name="'.Request::get('delete_plugin').'"]');
 
+					// Notification
+					Notification::set('success', __('Plugin was uninstalled', 'plugins'));
+					
                     // Redirect
                     Request::redirect('index.php?id=plugins');
                 }
@@ -95,6 +98,9 @@ class PluginsAdmin extends Backend
                     include PLUGINS . DS . basename(Text::lowercase(Request::get('install')), '.manifest.xml') . DS . 'install' . DS . $plugin_name . '.install.php';
                 }
 
+				// Notification
+				Notification::set('success', __('Plugin was installed', 'plugins'));
+					
                 Request::redirect('index.php?id=plugins');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
@@ -113,6 +119,7 @@ class PluginsAdmin extends Backend
                 Javascript::javascriptVersionIncrement();
 
                 Dir::delete(PLUGINS . DS . basename(Request::get('delete_plugin_from_server'), '.manifest.xml'));
+                Notification::set('success', __('Plugin was deleted', 'plugins'));
                 Request::redirect('index.php?id=plugins');
 
             } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }

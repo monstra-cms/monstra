@@ -3,6 +3,7 @@
     return array(
         'plugins' => array(
             'Plugins' => 'Плагины',
+			'Plugins manager plugin' => 'Плагин Менеджер Плагинов',
             'Installed' => 'Установленные',
             'Install New' => 'Установить новые',
             'Actions' => 'Действия',
@@ -20,5 +21,9 @@
             'Info' => 'Инфо',
             'Upload' => 'Загрузить',
             'Drop File Here' => 'Перетащите файл сюда',
+            'Uninstall plugin :plugin' => 'Удалить плагин :plugin',
+            'Plugin was deleted' => 'Плагин удален',
+            'Plugin was uninstalled' => 'Плагин удален',
+            'Plugin was installed' => 'Плагин установлен',
         )
     );
