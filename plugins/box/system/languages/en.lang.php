@@ -50,7 +50,7 @@
             'Version' => 'Version',
             'Plugin does not exist' => 'Plugin does not exist',
             'Help' => 'Help',
-            
+            'Privacy policy' => 'Privacy policy',            
             'Install script writable' => 'Install script writable',
             'Install script not writable' => 'Install script not writable',
             'Directory: <b> :dir </b> writable' => 'Directory: <b> :dir </b> writable',

@@ -52,7 +52,7 @@
             'This user does not exist' => 'Cet utilisateur n\'existe pas',
             'Version' => 'Version',
             'Plugin does not exist' => 'Ce plugin n\'existe pas',
-
+            'Privacy policy' => 'Politique de confidentialité',
             'Install script writable' => 'Le script d\'installation est accessible en écriture', // pour ' = &#8217; (a voir)
             'Install script not writable' => 'Le script d\'installation n\' est pas accessible en écriture',
             'Directory: <b> :dir </b> writable' => 'Répertoire: <b> :dir </b> writable',

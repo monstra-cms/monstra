@@ -1,0 +1,14 @@
+&lt;h2&gt;What is privacy policy?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Privacy policy&lt;/strong&gt; its Statement that declares a firm&#039;s or website&#039;s policy on collecting and releasing information about a visitor. It usually declares what specific information is collected and whether it is kept confidential or shared with or sold to other firms, researchers or sellers.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.archive.org/web/20080605072625/http://www.bbbonline.org/privacy/sample_privacy.asp&quot;&gt;Sample Privacy Notice&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Privacy_policy&quot;&gt;Privacy policy - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://privacypolicies.com/blog/privacy-law-by-country/&quot;&gt;What’s Data Privacy Law In Your Country?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;How to create your Privacy policy?&lt;/h2&gt;
+&lt;p&gt;You need to study the current legislation of the country in which you operate and formulate a privacy policy based on the data you collect and process, if necessary attracting lawyers. Or use the links below&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.wikihow.com/Create-a-Website-Privacy-Policy&quot;&gt;Wiki How&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.elegantthemes.com/blog/resources/how-to-create-a-privacy-policy-for-your-website&quot;&gt;How to Create a Privacy Policy for Your Website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://termsfeed.com/privacy-policy/generator/&quot;&gt;Privacy Policy Generator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;

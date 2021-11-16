@@ -49,6 +49,7 @@
             'This user does not exist' => 'このユーザーは存在しません',
             'Version' => 'バージョン',
             'Plugin does not exist' => 'プラグインが存在しません',
+            'Privacy policy' => 'プライバシーポリシー',
             'Install script writable' => 'インストールスクリプトは書き込み可能です',
             'Install script not writable' => 'インストールスクリプトは書き込み不可能です',
             'Directory: <b> :dir </b> writable' => 'ディレクトリ: <b> :dir </b> は書き込み可能です',

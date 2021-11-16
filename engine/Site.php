@@ -219,4 +219,18 @@ class Site
     {
         return __('Powered by', 'system').' <a href="http://monstra.org" target="_blank">Monstra</a> ' . Monstra::VERSION;
     }
+
+    /**
+     * Get site privacy policy
+     *
+     *  <code>
+     *      echo Site::privacyPolicy();
+     *  </code>
+     *
+     * @return string
+     */
+    public static function privacyPolicy()
+    {
+        return Option::get('privacy_policy');
+    }
 }

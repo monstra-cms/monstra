@@ -50,7 +50,7 @@
             'Send New Password' => 'Neues Passwort zusenden',
             'This user does not exist' => 'Dieser Benutzer existiert nicht',
             'Version' => 'Version',
-
+            'Privacy policy' => 'Datenschutzerklärung',
             'Install script writable' => 'Installationsskript beschreibbar',
             'Install script not writable' => 'Installationsskript nicht beschreibbar',
             'Directory: <b> :dir </b> writable' => 'Ordner: <b> :dir </b> beschreibbar',
